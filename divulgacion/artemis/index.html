@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Luna no es el destino. El Polo Sur es la apuesta — Alfredo Montero Fonseca</title>
+<meta name="description" content="Análisis de la Misión Artemis II: geopolítica espacial, recursos lunares y el nuevo orden del siglo XXI.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Mono:wght@0,400;0,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --negro: #0a0a0a;
+    --azul: #1a3a5c;
+    --azul-claro: #2c5282;
+    --crema: #f5f0e8;
+    --crema-oscuro: #ede4d0;
+    --gris-texto: #2c2c2c;
+    --gris-medio: #666;
+    --oro: #b8942a;
+    --ancho-max: 860px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--crema);
+    color: var(--gris-texto);
+    font-family: 'Source Serif 4', serif;
+    font-size: 17px;
+    line-height: 1.75;
+  }
+
+  a { color: var(--azul-claro); }
+
+  /* ── Header ── */
+  .cabecera {
+    background: var(--negro);
+    color: var(--crema);
+    padding: 0;
+  }
+
+  .cab-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 48px;
+    border-bottom: 1px solid #333;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .cab-top a { color: var(--crema); text-decoration: none; }
+  .cab-top a:hover { color: var(--oro); }
+
+  .cab-main {
+    max-width: var(--ancho-max);
+    margin: 0 auto;
+    padding: 56px 32px 48px;
+    text-align: center;
+  }
+
+  .etiqueta-especial {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--oro);
+    margin-bottom: 24px;
+  }
+
+  .cab-main h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 20px;
+    color: var(--crema);
+  }
+
+  .cab-main h1 em {
+    font-style: italic;
+    color: var(--oro);
+  }
+
+  .subtitulo {
+    font-size: 1.05rem;
+    color: #aaa;
+    margin-bottom: 32px;
+    font-style: italic;
+  }
+
+  .metadatos {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #777;
+    border-top: 1px solid #333;
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  /* ── Contenido ── */
+  .contenido {
+    max-width: var(--ancho-max);
+    margin: 0 auto;
+    padding: 56px 32px 80px;
+  }
+
+  .intro-bloque {
+    background: var(--crema-oscuro);
+    border-left: 4px solid var(--azul);
+    padding: 24px 28px;
+    margin-bottom: 48px;
+    font-size: 1.05rem;
+    font-style: italic;
+  }
+
+  .seccion {
+    margin-bottom: 48px;
+  }
+
+  .seccion-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--azul-claro);
+    margin-bottom: 8px;
+  }
+
+  .seccion h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--negro);
+    border-bottom: 2px solid var(--crema-oscuro);
+    padding-bottom: 10px;
+  }
+
+  .seccion p {
+    margin-bottom: 1rem;
+  }
+
+  .seccion ul, .seccion ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .seccion li {
+    margin-bottom: 0.5rem;
+  }
+
+  /* ── Datos clave ── */
+  .datos-clave {
+    background: var(--negro);
+    color: var(--crema);
+    padding: 28px 32px;
+    margin: 32px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 24px;
+  }
+
+  .dato {
+    text-align: center;
+  }
+
+  .dato .valor {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--oro);
+    display: block;
+  }
+
+  .dato .label {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #aaa;
+  }
+
+  /* ── Escenarios ── */
+  .escenarios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+  }
+
+  .escenario {
+    border: 1px solid var(--crema-oscuro);
+    padding: 20px;
+  }
+
+  .escenario .esc-letra {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--azul);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .escenario h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--negro);
+  }
+
+  .escenario p {
+    font-size: 0.88rem;
+    color: var(--gris-medio);
+    margin: 0;
+  }
+
+  /* ── Etiquetas epistémicas ── */
+  .ep { display: inline-block; font-family: 'Space Mono', monospace; font-size: 9px; font-weight: 700; padding: 1px 5px; border-radius: 2px; margin-right: 4px; vertical-align: middle; }
+  .ep-DC { background: #1a4a2e; color: #fff; }
+  .ep-IP { background: #1a3a5c; color: #fff; }
+  .ep-H  { background: #5c3a1a; color: #fff; }
+  .ep-Int { background: #4a1a5c; color: #fff; }
+  .ep-C  { background: #555; color: #fff; }
+
+  /* ── Tabla epistemológica ── */
+  .tabla-ep {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    margin: 24px 0;
+  }
+  .tabla-ep th {
+    background: var(--negro);
+    color: var(--crema);
+    padding: 10px 14px;
+    text-align: left;
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .tabla-ep td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--crema-oscuro);
+    vertical-align: top;
+  }
+  .tabla-ep tr:last-child td { border-bottom: none; }
+
+  /* ── Footer ── */
+  footer {
+    background: var(--negro);
+    color: #777;
+    padding: 32px;
+    text-align: center;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+  }
+  footer a { color: var(--oro); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<header class="cabecera">
+  <div class="cab-top">
+    <a href="/">antropos.app</a>
+    <span>Boletín Especial · Misión Artemis II</span>
+    <span>2 de abril, 2026</span>
+  </div>
+  <div class="cab-main">
+    <div class="etiqueta-especial">Cosas que no sé · Ciencia &amp; Geopolítica</div>
+    <h1>La Luna no es el destino.<br><em>El Polo Sur es la apuesta.</em></h1>
+    <p class="subtitulo">Análisis de la Misión Artemis II: el retorno a la órbita lunar</p>
+    <div class="metadatos">
+      <span>Alfredo Montero Fonseca</span>
+      <span>Universidad de Costa Rica</span>
+      <span>Abril 2026</span>
+    </div>
+  </div>
+</header>
+
+<main class="contenido">
+
+  <div class="intro-bloque">
+    La carrera espacial del siglo XXI no busca simplemente llegar a la Luna. Su objetivo real es el control de los recursos del polo sur lunar y el posicionamiento geopolítico para el resto del siglo. Artemis II es el primer paso tripulado de esa apuesta.
+  </div>
+
+  <!-- Sección 01 -->
+  <div class="seccion">
+    <div class="seccion-num">Sección 01</div>
+    <h2>Artemis II: el primer viaje tripulado en 54 años</h2>
+    <p><span class="ep ep-DC">DC</span> La misión Artemis II será el primer vuelo tripulado alrededor de la Luna desde el Apolo 17 en diciembre de 1972. El cohete SLS despegará desde el Kennedy Space Center con cuatro astronautas a bordo:</p>
+    <ul>
+      <li><strong>Reid Wiseman</strong> — comandante (NASA)</li>
+      <li><strong>Victor Glover</strong> — piloto (NASA)</li>
+      <li><strong>Christina Koch</strong> — especialista de misión (NASA)</li>
+      <li><strong>Jeremy Hansen</strong> — especialista de misión (CSA, Canadá)</li>
+    </ul>
+    <p>La misión realizará un sobrevuelo lunar sin aterrizaje mediante una trayectoria de retorno libre, con una duración de 10 días. <span class="ep ep-DC">DC</span></p>
+
+    <div class="datos-clave">
+      <div class="dato"><span class="valor">54</span><span class="label">años desde el último vuelo tripulado lunar</span></div>
+      <div class="dato"><span class="valor">10</span><span class="label">días de duración de la misión</span></div>
+      <div class="dato"><span class="valor">4</span><span class="label">astronautas a bordo</span></div>
+      <div class="dato"><span class="valor">2026</span><span class="label">año previsto de lanzamiento</span></div>
+    </div>
+  </div>
+
+  <!-- Sección 02 -->
+  <div class="seccion">
+    <div class="seccion-num">Sección 02</div>
+    <h2>El verdadero objetivo: agua lunar</h2>
+    <p><span class="ep ep-DC">DC</span> El polo sur lunar contiene agua congelada en cráteres permanentemente en sombra. La NASA confirmó esta presencia en 2018 usando datos del orbitador indio Chandrayaan-1.</p>
+    <p>Las ventajas estratégicas de ese agua son concretas: <span class="ep ep-IP">IP</span></p>
+    <ul>
+      <li><strong>Abastecimiento local</strong> — reduce costos de suministros desde la Tierra</li>
+      <li><strong>Producción de combustible</strong> — electrólisis para generar propelente de cohetes</li>
+      <li><strong>Recursos adicionales</strong> — tierras raras y helio-3</li>
+      <li><strong>Posición estratégica</strong> — control de infraestructura para misiones al espacio profundo</li>
+    </ul>
+    <p><span class="ep ep-Int">Int</span> Quien controle el agua lunar, controla la gasolinera del sistema solar interior. No es metáfora: es ingeniería y geopolítica al mismo tiempo.</p>
+  </div>
+
+  <!-- Sección 03 -->
+  <div class="seccion">
+    <div class="seccion-num">Sección 03</div>
+    <h2>Riesgos y escenarios</h2>
+    <p><span class="ep ep-DC">DC</span> La administración Trump propone recortar el presupuesto de la NASA en un 24%: de 24.800 a 18.800 millones de dólares. El plan contempla cancelar el SLS y el Orion tras Artemis III, transfiriendo las misiones siguientes a proveedores privados como SpaceX y Blue Origin.</p>
+
+    <div class="escenarios">
+      <div class="escenario">
+        <span class="esc-letra">A</span>
+        <h3>Transición comercial exitosa</h3>
+        <p>SpaceX o Blue Origin cumplen plazos. EEUU mantiene ventaja estratégica en el polo sur.</p>
+      </div>
+      <div class="escenario">
+        <span class="esc-letra">B</span>
+        <h3>Vacío entre sistemas</h3>
+        <p>La transición tarda más de lo previsto. La ventana de oportunidad se estrecha frente a China y otros actores.</p>
+      </div>
+      <div class="escenario">
+        <span class="esc-letra">C</span>
+        <h3>Fracaso de Artemis II</h3>
+        <p>Un accidente o fracaso técnico retrasa el programa años y erosiona la legitimidad del liderazgo espacial estadounidense.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sección 04 -->
+  <div class="seccion">
+    <div class="seccion-num">Sección 04</div>
+    <h2>La paradoja política</h2>
+    <p><span class="ep ep-Int">Int</span> Artemis nació como proyecto multilateral bajo la lógica del "poder blando" liberal: acuerdos de Artemis, cooperación con agencias espaciales de 40 países, narrativa de exploración compartida.</p>
+    <p>La administración Trump la heredó, la usa para validar la "excepcionalidad americana" ante sus bases, y simultáneamente propone descontinuarla tras Artemis III. <span class="ep ep-IP">IP</span> Es un programa diseñado para ser continuado que se usa como instrumento de cierre.</p>
+  </div>
+
+  <!-- Sección 05 -->
+  <div class="seccion">
+    <div class="seccion-num">Sección 05</div>
+    <h2>Conexión geopolítica latinoamericana</h2>
+    <p><span class="ep ep-Int">Int</span> La carrera espacial no ocurre en el vacío político. La estrategia de Trump hacia América Latina puede leerse como un "corolario Trump" a la Doctrina Monroe: control de recursos estratégicos, contención de influencia china y restructuración del orden regional.</p>
+    <p>El espacio exterior y el hemisferio occidental son dos escenarios de la misma lógica: quién controla qué recursos y en qué condiciones. <span class="ep ep-H">H</span></p>
+  </div>
+
+  <!-- Sección 06 -->
+  <div class="seccion">
+    <div class="seccion-num">Sección 06</div>
+    <h2>El caso Costa Rica</h2>
+    <p><span class="ep ep-DC">DC</span> Costa Rica ha adoptado un alineamiento proactivo con Estados Unidos en política migratoria, seguridad y tecnología. <span class="ep ep-IP">IP</span> Sin embargo, no existe reciprocidad económica verificable en términos comerciales equivalentes.</p>
+    <p><span class="ep ep-Int">Int</span> El pequeño Estado que cede soberanía epistémica en nombre de la alineación estratégica no recibe necesariamente dividendos proporcionales. La adhesión a los Acuerdos de Artemis es un ejemplo: gesto de alineación con bajo costo para EEUU y valor político incierto para Costa Rica.</p>
+  </div>
+
+  <!-- Sección 07 -->
+  <div class="seccion">
+    <div class="seccion-num">Sección 07</div>
+    <h2>Conclusiones sistémicas</h2>
+    <p>La carrera espacial del siglo XXI es fundamentalmente sobre:</p>
+    <ul>
+      <li>Control de recursos extraterrestres (agua, helio-3, tierras raras)</li>
+      <li>Posicionamiento geopolítico para las próximas décadas</li>
+      <li>Infraestructura estratégica para el espacio profundo</li>
+      <li>Continuidad —o ruptura— de la hegemonía estadounidense</li>
+    </ul>
+    <p><span class="ep ep-Int">Int</span> La Luna no es el destino. Es el trampolín. El polo sur es la primera posición en un tablero que se jugará durante el resto del siglo.</p>
+  </div>
+
+  <!-- Tabla epistemológica -->
+  <div class="seccion">
+    <div class="seccion-num">Metodología</div>
+    <h2>Evaluación epistémica (MEEE-G)</h2>
+    <p>Este análisis clasifica las afirmaciones según la Matriz de Evaluación Epistémica Explicacionista de Goldman:</p>
+    <table class="tabla-ep">
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Categoría</th>
+          <th>Criterio</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="ep ep-DC">DC</span></td>
+          <td>Dato confirmado</td>
+          <td>Verificado por fuentes primarias o múltiples fuentes independientes</td>
+        </tr>
+        <tr>
+          <td><span class="ep ep-IP">IP</span></td>
+          <td>Inferencia plausible</td>
+          <td>Derivado lógicamente de datos confirmados con alta probabilidad</td>
+        </tr>
+        <tr>
+          <td><span class="ep ep-H">H</span></td>
+          <td>Hipótesis</td>
+          <td>Explicación posible no confirmada, requiere más evidencia</td>
+        </tr>
+        <tr>
+          <td><span class="ep ep-Int">Int</span></td>
+          <td>Interpretación</td>
+          <td>Lectura analítica del autor, explícitamente subjetiva</td>
+        </tr>
+        <tr>
+          <td><span class="ep ep-C">C</span></td>
+          <td>Conjetura</td>
+          <td>Especulación razonada sin base empírica sólida actual</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:0.88rem; color:var(--gris-medio); font-style:italic;">Este análisis no constituye predicción determinista ni recomendación política.</p>
+  </div>
+
+</main>
+
+<footer>
+  <p>Alfredo Montero Fonseca · <a href="https://orcid.org/0009-0009-9696-4106">ORCID</a> · Universidad de Costa Rica</p>
+  <p style="margin-top:8px;"><a href="/divulgacion/">← Cosas que no sé</a> &nbsp;·&nbsp; <a href="/">antropos.app</a></p>
+</footer>
+
+</body>
+</html>
