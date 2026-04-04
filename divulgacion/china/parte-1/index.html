@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>La Senda del Dragón · Parte I — Historia de China | ANCA-ADD</title>
+  <meta name="description" content="De los orígenes neolíticos a la víspera de la conquista mongol. Un análisis narrativo desde la Antropología Dinámica del Devenir." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:        #0a0a0f;
+      --bg2:       #11111a;
+      --bg3:       #181824;
+      --red:       #c0392b;
+      --gold:      #d4a017;
+      --gold-light:#f0c040;
+      --text:      #e8e4d8;
+      --muted:     #9a9589;
+      --border:    #2a2a3a;
+      --green:     #27ae60;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'Source Serif 4', Georgia, serif; line-height: 1.8; font-size: 18px; }
+
+    /* TICKER */
+    .ticker-wrap { background: var(--red); overflow: hidden; white-space: nowrap; padding: 6px 0; position: sticky; top: 0; z-index: 100; }
+    .ticker-content { display: inline-block; animation: ticker 80s linear infinite; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #fff; padding-left: 100%; }
+    @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+
+    /* MASTHEAD */
+    .masthead { background: var(--bg2); border-bottom: 2px solid var(--gold); padding: 20px 40px; display: flex; align-items: center; gap: 24px; }
+    .masthead-logo { font-family: 'Bebas Neue', sans-serif; font-size: 44px; color: var(--gold); letter-spacing: 0.04em; line-height: 1; }
+    .masthead-logo span { color: var(--red); }
+    .masthead-meta { border-left: 2px solid var(--border); padding-left: 20px; }
+    .masthead-meta .label { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 4px; }
+    .masthead-meta h1 { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 900; color: var(--text); }
+    .masthead-meta .sub { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--gold); margin-top: 4px; }
+    .masthead-nav { margin-left: auto; display: flex; gap: 16px; }
+    .masthead-nav a { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; }
+    .masthead-nav a:hover { color: var(--gold); }
+
+    /* PARTES NAV */
+    .partes-nav { background: var(--bg3); border-bottom: 1px solid var(--border); padding: 10px 40px; display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+    .partes-nav .nav-label { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
+    .partes-nav a { font-family: 'Space Mono', monospace; font-size: 11px; text-decoration: none; padding: 4px 12px; border-radius: 2px; }
+    .partes-nav a.active { background: var(--gold); color: var(--bg); }
+    .partes-nav a.inactive { color: var(--muted); border: 1px solid var(--border); }
+    .partes-nav a.inactive:hover { color: var(--gold); border-color: var(--gold); }
+
+    /* HERO */
+    .hero { background: linear-gradient(180deg, rgba(10,10,15,0) 0%, rgba(10,10,15,0.92) 100%), linear-gradient(135deg, #0a0a0f 0%, #0a1a0a 50%, #0f0a15 100%); border-bottom: 1px solid var(--border); padding: 72px 40px 56px; position: relative; overflow: hidden; }
+    .hero::before { content: '龙'; position: absolute; right: 60px; top: -20px; font-size: 320px; color: rgba(212,160,23,0.05); pointer-events: none; line-height: 1; }
+    .hero-kicker { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 20px; }
+    .hero h2 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 58px); font-weight: 900; line-height: 1.05; color: var(--text); max-width: 800px; margin-bottom: 24px; }
+    .hero h2 em { color: var(--gold); font-style: italic; }
+    .hero .hero-lead { max-width: 640px; font-size: 19px; color: var(--muted); line-height: 1.7; margin-bottom: 32px; font-style: italic; }
+    .hero-meta { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
+
+    /* LAYOUT */
+    .container { max-width: 760px; margin: 0 auto; padding: 0 40px; }
+    .container-wide { max-width: 1000px; margin: 0 auto; padding: 0 40px; }
+
+    /* AUDIO */
+    .audio-strip { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 16px 40px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .audio-strip .audio-label { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--gold); letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; }
+    .audio-strip audio { flex: 1; min-width: 240px; }
+
+    /* NARRATIVE BODY */
+    .narrative { padding: 56px 0; }
+
+    .period { margin-bottom: 64px; }
+
+    .period-header { margin-bottom: 28px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+    .period-dates { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--gold); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 8px; }
+    .period h2 { font-family: 'Playfair Display', serif; font-size: clamp(22px, 3vw, 30px); font-weight: 900; color: var(--text); line-height: 1.2; }
+    .period h2 em { color: var(--gold); }
+
+    .period p { margin-bottom: 1.3rem; color: var(--text); }
+    .period p:last-child { margin-bottom: 0; }
+    .period strong { color: var(--gold-light); }
+    .period em { font-style: italic; }
+
+    /* PULL QUOTE */
+    .pullquote { border-left: 3px solid var(--gold); padding: 16px 24px; margin: 32px 0; background: rgba(212,160,23,0.05); }
+    .pullquote p { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-style: italic; color: var(--gold-light); margin: 0; line-height: 1.6; }
+    .pullquote cite { display: block; font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); margin-top: 10px; letter-spacing: 0.08em; text-transform: uppercase; }
+
+    /* COSTA RICA ASIDE */
+    .cr-aside { background: rgba(39,174,96,0.08); border: 1px solid rgba(39,174,96,0.25); border-left: 3px solid var(--green); padding: 20px 24px; margin: 32px 0; }
+    .cr-aside .cr-label { font-family: 'Space Mono', monospace; font-size: 9px; color: var(--green); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 8px; }
+    .cr-aside p { font-size: 15px; color: var(--muted); margin: 0; }
+    .cr-aside p + p { margin-top: 0.8rem; }
+
+    /* EPISTEMIC TAGS */
+    .ep { display: inline-block; font-family: 'Space Mono', monospace; font-size: 9px; font-weight: 700; padding: 1px 5px; border-radius: 2px; margin: 0 2px; vertical-align: middle; }
+    .ep-DC  { background: #1a4a2e; color: #7fdbac; }
+    .ep-IP  { background: #1a3a5c; color: #7ab8f5; }
+    .ep-H   { background: #5c3a1a; color: #f5c07a; }
+    .ep-Int { background: #4a1a5c; color: #d07af5; }
+
+    /* INFOGRAFÍA */
+    .infografia-wrap { margin: 48px -40px; background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 0; }
+    .infografia-wrap img { width: 100%; display: block; }
+    .infografia-caption { padding: 12px 40px; font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.08em; text-align: center; }
+
+    /* SLIDE IMAGE */
+    .slide-img { margin: 36px 0; }
+    .slide-img img { width: 100%; display: block; border: 1px solid var(--border); }
+    .slide-img figcaption { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); padding: 8px 0; letter-spacing: 0.06em; }
+
+    /* DIVIDER */
+    .divider { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+
+    /* SYNTHESIS */
+    .synthesis { background: var(--bg2); border: 1px solid var(--border); border-top: 2px solid var(--gold); padding: 36px 40px; margin: 48px 0; }
+    .synthesis h3 { font-family: 'Bebas Neue', sans-serif; font-size: 24px; color: var(--gold); letter-spacing: 0.06em; margin-bottom: 20px; }
+    .synthesis p { font-size: 16px; color: var(--muted); margin-bottom: 1rem; }
+    .synthesis ul { padding-left: 1.4rem; }
+    .synthesis li { font-size: 15px; color: var(--muted); margin-bottom: 0.6rem; }
+    .synthesis strong { color: var(--text); }
+
+    /* FOOTER */
+    footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 28px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    footer .footer-left { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); line-height: 1.8; letter-spacing: 0.06em; }
+    footer .footer-nav { display: flex; gap: 20px; }
+    footer .footer-nav a { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); text-decoration: none; }
+    footer .footer-nav a:hover { color: var(--gold); }
+
+    @media (max-width: 640px) {
+      .masthead { padding: 16px 20px; }
+      .partes-nav { padding: 10px 20px; }
+      .hero { padding: 48px 20px 40px; }
+      .container { padding: 0 20px; }
+      .audio-strip { padding: 14px 20px; }
+      .infografia-wrap { margin: 32px -20px; }
+      .infografia-caption { padding: 10px 20px; }
+      footer { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="ticker-wrap">
+  <span class="ticker-content">
+    ANCA-ADD · La Senda del Dragón · Historia General de China · Parte I · De los Orígenes Neolíticos a la víspera de la Conquista Mongol &nbsp;·&nbsp; Análisis Dinámico del Devenir &nbsp;·&nbsp; Metodología MEEE-G &nbsp;·&nbsp; Alfredo Montero Fonseca · UCR &nbsp;·&nbsp; Abril 2026 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>
+</div>
+
+<div class="masthead">
+  <div class="masthead-logo">ANCA<span>·</span>ADD</div>
+  <div class="masthead-meta">
+    <div class="label">Sección Especial · Historia de China</div>
+    <h1>La Senda del Dragón</h1>
+    <div class="sub">Brevísima Historia de China — Parte I · Abril 2026</div>
+  </div>
+  <nav class="masthead-nav">
+    <a href="/divulgacion/">← Cosas que no sé</a>
+    <a href="/divulgacion/china/">Índice China</a>
+  </nav>
+</div>
+
+<div class="partes-nav">
+  <span class="nav-label">Entregas:</span>
+  <a href="." class="active">Parte I · Orígenes – 1211</a>
+  <a href="../parte-2/" class="inactive">Parte II · Mongoles – 1839</a>
+  <a href="../parte-3/" class="inactive">Parte III · 1839 – 2026</a>
+</div>
+
+<section class="hero">
+  <div class="container-wide">
+    <div class="hero-kicker">Especial 04 · Historia de China · Parte I de III</div>
+    <h2>La Senda del <em>Dragón</em></h2>
+    <p class="hero-lead">De los primeros agricultores del río Amarillo a la víspera de la tormenta mongola: cómo un sistema civilizatorio construyó, fracturó y reconstruyó su atractor durante tres mil años.</p>
+    <div class="hero-meta">c. 5000 a.C. – 1211 d.C. &nbsp;·&nbsp; 12 períodos &nbsp;·&nbsp; Alfredo Montero Fonseca · UCR</div>
+  </div>
+</section>
+
+<div class="audio-strip">
+  <span class="audio-label">Audio · Parte I</span>
+  <audio controls>
+    <source src="../audio/parte-1.m4a" type="audio/mp4">
+  </audio>
+</div>
+
+<div class="narrative">
+<div class="container">
+
+<!-- INFOGRAFÍA GENERAL -->
+</div>
+<div class="infografia-wrap">
+  <img src="../img/infografia-parte-1.jpg" alt="La Senda del Dragón: Evolución Sistémica de la China Milenaria — infografía ANCA-ADD">
+  <div class="infografia-caption">Mapa sistémico de la Parte I · La Senda del Dragón: Evolución Sistémica de la China Milenaria (Perspectiva ANCA-ADD)</div>
+</div>
+<div class="container">
+
+<!-- PERÍODO 1 -->
+<div class="period" id="origenes">
+  <div class="period-header">
+    <div class="period-dates">c. 5000 – 1600 a.C.</div>
+    <h2>Los Primeros Pueblos del <em>Río Amarillo</em></h2>
+  </div>
+
+  <p>Antes de que existiera algo llamado "China", existía el río. El Huang He —el Río Amarillo— arrastraba cada primavera toneladas de loess fértil desde las estepas del noroeste y las depositaba en la llanura central. Era un río caprichoso, propenso a las inundaciones catastróficas, pero esa misma inestabilidad obligaba a los grupos humanos que vivían en sus orillas a hacer algo inédito: cooperar a gran escala.</p>
+
+  <p><span class="ep ep-DC">DC</span> La cultura de <strong>Yangshao</strong> (仰韶文化, c. 5000–3000 a.C.) es la primera gran civilización neolítica documentada en China. Sus aldeas de hasta 200,000 metros cuadrados producían una cerámica pintada reconocible por sus motivos geométricos y animales, cultivaban mijo y criaban cerdos. A Yangshao le siguió <strong>Longshan</strong> (龙山文化, c. 3000–1900 a.C.), que añadió cerámica negra bruñida, estratificación social evidente en las diferencias funerarias, y —significativamente— las primeras murallas de tierra apisonada: alguien, en algún momento, sintió que valía la pena defender lo que había acumulado.</p>
+
+  <p>Pero decir que una "sucedió a la otra" es simplificar demasiado. <span class="ep ep-IP">IP</span> La evidencia arqueológica sugiere más bien un mosaico de culturas regionales —Dawenkou en el este, Hongshan en el noreste— que intercambiaban bienes e ideas antes de que la cuenca del río Amarillo se consolidara como el núcleo dominante. La historia de China no comienza como una línea recta, sino como una red.</p>
+
+  <div class="pullquote">
+    <p>La cuenca del río Amarillo se convirtió en un <em>atractor ecológico</em>: sus loess fértiles permitían una agricultura de alto rendimiento con tecnologías simples. La necesidad de gestionar colectivamente sus crecidas generó las primeras instituciones de cooperación a gran escala.</p>
+    <cite>Lectura ADD · Atractor ecológico y tensión cooperación-conflicto</cite>
+  </div>
+
+  <div class="cr-aside">
+    <div class="cr-label">Conexión · Costa Rica</div>
+    <p>La transición neolítica del río Amarillo tiene su eco en el Valle Central costarricense y en Guayabo de Turrialba: el control del excedente agrícola y la gestión del agua como catalizadores de centralización política. La arqueología local muestra cacicazgos complejos surgidos de las mismas tensiones entre cooperación hidráulica y competencia territorial.</p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- PERÍODO 2: XIA -->
+<div class="period" id="xia">
+  <div class="period-header">
+    <div class="period-dates">c. 2070 – 1600 a.C.</div>
+    <h2>La Dinastía Xia: <em>¿Historia o Mito?</em></h2>
+  </div>
+
+  <p>Según las crónicas chinas, fue <strong>Yu el Grande</strong> quien domó las inundaciones y fundó la primera dinastía, la Xia. La tradición le atribuye haber recorrido personalmente cada río y montaña del imperio para diseñar un sistema de canales y diques. Es un relato hermoso. El problema es que ninguna inscripción contemporánea lo confirma.</p>
+
+  <p><span class="ep ep-H">H</span> El yacimiento de <strong>Erlitou</strong> (c. 1900–1500 a.C.) en la provincia de Henan muestra una sociedad estratificada con palacios de tierra apisonada, talleres de bronce y tumbas de élite. La mayoría de los arqueólogos chinos lo identifican como la capital de la Xia tardía; fuera de China, esa identificación se considera una hipótesis no demostrada por falta de evidencia epigráfica contemporánea —no hay inscripciones que digan "esto es Xia".</p>
+
+  <p>Lo que sí es <span class="ep ep-DC">DC</span> es que en Erlitou existió una entidad política compleja que centralizaba la producción de bronce: armas para la coerción, vasijas rituales para la legitimación. Sea o no la Xia legendaria, este lugar marca la primera <em>estabilidad regional</em> documentada en la llanura central. Y la transición de liderazgo basado en el mérito —la narrativa mítica de Yu— a la sucesión hereditaria marca una bifurcación que definiría toda la historia política china posterior: el poder ya no se gana, se hereda.</p>
+
+  <div class="cr-aside">
+    <div class="cr-label">Conexión · Costa Rica</div>
+    <p>El debate Xia-Erlitou ilustra una tensión que también enfrenta Costa Rica en la reconstrucción de sus historias indígenas precolombinas: cómo articular la tradición oral con la evidencia arqueológica sin caer en la mitificación ni en el descarte positivista.</p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- PERÍODO 3: SHANG -->
+<div class="period" id="shang">
+  <div class="period-header">
+    <div class="period-dates">c. 1600 – 1046 a.C.</div>
+    <h2>La Dinastía Shang: <em>Los Huesos que Hablan</em></h2>
+  </div>
+
+  <p>Con los Shang llegamos por fin al terreno de la historia documental. <span class="ep ep-DC">DC</span> En <strong>Yinxu</strong>, la capital tardía cerca de la actual Anyang, los arqueólogos han desenterrado casi 100,000 fragmentos de huesos de animales y caparazones de tortuga con inscripciones grabadas. Los reyes Shang aplicaban calor a estos objetos, interpretaban las grietas resultantes y registraban preguntas y respuestas: si llueve esta semana, si debemos atacar a los Qiang, si el rey sobrevivirá a su enfermedad. Son los <strong>huesos oráculo</strong>, la forma más antigua de escritura china madura, y hablan con una voz que tiene más de tres mil años.</p>
+
+  <p>La sociedad Shang era fuertemente jerárquica y militarista. Sus reyes eran divinidades en vida, rodeados de una aristocracia guerrera y de una industria del bronce sin paralelo en la época. <span class="ep ep-IP">IP</span> El "mandato divino" como marco de legitimación ideológica está implícito en la forma misma de los huesos oráculo, aunque su formulación explícita vendrá después, con los Zhou.</p>
+
+  <div class="pullquote">
+    <p>El control de las minas de cobre y estaño en el Yangtsé medio actuó como <em>atractor de poder</em>: quien fundía bronce, producía armas para la coerción y vasijas rituales para la legitimación. La tecnología y el ritual se volvieron inseparables.</p>
+    <cite>Lectura ADD · Atractores de poder en la China Shang</cite>
+  </div>
+
+  <div class="cr-aside">
+    <div class="cr-label">Conexión · Costa Rica</div>
+    <p>La escritura sobre hueso es un recordatorio de que crear registros permanentes es una tecnología de poder: permite la administración a distancia y la transmisión de mandatos a través del tiempo. Costa Rica, que invierte en alfabetización digital y preservación de archivos históricos, participa de esa misma lógica, aunque con tecnologías radicalmente distintas.</p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- PERÍODO 4: ZHOU -->
+<div class="period" id="zhou">
+  <div class="period-header">
+    <div class="period-dates">c. 1046 – 256 a.C.</div>
+    <h2>La Dinastía Zhou: <em>El Mandato del Cielo y el Caos Fértil</em></h2>
+  </div>
+
+  <p>Los Zhou derrocaron a los Shang en el siglo XI a.C. y necesitaban justificar el regicidio. Su solución fue brillante: inventaron la doctrina del <strong>Mandato del Cielo</strong> (天命, <em>Tiānmìng</em>). El derecho a gobernar no es absoluto ni hereditario por naturaleza, sino que depende de la virtud del soberano. Si un rey se vuelve tiránico, el Cielo retira el mandato y se lo otorga a otro linaje más virtuoso. Era, en cierto sentido, la primera formulación de la legitimidad política condicionada a la eficacia y la virtud.</p>
+
+  <p><span class="ep ep-DC">DC</span> El <strong>Zhou Occidental (1046–771 a.C.)</strong> estableció un sistema feudal (<em>fengjian</em>) en el que el rey otorgaba tierras a parientes y aliados. Funcionó mientras el rey mantuvo el monopolio de la coerción. Dejó de funcionar cuando los nómadas del noroeste invadieron y asesinaron al rey You en 771 a.C., obligando a la corte a huir al este. A partir de ese momento comenzó el largo declive del poder central.</p>
+
+  <p>El <strong>Zhou Oriental (770–256 a.C.)</strong> es, en apariencia, una historia de fragmentación y violencia creciente —148 estados nominales que se reducen a siete grandes potencias que se exterminan entre sí. Pero hay algo paradójico: fue precisamente esa violencia la que generó los grandes florecimientos intelectuales de China. El <strong>Período de los Reinos Combatientes (475–221 a.C.)</strong> vio nacer el confucianismo, el taoísmo, el legalismo y el mohismo. <span class="ep ep-IP">IP</span> La guerra fue el motor de la innovación en tecnología militar (ballesta, caballería, murallas), administrativa (códigos legales escritos, burocracia meritocrática) y filosófica. La presión existencial fue, paradójicamente, creativa.</p>
+
+  <div class="pullquote">
+    <p>La fragmentación Zhou es un espejo invertido de la integración centroamericana: mientras China pasó de la unidad a la fragmentación, el istmo transitó el camino opuesto. El "Mandato del Cielo" sigue siendo una pregunta pertinente: ¿en qué se funda hoy la legitimidad de un Estado?</p>
+    <cite>Lectura comparativa ADD · Zhou y Centroamérica</cite>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- PERÍODO 5: QIN -->
+<div class="period" id="qin">
+  <div class="period-header">
+    <div class="period-dates">221 – 206 a.C.</div>
+    <h2>La Dinastía Qin: <em>El Imperio que Duró Quince Años y Cambió Todo</em></h2>
+  </div>
+
+  <p>El estado de Qin era el más periférico de los siete grandes: situado en la frontera noroccidental, considerado semibárbaro por los estados del centro. Pero fue precisamente esa posición marginal la que le permitió adoptar sin remordimientos las doctrinas legalistas más radicales: centralización absoluta, meritocracia burocrática, estandarización de todo. Entre 230 y 221 a.C., el rey Zheng conquistó sistemáticamente los seis reinos restantes y se proclamó <strong>Qin Shi Huangdi</strong>, el "Primer Augusto Emperador".</p>
+
+  <p><span class="ep ep-DC">DC</span> Lo que siguió fue una revolución administrativa sin precedentes: abolió el feudalismo, dividió el imperio en 36 comandancias gobernadas por funcionarios civiles no hereditarios (nombrados y removidos por el centro), estandarizó la escritura, las medidas, las monedas y hasta el ancho de los ejes de las carretas para que los caminos fueran compatibles. También inició la construcción de una primera versión de la Gran Muralla. <span class="ep ep-IP">IP</span> Según la tradición confuciana, ordenó la "quema de libros y el enterramiento de eruditos"; la magnitud de esta represión cultural es probablemente amplificada por la hostilidad de los historiadores posteriores hacia el legalismo.</p>
+
+  <p>Qin Shi Huangdi murió en 210 a.C. Su hijo no supo gestionar las tensiones acumuladas. En 206 a.C. la dinastía colapsó. Solo había durado quince años. Pero la infraestructura que había creado —el modelo de estado centralizado burocráticamente— sobreviviría dos mil años más.</p>
+
+  <div class="cr-aside">
+    <div class="cr-label">Conexión · Costa Rica</div>
+    <p>La estandarización Qin fue la condición de posibilidad para un mercado interno integrado. Costa Rica, con una economía pequeña integrada al comercio global, debe preguntarse qué "estándares" —técnicos, laborales, ambientales— debe adoptar para insertarse en cadenas de valor globales sin perder autonomía regulatoria.</p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- PERÍODO 6: HAN -->
+<div class="period" id="han">
+  <div class="period-header">
+    <div class="period-dates">206 a.C. – 220 d.C.</div>
+    <h2>La Dinastía Han: <em>El Imperio que Definió una Identidad</em></h2>
+  </div>
+
+  <p>Liu Bang era un funcionario de bajo rango que lideró una rebelión campesina, derrotó a sus rivales y fundó la dinastía Han. El grupo étnico mayoritario de China se llama hasta hoy <em>Han</em>: esa sola palabra mide la profundidad de la huella que dejó esta dinastía en la identidad colectiva china.</p>
+
+  <p><span class="ep ep-DC">DC</span> Los Han adoptaron el confucianismo como ideología de estado y establecieron un sistema de exámenes para seleccionar funcionarios (aunque limitado en alcance inicial). Expandieron las fronteras hacia Corea, Vietnam y la cuenca del Tarim, y abrieron la <strong>Ruta de la Seda</strong> hacia Asia Central, Persia y, eventualmente, el Imperio Romano. China exportaba seda y papel; importaba vidrio, lana, jade y, crucialmente, el budismo. Por esta misma ruta viajaron también patógenos que sembraron epidemias en ambos extremos del continente. El intercambio global tiene siempre dos caras.</p>
+
+  <p>La síntesis Han —centralización administrativa Qin más legitimidad confuciana— resultó extraordinariamente estable. Las tensiones vinieron de otro lado: facciones de eunucos en la corte, revueltas campesinas como la de los Turbantes Amarillos, y la creciente autonomía de los señores militares regionales. En 220 d.C. el último emperador Han abdicó y China se fragmentó en tres reinos.</p>
+
+  <div class="pullquote">
+    <p>La Ruta de la Seda fue el primer flujo transcontinental sostenido de bienes, tecnologías, ideas y patógenos. El precedente histórico de la globalización: enriquecedor y devastador al mismo tiempo.</p>
+    <cite>Lectura ADD · Flujos y acoplamientos en la era Han</cite>
+  </div>
+
+  <div class="cr-aside">
+    <div class="cr-label">Conexión · Costa Rica</div>
+    <p>Costa Rica firmó en 2010 un TLC con China —el primero de Centroamérica. Participa de una red global de intercambios análoga a la Ruta de la Seda, aunque con asimetrías de poder más pronunciadas. La adopción del 5G chino, la influencia del confucianismo en prácticas empresariales: son los acoplamientos contemporáneos que un nodo periférico debe gestionar con conciencia de su posición.</p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- PERÍODOS 7-10 condensados -->
+<div class="period" id="fragmentacion">
+  <div class="period-header">
+    <div class="period-dates">220 – 960 d.C.</div>
+    <h2>El Largo Interludio: <em>Tres Reinos, Sui, Tang y la Fragmentación Post-Tang</em></h2>
+  </div>
+
+  <p>Los siglos que siguieron al colapso Han son, desde la narrativa tradicional china, una historia de "desunión y caos". Desde la perspectiva ADD, son algo más interesante: una demostración de que "China" no es un hecho natural sino un proyecto político que debe ser constantemente reconstruido.</p>
+
+  <p>Los <strong>Tres Reinos (220–280)</strong> y las subsiguientes <strong>Dinastías Meridionales y Septentrionales (317–589)</strong> duraron casi cuatro siglos. <span class="ep ep-DC">DC</span> Durante este tiempo el sur —la región del Yangtsé— emergió como nuevo centro económico gracias al cultivo de arroz inundado, mientras el norte era gobernado por sucesivas dinastías fundadas por pueblos nómadas que adoptaban cada vez más la cultura china. El budismo floreció en ambos lados de la frontera como única religión unificadora.</p>
+
+  <p>La <strong>dinastía Sui (581–618)</strong> reunificó China en menos de una década. Construyó el <strong>Gran Canal</strong>, conectando el norte con el sur, una obra faraónica que reconfiguró los flujos económicos para siempre. Pero agotó al campesinado con corveas masivas y colapsó tras solo dos emperadores —otro caso de infraestructura brillante con costo político insostenible.</p>
+
+  <p>La <strong>dinastía Tang (618–907)</strong> heredó esa infraestructura y la convirtió en el apogeo cosmopolita de la historia china. La capital, <strong>Chang'an</strong>, con más de un millón de habitantes, tenía barrios persas, sogdianos, coreanos y japoneses. <span class="ep ep-DC">DC</span> Era literalmente la ciudad más grande del mundo. La rebelión de <strong>An Lushan (755–763)</strong> marcó el punto de inflexión: el reemplazo del servicio militar campesino por ejércitos profesionales comandados por gobernadores militares autónomos (<em>jiedushi</em>) creó una fragmentación del poder que hacía inevitable el colapso final en 907.</p>
+
+  <p>Tras el Tang, cinco efímeras dinastías en el norte y diez reinos independientes en el sur: el <strong>Período de las Cinco Dinastías y los Diez Reinos (907–960)</strong>. Paradójicamente, mientras el norte se desangraba en guerras de sucesión, el sur acumulaba capital a través del comercio marítimo con el sudeste asiático y el mundo árabe. Esos recursos serían decisivos cuando llegara el momento de la reunificación Song.</p>
+
+  <div class="cr-aside">
+    <div class="cr-label">Conexión · Costa Rica</div>
+    <p>Costa Rica abolió el ejército en 1949, optando —como los reinos del sur durante este período— por invertir en educación y comercio en lugar de capacidad coercitiva. La lección del Gran Canal Sui: la infraestructura puede catalizar el desarrollo, pero su financiamiento no debe agotar al Estado. La lección Tang: la delegación del poder militar en actores autónomos crea dinámicas de fragmentación que son muy difíciles de revertir.</p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- PERÍODO 11: SONG -->
+<div class="period" id="song">
+  <div class="period-header">
+    <div class="period-dates">960 – 1279 d.C.</div>
+    <h2>La Dinastía Song: <em>El Genio que No Podía Defenderse</em></h2>
+  </div>
+
+  <p>La historia Song es una de las más fascinantes y más perturbadoras de la historia mundial: una civilización que fue simultáneamente la más avanzada de su tiempo y militarmente incapaz de defenderse.</p>
+
+  <p><span class="ep ep-DC">DC</span> Los Song fueron el primer gobierno en emitir papel moneda de uso generalizado, el primero en establecer una armada permanente con barcos de vapor rudimentarios, los inventores de la imprenta de tipos móviles —dos siglos antes que Gutenberg—, los primeros en aplicar la brújula a la navegación y la pólvora a las armas de fuego. La producción de hierro y acero alcanzó niveles no vistos en Europa hasta la Revolución Industrial. Hangzhou y Quanzhou se convirtieron en los mayores puertos comerciales del mundo. <span class="ep ep-Int">Int</span> China, en el período Song, fue el principal exportador de innovación del planeta.</p>
+
+  <p>Y sin embargo. Los Song nunca recuperaron el norte de China, perdido ante los Jin. Pagaban tributo anual a los Liao y luego a los Jin a cambio de una paz precaria. Su estrategia militar fue deliberadamente defensiva: el Estado había invertido en control civil de los militares para evitar los golpes de estado que habían destruido el Tang. <span class="ep ep-IP">IP</span> Esta decisión institucional fue racional a corto plazo —evitó el caudillismo— pero catastrófica a largo plazo: los dejó sin la capacidad de resistir cuando apareciera un enemigo verdaderamente formidable.</p>
+
+  <div class="pullquote">
+    <p>El contraste Song es un caso de <em>especialización asimétrica</em>: cuando un sistema invierte todo en una dimensión —la económico-cultural— a costa de otra —la militar—, se vuelve extraordinariamente brillante y extraordinariamente vulnerable al mismo tiempo.</p>
+    <cite>Lectura ADD · La paradoja de la fragilidad Song</cite>
+  </div>
+
+  <div class="cr-aside">
+    <div class="cr-label">Conexión · Costa Rica</div>
+    <p>La analogía Song-Costa Rica es la más directa de toda esta historia: un país sin ejército, con alta inversión en educación y cultura, una economía basada en servicios de alto valor y comercio exterior. El dilema Song —¿cuánta fragilidad defensiva puede sostener un sistema que apuesta todo al capital simbólico?— es también el dilema costarricense en un mundo que se vuelve cada vez más inestable.</p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- PERÍODO 12: MONGOLES -->
+<div class="period" id="mongoles">
+  <div class="period-header">
+    <div class="period-dates">1206 – 1234 d.C.</div>
+    <h2>El Ascenso Mongol: <em>La Tormenta desde la Estepa</em></h2>
+  </div>
+
+  <p>En 1206, en las orillas del río Onon, una asamblea tribal proclamó a Temüjin <strong>Gengis Khan</strong> —"Gobernante Universal" u "Océano de Poder". Temüjin había unificado a las tribus mongolas mediante una combinación de alianzas matrimoniales, reformas militares radicales y una brutalidad calculada que convertía la rendición en la única opción racional: las ciudades que resistían eran destruidas; las que se rendían, incorporadas. Era terror como política exterior.</p>
+
+  <p><span class="ep ep-DC">DC</span> En 1211, Gengis declaró la guerra a la dinastía Jin, que gobernaba el norte de China. La campaña duró más de dos décadas. Los mongoles combinaban la caballería de arco compuesto —con un alcance y cadencia muy superiores a los arqueros chinos— con la artillería de asedio china que capturaban a sus ingenieros. En 1215 tomaron Zhongdu, la actual Pekín. El último emperador Jin se suicidó en 1234. Este es el punto donde termina esta primera parte: <em>la víspera</em>. Los Song del sur sobrevivían todavía. Por poco tiempo.</p>
+
+  <p>La conquista del norte de China fue extraordinariamente destructiva —las estimaciones de mortalidad, aunque debatidas, son de escala catastrófica. <span class="ep ep-IP">IP</span> Pero los mongoles también mostraron una notable capacidad de adaptación: adoptaron la administración china, incorporaron a funcionarios kitanos y chinos, y comenzaron el largo proceso de sinización que culminaría bajo Kublai Khan. Este patrón —el conquistador que termina siendo conquistado culturalmente— se repetiría varias veces más en la historia china.</p>
+
+  <div class="pullquote">
+    <p>La superioridad militar mongola fue un <em>efecto sistémico</em>: movilidad (caballos de pastoreo), tecnología (arco compuesto), organización (disciplina decimal) y terror psicológico (la reputación de masacre como disuasión). Ninguno de estos elementos era nuevo; su síntesis fue lo que resultó imparable.</p>
+    <cite>Lectura ADD · El acoplamiento que conquistó el mundo</cite>
+  </div>
+
+  <div class="cr-aside">
+    <div class="cr-label">Conexión · Costa Rica</div>
+    <p>El ascenso mongol demuestra cómo un nodo periférico —las tribus de la estepa, consideradas "bárbaras"— puede convertirse en un atractor global mediante innovación organizativa. Costa Rica, como nodo periférico en el sistema global, debe estar atenta a las disrupciones que pueden alterar el equilibrio de poder desde los márgenes: hoy, inteligencia artificial, energías renovables o biotecnología.</p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- SÍNTESIS -->
+<div class="synthesis">
+  <h3>Síntesis · China como Atractor Histórico</h3>
+  <p>Tres mil años de historia china, analizados desde la ADD, revelan un <strong>atractor civilizatorio</strong> de extraordinaria resiliencia. Sus cinco pilares:</p>
+  <ul>
+    <li><strong>El Estado burocrático-confuciano:</strong> centralización administrativa (Qin) más legitimidad moral (Han). Las dinastías cambian; el modelo persiste más de dos milenios.</li>
+    <li><strong>La escritura logográfica:</strong> un sistema que crea un espacio de comunicabilidad entre hablantes de lenguas mutuamente ininteligibles. El pegamento cultural del imperio.</li>
+    <li><strong>La economía del arroz y el mijo:</strong> un excedente agrícola que financia burocracia, ejércitos, artesanos y comerciantes. La base material del atractor.</li>
+    <li><strong>La relación asimétrica con la estepa:</strong> ninguna estrategia —tributo, murallas, expediciones punitivas— fue definitiva. La conquista mongola fue la solución temporal, pero también condujo a la sinización del conquistador.</li>
+    <li><strong>La idea de China:</strong> incluso en los períodos de máxima fragmentación, la aspiración a la reunificación nunca desapareció del horizonte político. Este atractor ideacional es quizás el más poderoso.</li>
+  </ul>
+</div>
+
+</div><!-- /container -->
+</div><!-- /narrative -->
+
+<footer>
+  <div class="footer-left">
+    ALFREDO MONTERO FONSECA · UNIVERSIDAD DE COSTA RICA<br>
+    ANCA-ADD · ABRIL 2026
+  </div>
+  <nav class="footer-nav">
+    <a href="/divulgacion/china/">Índice China</a>
+    <a href="../parte-2/">Parte II →</a>
+    <a href="/">antropos.app</a>
+  </nav>
+</footer>
+
+</body>
+</html>
