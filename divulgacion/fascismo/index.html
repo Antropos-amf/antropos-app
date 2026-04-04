@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¿Qué es el Fascismo? — Boletín Especial ANCA-ADE</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --negro: #0a0a0a;
+    --rojo: #c41e1e;
+    --rojo-oscuro: #8b1010;
+    --crema: #f5f0e8;
+    --arena: #e8dcc8;
+    --gris: #3a3a3a;
+    --gris-claro: #888;
+    --dorado: #b8960c;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--negro);
+    color: var(--crema);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.7;
+  }
+
+  /* ── CABECERA ── */
+  header {
+    background: var(--crema);
+    color: var(--negro);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 48px;
+    border-bottom: 2px solid var(--negro);
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .org-name {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    color: var(--rojo);
+  }
+
+  .header-main {
+    display: grid;
+    grid-template-columns: 1fr 2px 1fr;
+    min-height: 380px;
+  }
+
+  .header-left {
+    padding: 52px 48px 52px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 2px solid var(--negro);
+  }
+
+  .issue-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--rojo);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .issue-label::before {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 2px;
+    background: var(--rojo);
+  }
+
+  .main-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(64px, 9vw, 108px);
+    line-height: 0.9;
+    color: var(--negro);
+    letter-spacing: 0.02em;
+    margin-bottom: 8px;
+  }
+
+  .main-title span {
+    color: var(--rojo);
+  }
+
+  .subtitle {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--gris);
+    margin-top: 18px;
+    line-height: 1.4;
+    max-width: 380px;
+  }
+
+  .header-right {
+    padding: 52px 48px;
+    background: var(--negro);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+  }
+
+  .fascio-symbol {
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.06;
+    font-size: 200px;
+    line-height: 1;
+    color: var(--rojo);
+    font-family: 'Bebas Neue';
+    letter-spacing: -0.05em;
+    user-select: none;
+  }
+
+  .lead-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    line-height: 1.55;
+    color: var(--crema);
+    position: relative;
+    z-index: 2;
+    border-left: 4px solid var(--rojo);
+    padding-left: 24px;
+  }
+
+  .header-bottom {
+    background: var(--rojo);
+    color: var(--crema);
+    padding: 16px 48px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* ── ÍNDICE ── */
+  .toc-bar {
+    background: var(--negro);
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+    padding: 18px 48px;
+    display: flex;
+    gap: 36px;
+    overflow-x: auto;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gris-claro);
+  }
+
+  .toc-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    color: var(--gris-claro);
+  }
+
+  .toc-num {
+    color: var(--rojo);
+    font-weight: 700;
+  }
+
+  /* ── CUERPO PRINCIPAL ── */
+  main {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ── SECCIÓN ── */
+  section {
+    padding: 72px 0 48px;
+    border-bottom: 1px solid #1e1e1e;
+  }
+
+  section:last-child { border-bottom: none; }
+
+  .section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--rojo);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #2a2a2a;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(30px, 4vw, 46px);
+    font-weight: 900;
+    line-height: 1.15;
+    color: var(--crema);
+    margin-bottom: 32px;
+    max-width: 700px;
+  }
+
+  .section-title em {
+    color: var(--rojo);
+    font-style: italic;
+  }
+
+  /* ── TEXTO CUERPO ── */
+  p {
+    color: #ccc4b4;
+    margin-bottom: 20px;
+    max-width: 720px;
+  }
+
+  p.wide { max-width: 100%; }
+
+  strong { color: var(--crema); font-weight: 600; }
+
+  /* ── COLUMNAS ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 52px;
+    margin-top: 32px;
+  }
+
+  .three-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+    margin-top: 32px;
+  }
+
+  /* ── PULL QUOTE ── */
+  .pull-quote {
+    margin: 48px 0;
+    padding: 40px 48px;
+    background: #111;
+    border-left: 6px solid var(--rojo);
+    position: relative;
+  }
+
+  .pull-quote::before {
+    content: '\201C';
+    font-family: 'Playfair Display', serif;
+    font-size: 120px;
+    color: var(--rojo);
+    opacity: 0.25;
+    position: absolute;
+    top: -20px;
+    left: 28px;
+    line-height: 1;
+  }
+
+  .pull-quote p {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--crema);
+    max-width: 680px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .pull-quote cite {
+    display: block;
+    margin-top: 16px;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rojo);
+    font-style: normal;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ── CARACTERÍSTICAS ── */
+  .feature-card {
+    background: #0f0f0f;
+    border: 1px solid #1e1e1e;
+    padding: 28px 28px 32px;
+    position: relative;
+    transition: border-color 0.3s;
+  }
+
+  .feature-card:hover { border-color: var(--rojo-oscuro); }
+
+  .feature-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px;
+    color: #1e1e1e;
+    line-height: 1;
+    position: absolute;
+    top: 12px;
+    right: 18px;
+  }
+
+  .feature-icon {
+    width: 36px;
+    height: 3px;
+    background: var(--rojo);
+    margin-bottom: 16px;
+  }
+
+  .feature-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--crema);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .feature-text {
+    font-size: 14px;
+    line-height: 1.65;
+    color: #999;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  /* ── TIMELINE ── */
+  .timeline {
+    position: relative;
+    padding-left: 0;
+    margin-top: 32px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 64px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #1e1e1e;
+  }
+
+  .tl-item {
+    display: grid;
+    grid-template-columns: 128px 1fr;
+    gap: 32px;
+    margin-bottom: 40px;
+    position: relative;
+  }
+
+  .tl-year {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: var(--rojo);
+    text-align: right;
+    padding-right: 40px;
+    position: relative;
+    padding-top: 4px;
+  }
+
+  .tl-year::after {
+    content: '';
+    position: absolute;
+    right: -5px;
+    top: 14px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--rojo);
+    border: 2px solid var(--negro);
+  }
+
+  .tl-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--crema);
+    margin-bottom: 6px;
+  }
+
+  .tl-content p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #999;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  /* ── REGÍMENES ── */
+  .regime-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 32px;
+    background: #1a1a1a;
+    border: 1px solid #1a1a1a;
+  }
+
+  .regime-cell {
+    background: var(--negro);
+    padding: 28px 24px;
+  }
+
+  .regime-flag {
+    font-size: 32px;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .regime-country {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: var(--crema);
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+  }
+
+  .regime-period {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--rojo);
+    letter-spacing: 0.2em;
+    margin-bottom: 12px;
+  }
+
+  .regime-desc {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #888;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  /* ── ALERTA ── */
+  .alert-box {
+    background: #1a0000;
+    border: 1px solid var(--rojo-oscuro);
+    padding: 36px 40px;
+    margin: 40px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .alert-box::before {
+    content: '!';
+    position: absolute;
+    right: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 200px;
+    color: var(--rojo);
+    opacity: 0.06;
+    line-height: 1;
+  }
+
+  .alert-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--rojo);
+    margin-bottom: 12px;
+  }
+
+  .alert-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--crema);
+    margin-bottom: 12px;
+  }
+
+  .alert-box p {
+    max-width: 640px;
+    font-size: 15px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ── SEÑALES ── */
+  .signals {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    background: #111;
+    margin-top: 28px;
+    border: 1px solid #1e1e1e;
+  }
+
+  .signal-item {
+    background: #0a0a0a;
+    padding: 22px 24px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .signal-bullet {
+    width: 8px;
+    height: 8px;
+    background: var(--rojo);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 8px;
+  }
+
+  .signal-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #aaa;
+    margin: 0;
+    max-width: 100%;
+  }
+
+  .signal-text strong { color: var(--crema); }
+
+  /* ── CITA UMBERTO ECO ── */
+  .eco-box {
+    background: var(--rojo);
+    color: var(--crema);
+    padding: 52px 48px;
+    margin: 56px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .eco-box::before {
+    content: 'UR';
+    position: absolute;
+    right: -20px;
+    bottom: -40px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 220px;
+    color: rgba(0,0,0,0.15);
+    line-height: 1;
+  }
+
+  .eco-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 16px;
+  }
+
+  .eco-box h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 900;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    position: relative;
+    z-index: 2;
+  }
+
+  .eco-box p {
+    color: rgba(255,255,255,0.85);
+    max-width: 680px;
+    font-size: 15px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #050505;
+    border-top: 2px solid var(--rojo);
+    padding: 48px;
+    margin-top: 0;
+  }
+
+  .footer-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .footer-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    color: var(--crema);
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+  }
+
+  .footer-subtitle {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    color: var(--rojo);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .footer-text {
+    font-size: 13px;
+    color: #666;
+    max-width: 480px;
+    margin: 0;
+  }
+
+  .footer-meta {
+    text-align: right;
+  }
+
+  .footer-date {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: #555;
+    letter-spacing: 0.15em;
+    line-height: 2;
+  }
+
+  .footer-copy {
+    font-size: 11px;
+    color: #333;
+    margin-top: 24px;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 48px 0 36px;
+  }
+
+  .divider-line {
+    flex: 1;
+    height: 1px;
+    background: #1a1a1a;
+  }
+
+  .divider-icon {
+    width: 8px;
+    height: 8px;
+    background: var(--rojo);
+    transform: rotate(45deg);
+    flex-shrink: 0;
+  }
+
+  /* ── INFOBOX ── */
+  .info-strip {
+    background: #0f0f0f;
+    border: 1px solid #1e1e1e;
+    border-left: 4px solid var(--dorado);
+    padding: 24px 28px;
+    margin: 36px 0;
+  }
+
+  .info-strip h4 {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--dorado);
+    margin-bottom: 10px;
+  }
+
+  .info-strip p {
+    font-size: 14px;
+    color: #aaa;
+    margin: 0;
+    max-width: 100%;
+  }
+
+  /* animaciones sutiles */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .main-title, .lead-text { animation: fadeIn 0.8s ease both; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 800px) {
+    .header-main { grid-template-columns: 1fr; }
+    .header-right { display: none; }
+    .two-col, .three-col, .regime-grid, .signals { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr; }
+    .footer-meta { text-align: left; }
+    .toc-bar { padding: 14px 24px; }
+    header .header-top, header .header-bottom, main { padding-left: 24px; padding-right: 24px; }
+    .header-left { padding: 36px 24px; }
+    .tl-item { grid-template-columns: 80px 1fr; gap: 16px; }
+    .timeline::before { left: 40px; }
+    footer { padding: 36px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ CABECERA ══ -->
+<header>
+  <div class="header-top">
+    <span class="org-name">ANCA · ADE</span>
+    <span>Boletín Especial de Análisis Político</span>
+    <span>Marzo 2026</span>
+  </div>
+
+  <div class="header-main">
+    <div class="header-left">
+      <div class="issue-label">Análisis Histórico y Político</div>
+      <h1 class="main-title">¿QUÉ<br>ES <span>EL</span><br>FAS<span>CIS</span>MO?</h1>
+      <p class="subtitle">Origen, ideología, características y sus manifestaciones en el mundo contemporáneo</p>
+    </div>
+    <div class="header-right">
+      <div class="fascio-symbol">✦</div>
+      <p class="lead-text">
+        Una ideología que prometió orden y grandeza nacional, y entregó guerra, represión y genocidio. Conocer su historia es la primera defensa contra su regreso.
+      </p>
+    </div>
+  </div>
+
+  <div class="header-bottom">
+    <span>▶ EDICIÓN ESPECIAL DOCUMENTADA · ANCA-ADE</span>
+    <span>Investigación · Educación · Memoria · Antifascismo</span>
+    <span>2026</span>
+  </div>
+</header>
+
+<!-- ══ ÍNDICE ══ -->
+<nav class="toc-bar">
+  <div class="toc-item"><span class="toc-num">01</span> Definición y Etimología</div>
+  <div class="toc-item"><span class="toc-num">02</span> Contexto Histórico</div>
+  <div class="toc-item"><span class="toc-num">03</span> Características Centrales</div>
+  <div class="toc-item"><span class="toc-num">04</span> Regímenes Históricos</div>
+  <div class="toc-item"><span class="toc-num">05</span> El Ur-Fascismo</div>
+  <div class="toc-item"><span class="toc-num">06</span> Neofascismo Hoy</div>
+  <div class="toc-item"><span class="toc-num">07</span> Señales de Alerta</div>
+</nav>
+
+<!-- ══ CUERPO ══ -->
+<main>
+
+  <!-- ── 01 DEFINICIÓN ── -->
+  <section id="definicion">
+    <div class="section-label">01 · Definición y Etimología</div>
+    <h2 class="section-title">Una ideología que se define mejor por lo que <em>odia</em> que por lo que propone</h2>
+
+    <div class="two-col">
+      <div>
+        <p>El <strong>fascismo</strong> es un movimiento y sistema político-social de ideología totalitaria, nacionalista, militarista y antimarxista surgido en el siglo XX en Italia. La palabra proviene del italiano <em>fascio</em>, que a su vez deriva del latín <em>fasces</em>: el haz de varas con un hacha que en la Roma antigua portaban los lictores como símbolo de autoridad y poder ejecutivo del Estado.</p>
+
+        <p>En sentido histórico restringido, el fascismo nació como movimiento en Italia en 1919, alcanzó el poder en 1922 bajo Benito Mussolini y lo mantuvo hasta 1943. Sin embargo, en sentido amplio, se usa para designar toda una familia de ideologías y movimientos con rasgos comunes que proliferaron en Europa durante el período de entreguerras, cuyo ejemplo más radical fue el nacionalsocialismo alemán.</p>
+
+        <p>A diferencia de otras ideologías, el fascismo resulta más fácil de definir por aquello a lo que se <strong>opone</strong> que por sus propuestas positivas. Los regímenes fascistas fueron sistemáticamente: <em>antiliberales, antimarxistas, anticomunistas, antidemocráticos, antiintelectuales</em> y, en varios aspectos, anticapitalistas.</p>
+      </div>
+      <div>
+        <div class="pull-quote" style="margin:0;">
+          <p>El fascismo es un sistema político que trata de llevar a cabo un encuadramiento unitario de una sociedad en crisis, promoviendo la movilización de las masas mediante la identificación de las reivindicaciones sociales con las reivindicaciones nacionales.</p>
+          <cite>— Norberto Bobbio, filósofo político italiano</cite>
+        </div>
+
+        <div class="info-strip" style="margin-top:24px;">
+          <h4>Etimología</h4>
+          <p>Del latín <em>fascis</em> (haz, paquete). El <em>fascio littorio</em> romano — haz de varas atadas con un hacha — era símbolo del poder magistral. Mussolini lo adoptó como emblema evocando el Imperio Romano y la unidad del pueblo como fuerza colectiva irrompible.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 02 CONTEXTO ── -->
+  <section id="contexto">
+    <div class="section-label">02 · Contexto Histórico</div>
+    <h2 class="section-title">Nació de la crisis, el resentimiento y el <em>miedo</em></h2>
+
+    <p>El fascismo no surgió en el vacío. Fue la respuesta de ciertos sectores sociales a una combinación devastadora de condiciones históricas posteriores a la Primera Guerra Mundial.</p>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-year">1917</div>
+        <div class="tl-content">
+          <h3>La Revolución Rusa y el miedo al comunismo</h3>
+          <p>El triunfo bolchevique aterró a las burguesías europeas. El concepto de lucha de clases internacionalista amenazaba el orden social. El fascismo nació, en parte, como escudo armado del capital frente al ascenso obrero.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">1918–19</div>
+        <div class="tl-content">
+          <h3>La "victoria mutilada" italiana y el Tratado de Versalles</h3>
+          <p>Italia, país vencedor, sintió que los tratados de paz la habían despojado de los territorios prometidos. Alemania fue humillada con reparaciones enormes. Ambas naciones hervían de resentimiento nacionalista.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">1919</div>
+        <div class="tl-content">
+          <h3>Mussolini funda los <em>Fasci italiani di combattimento</em></h3>
+          <p>Grupos paramilitares armados surgidos para combatir a los partidos de izquierda. Los <em>camisas negras</em> aterrorizaron a sindicatos, cooperativas y sedes de partidos obreros en el "Bienio Rojo" italiano (1919–1920).</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">1922</div>
+        <div class="tl-content">
+          <h3>La Marcha sobre Roma — el primer golpe fascista</h3>
+          <p>Del 27 al 29 de octubre, los camisas negras avanzaron sobre la capital amenazando una guerra civil. El rey Víctor Manuel III cedió: el 30 de octubre, Mussolini formó gobierno. Comenzó la primera dictadura fascista.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">1929–33</div>
+        <div class="tl-content">
+          <h3>La Gran Depresión y el ascenso de Hitler</h3>
+          <p>La crisis económica de 1929 hundió en el desempleo y la desesperación a millones. En Alemania, ese caldo de cultivo llevó a Hitler y el NSDAP al poder en enero de 1933, combinando fascismo con racismo biológico extremo.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">1939–45</div>
+        <div class="tl-content">
+          <h3>Segunda Guerra Mundial y el Holocausto</h3>
+          <p>El fascismo en el poder condujo inevitablemente a la expansión imperial y la guerra. El nazismo produjo el asesinato sistemático de seis millones de judíos y millones más de gitanos, comunistas, homosexuales y personas con discapacidad.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">1945</div>
+        <div class="tl-content">
+          <h3>Derrota militar — pero no erradicación ideológica</h3>
+          <p>Con la derrota del Eje, los fascismos históricos fueron desarticulados. Sin embargo, los procesos de desnazificación fueron incompletos y sus bases ideológicas sobrevivieron, reconfigurándose bajo nuevas formas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 03 CARACTERÍSTICAS ── -->
+  <section id="caracteristicas">
+    <div class="section-label">03 · Características Centrales</div>
+    <h2 class="section-title">Los pilares del pensamiento <em>fascista</em></h2>
+
+    <p>Aunque no existe un único tipo de fascismo y las distintas experiencias nacionales presentaron variaciones, los estudiosos identifican un núcleo de rasgos comunes que permiten hablar de una familia ideológica coherente.</p>
+
+    <div class="three-col" style="margin-top:40px;">
+
+      <div class="feature-card">
+        <div class="feature-num">01</div>
+        <div class="feature-icon"></div>
+        <div class="feature-title">Ultranacionalismo y Culto a la Nación</div>
+        <p class="feature-text">La nación — o la raza — es la categoría histórica suprema. Los fascistas la presentan como un organismo vivo amenazado por enemigos internos y externos. Todo se subordina a la "grandeza nacional": el individuo, la clase, la familia.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-num">02</div>
+        <div class="feature-icon"></div>
+        <div class="feature-title">Estado Totalitario y Partido Único</div>
+        <p class="feature-text">El Estado lo absorbe todo: la economía, la cultura, la educación, los medios. No tolera partidos de oposición ni instituciones independientes. La sociedad civil queda subordinada al partido-Estado bajo un líder carismático.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-num">03</div>
+        <div class="feature-icon"></div>
+        <div class="feature-title">Culto al Líder Carismático (<em>Führerprinzip</em>)</div>
+        <p class="feature-text">El líder encarna la voluntad nacional. Es presentado como el salvador histórico que redimirá a la nación de su decadencia. La obediencia ciega al jefe (Il Duce, el Führer, el Caudillo) es virtud suprema.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-num">04</div>
+        <div class="feature-icon"></div>
+        <div class="feature-title">Antidemocracia y Antiparlamentarismo</div>
+        <p class="feature-text">La democracia es considerada débil, corrupta e ineficiente. Los parlamentos son foros de divisiones y discusiones estériles. El fascismo desprecia el voto y el debate; exalta la acción, la voluntad y la decisión vertical.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-num">05</div>
+        <div class="feature-icon"></div>
+        <div class="feature-title">Violencia como Instrumento Político</div>
+        <p class="feature-text">El fascismo glorifica la violencia como fuerza purificadora y regeneradora. Organiza milicias y fuerzas paramilitares para intimidar y eliminar físicamente a la oposición. El terror es una herramienta consciente de gobierno.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-num">06</div>
+        <div class="feature-icon"></div>
+        <div class="feature-title">Militarismo e Imperialismo</div>
+        <p class="feature-text">El ejército es modelo de organización social. La guerra es glorificada como medio de expansión y purificación nacional. El fascismo persigue metas expansionistas e irredentistas, buscando recuperar o ampliar territorios.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-num">07</div>
+        <div class="feature-icon"></div>
+        <div class="feature-title">Explotación del Miedo y el Enemigo Interior</div>
+        <p class="feature-text">El fascismo necesita un enemigo — judíos, comunistas, inmigrantes, minorías — a quien culpar de todos los males nacionales. Ese "chivo expiatorio" permite canalizar el descontento social hacia el odio, evitando el cuestionamiento del orden económico.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-num">08</div>
+        <div class="feature-icon"></div>
+        <div class="feature-title">Propaganda y Control de la Información</div>
+        <p class="feature-text">El fascismo controla los medios de comunicación, la educación y la cultura para construir una realidad alternativa. La mentira repetida se convierte en verdad; los hechos quedan subordinados a la narrativa del poder.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-num">09</div>
+        <div class="feature-icon"></div>
+        <div class="feature-title">Corporativismo y Control Económico</div>
+        <p class="feature-text">El fascismo no abolió el capitalismo pero sí lo subordinó al Estado. Organizó la economía en corporaciones controladas, benefició a las grandes industrias y destruyó sindicatos independientes. Fue funcional a la burguesía industrial que lo financió.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── 04 REGÍMENES ── -->
+  <section id="regimenes">
+    <div class="section-label">04 · Regímenes Históricos</div>
+    <h2 class="section-title">El fascismo en el <em>poder</em></h2>
+
+    <p>El fascismo no fue solo una teoría: llegó al gobierno en varios países europeos con consecuencias devastadoras para la humanidad.</p>
+
+    <div class="regime-grid">
+      <div class="regime-cell">
+        <span class="regime-flag">🇮🇹</span>
+        <div class="regime-country">Italia</div>
+        <div class="regime-period">1922 – 1943</div>
+        <p class="regime-desc">Mussolini tomó el poder con la Marcha sobre Roma. Instauró el Estado totalitario, disolvió los partidos, controló los medios y lanzó guerras de conquista en África. Fue el modelo original que inspiró a todos los demás movimientos fascistas.</p>
+      </div>
+      <div class="regime-cell">
+        <span class="regime-flag">🇩🇪</span>
+        <div class="regime-country">Alemania Nazi</div>
+        <div class="regime-period">1933 – 1945</div>
+        <p class="regime-desc">El nazismo de Hitler añadió al fascismo un virulento racismo biológico. Culto al Führer, partido único, rearme acelerado, antisemitismo institucional y finalmente el Holocausto: el asesinato industrial de seis millones de judíos y millones más de otras minorías.</p>
+      </div>
+      <div class="regime-cell">
+        <span class="regime-flag">🇪🇸</span>
+        <div class="regime-country">España Franquista</div>
+        <div class="regime-period">1939 – 1975</div>
+        <p class="regime-desc">Franco venció en una sangrienta guerra civil con apoyo de Hitler y Mussolini. Su régimen combinó fascismo, conservadurismo católico y nacionalismo. Aunque sobrevivió a la derrota del Eje, el franquismo dejó decenas de miles de muertos y una larga represión.</p>
+      </div>
+      <div class="regime-cell">
+        <span class="regime-flag">🇵🇹</span>
+        <div class="regime-country">Portugal Salazarista</div>
+        <div class="regime-period">1933 – 1974</div>
+        <p class="regime-desc">El "Estado Novo" de Salazar fue una dictadura corporativista y ultracatólica. Autoritario y represor, mantuvo colonias africanas hasta el fin del régimen con la Revolución de los Claveles.</p>
+      </div>
+      <div class="regime-cell">
+        <span class="regime-flag">🇷🇴</span>
+        <div class="regime-country">Rumania</div>
+        <div class="regime-period">1940 – 1941</div>
+        <p class="regime-desc">La Guardia de Hierro y el régimen de Ion Antonescu fueron variantes del fascismo con un fuerte componente religioso ortodoxo. Participaron activamente en el genocidio de judíos y gitanos en el frente oriental.</p>
+      </div>
+      <div class="regime-cell">
+        <span class="regime-flag">🇭🇷</span>
+        <div class="regime-country">Croacia Ustacha</div>
+        <div class="regime-period">1941 – 1945</div>
+        <p class="regime-desc">Estado títere nazi. El régimen Ustacha combinó fascismo con ultranacionalismo croata y catolicismo integrista, perpetrando el genocidio de serbios, judíos y gitanos en los campos de concentración de Jasenovac.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 05 UR-FASCISMO ── -->
+  <div class="eco-box">
+    <div class="eco-label">05 · El concepto de Umberto Eco</div>
+    <h2>El "<em>Ur-Fascismo</em>" o Fascismo Eterno</h2>
+    <p>En 1995, el escritor italiano Umberto Eco publicó su ensayo <em>"Ur-Fascismo"</em>, identificando catorce rasgos del fascismo clásico que pueden aparecer combinados de distintas formas. Eco advirtió que basta con que algunos de estos rasgos estén presentes para reconocer un movimiento fascista en gestación, aunque no exhiba todos ellos simultáneamente. El fascismo eterno, señaló, puede volver con distintos ropajes: "Puede volver bajo el aspecto más inocente. Nuestro deber es desenmascararla y apuntar con el dedo a cada una de sus formas — cada día, en cada parte del mundo."</p>
+  </div>
+
+  <!-- ── 06 NEOFASCISMO ── -->
+  <section id="neofascismo">
+    <div class="section-label">06 · El Fascismo Hoy</div>
+    <h2 class="section-title">Neofascismo: la amenaza <em>reconfigura</em> sus formas</h2>
+
+    <p>La derrota de 1945 no eliminó la ideología fascista. Con la capitulación del Eje, los fascismos históricos fueron militarmente derrotados, pero sus bases ideológicas sobrevivieron y se reorganizaron bajo nuevas formas, adaptándose a las condiciones de cada época.</p>
+
+    <div class="two-col">
+      <div>
+        <p>Politólogos como Cas Mudde identifican cuatro olas de la ultraderecha desde 1945 hasta la actualidad. En la <strong>cuarta ola</strong> — iniciada hacia el año 2000 — los partidos de derecha radical populista dejaron de ser marginales y accedieron al gobierno en varios países.</p>
+
+        <p>El neofascismo contemporáneo se diferencia del fascismo histórico en formas importantes: <strong>opera dentro de los sistemas democráticos</strong> sin rechazarlos abiertamente (al menos en apariencia), no se apoya principalmente en milicias paramilitares, y no reivindica abiertamente el legado de Mussolini o Hitler. Sin embargo, mantiene el mismo núcleo ideológico: ultranacionalismo, xenofobia, culto al líder, hostilidad a la democracia liberal y construcción de un enemigo interior.</p>
+
+        <p>El neofascismo del siglo XXI desplaza el espectáculo público hacia el <strong>adoctrinamiento digital</strong>. Las redes sociales funcionan como amplificadores ideológicos que permiten segmentar audiencias y reforzar sesgos cognitivos. Los algoritmos crean burbujas informativas donde ideas extremistas gradualmente parecen convencionales — lo que se conoce como el desplazamiento de la Ventana de Overton.</p>
+      </div>
+      <div>
+        <div class="alert-box">
+          <div class="alert-label">⚠ Alerta Académica</div>
+          <h3>¿Es todo autoritarismo fascismo?</h3>
+          <p>No. Todo fascismo es autoritario, pero no todo autoritarismo es fascismo. El debate académico distingue entre neofascismo (continuidad ideológica consciente), posfascismo (similitudes de poder sin reivindicación del pasado) y derecha radical populista. La precisión conceptual importa: usar el término con rigor evita tanto su banalización como su normalización.</p>
+        </div>
+
+        <div class="info-strip" style="margin-top:24px;">
+          <h4>Figuras analizadas como posfascistas o neofascistas</h4>
+          <p>Académicos como Enzo Traverso, Cas Mudde y otros han analizado fenómenos como el Amanecer Dorado griego (neofascista explícito), Hermanos de Italia (posfascista), el Reagrupamiento Nacional francés (derecha radical), y varios gobiernos latinoamericanos y europeos con rasgos autoritarios marcados.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 07 SEÑALES ── -->
+  <section id="senales">
+    <div class="section-label">07 · Señales de Alerta</div>
+    <h2 class="section-title">Cómo <em>reconocer</em> el fascismo antes de que sea tarde</h2>
+
+    <p>La historia enseña que el fascismo no llega de golpe: se instala gradualmente, normalizando lo excepcional hasta que la resistencia se vuelve difícil. Estas son las señales de alerta que los estudiosos identifican en movimientos que siguen ese camino.</p>
+
+    <div class="signals">
+      <div class="signal-item">
+        <div class="signal-bullet"></div>
+        <p class="signal-text"><strong>Culto a la personalidad del líder.</strong> Se presenta como el único capaz de salvar a la nación. La crítica al líder equivale a traición a la patria.</p>
+      </div>
+      <div class="signal-item">
+        <div class="signal-bullet"></div>
+        <p class="signal-text"><strong>Construcción del enemigo interior.</strong> Inmigrantes, minorías, intelectuales, "comunistas" o "globalistas" son señalados como responsables de todos los males nacionales.</p>
+      </div>
+      <div class="signal-item">
+        <div class="signal-bullet"></div>
+        <p class="signal-text"><strong>Ataque sistemático a la prensa libre.</strong> Los medios independientes son calificados de "prensa enemiga", "fake news" o agentes extranjeros.</p>
+      </div>
+      <div class="signal-item">
+        <div class="signal-bullet"></div>
+        <p class="signal-text"><strong>Erosión de las instituciones democráticas.</strong> Debilitamiento progresivo del poder judicial, el parlamento, la separación de poderes y los mecanismos electorales.</p>
+      </div>
+      <div class="signal-item">
+        <div class="signal-bullet"></div>
+        <p class="signal-text"><strong>Glorificación de la violencia y el militarismo.</strong> El discurso belicoso, la militarización de la política y la exaltación de las fuerzas de seguridad como garantes del "orden verdadero".</p>
+      </div>
+      <div class="signal-item">
+        <div class="signal-bullet"></div>
+        <p class="signal-text"><strong>Negacionismo histórico.</strong> Minimización o negación de los crímenes fascistas del pasado: "no fue tan grave", "fue necesario", "fue exagerado por la izquierda".</p>
+      </div>
+      <div class="signal-item">
+        <div class="signal-bullet"></div>
+        <p class="signal-text"><strong>Apelación a una grandeza pasada mítica.</strong> El proyecto político se presenta como la <em>restauración</em> de una edad dorada nacional que habría sido destruida por los enemigos.</p>
+      </div>
+      <div class="signal-item">
+        <div class="signal-bullet"></div>
+        <p class="signal-text"><strong>Criminalización de la protesta y el activismo.</strong> Protocolos que restringen el derecho a la manifestación, persecución judicial de la oposición, uso de los aparatos de inteligencia contra la sociedad civil.</p>
+      </div>
+    </div>
+
+    <div class="pull-quote" style="margin-top:52px;">
+      <p>La era del neofascismo es más peligrosa en algunos aspectos que la de los antiguos fascismos. El neofascismo no pretende reivindicar su historia, pero mantiene el mismo núcleo: la movilización agresiva de una base popular contra los más vulnerables, al servicio de una élite que acumula poder.</p>
+      <cite>— Gilbert Achcar, "La era del neofascismo y sus rasgos distintivos"</cite>
+    </div>
+  </section>
+
+  <!-- ── CIERRE ── -->
+  <section style="border-bottom:none; padding-bottom: 80px;">
+    <div class="section-label">Conclusión</div>
+    <h2 class="section-title">La memoria como <em>antídoto</em></h2>
+
+    <div class="two-col">
+      <div>
+        <p>El fascismo no es simplemente un capítulo cerrado de la historia del siglo XX. Es una respuesta recurrente que ciertos sectores sociales ofrecen ante las crisis del capitalismo, el miedo a la pérdida de privilegios y el descontento de quienes han sido abandonados por el sistema.</p>
+
+        <p>Comprender su lógica — cómo prometió grandeza y entregó ruina; cómo movilizó masas contra sus propios intereses; cómo destruyó democracias desde adentro — es una tarea política urgente, no solo académica.</p>
+
+        <p>La memoria democrática, la educación crítica, la solidaridad entre pueblos y la defensa activa de las instituciones son las herramientas fundamentales frente a su regreso bajo nuevas formas.</p>
+      </div>
+      <div>
+        <div class="info-strip">
+          <h4>Referencias y Fuentes</h4>
+          <p>Umberto Eco, <em>Ur-Fascismo</em> (1995). Norberto Bobbio, <em>Teoría general de la política</em>. Roger Griffin, <em>Fascismo</em> (2019, Alianza Editorial). Cas Mudde, <em>The Far Right Today</em> (2019). Eric Hobsbawm, <em>Historia del siglo XX</em> (1998). Enzo Traverso, sobre posfascismo. Instituto Tricontinental de Investigación Social. Wikipedia (es): Fascismo, Neofascismo, Definiciones de fascismo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-subtitle">Boletín Especial de Análisis Político</div>
+      <div class="footer-title">ANCA · ADE</div>
+      <p class="footer-text">Este boletín especial fue elaborado con fines educativos y de análisis político. Su contenido está basado en fuentes académicas, enciclopédicas y de análisis político contemporáneo. La comprensión histórica del fascismo es una herramienta indispensable para la defensa de la democracia y los derechos humanos.</p>
+    </div>
+    <div class="footer-meta">
+      <div class="footer-date">
+        Publicado: Marzo 2026<br>
+        Edición: Especial Nº 01<br>
+        Área: Análisis Político<br>
+        Serie: Historia y Presente
+      </div>
+      <p class="footer-copy">© 2026 ANCA-ADE · Uso educativo autorizado con atribución</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

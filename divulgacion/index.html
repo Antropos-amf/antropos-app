@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cosas que no sé · Alfredo Montero Fonseca</title>
+  <meta name="description" content="Divulgación: cosas que voy aprendiendo. Antropología, ciencia, historia y más.">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    .tema-card {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .tema-card:last-child { border-bottom: none; }
+    .tema-label {
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 0.4rem;
+    }
+    .tema-card h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0.4rem;
+    }
+    .tema-card h2 a { color: var(--color-text); }
+    .tema-card h2 a:hover { color: var(--color-accent); text-decoration: none; }
+    .tema-card p {
+      font-size: 0.95rem;
+      color: var(--color-muted);
+      margin-bottom: 0.75rem;
+    }
+    .entregas {
+      font-family: var(--font-ui);
+      font-size: 0.85rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .entregas a {
+      color: var(--color-accent);
+      border: 1px solid var(--color-border);
+      padding: 0.2rem 0.6rem;
+      border-radius: 3px;
+    }
+    .entregas a:hover { background: var(--color-border); text-decoration: none; }
+    .intro {
+      padding: 3rem 0 2rem;
+      border-bottom: 1px solid var(--color-border);
+      margin-bottom: 0.5rem;
+    }
+    .intro h1 { font-size: 1.8rem; margin-bottom: 0.75rem; }
+    .intro p { color: var(--color-muted); max-width: 560px; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <a class="logo" href="/">antropos.app</a>
+      <nav>
+        <a href="/">Inicio</a>
+        <a href="/articulos/">Artículos</a>
+        <a href="mailto:alfredo.montero@ucr.ac.cr">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <div class="intro">
+        <h1>Cosas que no sé</h1>
+        <p>Un espacio de divulgación honesta: comparto lo que voy aprendiendo sobre antropología, historia, ciencia y el mundo. No pretendo ser experto en todo, solo curioso con método.</p>
+      </div>
+
+      <!-- Fascismo -->
+      <div class="tema-card">
+        <div class="tema-label">Política · Historia</div>
+        <h2><a href="fascismo/">¿Qué es el Fascismo?</a></h2>
+        <p>Un análisis antropológico del fascismo como fenómeno histórico y su expresión contemporánea en Costa Rica.</p>
+        <div class="entregas">
+          <a href="fascismo/">El fenómeno fascista</a>
+          <a href="fascismo/costa-rica.html">Anexo: El Fascismo en Costa Rica</a>
+        </div>
+      </div>
+
+      <!-- China (próximamente) -->
+      <div class="tema-card">
+        <div class="tema-label">Historia · Antropología</div>
+        <h2>Historia de China desde la Antropología Dinámica del Devenir</h2>
+        <p>Tres entregas para entender la historia de China desde una perspectiva antropológica.</p>
+        <div class="entregas">
+          <span style="color:var(--color-muted); font-size:0.8rem;">Próximamente</span>
+        </div>
+      </div>
+
+      <!-- Artemis (próximamente) -->
+      <div class="tema-card">
+        <div class="tema-label">Ciencia · Espacio</div>
+        <h2>Misión Artemis II: análisis desde la Antropología</h2>
+        <p>Qué nos dice sobre la humanidad contemporánea el regreso a la Luna.</p>
+        <div class="entregas">
+          <span style="color:var(--color-muted); font-size:0.8rem;">Próximamente</span>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      &copy; <span id="year"></span> Alfredo Montero Fonseca
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

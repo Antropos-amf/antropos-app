@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anexo: El Fascismo en Costa Rica — ANCA-ADE</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --negro: #0a0a0a;
+    --rojo: #c41e1e;
+    --rojo-oscuro: #8b1010;
+    --crema: #f5f0e8;
+    --arena: #e8dcc8;
+    --gris: #3a3a3a;
+    --gris-claro: #888;
+    --dorado: #b8960c;
+    --verde-cr: #1a5c2a;
+    --azul-cr: #1a3a6b;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--negro);
+    color: var(--crema);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.7;
+  }
+
+  /* ── CABECERA ANEXO ── */
+  header {
+    background: var(--crema);
+    color: var(--negro);
+    overflow: hidden;
+  }
+
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 48px;
+    border-bottom: 2px solid var(--negro);
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .org-name {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    color: var(--rojo);
+  }
+
+  .header-main {
+    display: grid;
+    grid-template-columns: 1.2fr 2px 0.8fr;
+    min-height: 340px;
+  }
+
+  .header-left {
+    padding: 48px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .anexo-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--rojo);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .anexo-label::before {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 2px;
+    background: var(--rojo);
+  }
+
+  .boletin-ref {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--gris);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+
+  .main-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 7vw, 88px);
+    line-height: 0.92;
+    color: var(--negro);
+    letter-spacing: 0.02em;
+  }
+
+  .main-title .destaque { color: var(--verde-cr); }
+  .main-title .destaque2 { color: var(--rojo); }
+
+  .subtitle {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--gris);
+    margin-top: 18px;
+    line-height: 1.4;
+    max-width: 460px;
+  }
+
+  .header-right {
+    background: var(--negro);
+    padding: 48px 40px;
+    border-left: 2px solid var(--negro);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cr-watermark {
+    position: absolute;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 180px;
+    color: rgba(255,255,255,0.04);
+    line-height: 1;
+    right: -20px;
+    bottom: -20px;
+    user-select: none;
+  }
+
+  .lead-stat {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 28px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px;
+    color: var(--rojo);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .stat-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gris-claro);
+    border-top: 1px solid #222;
+    padding-top: 8px;
+  }
+
+  .header-bottom {
+    background: var(--verde-cr);
+    color: var(--crema);
+    padding: 16px 48px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* ── ÍNDICE ── */
+  .toc-bar {
+    background: var(--negro);
+    border-bottom: 1px solid #1a1a1a;
+    padding: 18px 48px;
+    display: flex;
+    gap: 36px;
+    overflow-x: auto;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gris-claro);
+  }
+
+  .toc-item { display: flex; align-items: center; gap: 8px; white-space: nowrap; }
+  .toc-num { color: var(--verde-cr); font-weight: 700; }
+
+  /* ── CUERPO ── */
+  main { max-width: 1140px; margin: 0 auto; padding: 0 32px; }
+
+  section {
+    padding: 68px 0 44px;
+    border-bottom: 1px solid #181818;
+  }
+
+  section:last-child { border-bottom: none; }
+
+  .section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--verde-cr);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #1e1e1e;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3.5vw, 42px);
+    font-weight: 900;
+    line-height: 1.15;
+    color: var(--crema);
+    margin-bottom: 28px;
+    max-width: 720px;
+  }
+
+  .section-title em { color: var(--rojo); font-style: italic; }
+  .section-title .verde { color: #4a9e5c; }
+
+  p { color: #c8bfae; margin-bottom: 20px; max-width: 720px; }
+  p.wide { max-width: 100%; }
+  strong { color: var(--crema); font-weight: 600; }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 52px;
+    margin-top: 28px;
+  }
+
+  .three-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    margin-top: 28px;
+  }
+
+  /* ── PULL QUOTE ── */
+  .pull-quote {
+    margin: 40px 0;
+    padding: 36px 44px;
+    background: #0f0f0f;
+    border-left: 5px solid var(--rojo);
+    position: relative;
+  }
+
+  .pull-quote::before {
+    content: '\201C';
+    font-family: 'Playfair Display', serif;
+    font-size: 110px;
+    color: var(--rojo);
+    opacity: 0.18;
+    position: absolute;
+    top: -16px;
+    left: 28px;
+    line-height: 1;
+  }
+
+  .pull-quote p {
+    font-family: 'Playfair Display', serif;
+    font-size: 21px;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--crema);
+    max-width: 680px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .pull-quote cite {
+    display: block;
+    margin-top: 14px;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--verde-cr);
+    font-style: normal;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ── TIMELINE ── */
+  .timeline { position: relative; padding-left: 0; margin-top: 32px; }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 64px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #1a1a1a;
+  }
+
+  .tl-item {
+    display: grid;
+    grid-template-columns: 128px 1fr;
+    gap: 28px;
+    margin-bottom: 36px;
+    position: relative;
+  }
+
+  .tl-year {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    color: var(--verde-cr);
+    text-align: right;
+    padding-right: 38px;
+    position: relative;
+    padding-top: 4px;
+  }
+
+  .tl-year::after {
+    content: '';
+    position: absolute;
+    right: -5px;
+    top: 12px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--verde-cr);
+    border: 2px solid var(--negro);
+  }
+
+  .tl-year.rojo { color: var(--rojo); }
+  .tl-year.rojo::after { background: var(--rojo); }
+
+  .tl-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--crema);
+    margin-bottom: 6px;
+  }
+
+  .tl-content p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #999;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  /* ── TARJETA ACTOR ── */
+  .actor-card {
+    background: #0c0c0c;
+    border: 1px solid #1c1c1c;
+    padding: 28px;
+    position: relative;
+    transition: border-color 0.3s;
+  }
+
+  .actor-card:hover { border-color: #333; }
+
+  .actor-period {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    color: var(--rojo);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+
+  .actor-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--crema);
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+
+  .actor-role {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--gris-claro);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #1e1e1e;
+  }
+
+  .actor-text {
+    font-size: 14px;
+    line-height: 1.65;
+    color: #999;
+    margin: 0;
+    max-width: 100%;
+  }
+
+  .actor-tag {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 3px 10px;
+    background: #1a0000;
+    border: 1px solid #400000;
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rojo);
+  }
+
+  /* ── INFOBOX ── */
+  .info-box {
+    background: #0c0c0c;
+    border: 1px solid #1e1e1e;
+    border-left: 4px solid var(--dorado);
+    padding: 24px 28px;
+    margin: 32px 0;
+  }
+
+  .info-box h4 {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--dorado);
+    margin-bottom: 10px;
+  }
+
+  .info-box p { font-size: 14px; color: #aaa; margin: 0; max-width: 100%; }
+
+  /* ── ALERT BOX ── */
+  .alert-box {
+    background: #080d08;
+    border: 1px solid #1a3a1a;
+    padding: 36px 40px;
+    margin: 36px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .alert-box::before {
+    content: '?';
+    position: absolute;
+    right: 28px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 180px;
+    color: var(--verde-cr);
+    opacity: 0.07;
+    line-height: 1;
+  }
+
+  .alert-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--verde-cr);
+    margin-bottom: 10px;
+  }
+
+  .alert-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--crema);
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .alert-box p {
+    font-size: 14px;
+    max-width: 640px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ── SEÑALES MODERNAS ── */
+  .senales-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    background: #111;
+    margin-top: 28px;
+    border: 1px solid #1a1a1a;
+  }
+
+  .senal-item {
+    background: #090909;
+    padding: 22px 24px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .senal-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--verde-cr);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 8px;
+  }
+
+  .senal-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #aaa;
+    margin: 0;
+    max-width: 100%;
+  }
+
+  .senal-text strong { color: var(--crema); }
+
+  /* ── HIGHLIGHT BOX ── */
+  .highlight-cr {
+    background: var(--verde-cr);
+    color: var(--crema);
+    padding: 48px 44px;
+    margin: 48px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .highlight-cr::before {
+    content: 'CR';
+    position: absolute;
+    right: -20px;
+    bottom: -40px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 200px;
+    color: rgba(0,0,0,0.15);
+    line-height: 1;
+  }
+
+  .highlight-cr .hl-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 14px;
+  }
+
+  .highlight-cr h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 900;
+    margin-bottom: 16px;
+    line-height: 1.2;
+    position: relative;
+    z-index: 2;
+  }
+
+  .highlight-cr p {
+    color: rgba(255,255,255,0.85);
+    max-width: 680px;
+    font-size: 15px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ── DATOS GRILLA ── */
+  .data-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    background: #111;
+    margin: 32px 0;
+    border: 1px solid #1a1a1a;
+  }
+
+  .data-cell {
+    background: #090909;
+    padding: 24px 20px;
+    text-align: center;
+  }
+
+  .data-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px;
+    color: var(--rojo);
+    line-height: 1;
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  .data-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gris-claro);
+    line-height: 1.5;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #050505;
+    border-top: 2px solid var(--verde-cr);
+    padding: 44px 48px;
+  }
+
+  .footer-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 52px;
+    align-items: start;
+  }
+
+  .footer-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    color: var(--crema);
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+
+  .footer-subtitle {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    color: var(--verde-cr);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .footer-text {
+    font-size: 13px;
+    color: #666;
+    max-width: 480px;
+    margin: 0;
+  }
+
+  .footer-meta { text-align: right; }
+
+  .footer-date {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: #555;
+    letter-spacing: 0.15em;
+    line-height: 2;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 800px) {
+    .header-main { grid-template-columns: 1fr; }
+    .header-right { display: none; }
+    .two-col, .three-col, .senales-grid, .data-row { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr; }
+    .footer-meta { text-align: left; }
+    .header-top, .header-bottom, main, footer { padding-left: 24px; padding-right: 24px; }
+    .header-left { padding: 36px 24px; }
+    .tl-item { grid-template-columns: 80px 1fr; gap: 12px; }
+    .timeline::before { left: 40px; }
+    .toc-bar { padding: 14px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ CABECERA ══ -->
+<header>
+  <div class="header-top">
+    <span class="org-name">ANCA · ADE</span>
+    <span>Boletín Especial — Anexo Documental</span>
+    <span>Marzo 2026</span>
+  </div>
+
+  <div class="header-main">
+    <div class="header-left">
+      <div class="anexo-label">Anexo al Boletín Especial Nº 01</div>
+      <div class="boletin-ref">Complemento de: ¿Qué es el Fascismo? · ANCA-ADE · 2026</div>
+      <h1 class="main-title">EL<br>FAS<span class="destaque2">CIS</span>MO<br>EN <span class="destaque">COSTA</span><br><span class="destaque">RICA</span></h1>
+      <p class="subtitle">Historia, actores, movimientos y manifestaciones contemporáneas del fascismo en suelo costarricense</p>
+    </div>
+    <div class="header-right">
+      <div class="cr-watermark">CR</div>
+
+      <div class="lead-stat">
+        <span class="stat-num">1936</span>
+        <span class="stat-label">Fundación del Partido Nazi de Costa Rica</span>
+      </div>
+      <div class="lead-stat">
+        <span class="stat-num">1939</span>
+        <span class="stat-label">Monumento fascista "Águila Dorada" — Ochomogo</span>
+      </div>
+      <div class="lead-stat">
+        <span class="stat-num">1961</span>
+        <span class="stat-label">Fundación del MCRL, organización paramilitar de ultraderecha</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="header-bottom">
+    <span>▶ ANEXO DOCUMENTADO · INVESTIGACIÓN HISTÓRICA</span>
+    <span>Historia · Análisis · Memoria · Presente</span>
+    <span>Costa Rica · 2026</span>
+  </div>
+</header>
+
+<!-- ══ ÍNDICE ══ -->
+<nav class="toc-bar">
+  <div class="toc-item"><span class="toc-num">A1</span> Contexto General</div>
+  <div class="toc-item"><span class="toc-num">A2</span> El Partido Nazi de CR</div>
+  <div class="toc-item"><span class="toc-num">A3</span> Actores Políticos Clave</div>
+  <div class="toc-item"><span class="toc-num">A4</span> El MCRL y la Guerra Fría</div>
+  <div class="toc-item"><span class="toc-num">A5</span> Cronología</div>
+  <div class="toc-item"><span class="toc-num">A6</span> El Presente: Nueva Ultraderecha</div>
+  <div class="toc-item"><span class="toc-num">A7</span> La Excepción Costarricense</div>
+</nav>
+
+<!-- ══ CUERPO ══ -->
+<main>
+
+  <!-- ── A1 CONTEXTO ── -->
+  <section id="contexto">
+    <div class="section-label">A1 · Contexto General</div>
+    <h2 class="section-title">Costa Rica <em>no estuvo</em> vacunada contra el fascismo</h2>
+
+    <div class="two-col">
+      <div>
+        <p>La narrativa histórica oficial de Costa Rica tiende a presentar al país como una democracia ejemplar y pacífica, con una tradición republicana que la hacía inmune a los extremismos que desgarraron Europa y otros países latinoamericanos. Esta narrativa, aunque contiene verdades importantes, ha ocultado durante décadas una realidad incómoda: <strong>Costa Rica albergó uno de los movimientos fascistas y nazistas más numerosos y activos de Latinoamérica</strong>, según señalaban informes del propio gobierno de los Estados Unidos de la época.</p>
+
+        <p>El historiador costarricense Iván Molina Jiménez señala que la identificación étnica del costarricense con una herencia europea y "blanca" fue uno de los factores que facilitó la recepción de ideas fascistas y racistas en el país durante los años treinta y cuarenta. La ausencia de un fascismo con uniformes vistosos, saludos y marchas masivas —típica discreción "tica"— no implicó ausencia de simpatías reales.</p>
+
+        <p>A diferencia de las experiencias europeas, el fascismo costarricense nunca alcanzó el poder de manera directa ni constituyó un régimen. Sin embargo, <strong>sí penetró en la élite política, en la comunidad inmigrante alemana e italiana, en sectores de la Iglesia, en la prensa y en grupos paramilitares de la Guerra Fría</strong>. Este documento reconstruye esa historia.</p>
+      </div>
+      <div>
+        <div class="alert-box">
+          <div class="alert-label">⚐ Nota Metodológica</div>
+          <h3>Fascismo "periférico" latinoamericano</h3>
+          <p>Los estudiosos del fascismo latinoamericano hablan de "fascismos periféricos": no copias exactas del modelo europeo, sino adaptaciones locales que mantienen el núcleo ideológico. En el caso costarricense, ese núcleo se expresó en anticomunismo radical, antisemitismo, xenofobia, admiración por los líderes del Eje y — en algunos casos — organización paramilitar encubierta.</p>
+        </div>
+
+        <div class="data-row" style="margin-top:2px;">
+          <div class="data-cell">
+            <span class="data-num">1936</span>
+            <span class="data-label">Partido Nazi fundado</span>
+          </div>
+          <div class="data-cell">
+            <span class="data-num">1941</span>
+            <span class="data-label">CR declara guerra a Alemania</span>
+          </div>
+          <div class="data-cell">
+            <span class="data-num">1961</span>
+            <span class="data-label">Fundación del MCRL</span>
+          </div>
+          <div class="data-cell">
+            <span class="data-num">2018</span>
+            <span class="data-label">Emergencia nueva ultraderecha</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── A2 PARTIDO NAZI ── -->
+  <section id="partido-nazi">
+    <div class="section-label">A2 · El Partido Nazi de Costa Rica</div>
+    <h2 class="section-title">El <em>Águila Dorada</em> y el nazismo en suelo tico</h2>
+
+    <p>El Partido Nazi de Costa Rica — más correctamente denominado Partido Nacionalsocialista de Costa Rica o NSDAP/AO local — fue <strong>fundado en 1936</strong> en el seno de la comunidad alemana del país. Su nombre más conocido es simplemente "Partido Nazi de Costa Rica", aunque historiadores modernos utilizan esa denominación convencional.</p>
+
+    <div class="two-col">
+      <div>
+        <p>Sus reuniones se realizaban principalmente en el <strong>Club Alemán</strong> de San José, donde la comunidad germana compartía noticias del Reich y propaganda nazi. La organización estaba presidida por el ingeniero alemán <strong>Max Effinger</strong>, figura central que luego adquirió influencia directa en la política costarricense.</p>
+
+        <p>En 1939, simpatizantes del nazismo y el fascismo construyeron un espacio para reuniones en una finca prestada por un seguidor italiano, ubicada en el <strong>Alto del Fierro de Ochomogo, en San Rafael, cantón de La Unión</strong> — a la salida de la actual carretera San José-Cartago. Allí erigieron el llamado <strong>Monumento del Águila Dorada</strong>, una estructura con forma de águila sobre una fuente, que sobrevive hasta nuestros días como testimonio silencioso de aquel período.</p>
+
+        <p>El gobierno de Estados Unidos emitió informes en la época señalando que, junto con Argentina, <strong>Costa Rica era uno de los dos países latinoamericanos con mayor proporción de simpatizantes del nacionalsocialismo</strong> en relación con su población.</p>
+      </div>
+      <div>
+        <div class="pull-quote" style="margin:0 0 24px 0;">
+          <p>El fascismo costarricense fue menos visible, quizás por la cultura del tico de ser discreto, pero al mismo tiempo fue uno de los movimientos más numerosos de Latinoamérica.</p>
+          <cite>— Registros históricos e informes de inteligencia de EE.UU., años 1940</cite>
+        </div>
+
+        <div class="info-box">
+          <h4>El Monumento del Águila Dorada — Ochomogo</h4>
+          <p>Construido hacia 1939 en un enclave de inmigrantes ítalo-alemanes en Ochomogo, este monumento con forma de águila sobre una fuente es el único vestigio material público del período nazi-fascista en Costa Rica. Su existencia fue durante décadas un "secreto a voces" de la historia local no oficial.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── A3 ACTORES POLÍTICOS ── -->
+  <section id="actores">
+    <div class="section-label">A3 · Actores Políticos Clave</div>
+    <h2 class="section-title">Las figuras que <em>colaboraron</em> con el fascismo desde el poder</h2>
+
+    <p>El fascismo costarricense no existió solo en las márgenes: tuvo expresiones en las más altas esferas del poder ejecutivo. Varios presidentes y figuras políticas de primera línea mantuvieron vínculos o simpatías con los regímenes del Eje, lo que se tradujo en políticas concretas, especialmente en materia migratoria y antisemita.</p>
+
+    <div class="three-col">
+
+      <div class="actor-card">
+        <div class="actor-period">1936 – 1940</div>
+        <div class="actor-name">León Cortés Castro</div>
+        <div class="actor-role">28.° Presidente de la República</div>
+        <p class="actor-text">Considerado el caso más documentado de simpatías fascistas en el poder costarricense. Cortés designó a Max Effinger — líder del NSDAP/AO local — como asesor en migración, lo que permitió bloquear sistemáticamente el ingreso de judíos polacos que huían de la persecución nazi. Fue uno de los primeros líderes mundiales en reconocer como legítima la invasión italiana de Etiopía (1937). Envió a su hijo a estudiar a Alemania nazi. En 1937, recibió oficialmente en la Casa Amarilla a los oficiales del acorazado alemán <em>Schleswig-Holstein</em>. En 1939, recibió en el puerto la visita del buque nazi <em>Fella</em> — el mismo que meses más tarde participaría en los primeros disparos de la invasión de Polonia. El gobierno de Cortés fue descrito por los comunistas costarricenses de la época como el "aspirante a Führer".</p>
+        <span class="actor-tag">Filofascista documentado</span>
+      </div>
+
+      <div class="actor-card">
+        <div class="actor-period">1936 – fundador</div>
+        <div class="actor-name">Max Effinger</div>
+        <div class="actor-role">Líder NSDAP/AO Costa Rica · Asesor Presidencial</div>
+        <p class="actor-text">Ingeniero alemán radicado en Costa Rica y presidente del Partido Nazi local desde su fundación en 1936. Su designación como asesor de migración por parte de Cortés fue la bisagra entre la organización nazi civil y el poder del Estado costarricense. Desde ese cargo, Effinger implementó políticas restrictivas que impidieron el ingreso de refugiados judíos. Fue también el nexo entre el régimen nazi alemán, el comercio de café y el financiamiento de actividades propagandísticas en el país. Según registros del Colegio Humboldt, las exportaciones de café costarricense a Alemania, bajo su influencia, crecieron un 94% entre 1933/34 y 1938/39.</p>
+        <span class="actor-tag">Organizador nazi</span>
+      </div>
+
+      <div class="actor-card">
+        <div class="actor-period">1938 – 1953 (prensa)</div>
+        <div class="actor-name">Otilio Ulate Blanco</div>
+        <div class="actor-role">Periodista · Futuro Presidente (1949-1953)</div>
+        <p class="actor-text">Antes de ser presidente, Ulate fue director del <em>Diario de Costa Rica</em>, donde publicó reiteradamente mensajes antisemitas: acusó a los judíos de promover el comunismo, de "envenenar la leche que vendían a los niños costarricenses" y de practicar el satanismo. Estas acusaciones eran calcadas de la propaganda nazi europea de la época. Paradójicamente, Ulate lideró el bando ganador de la Guerra Civil de 1948 junto a José Figueres Ferrer, quienes fundaron la Segunda República. Su antisemitismo fue un "secreto público" no integrado a la narrativa oficial de la democracia costarricense.</p>
+        <span class="actor-tag">Antisemitismo en prensa</span>
+      </div>
+
+    </div>
+
+    <div class="info-box" style="margin-top:36px;">
+      <h4>La Comisión de "Polacos" — 1940</h4>
+      <p>Durante la administración de Rafael Ángel Calderón Guardia (1940-1944), una Comisión Especial investigadora fue establecida para estudiar la situación de los llamados "ciudadanos polacos". Aunque el lenguaje era eufemístico, el objetivo era registrar y vigilar a los judíos provenientes de Polonia, Alemania, Austria y Rusia. Todos los "polacos" mayores de 16 años debían presentarse. Calderón luego cambió de curso al declarar la guerra a Alemania en 1941 por presión de Estados Unidos, aliándose además con el Partido Comunista — movimiento que le costaría la guerra civil de 1948.</p>
+    </div>
+  </section>
+
+  <!-- ── A4 MCRL ── -->
+  <section id="mcrl">
+    <div class="section-label">A4 · El MCRL y la Guerra Fría</div>
+    <h2 class="section-title">El <em>Movimiento Costa Rica Libre</em>: fascismo anticomunista en tiempos de Guerra Fría</h2>
+
+    <div class="two-col">
+      <div>
+        <p>Con la derrota del fascismo en 1945 y el inicio de la Guerra Fría, los movimientos de ultraderecha latinoamericanos encontraron un nuevo marco ideológico: el <strong>anticomunismo</strong>. En Costa Rica, la expresión más importante de esta reconfiguración fue el <strong>Movimiento Costa Rica Libre (MCRL)</strong>.</p>
+
+        <p>Fundado alrededor de 1961 — inicialmente como "Movimiento Nacionalista" — por <strong>Edgar Cardona</strong> (quien había liderado un intento de golpe contra Figueres Ferrer), y por miembros de las familias empresariales Pozuelo, Uribe (cadena Más x Menos) y Federspiel (cadena Universal), el MCRL se convirtió en la organización de ultraderecha más importante de la historia costarricense.</p>
+
+        <p>El MCRL fue miembro de la <strong>Liga Anticomunista Mundial</strong>, red internacional fundada por el dictador taiwanese Chiang Kai-shek que vinculaba organizaciones anticomunistas de todo el mundo, muchas de ellas con históricos vínculos fascistas. Varios medios denunciaron en su momento que el MCRL recibía financiamiento de la <strong>embajada de Estados Unidos y del gobierno de Taiwán</strong>.</p>
+
+        <p>Entre 1982 y 1984, el MCRL operó unidades paramilitares: los <strong>Boinas Azules</strong> y los <strong>Tridentes</strong>, entrenados en montañismo, armas y artes marciales. Según sus propios miembros, la organización era comparable en capacidad militar al ejército costarricense abolido en 1948. Apoyó a los <em>Contras</em> nicaragüenses en su lucha contra el sandinismo y asistió a grupos anticastristas en Florida.</p>
+      </div>
+      <div>
+        <div class="pull-quote" style="margin:0 0 24px 0;">
+          <p>El MCRL es una organización cuyos propósitos, quizás no de manera casual, coinciden con los de la Central de Inteligencia Norteamericana (CIA), abocada a financiar grupos de defensa de la democracia en América.</p>
+          <cite>— Dra. Mercedes Muñoz Guillén, historiadora, UCR · Semanario Universidad, 2005</cite>
+        </div>
+
+        <div class="info-box">
+          <h4>Rasgos fascistas del MCRL según analistas</h4>
+          <p>Aunque el MCRL se autodefinía como anticomunista y nunca se reivindicó abiertamente fascista, los estudiosos identifican en él rasgos propios del fascismo periférico: carácter paramilitar, racismo encubierto (excluía a personas negras y judías), financiamiento de élites empresariales, vínculos con la CIA, infiltración de organizaciones sociales para desarticular protestas, y discurso de defensa de la "nación" frente al "enemigo interior" comunista.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── A5 CRONOLOGÍA ── -->
+  <section id="cronologia">
+    <div class="section-label">A5 · Cronología</div>
+    <h2 class="section-title">Del <em>nazismo</em> criollo al populismo de ultraderecha: hitos históricos</h2>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-year">1933</div>
+        <div class="tl-content">
+          <h3>Llegada del nazismo y expulsión de estudiantes extranjeros</h3>
+          <p>El ascenso de Hitler al poder en Alemania genera entusiasmo en la comunidad alemana de Costa Rica. El gobierno costarricense expulsa a estudiantes venezolanos y españoles vinculados al Partido Comunista naciente, en lo que constituye un primer acto de represión anticomunista de corte autoritario.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year rojo">1936</div>
+        <div class="tl-content">
+          <h3>Fundación del Partido Nazi de Costa Rica</h3>
+          <p>La organización, presidida por Max Effinger, nace en el Club Alemán. Se suma a la red NSDAP/AO (organización del partido en el exterior). Ese mismo año, León Cortés asume la presidencia. Ese año también aparece en una papeleta electoral el primer candidato negro de Costa Rica, Harold Nichols, del Partido Comunista.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year rojo">1937</div>
+        <div class="tl-content">
+          <h3>Cortés reconoce la invasión italiana de Etiopía</h3>
+          <p>El presidente León Cortés fue uno de los primeros mandatarios del mundo en reconocer como legítima la conquista del Imperio italiano en África Oriental, alineándose con el Eje. Recibe oficialmente en la Casa Amarilla a los oficiales del acorazado alemán <em>Schleswig-Holstein</em>.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year rojo">1939</div>
+        <div class="tl-content">
+          <h3>Monumento del Águila Dorada y el buque Fella</h3>
+          <p>Se construye el monumento fascista en Ochomogo. Ese mismo año, Cortés recibe en el país al buque nazi <em>Fella</em>, que meses después participaría en los primeros cañonazos de la invasión de Polonia. Se consolida el bloqueo migratorio a refugiados judíos, operado desde el despacho de Effinger.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">1941</div>
+        <div class="tl-content">
+          <h3>Costa Rica declara la guerra a Alemania e Italia</h3>
+          <p>Tras el ataque a Pearl Harbor, Costa Rica se alinea con los Aliados bajo Calderón Guardia, quien busca congraciarse con Washington. Alemanes e italianos en el país son investigados y algunos deportados. Se marca un giro abrupto respecto al período Cortés.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">1948</div>
+        <div class="tl-content">
+          <h3>Guerra Civil y la Segunda República</h3>
+          <p>La guerra civil coloca en el poder a José Figueres Ferrer y el bando que incluía al antisemita Otilio Ulate. Los judíos eran percibidos como afines al bando perdedor (Calderón-Picado). La nueva constitución abolió el ejército pero no realizó un proceso formal de memoria histórica sobre el período fascista.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">1961</div>
+        <div class="tl-content">
+          <h3>Fundación del MCRL</h3>
+          <p>Nace el Movimiento Costa Rica Libre, la organización paramilitar de ultraderecha más importante del siglo XX costarricense. Se inscribe en la lógica de la Guerra Fría: anticomunismo activo, entrenamiento militar, vínculos con la CIA y empresariado nacional.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">1980–84</div>
+        <div class="tl-content">
+          <h3>Apogeo paramilitar del MCRL</h3>
+          <p>Auge de los "Boinas Azules" y los "Tridentes". El MCRL interfiere en protestas sociales, apoya a los <em>Contras</em> nicaragüenses y opera con financiamiento externo. Seis altos funcionarios del gobierno Arias (1986-1990) son identificados como miembros del Movimiento.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2017</div>
+        <div class="tl-content">
+          <h3>Debate sobre la estatua de León Cortés</h3>
+          <p>Tras los disturbios neonazis en Charlottesville (EE.UU.), surge en Costa Rica una petición para retirar la estatua de León Cortés del Parque La Sabana, argumentando que representa un "homenaje a un filofascista". La discusión reabre la memoria histórica sobre el período nazi en el país.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year rojo">2018</div>
+        <div class="tl-content">
+          <h3>Emergencia electoral de la ultraderecha: Fabricio Alvarado</h3>
+          <p>Fabricio Alvarado, candidato evangélico ultraconservador de Restauración Nacional, obtiene el primer lugar en la primera ronda electoral con discursos contra el matrimonio igualitario y los derechos LGBTIQ+. Aunque no es fascista en sentido estricto, representa el ingreso de la cuarta ola de la derecha radical al sistema político costarricense.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year rojo">2022–26</div>
+        <div class="tl-content">
+          <h3>Rodrigo Chaves y el populismo de ultraderecha</h3>
+          <p>Rodrigo Chaves Robles gana la presidencia en 2022 con un discurso populista de confrontación con las instituciones, los medios, el Poder Judicial y los sindicatos. Académicos como Adrián Pignataro (UCR) ubican su proyecto político en el espectro del populismo de derecha radical, con rasgos autoritarios: ataque sistemático a la prensa, concentración de poder ejecutivo y retórica de "nosotros vs. élites corruptas". En las elecciones de 2026, el debate sobre la radicalización del sistema político costarricense se intensificó.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── A6 PRESENTE ── -->
+  <section id="presente">
+    <div class="section-label">A6 · El Presente</div>
+    <h2 class="section-title">La <em>nueva ultraderecha</em> costarricense: ¿qué ha cambiado?</h2>
+
+    <p>La cuarta ola de la derecha radical (Cas Mudde) llegó a Costa Rica con fuerza en las elecciones de 2018. A diferencia del fascismo histórico y del MCRL de la Guerra Fría, la nueva ultraderecha costarricense opera dentro del sistema electoral, no recurre a milicias abiertas y no reivindica explícitamente el legado de Mussolini o Hitler. Sin embargo, investigadores de la UCR y la FLACSO identifican varios rasgos preocupantes.</p>
+
+    <div class="senales-grid">
+      <div class="senal-item">
+        <div class="senal-dot"></div>
+        <p class="senal-text"><strong>Discurso de la "revancha cultural".</strong> Los partidos de ultraderecha costarricenses han capitalizado la oposición al matrimonio igualitario, los derechos LGBTIQ+ y el feminismo como eje de movilización electoral, particularmente entre jóvenes de 18 a 35 años.</p>
+      </div>
+      <div class="senal-item">
+        <div class="senal-dot"></div>
+        <p class="senal-text"><strong>Polarización acelerada.</strong> Según investigadores de FLACSO, Costa Rica experimentó un agudo proceso de radicalización del espectro político, con partidos como Restauración Nacional y el Movimiento Libertario ubicados en el extremo más alejado del espectro ideológico.</p>
+      </div>
+      <div class="senal-item">
+        <div class="senal-dot"></div>
+        <p class="senal-text"><strong>Importación de teorías conspirativas extremistas.</strong> A partir de 2020 se detectó presencia activa del movimiento QAnon en redes sociales costarricenses, difundiendo noticias falsas y atacando agresivamente a medios e instituciones desde posiciones de extrema derecha pro-Trump.</p>
+      </div>
+      <div class="senal-item">
+        <div class="senal-dot"></div>
+        <p class="senal-text"><strong>Populismo de ataque institucional.</strong> Figuras como Rodrigo Chaves han construido su capital político a partir de la confrontación sistemática con el Poder Judicial, los medios de comunicación y los órganos de control, patrón identificado por especialistas como característico del populismo autoritario.</p>
+      </div>
+      <div class="senal-item">
+        <div class="senal-dot"></div>
+        <p class="senal-text"><strong>Evangelismo político conservador.</strong> La alianza entre partidos de ultraderecha y comunidades evangélicas neopentecostales ha configurado una nueva base social para el conservadurismo radical, opuesta a cualquier avance en derechos humanos y diversidad.</p>
+      </div>
+      <div class="senal-item">
+        <div class="senal-dot"></div>
+        <p class="senal-text"><strong>Xenofobia y nativismo.</strong> La retórica contra la migración nicaragüense, el señalamiento de inmigrantes como responsables de la inseguridad ciudadana y la demanda de restricciones migratorias se han convertido en eje recurrente de la derecha radical costarricense.</p>
+      </div>
+    </div>
+
+    <div class="pull-quote" style="margin-top:48px;">
+      <p>El ascenso de líderes ultraconservadores ya genera inquietud en la región, pero más en Costa Rica por el impacto en los derechos humanos, especialmente de mujeres y minorías. El fascismo hace retroceder los avances en las luchas de derechos humanos, afectando especialmente a campesinos, indígenas, afrodescendientes y comunidad LGBTIQ+.</p>
+      <cite>— Publicación Intertextual.nic · Análisis regional, febrero 2025</cite>
+    </div>
+  </section>
+
+  <!-- ── A7 LA EXCEPCIÓN ── -->
+  <div class="highlight-cr">
+    <div class="hl-label">A7 · Reflexión Final</div>
+    <h2>La paradoja costarricense: democracia y fascismo bajo el mismo techo</h2>
+    <p>Costa Rica es, a la vez, el país de la abolición del ejército (1948), la larga tradición democrática y el acceso universal a la salud y educación — y el país que albergó uno de los movimientos nazifascistas más activos de América Latina, un presidente que bloqueó refugiados judíos, una organización paramilitar financiada por la CIA y, hoy, uno de los sistemas políticos que experimenta con mayor velocidad la radicalización de la derecha. Esta paradoja no es accidental: refleja que ninguna democracia está definitivamente "vacunada" contra el autoritarismo. La memoria crítica, la educación y la defensa activa de los derechos son las únicas salvaguardas reales.</p>
+  </div>
+
+  <!-- ── REFERENCIAS ── -->
+  <section style="border-bottom:none; padding-bottom:72px;">
+    <div class="section-label">Referencias Documentales</div>
+    <h2 class="section-title">Fuentes consultadas para <em>este anexo</em></h2>
+
+    <div class="two-col">
+      <div>
+        <div class="info-box">
+          <h4>Fuentes Históricas e Investigación Académica</h4>
+          <p>Iván Molina Jiménez, historiador UCR: análisis del fascismo y antisemitismo costarricense. Jacobo Schifter, Lowell Gudmundson y Mario Solera: <em>El Judío en Costa Rica</em>. Mercedes Muñoz Guillén (UCR): investigación sobre el MCRL y el discurso anticomunista. Christian Berth: <em>La inmigración alemana en Costa Rica 1920-1950</em>. Colegio Humboldt (CR): historia de la comunidad alemana y el nazismo. Semanario Universidad (2005, 2020, 2024): análisis del MCRL y la ultraderecha. Wikipedia ES: artículos sobre León Cortés Castro, Partido Nazi de Costa Rica, MCRL, Costa Rica durante la Segunda Guerra Mundial.</p>
+        </div>
+      </div>
+      <div>
+        <div class="info-box">
+          <h4>Análisis Político Contemporáneo</h4>
+          <p>Ilka Treminio y Adrián Pignataro (FLACSO/UCR): <em>La democracia costarricense en la cuarta ola de la ultraderecha</em>, Agenda Pública, 2020. Redalyc: <em>Jóvenes y el voto por la derecha radical: el caso de Costa Rica</em>. Intertextual.nic: <em>El fascismo y ultranacionalismo amenaza las democracias en Centroamérica</em>, febrero 2025. Semanario Universidad: <em>Costa Rica acelera hacia la ultraderecha</em>, febrero 2026. AS/COA: <em>Elecciones 2026 en América Latina</em>, enero 2026.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-subtitle">Anexo al Boletín Especial de Análisis Político Nº 01</div>
+      <div class="footer-title">ANCA · ADE</div>
+      <p class="footer-text">Este anexo documental fue elaborado con fines educativos e investigativos. El análisis de los períodos históricos descritos no constituye endorsamiento de ninguna de las ideologías estudiadas, sino su documentación crítica como herramienta para la defensa de la democracia y los derechos humanos en Costa Rica y la región.</p>
+    </div>
+    <div class="footer-meta">
+      <div class="footer-date">
+        Publicado: Marzo 2026<br>
+        Anexo al Boletín Nº 01<br>
+        Área: Historia Nacional<br>
+        País: Costa Rica
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
