@@ -5,8 +5,9 @@
   --color-bg:       #faf9f6;
   --color-text:     #1a1a1a;
   --color-muted:    #6b6b6b;
-  --color-accent:   #3a6b4a;
-  --color-border:   #e0ddd6;
+  --color-accent:   #1a3a6b;
+  --color-accent-hover: #15305a;
+  --color-border:   #dde3ed;
   --font-main:      'Georgia', serif;
   --font-ui:        system-ui, sans-serif;
   --max-width:      740px;
@@ -55,6 +56,40 @@ header nav a {
 }
 
 header nav a:hover { color: var(--color-accent); text-decoration: none; }
+
+/* ── Logo hero ── */
+.hero-logo {
+  display: block;
+  height: 72px;
+  width: auto;
+  margin-bottom: 1.8rem;
+}
+
+/* ── Social links ── */
+.hero-social {
+  display: flex;
+  gap: 1.4rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero-social a {
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  color: var(--color-muted);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  border-bottom: 1px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.hero-social a:hover {
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
+  text-decoration: none;
+}
 
 /* ── Hero ── */
 .hero {
