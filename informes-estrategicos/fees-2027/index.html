@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANCA-ADE · FEES 2027 · UCR: Articulación institucional y escenarios · Abril 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:          #080b0e;
+  --bg-card:     #0e1318;
+  --bg-section:  #131a21;
+  --bg-accent:   #0a1520;
+  --granate:     #6B1528;
+  --granate-bright: #9B2540;
+  --amber:       #d4850a;
+  --amber-light: #f0a030;
+  --teal:        #0d8a7e;
+  --teal-light:  #1ab8aa;
+  --text:        #dfe6ec;
+  --text-muted:  #8a9ba8;
+  --text-dim:    #546070;
+  --border:      #1e2e3a;
+  --border-light:#2a3f50;
+  --warning:     #e67e22;
+  --critical:    #6B1528;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* ── TICKER ── */
+.ticker-outer {
+  background: var(--granate);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  overflow: hidden;
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
+.ticker-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #fff;
+  padding: 0 14px;
+  white-space: nowrap;
+  background: rgba(0,0,0,0.3);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.ticker-track {
+  display: flex;
+  animation: ticker 50s linear infinite;
+  white-space: nowrap;
+}
+.ticker-track span {
+  font-family: 'Space Mono', monospace;
+  font-size: 9.5px;
+  color: rgba(255,255,255,0.88);
+  padding: 0 28px;
+  letter-spacing: 0.06em;
+}
+.ticker-track span::before { content: '▸ '; color: rgba(255,255,255,0.45); }
+@keyframes ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ── MASTHEAD ── */
+.masthead {
+  background: linear-gradient(180deg, #000d18 0%, var(--bg) 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 48px 40px 36px;
+  position: relative;
+  overflow: hidden;
+}
+.masthead::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 8px;
+  background: var(--granate);
+}
+.masthead-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 36px;
+  padding-left: 20px;
+}
+.masthead-logo {
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--text);
+  text-decoration: none;
+}
+.masthead-nav-links {
+  display: flex;
+  gap: 24px;
+  font-family: 'Space Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.masthead-nav-links a { color: var(--text-muted); text-decoration: none; }
+.masthead-nav-links a:hover { color: var(--text); }
+
+.masthead-inner { padding-left: 20px; }
+
+.report-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--granate-bright);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.report-tag::before { content: ''; display: block; width: 28px; height: 1px; background: var(--granate); }
+
+.masthead h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 4vw, 44px);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--text);
+  margin-bottom: 14px;
+}
+
+.masthead .subtitle {
+  font-family: 'Source Serif 4', serif;
+  font-style: italic;
+  font-size: 17px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  max-width: 680px;
+  margin-bottom: 28px;
+}
+
+.masthead-meta {
+  display: flex;
+  gap: 28px;
+  font-family: 'Space Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+  flex-wrap: wrap;
+}
+.masthead-meta span { color: var(--text-muted); }
+
+/* ── ÍNDICE ── */
+.toc-bar {
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 60px;
+  display: flex;
+  gap: 32px;
+  overflow-x: auto;
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  flex-wrap: wrap;
+}
+.toc-item { display: flex; align-items: center; gap: 6px; white-space: nowrap; }
+.toc-num { color: var(--granate-bright); font-weight: 700; }
+
+/* ── MAIN ── */
+main { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+
+/* ── SECCIÓN ── */
+section { padding: 60px 0 40px; border-bottom: 1px solid var(--border); }
+section:last-child { border-bottom: none; }
+
+.sec-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--granate-bright);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.sec-label::after { content: ''; flex: 1; height: 1px; background: var(--border); max-width: 100px; }
+
+section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(20px, 3vw, 28px);
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+
+section p { margin-bottom: 1.1rem; color: var(--text); }
+section p:last-child { margin-bottom: 0; }
+
+/* ── EPISTEMICO badge ── */
+.epist {
+  display: inline-block;
+  font-family: 'Space Mono', monospace;
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid;
+  padding: 2px 7px;
+  border-radius: 2px;
+  vertical-align: middle;
+  margin-left: 6px;
+}
+.epist-conf { border-color: #1ab8aa; color: #1ab8aa; }
+.epist-infer { border-color: var(--amber-light); color: var(--amber-light); }
+.epist-hip { border-color: var(--text-dim); color: var(--text-dim); }
+.epist-interp { border-color: #8070c0; color: #9080d0; }
+
+/* ── CARDS ── */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin: 28px 0;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--granate);
+  padding: 22px 24px;
+  border-radius: 2px;
+}
+
+.card-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  font-family: 'Source Serif 4', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+.card p { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0; }
+
+/* ── TABLA MEEE-G ── */
+.tabla-wrap { overflow-x: auto; margin: 28px 0; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+thead tr { background: var(--granate); }
+thead th {
+  padding: 10px 14px;
+  text-align: left;
+  font-family: 'Space Mono', monospace;
+  font-size: 8.5px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: rgba(255,255,255,0.9);
+  white-space: nowrap;
+}
+
+tbody tr { border-bottom: 1px solid var(--border); }
+tbody tr:hover { background: var(--bg-card); }
+tbody td { padding: 10px 14px; color: var(--text-muted); vertical-align: top; }
+tbody td:first-child { color: var(--text); font-weight: 400; }
+
+.cifra {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.82rem;
+  color: var(--amber-light);
+}
+
+/* ── ALERTA / CALLOUT ── */
+.alerta {
+  background: rgba(107, 21, 40, 0.15);
+  border: 1px solid var(--granate);
+  border-left: 4px solid var(--granate-bright);
+  padding: 20px 24px;
+  margin: 28px 0;
+  border-radius: 0 2px 2px 0;
+}
+.alerta-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--granate-bright);
+  margin-bottom: 10px;
+}
+.alerta p { font-size: 0.92rem; color: var(--text); margin-bottom: 0.6rem; }
+.alerta p:last-child { margin-bottom: 0; }
+
+.info-box {
+  background: var(--bg-section);
+  border: 1px solid var(--border-light);
+  border-left: 4px solid var(--teal);
+  padding: 18px 22px;
+  margin: 24px 0;
+}
+.info-box p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+.info-box p:last-child { margin-bottom: 0; }
+
+/* ── MECANISMOS lista ── */
+.mec-lista { list-style: none; margin: 20px 0; }
+.mec-item {
+  display: flex;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+.mec-item:last-child { border-bottom: none; }
+.mec-num {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: var(--granate-bright);
+  font-weight: 700;
+  flex-shrink: 0;
+  width: 24px;
+  margin-top: 2px;
+}
+.mec-content h4 {
+  font-family: 'Source Serif 4', serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.mec-content p { font-size: 0.87rem; color: var(--text-muted); margin-bottom: 0; }
+
+/* ── ESCENARIO BLOCK ── */
+.escenario-block {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 28px 32px;
+  margin: 24px 0;
+  position: relative;
+  overflow: hidden;
+}
+.esc-granate { border-top: 3px solid var(--granate-bright); }
+.esc-amber   { border-top: 3px solid var(--amber); }
+
+.escenario-block h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+.escenario-block p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.7rem; }
+.escenario-block ul { margin: 12px 0 12px 20px; }
+.escenario-block li { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 5px; }
+
+.prob-badge {
+  display: inline-block;
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 2px;
+  margin-bottom: 16px;
+}
+.prob-alta { background: rgba(107,21,40,0.3); color: var(--granate-bright); border: 1px solid var(--granate); }
+.prob-baja { background: rgba(212,133,10,0.15); color: var(--amber-light); border: 1px solid var(--amber); }
+
+/* ── FUENTES ── */
+.fuentes-section { padding: 48px 0; }
+.fuentes-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 20px;
+}
+.fuentes-lista { list-style: none; }
+.fuentes-lista li {
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  padding: 7px 0;
+  border-bottom: 1px solid var(--border);
+  line-height: 1.55;
+}
+.fuentes-lista li:last-child { border-bottom: none; }
+.fuentes-lista a { color: var(--teal-light); text-decoration: none; }
+.fuentes-lista a:hover { text-decoration: underline; }
+
+.nota-meto {
+  background: var(--bg-section);
+  border: 1px solid var(--border);
+  padding: 20px 24px;
+  margin-top: 32px;
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+.nota-meto strong { color: var(--text-muted); }
+
+/* ── FOOTER ── */
+footer {
+  background: #030507;
+  border-top: 1px solid var(--border);
+  padding: 28px 40px;
+  font-family: 'Space Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  color: var(--text-dim);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+footer a { color: var(--text-muted); text-decoration: none; }
+footer a:hover { color: var(--text); }
+
+/* Responsive */
+@media (max-width: 680px) {
+  .masthead { padding: 32px 20px; }
+  .masthead-inner { padding-left: 12px; }
+  main { padding: 0 20px; }
+  .toc-bar { padding: 14px 20px; }
+  footer { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker-outer">
+  <div class="ticker-label">FEES 2027</div>
+  <div class="ticker-track">
+    <span>FEES 2026: ₡593.484 millones</span>
+    <span>UCR concentra el 70% de la investigación de Centroamérica y el Caribe</span>
+    <span>Negociaciones rotas el 21 de abril de 2026</span>
+    <span>Decisión trasladada a la Asamblea Legislativa</span>
+    <span>Propuesta de congelamiento en 0% o redistribución homogénea</span>
+    <span>95,9% del presupuesto de la UCR proviene del FEES</span>
+    <span>FEES 2026: ₡593.484 millones</span>
+    <span>UCR concentra el 70% de la investigación de Centroamérica y el Caribe</span>
+    <span>Negociaciones rotas el 21 de abril de 2026</span>
+    <span>Decisión trasladada a la Asamblea Legislativa</span>
+    <span>Propuesta de congelamiento en 0% o redistribución homogénea</span>
+    <span>95,9% del presupuesto de la UCR proviene del FEES</span>
+  </div>
+</div>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="masthead-nav">
+    <a class="masthead-logo" href="/">ANTROPOS.APP</a>
+    <div class="masthead-nav-links">
+      <a href="/informes-estrategicos/">Informes</a>
+      <a href="/analisis-add/">Análisis ADD</a>
+      <a href="/articulos/fees-2027/">Artículo →</a>
+    </div>
+  </div>
+  <div class="masthead-inner">
+    <div class="report-tag">Informe Estratégico · FEES 2027 · 1 de 3</div>
+    <h1>Universidad de Costa Rica<br>Articulación institucional y escenarios<br>ante la crisis del FEES</h1>
+    <p class="subtitle">Análisis de los mecanismos de acoplamiento de la UCR con el Estado costarricense y proyección de efectos sistémicos bajo dos escenarios críticos: congelamiento al 0% y redistribución homogénea del FEES 2027.</p>
+    <div class="masthead-meta">
+      <span>ANCA-ADE · UCR</span>
+      <span>·</span>
+      <span>Metodología MEEE-G + ADD</span>
+      <span>·</span>
+      <span>23 de abril de 2026</span>
+      <span>·</span>
+      <a href="contribuciones.html" style="color:var(--text-muted); text-decoration:none;">Informe 2 →</a>
+      <a href="anexo.html" style="color:var(--text-muted); text-decoration:none;">Anexo →</a>
+      <a href="complementos-salariales.html" style="color:var(--text-muted); text-decoration:none;">Anexo 2 →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ÍNDICE -->
+<div class="toc-bar">
+  <div class="toc-item"><span class="toc-num">1</span> Delimitación</div>
+  <div class="toc-item"><span class="toc-num">2</span> Estado de la información</div>
+  <div class="toc-item"><span class="toc-num">3</span> Conflicto actual</div>
+  <div class="toc-item"><span class="toc-num">4</span> Análisis MEEE-G</div>
+  <div class="toc-item"><span class="toc-num">5</span> Análisis ADD</div>
+  <div class="toc-item"><span class="toc-num">6</span> Escenarios</div>
+  <div class="toc-item"><span class="toc-num">7</span> Repercusiones</div>
+  <div class="toc-item"><span class="toc-num">8</span> Conclusiones</div>
+</div>
+
+<main>
+
+  <!-- 1. DELIMITACIÓN -->
+  <section>
+    <div class="sec-label">1 · Delimitación del fenómeno</div>
+    <h2>La UCR como atractor del desarrollo nacional</h2>
+    <p>La Universidad de Costa Rica (UCR) actúa como un <em>atractor</em> del desarrollo nacional cuyas funciones sustantivas (docencia, investigación y acción social) se acoplan al aparato estatal mediante <strong>mecanismos estructurales</strong> (programas permanentes de articulación) y <strong>mecanismos coyunturales</strong> (respuestas a emergencias nacionales). El análisis evalúa el estatus epistémico de estas contribuciones, identifica los principales programas de acoplamiento y proyecta los efectos sistémicos en cascada que producirían dos escenarios críticos.</p>
+
+    <p>El FEES es el principal mecanismo de financiamiento de la educación superior estatal, regulado por el artículo 85 de la Constitución Política. Alcanza un monto base de <span class="cifra">₡593.484 millones para 2026</span> y enfrenta una negociación fracturada para 2027 entre el Ejecutivo, que exige un congelamiento del fondo condicionado a una redistribución forzada, y las universidades, que proponen un aumento del 2,94% para sostener sus funciones.</p>
+  </section>
+
+  <!-- 2. ESTADO DE LA INFORMACIÓN -->
+  <section>
+    <div class="sec-label">2 · Estado de la información disponible</div>
+    <h2>Clasificación epistémica de los datos</h2>
+
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-label">Datos confirmados <span class="epist epist-conf">✓ Conf.</span></div>
+        <p>Presupuesto 2026 por universidad · distribución porcentual vigente del FEES · existencia de convenios interinstitucionales documentados · propuesta de 0% de aumento del Gobierno Central.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Inferencias plausibles <span class="epist epist-infer">~ Infer.</span></div>
+        <p>Magnitud de las pérdidas operativas ante un congelamiento · orden de magnitud de los impactos en investigación y cobertura territorial.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Lagunas</div>
+        <p>Ausencia de un estudio integral reciente que cuantifique el impacto económico directo e indirecto de la UCR en el PIB nacional · datos desagregados sobre dependencia financiera de cada programa respecto del FEES.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. CONFLICTO ACTUAL -->
+  <section>
+    <div class="sec-label">3 · Resumen factual del conflicto</div>
+    <h2>Negociación rota: el FEES 2027 en manos de la Asamblea</h2>
+
+    <p>El 21 de abril de 2026, el Gobierno de Costa Rica dio por <strong>cerradas</strong> las negociaciones del FEES 2027 tras calificar como «irracional y abusiva» la propuesta universitaria de un aumento del 2,94% (₡17.448 millones adicionales). El presidente Rodrigo Chaves estableció una condición explícita: «el FEES se queda en 0% si no hay una reducción significativa de la UNA y Universidad de Costa Rica para la UNED, para la UTN y para el TEC». La presidenta electa Laura Fernández confirmó que su posición será exactamente la misma a partir del 8 de mayo.</p>
+
+    <div class="alerta">
+      <div class="alerta-label">Situación actual</div>
+      <p>La decisión final sobre el FEES 2027 quedará en manos de la <strong>Asamblea Legislativa</strong>, donde el oficialismo contará con 31 votos de 57. El FEES total sería de ₡593.484 millones si prospera la propuesta de congelamiento.</p>
+      <p>Desde marzo de 2026, el CONARE impulsó una <strong>redistribución total del FEES</strong> con el objetivo de reducir las brechas históricas. En abril de 2026, el Consejo Universitario de la UCR aprobó un <strong>veto razonado</strong> a este acuerdo, argumentando ausencia de sustento técnico y exigiendo consenso unánime según el Convenio de Coordinación de 1974.</p>
+    </div>
+
+    <div class="tabla-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Universidad</th>
+            <th>% FEES 2026</th>
+            <th>Monto (mill. ₡)</th>
+            <th>Oferta académica</th>
+            <th>Producción científica</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>UCR (1940)</td>
+            <td class="cifra">49,96 %</td>
+            <td class="cifra">296.511</td>
+            <td>190+ carreras</td>
+            <td>70 %</td>
+          </tr>
+          <tr>
+            <td>UNA (1973)</td>
+            <td class="cifra">20,79 %</td>
+            <td class="cifra">123.456</td>
+            <td>105+ carreras</td>
+            <td>~20 %</td>
+          </tr>
+          <tr>
+            <td>TEC (1971)</td>
+            <td class="cifra">11,22 %</td>
+            <td class="cifra">66.581</td>
+            <td>85+ carreras</td>
+            <td>~8 %</td>
+          </tr>
+          <tr>
+            <td>UNED (1977)</td>
+            <td class="cifra">9,47 %</td>
+            <td class="cifra">56.183</td>
+            <td>65+ carreras</td>
+            <td>~1,5 %</td>
+          </tr>
+          <tr>
+            <td>UTN (2008)</td>
+            <td class="cifra">6,80 %</td>
+            <td class="cifra">40.325</td>
+            <td>40+ carreras</td>
+            <td>~0,5 %</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 4. ANÁLISIS MEEE-G -->
+  <section>
+    <div class="sec-label">4 · Análisis crítico MEEE-G</div>
+    <h2>Evaluación epistémica del conflicto</h2>
+
+    <p><strong>Fiabilismo procesual:</strong> La información presupuestaria y distributiva proviene de fuentes confiables (CONARE, semanarios de circulación nacional con acceso directo a las sesiones). <span class="epist epist-conf">Conf.</span></p>
+
+    <p><strong>Explicacionismo comparativo:</strong> La distribución actual del FEES refleja un <em>parámetro de irreversibilidad histórica</em>. Frente a esta estructura, existen al menos dos modelos distributivos contrapuestos: (i) el <strong>modelo histórico-acumulativo</strong>, que asigna recursos según la trayectoria institucional, y (ii) el <strong>modelo de equidad prospectiva</strong>, que prioriza reducir brechas. <span class="epist epist-interp">Interp.</span></p>
+
+    <p><strong>Falibilismo explícito:</strong> Las conclusiones sobre el impacto de una redistribución homogénea son <em>provisionales</em> y dependen críticamente del horizonte temporal de implementación. La evidencia indica que la UCR ha perdido 0,17 puntos porcentuales de participación entre 2025 y 2026 como parte de una tendencia de ajuste progresivo. <span class="epist epist-infer">Infer.</span></p>
+  </section>
+
+  <!-- 5. ANÁLISIS ADD -->
+  <section>
+    <div class="sec-label">5 · Análisis dinámico ADD</div>
+    <h2>Atractores, flujos y acoplamientos</h2>
+
+    <p>Son identificables al menos <strong>ocho mecanismos estructurales</strong> de acoplamiento entre la UCR y el Estado:</p>
+
+    <ul class="mec-lista">
+      <li class="mec-item">
+        <span class="mec-num">01</span>
+        <div class="mec-content">
+          <h4>Educación Pública (MEP)</h4>
+          <p>Convenio para los Centros Educativos Laboratorio, centros experimentales para nuevos métodos pedagógicos e investigación educativa.</p>
+        </div>
+      </li>
+      <li class="mec-item">
+        <span class="mec-num">02</span>
+        <div class="mec-content">
+          <h4>Salud Pública (CCSS)</h4>
+          <p>Convenio marco para el uso de campos clínicos en hospitales públicos para la formación de estudiantes de Medicina, Enfermería, Microbiología y Tecnologías Médicas. Pago mediante proyectos de investigación y acción social.</p>
+        </div>
+      </li>
+      <li class="mec-item">
+        <span class="mec-num">03</span>
+        <div class="mec-content">
+          <h4>CONARE</h4>
+          <p>Financiamiento de iniciativas interuniversitarias: Programa Estado de la Nación, Centro Nacional de Alta Tecnología (CeNAT), Sede Interuniversitaria de Alajuela, Observatorio Laboral de Profesiones (OLaP).</p>
+        </div>
+      </li>
+      <li class="mec-item">
+        <span class="mec-num">04</span>
+        <div class="mec-content">
+          <h4>Ministerio de Hacienda (vía FEES)</h4>
+          <p>El FEES representa el 95,9% del presupuesto de la UCR. Acoplamiento financiero crítico.</p>
+        </div>
+      </li>
+      <li class="mec-item">
+        <span class="mec-num">05</span>
+        <div class="mec-content">
+          <h4>SINAES</h4>
+          <p>La UCR es fundadora y principal garante del Sistema Nacional de Acreditación de la Educación Superior.</p>
+        </div>
+      </li>
+      <li class="mec-item">
+        <span class="mec-num">06</span>
+        <div class="mec-content">
+          <h4>Ministerio de Economía e Industria</h4>
+          <p>Convenios de cooperación en investigación y transferencia tecnológica.</p>
+        </div>
+      </li>
+      <li class="mec-item">
+        <span class="mec-num">07</span>
+        <div class="mec-content">
+          <h4>MICITT</h4>
+          <p>Proyectos de investigación conjunta y programas de extensión tecnológica.</p>
+        </div>
+      </li>
+      <li class="mec-item">
+        <span class="mec-num">08</span>
+        <div class="mec-content">
+          <h4>Comunidades y gobiernos locales</h4>
+          <p>La UCR actúa como polo de desarrollo territorial a través de la acción social, programas de extensión y sedes regionales.</p>
+        </div>
+      </li>
+    </ul>
+
+    <div class="info-box">
+      <p><strong>Tensiones estructurales principales:</strong></p>
+      <p>· Autonomía universitaria vs. rendición de cuentas fiscal (art. 85 Constitución vs. condicionamiento del Ejecutivo)</p>
+      <p>· Equidad interuniversitaria vs. estabilidad institucional de la UCR</p>
+      <p>· Cobertura y acceso regional vs. calidad e investigación de punta</p>
+    </div>
+  </section>
+
+  <!-- 6. ESCENARIOS -->
+  <section>
+    <div class="sec-label">6 · Escenarios probables</div>
+    <h2>Proyección de efectos en cascada</h2>
+
+    <div class="escenario-block esc-granate">
+      <div class="prob-badge prob-alta">Probabilidad: media-alta</div>
+      <h3>Escenario A — Aumento del 0% del FEES (congelamiento)</h3>
+      <p>Sin crecimiento real; pérdida de poder adquisitivo por inflación (&gt;2%). Efectos:</p>
+      <ul>
+        <li>Reducción de la capacidad de cobertura de becas (~6%); aumento de deserción estudiantil en poblaciones vulnerables</li>
+        <li>Presupuesto de investigación congelado nominalmente (pérdida real ~2-3%); cierre de líneas emergentes</li>
+        <li>Parálisis en la actualización de convenios; deterioro del equipamiento en hospitales públicos y centros laboratorio</li>
+        <li>Ausencia de ajuste salarial para personal docente y administrativo; fuga de talento hacia el sector privado o el exterior</li>
+        <li>Congelamiento de la inversión en sedes regionales; acentuación de la desigualdad territorial</li>
+      </ul>
+      <p style="margin-top:12px;"><em>Efecto sistémico:</em> La pérdida de poder adquisitivo del FEES se intensificaría. Las universidades advierten que un crecimiento nulo comprometería el funcionamiento del sistema en su conjunto, especialmente el equipamiento científico-tecnológico.</p>
+    </div>
+
+    <div class="escenario-block esc-amber">
+      <div class="prob-badge prob-baja">Probabilidad: baja a corto plazo, creciente a mediano plazo</div>
+      <h3>Escenario B — Reparto porcentualmente homogéneo (20% por universidad)</h3>
+
+      <div class="tabla-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Universidad</th>
+              <th>Variación %</th>
+              <th>Variación (mill. ₡)</th>
+              <th>Efecto inmediato</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>UCR</td>
+              <td class="cifra" style="color:#e74c3c;">-29,96 %</td>
+              <td class="cifra" style="color:#e74c3c;">-177.000</td>
+              <td style="font-size:0.82rem;">Colapso de investigación, cierre de programas, desarticulación CCSS, fuga masiva de investigadores</td>
+            </tr>
+            <tr>
+              <td>UNA</td>
+              <td class="cifra" style="color:#e74c3c;">-0,79 %</td>
+              <td class="cifra" style="color:#e74c3c;">-4.500</td>
+              <td style="font-size:0.82rem;">Afectaciones moderadas en ciencias ambientales, educación y estudios sociales</td>
+            </tr>
+            <tr>
+              <td>TEC</td>
+              <td class="cifra" style="color:var(--teal-light);">+8,78 %</td>
+              <td class="cifra" style="color:var(--teal-light);">+52.000</td>
+              <td style="font-size:0.82rem;">Ampliación de cobertura; nuevos programas STEM; mejoramiento de laboratorios</td>
+            </tr>
+            <tr>
+              <td>UNED</td>
+              <td class="cifra" style="color:var(--teal-light);">+10,53 %</td>
+              <td class="cifra" style="color:var(--teal-light);">+63.000</td>
+              <td style="font-size:0.82rem;">Expansión de oferta en regiones remotas; mejoramiento de plataformas educativas</td>
+            </tr>
+            <tr>
+              <td>UTN</td>
+              <td class="cifra" style="color:var(--teal-light);">+13,20 %</td>
+              <td class="cifra" style="color:var(--teal-light);">+78.000</td>
+              <td style="font-size:0.82rem;">Crecimiento acelerado de infraestructura; potencial duplicación de oferta con TEC e INA</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="alerta" style="margin-top:16px;">
+        <div class="alerta-label">Efecto sistémico crítico</div>
+        <p>La redistribución homogénea constituiría una <strong>reconfiguración violenta del paisaje universitario nacional</strong> en un tiempo económicamente inviable para la UCR. Las universidades beneficiadas (TEC, UNED, UTN) requerirían al menos <strong>5-8 años</strong> para absorber y gestionar adecuadamente los recursos incrementales. La concentración del <strong>70% de la investigación de Centroamérica y el Caribe</strong> en la UCR se perdería de forma irreversible.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. REPERCUSIONES -->
+  <section>
+    <div class="sec-label">7 · Repercusiones para Costa Rica</div>
+    <h2>Impactos políticos, económicos, sociales y científicos</h2>
+
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-label">Políticas</div>
+        <p>La Asamblea Legislativa se convierte en el espacio de definición final del FEES, politizando una decisión que tradicionalmente se resolvía en la Comisión de Enlace. Una redistribución forzada vía ley generaría tensiones constitucionales y recursos ante la Sala Constitucional.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Económicas</div>
+        <p>La pérdida de capacidad de becas (Esc. A) o la desarticulación de la investigación UCR (Esc. B) reducirían la movilidad social y la competitividad nacional basada en conocimiento. La formación de capital humano calificado es una de las principales vías de movilidad social en Costa Rica.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Sociales</div>
+        <p>La deserción estudiantil inducida por la reducción de becas impactaría desproporcionadamente a estudiantes de menores recursos, reproduciendo la desigualdad que la educación superior pública contribuye a reducir.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Científicas</div>
+        <p>El Escenario B tendría un efecto devastador. La UCR contribuye con el <strong>70% de la investigación de Centroamérica y el Caribe</strong>. Reducir su financiamiento en casi un 30% implicaría el colapso de decenas de centros e institutos y un retroceso de décadas en capacidad científica acumulada.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. CONCLUSIONES -->
+  <section>
+    <div class="sec-label">8 · Conclusiones analíticas</div>
+    <h2>Bifurcación crítica en el sistema universitario</h2>
+
+    <p>La UCR se encuentra en una <strong>bifurcación crítica</strong>: el atractor histórico-inercial de su modelo de financiamiento enfrenta una presión creciente para transformarse hacia un atractor de equidad distributiva. La tensión entre estos atractores está generando turbulencias en el régimen de estabilidad que había caracterizado la negociación del FEES durante décadas.</p>
+
+    <p>El análisis de escenarios sugiere que <strong>un congelamiento del 0% del FEES erosionaría gradual pero sostenidamente la calidad y cobertura del sistema universitario público</strong>, afectando principalmente a los estudiantes de menores recursos y a las regiones más alejadas.</p>
+
+    <p>En cambio, <strong>una redistribución homogénea abrupta provocaría una reconfiguración violenta del ecosistema universitario nacional</strong>, con efectos potencialmente devastadores sobre la producción científica y la capacidad de articulación institucional de la UCR con el Estado.</p>
+
+    <div class="info-box">
+      <p><strong>Ruta más plausible:</strong> Una redistribución gradual de los <em>incrementos anuales</em> del FEES —más no del fondo total— combinada con ajustes progresivos en los porcentajes institucionales que respeten la sostenibilidad financiera de cada universidad. Esta aproximación permitiría reducir brechas sin generar disrupciones sistémicas irreversibles.</p>
+    </div>
+  </section>
+
+  <!-- FUENTES -->
+  <div class="fuentes-section">
+    <div class="fuentes-label">Fuentes (APA 7)</div>
+    <ul class="fuentes-lista">
+      <li>Chaves, R., & Fernández, L. (2026, 21 de abril). <em>Declaraciones en la sesión de la Comisión de Enlace del FEES 2027</em>. Semanario Universidad. <a href="https://semanariouniversidad.com/universitarias/fees-queda-en-manos-de-una-asamblea-legislativa-mayoritariamente-oficialista/" target="_blank">→ Semanario Universidad</a></li>
+      <li>CONARE. (2026, 14 de abril). <em>CONARE Ampliado aprueba principios orientadores para la distribución del FEES 2027</em>. <a href="https://www.conare.ac.cr/conare-ampliado-aprueba-principios-orientadores-para-la-distribucion-del-fees-2027-y-reduccion-de-brechas-entre-universidades-publicas/" target="_blank">→ CONARE</a></li>
+      <li>CONARE. (2025, 1 de setiembre). <em>CONARE avala distribución del FEES 2026</em>. CRHoy. <a href="https://www.crhoy.com/nacionales/conare-avala-distribucion-del-fees-2026-para-universidades-publicas/" target="_blank">→ CRHoy</a></li>
+      <li>Consejo Universitario UCR. (2026, 16 de abril). <em>UCR vetó acuerdo del CONARE</em>. Semanario Universidad. <a href="https://semanariouniversidad.com/universitarias/ucr-aprobo-veto-al-acuerdo-del-conare-que-cambia-la-redistribucion-del-fees-porque-requiere-del-consenso-de-todas-las-universidades/" target="_blank">→ Semanario Universidad</a></li>
+      <li>Infobae. (2026, 22 de abril). <em>Gobierno de Costa Rica rompe negociación del FEES</em>. <a href="https://www.infobae.com/costa-rica/2026/04/22/gobierno-de-costa-rica-rompe-negociacion-del-fees-y-traslada-decision-al-congreso-tras-choque-con-rectores-por-aumento-de-casi-30000-millones/" target="_blank">→ Infobae</a></li>
+      <li>La Nación. (2025, 5 de setiembre). <em>Así quedó la distribución del FEES 2026</em>. <a href="https://www.nacion.com/el-pais/asi-quedo-la-distribucion-del-fees-2026-luego-de/O46GRVQHTBHDHFYCFDMJPFGXEQ/story/" target="_blank">→ La Nación</a></li>
+      <li>Obando, J. (2026, 22 de abril). <em>Gobierno rompe negociación con rectores sobre el FEES</em>. El Observador CR. <a href="https://observador.cr/gobierno-y-rectores-rompen-negociacion-sobre-el-fees-universidades-solicitan-casi-17-000-millones-para-el-2027/" target="_blank">→ El Observador</a></li>
+      <li>Semanario Universidad. (2025, 2 de diciembre). <em>50 años de CONARE</em>. <a href="https://semanariouniversidad.com/publicidad/50-anos-de-conare-coordinando-y-articulando-la-educacion-universitaria-publica-en-costa-rica/" target="_blank">→ Semanario Universidad</a></li>
+    </ul>
+
+    <div class="nota-meto">
+      <strong>Nota metodológica:</strong> Este análisis combina evaluación epistémica explicacionista (MEEE-G) y análisis dinámico antropológico (ADD). Las afirmaciones están clasificadas según su estatus epistémico: <em>dato confirmado</em>, <em>inferencia plausible</em>, <em>hipótesis</em> o <em>interpretación</em>. No constituye predicción determinista ni recomendación política. Ver también: <a href="contribuciones.html">Informe 2 — Contribuciones de la UCR</a> · <a href="anexo.html">Anexo — Programas estratégicos</a> · <a href="complementos-salariales.html">Anexo 2 — Complementos salariales</a> · <a href="FEES_2027_PuntodeQuiebre.pdf" target="_blank" rel="noopener">Presentación: Punto de Quiebre ↗</a>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <span><a href="/">ANTROPOS.APP</a> · Alfredo Montero Fonseca</span>
+  <span>ANCA-ADE · FEES 2027 · 23 abr 2026</span>
+  <span><a href="/articulos/fees-2027/">← Artículo divulgativo</a></span>
+</footer>
+
+<script data-goatcounter="https://antropos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

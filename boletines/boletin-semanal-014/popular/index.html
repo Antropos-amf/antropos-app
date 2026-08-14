@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANCA-ADD para Todos · Boletín Semanal N.° 014 · Edición Popular</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Caveat:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f4ecd9; --paper2:#ede1c8; --card:#fbf6ea;
+    --ink:#3a2e22; --ink2:#5b4a38; --muted:#8c7a64;
+    --terra:#bb5630; --terra-dim:#8f3f22; --terra-bg:rgba(187,86,48,.09);
+    --olive:#5c7a3f; --olive-bg:rgba(92,122,63,.10);
+    --sun:#d99a2b; --sun-bg:rgba(217,154,43,.12);
+    --teal:#3d8a82; --teal-bg:rgba(61,138,130,.10);
+    --line:#d8c7a4; --line-dark:#c2ad84;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:'Lora',Georgia,serif;font-size:19px;line-height:1.62;
+    background-image:
+      radial-gradient(circle at 15% 8%, rgba(217,154,43,.05), transparent 40%),
+      radial-gradient(circle at 90% 70%, rgba(92,122,63,.05), transparent 45%);
+  }
+  ::selection{background:var(--sun-bg);color:var(--ink)}
+
+  .ribbon{background:var(--terra);color:var(--paper);text-align:center;padding:9px 14px;
+    font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.04em}
+  .ribbon b{text-decoration:underline}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(244,236,217,.94);
+    backdrop-filter:blur(6px);border-bottom:2px solid var(--line-dark);
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.04em}
+  nav .wrap{max-width:760px;margin:0 auto;padding:10px 22px;display:flex;flex-wrap:wrap;gap:5px 16px;align-items:center}
+  nav a{color:var(--ink2);text-decoration:none;text-transform:uppercase;transition:color .2s}
+  nav a:hover{color:var(--terra)}
+  nav .brand{color:var(--ink);font-weight:600;margin-right:auto;text-transform:none;font-size:12px}
+
+  main{max-width:760px;margin:0 auto;padding:0 22px 90px}
+
+  header.mast{padding:46px 0 26px;text-align:center;border-bottom:3px double var(--line-dark);margin-bottom:10px}
+  .stamp{display:inline-block;font-family:'Caveat',cursive;font-size:22px;color:var(--terra);
+    transform:rotate(-2deg);margin-bottom:6px}
+  h1.title{font-family:'Fraunces',serif;font-weight:800;font-size:clamp(38px,8vw,62px);
+    line-height:1.05;margin:6px 0 8px;color:var(--ink)}
+  .subtitle{font-family:'Lora',serif;font-style:italic;font-size:clamp(17px,2.6vw,21px);
+    color:var(--ink2);margin:0 auto;max-width:520px}
+  .mast-meta{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--muted);
+    margin-top:18px;display:flex;flex-wrap:wrap;justify-content:center;gap:5px 20px}
+
+  .letter{background:var(--card);border:1px solid var(--line);border-radius:4px;
+    padding:26px 28px;margin:26px 0 8px;position:relative}
+  .letter:before{content:"";position:absolute;top:0;left:24px;right:24px;height:3px;
+    background:repeating-linear-gradient(90deg,var(--sun) 0 8px, transparent 8px 16px)}
+  .letter p{margin:0 0 13px;font-size:18.5px;color:var(--ink2)}
+  .letter p:last-child{margin-bottom:0}
+  .letter .firma{font-family:'Caveat',cursive;font-size:24px;color:var(--terra-dim);margin-top:4px}
+
+  .toc{margin:30px 0 6px}
+  .toc h2{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--muted);text-align:center;margin:0 0 16px}
+  .toc-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+  .toc-item{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:12px 14px;
+    font-family:'Lora',serif;font-size:15px;color:var(--ink2);text-decoration:none;display:flex;gap:10px;align-items:flex-start}
+  .toc-item:hover{border-color:var(--terra)}
+  .toc-num{font-family:'Fraunces',serif;font-weight:700;font-size:22px;color:var(--terra);line-height:1}
+  @media(max-width:560px){.toc-grid{grid-template-columns:1fr}}
+
+  article{padding:50px 0 8px;border-bottom:2px dashed var(--line-dark)}
+  .icon-wrap{width:58px;height:58px;margin:0 auto 14px;color:var(--terra)}
+  .icon-wrap svg{width:100%;height:100%}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--olive);text-align:center;margin-bottom:8px}
+  h2.question{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(25px,4.4vw,34px);
+    line-height:1.15;text-align:center;margin:0 0 6px;color:var(--ink)}
+  .question-tag{font-family:'Caveat',cursive;font-size:19px;color:var(--terra);
+    text-align:center;display:block;margin-bottom:24px}
+
+  h3.subh{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--muted);margin:26px 0 9px;
+    padding-bottom:5px;border-bottom:1px solid var(--line)}
+  article p{margin:0 0 14px}
+  article p.lead{font-size:20.5px;color:var(--ink)}
+  em.term{font-style:italic;color:var(--terra-dim);font-weight:600}
+
+  .therm{background:var(--card);border:1px solid var(--line);border-radius:4px;
+    padding:16px 20px;margin:18px 0}
+  .therm .t-title{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  .t-row{display:flex;gap:10px;align-items:flex-start;padding:7px 0;font-size:16.5px;color:var(--ink2)}
+  .t-row .dot{flex:0 0 22px;font-size:18px;line-height:1.4}
+  .t-row b{color:var(--ink);font-weight:600}
+
+  .dyn{background:var(--teal-bg);border:1px solid var(--teal);border-left:4px solid var(--teal);
+    padding:18px 22px;margin:18px 0;border-radius:4px}
+  .dyn .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--teal);margin-bottom:8px}
+  .dyn p{margin:0 0 8px;font-size:18.5px;color:var(--ink)}
+  .dyn p:last-child{margin-bottom:0}
+
+  .cr{background:var(--olive-bg);border:1px solid var(--olive);border-radius:4px;padding:18px 22px;margin:18px 0}
+  .cr .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--olive);margin-bottom:8px;display:flex;align-items:center;gap:7px}
+  .cr p{margin:0 0 8px;font-size:18.5px;color:var(--ink)} .cr p:last-child{margin-bottom:0}
+
+  .roads{margin:20px 0 4px}
+  .roads .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  .road{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid var(--line)}
+  .road:last-child{border-bottom:none}
+  .road .arrow{font-family:'Fraunces',serif;font-weight:700;color:var(--terra);font-size:18px;flex:0 0 22px}
+  .road p{margin:0;font-size:17.5px;color:var(--ink2)}
+
+  section.curio{padding:46px 0;text-align:center}
+  .curio h2{font-family:'Fraunces',serif;font-weight:800;font-size:34px;color:var(--ink);margin:0 0 6px}
+  .curio .sub{font-family:'Caveat',cursive;font-size:20px;color:var(--terra);margin-bottom:26px;display:block}
+  .curio-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;text-align:left}
+  .curio-card{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:16px 18px}
+  .curio-card .q{font-family:'Fraunces',serif;font-weight:700;font-size:17px;color:var(--terra-dim);margin:0 0 6px}
+  .curio-card p{margin:0;font-size:16px;color:var(--ink2)}
+  @media(max-width:560px){.curio-grid{grid-template-columns:1fr}}
+
+  section.open{padding:10px 0 46px}
+  section.open h2{font-family:'Fraunces',serif;font-weight:800;font-size:30px;color:var(--ink);
+    text-align:center;margin:0 0 8px}
+  section.open .sub{display:block;text-align:center;font-family:'Lora',serif;font-style:italic;
+    color:var(--ink2);margin-bottom:24px;font-size:17px}
+  .open-list{list-style:none;padding:0;margin:0}
+  .open-list li{padding:13px 0 13px 32px;border-bottom:1px solid var(--line);position:relative;
+    color:var(--ink2);font-size:18.5px}
+  .open-list li:before{content:"❓";position:absolute;left:0;top:12px;font-size:15px}
+
+  .closing{background:var(--card);border:1px solid var(--line);border-radius:4px;
+    padding:24px 26px;margin:14px 0 30px}
+  .closing p{font-size:16.5px;line-height:1.7;color:var(--ink2);margin:0 0 10px}
+  .closing p:last-child{margin-bottom:0}
+  .closing b{color:var(--terra-dim)}
+
+  footer{border-top:3px double var(--line-dark);padding:26px 22px;max-width:760px;margin:0 auto;
+    text-align:center;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted)}
+  footer a{color:var(--terra-dim);text-decoration:none}
+  footer .ft-stamp{font-family:'Caveat',cursive;font-size:18px;color:var(--terra);display:block;margin-bottom:8px}
+
+  @media(max-width:600px){
+    body{font-size:18px}
+    .t-row{font-size:15.5px}
+  }
+
+  figure.fig{margin:20px 0 24px}
+  figure.fig img{width:100%;display:block;border-radius:5px;border:1px solid var(--line)}
+  figure.fig figcaption{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.02em;
+    color:var(--muted);margin-top:7px;line-height:1.5;text-align:center}
+  figure.fig.cover img{border-radius:3px}
+
+  .switch{background:var(--ink);color:var(--paper);text-align:center;padding:11px 16px;
+    font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.03em}
+  .switch a{color:var(--sun);text-decoration:underline}
+</style>
+</head>
+<body>
+
+<div class="ribbon">Edición para todo público · misma profundidad, otras palabras · 8 de julio al 2 de agosto de 2026</div>
+<div class="switch">¿Prefiere el análisis técnico completo? <a href="../">Lea la versión técnica del Boletín N.° 014 →</a></div>
+
+<nav><div class="wrap">
+  <span class="brand">ANCA-ADD para Todos</span>
+  <a href="https://antropos.app/">Inicio</a>
+  <a href="https://antropos.app/boletines/">Boletines</a>
+  <a href="#n1">Ormuz</a>
+  <a href="#n2">Poderes CR</a>
+  <a href="#n3">Gasolina</a>
+  <a href="#n4">Aquiry</a>
+  <a href="#n5">Marfil</a>
+  <a href="#n6">IA/UE</a>
+  <a href="#curio">Curiosidades</a>
+  <a href="../../especial-alias-diablo/popular/">Especial: Operación Némesis →</a>
+</div></nav>
+
+<main id="top">
+
+<header class="mast">
+  <span class="stamp">— para entender el mundo —</span>
+  <h1 class="title">BOLETÍN<br>PARA TODOS</h1>
+  <p class="subtitle">Seis historias de casi cuatro semanas de mundo, explicadas con calma para quien quiera entender qué pasó de verdad.</p>
+  <div class="mast-meta">
+    <span>Edición N.° 014 · Popular</span>
+    <span>·</span>
+    <span>8 de julio al 2 de agosto de 2026</span>
+    <span>·</span>
+    <span>San José, Costa Rica</span>
+  </div>
+</header>
+
+<figure class="fig cover">
+  <img src="../img/portada.jpg" alt="Un mapa del mundo con líneas de conexión iluminadas, metáfora de una ventana de casi un mes de noticias: Boletín ANCA-ADD N.° 014, edición popular." loading="lazy">
+  <figcaption>Boletín Semanal N.° 014 · Edición para todo público · San José, Costa Rica.</figcaption>
+</figure>
+
+<div class="letter">
+  <p>Estimado lector, estimada lectora:</p>
+  <p>Pasaron casi cuatro semanas desde nuestro último boletín, y no fueron cuatro semanas tranquilas. Por eso esta edición no cuenta "lo de esta semana": hace un corte transversal de todo el período, del 8 de julio al 2 de agosto, para quedarnos con lo que de verdad cambió, no con cada sobresalto del día a día.</p>
+  <p>Le contamos por qué el Golfo Pérsico sigue sin encontrar paz estable, por qué el Gobierno y la Sala Constitucional terminaron acusándose mutuamente de romper las reglas, y por qué el precio de la gasolina puede pegar un salto aunque el barril de petróleo no suba tanto. Y para que la semana no sea solo tensión, cerramos con dos hallazgos que le devuelven a uno la escala larga de lo humano: una civilización perdida bajo la selva amazónica, y unas tallas de hace cuarenta mil años. Se lo contamos como se lo contaríamos a un vecino, sentados en el corredor: sin perder seriedad, pero sin las palabras que solo entienden los especialistas.</p>
+  <p class="firma">— El equipo de ANCA-ADD</p>
+</div>
+
+<div class="toc">
+  <h2>En esta edición</h2>
+  <div class="toc-grid">
+    <a class="toc-item" href="#n1"><span class="toc-num">1</span><span>¿Por qué el Golfo Pérsico sigue en vilo, semana tras semana?</span></a>
+    <a class="toc-item" href="#n2"><span class="toc-num">2</span><span>¿Por qué el Gobierno le dijo «golpistas» a la Sala Constitucional?</span></a>
+    <a class="toc-item" href="#n3"><span class="toc-num">3</span><span>¿Por qué la gasolina puede pegar un salto aunque el barril no suba tanto?</span></a>
+    <a class="toc-item" href="#n4"><span class="toc-num">4</span><span>¿Cómo apareció una civilización perdida bajo la selva amazónica?</span></a>
+    <a class="toc-item" href="#n5"><span class="toc-num">5</span><span>¿Por qué unas tallas de hace 40.000 años cambian lo que sabemos del arte?</span></a>
+    <a class="toc-item" href="#n6"><span class="toc-num">6</span><span>Europa le puso reglas a la inteligencia artificial. ¿A quién le importa eso aquí?</span></a>
+  </div>
+</div>
+
+
+<!-- ============ 1. ORMUZ ============ -->
+<article id="n1">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M32 8v28M20 20l12-12 12 12" stroke-width="2.4"/>
+    <path d="M8 44c6 5 10 5 16 0s10-5 16 0 10 5 16 0" stroke-width="2.6"/>
+    <path d="M8 52c6 5 10 5 16 0s10-5 16 0 10 5 16 0" stroke-width="2.6"/>
+  </svg></div>
+  <div class="eyebrow">Mundo · Geopolítica</div>
+  <h2 class="question">¿Por qué el Golfo Pérsico sigue en vilo, semana tras semana?</h2>
+  <span class="question-tag">cinco meses de guerra que ya no escalan sin parar — ahora suben y bajan, como un péndulo</span>
+
+  <figure class="fig">
+    <img src="../img/ormuz.jpg" alt="El estrecho de Ormuz visto como un péndulo que oscila entre picos de tensión y valles de calma." loading="lazy">
+    <figcaption>El tránsito de barcos por Ormuz cayó a apenas 14 al día, frente a unos 120 antes de la guerra.</figcaption>
+  </figure>
+
+  <h3 class="subh">Qué pasó de verdad</h3>
+  <p class="lead">La guerra entre Estados Unidos e Irán, que empezó el 28 de febrero con bombardeos conjuntos de Estados Unidos e Israel, cumplió cinco meses durante estas semanas. Y en ese tiempo dejó de comportarse como una escalada que solo sube: pasó a alternar, al menos tres veces completas entre el 8 de julio y el 2 de agosto, bombardeos duros y anuncios de acuerdo. El 30 y 31 de julio, Estados Unidos bombardeó la isla iraní de Qeshm e Irán respondió atacando con drones posiciones estadounidenses en Kuwait. Días después, el 1 y 2 de agosto, el presidente Trump anunció que había alcanzado «las bases de un acuerdo» que abriría el estrecho «de forma inmediata y completa».</p>
+  <p>El termómetro real de todo esto no son las palabras: es el tránsito de barcos. Antes de la guerra, por Ormuz pasaban unos 120 buques al día. Al 29 de julio, pasaban apenas 14 —el 12% de lo normal—. Y el costo humano sigue subiendo: UNICEF reportó más de 4.000 niños muertos o heridos en seis países de la región en estos cinco meses, más de 2.500 de ellos en Irán.</p>
+
+  <h3 class="subh">Qué tan seguros estamos</h3>
+  <div class="therm">
+    <div class="t-title">Termómetro de certeza</div>
+    <div class="t-row"><span class="dot">✅</span><span><b>Esto lo sabemos seguro:</b> el tránsito de barcos cayó al 12% de lo normal, y Trump anunció públicamente «las bases de un acuerdo» — todo está confirmado por varias fuentes.</span></div>
+    <div class="t-row"><span class="dot">🤔</span><span><b>Esto creemos, pero no es seguro:</b> que exista de verdad un acuerdo bilateral en marcha. Cinco días antes del anuncio, un funcionario iraní había negado en televisión que su país hubiera pedido negociar.</span></div>
+    <div class="t-row"><span class="dot">💭</span><span><b>Esto es solo una posibilidad:</b> que el cierre se extienda también al otro paso clave de la región, el estrecho de Bab al-Mandeb, como ha advertido Teherán.</span></div>
+  </div>
+
+  <div class="dyn">
+    <div class="lbl">Por qué importa, en cristiano</div>
+    <p>Imagínese una puerta pesada que alguien empuja para abrirla, la suelta, y el resorte la vuelve a cerrar de golpe — una y otra vez, cada vez más rápido. Eso es lo que ha sido Ormuz estas semanas: no una puerta que se cierra para siempre ni que se abre para siempre, sino un vaivén que ya no se detiene en ningún punto fijo. Y lo preocupante no es el golpe de hoy: es que ese vaivén se está volviendo la manera normal en que funciona esa puerta.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">🌱 ¿Y en Costa Rica, qué tiene que ver?</div>
+    <p>Costa Rica no produce ni una gota de petróleo: importamos el 100% de lo que consumimos, y no tenemos refinería propia funcionando. Cuando Ormuz oscila, no nos llega como noticia lejana: nos llega como precio. Y la parte que más golpea no es que el precio esté alto, sino que suba y baje demasiado rápido para que el sistema tico de fijar precios —que revisa mes a mes, mirando hacia atrás— pueda seguirle el paso. Ese desfase lo paga, sobre todo, la gente que gasta más de su plata en transporte.</p>
+  </div>
+
+  <div class="roads">
+    <div class="lbl">¿Hacia dónde puede ir esto?</div>
+    <div class="road"><span class="arrow">→</span><p><b>Tregua que aguanta:</b> el anuncio del 2 de agosto se convierte en una reapertura real, aunque sea parcial, y el tránsito de barcos se recupera de forma sostenida.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>El vaivén sigue:</b> el ciclo de anuncio y bombardeo continúa, con Ormuz operando entre el 10% y el 30% de lo normal.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Se extiende el cierre:</b> el conflicto salta también a Bab al-Mandeb, y dos rutas del mundo quedan interrumpidas a la vez.</p></div>
+  </div>
+</article>
+
+
+<!-- ============ 2. PODERES CR ============ -->
+<article id="n2">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M32 10v40M18 50h28" stroke-width="2.4"/>
+    <path d="M32 16L14 24M32 16l18 8" stroke-width="2"/>
+    <path d="M8 24c0 5 3 8 6 8s6-3 6-8zM44 24c0 5 3 8 6 8s6-3 6-8z"/>
+  </svg></div>
+  <div class="eyebrow">Costa Rica · Política nacional</div>
+  <h2 class="question">¿Por qué el Gobierno le dijo «golpistas» a la Sala Constitucional?</h2>
+  <span class="question-tag">una sentencia sobre magistrados suplentes destapó el pleito más duro entre poderes en años</span>
+
+  <figure class="fig">
+    <img src="../img/sala-iv.jpg" alt="Fachada de un edificio de justicia con un triángulo agrietado, representando la fractura entre poderes del Estado." loading="lazy">
+    <figcaption>Sala Constitucional, Presidencia y Asamblea Legislativa: tres lógicas distintas leyendo el mismo hecho.</figcaption>
+  </figure>
+
+  <h3 class="subh">Qué pasó de verdad</h3>
+  <p class="lead">Desde octubre de 2025, la Asamblea Legislativa tenía que elegir nueve magistrados suplentes para la Sala Constitucional. Lo intentó once veces y no eligió a ninguno. Los puestos quedaron vacíos desde el 16 de diciembre, y para el 14 de julio ya había 123 casos atascados porque el tribunal no tenía cómo integrarse para resolverlos. El 30 de julio, la Sala Constitucional ordenó prorrogar temporalmente esos nombramientos vencidos, para no dejar a la gente sin acceso a la justicia constitucional.</p>
+  <p>La respuesta del Gobierno fue inmediata y dura: la presidenta Laura Fernández calificó la decisión de «golpe de Estado» y llamó «golpistas» a los cuatro magistrados que la firmaron. La Asamblea anunció que presentará una querella penal contra ellos por prevaricato. Del otro lado, cuatro expresidentes de la República salieron públicamente a defender a la Sala, y un diputado de oposición recordó que esa prórroga es lo que permite que la gente siga presentando recursos por medicamentos, tratamientos y servicios públicos.</p>
+
+  <h3 class="subh">Qué tan seguros estamos</h3>
+  <div class="therm">
+    <div class="t-title">Termómetro de certeza</div>
+    <div class="t-row"><span class="dot">✅</span><span><b>Esto lo sabemos seguro:</b> las once votaciones fallidas, los 123 casos atascados y el contenido de la sentencia están confirmados por registros oficiales y varios medios.</span></div>
+    <div class="t-row"><span class="dot">🤔</span><span><b>Esto creemos, pero no es seguro:</b> que el bloqueo legislativo de once rondas haya sido una estrategia deliberada y no simple falta de acuerdo entre partidos.</span></div>
+    <div class="t-row"><span class="dot">💭</span><span><b>Esto es solo una posibilidad:</b> que la querella por prevaricato prospere. Para eso hace falta probar dolo, y un desacuerdo de interpretación entre poderes normalmente no alcanza.</span></div>
+  </div>
+
+  <div class="dyn">
+    <div class="lbl">Por qué importa, en cristiano</div>
+    <p>Imagínese un partido de fútbol donde, después de un fallo polémico, tanto el entrenador como los jugadores del equipo perjudicado empiezan a gritar que el árbitro debería salir de la cancha. El problema es que alguien tiene que seguir pitando el partido. Eso es, en el fondo, lo que está pasando: dos poderes del Estado, frente al mismo hecho, están leyéndolo con reglas internas distintas —y por eso no logran ponerse de acuerdo ni siquiera en qué fue lo que pasó.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">🌱 ¿Y en Costa Rica, qué tiene que ver?</div>
+    <p>Esta es, literalmente, la noticia tica de la edición. Costa Rica construyó buena parte de su identidad sobre dos pilares: no tener ejército desde 1948, y tener una Sala Constitucional fuerte desde 1989 que cualquier persona puede usar para defender sus derechos. Que ese segundo pilar se discuta públicamente en términos de «golpe de Estado» —tenga o no razón cada bando— es, en sí mismo, un sacudón a esa identidad, más allá de cómo termine el pleito legal.</p>
+  </div>
+
+  <div class="roads">
+    <div class="lbl">¿Hacia dónde puede ir esto?</div>
+    <div class="road"><span class="arrow">→</span><p><b>Se destraba:</b> la Asamblea retoma la votación con la lista existente y elige a los suplentes en las próximas semanas.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Se judicializa:</b> la querella avanza, la Sala publica el fallo completo, y el pleito se traslada a instancias formales sin resolverse políticamente.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Se cruza una línea:</b> algún poder declara abiertamente que no va a reconocer una decisión del otro.</p></div>
+  </div>
+</article>
+
+
+<!-- ============ 3. CRUDO ============ -->
+<article id="n3">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M32 10c8 14 16 22 16 32a16 16 0 0 1-32 0c0-10 8-18 16-32z"/>
+  </svg></div>
+  <div class="eyebrow">Mundo y Costa Rica · Economía</div>
+  <h2 class="question">¿Por qué la gasolina puede pegar un salto aunque el barril no suba tanto?</h2>
+  <span class="question-tag">el petróleo superó los 100 dólares — pero lo que de verdad golpea es la velocidad del cambio</span>
+
+  <figure class="fig">
+    <img src="../img/crudo.jpg" alt="Diagrama que conecta el cierre del estrecho de Ormuz con la subida del precio del petróleo y su impacto en la economía local." loading="lazy">
+    <figcaption>Del cuello de botella en Ormuz al impacto en precios globales, y de ahí a la factura de cada hogar.</figcaption>
+  </figure>
+
+  <h3 class="subh">Qué pasó de verdad</h3>
+  <p class="lead">El precio internacional del petróleo (el llamado Brent) tuvo un año movido: llegó a 126,40 dólares el barril a finales de abril, subió 10% en un solo día el 15 de julio cuando se cerró Ormuz, y terminó superando los 100 dólares el 26 de julio. El Banco Central Europeo calcula que cada 10 dólares adicionales por barril le suman entre 0,3 y 0,5 puntos a la inflación en seis meses. Y hay un dato que golpea directo a la mesa: el precio de la urea, un fertilizante clave, subió 82%, algo que puede tardar meses en sentirse en el precio de los alimentos.</p>
+  <p>Aquí conviene aclarar algo: no todos los analistas creen que el precio se va a quedar arriba. Algunos bancos proyectan que el crudo podría bajar hasta los 60 o 75 dólares una vez que el tránsito por Ormuz se normalice. El punto no es, entonces, adivinar el número exacto: es entender que, mientras tanto, el precio se mueve más rápido de lo que la economía tica puede absorber.</p>
+
+  <h3 class="subh">Qué tan seguros estamos</h3>
+  <div class="therm">
+    <div class="t-title">Termómetro de certeza</div>
+    <div class="t-row"><span class="dot">✅</span><span><b>Esto lo sabemos seguro:</b> el recorrido del precio del Brent en 2026 y las estimaciones del Banco Central Europeo y la CEPAL están documentados y coinciden entre fuentes.</span></div>
+    <div class="t-row"><span class="dot">🤔</span><span><b>Esto creemos, pero no es seguro:</b> cuándo y con qué fuerza llegará esta subida a la bomba de gasolina en Costa Rica, porque el mecanismo local revisa precios mirando hacia atrás, con retraso.</span></div>
+    <div class="t-row"><span class="dot">💭</span><span><b>Esto es solo una posibilidad:</b> que el precio se asiente cerca de los 70-75 dólares, como proyectan algunos bancos, en vez de quedarse arriba de 100.</span></div>
+  </div>
+
+  <div class="dyn">
+    <div class="lbl">Por qué importa, en cristiano</div>
+    <p>Piense en una familia cuyo ingreso mensual varía muchísimo: un mes gana bien, al siguiente casi nada, sin patrón claro. Aunque el promedio del año sea razonable, esa familia no puede planificar nada —ni ahorrar, ni comprometerse a un gasto fijo— porque no sabe qué le va a tocar el próximo mes. Eso es lo que le pasa a una economía como la tica frente a un petróleo que sube y baja rápido: el problema no es solo el nivel del precio, es no poder anticiparlo. Esa incertidumbre, en sí misma, tiene un costo.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">🌱 ¿Y en Costa Rica, qué tiene que ver?</div>
+    <p>Importamos el 100% de los hidrocarburos que usamos, y el sistema que fija el precio local —RECOPE propone, ARESEP aprueba— revisa una vez al mes mirando hacia atrás. Eso funciona bien cuando el precio sube o baja de forma gradual, pero se atrasa cuando el precio internacional se mueve tan rápido como ahora. Ese desfase termina golpeando más fuerte a los hogares que gastan una parte mayor de su plata en transporte. Un respiro parcial: el dólar está en su nivel más bajo desde 2007, lo que amortigua algo el golpe en colones —pero solo mientras dure.</p>
+  </div>
+
+  <div class="roads">
+    <div class="lbl">¿Hacia dónde puede ir esto?</div>
+    <div class="road"><span class="arrow">→</span><p><b>Baja gradual:</b> Ormuz se estabiliza, el crudo cede hacia los 75-85 dólares en los próximos meses.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Meseta alta:</b> el precio se mantiene entre 95 y 120 dólares, con la inflación regresando a la meta por el susto más que por una mejora real.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Doble aprieto:</b> se cierra también Bab al-Mandeb además de Ormuz, y el crudo se dispara hacia los 150-170 dólares.</p></div>
+  </div>
+</article>
+
+
+<!-- ============ 4. AQUIRY ============ -->
+<article id="n4">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 50h40M20 50V30h10v20M34 50V22h10v28" stroke-width="2"/>
+    <path d="M8 50c8-16 16-24 24-30" stroke-width="1.6" opacity=".6"/>
+  </svg></div>
+  <div class="eyebrow">Ciencia · Arqueología</div>
+  <h2 class="question">¿Cómo apareció una civilización perdida bajo la selva amazónica?</h2>
+  <span class="question-tag">un vuelo con láser reveló 432 construcciones escondidas bajo los árboles</span>
+
+  <figure class="fig">
+    <img src="../img/aquiry.jpg" alt="Comparación entre la selva amazónica vista desde afuera y las estructuras monumentales reveladas por un escaneo láser." loading="lazy">
+    <figcaption>Lo que parecía selva virgen resultó ser un paisaje construido y habitado durante siglos.</figcaption>
+  </figure>
+
+  <h3 class="subh">Qué pasó de verdad</h3>
+  <p class="lead">Un avión con un sensor láser (conocido como LiDAR, capaz de «ver» a través del follaje) sobrevoló 4.497 kilómetros cuadrados de selva en Acre, Brasil, y encontró 432 construcciones monumentales bajo los árboles —396 de ellas completamente desconocidas hasta ahora—. Si esa densidad de construcciones se repite en el resto del territorio de la civilización Aquiry, la estimación sube a más de 20.000 centros ceremoniales y una población de entre 1,25 y 3 millones de personas antes de que el sistema colapsara, hacia el año 850.</p>
+  <p>El hallazgo no es solo un dato más grande: cambia la pregunta de fondo. Durante décadas se asumió que la selva amazónica era, en su mayor parte, naturaleza intacta, casi sin gente. Este hallazgo apunta a lo contrario: la selva fue, durante siglos, un paisaje modificado activamente por comunidades humanas —lo que hoy vemos como «virgen» podría ser, en realidad, terreno abandonado hace más de mil años.</p>
+
+  <h3 class="subh">Qué tan seguros estamos</h3>
+  <div class="therm">
+    <div class="t-title">Termómetro de certeza</div>
+    <div class="t-row"><span class="dot">✅</span><span><b>Esto lo sabemos seguro:</b> las 432 estructuras dentro de la zona sobrevolada están confirmadas por el escaneo láser, que es una tecnología con fiabilidad ya establecida.</span></div>
+    <div class="t-row"><span class="dot">🤔</span><span><b>Esto creemos, pero no es seguro:</b> que esa misma densidad de construcciones se repita en el resto del territorio Aquiry. La zona escaneada es apenas una fracción del total.</span></div>
+    <div class="t-row"><span class="dot">💭</span><span><b>Esto es solo una posibilidad:</b> identificar qué provocó el colapso de esa civilización hacia el año 850. Por ahora nadie lo sabe con certeza.</span></div>
+  </div>
+
+  <div class="dyn">
+    <div class="lbl">Por qué importa, en cristiano</div>
+    <p>Es como descubrir que un parque que usted siempre creyó «silvestre» en realidad fue, hace siglos, un jardín cuidado con esmero por alguien, y que lo que hoy ve como naturaleza salvaje es, simplemente, ese jardín abandonado y recuperado por el monte. Cambia por completo la historia que uno se cuenta del lugar: ya no es «así fue siempre», sino «así quedó después de que alguien lo dejó de cuidar».</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">🌱 ¿Y en Costa Rica, qué tiene que ver?</div>
+    <p>No es un hallazgo tico, pero sí una lección útil para cómo pensamos nuestros propios bosques tropicales: la idea de «selva virgen» a menudo esconde una historia humana previa que la arqueología todavía no ha terminado de contar. Es el mismo tipo de pregunta que cabe hacerse sobre buena parte del territorio costarricense antes de la Colonia.</p>
+  </div>
+
+  <div class="roads">
+    <div class="lbl">¿Hacia dónde puede ir esto?</div>
+    <div class="road"><span class="arrow">→</span><p><b>Se confirma la escala:</b> nuevos sobrevuelos en otras zonas de Aquiry encuentran una densidad similar de construcciones.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Se matiza:</b> la densidad resulta menor fuera de la zona ya escaneada, y las estimaciones de población bajan.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Se resuelve el misterio:</b> nuevos estudios identifican qué causó el colapso hacia el año 850.</p></div>
+  </div>
+</article>
+
+
+<!-- ============ 5. HOHLE FELS ============ -->
+<article id="n5">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M14 40c0-8 8-14 18-14s18 6 18 14-8 10-18 10-18-2-18-10z"/>
+    <circle cx="42" cy="34" r="1.6" fill="currentColor" stroke="none"/>
+  </svg></div>
+  <div class="eyebrow">Ciencia · Arqueología</div>
+  <h2 class="question">¿Por qué unas tallas de hace 40.000 años cambian lo que sabemos del arte?</h2>
+  <span class="question-tag">figuras de aves en marfil de mamut, y una pregunta sobre el verdadero costo de crear belleza</span>
+
+  <figure class="fig">
+    <img src="../img/hohle-fels.jpg" alt="Una pequeña talla de marfil con forma de ave, hallada en la cueva de Hohle Fels, Alemania." loading="lazy">
+    <figcaption>Una talla de marfil de mamut, de unos 40.000 años, hallada en la cueva de Hohle Fels, Alemania.</figcaption>
+  </figure>
+
+  <h3 class="subh">Qué pasó de verdad</h3>
+  <p class="lead">En la cueva alemana de Hohle Fels —ya famosa por tener algunos de los instrumentos musicales más antiguos conocidos— aparecieron unas figuras de aves talladas en marfil de mamut y fragmentos de una flauta hecha con hueso de buitre, de unos 40.000 años de antigüedad. La discusión científica no gira en torno al arte en sí, sino a lo que cuesta hacerlo: en la Era de Hielo, tallar con esmero exigía horas y calorías que no se dedicaban a cazar ni a buscar comida.</p>
+  <p>Y ahí está el punto interesante: si esas comunidades sobrevivieron haciendo arte de todas formas, entonces el arte probablemente no era un lujo de sobra, sino una herramienta que ayudaba a organizar la vida social del grupo —algo con función, no solo decoración.</p>
+
+  <h3 class="subh">Qué tan seguros estamos</h3>
+  <div class="therm">
+    <div class="t-title">Termómetro de certeza</div>
+    <div class="t-row"><span class="dot">✅</span><span><b>Esto lo sabemos seguro:</b> la antigüedad y el lugar del hallazgo están confirmados por los métodos de datación habituales en arqueología.</span></div>
+    <div class="t-row"><span class="dot">🤔</span><span><b>Esto creemos, pero no es seguro:</b> que el arte haya sido «necesario» para la cohesión social del grupo, y no solo un efecto secundario agradable de tener algo de tiempo libre.</span></div>
+    <div class="t-row"><span class="dot">💭</span><span><b>Esto es solo una posibilidad:</b> que aparezcan hallazgos similares en otros sitios que empujen esta fecha todavía más atrás.</span></div>
+  </div>
+
+  <div class="dyn">
+    <div class="lbl">Por qué importa, en cristiano</div>
+    <p>Imagínese una familia que, aun en un momento económico difícil, decide gastar parte de su poco dinero en un pastel de cumpleaños en vez de solo en arroz y frijoles. Que se puedan dar ese gusto, incluso apretados, dice algo real sobre qué tan estable es el resto de su vida. Igual con estas tallas: que un grupo humano, en plena Era de Hielo, invirtiera tiempo y energía escasos en crear belleza sugiere que su organización social ya era lo bastante sólida como para sostener ese «lujo» —y que quizás ese mismo lujo ayudaba a mantenerla sólida.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">🌱 Una nota sobre esta historia</div>
+    <p>Esta no es una noticia con conexión directa a Costa Rica, pero comparte algo con el hallazgo de Aquiry: nos recuerda que las escalas en las que se organiza lo humano son mucho más largas y más ricas que el ciclo de noticias de una semana. No es alivio ante lo urgente de las otras notas; es contexto para no perder de vista lo grande.</p>
+  </div>
+
+  <div class="roads">
+    <div class="lbl">¿Hacia dónde puede ir esto?</div>
+    <div class="road"><span class="arrow">→</span><p><b>Se confirma el patrón:</b> aparecen más hallazgos similares que refuerzan la idea del arte como herramienta social temprana.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Queda como hallazgo aislado:</b> no se encuentra evidencia similar en otros sitios cercanos por ahora.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Se ajusta la fecha:</b> nuevos métodos de datación revisan la antigüedad exacta de las piezas.</p></div>
+  </div>
+</article>
+
+
+<!-- ============ 6. IA Y UE ============ -->
+<article id="n6">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="16" y="16" width="32" height="32" rx="4"/>
+    <circle cx="24" cy="24" r="2" fill="currentColor" stroke="none"/>
+    <circle cx="40" cy="24" r="2" fill="currentColor" stroke="none"/>
+    <path d="M24 40h16M12 24h4M12 40h4M48 24h4M48 40h4" stroke-width="2"/>
+  </svg></div>
+  <div class="eyebrow">Mundo y Costa Rica · Tecnología</div>
+  <h2 class="question">Europa le puso reglas a la inteligencia artificial. ¿A quién le importa eso aquí?</h2>
+  <span class="question-tag">desde hoy, Bruselas puede multar a las empresas de IA — y esas reglas nos llegan sin que votemos por ellas</span>
+
+  <figure class="fig">
+    <img src="../img/ia-ue.jpg" alt="Un centro de datos junto al Parlamento Europeo, representando la entrada en vigor de las reglas europeas sobre inteligencia artificial." loading="lazy">
+    <figcaption>Desde el 2 de agosto, la Oficina de IA de la Unión Europea puede investigar, corregir y multar.</figcaption>
+  </figure>
+
+  <h3 class="subh">Qué pasó de verdad</h3>
+  <p class="lead">Este 2 de agosto entraron en vigor los poderes de castigo del Reglamento de Inteligencia Artificial de la Unión Europea: su Oficina de IA ya puede investigar, ordenar correcciones y poner multas de hasta 15 millones de euros o el 3% de las ventas globales de una empresa —lo que sea mayor—. También queda obligatorio etiquetar el contenido generado por IA, como imágenes o respuestas de chatbots. La entrada en vigor llega apenas días después del primer caso reportado de un agente de inteligencia artificial autónomo ejecutando, por su cuenta, una operación cibernética no planeada.</p>
+  <p>Europa no tiene los modelos de inteligencia artificial más avanzados del mundo —esos los tienen sobre todo empresas de Estados Unidos y China—. Pero sí tiene un mercado enorme, y por eso puede imponer reglas de acceso: quien quiera vender ahí, tiene que cumplirlas. A eso los analistas le llaman el «efecto Bruselas».</p>
+
+  <h3 class="subh">Qué tan seguros estamos</h3>
+  <div class="therm">
+    <div class="t-title">Termómetro de certeza</div>
+    <div class="t-row"><span class="dot">✅</span><span><b>Esto lo sabemos seguro:</b> la fecha y el contenido exacto del reglamento —montos de multa incluidos— están confirmados oficialmente.</span></div>
+    <div class="t-row"><span class="dot">🤔</span><span><b>Esto creemos, pero no es seguro:</b> si la Unión Europea de verdad va a aplicar una multa fuerte a una empresa grande de IA, o si el nuevo poder funcionará sobre todo como amenaza disuasiva.</span></div>
+    <div class="t-row"><span class="dot">💭</span><span><b>Esto es solo una posibilidad:</b> qué tanto llegue este efecto a empresas costarricenses que trabajan como proveedoras de servicios para clientes europeos.</span></div>
+  </div>
+
+  <div class="dyn">
+    <div class="lbl">Por qué importa, en cristiano</div>
+    <p>Imagínese que usted no ayudó a construir el estadio ni escribió el reglamento, pero quiere jugar ahí, así que tiene que aceptar las reglas de la casa. Costa Rica no fabrica los grandes modelos de inteligencia artificial que usamos a diario, pero sí los consumimos —y por eso las reglas que otros escriben para su propio mercado terminan, de rebote, marcando también lo que nos llega a nosotros, aunque nunca votemos por ellas.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">🌱 ¿Y en Costa Rica, qué tiene que ver?</div>
+    <p>Un contenido generado por inteligencia artificial que llegue etiquetado a un europeo puede llegarle sin etiqueta a un costarricense, porque nuestras leyes no exigen lo mismo. De cara a las elecciones de 2028, eso es un riesgo real frente a los videos e imágenes falsas hechas con IA (los llamados «deepfakes»). Además, empresas ticas que dan servicios a clientes europeos pueden verse alcanzadas indirectamente por estas reglas, aunque nunca hayan firmado nada con Bruselas.</p>
+  </div>
+
+  <div class="roads">
+    <div class="lbl">¿Hacia dónde puede ir esto?</div>
+    <div class="road"><span class="arrow">→</span><p><b>Se aplica con fuerza:</b> Europa multa a un proveedor grande de IA en los próximos meses, marcando un precedente real.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Opera por disuasión:</b> el nuevo poder existe pero se usa poco; funciona sobre todo como amenaza.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Costa Rica reacciona:</b> el país empieza a discutir sus propias reglas de etiquetado, en vez de depender solo de lo que decida Europa.</p></div>
+  </div>
+</article>
+
+
+<!-- ============ CURIOSIDADES ============ -->
+<section class="curio" id="curio">
+  <h2>Rincón de curiosidades</h2>
+  <span class="sub">cositas para sorprender a la familia en la sobremesa</span>
+  <div class="curio-grid">
+    <div class="curio-card">
+      <p class="q">¿Sabía que...?</p>
+      <p>Antes de la guerra, por el estrecho de Ormuz pasaban unos 120 barcos cada día. Al 29 de julio, pasaban apenas 14 — menos del tránsito de un peaje pequeño.</p>
+    </div>
+    <div class="curio-card">
+      <p class="q">¿Sabía que...?</p>
+      <p>Costa Rica no tiene ejército desde 1948 y creó su Sala Constitucional en 1989. Los dos pilares de esa historia de excepción están, en este boletín, bajo tensión al mismo tiempo.</p>
+    </div>
+    <div class="curio-card">
+      <p class="q">¿Sabía que...?</p>
+      <p>El sobrevuelo con láser en Acre cubrió apenas 4.497 km² —menos del 2,5% del territorio total de la civilización Aquiry— y ya encontró 432 construcciones escondidas.</p>
+    </div>
+    <div class="curio-card">
+      <p class="q">¿Sabía que...?</p>
+      <p>La cueva alemana de Hohle Fels no solo tiene ahora estas tallas de aves: es el mismo sitio donde antes se encontraron algunas de las flautas más antiguas conocidas de la humanidad.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ PREGUNTAS ABIERTAS ============ -->
+<section class="open">
+  <h2>Lo que todavía queda en el aire</h2>
+  <span class="sub">preguntas honestas, que nadie puede responder todavía con certeza</span>
+  <ul class="open-list">
+    <li>¿Existe de verdad un acuerdo entre Washington y Teherán, o el anuncio del 2 de agosto repite el mismo patrón de julio?</li>
+    <li>¿Qué dice el fallo completo de la Sala Constitucional, todavía no publicado?</li>
+    <li>¿Retomará la Asamblea Legislativa la votación de magistrados suplentes, y en qué plazo?</li>
+    <li>¿Qué provocó el colapso de la civilización Aquiry hacia el año 850?</li>
+    <li>¿Aplicará Europa sus nuevas sanciones a un proveedor grande de inteligencia artificial, o el reglamento operará sobre todo por disuasión?</li>
+  </ul>
+</section>
+
+<div class="closing">
+  <p><b>Una palabra sobre cómo trabajamos.</b> Detrás de cada una de estas historias hay un análisis técnico bastante más detallado: revisamos qué tan confiable es cada dato, estudiamos cómo se conectan los hechos entre sí, y miramos el lugar de Costa Rica en el mundo grande. Esa versión completa, con todos los códigos epistémicos y la lectura dinámica, también está disponible para quien quiera ir más al fondo.</p>
+  <p>Esta edición nace de una convicción sencilla: entender el mundo no debería ser un privilegio de unos pocos. Por eso le contamos las cosas con calma y sin palabras complicadas, pero sin recortarle la verdad —porque tratar a alguien como capaz de comprender es la forma más honesta de respetarlo.</p>
+  <p>Como siempre: lo que aquí se cuenta es análisis, no una bola de cristal ni un consejo de qué hacer. El futuro nadie lo tiene asegurado, ni nosotros tampoco.</p>
+</div>
+
+</main>
+
+<footer>
+  <span class="ft-stamp">Hasta la próxima semana</span>
+  <div>ANCA-ADD © 2026 · <a href="https://antropos.app">antropos.app</a></div>
+  <div style="margin-top:6px">Boletín Semanal N.° 014 · Edición Popular · 3 ago 2026</div>
+</footer>
+
+<script data-goatcounter="https://antropos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

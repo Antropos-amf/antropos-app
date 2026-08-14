@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANCA-ADD · Anexo Especial N.° 010-04 · El subsuelo vivo frente al oro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0c0e11; --bg2:#13161a; --panel:#171b20; --panel2:#1c2127;
+    --ink:#e9e6df; --ink2:#b7b2a8; --muted:#7f7a70;
+    --teal:#37b1a2; --teal-dim:#1f5c55; --teal-bg:rgba(55,177,162,.08);
+    --amber:#c98a3c; --copper:#b5672e; --amber-bg:rgba(201,138,60,.08);
+    --gold:#d8b25a; --red:#d65a4e; --line:#2a2f36;
+    --dc:#37b1a2; --ip:#7fb8d8; --h:#d8b25a; --int:#c98a3c; --c:#b78bd0;
+    --soil:#6f9e4b; --soil-bg:rgba(111,158,75,.08);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:'Cormorant Garamond',Georgia,serif;font-size:20px;line-height:1.55;}
+  ::selection{background:var(--teal-dim);color:#fff}
+
+  .ribbon{background:#08090b;border-bottom:1px solid var(--line);
+    font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.06em;color:var(--ink2);
+    padding:8px 0;text-align:center}
+  .ribbon b{color:var(--gold)}
+
+  nav{position:sticky;top:0;z-index:55;background:rgba(12,14,17,.93);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--line);
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.05em}
+  nav .wrap{max-width:880px;margin:0 auto;padding:9px 22px;display:flex;flex-wrap:wrap;gap:4px 16px;align-items:center}
+  nav a{color:var(--muted);text-decoration:none;text-transform:uppercase;transition:color .2s}
+  nav a:hover,nav a:focus{color:var(--gold)}
+  nav .brand{color:var(--ink);font-weight:600;margin-right:auto}
+
+  main{max-width:880px;margin:0 auto;padding:0 22px 80px}
+
+  header.mast{padding:54px 0 30px;border-bottom:2px solid var(--gold);margin-bottom:6px}
+  .kicker{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.3em;
+    text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+  h1.title{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:clamp(48px,9.5vw,92px);
+    line-height:.94;letter-spacing:.005em;margin:0;color:var(--ink)}
+  h1.title span{color:var(--soil)}
+  .subtitle{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(19px,2.8vw,25px);
+    color:var(--ink2);margin:14px 0 0;font-weight:400}
+  .mast-meta{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);
+    margin-top:22px;display:flex;flex-wrap:wrap;gap:6px 24px;letter-spacing:.03em}
+  .mast-meta b{color:var(--ink2);font-weight:500}
+
+  .lead-box{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--soil);
+    padding:22px 26px;margin:28px 0 8px;border-radius:2px}
+  .lead-box p{margin:0 0 10px;font-size:19px;color:var(--ink2)}
+  .lead-box p:last-child{margin-bottom:0}
+  .lead-box .q{font-family:'Playfair Display',serif;font-style:italic;font-size:21px;color:var(--ink);border-left:2px solid var(--gold);padding-left:16px;margin:14px 0}
+
+  section.block{padding:44px 0 6px;border-bottom:1px solid var(--line)}
+  .sec-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--soil);margin-bottom:8px;display:flex;align-items:baseline;gap:12px}
+  .sec-eyebrow .rn{font-family:'Bebas Neue',sans-serif;font-size:30px;color:var(--teal-dim);letter-spacing:.02em}
+  h2.sec{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(26px,4.2vw,38px);
+    line-height:1.1;margin:6px 0 18px;color:var(--ink)}
+  h3.subsec{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--muted);margin:28px 0 10px;padding-bottom:5px;border-bottom:1px solid var(--line)}
+  p{margin:0 0 14px}
+  p.lead{font-size:21px}
+  em.term{font-style:italic;color:var(--teal)}
+  strong.k{color:var(--ink);font-weight:600}
+
+  ul.clean{list-style:none;padding:0;margin:6px 0 14px}
+  ul.clean li{padding:9px 0 9px 26px;position:relative;color:var(--ink2);border-bottom:1px solid var(--line)}
+  ul.clean li:last-child{border-bottom:none}
+  ul.clean li:before{content:"▸";position:absolute;left:0;top:9px;color:var(--soil)}
+
+  .meee{width:100%;border-collapse:collapse;font-family:'IBM Plex Mono',monospace;font-size:13px;margin:6px 0 8px}
+  .meee th{text-align:left;color:var(--muted);font-weight:500;letter-spacing:.05em;
+    padding:7px 10px;border-bottom:1px solid var(--line);font-size:10.5px;text-transform:uppercase}
+  .meee td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink2);line-height:1.45}
+  .meee tr:last-child td{border-bottom:none}
+  .code{font-weight:600;white-space:nowrap}
+  .code.dc{color:var(--dc)} .code.ip{color:var(--ip)} .code.h{color:var(--h)}
+  .code.int{color:var(--int)} .code.c{color:var(--c)}
+
+  .add{background:var(--teal-bg);border:1px solid var(--teal-dim);border-left:3px solid var(--teal);
+    padding:20px 24px;margin:18px 0;border-radius:2px}
+  .add .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);margin-bottom:6px}
+  .add .regime{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink2);margin-bottom:12px;display:flex;flex-wrap:wrap;gap:6px 18px}
+  .add .regime b{color:var(--teal);font-weight:500}
+  .add p{margin:0 0 10px;font-size:19px}
+  .add p:last-child{margin-bottom:0}
+
+  .ws{background:var(--amber-bg);border:1px solid var(--copper);border-left:3px solid var(--amber);
+    padding:20px 24px;margin:18px 0;border-radius:2px}
+  .ws .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);margin-bottom:10px}
+  .ws p{margin:0 0 10px;font-size:19px} .ws p:last-child{margin-bottom:0}
+
+  .cr{border:1px solid var(--line);border-top:2px solid var(--gold);padding:18px 24px;margin:18px 0;border-radius:2px;background:var(--bg2)}
+  .cr .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+  .cr p{margin:0 0 10px;font-size:19px;color:var(--ink2)} .cr p:last-child{margin-bottom:0}
+
+  /* comparison table value vs gold */
+  .vs{width:100%;border-collapse:collapse;margin:14px 0;font-size:17px}
+  .vs th{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+    text-align:left;padding:10px;border-bottom:2px solid var(--line)}
+  .vs th.soil{color:var(--soil)} .vs th.gold{color:var(--gold)} .vs th.axis{color:var(--muted)}
+  .vs td{padding:12px 10px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink2);line-height:1.4}
+  .vs td.axis{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink);width:20%}
+  .vs td.soilcol{background:var(--soil-bg)}
+  .vs td.goldcol{background:rgba(216,178,90,.05)}
+
+  /* policy instrument cards */
+  .pol{border:1px solid var(--line);border-left:3px solid var(--soil);background:var(--panel);
+    padding:16px 20px;margin:12px 0;border-radius:2px}
+  .pol .tag{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--soil);margin-bottom:6px}
+  .pol h4{font-family:'Playfair Display',serif;font-size:21px;margin:0 0 6px;color:var(--ink);font-weight:600}
+  .pol p{margin:0;font-size:17.5px;color:var(--ink2)}
+
+  .scen{margin:18px 0 4px}
+  .scen .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  .pill{display:block;padding:13px 18px;margin:8px 0;border-radius:2px;border:1px solid var(--line);background:var(--panel);font-size:18px;color:var(--ink2)}
+  .pill b{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;display:inline-block;margin-right:8px;padding:2px 8px;border-radius:2px}
+  .pill.a b{color:var(--soil);background:var(--soil-bg)}
+  .pill.b b{color:var(--gold);background:rgba(216,178,90,.07)}
+  .pill.c b{color:var(--red);background:rgba(214,90,78,.07)}
+
+  .uncert ul{list-style:none;padding:0;margin:0}
+  .uncert li{padding:13px 0 13px 30px;border-bottom:1px solid var(--line);position:relative;color:var(--ink2);font-size:19px}
+  .uncert li:before{content:"?";position:absolute;left:0;top:13px;font-family:'IBM Plex Mono',monospace;color:var(--red);font-weight:600}
+
+  .refs ol{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);line-height:1.6;padding-left:22px}
+  .refs li{margin-bottom:9px}
+  .refs em{color:var(--ink2);font-style:italic}
+
+  .method{background:var(--panel);border:1px solid var(--line);padding:22px 26px;border-radius:2px;margin:18px 0}
+  .method p{font-family:'IBM Plex Mono',monospace;font-size:12.5px;line-height:1.7;color:var(--ink2);margin:0}
+  .method b{color:var(--soil)}
+
+  h2.plain{font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:.02em;color:var(--ink);margin:34px 0 16px}
+
+  footer{border-top:2px solid var(--gold);padding:28px 22px;max-width:880px;margin:0 auto;
+    font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--muted);display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+  footer a{color:var(--soil);text-decoration:none}
+
+  @media(max-width:640px){
+    body{font-size:18px}
+    .meee,.vs{font-size:13px} .meee th,.meee td,.vs td,.vs th{padding:7px 6px}
+    .vs td.axis{width:auto}
+    nav .wrap{font-size:10px;gap:3px 11px}
+  }
+
+  /* SITE NAV */
+  .sitenav{background:#08090b;border-bottom:1px solid var(--line);padding:0 22px;
+    display:flex;align-items:center;gap:18px;height:34px}
+  .sitenav a{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--muted);text-decoration:none}
+  .sitenav a:hover{color:var(--gold)}
+  .sitenav .sep{color:var(--line)}
+
+  /* FIGURES */
+  figure.fig{margin:22px 0 26px}
+  figure.fig img{width:100%;display:block;border-radius:3px;border:1px solid var(--line)}
+
+  /* SWITCH BANNER */
+  .switch{background:var(--panel);border-bottom:1px solid var(--line);text-align:center;
+    padding:10px 16px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink2);letter-spacing:.02em}
+  .switch a{color:var(--soil);text-decoration:underline}
+
+  /* LEVEL BADGE */
+  .badge-level{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:11px;
+    letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:2px;
+    border:1px solid var(--gold);color:var(--gold);background:rgba(216,178,90,.08)}
+</style>
+</head>
+<body>
+
+<div class="sitenav">
+  <a href="https://antropos.app/">← antropos.app</a>
+  <span class="sep">|</span>
+  <a href="https://antropos.app/informes-estrategicos/">Informes Estratégicos</a>
+</div>
+
+<div class="ribbon">INFORME ESTRATÉGICO · ampliación de la Nota 04 del <b>Boletín Semanal N.° 010</b> · documento de análisis para público general y tomadores de decisión</div>
+<div class="switch">¿Quiere el contexto noticioso completo de la semana? <a href="https://antropos.app/boletines/boletin-semanal-010/">Lea el Boletín Semanal N.° 010 →</a> &nbsp;·&nbsp; ¿Prefiere lenguaje sencillo? <a href="popular/">Lea la edición para todo público →</a></div>
+<div class="switch">¿Prefiere leerlo en papel? <a href="crucitas-subsuelo-vivo-imprimible.pdf" target="_blank">Descargue la versión imprimible (PDF) →</a></div>
+
+<nav><div class="wrap">
+  <a href="/informes-estrategicos/" style="opacity:.55;border-right:1px solid var(--line);margin-right:4px;padding-right:16px;text-transform:uppercase;">← Informes</a>
+  <a class="brand" href="#top">El Subsuelo Vivo Frente al Oro</a>
+  <a href="#i">Qué se halló</a>
+  <a href="#ii">Por qué importa</a>
+  <a href="#iii">Costa Rica</a>
+  <a href="#iv">Crucitas</a>
+  <a href="#v">La pregunta</a>
+  <a href="#vi">Política</a>
+</div></nav>
+
+<main id="top">
+
+<figure class="fig" style="margin-top:30px">
+  <img src="img/portada.jpg" alt="El Oro y Lo Invisible: la red de hongos bajo nuestros pies, el oro de Crucitas, y la decisión sobre qué tipo de riqueza queremos para Costa Rica." loading="lazy">
+</figure>
+
+<header class="mast">
+  <div class="kicker">Agente Noticioso Crítico de Actualidad — Antropología Dinámica del Devenir</div>
+  <h1 class="title">EL SUBSUELO VIVO<br><span>FRENTE AL ORO</span></h1>
+  <p class="subtitle">La red micorrízica global, el caso Crucitas y la disputa por el modelo de desarrollo de Costa Rica</p>
+  <div class="mast-meta">
+    <span class="badge-level">NIVEL: ALTO</span>
+    <span><b>Sector:</b> Ambiente · Minería · Agropecuario · CR</span>
+    <span><b>Fecha:</b> 19 de junio de 2026</span>
+    <span><b>Origen:</b> Nota 04 del Boletín N.° 010</span>
+    <span><b>Registros:</b> MEEE-G · ADD · Sistemas-Mundo</span>
+  </div>
+</header>
+
+<div class="lead-box">
+  <p>Este anexo amplía la nota científica del boletín y la convierte en un instrumento de lectura para la decisión pública. Lo hace porque, esta misma semana, dos hechos sin relación aparente se cruzaron sobre el mismo suelo costarricense: la publicación en <em>Science</em> del primer mapa global de las redes de hongos que mueven carbono bajo tierra, y la gira de la presidenta Laura Fernández a Crucitas para impulsar la reactivación de la minería de oro.</p>
+  <p>El cruce no es casual. Plantea, con una nitidez poco común, la pregunta que organiza todo este documento —y que un lector nos formuló directamente:</p>
+  <p class="q">¿Cuánto valor, desarrollo y seguridad provee esta red fúngica frente a la lógica extractivista del oro?</p>
+  <p>No la respondemos con una cifra única —sería deshonesto—, pero sí desarmamos la pregunta en sus partes para que cada cual la pondere con criterio. Antes, lo esencial: qué se descubrió y por qué cambia el tablero.</p>
+</div>
+
+<figure class="fig">
+  <img src="img/dos-noticias.jpg" alt="Dos noticias sobre un mismo pedazo de tierra: el primer mapa global de hongos micorrízicos y el impulso a la minería a cielo abierto en Crucitas." loading="lazy">
+</figure>
+
+<!-- I -->
+<section class="block" id="i">
+  <div class="sec-eyebrow"><span class="rn">I</span><span>Qué se descubrió · en lenguaje claro</span></div>
+  <h2 class="sec">Una infraestructura viva, invisible y colosal, salió por fin a la luz</h2>
+
+  <p class="lead">Bajo casi cualquier campo, bosque o cafetal hay una red de filamentos finísimos —llamados hifas— tejida por hongos micorrízicos arbusculares (HMA). Estos hongos se asocian con las raíces de cerca del 70 % de las plantas del mundo en un trueque antiquísimo: la planta les entrega azúcares (carbono que capturó del aire); el hongo le devuelve agua y nutrientes —sobre todo fósforo— que extrae de rincones del suelo a los que la raíz sola no llega.</p>
+
+  <figure class="fig">
+    <img src="img/trueque-biologico.jpg" alt="El trueque biológico: la planta aporta azúcares fabricados con la luz del sol; el hongo micorrízico devuelve agua y fósforo, ampliando el alcance de las raíces hasta 100 veces." loading="lazy">
+  </figure>
+
+  <p>Hasta ahora nadie había medido la magnitud global de esa red. Un equipo internacional, liderado por la organización SPUN, lo hizo a partir de más de 16.000 muestras de suelo y modelos de inteligencia artificial. Las cifras son difíciles de imaginar:</p>
+
+  <ul class="clean">
+    <li><strong class="k">~110 billones de kilómetros</strong> de hifas —casi mil veces la distancia de la Tierra al Sol—, concentradas sobre todo en los primeros 15 centímetros del suelo.</li>
+    <li><strong class="k">~300 megatoneladas de carbono</strong> en biomasa fúngica viva: entre 4 y 6 veces la masa de toda la humanidad.</li>
+    <li><strong class="k">~4.000 millones de toneladas de CO₂</strong> equivalentes que estas redes ayudan a llevar al suelo cada año, cerca del 11 % de las emisiones humanas.</li>
+    <li>En suelos sanos, multiplican hasta <strong class="k">cien veces</strong> el alcance de las raíces y aportan más del <strong class="k">80 % del fósforo</strong> de muchas plantas.</li>
+  </ul>
+
+  <figure class="fig">
+    <img src="img/magnitud.jpg" alt="La magnitud de lo invisible: 1.000 viajes al Sol, 11% de las emisiones de carbono, 100x el alcance de las raíces, -50% de pérdida de fuerza en agricultura intensiva." loading="lazy">
+  </figure>
+
+  <p>Dos datos cambian el marco de la política pública. Primero: los pastizales silvestres concentran cerca del 40 % de esta infraestructura, mientras que los suelos agrícolas intensivos muestran densidades hasta un 50 % menores —la forma en que usamos la tierra <em>degrada</em> la red. Segundo: el estudio se publicó junto a un mapa interactivo pensado expresamente para que gobiernos y tomadores de decisión incorporen estas redes en sus agendas climáticas y modelos de carbono. Es decir: nace ya con vocación de instrumento, no solo de hallazgo.</p>
+</section>
+
+<!-- II -->
+<section class="block" id="ii">
+  <div class="sec-eyebrow"><span class="rn">II</span><span>Por qué importa · de la biología a la decisión</span></div>
+  <h2 class="sec">El suelo deja de ser un soporte inerte y pasa a ser capital</h2>
+
+  <p>Durante siglos, la economía trató el suelo como un simple escenario: el lugar donde ocurre la producción. Este mapa obliga a un cambio de categoría. El suelo es un <em class="term">sistema vivo</em> que presta servicios medibles —fertilidad, retención de agua, captura de carbono, resistencia de los cultivos a la sequía y a los metales pesados, control de la erosión— y esos servicios tienen un sustrato biológico concreto que ahora podemos ubicar en un mapa.</p>
+
+  <figure class="fig">
+    <img src="img/despensa-viva.jpg" alt="El suelo no es un escenario, es una despensa viva: aportes que repone (nutrientes, materia orgánica, descanso) frente a servicios que extraemos (fertilidad, resiliencia, prevención de erosión, captura de carbono)." loading="lazy">
+  </figure>
+
+  <div class="add">
+    <div class="lbl">Lectura dinámica · ADD</div>
+    <div class="regime"><span>Régimen: <b>laminar bajo presión</b></span><span>Analogía: <b>literal (nivel disipativo) / débil (la «red» como metáfora informacional)</b></span></div>
+    <p>La red micorrízica es un sistema disipativo en sentido literal (Prigogine + Landauer): mantiene su orden —el trueque carbono/nutrientes— procesando flujos de energía y materia, con un costo termodinámico real. No es decoración conceptual: si se interrumpe el flujo, el orden colapsa. La metáfora de «red de información» o «internet del bosque», en cambio, debe declararse como analogía débil: el hongo coordina intercambios sin un centro de procesamiento, y trasladar eso al lenguaje de redes humanas exige cautela para no caer en el pan-informacionalismo que la propia ADD advierte.</p>
+    <p>Lo decisivo para la política: la identidad productiva de un territorio —un cafetal, un bosque— es un proceso que <em>se reproduce</em> consumiendo recursos. Cuando esos flujos se cortan (por remoción del suelo, contaminación o monocultivo intensivo), la clausura organizacional del sistema se degrada. No «se pierde la fertilidad» como un accidente: el sistema deja de poder sostener el proceso disipativo que la generaba.</p>
+  </div>
+</section>
+
+<!-- III -->
+<section class="block" id="iii">
+  <div class="sec-eyebrow"><span class="rn">III</span><span>Relevancia para Costa Rica · (a)</span></div>
+  <h2 class="sec">Para un país que vende naturaleza, el subsuelo es un activo estratégico</h2>
+
+  <p class="lead">Costa Rica construyó su marca-país sobre la conservación, el ecoturismo y una agricultura de alto valor. El mapa micorrízico convierte un activo hasta ahora invisible —la vida del suelo— en algo cuantificable, y por tanto gestionable y defendible. Pero limitar la relevancia a los productos de exportación sería una omisión analítica: el subsuelo vivo es, antes que un activo de marca, la base de la reproducción material del país.</p>
+
+  <figure class="fig">
+    <img src="img/fama-verde.jpg" alt="La base real de la fama verde costarricense: soberanía alimentaria, cultivos de exportación, servicios ambientales y resiliencia climática." loading="lazy">
+  </figure>
+
+  <h3 class="subsec">Dónde se acopla, en concreto</h3>
+  <ul class="clean">
+    <li><strong class="k">Soberanía y seguridad alimentaria.</strong> Las redes micorrízicas sostienen también los cultivos de consumo interno —frijol, maíz, raíces y tubérculos, plátano, hortalizas— que abastecen el mercado local y la feria del agricultor. Un suelo biológicamente sano es condición de la capacidad del país de alimentarse a sí mismo y, por tanto, de su resiliencia ante choques externos de precios o de cadenas de suministro. Esta dimensión —no exportadora— es la más directamente ligada a la soberanía.</li>
+    <li><strong class="k">Café y cacao.</strong> Investigaciones en <em>Coffea arabica</em> muestran que el manejo agroecológico aumenta la diversidad de hongos micorrízicos frente al convencional. Para los cultivos de exportación, la salud micorrízica es directamente productividad, resiliencia climática y diferenciación de origen.</li>
+    <li><strong class="k">Bosques y PSA.</strong> El Pago por Servicios Ambientales hizo de Costa Rica un referente mundial al poner precio a servicios antes invisibles (agua, captura de carbono, biodiversidad). El carbono del suelo y las redes que lo sostienen son la próxima frontera lógica de ese instrumento.</li>
+    <li><strong class="k">Resiliencia hídrica y de suelos.</strong> Las redes reducen la erosión, mejoran la estructura del suelo y ayudan a las plantas a tolerar sequías —relevante para un país expuesto a la variabilidad climática y al fenómeno de El Niño.</li>
+    <li><strong class="k">Capacidad científica instalada.</strong> La UCR, el CATIE y la tradición de investigación tropical dan al país una base para no ser mero receptor del dato, sino productor de conocimiento aplicado sobre sus propios suelos.</li>
+  </ul>
+
+  <div class="cr">
+    <div class="lbl">★ Lectura para Costa Rica</div>
+    <p>El capital simbólico de «excepcionalidad verde» que el país proyecta es, en términos de sistemas-mundo, un activo de su inserción semiperiférica: le permite captar turismo, sellos de origen, cooperación y mercados de carbono. Pero por debajo de ese activo de marca hay uno más fundamental y menos visible: la base biofísica de la soberanía alimentaria. Las redes micorrízicas sostienen ambos. Degradarlas erosiona a la vez la narrativa que da valor a la marca-país y la capacidad material del país de producir su propio sustento —dos pérdidas de naturaleza distinta que conviene no confundir ni sumar sin más.</p>
+  </div>
+</section>
+
+<!-- IV -->
+<section class="block" id="iv">
+  <div class="sec-eyebrow"><span class="rn">IV</span><span>El caso Crucitas · (e) la disputa de narrativas</span></div>
+  <h2 class="sec">Dos lógicas del valor colisionan sobre el mismo suelo</h2>
+
+  <figure class="fig">
+    <img src="img/crucitas-fiebre.jpg" alt="Crucitas, la fiebre visible: minería a cielo abierto prohibida desde 2010, oro a precio récord de ~$4.150 la onza, tensión fronteriza con Nicaragua." loading="lazy">
+  </figure>
+
+  <h3 class="subsec">Hechos verificados</h3>
+  <p class="lead">La minería metálica a cielo abierto está prohibida en Costa Rica desde 2010 (Ley 8904). En noviembre de 2024, el gobierno de Rodrigo Chaves presentó un proyecto de ley (expediente 24.717) que crearía un <em>régimen de excepción</em> únicamente para Crucitas de Cutris de San Carlos, en el norte fronterizo: permitiría la minería metálica en esa zona, prohibiendo expresamente el mercurio y la lixiviación abierta, ordenando al MINAE un diagnóstico de contaminación de aguas, degradación de suelos y riesgos a la salud, y declarando la actividad de «conveniencia nacional». El expediente fue dictaminado en septiembre de 2025.</p>
+  <p>La presidenta Laura Fernández convocó el proyecto a sesiones extraordinarias; lleva cerca de dos años bloqueado por más de 600 mociones de la oposición. El 19 de junio de 2026, durante una gira de campo a la zona para presionar a la Asamblea, se escuchó una explosión y la mandataria fue evacuada por protocolo (la describió como una «bombeta» amplificada por el eco del bosque). La zona está tomada por minería ilegal —coligalleros, muchos de ellos nicaragüenses— que emplea mercurio y cianuro. El argumento oficial: legalizar para desplazar la ilegalidad, capturar renta para el Estado (educación, salud, infraestructura) y restar oxígeno al crimen organizado.</p>
+  <figure class="fig">
+    <img src="img/trampa-area.jpg" alt="La trampa del área de impacto: menos del 1% del distrito de Cutris realmente afectado por minería ilegal, frente a 849 km² que el proyecto de ley abriría a exploración y explotación." loading="lazy">
+  </figure>
+
+  <p><strong class="k">Una precisión que reencuadra el debate:</strong> el daño no es general sino concentrado. El foco —la «finca mina Crucitas» y su entorno— creció de unas 800 a unas 3.000 hectáreas en pocos años, pero los estudios oficiales sitúan el área efectivamente afectada por minería ilegal en <em>menos del 1 % del distrito</em> de Cutris. El proyecto, en cambio, abriría a exploración y explotación más de 849 km². La mayor parte del territorio permanece sano, y la regeneración secundaria del bosque tropical es posible —aunque lenta, variable e incierta en su resultado—. Esto desplaza la pregunta: no es solo «¿cómo remediar lo dañado?», sino «¿cómo proteger lo aún sano y rescatar lo recuperable?».</p>
+
+  <h3 class="subsec">Análisis epistémico · MEEE-G</h3>
+  <table class="meee">
+    <tr><th>Afirmación</th><th>Código</th><th>Justificación procesual</th></tr>
+    <tr><td>La minería a cielo abierto está prohibida desde 2010 y existe un proyecto de excepción para Crucitas.</td><td class="code dc">[DC]</td><td>Marco legal vigente (Ley 8904) y expediente legislativo público (24.717).</td></tr>
+    <tr><td>La zona está bajo control de minería ilegal con uso de mercurio.</td><td class="code dc">[DC]</td><td>Reportes oficiales, periodísticos y de organizaciones concordantes durante años.</td></tr>
+    <tr><td>El daño está concentrado en menos del 1 % del distrito; la mayor parte sigue sana.</td><td class="code dc">[DC]</td><td>Estudios oficiales citados por la UCR y Kioscos Socioambientales; cifras de 800→3.000 ha del foco afectado.</td></tr>
+    <tr><td>El proyecto abre 849 km², muy por encima del área dañada que dice remediar.</td><td class="code dc">[DC]</td><td>Texto del expediente 24.717 contrastado con el área afectada reportada (&lt;1 %).</td></tr>
+    <tr><td>La minería a cielo abierto removería el suelo donde vive la red micorrízica.</td><td class="code dc">[DC]</td><td>Definición técnica del método (remoción masiva de suelos y rocas); la red se concentra en los primeros 15 cm.</td></tr>
+    <tr><td>Parte de lo dañado es recuperable mediante regeneración o restauración.</td><td class="code ip">[IP]</td><td>Inferencia plausible: la sucesión secundaria opera, pero es lenta, variable y sin garantía de equivalencia con lo destruido.</td></tr>
+    <tr><td>Legalizar desplazaría efectivamente a la minería ilegal.</td><td class="code h">[H]</td><td>Hipótesis central del proyecto, no demostrada; criterios de la UCR y la experiencia regional sugieren que la formalización puede institucionalizar la ilegalidad en vez de erradicarla.</td></tr>
+    <tr><td>La renta del oro se traduciría en ingresos significativos y bien distribuidos para el Estado.</td><td class="code ip">[IP]</td><td>Inferencia condicionada al diseño fiscal, la gobernanza y la captura de renta; el precio récord la favorece, la informalidad la erosiona.</td></tr>
+    <tr><td>El valor de los servicios del suelo supera al del oro extraíble.</td><td class="code c">[C]</td><td>Conjetura razonada: depende de horizonte temporal, tasa de descuento y de qué se considere conmensurable (ver Sección V).</td></tr>
+  </table>
+
+  <div class="ws">
+    <div class="lbl">◆ Sistemas-Mundo · Wallerstein / Arrighi</div>
+    <p>El oro es la cuasi-mercancía monopólica por excelencia: líquida, almacenable, demandada por bancos centrales y hoy en máximos históricos (~USD 4.150 por onza, tras superar repetidamente esa marca en 2026). Ese precio récord es el motor que reactiva tanto la presión por minería legal como el auge de la ilegal. Crucitas es un nodo periférico-fronterizo acoplado a una cadena global de valorización del oro: el metal ilegal se «lava» y se exporta, integrándose a circuitos financieros del núcleo.</p>
+    <p>La dimensión regional es ineludible y conecta con la Nota 06 del boletín: el régimen de Ortega-Murillo expandió concesiones auríferas —incluso en la franja del Río San Juan— y Estados Unidos sancionó en abril a empresas y a hijos de la pareja por el negocio del oro con China. El oro de la frontera norte es, a la vez, recurso económico y vector geopolítico. Costa Rica decide su política minera dentro de ese campo de fuerzas, no en abstracto.</p>
+  </div>
+
+  <h3 class="subsec">La disputa de narrativas</h3>
+
+  <figure class="fig">
+    <img src="img/tres-narrativas.jpg" alt="Tres formas de contar la misma historia: relato oficial (mejor que sea ordenado), relato ambiental (va en contra de lo que somos), relato de negocio verde (la riqueza está en no extraer)." loading="lazy">
+  </figure>
+
+  <p>El conflicto no es solo de datos; es de <em class="term">marcos</em>. Tres narrativas compiten por definir qué <em>es</em> Crucitas:</p>
+  <ul class="clean">
+    <li><strong class="k">Narrativa de soberanía y orden.</strong> «El oro se está extrayendo de todas formas, por redes criminales que dañan el ambiente; legalizar permite que la riqueza le quede al país y combate la ilegalidad.» Es la narrativa oficial: convierte la minería en un instrumento de control territorial y recaudación.</li>
+    <li><strong class="k">Narrativa de conservación e identidad.</strong> «La minería a cielo abierto es incompatible con el modelo de país y con el Convenio de Minamata sobre el mercurio.» Reduce la disyuntiva a minería legal vs. ilegal solo en apariencia; su núcleo es la defensa de la marca-país y del bien común.</li>
+    <li><strong class="k">Narrativa de la naturaleza como riqueza.</strong> Voces como la Fundación For the Oceans plantean que en Crucitas no se discute minería, sino el futuro económico del país: que la riqueza puede generarse precisamente <em>no extrayendo</em>, convirtiendo el oro en naturaleza y la naturaleza en valor. El mapa micorrízico es munición empírica para esta tercera narrativa.</li>
+  </ul>
+  <p>La función de este anexo no es coronar una narrativa, sino mostrar qué pone en juego cada una y con qué estatus epistémico. El mapa micorrízico no «gana» el debate: lo reencuadra, al hacer visible un valor que antes no entraba en la contabilidad.</p>
+
+  <h3 class="subsec">La dimensión omitida: el precedente y la ventana de Overton</h3>
+  <p>Un análisis riguroso no puede tratar la excepción como un hecho aislado. Toda excepción a una prohibición opera además como <em class="term">precedente</em>: desplaza el umbral de lo políticamente decible. Lo que hoy es «impensable» (minería metálica a cielo abierto en un país que la prohibió en 2010) puede volverse, vía una excepción «por esta única vez», sucesivamente discutible, aceptable y finalmente exigible. Es el mecanismo de la <em>ventana de Overton</em>: el rango de lo socialmente admisible se corre, y puede correrse deliberadamente mediante la repetición de una narrativa de emergencia.</p>
+  <p>La hipótesis del precedente no es especulación libre: se apoya en señales concretas y verificables.</p>
+
+  <figure class="fig">
+    <img src="img/ventana-overton.jpg" alt="La ventana de Overton: de impensable a discutible, aceptable y normal. La cuña de Crucitas como antesala de futuras presiones sobre Corcovado, Miramar y Abangares." loading="lazy">
+  </figure>
+
+  <table class="meee">
+    <tr><th>Señal</th><th>Código</th><th>Justificación procesual</th></tr>
+    <tr><td>La cláusula de «seguridad jurídica» mantendría vigentes las concesiones aunque la ley se derogara.</td><td class="code dc">[DC]</td><td>Disposición incluida en el texto del expediente 24.717: diseña irreversibilidad institucional.</td></tr>
+    <tr><td>Existe acaparamiento especulativo de solicitudes de exploración por miles de hectáreas a la espera de la ley.</td><td class="code ip">[IP]</td><td>Inferencia respaldada por reportes (Diario Extra, Semanario Universidad) sobre concentración de solicitudes; el móvil especulativo es plausible, no probado.</td></tr>
+    <tr><td>La desproporción 849 km² frente a &lt;1 % dañado sugiere que el objetivo es habilitar minería a escala, no remediar.</td><td class="code int">[Int]</td><td>Interpretación del criterio institucional de la UCR/Kioscos; lectura de la intención a partir de la asimetría territorial.</td></tr>
+    <tr><td>La aprobación replicaría el modelo en otras zonas con minería ilegal (Corcovado, Miramar, Abangares).</td><td class="code h">[H]</td><td>Hipótesis de difusión del precedente formulada por analistas; trayectoria plausible, no determinada.</td></tr>
+  </table>
+
+  <div class="ws">
+    <div class="lbl">◆ Sistemas-Mundo · la lógica que se normaliza</div>
+    <p>El precedente no es solo jurídico: es la consolidación de una jerarquía de valores. Lo que una excepción de este tipo normaliza es la <em>primacía de lo monetario-inmediato</em> (un stock líquido, valorizable hoy en el mercado mundial del oro) sobre lo <em>sistémico-resiliente</em> (el fondo-flujo del suelo vivo, el agua, la soberanía alimentaria). En términos de Arrighi, es la subordinación de la reproducción de largo plazo del territorio a la realización de corto plazo del capital. Cada excepción que se naturaliza erosiona la capacidad del nodo semiperiférico para defender sus propias bases de resiliencia frente a la presión de la valorización global.</p>
+  </div>
+
+  <div class="add">
+    <div class="lbl">Lectura dinámica · ADD</div>
+    <div class="regime"><span>Régimen: <b>bifurcación de modelo</b></span><span>Analogía: <b>fuerte</b></span><span>Parámetro de control declarado: <b>qué tipo de valor el Estado decide proteger</b></span></div>
+    <p>Crucitas es una bifurcación en sentido estricto: el sistema-país puede reorganizarse hacia dos atractores de modelo de desarrollo —el extractivo y el regenerativo— y el suelo físico de la zona no admite ambos a la vez (la minería a cielo abierto destruye la capa donde vive la red). El parámetro de control no es geológico sino político: qué tipo de valor decide proteger el Estado. En clave Habermas, es una colonización del mundo de la vida por el sistema: la lógica de la rentabilidad del oro y de la legalidad formal penetra en un territorio cuya reproducción dependía de otras lógicas (subsistencia campesina, agua, bosque). En clave Bourdieu, la frase «el oro se extrae de todas formas» opera como naturalización —una violencia simbólica que presenta lo contingente (seguir extrayendo) como inevitable—. La dimensión del precedente amplifica este punto: una bifurcación local, si se naturaliza como excepción admisible, puede desplazar el atractor de todo el sistema hacia el régimen extractivo, haciendo que la próxima excepción encuentre menos resistencia.</p>
+  </div>
+</section>
+
+<!-- V -->
+<section class="block" id="v">
+  <div class="sec-eyebrow"><span class="rn">V</span><span>La pregunta abierta · valor, desarrollo y seguridad</span></div>
+  <h2 class="sec">¿Cuánto provee la red fúngica frente a la lógica del oro?</h2>
+
+  <p class="lead">La pregunta es excelente precisamente porque no tiene respuesta numérica limpia: compara cosas que se miden en unidades distintas. Honestamente, gran parte del valor del subsuelo vivo es <em>inconmensurable</em> con el precio del oro —y reconocer esa inconmensurabilidad es ya parte de la respuesta. Lo que sí podemos hacer es desarmar la pregunta en sus tres ejes y mostrar la estructura del intercambio.</p>
+
+  <h3 class="subsec">El punto decisivo: stock contra flujo</h3>
+
+  <figure class="fig">
+    <img src="img/stock-vs-flujo.jpg" alt="Anatomía de dos riquezas incompatibles: el oro es contante y de un solo golpe, finito; la red invisible es repartida, sistémica, renovable si se cuida, nunca se agota." loading="lazy">
+  </figure>
+
+  <p>El oro de Crucitas es un <strong class="k">stock</strong>: una cantidad finita que se extrae una vez y se agota; su valor se realiza de golpe y es irreversible. La red micorrízica es un <strong class="k">fondo-flujo</strong>: rinde servicios de forma continua mientras se la mantenga, indefinidamente. En el mismo terreno físico, extraer el stock destruye el fondo. No es una metáfora: la minería a cielo abierto remueve los primeros metros de suelo —exactamente donde se concentra la red— y la contaminación por metales pesados que ese método arrastra es, además, uno de los estreses que las micorrizas ayudan a tolerar. Se elimina, así, justo el sistema que daría resiliencia.</p>
+
+  <table class="vs">
+    <tr><th class="axis">Eje</th><th class="soil">Red micorrízica (fondo-flujo)</th><th class="gold">Oro extractivo (stock)</th></tr>
+    <tr>
+      <td class="axis">Valor</td>
+      <td class="soilcol">Difuso, no transado, de bien público: fertilidad, agua, carbono, resiliencia. Bajo per cápita, enorme en agregado y en el tiempo. Difícil de precificar, fácil de subestimar a cero.</td>
+      <td class="goldcol">Concentrado, líquido, con precio de mercado y en máximos históricos. Fácil de contabilizar; tentador por su visibilidad inmediata.</td>
+    </tr>
+    <tr>
+      <td class="axis">Desarrollo</td>
+      <td class="soilcol">Sostiene la soberanía alimentaria (cultivos de consumo interno), la base productiva de exportación (café, cacao), la marca-país y el PSA. Desarrollo acumulativo y diversificado, dependiente de mantener el activo.</td>
+      <td class="goldcol">Ingreso fiscal potencial puntual; empleo local acotado y temporal. Riesgo de enclave y de «maldición de los recursos» si la renta se concentra.</td>
+    </tr>
+    <tr>
+      <td class="axis">Seguridad</td>
+      <td class="soilcol">Seguridad <em>ecológica y humana</em>: agua limpia, suelos, alimentos, salud. No resuelve por sí sola el problema criminal-territorial.</td>
+      <td class="goldcol">La formalización <em>promete</em> seguridad territorial (desplazar al crimen), pero es hipótesis [H]; añade riesgos de salud y ambientales de tipo [DC].</td>
+    </tr>
+    <tr>
+      <td class="axis">Reversibilidad</td>
+      <td class="soilcol">Renovable si se la cuida; recuperable —parcialmente y con tiempo— mediante restauración.</td>
+      <td class="goldcol">Irreversible: el yacimiento extraído no vuelve; el suelo removido no se regenera en escalas humanas.</td>
+    </tr>
+  </table>
+
+  <p>De ese cuadro se desprende una conclusión analítica, no una recomendación: <strong class="k">los dos valores no están en el mismo plano y, en el mismo terreno, no son acumulables</strong>. Quien decide no elige «más valor o menos valor», sino <em>qué tipo de valor</em> —y con qué horizonte temporal y qué reparto. El oro favorece a quien descuenta fuertemente el futuro y necesita liquidez hoy; la red favorece a quien valora la permanencia, la diversificación y la base biofísica del modelo de país.</p>
+
+  <h3 class="subsec">Sobre «seguridad»: dos sentidos que conviene no confundir</h3>
+
+  <figure class="fig">
+    <img src="img/dos-seguridades.jpg" alt="La ilusión de elegir entre dos seguridades: frontera y control versus sustento y salud. El error es permitir que una emergencia tape a la otra." loading="lazy">
+  </figure>
+
+  <p>La narrativa oficial apela a la seguridad en sentido <em>policial-territorial</em>: recuperar el control de una frontera tomada por economías ilícitas. Es un problema real y legítimo. Pero la red micorrízica habla de seguridad en sentido <em>ecológico-humano</em>: agua, suelo, alimento, salud. Ambas son seguridad; no son la misma. Un error frecuente del debate es dejar que una desplace a la otra. La pregunta rigurosa no es «¿oro o seguridad?», sino «¿qué combinación de instrumentos atiende el problema criminal-territorial sin sacrificar la seguridad ecológica?» —y si la minería es realmente el instrumento más eficaz para lo primero, dado que su hipótesis de desplazamiento de la ilegalidad sigue sin demostrarse.</p>
+
+  <div class="cr">
+    <div class="lbl">★ Síntesis de la pregunta abierta</div>
+    <p>La red fúngica provee un valor mayoritariamente de bien público, continuo e inconmensurable con el oro: es la base biofísica del modelo de desarrollo costarricense y de su soberanía alimentaria. El oro provee un valor concentrado, líquido y único, atractivo por su precio récord, pero con captura de renta incierta, irreversibilidad y costos ecológicos confirmados —concentrados, además, en un terreno cuyo daño actual es inferior al 1 % del distrito. La elección, despojada de su envoltura técnica, es una decisión sobre <em>identidad de Estado y horizonte temporal</em>, y arrastra una dimensión de precedente: lo que se decide en Crucitas fija qué lógica —la monetario-inmediata o la sistémico-resiliente— gobernará las decisiones futuras. Cuantificar ayuda; pero pretender que una cifra zanje una elección entre tipos de valor distintos sería, justamente, el espejismo que esta sección busca evitar.</p>
+  </div>
+
+  <figure class="fig">
+    <img src="img/fondo-del-asunto.jpg" alt="El verdadero fondo del asunto: la decisión sobre Crucitas pesa más que Crucitas. Lógica monetaria e inmediata frente a lógica sistémica y duradera." loading="lazy">
+  </figure>
+</section>
+
+<!-- VI -->
+<section class="block" id="vi">
+  <div class="sec-eyebrow"><span class="rn">VI</span><span>De «dato sin política» a política pública · (b) integración · (c)</span></div>
+  <h2 class="sec">Cómo evitar que el hallazgo muera como dato sin consecuencia</h2>
+
+  <p class="lead">La Nota 04 advertía un escenario llamado «dato sin política»: un hito científico que queda como curiosidad sin traducción regulatoria mientras la degradación continúa. Para conjurarlo no basta con celebrar el mapa; hace falta convertirlo en instrumentos. Lo que sigue es un <em>menú</em> de opciones —no una recomendación—, ordenado de lo más inmediato a lo más estructural. Cada una existe ya, en germen, en la institucionalidad costarricense.</p>
+
+  <figure class="fig">
+    <img src="img/instrumentos-politica.jpg" alt="Para que el mapa no quede en una curiosidad: medir antes de decidir, permisos condicionados, premiar al que cuida, soberanía científica." loading="lazy">
+  </figure>
+
+  <div class="pol">
+    <div class="tag">Integración 01 · inmediata</div>
+    <h4>Salud biológica del suelo y zonificación en el diagnóstico que el propio proyecto ordena</h4>
+    <p>El expediente 24.717 ya manda al MINAE elaborar un diagnóstico de degradación de suelos. Incorporar indicadores de redes micorrízicas y carbono del suelo, y zonificar el territorio en tres categorías —dañado (&lt;1 %), recuperable y aún sano—, no requiere ley nueva: aprovecha un mandato existente para que la decisión sobre Crucitas se tome con el activo subterráneo a la vista y con criterio para proteger lo sano y restaurar lo recuperable, en vez de a ciegas.</p>
+  </div>
+  <div class="pol">
+    <div class="tag">Integración 02 · de gestión</div>
+    <h4>Línea base micorrízica en la evaluación de impacto ambiental</h4>
+    <p>Hacer de la biología del suelo un componente estándar de los estudios de impacto ambiental (SETENA) para proyectos extractivos, de infraestructura y agroindustriales. Lo que no se mide, no entra en la contabilidad del costo —y se da por gratis lo que no lo es.</p>
+  </div>
+  <div class="pol">
+    <div class="tag">Integración 03 · de incentivos</div>
+    <h4>Ampliar el PSA hacia los servicios del subsuelo</h4>
+    <p>Costa Rica ya tiene el vehículo institucional (FONAFIFO, PSA). Extenderlo a prácticas que conservan la red —manejo agroecológico de café y cacao, restauración de pastizales, labranza mínima— convierte la conservación del subsuelo en una fuente de ingreso para el productor, no en un costo.</p>
+  </div>
+  <div class="pol">
+    <div class="tag">Integración 04 · de mercado, con cautela</div>
+    <h4>Carbono del suelo en mercados, evitando la captura desigual de renta</h4>
+    <p>El carbono del suelo puede entrar en mercados de carbono, pero el diseño importa: si los instrumentos se redactan en el núcleo, la periferia biodiversa aporta el sustrato y capta poca renta. Diseñar reglas que retengan valor localmente es la diferencia entre oportunidad y nueva dependencia.</p>
+  </div>
+  <div class="pol">
+    <div class="tag">Integración 05 · estructural</div>
+    <h4>Capacidad científica nacional sobre suelos vivos</h4>
+    <p>Apoyar a UCR, CATIE y centros nacionales para producir datos propios —no depender de modelos globales que dejan a los trópicos como vacío de muestreo— y formar el capital cultural científico que permita al país ser actor, y no receptor, de esta frontera.</p>
+  </div>
+
+  <div class="scen">
+    <div class="lbl">Escenarios plausibles para Costa Rica</div>
+    <span class="pill a"><b>Integración</b> El país hace del subsuelo vivo un activo de política: lo mide, lo incentiva y lo defiende; Crucitas se resuelve a favor del modelo regenerativo y el dato se vuelve regulación.</span>
+    <span class="pill b"><b>Coexistencia tensa</b> Se aprueba la excepción minera con salvaguardas, y en paralelo se desarrollan instrumentos de suelo; ambos modelos conviven con fricción y resultados mixtos.</span>
+    <span class="pill c"><b>Dato sin política</b> El mapa queda como hito celebrado sin traducción; avanza la extracción, se degrada la red y se erosiona —en silencio— la base biofísica de la marca-país.</span>
+  </div>
+</section>
+
+<!-- UNCERTAINTIES -->
+<section class="block uncert" style="border-bottom:none">
+  <h2 class="plain">Incertidumbres abiertas</h2>
+  <ul>
+    <li>¿Desplazaría realmente la minería legal a la ilegal en Crucitas, o coexistirían? La hipótesis central del proyecto sigue sin evidencia concluyente.</li>
+    <li>Si se aprueba la excepción «solo para Crucitas», ¿permanecerá acotada, o operará como precedente que habilite reclamos análogos en Corcovado, Miramar o Abangares?</li>
+    <li>¿Cuánto del territorio dañado es efectivamente recuperable por regeneración o restauración, y en qué plazos? La sucesión secundaria tropical es lenta y variable.</li>
+    <li>¿Cuánto carbono del suelo es permanente y manejable, y cuánto se reemite? De ello depende su valor real en mercados y modelos climáticos.</li>
+    <li>¿Existe la voluntad y la capacidad institucional para incorporar indicadores de suelo vivo —y soberanía alimentaria— al diagnóstico del MINAE y a la EIA?</li>
+    <li>¿Puede Costa Rica diseñar instrumentos de carbono de suelo que retengan renta localmente, o reproducirá la captura desigual del núcleo?</li>
+    <li>¿Cómo separar la legítima necesidad de seguridad territorial fronteriza de la decisión sobre el modelo de desarrollo, sin que una secuestre a la otra?</li>
+  </ul>
+
+  <figure class="fig">
+    <img src="img/cierre.jpg" alt="Lo que todavía queda en el aire: ¿legalizar la minería sacaría a los ilegales, o terminarían conviviendo en un territorio devastado? Entender el mundo no debería ser un lujo de unos pocos." loading="lazy">
+  </figure>
+</section>
+
+<!-- REFS -->
+<section class="block" style="border-bottom:none">
+  <h2 class="plain">Fuentes · APA 7</h2>
+  <div class="refs">
+  <ol>
+    <li>Stewart, J. D., Bisot, C., Cargill, R. I. M., Van Nuland, M. E., Kiers, E. T., et al. (2026, 11 de junio). Global density and biomass of arbuscular mycorrhizal fungal networks. <em>Science, 392</em>(6803), 1171. https://doi.org/10.1126/science.adu4373</li>
+    <li>University of Sheffield. (2026, 11 de junio). <em>First global map reveals underground fungi networks long enough to reach the sun a billion times</em>. https://www.sheffield.ac.uk/news/</li>
+    <li>NPR. (2026, 16 de junio). <em>How to map quadrillions of miles of underground fungi</em>. https://www.npr.org/</li>
+    <li>Journal of the Saudi Society of Agricultural Sciences. (2025). <em>Arbuscular mycorrhizal fungi (AMF): a pathway to sustainable soil health, carbon sequestration, and greenhouse gas mitigation</em>. https://doi.org/10.1007/s44447-025-00023-w</li>
+    <li>Aguilar-Paredes, A., et al. (2019). Agroecological coffee management increases arbuscular mycorrhizal fungi diversity. <em>PMC6324804</em>. https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6324804/</li>
+    <li>CRHoy. (2026, 20 de mayo). <em>Gobierno impulsa reactivación minera en Crucitas: estas son las propuestas</em>. https://crhoy.com/</li>
+    <li>Observatorio de Bienes Comunes, UCR. (2025). <em>Expediente legislativo 24.717 — Crucitas entre el oro y la naturaleza: ¿qué camino elegirá Costa Rica?</em> https://bienescomunes.fcs.ucr.ac.cr/</li>
+    <li>Universidad de Costa Rica / Kioscos Socioambientales. (2026, 17 de febrero). <em>UCR rechaza propuesta del Gobierno que permitiría minería de oro a cielo abierto en Crucitas: el área afectada representa menos del 1 % del distrito frente a 849 km² propuestos</em>. Delfino.cr. https://delfino.cr/</li>
+    <li>Observatorio de Bienes Comunes, UCR. (2026, 18 de febrero). <em>Minería ilegal: el nuevo pretexto del viejo extractivismo</em>. https://bienescomunes.fcs.ucr.ac.cr/</li>
+    <li>Semanario Universidad. (2026, 27 de febrero). <em>Legalizar la minería en Cutris, un retroceso ambiental y legal</em>. https://semanariouniversidad.com/</li>
+    <li>Serendero Hülssner, J. (2026, 20 de abril). <em>Crucitas, la oportunidad de Costa Rica para convertir el oro en naturaleza… y la naturaleza en riqueza</em>. Delfino.cr. https://delfino.cr/</li>
+    <li>Revista E&amp;N / EFE. (2026, 19 de junio). <em>Evacuan a la presidenta de Costa Rica de una gira de campo tras escucharse una explosión en Crucitas</em>. https://www.revistaeyn.com/</li>
+    <li>Acento. (2026, 19 de junio). <em>Explosión sacude gira de la presidenta de Costa Rica y reaviva debate sobre Crucitas</em>. https://acento.com.do/</li>
+    <li>Fortune. (2026, 18 de junio). <em>Current price of gold</em>. https://fortune.com/</li>
+    <li>Trading Economics. (2026, 19 de junio). <em>Gold — Price</em>. https://tradingeconomics.com/commodity/gold</li>
+  </ol>
+  </div>
+</section>
+
+<div class="method">
+  <p><b>Nota metodológica.</b> Este anexo integra tres registros analíticos distintos y no colapsables: la evaluación epistémica explicacionista (MEEE-G, inspirada en Goldman), el análisis dinámico antropológico (ADD, según Montero Fonseca) y la capa de sistemas-mundo (Wallerstein/Arrighi). Los códigos —<b>[DC]</b> dato confirmado, <b>[IP]</b> inferencia plausible, <b>[H]</b> hipótesis, <b>[Int]</b> interpretación, <b>[C]</b> conjetura— caracterizan el estatus justificatorio de cada afirmación, no la convicción del analista. Las declaraciones de analogía (literal / fuerte / débil) y de parámetro de control siguen el criterio de rigor de la ADD frente al uso metafórico de los conceptos de complejidad. Las narrativas en disputa se presentan en su versión más fuerte sin que el documento adopte ninguna como propia. <b>El análisis combina evaluación epistémica explicacionista y análisis dinámico antropológico; no constituye predicción determinista ni recomendación política.</b> El menú de instrumentos de la Sección VI describe opciones existentes en la institucionalidad costarricense, no prescripciones; la decisión corresponde a los órganos democráticos competentes.</p>
+</div>
+
+</main>
+
+<footer>
+  <div>ANCA-ADD © 2026 · <a href="https://antropos.app">antropos.app</a></div>
+  <div>Informe Estratégico · Origen: Nota 04, Boletín N.° 010 · 19 jun 2026 · MEEE-G + ADD + Sistemas-Mundo</div>
+</footer>
+
+<script data-goatcounter="https://antropos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

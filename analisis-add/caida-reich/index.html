@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANCA-ADE · Especial Histórico — La Caída del III Reich</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --liberation-blue:    #0d2b4e;
+    --deep-navy:          #091a30;
+    --sky-freedom:        #2e6fa3;
+    --hope-teal:          #1a6b6b;
+    --allied-gold:        #c8992a;
+    --warm-gold:          #e8b84b;
+    --victory-cream:      #f5f0e8;
+    --parchment:          #ede6d3;
+    --blood-shadow:       rgba(139,0,0,0.12);
+    --ash-grey:           #8a8a8a;
+    --body-text:          #1e2a38;
+    --light-text:         #f0ead8;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: var(--deep-navy);
+    color: var(--light-text);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 300;
+    line-height: 1.75;
+    overflow-x: hidden;
+  }
+
+  /* ── HEADER ── */
+  .masthead {
+    background: linear-gradient(180deg, #000 0%, var(--deep-navy) 100%);
+    border-bottom: 3px solid var(--allied-gold);
+    padding: 2.5rem 2rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .masthead::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 38px,
+      rgba(200,153,42,0.04) 38px,
+      rgba(200,153,42,0.04) 39px
+    );
+    pointer-events: none;
+  }
+  .agency-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+    color: var(--allied-gold);
+    text-transform: uppercase;
+    margin-bottom: 0.9rem;
+  }
+  .masthead-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 5vw, 4.2rem);
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--victory-cream);
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+  }
+  .masthead-title em {
+    color: var(--warm-gold);
+    font-style: italic;
+  }
+  .masthead-subtitle {
+    font-family: 'Source Serif 4', serif;
+    font-size: clamp(0.85rem, 1.8vw, 1.05rem);
+    font-style: italic;
+    color: var(--ash-grey);
+    margin-top: 0.6rem;
+    letter-spacing: 0.02em;
+  }
+  .date-bar {
+    margin-top: 1.4rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--allied-gold);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .date-bar span::before { content: '◆ '; }
+
+  /* ── INTRO BAND ── */
+  .intro-band {
+    background: var(--allied-gold);
+    color: var(--deep-navy);
+    padding: 1.1rem 2rem;
+    text-align: center;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  /* ── LAYOUT ── */
+  .wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* ── LEDE ── */
+  .lede-section {
+    padding: 4.5rem 0 3rem;
+    border-bottom: 1px solid rgba(200,153,42,0.3);
+  }
+  .lede-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  .lede-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 900;
+    color: var(--victory-cream);
+    line-height: 1.15;
+    margin-bottom: 1.2rem;
+  }
+  .lede-headline span {
+    color: var(--warm-gold);
+  }
+  .pull-quote {
+    border-left: 4px solid var(--allied-gold);
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    background: rgba(200,153,42,0.06);
+  }
+  .pull-quote p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.18rem;
+    line-height: 1.6;
+    color: var(--warm-gold);
+  }
+  .pull-quote cite {
+    display: block;
+    margin-top: 0.6rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    color: var(--ash-grey);
+    text-transform: uppercase;
+    font-style: normal;
+  }
+  .lede-body p {
+    font-size: 1.02rem;
+    margin-bottom: 1.1rem;
+    color: #d0c8b8;
+  }
+
+  /* ── EPISTEMIC BADGE ── */
+  .badge {
+    display: inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+    padding: 0.15rem 0.5rem;
+    border-radius: 2px;
+    margin-right: 0.3rem;
+    vertical-align: middle;
+    font-weight: 700;
+  }
+  .badge-dc  { background: #1a5c1a; color: #a0e0a0; border: 1px solid #2a8a2a; }
+  .badge-ip  { background: #1a3a5c; color: #80b8e0; border: 1px solid #2a5a8a; }
+  .badge-int { background: #4a3500; color: #e0b840; border: 1px solid #8a6000; }
+  .badge-h   { background: #3a1a4a; color: #c080e0; border: 1px solid #6a2a8a; }
+  .badge-c   { background: #3a2a1a; color: #d09060; border: 1px solid #6a4a2a; }
+
+  /* ── SECTION TITLES ── */
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--victory-cream);
+    margin-bottom: 0.4rem;
+    padding-top: 3.5rem;
+  }
+  .section-rule {
+    width: 60px;
+    height: 3px;
+    background: var(--allied-gold);
+    margin-bottom: 2rem;
+  }
+
+  /* ── TIMELINE ── */
+  .timeline {
+    position: relative;
+    padding: 2rem 0 3rem;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 140px;
+    top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, var(--allied-gold) 0%, var(--sky-freedom) 100%);
+  }
+  .tl-item {
+    display: flex;
+    gap: 0;
+    margin-bottom: 2.8rem;
+    position: relative;
+    animation: fadeUp 0.6s ease both;
+  }
+  .tl-year {
+    width: 140px;
+    flex-shrink: 0;
+    text-align: right;
+    padding-right: 1.8rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.35rem;
+    color: var(--warm-gold);
+    padding-top: 0.1rem;
+    position: relative;
+  }
+  .tl-year::after {
+    content: '';
+    position: absolute;
+    right: -6px; top: 0.45rem;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--allied-gold);
+    border: 2px solid var(--deep-navy);
+    z-index: 1;
+  }
+  .tl-year small {
+    display: block;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.55rem;
+    color: var(--ash-grey);
+    letter-spacing: 0.1em;
+    font-weight: 400;
+    margin-top: 0.15rem;
+  }
+  .tl-content {
+    padding-left: 2rem;
+    flex: 1;
+  }
+  .tl-event {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--victory-cream);
+    margin-bottom: 0.4rem;
+  }
+  .tl-desc {
+    font-size: 0.92rem;
+    color: #b8b0a0;
+    line-height: 1.65;
+  }
+  .tl-tag {
+    display: inline-block;
+    margin-top: 0.4rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.12em;
+    padding: 0.12rem 0.45rem;
+    background: rgba(46,111,163,0.2);
+    border: 1px solid var(--sky-freedom);
+    color: var(--sky-freedom);
+    text-transform: uppercase;
+  }
+  .tl-tag.red { background: rgba(139,0,0,0.2); border-color: #8b3333; color: #cc6666; }
+  .tl-tag.gold { background: rgba(200,153,42,0.15); border-color: var(--allied-gold); color: var(--warm-gold); }
+
+  /* ── ALLIANCE TABLE ── */
+  .alliance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0 3rem;
+  }
+  .ally-card {
+    background: rgba(13,43,78,0.6);
+    border: 1px solid rgba(200,153,42,0.25);
+    border-top: 3px solid var(--allied-gold);
+    padding: 1.5rem;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .ally-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--warm-gold);
+  }
+  .ally-flag {
+    font-size: 2rem;
+    margin-bottom: 0.7rem;
+    display: block;
+  }
+  .ally-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--victory-cream);
+    margin-bottom: 0.3rem;
+  }
+  .ally-ideology {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--warm-gold);
+    margin-bottom: 0.7rem;
+  }
+  .ally-desc {
+    font-size: 0.85rem;
+    color: #a8a098;
+    line-height: 1.6;
+  }
+  .ally-contrib {
+    margin-top: 0.8rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid rgba(200,153,42,0.2);
+    font-size: 0.78rem;
+    color: var(--ash-grey);
+  }
+  .ally-contrib strong { color: var(--warm-gold); }
+
+  /* ── MEEE-G TABLE ── */
+  .meee-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0 3rem;
+    font-size: 0.88rem;
+  }
+  .meee-table thead tr {
+    background: rgba(200,153,42,0.15);
+    border-bottom: 2px solid var(--allied-gold);
+  }
+  .meee-table th {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--warm-gold);
+    padding: 0.8rem 1rem;
+    text-align: left;
+  }
+  .meee-table td {
+    padding: 0.8rem 1rem;
+    vertical-align: top;
+    border-bottom: 1px solid rgba(200,153,42,0.1);
+    color: #c0b8a8;
+    line-height: 1.55;
+  }
+  .meee-table tr:hover td { background: rgba(13,43,78,0.4); }
+
+  /* ── ADD PANEL ── */
+  .add-panel {
+    background: linear-gradient(135deg, rgba(13,43,78,0.8) 0%, rgba(9,26,48,0.95) 100%);
+    border: 1px solid rgba(46,111,163,0.4);
+    border-left: 4px solid var(--sky-freedom);
+    padding: 2rem 2.5rem;
+    margin: 1rem 0 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .add-panel::before {
+    content: 'ADD';
+    position: absolute;
+    right: 1.5rem; top: 1rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    color: rgba(46,111,163,0.4);
+    text-transform: uppercase;
+  }
+  .add-panel h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--sky-freedom);
+    margin-bottom: 1rem;
+    font-style: italic;
+  }
+  .add-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem 2rem;
+  }
+  .add-item label {
+    display: block;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--sky-freedom);
+    margin-bottom: 0.25rem;
+  }
+  .add-item p {
+    font-size: 0.88rem;
+    color: #a0b8cc;
+    line-height: 1.6;
+  }
+
+  /* ── COSTA RICA BOX ── */
+  .cr-box {
+    background: linear-gradient(135deg, rgba(26,107,107,0.25) 0%, rgba(13,43,78,0.6) 100%);
+    border: 1px solid rgba(26,107,107,0.5);
+    border-left: 4px solid var(--hope-teal);
+    padding: 2rem 2.5rem;
+    margin: 0 0 3rem;
+  }
+  .cr-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #5ecece;
+    margin-bottom: 0.3rem;
+  }
+  .cr-box .cr-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--hope-teal);
+    margin-bottom: 1rem;
+    display: block;
+  }
+  .cr-box p {
+    font-size: 0.9rem;
+    color: #a0c8c8;
+    line-height: 1.7;
+    margin-bottom: 0.8rem;
+  }
+
+  /* ── CLOSING PANEL ── */
+  .closing {
+    background: var(--liberation-blue);
+    border-top: 3px solid var(--allied-gold);
+    border-bottom: 3px solid var(--allied-gold);
+    padding: 3.5rem 2.5rem;
+    text-align: center;
+    margin: 2rem 0 0;
+  }
+  .closing-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--victory-cream);
+    max-width: 720px;
+    margin: 0 auto 1rem;
+    line-height: 1.5;
+  }
+  .closing-quote em { color: var(--warm-gold); }
+  .closing-cite {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    color: var(--ash-grey);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+
+  /* ── COUNTERS ── */
+  .stats-band {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    background: rgba(0,0,0,0.3);
+    border-top: 1px solid rgba(200,153,42,0.2);
+    border-bottom: 1px solid rgba(200,153,42,0.2);
+    margin: 2.5rem 0;
+  }
+  .stat-item {
+    padding: 1.5rem 1rem;
+    text-align: center;
+    border-right: 1px solid rgba(200,153,42,0.15);
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 900;
+    color: var(--warm-gold);
+    display: block;
+    line-height: 1;
+  }
+  .stat-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ash-grey);
+    display: block;
+    margin-top: 0.4rem;
+  }
+
+  /* ── DISCLAIMER ── */
+  .disclaimer {
+    background: rgba(0,0,0,0.4);
+    border-top: 1px solid rgba(200,153,42,0.15);
+    padding: 1.5rem 2rem;
+    text-align: center;
+  }
+  .disclaimer p {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    color: #606870;
+    max-width: 900px;
+    margin: 0 auto;
+    line-height: 1.8;
+    text-transform: uppercase;
+  }
+
+  /* ── CITATIONS ── */
+  .references {
+    padding: 3rem 0 2rem;
+    border-top: 1px solid rgba(200,153,42,0.2);
+  }
+  .references h3 {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--allied-gold);
+    margin-bottom: 1.2rem;
+  }
+  .references ol {
+    list-style: decimal;
+    padding-left: 1.2rem;
+  }
+  .references li {
+    font-size: 0.78rem;
+    color: #808880;
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .lede-section { animation: fadeUp 0.8s ease both; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 720px) {
+    .lede-cols, .add-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .timeline::before { left: 80px; }
+    .tl-year { width: 80px; font-size: 1rem; }
+    .stats-band { grid-template-columns: 1fr 1fr; }
+    .stat-item { border-bottom: 1px solid rgba(200,153,42,0.1); }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV BACK -->
+<div style="background:#000;padding:0.6rem 1.5rem;text-align:left;">
+  <a href="/analisis-add/" style="font-family:'Space Mono',monospace;font-size:0.62rem;letter-spacing:0.2em;color:#c8992a;text-decoration:none;text-transform:uppercase;">← Análisis ADD · antropos.app</a>
+</div>
+
+<!-- ══════════════════ MASTHEAD ══════════════════ -->
+<header class="masthead">
+  <p class="agency-tag">ANCA-ADE · Sección Especial Histórica · N.° ESP-05</p>
+  <h1 class="masthead-title">El Ocaso del <em>Reich</em><br>que Nunca Duró Mil Años</h1>
+  <p class="masthead-subtitle">Del ascenso del totalitarismo a la Gran Coalición de la Humanidad: 1933–1945</p>
+  <div class="date-bar">
+    <span>8 de mayo de 2026</span>
+    <span>81.º aniversario del V-E Day</span>
+    <span>MEEE-G · ADD · APA 7</span>
+  </div>
+</header>
+
+<div class="intro-band">
+  «Fuimos derrotados y liberados al mismo tiempo» — Theodor Heuss, primer presidente de Alemania Occidental
+</div>
+
+<!-- ══════════════════ LEDE ══════════════════ -->
+<div class="wrapper">
+  <section class="lede-section">
+    <div class="lede-cols">
+      <div>
+        <h2 class="lede-headline">La mayor <span>alianza</span> que el mundo haya ensamblado</h2>
+        <div class="pull-quote">
+          <p>«Ideologías que se odiaban entre sí eligieron unirse contra algo que las amenazaba a todas: la negación misma de la humanidad.»</p>
+          <cite>— Lectura editorial ADD / ANCA-ADE, 2026</cite>
+        </div>
+        <div class="lede-body">
+          <p>Cuando Adolf Hitler fue designado canciller alemán el 30 de enero de 1933, pocas cancillerías del mundo percibieron la magnitud de lo que comenzaba. El <em>Tercer Reich</em> —el Estado que prometía durar mil años— duró apenas doce: los más letales de la historia moderna.</p>
+          <p>Lo que siguió fue la construcción, a menudo tortuosa e ideológicamente incoherente, de una coalición sin precedentes: capitalismos liberales, comunismo soviético, imperios coloniales, repúblicas latinoamericanas y movimientos de resistencia clandestina convergieron bajo un único imperativo: detener la máquina de destrucción que emanaba de Berlín.</p>
+          <p>Este especial analiza el ascenso, la dinámica interna y el colapso del régimen nazi, con énfasis en la paradoja central de la victoria aliada: sistemas radicalmente distintos, incompatibles en tiempos de paz, capaces de articular suficiente cohesión para destruir a quien amenazaba a todos.</p>
+        </div>
+      </div>
+      <div>
+        <div class="stats-band" style="grid-template-columns: 1fr 1fr; margin: 0 0 1.5rem; border: 1px solid rgba(200,153,42,0.2);">
+          <div class="stat-item">
+            <span class="stat-num">12</span>
+            <span class="stat-label">años del III Reich</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">70+</span>
+            <span class="stat-label">países involucrados</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">~60M</span>
+            <span class="stat-label">muertes estimadas</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">6M</span>
+            <span class="stat-label">víctimas del Holocausto</span>
+          </div>
+        </div>
+        <div class="lede-body">
+          <p><span class="badge badge-dc">DC</span> El 8 de mayo de 1945 Alemania firmó en Berlín-Karlshorst la capitulación incondicional ante las potencias aliadas, poniendo fin a la Segunda Guerra Mundial en Europa y al régimen nacional-socialista que había comenzado en 1933.</p>
+          <p><span class="badge badge-int">INT</span> El colapso no fue producto de una sola batalla ni de un solo actor: fue la resultante de la articulación —tensa, contradictoria, pero efectiva— entre el esfuerzo soviético en el este, el poderío industrial angloamericano en el oeste, y las resistencias internas en los países ocupados.</p>
+          <p><span class="badge badge-ip">IP</span> Sin la contribución soviética —estimada en 27 millones de muertos— la victoria aliada habría sido significativamente más tardía o imposible en los plazos en que ocurrió.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ ASCENSO ══════════════════ -->
+  <section>
+    <h2 class="section-title">I. El ascenso: cómo un régimen se apropia de un Estado</h2>
+    <div class="section-rule"></div>
+
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-year">1919<small>Versalles</small></div>
+        <div class="tl-content">
+          <div class="tl-event">El caldo de cultivo: humillación y crisis</div>
+          <div class="tl-desc"><span class="badge badge-dc">DC</span> El Tratado de Versalles impone reparaciones de guerra, reducción del ejército y pérdida territorial a Alemania. La Gran Depresión de 1929 agudizará estas fracturas: desempleo masivo, inflación e inestabilidad política crean las condiciones para soluciones autoritarias. <span class="badge badge-int">INT</span> La República de Weimar, democracia frágil sin arraigo cultural suficiente, no logra sostener su clausura organizacional frente a la colonización sistemática por actores radicales.</div>
+          <span class="tl-tag red">Crisis sistémica</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-year">1933<small>30 enero</small></div>
+        <div class="tl-content">
+          <div class="tl-event">Hitler, canciller: el Estado capturado</div>
+          <div class="tl-desc"><span class="badge badge-dc">DC</span> El presidente Hindenburg designa a Hitler canciller. En meses, la <em>Gleichschaltung</em> (coordinación) pone todos los aspectos de la vida —prensa, sindicatos, partidos, justicia— bajo control del NSDAP. La Ley de Habilitación de marzo elimina el Reichstag como contrapeso real. <span class="badge badge-int">INT</span> No fue un golpe sino una implosión institucional: las élites conservadoras creyeron poder usar a Hitler y fueron usadas por él.</div>
+          <span class="tl-tag red">Captura del Estado</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-year">1935<small>Núremberg</small></div>
+        <div class="tl-content">
+          <div class="tl-event">Las Leyes de Núremberg: el aparato del exterminio</div>
+          <div class="tl-desc"><span class="badge badge-dc">DC</span> Las leyes raciales de Núremberg codifican la discriminación contra judíos y otras minorías. A partir de 1941, las unidades <em>Einsatzgruppen</em> y los campos de exterminio sistematizan el genocidio: el Holocausto. Más de seis millones de personas son asesinadas por razones étnicas y políticas.</div>
+          <span class="tl-tag red">Crimen contra la humanidad</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-year">1939<small>1 sept.</small></div>
+        <div class="tl-content">
+          <div class="tl-event">Invasión de Polonia: la guerra total</div>
+          <div class="tl-desc"><span class="badge badge-dc">DC</span> La invasión de Polonia desencadena la declaración de guerra de Reino Unido y Francia. En 1940, la <em>Wehrmacht</em> ocupa Francia, los Países Bajos, Bélgica, Noruega y Dinamarca. El régimen que prometió expansión ahora debe sostener la ocupación de media Europa con una economía de guerra que no estaba preparada para un conflicto prolongado.</div>
+          <span class="tl-tag red">Bifurcación expansiva</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-year">1941<small>22 jun.</small></div>
+        <div class="tl-content">
+          <div class="tl-event">Operación Barbarroja: el error fatal</div>
+          <div class="tl-desc"><span class="badge badge-dc">DC</span> La invasión de la Unión Soviética —el mayor despliegue militar de la historia— logra avances iniciales espectaculares pero fracasa ante la resistencia soviética en el invierno de 1941-42. <span class="badge badge-ip">IP</span> Stalingrado (1942-43) y Kursk (1943) son los puntos de inflexión: la <em>Wehrmacht</em> inicia un repliegue que ya no se detiene. Hitler había abierto un frente de 3.000 km que sus recursos no podían sostener.</div>
+          <span class="tl-tag">Punto de inflexión</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════ LA ALIANZA ══════════════════ -->
+  <section>
+    <h2 class="section-title">II. La Gran Coalición: ideologías que se unieron para sobrevivir</h2>
+    <div class="section-rule"></div>
+
+    <p style="font-size:0.95rem; color:#b0a890; margin-bottom:2rem; line-height:1.75;"><span class="badge badge-int">INT</span> La paradoja central de la Segunda Guerra Mundial es que la derrota del nazismo requirió la cooperación entre sistemas que se consideraban mutuamente incompatibles —y que volverían a enfrentarse inmediatamente después de la victoria. Esa cooperación no fue armoniosa ni sin fricciones; fue el resultado de una amenaza común percibida como existencial.</p>
+
+    <div class="alliance-grid">
+      <div class="ally-card">
+        <span class="ally-flag">🇬🇧</span>
+        <div class="ally-name">Reino Unido</div>
+        <div class="ally-ideology">Democracia liberal · Imperio colonial</div>
+        <div class="ally-desc">Primer gran Estado en resistir la expansión nazi tras la caída de Francia (1940). El discurso de Churchill —«nunca nos rendiremos»— ancló la resistencia occidental en un momento en que la derrota parecía inevitable. Sostiene el frente africano, el norte del Atlántico y la campaña aérea sobre Alemania.</div>
+        <div class="ally-contrib"><strong>Aporte clave:</strong> Resistencia simbólica e institucional; inteligencia (Enigma); frente aéreo; liderazgo de coalición.</div>
+      </div>
+
+      <div class="ally-card">
+        <span class="ally-flag">🇺🇸</span>
+        <div class="ally-name">Estados Unidos</div>
+        <div class="ally-ideology">Democracia capitalista · Potencia industrial</div>
+        <div class="ally-desc">Entra formalmente tras Pearl Harbor (dic. 1941). Su aporte no es solo militar: el sistema industrial convierte al país en el «arsenal de la democracia», suministrando equipamiento a todos los aliados. El Día D (6 jun. 1944) en Normandía abre el frente occidental decisivo.</div>
+        <div class="ally-contrib"><strong>Aporte clave:</strong> Capacidad industrial; logística; Día D; Pacífico. Lend-Lease a URSS y RU.</div>
+      </div>
+
+      <div class="ally-card">
+        <span class="ally-flag">🇷🇺</span>
+        <div class="ally-name">Unión Soviética</div>
+        <div class="ally-ideology">Comunismo soviético · Estado totalitario</div>
+        <div class="ally-desc">Portó el mayor peso del conflicto europeo. Aproximadamente 27 millones de muertos soviéticos —más que todos los demás aliados juntos. Stalingrado y Kursk destruyen el núcleo ofensivo de la Wehrmacht. El Ejército Rojo avanza desde Stalingrado hasta Berlín en dos años y medio.</div>
+        <div class="ally-contrib"><strong>Aporte clave:</strong> Frente oriental total; destrucción de la fuerza terrestre alemana; toma de Berlín.</div>
+      </div>
+
+      <div class="ally-card">
+        <span class="ally-flag">🇫🇷</span>
+        <div class="ally-name">Francia Libre</div>
+        <div class="ally-ideology">Republicanismo · Resistencia nacional</div>
+        <div class="ally-desc">Tras la derrota de 1940, De Gaulle organiza la <em>France Libre</em> desde Londres. Mientras el régimen de Vichy colabora con los ocupantes, la Resistencia interior sabotea, informa e inflige costos al régimen nazi. París es liberado el 25 de agosto de 1944.</div>
+        <div class="ally-contrib"><strong>Aporte clave:</strong> Resistencia interna; legitimidad republicana; presencia en el frente norte-africano e italiano.</div>
+      </div>
+
+      <div class="ally-card">
+        <span class="ally-flag">🇨🇳</span>
+        <div class="ally-name">China (República)</div>
+        <div class="ally-ideology">Republicanismo · Frente único antijaponés</div>
+        <div class="ally-desc">Combate a Japón —aliado del Eje— desde 1937. Aun con la guerra civil entre nacionalistas y comunistas, sostuvo el frente asiático que inmovilizó millones de soldados japoneses. Reconocida como potencia aliada formal en las conferencias de guerra.</div>
+        <div class="ally-contrib"><strong>Aporte clave:</strong> Frente asiático; inmovilización de fuerzas japonesas; presión en el teatro del Pacífico.</div>
+      </div>
+
+      <div class="ally-card">
+        <span class="ally-flag">🌐</span>
+        <div class="ally-name">Resistencias y aliados secundarios</div>
+        <div class="ally-ideology">Pluralismo ideológico · Antifascismo</div>
+        <div class="ally-desc">Partisanos yugoslavos (comunistas), Ejército Polaco del Exilio (anticomunistas), Brigadas internacionales, resistencias italiana, griega, noruega. Países como México, Brasil, Canadá y Australia contribuyeron con tropas, materiales y legitimidad simbólica a la coalición.</div>
+        <div class="ally-contrib"><strong>Aporte clave:</strong> Desgaste de retaguardia; inteligencia; presión normativa internacional.</div>
+      </div>
+    </div>
+
+    <div class="pull-quote">
+      <p>«Fue decisiva para la victoria la alianza estratégica de Josef Stalin, Franklin D. Roosevelt y Winston Churchill —tres líderes cuyas visiones del mundo eran profundamente incompatibles, pero que eligieron la realidad de la amenaza sobre la pureza ideológica.»</p>
+      <cite>— Prensa Libre / resumen editorial, adaptado</cite>
+    </div>
+  </section>
+
+  <!-- ══════════════════ COLAPSO ══════════════════ -->
+  <section>
+    <h2 class="section-title">III. El colapso: la tenaza que cerró sobre Berlín</h2>
+    <div class="section-rule"></div>
+
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-year">1944<small>6 jun.</small></div>
+        <div class="tl-content">
+          <div class="tl-event">Día D — Normandía: el frente occidental se abre</div>
+          <div class="tl-desc"><span class="badge badge-dc">DC</span> El mayor desembarco anfibio de la historia abre el frente occidental. Fuerzas estadounidenses, británicas, canadienses y de la Francia Libre desembarcan en las playas normandas. En agosto, París es liberada. En marzo de 1945, los aliados cruzan el Rin.</div>
+          <span class="tl-tag gold">Punto de inflexión occidental</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-year">1945<small>ene.–abr.</small></div>
+        <div class="tl-content">
+          <div class="tl-event">La tenaza final: dos frentes convergen</div>
+          <div class="tl-desc"><span class="badge badge-dc">DC</span> En enero de 1945, Stalin lanza la ofensiva que lleva al Ejército Rojo desde el Vístula hasta las puertas de Berlín. El 25 de abril, soldados estadounidenses y soviéticos se encuentran en el río Elba, en Torgau —Alemania queda partida en dos. En ese mismo mes, los aliados occidentales cruzan el Elba a 96 km de Berlín.</div>
+          <span class="tl-tag gold">Convergencia aliada</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-year">1945<small>30 abr.</small></div>
+        <div class="tl-content">
+          <div class="tl-event">Suicidio de Hitler: el búnker y el fin del mito</div>
+          <div class="tl-desc"><span class="badge badge-dc">DC</span> Con el Ejército Rojo a dos cuadras de la Cancillería del Reich, Hitler y Eva Braun se suicidan en el Führerbunker. Goebbels hace lo mismo al día siguiente. La cadena de mando se desintegra. El almirante Dönitz —sucesor designado— busca una rendición parcial con los occidentales que Eisenhower rechaza: la rendición debe ser total, en todos los frentes.</div>
+          <span class="tl-tag">Fin del régimen</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-year">1945<small>7–8 may.</small></div>
+        <div class="tl-content">
+          <div class="tl-event">La doble rendición: Reims y Berlín</div>
+          <div class="tl-desc"><span class="badge badge-dc">DC</span> El 7 de mayo, el general Jodl firma la rendición en Reims ante los aliados occidentales. Stalin la rechaza por insuficiente y exige una segunda ceremonia en Berlín. El 8 de mayo, el mariscal Keitel firma la capitulación incondicional ante el mariscal Zhukov en Karlshorst, Berlín. El <em>Tercer Reich</em> deja de existir jurídicamente. En Moscú ya son las 00:43 del 9 de mayo —de ahí la diferencia en la fecha del Día de la Victoria.</div>
+          <span class="tl-tag gold">V-E Day · Rendición total</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════ MEEE-G ══════════════════ -->
+  <section>
+    <h2 class="section-title">IV. Evaluación epistémica — MEEE-G</h2>
+    <div class="section-rule"></div>
+
+    <table class="meee-table">
+      <thead>
+        <tr>
+          <th>Afirmación</th>
+          <th>Categoría</th>
+          <th>Justificación epistémica</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>El nazismo fue un régimen totalitario responsable del asesinato sistemático de más de seis millones de judíos y millones de otras personas.</td>
+          <td><span class="badge badge-dc">DC</span></td>
+          <td>Documentación exhaustiva: actas de Núremberg, testimonios, archivos militares, evidencia arqueológica y forense. Consenso historiográfico universal.</td>
+        </tr>
+        <tr>
+          <td>La victoria aliada fue resultado de la acción coordinada de actores con ideologías incompatibles.</td>
+          <td><span class="badge badge-dc">DC</span></td>
+          <td>Corroborado por registros diplomáticos, militares y memorias de actores primarios (Churchill, De Gaulle, Zhukov). La incompatibilidad ideológica es documentalmente demostrable y la cooperación operativa, igualmente.</td>
+        </tr>
+        <tr>
+          <td>Sin la contribución soviética, la victoria aliada habría sido significativamente más tardía.</td>
+          <td><span class="badge badge-ip">IP</span></td>
+          <td>Inferencia respaldada por la proporción de bajas en el frente oriental (75-80% de las pérdidas alemanas de combate). No es un contrafáctico verificable, pero la inferencia es sólida.</td>
+        </tr>
+        <tr>
+          <td>El pueblo alemán en su mayoría apoyó el régimen hasta su caída.</td>
+          <td><span class="badge badge-ip">IP</span></td>
+          <td>La historiografía mayoritaria (Goldhagen, Kershaw) lo sostiene, con matices. Hay debates sobre el grado y la naturaleza de ese apoyo vs. conformismo pasivo.</td>
+        </tr>
+        <tr>
+          <td>La paradoja de aliados ideológicamente opuestos anticipó la Guerra Fría como bifurcación sistémica inevitable.</td>
+          <td><span class="badge badge-int">INT</span></td>
+          <td>Interpretación plausible y coherente con la evidencia (Conferencias de Yalta y Potsdam muestran ya las tensiones), pero no determinista: otras trayectorias eran posibles en 1945.</td>
+        </tr>
+        <tr>
+          <td>El colapso del III Reich era inevitable dado el estado del sistema en 1943.</td>
+          <td><span class="badge badge-h">H</span></td>
+          <td>Plausible como hipótesis retrospectiva, pero la irreversibilidad no implica inevitabilidad ex ante. Decisiones contingentes en Stalingrado, Kursk y Normandía podrían haber producido trayectorias distintas.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ══════════════════ ADD ══════════════════ -->
+  <section>
+    <h2 class="section-title">V. Lectura dinámica — ADD</h2>
+    <div class="section-rule"></div>
+
+    <div class="add-panel">
+      <h4>Análisis de régimen: El III Reich como estructura disipativa en colapso</h4>
+      <div class="add-grid">
+        <div class="add-item">
+          <label>Régimen dinámico (1933–1941)</label>
+          <p>Fase laminar expansiva: el sistema nazi mantiene clausura organizacional interna (partido único, propaganda, terror) mientras abre flujos disipativos externos agresivos (expansión territorial, saqueo económico de países ocupados). El sistema se sostiene mientras puede importar energía y recursos del entorno.</p>
+        </div>
+        <div class="add-item">
+          <label>Zona de turbulencia (1941–1943)</label>
+          <p>Operación Barbarroja introduce una perturbación de escala no procesable: la clausura organizacional nazi no puede amortiguar el costo disipativo de un frente de 3.000 km. Stalingrado es la bifurcación: el sistema ya no puede reproducir sus condiciones de estabilidad.</p>
+        </div>
+        <div class="add-item">
+          <label>Atractores del sistema aliado</label>
+          <p>La coalición aliada no se sostiene por afinidad ideológica (mundo de vida compartido) sino por un atractor externo: la amenaza existencial nazi. Es un acoplamiento estructural de emergencia entre sistemas con clausuras organizacionales radicalmente distintas —lo que Habermas llamaría coexistencia de mundos de vida bajo presión sistémica común.</p>
+        </div>
+        <div class="add-item">
+          <label>Flujos y capitales en la victoria</label>
+          <p>Capital económico (producción industrial aliada, Lend-Lease), capital simbólico (legitimidad democrática frente al totalitarismo), capital social (redes de resistencia), capital militar (coordinación operativa). El Reich agota todos estos flujos simultáneamente desde 1943.</p>
+        </div>
+        <div class="add-item">
+          <label>Colonización invertida</label>
+          <p>El mecanismo habermasiano de colonización del mundo de la vida operó en ambas direcciones: el nazismo colonizó los mundos de vida de los pueblos ocupados; pero la resistencia —partisanos, movimientos clandestinos— resistió mediante la reproducción activa de sus clausuras organizacionales propias.</p>
+        </div>
+        <div class="add-item">
+          <label>Bifurcación post-1945</label>
+          <p>La disolución de la amenaza nazi elimina el atractor que sostenía la coalición. El sistema se bifurca inmediatamente en dos bloques (Guerra Fría): cada clausura organizacional —capitalismo liberal vs. comunismo soviético— recupera su autonomía y sus tensiones internas. La colaboración fue estructuralmente transitoria.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ COSTA RICA ══════════════════ -->
+  <section>
+    <div class="cr-box">
+      <h3>Relevancia para Costa Rica</h3>
+      <span class="cr-tag">◆ Nodo periférico acoplado · Análisis ADD</span>
+      <p><span class="badge badge-dc">DC</span> Costa Rica declaró la guerra a Alemania el 8 de diciembre de 1941, horas después de Pearl Harbor —un día antes que Estados Unidos contra Alemania— como parte del bloque latinoamericano que mayoritariamente se alineó con los aliados. El país confiscó propiedades de ciudadanos alemanes e italianos residentes, algunos con décadas de arraigo en el territorio.</p>
+      <p><span class="badge badge-int">INT</span> La participación costarricense fue simbólica en términos militares pero significativa en tres dimensiones: (1) legitimó la adhesión al orden internacional liberal que definiría el marco institucional de posguerra; (2) la Carta de las Naciones Unidas (1945) y la Declaración Universal de los Derechos Humanos (1948) —de las que Costa Rica fue signataria— son productos directos de la victoria aliada y del <em>nunca más</em> nacido de los juicios de Núremberg; (3) el modelo de Estado Social de Derecho que Costa Rica consolida en 1949 —con la abolición del ejército— es inteligible como respuesta a la lección que Europa dejó: los militarismos, cuando no están subordinados al orden civil, producen monstruos.</p>
+      <p><span class="badge badge-h">H</span> Es plausible argumentar —aunque no demostrable causalmente— que la experiencia de ver cómo el aparato militar puede convertirse en instrumento de genocidio influyó en el pensamiento político costarricense que llevó a José Figueres a abolir el ejército tres años después de la victoria aliada. La abolición de 1948 sería, en esta lectura, la respuesta periférica más radical al legado del totalitarismo europeo.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════ CIERRE NARRATIVO ══════════════════ -->
+  <section>
+    <h2 class="section-title">VI. El ideal que los unió: ¿hubo un horizonte común?</h2>
+    <div class="section-rule"></div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:3rem; margin-bottom:3rem;">
+      <div>
+        <p style="font-size:0.95rem; color:#b0a890; line-height:1.8; margin-bottom:1rem;">La pregunta de qué unió a actores tan dispares no tiene una respuesta única. Lo que se puede afirmar con base epistémica sólida es que no fue un ideal positivo compartido, sino un rechazo común.</p>
+        <p style="font-size:0.95rem; color:#b0a890; line-height:1.8; margin-bottom:1rem;"><span class="badge badge-int">INT</span> El nazismo representó algo que todos los actores aliados —por razones distintas y desde horizontes distintos— percibieron como una amenaza a su propia existencia: para la URSS, una amenaza racial y territorial; para las democracias occidentales, una amenaza a la soberanía popular; para los pueblos ocupados, una amenaza a la existencia misma.</p>
+        <p style="font-size:0.95rem; color:#b0a890; line-height:1.8;"><span class="badge badge-ip">IP</span> Que de esa negación común hayan emergido, en 1945–48, las Naciones Unidas, la Declaración Universal de los Derechos Humanos y los Juicios de Núremberg —que por primera vez codifican los «crímenes contra la humanidad» como categoría jurídica— sugiere que el horizonte positivo fue construido <em>a posteriori</em>, como aprendizaje colectivo del horror.</p>
+      </div>
+      <div>
+        <div class="pull-quote" style="margin-top:0;">
+          <p>«El nazismo enseñó al mundo qué ocurre cuando un Estado decide que parte de la humanidad no merece existir. La lección no fue una ideología: fue una prohibición. Nunca más.»</p>
+          <cite>— Lectura editorial ADD / ANCA-ADE</cite>
+        </div>
+        <div class="pull-quote">
+          <p>«La paradoja más trágica y dudosa de la historia alemana… fuimos derrotados y liberados a la vez.»</p>
+          <cite>— Theodor Heuss, primer presidente de Alemania Occidental, 1949</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ INCERTIDUMBRES ══════════════════ -->
+  <section>
+    <h2 class="section-title">VII. Incertidumbres abiertas</h2>
+    <div class="section-rule"></div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-bottom:3rem;">
+      <div style="background:rgba(13,43,78,0.4); border:1px solid rgba(200,153,42,0.15); padding:1.2rem;">
+        <p style="font-family:'Space Mono',monospace; font-size:0.6rem; color:var(--allied-gold); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:0.5rem;">Histórica</p>
+        <p style="font-size:0.85rem; color:#a0a898; line-height:1.65;">¿Habría sido posible un desenlace diferente si las potencias occidentales hubieran intervenido antes de 1939? El debate sobre la política de apaciguamiento de Múnich (1938) permanece abierto en la historiografía.</p>
+      </div>
+      <div style="background:rgba(13,43,78,0.4); border:1px solid rgba(200,153,42,0.15); padding:1.2rem;">
+        <p style="font-family:'Space Mono',monospace; font-size:0.6rem; color:var(--allied-gold); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:0.5rem;">Sociológica</p>
+        <p style="font-size:0.85rem; color:#a0a898; line-height:1.65;">El debate Goldhagen-Browning sobre la responsabilidad individual de los perpetradores del Holocausto —«verdugos voluntarios» vs. «hombres normales»— no ha alcanzado un consenso académico definitivo.</p>
+      </div>
+      <div style="background:rgba(13,43,78,0.4); border:1px solid rgba(200,153,42,0.15); padding:1.2rem;">
+        <p style="font-family:'Space Mono',monospace; font-size:0.6rem; color:var(--allied-gold); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:0.5rem;">Normativa</p>
+        <p style="font-size:0.85rem; color:#a0a898; line-height:1.65;">Si los Juicios de Núremberg establecieron el principio de responsabilidad individual por crímenes contra la humanidad, la aplicación selectiva de ese principio en conflictos posteriores (Camboya, Ruanda, Iraq) revela tensiones no resueltas entre soberanía estatal y justicia internacional.</p>
+      </div>
+      <div style="background:rgba(13,43,78,0.4); border:1px solid rgba(200,153,42,0.15); padding:1.2rem;">
+        <p style="font-family:'Space Mono',monospace; font-size:0.6rem; color:var(--allied-gold); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:0.5rem;">Contemporánea</p>
+        <p style="font-size:0.85rem; color:#a0a898; line-height:1.65;">El resurgimiento de movimientos de extrema derecha con retórica similar en varios países europeos y en las Américas (2010–2026) plantea la pregunta ADD: ¿son atractores periféricos o síntomas de un régimen turbulento sistémico más amplio?</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ REFERENCIAS ══════════════════ -->
+  <section class="references">
+    <h3>◆ Fuentes y referencias — APA 7</h3>
+    <ol>
+      <li>Browning, C. R. (1992). <em>Ordinary Men: Reserve Police Battalion 101 and the Final Solution in Poland</em>. HarperCollins.</li>
+      <li>Churchill, W. S. (1948–1954). <em>The Second World War</em> (6 vols.). Cassell.</li>
+      <li>De Gaulle, C. (1954). <em>Mémoires de guerre</em>. Plon.</li>
+      <li>Fest, J. (2002). <em>Der Untergang: Hitler und das Ende des Dritten Reiches</em>. Alexander Fest Verlag.</li>
+      <li>Goldhagen, D. J. (1996). <em>Hitler's Willing Executioners: Ordinary Germans and the Holocaust</em>. Knopf.</li>
+      <li>Kershaw, I. (2000). <em>Hitler: 1936–45: Nemesis</em>. Norton.</li>
+      <li>Overy, R. (1995). <em>Why the Allies Won</em>. Norton.</li>
+      <li>Prensa Libre. (2016, mayo 9). La caída del Tercer Reich. <em>Prensa Libre</em>. https://www.prensalibre.com/hemeroteca/la-caida-del-tercer-reich/</li>
+      <li>United States Holocaust Memorial Museum. (s.f.). El Tercer Reich en profundidad. <em>Enciclopedia del Holocausto</em>. https://encyclopedia.ushmm.org/content/es/article/third-reich</li>
+      <li>Wikipedia. (2026, marzo). Capitulación alemana de mayo de 1945. <em>Wikipedia, La enciclopedia libre</em>. https://es.wikipedia.org/wiki/Capitulaci%C3%B3n_alemana_de_mayo_de_1945</li>
+      <li>Wikipedia. (2026, marzo). Fin de la Segunda Guerra Mundial en Europa. <em>Wikipedia, La enciclopedia libre</em>. https://es.wikipedia.org/wiki/Fin_de_la_Segunda_Guerra_Mundial_en_Europa</li>
+      <li>Zhúkov, G. K. (1969). <em>Memorias y reflexiones</em>. Novosti.</li>
+    </ol>
+  </section>
+</div>
+
+<!-- ══════════════════ CLOSING ══════════════════ -->
+<div class="closing">
+  <p class="closing-quote">«Nunca antes, en ningún otro escenario bélico, hubo tantas personas muertas en tan poco tiempo. Por eso la rendición nazi supuso el <em>Día de la Victoria de Europa</em>: no solo el fin de una guerra, sino la afirmación de que la humanidad podía —todavía— reconocerse a sí misma.»</p>
+  <p class="closing-cite">— France 24 / resumen editorial adaptado por ANCA-ADE · 8 de mayo de 2026</p>
+  <div style="display:flex; justify-content:center; gap:2rem; margin-top:1.5rem; flex-wrap:wrap;">
+    <span style="font-family:'Space Mono',monospace;font-size:0.65rem;letter-spacing:0.15em;color:var(--allied-gold);">◆ 1933–1945</span>
+    <span style="font-family:'Space Mono',monospace;font-size:0.65rem;letter-spacing:0.15em;color:var(--sky-freedom);">◆ MEEE-G · ADD</span>
+    <span style="font-family:'Space Mono',monospace;font-size:0.65rem;letter-spacing:0.15em;color:#5ecece);">◆ ANCA-ADE · ESP-05</span>
+  </div>
+</div>
+
+<!-- ══════════════════ DISCLAIMER ══════════════════ -->
+<div class="disclaimer">
+  <p>Nota metodológica: El presente análisis combina evaluación epistémica explicacionista (MEEE-G, basada en Goldman) y análisis dinámico antropológico (ADD, Montero Fonseca), integrando conceptos de Prigogine, Maturana/Varela, Bourdieu y Habermas. No constituye predicción determinista ni recomendación política. Las clasificaciones epistémicas [DC], [IP], [H], [INT] y [C] reflejan el grado de respaldo informacional disponible al momento de redacción. · ANCA-ADE © 2026 · antropos-amf.github.io/anca-ade.github.io</p>
+</div>
+
+<script data-goatcounter="https://antropos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

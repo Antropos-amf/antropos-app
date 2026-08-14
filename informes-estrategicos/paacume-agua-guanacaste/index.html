@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El agua que no llegó: PAACUME, su parálisis y el futuro incierto de Guanacaste | antropos.app</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0d0d;
+    --bg2: #141414;
+    --bg3: #1a1a1a;
+    --fg: #e8e0d0;
+    --fg-dim: #9a9080;
+    --red: #c0392b;
+    --red-light: #e74c3c;
+    --gold: #d4a017;
+    --gold-light: #f0c040;
+    --green: #2ecc71;
+    --green-dim: #1a7a42;
+    --blue: #2980b9;
+    --blue-dim: #1a4f6e;
+    --border: #2a2a2a;
+    --border-accent: #3a2a1a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.75;
+    overflow-x: hidden;
+  }
+
+  /* ─── TICKER ─── */
+  .ticker-bar {
+    background: var(--red);
+    color: #fff;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    padding: 6px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .ticker-inner {
+    display: inline-block;
+    animation: ticker 60s linear infinite;
+  }
+  @keyframes ticker {
+    0%   { transform: translateX(100vw); }
+    100% { transform: translateX(-100%); }
+  }
+
+  /* ─── MASTHEAD ─── */
+  .masthead {
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 48px 40px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+  .masthead::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 79px,
+      rgba(255,255,255,0.015) 79px,
+      rgba(255,255,255,0.015) 80px
+    );
+    pointer-events: none;
+  }
+  .pub-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 8vw, 100px);
+    letter-spacing: 0.04em;
+    color: #fff;
+    line-height: 0.9;
+    position: relative;
+  }
+  .pub-name span { color: var(--red); }
+  .pub-sub {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--fg-dim);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-top: 10px;
+  }
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+  }
+  .meta-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid;
+  }
+  .tag-special { border-color: var(--gold); color: var(--gold); }
+  .tag-date { border-color: var(--fg-dim); color: var(--fg-dim); }
+  .tag-type { border-color: var(--red); color: var(--red); }
+
+  /* ─── NAV ─── */
+  .sticky-nav {
+    position: sticky;
+    top: 29px;
+    z-index: 90;
+    background: rgba(13,13,13,0.97);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(8px);
+  }
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .nav-inner::-webkit-scrollbar { display: none; }
+  .nav-link {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+    text-decoration: none;
+    padding: 12px 16px;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .nav-link:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
+  /* ─── LAYOUT ─── */
+  .content {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 60px 40px;
+  }
+
+  /* ─── HERO SECTION ─── */
+  .hero {
+    border-left: 4px solid var(--red);
+    padding: 32px 0 32px 36px;
+    margin-bottom: 60px;
+  }
+  .hero-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 16px;
+  }
+  .hero-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(28px, 5vw, 52px);
+    font-weight: 900;
+    line-height: 1.1;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+  .hero-deck {
+    font-size: 18px;
+    color: var(--fg-dim);
+    font-style: italic;
+    max-width: 720px;
+    line-height: 1.6;
+  }
+
+  /* ─── SECTION HEADERS ─── */
+  h2.section-head {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(22px, 3.5vw, 36px);
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    border-bottom: 1px solid var(--border-accent);
+    padding-bottom: 10px;
+    margin: 60px 0 28px;
+  }
+  h3.subsection-head {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    margin: 36px 0 14px;
+  }
+  h3.subsection-head.cr {
+    color: var(--green);
+    border-left: 3px solid var(--green-dim);
+    padding-left: 14px;
+  }
+
+  /* ─── TEXT ─── */
+  p { margin-bottom: 16px; }
+  p:last-child { margin-bottom: 0; }
+  em { color: var(--fg-dim); }
+  strong { color: #fff; font-weight: 600; }
+
+  /* ─── TIMELINE ─── */
+  .timeline {
+    position: relative;
+    padding-left: 32px;
+    margin: 32px 0;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 6px; top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--red), var(--gold), var(--green));
+  }
+  .tl-item {
+    position: relative;
+    margin-bottom: 28px;
+  }
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -28px;
+    top: 7px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid var(--bg);
+  }
+  .tl-item.red::before { background: var(--red); }
+  .tl-item.green::before { background: var(--green); }
+  .tl-year {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+  }
+  .tl-item.red .tl-year { color: var(--red-light); }
+  .tl-item.green .tl-year { color: var(--green); }
+  .tl-text {
+    font-size: 15px;
+    color: var(--fg);
+    line-height: 1.6;
+  }
+
+  /* ─── MEEE-G TABLE ─── */
+  .meee-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 28px 0;
+    font-size: 14px;
+  }
+  .meee-table th {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: var(--bg2);
+    padding: 10px 14px;
+    text-align: left;
+    border: 1px solid var(--border);
+  }
+  .meee-table td {
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  .meee-table tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+  .badge {
+    display: inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    padding: 2px 7px;
+    border-radius: 2px;
+    margin-right: 6px;
+  }
+  .badge.dc { background: var(--green-dim); color: #a8e6c3; }
+  .badge.ip { background: #1a3a5e; color: #7ab8e8; }
+  .badge.h  { background: #3a1a5e; color: #b87ae8; }
+  .badge.int{ background: #3a2a0a; color: #d4a040; }
+  .badge.c  { background: #3a1a1a; color: #e88080; }
+
+  /* ─── COMPARISON TABLE ─── */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 28px 0;
+    font-size: 14px;
+  }
+  .compare-table th {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 14px 16px;
+    text-align: left;
+    border: 1px solid var(--border);
+  }
+  .compare-table th:first-child { background: var(--bg2); color: var(--fg-dim); }
+  .compare-table th.col-alvarado { background: rgba(41,128,185,0.25); color: #7ab8e8; }
+  .compare-table th.col-chaves { background: rgba(192,57,43,0.25); color: #e8a090; }
+  .compare-table td {
+    padding: 11px 16px;
+    border: 1px solid var(--border);
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .compare-table td:first-child {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--gold);
+    background: var(--bg2);
+    white-space: nowrap;
+  }
+  .compare-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+  /* ─── ADE BOX ─── */
+  .ade-box {
+    border: 1px solid var(--border-accent);
+    background: linear-gradient(135deg, rgba(212,160,23,0.04) 0%, rgba(13,13,13,0) 60%);
+    padding: 28px 32px;
+    margin: 32px 0;
+    position: relative;
+  }
+  .ade-box::before {
+    content: 'ADE';
+    position: absolute;
+    top: -1px; right: 20px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    background: var(--bg);
+    color: var(--gold);
+    padding: 0 8px;
+  }
+  .ade-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 16px;
+  }
+  @media (max-width: 640px) { .ade-grid { grid-template-columns: 1fr; } }
+  .ade-item-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--gold-light);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .ade-item-text { font-size: 14px; color: var(--fg); line-height: 1.55; }
+
+  /* ─── CR ANNEX ─── */
+  .cr-annex {
+    border: 1px solid var(--green-dim);
+    background: rgba(46,204,113,0.04);
+    padding: 28px 32px;
+    margin: 32px 0;
+    position: relative;
+  }
+  .cr-annex::before {
+    content: '🇨🇷 RELEVANCIA PARA COSTA RICA';
+    position: absolute;
+    top: -1px; left: 20px;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    background: var(--bg);
+    color: var(--green);
+    padding: 0 8px;
+  }
+
+  /* ─── CALLOUT ─── */
+  .callout {
+    border-left: 3px solid var(--red);
+    padding: 16px 20px;
+    background: rgba(192,57,43,0.06);
+    margin: 24px 0;
+    font-style: italic;
+    color: var(--fg-dim);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+  .callout.gold { border-left-color: var(--gold); background: rgba(212,160,23,0.06); }
+  .callout.green { border-left-color: var(--green); background: rgba(46,204,113,0.05); }
+
+  /* ─── SCENARIOS ─── */
+  .scenario-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin: 28px 0;
+  }
+  .scenario-card {
+    border: 1px solid var(--border);
+    padding: 20px;
+    position: relative;
+  }
+  .scenario-card.optimista { border-top: 3px solid var(--green); }
+  .scenario-card.inercial  { border-top: 3px solid var(--gold); }
+  .scenario-card.pesimista { border-top: 3px solid var(--red); }
+  .scenario-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .scenario-card.optimista .scenario-label { color: var(--green); }
+  .scenario-card.inercial  .scenario-label { color: var(--gold); }
+  .scenario-card.pesimista .scenario-label { color: var(--red-light); }
+  .scenario-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+  .scenario-text { font-size: 13.5px; color: var(--fg-dim); line-height: 1.6; }
+
+  /* ─── SYNTHESIS TABLE ─── */
+  .synth-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 28px 0;
+    font-size: 13.5px;
+  }
+  .synth-table th {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: var(--bg2);
+    color: var(--gold);
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    text-align: left;
+  }
+  .synth-table td {
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+
+  /* ─── REFERENCES ─── */
+  .refs {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    padding: 32px 36px;
+    margin-top: 60px;
+  }
+  .refs h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+  .ref-item {
+    font-family: 'Source Serif 4', serif;
+    font-size: 13px;
+    color: var(--fg-dim);
+    margin-bottom: 10px;
+    padding-left: 24px;
+    text-indent: -24px;
+    line-height: 1.55;
+  }
+  .ref-item a { color: var(--blue); text-decoration: none; }
+
+  /* ─── FOOTER ─── */
+  .disclaimer {
+    border-top: 1px solid var(--border);
+    margin-top: 60px;
+    padding-top: 28px;
+  }
+  .disclaimer-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 10px;
+  }
+  .disclaimer p {
+    font-size: 13px;
+    color: var(--fg-dim);
+    font-style: italic;
+    line-height: 1.7;
+  }
+  footer {
+    background: var(--bg2);
+    border-top: 1px solid var(--border);
+    padding: 24px 40px;
+    text-align: center;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--fg-dim);
+    letter-spacing: 0.1em;
+  }
+  footer span { color: var(--red); }
+
+  /* ─── DIVIDER ─── */
+  .rule {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 48px 0;
+  }
+
+  /* ─── TOPBAR ─── */
+  .site-topbar {
+    background: #0a0a0a;
+    border-bottom: 1px solid #1e1e1e;
+    padding: 10px 40px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    position: relative;
+    z-index: 110;
+  }
+  .site-topbar-home {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: 0.06em;
+  }
+  .site-topbar-home span { color: var(--red); }
+  .site-topbar-sep { color: var(--fg-dim); font-size: 11px; font-family: 'Space Mono', monospace; }
+  .site-topbar-section {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+    text-decoration: none;
+  }
+  .site-topbar-section:hover { color: var(--gold); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 640px) {
+    .masthead { padding: 32px 20px 24px; }
+    .content { padding: 40px 20px; }
+    .nav-inner { padding: 0 16px; }
+    .ade-box, .cr-annex { padding: 20px 18px; }
+    .refs { padding: 24px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- SITE TOPBAR -->
+<div class="site-topbar">
+  <a class="site-topbar-home" href="/">ANTR<span>O</span>POS</a>
+  <span class="site-topbar-sep">/</span>
+  <a class="site-topbar-section" href="/informes-estrategicos/">Informes Estratégicos</a>
+</div>
+
+<!-- TICKER -->
+<div class="ticker-bar" aria-hidden="true">
+  <span class="ticker-inner">
+    &nbsp;&nbsp;&nbsp;●&nbsp; BOLETÍN ESPECIAL &nbsp;●&nbsp; ANCA-ADD &nbsp;●&nbsp; PAACUME / AGUA PARA LA BAJURA: CRONOLOGÍA, PARÁLISIS Y ESTADO ACTUAL &nbsp;●&nbsp; REGIÓN CHOROTEGA — COSTA RICA &nbsp;●&nbsp; ANÁLISIS MEEE-G + ADD &nbsp;●&nbsp; PUBLICACIÓN: 19 ABRIL 2026 &nbsp;●&nbsp; FUENTES VERIFICADAS &nbsp;●&nbsp; FALIBILISMO EXPLÍCITO &nbsp;●&nbsp; NODO PERIFÉRICO ACOPLADO &nbsp;●&nbsp;
+  </span>
+</div>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="pub-name">ANCA<span>—</span>ADD</div>
+  <div class="pub-sub">Agente Noticioso Crítico de Actualidad · Análisis Dinámico del Devenir</div>
+  <div class="meta-row">
+    <span class="meta-tag tag-special">Boletín Especial</span>
+    <span class="meta-tag tag-date">19 de abril de 2026</span>
+    <span class="meta-tag tag-type">Política · Economía · Ambiente · Costa Rica</span>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav class="sticky-nav">
+  <div class="nav-inner">
+    <a class="nav-link" href="#contexto">Contexto histórico</a>
+    <a class="nav-link" href="#comparacion">Alvarado vs Chaves</a>
+    <a class="nav-link" href="#paralisis">Parálisis 2022</a>
+    <a class="nav-link" href="#epistemia">MEEE-G</a>
+    <a class="nav-link" href="#ade">Lectura ADD</a>
+    <a class="nav-link" href="#estado-actual">Estado actual</a>
+    <a class="nav-link" href="#escenarios">Escenarios</a>
+    <a class="nav-link" href="#cr">Costa Rica</a>
+    <a class="nav-link" href="#referencias">Referencias</a>
+  </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main class="content">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-label">Política Hídrica · Infraestructura Estratégica · Guanacaste</div>
+    <h1 class="hero-title">El agua que no llegó:<br>PAACUME, su parálisis<br>y el futuro incierto de Guanacaste</h1>
+    <p class="hero-deck">Un análisis comparado de dos administraciones, doce años de historia burocrática, una paralización política que retrasó años el proyecto más ambicioso de infraestructura hídrica de Costa Rica, y el estado actual de unas obras que, a abril de 2026, apenas alcanzan el 18,6% de avance.</p>
+  </section>
+
+  <!-- ─── PARTE I: CONTEXTO HISTÓRICO ─── -->
+  <h2 class="section-head" id="contexto">I. El agua como deuda histórica: génesis del PAACUME</h2>
+
+  <p>La provincia de Guanacaste padece una asimetría hídrica estructural con respecto al resto de Costa Rica. Su posición geográfica la expone a la estación seca más prolongada del país —de cuatro a seis meses de déficit hídrico en la planicie costera— y su modelo de desarrollo, anclado en agro-exportación, turismo y ganadería, demanda agua de forma constante durante todo el año. Las comunidades de la <strong>margen derecha del río Tempisque</strong> —Carrillo, Santa Cruz, Nicoya y la franja costera— han carecido históricamente de un sistema robusto de abastecimiento comparable al que sirve la margen izquierda a través del Distrito de Riego Arenal-Tempisque (DRAT).</p>
+
+  <p>Ese déficit fue declarado emergencia nacional por contaminación de arsénico en algunas comunidades desde 2013. La solución técnica, sin embargo, llevaba décadas gestandose en instancias institucionales antes de tomar forma definitiva.</p>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-year">DÉCADAS 1980-2000</div>
+      <div class="tl-text">Primeras discusiones técnicas sobre infraestructura hídrica para la margen derecha del Tempisque. El presidente Alvarado reconoció en 2022 que las primeras conversaciones datan de cuarenta años atrás.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">NOVIEMBRE 2014</div>
+      <div class="tl-text">La Administración Solís Rivera crea por decreto ejecutivo el <strong>Programa Integral de Abastecimiento de Agua para Guanacaste (PIAAG)</strong>, ejecutado por SENARA. El PAACUME es su componente principal.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2015–2018</div>
+      <div class="tl-text">Se realizan los estudios básicos de factibilidad, diseño conceptual y gestiones de financiamiento. Para 2018, según el exministro Edgar Gutiérrez, los estudios fundamentales estaban listos. El BCIE aprueba el préstamo de $425 millones en julio de 2018.</div>
+    </div>
+    <div class="tl-item red">
+      <div class="tl-year">2018–2021</div>
+      <div class="tl-text">La Administración Alvarado Quesada enfrenta múltiples recursos de inconstitucionalidad contra la Ley 9610 (desafectación de 113 ha de la Reserva Lomas de Barbudal). La Sala IV rechaza todos los recursos. SETENA otorga viabilidad ambiental en agosto de 2021 tras años de proceso.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">ABRIL 2022</div>
+      <div class="tl-text">La Administración Alvarado Quesada firma el contrato de préstamo con el BCIE ($425 millones). El costo total del proyecto se establece en <strong>$457,8 millones</strong>. Se conforma la unidad ejecutora. Orden de inicio prevista para finales de 2022.</div>
+    </div>
+    <div class="tl-item red">
+      <div class="tl-year">JULIO–NOVIEMBRE 2022</div>
+      <div class="tl-text">La Administración Chaves Robles asume el poder (mayo 2022) y en julio congela la ejecución del proyecto al condicionarlo a ajustes tarifarios y garantías de beneficio equitativo. <em>Primera parálisis efectiva bajo el nuevo gobierno.</em></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">NOVIEMBRE 2022</div>
+      <div class="tl-text">Chaves anuncia el relanzamiento del proyecto bajo el nombre <strong>"Agua para la Bajura"</strong>, incorporando explícitamente el componente de agua potable para consumo humano (que el diseño original ya contemplaba). Promete inicio de obras "en un año".</div>
+    </div>
+    <div class="tl-item green">
+      <div class="tl-year">JULIO 2023</div>
+      <div class="tl-text">Orden de inicio formal de obras —catorce meses después del contrato BCIE firmado en abril de 2022, y con un año de retraso respecto al cronograma original. SENARA e ICE arrancan las primeras obras de conducción en Bagaces.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">JULIO 2024</div>
+      <div class="tl-text">Chaves admite que el proyecto no será inaugurado durante su mandato. El gobierno proyecta operatividad para 2029. Firma de Convenio ICE-SENARA para obras de generación eléctrica asociada.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">JULIO 2025</div>
+      <div class="tl-text">SENARA da orden de inicio al Contrato de Obras de Conducción con el ICE. Se actualizan cifras de inversión: <strong>$673,8 millones</strong> en inversión total —un aumento de más de $200 millones sobre la estimación original de 2022.</div>
+    </div>
+    <div class="tl-item green">
+      <div class="tl-year">FEBRERO 2026</div>
+      <div class="tl-text">Visita técnica interinstitucional reporta <strong>18,6% de avance global</strong>. Obras de conducción con 8,25% de avance. Construcción de presa y embalse prevista para 2026. Operatividad estimada: 2029.</div>
+    </div>
+  </div>
+
+  <!-- ─── PARTE II: COMPARACIÓN ─── -->
+  <h2 class="section-head" id="comparacion">II. Análisis comparado: Administración Alvarado Quesada vs. Administración Chaves Robles</h2>
+
+  <p>El PAACUME es un proyecto multipartidario en su historia institucional: fue diseñado bajo el PAC (Solís Rivera, 2014–2018), continuado bajo el PAC (Alvarado Quesada, 2018–2022), paralizado y redenominado bajo PPSD (Chaves Robles, 2022–presente). La tensión entre estas administraciones generó una pérdida de tiempo crítica en un contexto de cambio climático creciente.</p>
+
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>Dimensión</th>
+        <th class="col-alvarado">Administración Alvarado Quesada (PAC, 2018–2022)</th>
+        <th class="col-chaves">Administración Chaves Robles (PPSD, 2022–presente)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Nombre del proyecto</td>
+        <td>PAACUME (nombre técnico oficial)</td>
+        <td>"Agua para la Bajura" (renombrado por el Ejecutivo)</td>
+      </tr>
+      <tr>
+        <td>Énfasis discursivo</td>
+        <td>Adaptación climática; seguridad hídrica; riego agropecuario y turismo</td>
+        <td>Agua potable para consumo humano; equidad territorial; critica al beneficio a "los ricos"</td>
+      </tr>
+      <tr>
+        <td>Hito financiero</td>
+        <td>Firma del contrato BCIE ($425M) — abril 2022. El préstamo fue aprobado desde 2018 y el gobierno lo formalizó en los últimos meses de mandato.</td>
+        <td>Paralización temporal (jul–nov 2022); reactivación sin cambios estructurales al contrato; actualización de inversión a ~$673M para 2025.</td>
+      </tr>
+      <tr>
+        <td>Posición ante Lomas de Barbudal</td>
+        <td>Desafectación de 113 ha justificada por compensación ambiental (547 ha adicionales); viabilidad SETENA obtenida en 2021.</td>
+        <td>Acepta el diseño. No modifica el impacto ambiental.</td>
+      </tr>
+      <tr>
+        <td>Cronograma previsto</td>
+        <td>Obras a iniciar en 2022, operatividad prevista circa 2025–2026 según proyecciones de 2021.</td>
+        <td>Obras iniciadas julio 2023 (14 meses de retraso). Operatividad: 2029 (3–4 años de retraso sobre la proyección original).</td>
+      </tr>
+      <tr>
+        <td>Orden de inicio efectiva</td>
+        <td>No emitida; dejó el proyecto con financiamiento firmado pero sin ejecución.</td>
+        <td>Emitida en julio 2023 (tras 14 meses de congelamiento político).</td>
+      </tr>
+      <tr>
+        <td>Narrativa de disputa</td>
+        <td>Chaves acusó al proyecto heredado de favorecer a grandes terratenientes. El exministro Gutiérrez contradijo la versión oficial: "Todo estaba listo; Chaves no quería el proyecto por ser del PAC."</td>
+        <td>Chaves atribuyó el retraso a "ecologistas" que "le atravesaron el caballo". Las fuentes verificadas indican que los recursos constitucionales fueron resueltos antes de que Chaves asumiera.</td>
+      </tr>
+      <tr>
+        <td>Componente agua potable</td>
+        <td>Contemplado en el diseño original (2 m³/s). No fue el eje discursivo principal.</td>
+        <td>Elevado a eje discursivo central como diferenciador frente al proyecto anterior. Sin cambio técnico sustantivo en el componente.</td>
+      </tr>
+      <tr>
+        <td>Costo total proyectado</td>
+        <td>$457,8 millones (2022)</td>
+        <td>~$673,8 millones (2025) — incremento de ~47% en tres años.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout gold">
+    La editorial de La Nación de junio de 2023 fue directa: "El nuevo planteamiento es, esencialmente, el mismo proyecto Paacume con otro nombre. No importa cómo se le llame, es urgente." La disputa sobre la nomenclatura y la autoría política tuvo costos reales en tiempo y, presumiblemente, en presupuesto.
+  </div>
+
+  <!-- ─── PARTE III: PARALISIS ─── -->
+  <h2 class="section-head" id="paralisis">III. La parálisis de 2022: causas, costos y consecuencias</h2>
+
+  <h3 class="subsection-head">3.1 El congelamiento y sus factores</h3>
+
+  <p>El 25 de julio de 2022 —tan solo dos meses después de asumir el poder— el presidente Rodrigo Chaves condicionó el avance del PAACUME a dos requisitos no técnicos: (a) ajuste en el precio cobrado por metro cúbico para equiparar las tarifas entre ambas márgenes del Tempisque y (b) garantías explícitas de que el agua beneficiaría a todos los guanacastecos y no solo a los sectores industriales. La frase presidencial —"No le vamos a seguir regalando agua a los ricos"— sintetizó una narrativa de redistribución que, sin embargo, no estaba respaldada por un análisis técnico que justificara la paralización del proyecto.</p>
+
+  <p>Las fuentes verificadas permiten distinguir al menos cuatro factores en la decisión de congelar:</p>
+
+  <p><strong>Factor 1 — Identidad política del proyecto.</strong> El PAACUME fue creado, diseñado y financiado bajo dos administraciones del Partido Acción Ciudadana. Según el exministro Gutiérrez, Chaves inicialmente no quería el proyecto por esa asociación partidaria, y solo cedió ante la presión de las fuerzas vivas y empresariales de Guanacaste.</p>
+
+  <p><strong>Factor 2 — Disputa sobre beneficiarios.</strong> Chaves señaló que la margen izquierda del Tempisque, construida para parceleros, estaba sirviendo a grandes empresas azucareras a un precio de ₡2,5 por m³, mientras que el PAACUME cobrarìa ₡16/m³ en la margen derecha. Este argumento sobre equidad tarifaria tenía sustento factual parcial, pero no justificaba una paralización total.</p>
+
+  <p><strong>Factor 3 — Oposición ecologista no resuelta.</strong> Aunque todos los recursos constitucionales habían sido rechazados antes de que Chaves asumiera, la oposición ambiental al proyecto (FECON y otros actores) continuaba activa. El gobierno pareció sumar esas objeciones a su propio discurso.</p>
+
+  <p><strong>Factor 4 — Reencuadre discursivo.</strong> La administración Chaves necesitaba presentar el proyecto como propio, no como herencia del PAC. El proceso de redenominación y reconfiguración discursiva tomó seis meses (julio–noviembre 2022), período durante el cual la ejecución estuvo paralizada.</p>
+
+  <h3 class="subsection-head">3.2 Costos verificables del retraso</h3>
+
+  <p>La orden de inicio formal de obras se emitió en julio de 2023, lo que implica:</p>
+
+  <ul style="margin: 16px 0 16px 24px; line-height: 2;">
+    <li><strong>14 meses de retraso</strong> desde la firma del contrato BCIE (abril 2022) hasta el inicio efectivo de obras (julio 2023).</li>
+    <li>La proyección original de operatividad en 2025–2026 se desplazó al <strong>año 2029</strong>: un retraso de 3 a 4 años sobre el cronograma heredado.</li>
+    <li>El costo total del proyecto se incrementó de <strong>$457,8 millones (2022) a $673,8 millones (2025)</strong>, un alza de aproximadamente $216 millones (+47%). No toda esta diferencia es atribuible al retraso político —la inflación global de materiales de construcción post-pandemia es un factor significativo— pero el retraso contribuyó.</li>
+    <li>Las comunidades con problemas de abastecimiento y contaminación por arsénico continuaron sin solución estructural durante ese período adicional.</li>
+  </ul>
+
+  <div class="callout">
+    El argumento del gobierno sobre los "ecologistas que atravesaron el caballo" es epistémicamente débil: los recursos constitucionales fueron resueltos durante la administración Alvarado. El retraso de 2022–2023 fue consecuencia de una decisión política deliberada de la nueva administración, no de obstáculos jurídicos o ambientales pendientes.
+  </div>
+
+  <!-- ─── PARTE IV: MEEE-G ─── -->
+  <h2 class="section-head" id="epistemia">IV. Evaluación epistémica MEEE-G</h2>
+
+  <p>La siguiente tabla clasifica las afirmaciones centrales de este análisis según el estatus epistémico que les corresponde bajo la Matriz Explicacionista de Evaluación Epistémica de Goldman.</p>
+
+  <table class="meee-table">
+    <thead>
+      <tr>
+        <th style="width:42%">Afirmación</th>
+        <th style="width:15%">Clasificación</th>
+        <th>Justificación</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>El PAACUME fue creado en 2014 bajo el PIAAG por decreto de Solís Rivera y el financiamiento BCIE fue aprobado en 2018.</td>
+        <td><span class="badge dc">DC</span></td>
+        <td>Dato confirmado por fuentes institucionales de SENARA y Presidencia.</td>
+      </tr>
+      <tr>
+        <td>La orden de inicio formal de obras fue emitida en julio de 2023, 14 meses después de la firma del contrato BCIE.</td>
+        <td><span class="badge dc">DC</span></td>
+        <td>Confirmado por múltiples fuentes (Amelia Rueda, El Guardián, BCIE).</td>
+      </tr>
+      <tr>
+        <td>El avance global del proyecto al 19 de febrero de 2026 es del 18,6%, con obras de conducción en 8,25%.</td>
+        <td><span class="badge dc">DC</span></td>
+        <td>Comunicado oficial del gobierno del 19/02/2026; reportado por múltiples medios verificados.</td>
+      </tr>
+      <tr>
+        <td>El costo total del proyecto aumentó de $457,8M (2022) a $673,8M (2025).</td>
+        <td><span class="badge dc">DC</span></td>
+        <td>Cifras de la Presidencia (2022) y comunicado oficial (julio 2025) respectivamente.</td>
+      </tr>
+      <tr>
+        <td>La decisión de Chaves de congelar el proyecto en julio 2022 obedeció principalmente a motivaciones políticas (distancia del legado del PAC).</td>
+        <td><span class="badge ip">IP</span></td>
+        <td>Inferencia plausible respaldada por testimonio de Edgar Gutiérrez (exministro) y la secuencia cronológica; no se tiene acceso a deliberaciones internas del Ejecutivo.</td>
+      </tr>
+      <tr>
+        <td>El retraso de 14 meses contribuyó al incremento del costo del proyecto.</td>
+        <td><span class="badge ip">IP</span></td>
+        <td>Plausible por inflación de materiales y costos financieros del préstamo; no hay un estudio costo-beneficio publicado que lo cuantifique específicamente.</td>
+      </tr>
+      <tr>
+        <td>El proyecto será operativo en 2029 según el cronograma actual.</td>
+        <td><span class="badge h">H</span></td>
+        <td>Hipótesis de trabajo del gobierno, con avance del 18,6% a inicios de 2026. Historia de retrasos en proyectos similares en Costa Rica aconseja prudencia.</td>
+      </tr>
+      <tr>
+        <td>El componente de agua potable de "Agua para la Bajura" es técnicamente idéntico al diseño original del PAACUME.</td>
+        <td><span class="badge int">Int</span></td>
+        <td>Interpretación consistente con los testimonios del exministro Gutiérrez y el análisis de La Nación; el gobierno argumenta que realizó "mejoras" al diseño original.</td>
+      </tr>
+      <tr>
+        <td>Sin el retraso, las comunidades más vulnerables de Guanacaste habrían tenido agua potable confiable para 2026.</td>
+        <td><span class="badge c">C</span></td>
+        <td>Conjetura razonada pero no verificable: depende de supuestos contrafactuales sobre ejecución sin contratiempos y demanda real.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ─── PARTE V: ADE ─── -->
+  <h2 class="section-head" id="ade">V. Lectura dinámica ADD</h2>
+
+  <div class="ade-box">
+    <div class="ade-grid">
+      <div>
+        <div class="ade-item-label">Atractores del sistema</div>
+        <div class="ade-item-text">La escasez hídrica estructural de Guanacaste opera como atractor fundamental: cualquier administración, independientemente de su orientación política, termina convergiendo hacia soluciones de infraestructura hídrica de gran escala. El PAACUME/Bajura es la expresión institucionalizada de ese atractor. La disputa es sobre el nombre y los beneficiarios, no sobre la necesidad del proyecto.</div>
+      </div>
+      <div>
+        <div class="ade-item-label">Zona de turbulencia (2022–2023)</div>
+        <div class="ade-item-text">La transición de administración generó una zona de turbulencia política en la que el proyecto perdió momentum institucional. El sistema técnico-financiero (SENARA + BCIE + ICE) funcionó como amortiguador: el contrato firmado y el préstamo desembolsado limitaron el espacio de maniobra del nuevo gobierno para cancelar el proyecto, forzando eventualmente su reactivación bajo nueva narrativa.</div>
+      </div>
+      <div>
+        <div class="ade-item-label">Flujos y acoplamientos</div>
+        <div class="ade-item-text">El proyecto opera en tres flujos simultáneos: (a) flujo hídrico: aprovechamiento del embalse Arenal → río Piedras → planicie costera; (b) flujo financiero: préstamo BCIE → ejecución pública → contratistas → economía regional; (c) flujo simbólico-político: disputa por la autoría del proyecto entre administraciones, con capital simbólico asociado a "resolver" el problema del agua en Guanacaste.</div>
+      </div>
+      <div>
+        <div class="ade-item-label">Tensiones no resueltas</div>
+        <div class="ade-item-text">Persisten tensiones entre: (1) el ritmo de ejecución (18,6% en 3 años) y la meta 2029; (2) el diseño concebido para grandes productores y el discurso de equidad social; (3) la conservación del bosque seco tropical (Lomas de Barbudal) y la necesidad hídrica; (4) el costo del préstamo BCIE ($673M+) y la capacidad del Estado de absorber la deuda sin transferirla a tarifas.</td>
+      </div>
+      <div>
+        <div class="ade-item-label">Bifurcación crítica</div>
+        <div class="ade-item-text">El proyecto enfrenta una bifurcación institucional en 2026: la construcción de la presa y el embalse (obras centrales) debe iniciar este año. Si se logra la adjudicación del contrato de Presa y Vertedor, el proyecto entra en régimen laminar de ejecución sostenida. Si no, una nueva turbulencia podría proyectar la operatividad más allá de 2030.</div>
+      </div>
+      <div>
+        <div class="ade-item-label">Clausura organizacional</div>
+        <div class="ade-item-text">La resistencia de las comunidades campesinas y pesqueras de la región a los efectos de las expropiaciones y al modelo de distribución (prioridad al sector turístico e industrial vs. consumo doméstico) constituye una clausura organizacional que el proyecto no ha resuelto plenamente. La gestión social de las obras es un componente crítico pendiente señalado en los propios reportes oficiales.</div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="subsection-head">Régimen dinámico actual</h3>
+  <p>El sistema PAACUME/Agua para la Bajura se encuentra en un <strong>régimen de turbulencia controlada</strong>: las obras están en marcha pero el ritmo de ejecución (18,6% en casi tres años desde el inicio formal) genera dudas sobre la viabilidad del cronograma 2029. El sistema cuenta con estabilizadores fuertes —contrato firmado, financiamiento activo, múltiples ministerios involucrados— pero no ha cruzado el umbral de irreversibilidad constructiva que ocurrirá cuando la presa y el embalse estén en construcción activa.</p>
+
+  <!-- ─── PARTE VI: ESTADO ACTUAL ─── -->
+  <h2 class="section-head" id="estado-actual">VI. Estado actual del proyecto (abril 2026)</h2>
+
+  <table class="synth-table">
+    <thead>
+      <tr>
+        <th>Componente</th>
+        <th>Estado</th>
+        <th>Observaciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Obras de conducción (ICE–SENARA)</td>
+        <td>En ejecución — 8,25% de avance</td>
+        <td>Orden de inicio: julio 2025. Incluye toma de aguas, túnel de conducción, tubería forzada y canal de restitución. Permiten el desvío del canal oeste para iniciar la presa.</td>
+      </tr>
+      <tr>
+        <td>Presa y Embalse Río Piedras</td>
+        <td>Pendiente de adjudicación (prioridad 2026)</td>
+        <td>Construcción proyectada para iniciar en 2026. Diseño del ICE: 485 m × 295 m, costo estimado $142M. Es la obra central del proyecto.</td>
+      </tr>
+      <tr>
+        <td>Canal Oeste (Embalse Arenal → Embalse Río Piedras)</td>
+        <td>Diseño finalizado; adjudicación pendiente</td>
+        <td>55 km de longitud. Trazo final definido; levantamiento topográfico de 155 km completado. Publicación del cartel en proceso.</td>
+      </tr>
+      <tr>
+        <td>Planta potabilizadora</td>
+        <td>En diseño y cartelización</td>
+        <td>AyA reporta capacidad inicial para 147.000 personas, con proyección a 450.000 en 25 años.</td>
+      </tr>
+      <tr>
+        <td>Red de distribución (riego)</td>
+        <td>En fase de diseño de cartel</td>
+        <td>18.639 ha previstas; 746 productores directos en Nicoya, Santa Cruz y Carrillo.</td>
+      </tr>
+      <tr>
+        <td>Gestión social y arqueológica</td>
+        <td>En proceso</td>
+        <td>Prospección arqueológica pendiente; censo forestal en curso; gestión de expropiaciones activa.</td>
+      </tr>
+      <tr>
+        <td><strong>Avance global</strong></td>
+        <td><strong>18,6%</strong> (febrero 2026)</td>
+        <td>Referenciado en visita técnica interministerial del 19/02/2026.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <hr class="rule">
+
+  <!-- ─── PARTE VII: ESCENARIOS ─── -->
+  <h2 class="section-head" id="escenarios">VII. Escenarios plausibles (2026–2030)</h2>
+
+  <div class="scenario-grid">
+    <div class="scenario-card optimista">
+      <div class="scenario-label">Optimista</div>
+      <div class="scenario-title">Ejecución acelerada</div>
+      <div class="scenario-text">La presa adjudica en 2026 según cronograma; el canal oeste inicia en 2026–2027; la planta potabilizadora concluye en 2028. El proyecto entra en operación parcial antes de 2029, con agua potable para ~150.000 personas y riego para varios miles de hectáreas antes de la conclusión total.</div>
+    </div>
+    <div class="scenario-card inercial">
+      <div class="scenario-label">Inercial</div>
+      <div class="scenario-title">Operatividad 2029–2030</div>
+      <div class="scenario-text">Las obras continúan al ritmo actual con retrasos moderados en la adjudicación de la presa. La operatividad plena se alcanza en 2029–2030, con un costo total que podría superar los $700 millones. El próximo gobierno hereda un proyecto en ejecución avanzada.</div>
+    </div>
+    <div class="scenario-card pesimista">
+      <div class="scenario-label">Adverso</div>
+      <div class="scenario-title">Nueva parálisis</div>
+      <div class="scenario-text">Un cambio de administración en 2026 con prioridades diferentes, o problemas técnicos en la fase de construcción de la presa, podría generar nuevos retrasos. La operatividad se desplazaría a 2031 o más allá, con costos financieros del préstamo BCIE acumulándose sin infraestructura operativa.</div>
+    </div>
+  </div>
+
+  <!-- ─── PARTE VIII: RELEVANCIA CR ─── -->
+  <div class="cr-annex" id="cr">
+    <br>
+    <h3 class="subsection-head cr">Relevancia para Costa Rica</h3>
+
+    <p><strong>Dimensión política:</strong> El PAACUME/Agua para la Bajura es un caso paradigmático de <em>continuidad institucional interrumpida</em>. El cambio de administración de 2022 no solo retrasó el proyecto; reveló la debilidad estructural del Estado costarricense para proteger proyectos de infraestructura estratégica de los ciclos políticos. La disputa por la autoría —y el consecuente retraso de más de un año— tiene costos reales que las comunidades guanacastecas están pagando. Este patrón no es exclusivo del PAACUME: se observa en infraestructura vial, energética y de telecomunicaciones.</p>
+
+    <p><strong>Dimensión económica:</strong> Guanacaste es el principal polo de crecimiento turístico de Costa Rica fuera de la GAM. La inseguridad hídrica frena inversiones turísticas y agropecuarias en los cantones beneficiarios. El retraso de 3–4 años en la operatividad del proyecto implica años adicionales de crecimiento limitado en una región que ya opera con escasez hídrica. El incremento del costo del proyecto ($216M adicionales) es además deuda pública que el Estado debe servir —con cargo a la ciudadanía— sin la infraestructura operativa que lo justificaría.</p>
+
+    <p><strong>Dimensión ambiental:</strong> El cambio climático agrava la sequía del Corredor Seco Centroamericano, del que Guanacaste forma parte. Cada año de retraso en la operatividad del embalse Río Piedras es un año adicional de vulnerabilidad hídrica extrema para los cantones beneficiarios. La desafectación de 113 ha de Lomas de Barbudal ya fue aprobada jurídicamente, pero la compensación de 547 ha prevista depende de que el proyecto ejecute efectivamente sus compromisos ambientales, que aún están pendientes.</p>
+
+    <p><strong>Dimensión social:</strong> Las comunidades con contaminación por arsénico —declaradas emergencia nacional desde 2013— siguen esperando una solución estructural. La promesa de agua potable para 500.000 personas de la Región Chorotega no se materializará antes de 2029 en el mejor escenario. Eso implica que niños y adultos en esas comunidades habrán vivido dieciséis años desde la declaración de emergencia sin acceso garantizado al recurso más básico.</p>
+
+    <p><strong>Dimensión institucional y señal para la región:</strong> Costa Rica tiene una reputación internacional como Estado capaz de ejecutar proyectos de sostenibilidad y adaptación climática. El PAACUME fue presentado —con justeza técnica— como el principal proyecto de adaptación climática del país. La demostración de que ese proyecto puede ser paralizado por cálculos políticos durante catorce meses daña esa reputación frente a los financiadores internacionales (BCIE) y socava la credibilidad del país en futuros procesos de financiamiento climático.</p>
+  </div>
+
+  <!-- ─── PARTE IX: INCERTIDUMBRES ─── -->
+  <h2 class="section-head">VIII. Incertidumbres abiertas</h2>
+
+  <p>Los siguientes elementos no pueden resolverse con la información disponible al momento de este análisis:</p>
+
+  <ul style="margin: 16px 0 16px 24px; line-height: 2.1;">
+    <li>El cronograma real de la adjudicación del contrato de Presa y Vertedor (pendiente de publicación del cartel en 2026).</li>
+    <li>El impacto preciso del retraso de 2022–2023 sobre el costo final del proyecto, disagregado de la inflación global de materiales de construcción.</li>
+    <li>La capacidad del SENARA de ejecutar simultáneamente múltiples contratos (conducción, presa, canal, potabilizadora) sin conflictos de cronograma o presupuesto.</li>
+    <li>La posición que adoptará el próximo gobierno (elecciones 2026) respecto al proyecto y su continuidad.</li>
+    <li>El estado de cumplimiento de los compromisos de compensación ambiental (adquisición de las 547 ha para Lomas de Barbudal).</li>
+    <li>Si las comunidades con arsénico en el agua recibirán acceso real al sistema antes de 2029 mediante obras de mitigación provisional.</li>
+  </ul>
+
+  <hr class="rule">
+
+  <!-- REFERENCES -->
+  <div class="refs" id="referencias">
+    <h2>Referencias — APA 7</h2>
+    <p class="ref-item">Alvarado Quesada, C. [Presidencia de la República de Costa Rica]. (2022, abril 5). <em>Firman contrato de financiamiento de proyecto PAACUME para dotar de agua a Región Chorotega.</em> <a href="https://presidencia.gobiernocarlosalvarado.cr/comunicados/2022/04/firman-contrato-de-financiamiento-de-proyecto-paacume-para-dotar-de-agua-a-region-chorotega/">presidencia.gobiernocarlosalvarado.cr</a></p>
+    <p class="ref-item">Alvarado Quesada, C. [Presidencia de la República de Costa Rica]. (2022, mayo 3). <em>PAACUME es el principal proyecto de adaptación climática del país que asegurará el futuro de Guanacaste.</em> <a href="https://presidencia.gobiernocarlosalvarado.cr/comunicados/2022/05/paacume-es-el-principal-proyecto-de-adaptacion-climatica-del-pais-que-asegurara-el-futuro-de-guanacaste/">presidencia.gobiernocarlosalvarado.cr</a></p>
+    <p class="ref-item">Amelia Rueda. (2022, noviembre 10). <em>Proyecto de agua para Guanacaste sobre el que "tenía dudas" iniciará en "un año", promete presidente.</em> <a href="https://ameliarueda.com/nota/proyecto-agua-guanacaste-paacume-iniciara-2023-chaves-noticias-costa-rica">ameliarueda.com</a></p>
+    <p class="ref-item">Amelia Rueda. (2023, julio 27). <em>Inician obras de sistema que llevará agua a Guanacaste; Gobierno prevé que se estrene en 2029.</em> <a href="https://ameliarueda.com/noticia/inician-obras-sistema-agua-guanacaste-previsto-2029-noticias-costa-rica">ameliarueda.com</a></p>
+    <p class="ref-item">Banco Centroamericano de Integración Económica. (2023, julio 27). <em>CABEI-financed project to provide water to more than 700,000 Costa Ricans in the North Pacific region begins work.</em> <a href="https://www.bcie.org/en/news-and-media/news/article/inician-obras-de-proyecto-financiando-por-el-bcie-que-proveera-de-agua-a-mas-de-700-mil-costarricenses-del-pacifico-norte">bcie.org</a></p>
+    <p class="ref-item">CR Hoy. (2024, julio 29). <em>Exministro desdice a Chaves por señalamientos sobre plan de agua para Guanacaste.</em> <a href="https://crhoy.com/nacionales/exministro-desdice-a-chaves-por-senalamientos-sobre-plan-de-agua-para-guanacaste/">crhoy.com</a></p>
+    <p class="ref-item">Delfino.cr. (2025, junio). <em>SENARA e ICE firman nuevo contrato dentro del Proyecto Agua para la Bajura–PAACUME.</em> <a href="https://delfino.cr/2025/06/senara-e-ice-firman-nuevo-contrato-dentro-del-proyecto-agua-para-la-bajura-paacume">delfino.cr</a></p>
+    <p class="ref-item">El Guardián CR. (2023, julio 28). <em>Inicia construcción de proyecto que llevará agua a la bajura guanacasteca.</em> <a href="https://elguardian.cr/inicia-construccion-de-proyecto-que-llevara-agua-a-la-bajura-guanacasteca/">elguardian.cr</a></p>
+    <p class="ref-item">El Guardián CR. (2026, febrero 23). <em>Gobierno reporta 18,6% de avance en Proyecto Agua para la Bajura y prioriza obras clave para 2026.</em> <a href="https://elguardian.cr/gobierno-reporta-186-de-avance-en-proyecto-agua-par/">elguardian.cr</a></p>
+    <p class="ref-item">El Mundo CR. (2022, noviembre 10). <em>Por fin habrá agua para los guanacastecos no para un grupito de personas, asegura Rodrigo Chaves.</em> <a href="https://elmundo.cr/costa-rica/por-fin-habra-agua-para-los-guanacastecos-no-para-un-grupito-de-personas-asegura-rodrigo-chaves/">elmundo.cr</a></p>
+    <p class="ref-item">El Mundo CR. (2025, julio 22). <em>Agua para la Bajura: Avanzan obras para garantizar agua y desarrollo en Guanacaste.</em> <a href="https://elmundo.cr/costa-rica/agua-para-la-bajura-avanzan-obras-para-garantizar-agua-y-desarrollo-en-guanacaste/">elmundo.cr</a></p>
+    <p class="ref-item">El Mundo CR. (2026, febrero 19). <em>Gobierno consolida avances en "Agua para la Bajura" y define prioridades para 2026.</em> <a href="https://elmundo.cr/costa-rica/gobierno-consolida-avances-en-agua-para-la-bajura-y-define-prioridades-para-2026/">elmundo.cr</a></p>
+    <p class="ref-item">Gobierno Alvarado Quesada. (2022). <em>Infraestructura — logros de la Administración 2018-2022.</em> <a href="https://gobiernocarlosalvarado.cr/infra/">gobiernocarlosalvarado.cr</a></p>
+    <p class="ref-item">Goldman, A. I. (1979). What is justified belief? En G. S. Pappas (Ed.), <em>Justification and knowledge</em> (pp. 1–23). Reidel. [Fundamento del fiabilismo procesual en MEEE-G]</p>
+    <p class="ref-item">Guanacaste a la Altura. (2022, noviembre 11). <em>Presidente anuncia "Agua Pa´la Bajura" versión mejorada de proyecto PAACUME.</em> <a href="https://www.guanacastealaaltura.com/presidente-anuncia-agua-pala-bajura-version-mejorada-de-proyecto-paacume/">guanacastealaaltura.com</a></p>
+    <p class="ref-item">La Nación. (2021, julio 8). <em>PAACUME: Más que un proyecto para llevar agua a Guanacaste.</em> <a href="https://www.nacion.com/ciencia/medio-ambiente/paacume-mas-que-un-proyecto-para-llevar-agua-a/DVAGQYAJ4ZEGPPYVHSICT3DWPI/story/">nacion.com</a></p>
+    <p class="ref-item">La Nación. (2023, junio 22). <em>Urge el agua para Guanacaste (o la bajura)</em> [Editorial]. <a href="https://www.nacion.com/opinion/editorial/urge-el-agua-para-guanacaste-o-la-bajura/4RB5KUQZEJATJEFOTT4YHWVM3U/story/">nacion.com</a></p>
+    <p class="ref-item">La Nación. (2024, julio 24). <em>Proyecto de agua para Guanacaste no será inaugurado en este gobierno, admite Rodrigo Chaves.</em> <a href="https://www.nacion.com/el-pais/politica/proyecto-de-agua-para-guanacaste-no-sera/PPCJ3RIHEBB53JVJBWX2ROYJ4I/story/">nacion.com</a></p>
+    <p class="ref-item">La República. (2022, agosto 4). <em>Megaproyecto para abastecer de agua a Guanacaste en suspenso ante dudas del gobierno.</em> <a href="https://www.larepublica.net/noticia/megaproyecto-para-abastecer-de-agua-a-guanacaste-en-suspenso-ante-dudas-del-gobierno">larepublica.net</a></p>
+    <p class="ref-item">Montero Fonseca, A. (s.f.). <em>Antropología Dinámica del Devenir (ADD): bases para un programa teórico-metodológico relacional ante la complejidad sociocultural.</em> Universidad de Costa Rica. [Artículo académico interno]</p>
+    <p class="ref-item">Periódico Guanacaste a la Altura. (2026, febrero 20). <em>Gobierno da a conocer avances del Proyecto Agua para la Bajura y define prioridades estratégicas para 2026.</em> <a href="https://www.guanacastealaaltura.com/gobierno-da-a-conocer-avances-del-proyecto-agua-para-la-bajura-y-define-prioridades-estrategicas-para-2026/">guanacastealaaltura.com</a></p>
+    <p class="ref-item">Periódico Mensaje Guanacaste. (2026, febrero 19). <em>Gobierno consolida avances del Proyecto Agua para la Bajura y define prioridades estratégicas para 2026.</em> <a href="https://www.periodicomensaje.com/cantonales/14474-gobierno-consolida-avances-del-proyecto-agua-para-la-bajura-y-define-prioridades-estrategicas-para-2026">periodicomensaje.com</a></p>
+    <p class="ref-item">Presidencia de la República de Costa Rica. (2021, agosto 12). <em>Agua para Guanacaste: Setena da viabilidad ambiental para proyecto PAACUME.</em> <a href="https://presidencia.gobiernocarlosalvarado.cr/comunicados/2021/08/agua-para-guanacaste-setena-da-viabilidad-ambiental-para-proyecto-paacume/">presidencia.gobiernocarlosalvarado.cr</a></p>
+    <p class="ref-item">Semanario Universidad. (2018, octubre 17). <em>Con polémica, avanza proyecto de abastecimiento hídrico en Guanacaste.</em> <a href="https://semanariouniversidad.com/pais/con-polemica-avanza-proyecto-de-abastecimiento-hidrico-en-guanacaste/">semanariouniversidad.com</a></p>
+    <p class="ref-item">Semanario Universidad. (2022, noviembre 11). <em>Gobierno anuncia que megaproyecto en Guanacaste ahora llevará agua para consumo humano y no sólo para riego.</em> <a href="https://semanariouniversidad.com/pais/gobierno-anuncia-que-megaproyecto-en-guanacaste-ahora-llevara-agua-para-consumo-humano-y-no-solo-para-riego/">semanariouniversidad.com</a></p>
+    <p class="ref-item">SENARA. (2022, marzo). <em>Estudio de Factibilidad proyecto PAACUME.</em> <a href="https://www.senara.or.cr/ver/proyectos/paacume/componentes/Estudio%20de%20Factibilidad%20proyecto%20PAACUME%20(marzo%202022).pdf">senara.or.cr</a></p>
+    <p class="ref-item">SETENA. (2021). <em>Resolución No. 1226-2021-SETENA: Viabilidad ambiental Proyecto PAACUME.</em> <a href="https://www.setena.go.cr/requisitos-garantias-ambientales/Noticias/PAACUME">setena.go.cr</a></p>
+  </div>
+
+  <!-- DISCLAIMER -->
+  <div class="disclaimer">
+    <div class="disclaimer-label">Nota metodológica obligatoria</div>
+    <p>El presente boletín combina evaluación epistémica explicacionista (Matriz MEEE-G, con clasificación expresa de cada afirmación como dato confirmado, inferencia plausible, hipótesis, interpretación o conjetura) y análisis dinámico antropológico conforme al marco de la Antropología Dinámica del Devenir (ADD), de Alfredo Montero Fonseca. No constituye predicción determinista ni recomendación de política pública. Las inferencias y escenarios expresan trayectorias plausibles bajo el contexto informacional disponible; no son declaraciones de certeza. La producción periodística citada proviene de medios con estándares editoriales verificables; en los casos donde se recogen testimonios de actores con intereses identificables (exministros, funcionarios), se indica explícitamente el sesgo potencial.</p>
+  </div>
+
+</main>
+
+<footer>
+  <span>ANCA-ADD</span> · Agente Noticioso Crítico de Actualidad · Análisis Dinámico del Devenir &nbsp;|&nbsp; Publicación: 19 de abril de 2026 &nbsp;|&nbsp; Costa Rica &nbsp;|&nbsp; MEEE-G + ADD
+</footer>
+
+<script data-goatcounter="https://antropos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

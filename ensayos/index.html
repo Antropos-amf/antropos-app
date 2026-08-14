@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ensayos | Alfredo Montero Fonseca · antropos.app</title>
+<meta name="description" content="Ensayos de Alfredo Montero Fonseca sobre historia, memoria, cultura y política desde la antropología.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0d0d; --bg2: #141414; --fg: #e8e0d0; --fg-dim: #9a9080;
+    --red: #c0392b; --gold: #d4a017; --gold-light: #f0c040;
+    --green: #2ecc71; --green-dim: #1a7a42;
+    --border: #2a2a2a; --border-accent: #3a2a1a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg); color: var(--fg);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 16px; line-height: 1.75; overflow-x: hidden;
+  }
+  .topbar {
+    background: var(--bg2); border-bottom: 1px solid var(--border);
+    padding: 12px 40px; display: flex; align-items: center; gap: 16px;
+  }
+  .topbar-home {
+    font-family: 'Bebas Neue', sans-serif; font-size: 20px;
+    color: #fff; text-decoration: none; letter-spacing: 0.06em;
+  }
+  .topbar-home span { color: var(--red); }
+  .topbar-sep { color: var(--fg-dim); font-family: 'Space Mono', monospace; font-size: 11px; }
+  .topbar-current {
+    font-family: 'Space Mono', monospace; font-size: 10px;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold);
+  }
+  .masthead {
+    padding: 56px 40px 44px; border-bottom: 1px solid var(--border);
+    position: relative; overflow: hidden;
+  }
+  .masthead::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(90deg, transparent 0, transparent 79px,
+      rgba(255,255,255,0.015) 79px, rgba(255,255,255,0.015) 80px);
+    pointer-events: none;
+  }
+  .section-label {
+    font-family: 'Space Mono', monospace; font-size: 10px;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--red); margin-bottom: 14px;
+  }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif; font-size: clamp(42px, 7vw, 80px);
+    letter-spacing: 0.04em; color: #fff; line-height: 0.92; position: relative;
+  }
+  .section-desc {
+    margin-top: 18px; font-size: 16px; color: var(--fg-dim);
+    font-style: italic; max-width: 640px; line-height: 1.65;
+  }
+  .content { max-width: 900px; margin: 0 auto; padding: 60px 40px 80px; }
+  .essay-list { list-style: none; }
+  .essay-item {
+    border-bottom: 1px solid var(--border); padding: 32px 0;
+  }
+  .essay-item:first-child { border-top: 1px solid var(--border); }
+  .essay-cat {
+    font-family: 'Space Mono', monospace; font-size: 10px;
+    letter-spacing: 0.15em; text-transform: uppercase; color: var(--red);
+    margin-bottom: 10px;
+  }
+  .essay-title {
+    font-family: 'Playfair Display', serif; font-size: clamp(20px, 3vw, 28px);
+    font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 10px;
+  }
+  .essay-title a { color: inherit; text-decoration: none; }
+  .essay-title a:hover { color: var(--gold); }
+  .essay-deck { font-size: 15px; color: var(--fg-dim); line-height: 1.65; margin-bottom: 14px; }
+  .essay-meta {
+    font-family: 'Space Mono', monospace; font-size: 10px;
+    letter-spacing: 0.1em; color: var(--fg-dim);
+  }
+  .essay-meta span { color: var(--gold); margin-right: 8px; }
+  footer {
+    background: var(--bg2); border-top: 1px solid var(--border);
+    padding: 24px 40px; text-align: center;
+    font-family: 'Space Mono', monospace; font-size: 10px;
+    color: var(--fg-dim); letter-spacing: 0.1em;
+  }
+  footer a { color: var(--gold); text-decoration: none; }
+  footer .red { color: var(--red); }
+  @media (max-width: 640px) {
+    .topbar { padding: 10px 20px; }
+    .masthead { padding: 36px 20px 28px; }
+    .content { padding: 40px 20px 60px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a class="topbar-home" href="/">ANTR<span>O</span>POS</a>
+  <span class="topbar-sep">/</span>
+  <span class="topbar-current">Ensayos</span>
+</div>
+
+<header class="masthead">
+  <div class="section-label">Alfredo Montero Fonseca</div>
+  <h1 class="section-title">Ensayos</h1>
+  <p class="section-desc">Reflexiones sobre historia, memoria, cultura y política desde la antropología. Escritura que no cabe en el boletín ni en el informe.</p>
+</header>
+
+<main class="content">
+  <ul class="essay-list">
+
+    <li class="essay-item">
+      <div class="essay-cat">Política pública · Capital institucional · Costa Rica</div>
+      <h2 class="essay-title"><a href="lo-que-no-se-valora-se-pierde/">Lo que no se valora se pierde</a></h2>
+      <p class="essay-deck">Políticas públicas, policastros y el capital que nadie administra. Costa Rica ha acumulado un capital institucional, cultural y simbólico único —pero la discontinuidad política lo erosiona más rápido de lo que se construye.</p>
+      <div class="essay-meta"><span>21 de abril de 2026</span> Ensayo · Publicado en Delfino.cr</div>
+    </li>
+
+    <li class="essay-item">
+      <div class="essay-cat">Historia · Memoria · Costa Rica</div>
+      <h2 class="essay-title"><a href="izquierda-memoria-costarica/">La izquierda, la memoria y la historia de Costa Rica</a></h2>
+      <p class="essay-deck">Una reflexión sobre el papel de la izquierda costarricense como productora de memoria cultural, el mito de la democracia de pequeños propietarios y una cadena de tres generaciones que pasa el testigo —de Fabián Dobles a la antropología participativa.</p>
+      <div class="essay-meta"><span>19 de abril de 2026</span> Ensayo · Proyecto Historia San Isidro de Heredia</div>
+    </li>
+
+  </ul>
+</main>
+
+<footer>
+  <span class="red">ANTROPOS</span> · <a href="/">antropos.app</a> · Alfredo Montero Fonseca
+</footer>
+
+<script data-goatcounter="https://antropos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

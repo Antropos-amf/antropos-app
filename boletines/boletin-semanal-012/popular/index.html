@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANCA-ADD para Todos · Boletín Semanal N.° 012 · Edición Popular</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Caveat:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f4ecd9; --paper2:#ede1c8; --card:#fbf6ea;
+    --ink:#3a2e22; --ink2:#5b4a38; --muted:#8c7a64;
+    --terra:#bb5630; --terra-dim:#8f3f22; --terra-bg:rgba(187,86,48,.09);
+    --olive:#5c7a3f; --olive-bg:rgba(92,122,63,.10);
+    --sun:#d99a2b; --sun-bg:rgba(217,154,43,.12);
+    --teal:#3d8a82; --teal-bg:rgba(61,138,130,.10);
+    --line:#d8c7a4; --line-dark:#c2ad84;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:'Lora',Georgia,serif;font-size:19px;line-height:1.62;
+    background-image:
+      radial-gradient(circle at 15% 8%, rgba(217,154,43,.05), transparent 40%),
+      radial-gradient(circle at 90% 70%, rgba(92,122,63,.05), transparent 45%);
+  }
+  ::selection{background:var(--sun-bg);color:var(--ink)}
+
+  .ribbon{background:var(--terra);color:var(--paper);text-align:center;padding:9px 14px;
+    font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.04em}
+  .ribbon b{text-decoration:underline}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(244,236,217,.94);
+    backdrop-filter:blur(6px);border-bottom:2px solid var(--line-dark);
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.04em}
+  nav .wrap{max-width:760px;margin:0 auto;padding:10px 22px;display:flex;flex-wrap:wrap;gap:5px 16px;align-items:center}
+  nav a{color:var(--ink2);text-decoration:none;text-transform:uppercase;transition:color .2s}
+  nav a:hover{color:var(--terra)}
+  nav .brand{color:var(--ink);font-weight:600;margin-right:auto;text-transform:none;font-size:12px}
+
+  main{max-width:760px;margin:0 auto;padding:0 22px 90px}
+
+  header.mast{padding:46px 0 26px;text-align:center;border-bottom:3px double var(--line-dark);margin-bottom:10px}
+  .stamp{display:inline-block;font-family:'Caveat',cursive;font-size:22px;color:var(--terra);
+    transform:rotate(-2deg);margin-bottom:6px}
+  h1.title{font-family:'Fraunces',serif;font-weight:800;font-size:clamp(38px,8vw,62px);
+    line-height:1.05;margin:6px 0 8px;color:var(--ink)}
+  .subtitle{font-family:'Lora',serif;font-style:italic;font-size:clamp(17px,2.6vw,21px);
+    color:var(--ink2);margin:0 auto;max-width:520px}
+  .mast-meta{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--muted);
+    margin-top:18px;display:flex;flex-wrap:wrap;justify-content:center;gap:5px 20px}
+
+  .letter{background:var(--card);border:1px solid var(--line);border-radius:4px;
+    padding:26px 28px;margin:26px 0 8px;position:relative}
+  .letter:before{content:"";position:absolute;top:0;left:24px;right:24px;height:3px;
+    background:repeating-linear-gradient(90deg,var(--sun) 0 8px, transparent 8px 16px)}
+  .letter p{margin:0 0 13px;font-size:18.5px;color:var(--ink2)}
+  .letter p:last-child{margin-bottom:0}
+  .letter .firma{font-family:'Caveat',cursive;font-size:24px;color:var(--terra-dim);margin-top:4px}
+
+  .listen{background:var(--teal-bg);border:1px solid var(--teal);border-left:4px solid var(--teal);
+    border-radius:4px;padding:22px 26px;margin:20px 0 8px}
+  .listen .lbl{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--teal);margin-bottom:6px}
+  .listen h3{font-family:'Fraunces',serif;font-weight:700;font-size:20px;margin:0 0 6px;color:var(--ink)}
+  .listen p{margin:0 0 14px;font-size:16px;color:var(--ink2)}
+  .listen audio{width:100%;accent-color:var(--terra)}
+
+  .toc{margin:30px 0 6px}
+  .toc h2{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--muted);text-align:center;margin:0 0 16px}
+  .toc-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+  .toc-item{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:12px 14px;
+    font-family:'Lora',serif;font-size:15px;color:var(--ink2);text-decoration:none;display:flex;gap:10px;align-items:flex-start}
+  .toc-item:hover{border-color:var(--terra)}
+  .toc-num{font-family:'Fraunces',serif;font-weight:700;font-size:22px;color:var(--terra);line-height:1}
+  @media(max-width:560px){.toc-grid{grid-template-columns:1fr}}
+
+  article{padding:50px 0 8px;border-bottom:2px dashed var(--line-dark)}
+  .icon-wrap{width:58px;height:58px;margin:0 auto 14px;color:var(--terra)}
+  .icon-wrap svg{width:100%;height:100%}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--olive);text-align:center;margin-bottom:8px}
+  h2.question{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(25px,4.4vw,34px);
+    line-height:1.15;text-align:center;margin:0 0 6px;color:var(--ink)}
+  .question-tag{font-family:'Caveat',cursive;font-size:19px;color:var(--terra);
+    text-align:center;display:block;margin-bottom:24px}
+
+  h3.subh{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--muted);margin:26px 0 9px;
+    padding-bottom:5px;border-bottom:1px solid var(--line)}
+  article p{margin:0 0 14px}
+  article p.lead{font-size:20.5px;color:var(--ink)}
+  em.term{font-style:italic;color:var(--terra-dim);font-weight:600}
+
+  .therm{background:var(--card);border:1px solid var(--line);border-radius:4px;
+    padding:16px 20px;margin:18px 0}
+  .therm .t-title{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  .t-row{display:flex;gap:10px;align-items:flex-start;padding:7px 0;font-size:16.5px;color:var(--ink2)}
+  .t-row .dot{flex:0 0 22px;font-size:18px;line-height:1.4}
+  .t-row b{color:var(--ink);font-weight:600}
+
+  .dyn{background:var(--teal-bg);border:1px solid var(--teal);border-left:4px solid var(--teal);
+    padding:18px 22px;margin:18px 0;border-radius:4px}
+  .dyn .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--teal);margin-bottom:8px}
+  .dyn p{margin:0 0 8px;font-size:18.5px;color:var(--ink)}
+  .dyn p:last-child{margin-bottom:0}
+
+  .cr{background:var(--olive-bg);border:1px solid var(--olive);border-radius:4px;padding:18px 22px;margin:18px 0}
+  .cr .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--olive);margin-bottom:8px;display:flex;align-items:center;gap:7px}
+  .cr p{margin:0 0 8px;font-size:18.5px;color:var(--ink)} .cr p:last-child{margin-bottom:0}
+
+  .conn{border:1.5px solid var(--terra);background:var(--terra-bg);border-radius:4px;
+    padding:16px 20px;margin:18px 0}
+  .conn .lbl{font-family:'Caveat',cursive;font-size:19px;color:var(--terra-dim);margin-bottom:4px}
+  .conn p{margin:0;font-size:17.5px;color:var(--ink2)}
+
+  .roads{margin:20px 0 4px}
+  .roads .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  .road{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid var(--line)}
+  .road:last-child{border-bottom:none}
+  .road .arrow{font-family:'Fraunces',serif;font-weight:700;color:var(--terra);font-size:18px;flex:0 0 22px}
+  .road p{margin:0;font-size:17.5px;color:var(--ink2)}
+
+  .gloss{display:inline-block;background:var(--sun-bg);border:1px solid var(--sun);border-radius:3px;
+    padding:1px 7px;font-size:.92em;color:inherit;text-decoration:none;cursor:pointer}
+  .gloss:hover{text-decoration:underline}
+
+  section.curio{padding:46px 0;text-align:center}
+  .curio h2{font-family:'Fraunces',serif;font-weight:800;font-size:34px;color:var(--ink);margin:0 0 6px}
+  .curio .sub{font-family:'Caveat',cursive;font-size:20px;color:var(--terra);margin-bottom:26px;display:block}
+  .curio-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;text-align:left}
+  .curio-card{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:16px 18px}
+  .curio-card .q{font-family:'Fraunces',serif;font-weight:700;font-size:17px;color:var(--terra-dim);margin:0 0 6px}
+  .curio-card p{margin:0;font-size:16px;color:var(--ink2)}
+  @media(max-width:560px){.curio-grid{grid-template-columns:1fr}}
+
+  section.open{padding:10px 0 46px}
+  section.open h2{font-family:'Fraunces',serif;font-weight:800;font-size:30px;color:var(--ink);
+    text-align:center;margin:0 0 8px}
+  section.open .sub{display:block;text-align:center;font-family:'Lora',serif;font-style:italic;
+    color:var(--ink2);margin-bottom:24px;font-size:17px}
+  .open-list{list-style:none;padding:0;margin:0}
+  .open-list li{padding:13px 0 13px 32px;border-bottom:1px solid var(--line);position:relative;
+    color:var(--ink2);font-size:18.5px}
+  .open-list li:before{content:"❓";position:absolute;left:0;top:12px;font-size:15px}
+
+  .closing{background:var(--card);border:1px solid var(--line);border-radius:4px;
+    padding:24px 26px;margin:14px 0 30px}
+  .closing p{font-size:16.5px;line-height:1.7;color:var(--ink2);margin:0 0 10px}
+  .closing p:last-child{margin-bottom:0}
+  .closing b{color:var(--terra-dim)}
+
+  footer{border-top:3px double var(--line-dark);padding:26px 22px;max-width:760px;margin:0 auto;
+    text-align:center;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted)}
+  footer a{color:var(--terra-dim);text-decoration:none}
+  footer .ft-stamp{font-family:'Caveat',cursive;font-size:18px;color:var(--terra);display:block;margin-bottom:8px}
+
+  @media(max-width:600px){
+    body{font-size:18px}
+    .t-row{font-size:15.5px}
+  }
+
+  figure.fig{margin:20px 0 24px}
+  figure.fig img{width:100%;display:block;border-radius:5px;border:1px solid var(--line)}
+  figure.fig figcaption{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.02em;
+    color:var(--muted);margin-top:7px;line-height:1.5;text-align:center}
+  figure.fig.cover img{border-radius:3px}
+
+  .switch{background:var(--ink);color:var(--paper);text-align:center;padding:11px 16px;
+    font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.03em}
+  .switch a{color:var(--sun);text-decoration:underline}
+
+  .flash-p{background:var(--terra-bg);border:1px solid var(--terra);border-left:4px solid var(--terra);
+    border-radius:4px;padding:16px 20px;margin:18px 0}
+  .flash-p b{color:var(--terra-dim)}
+</style>
+</head>
+<body>
+
+<div class="ribbon">Edición para todo público · misma profundidad, otras palabras · semana del 29 de junio al 7 de julio de 2026</div>
+<div class="switch">¿Prefiere el análisis técnico completo? <a href="../">Lea la versión técnica del Boletín N.° 012 →</a></div>
+
+<nav><div class="wrap">
+  <span class="brand">ANCA-ADD para Todos</span>
+  <a href="https://antropos.app/">Inicio</a>
+  <a href="https://antropos.app/boletines/">Boletines</a>
+  <a href="#n1">Mundo</a>
+  <a href="#n2">Asamblea</a>
+  <a href="#n3">Ciencia</a>
+  <a href="#n4">Célula</a>
+  <a href="#n5">Crudo</a>
+  <a href="#curio">Curiosidades</a>
+</div></nav>
+
+<main id="top">
+
+<header class="mast">
+  <span class="stamp">— para entender el mundo —</span>
+  <h1 class="title">BOLETÍN<br>PARA TODOS</h1>
+  <p class="subtitle">Tres balances y dos hallazgos, explicados con calma, para quien quiera entender el mundo.</p>
+  <div class="mast-meta">
+    <span>Edición N.° 012 · Popular · actualizada</span>
+    <span>·</span>
+    <span>Semana del 29 de junio al 7 de julio de 2026</span>
+    <span>·</span>
+    <span>San José, Costa Rica</span>
+  </div>
+</header>
+
+<figure class="fig cover">
+  <img src="img/portada.jpg" alt="Un mar en tormenta, metáfora del mundo sin un ordenador claro: Boletín ANCA-ADD N.° 012, edición popular." loading="lazy">
+  <figcaption>Boletín Semanal N.° 012 · Edición para todo público · San José, Costa Rica.</figcaption>
+</figure>
+
+<div class="letter">
+  <p>Estimado lector, estimada lectora:</p>
+  <p>Esta semana no hubo un solo titular gigante, sino algo más inquietante: un patrón. Estados Unidos dijo, en un documento oficial, que ya no quiere seguir siendo el "policía del mundo". Esa frase, que suena abstracta, se sintió muy concreta el 7 de julio, cuando la tregua en el estrecho de Ormuz se rompió otra vez y el petróleo volvió a subir. En la Asamblea Legislativa, el gobierno le recortó el presupuesto a la Corte, al Tribunal Electoral y a la Contraloría, mientras aumentaba el gasto en su propia oficina de comunicación. Y en un laboratorio de Minnesota, un grupo de científicos construyó, literalmente desde cero, algo que come, crece y se divide —pero que todavía no se puede llamar "vivo".</p>
+  <p>Son historias distintas, pero todas hablan de lo mismo: sistemas que estaban estables entran en turbulencia, y sistemas que estaban en crisis buscan un nuevo punto de apoyo. Se lo contamos como se lo contaríamos a un vecino, sentados en el corredor: sin perder seriedad, pero sin las palabras que solo entienden los especialistas.</p>
+  <p class="firma">— El equipo de ANCA-ADD</p>
+</div>
+
+<div class="listen">
+  <div class="lbl">🎧 Escuche este boletín</div>
+  <h3>La célula zombi que explica la política</h3>
+  <p>Una conversación en audio que conecta la historia de la SpudCell —una célula que come y se divide, pero todavía no está viva— con el patrón que atraviesa el resto de la edición: sistemas que se abren al exterior sin terminar de sostenerse a sí mismos.</p>
+  <audio controls preload="none" style="width:100%">
+    <source src="../La_célula_zombi_que_explica_la_política.m4a" type="audio/mp4">
+    Tu navegador no soporta el elemento de audio. <a href="../La_célula_zombi_que_explica_la_política.m4a">Descargue el audio aquí</a>.
+  </audio>
+</div>
+
+<div class="toc">
+  <h2>Esta semana, en este boletín</h2>
+  <div class="toc-grid">
+    <a class="toc-item" href="#n1"><span class="toc-num">1</span><span>¿Qué significa que Estados Unidos ya no quiera ser el "policía del mundo"?</span></a>
+    <a class="toc-item" href="#n2"><span class="toc-num">2</span><span>¿Por qué el presupuesto se volvió el pleito más grande de la Asamblea?</span></a>
+    <a class="toc-item" href="#n3"><span class="toc-num">3</span><span>¿Por qué miles de científicos en Estados Unidos están pensando en irse del país?</span></a>
+    <a class="toc-item" href="#n4"><span class="toc-num">4</span><span>¿De verdad construyeron una célula desde cero que come, crece y se divide?</span></a>
+    <a class="toc-item" href="#n5"><span class="toc-num">5</span><span>¿Por qué el respiro en el precio de la gasolina duró tan poco?</span></a>
+  </div>
+</div>
+
+
+<!-- ============ 1. GEOPOLÍTICA ============ -->
+<article id="n1">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="32" cy="32" r="20"/>
+    <path d="M12 32h40M32 12c-6 5-9 12-9 20s3 15 9 20M32 12c6 5 9 12 9 20s-3 15-9 20"/>
+    <path d="M20 20l6 6M44 44l-6-6" stroke-width="2.6"/>
+  </svg></div>
+  <div class="eyebrow">Política internacional</div>
+  <h2 class="question">¿Qué significa que Estados Unidos ya no quiera ser el "policía del mundo"?</h2>
+  <span class="question-tag">un vacío de poder que se sintió esta semana, cuando la tregua en el estrecho de Ormuz volvió a romperse</span>
+
+  <figure class="fig">
+    <img src="img/geopolitica.jpg" alt="Mapa de Medio Oriente y Asia Central: la región donde se concentra la disputa geopolítica de la semana." loading="lazy">
+    <figcaption>Sin un país que ordene el tablero, hasta las treguas se vuelven provisionales.</figcaption>
+  </figure>
+
+  <h3 class="subh">Qué pasó de verdad</h3>
+  <p class="lead">A inicios de julio, Estados Unidos publicó su Estrategia de Seguridad Nacional con una frase que resume el momento: los días en que Washington sostenía el orden mundial "como Atlas" —el titán que cargaba el cielo sobre sus hombros— se terminaron. No es una frase suelta: los analistas la leen como el cierre formal de ochenta años de un país haciendo de árbitro global. El problema es que nadie ha tomado ese lugar todavía. Ucrania sigue sin un alto el fuego estable, Gaza quedó de facto partida entre Israel y lo que resta de Hamás, y en el estrecho de Ormuz —por donde pasa una quinta parte del petróleo del mundo— la tregua entre Irán y Estados Unidos, firmada apenas el 17 de junio, se sostenía con alfileres.</p>
+  <p>El 7 de julio esos alfileres cedieron. Irán atacó tres buques comerciales, incluyendo un barco catarí —Catar había sido uno de los países mediadores del acuerdo—. Estados Unidos respondió revocando el permiso que le había dado a Irán para vender petróleo y lanzó una serie de ataques de represalia. El nivel de amenaza en el estrecho subió a "severo" por primera vez desde mediados de junio. Un analista lo resumió sin rodeos: la revocación de esa licencia fue "una destrucción completa" del acuerdo que apenas tres semanas atrás parecía sostenerse.</p>
+
+  <div class="flash-p"><b>Última hora (7 de julio):</b> este ataque en Ormuz ocurrió apenas 31 horas después de que se cerrara la edición técnica de este boletín. Lo incorporamos aquí porque cambia el diagnóstico: lo que parecía una desescalada se convirtió en la prueba de que, sin un país que ordene el sistema, ni siquiera las treguas recientes son estables. Y también aclara algo importante: que Estados Unidos ya no quiera cargar con el orden mundial no significa que se haya vuelto pasivo. Cuando le convino, respondió con ataques militares directos y una sanción económica, por su cuenta y sin pedirle permiso a nadie. Se retira del trabajo de "árbitro" —pero no de la capacidad de imponerse cuando quiere.</div>
+
+  <h3 class="subh">Qué tan seguros estamos</h3>
+  <div class="therm">
+    <div class="t-title">Termómetro de certeza</div>
+    <div class="t-row"><span class="dot">✅</span><span><b>Esto lo sabemos seguro:</b> Estados Unidos formalizó por escrito el repliegue de su papel de garante global. Los ataques del 7 de julio en Ormuz y la revocación de la licencia petrolera a Irán están confirmados por múltiples medios.</span></div>
+    <div class="t-row"><span class="dot">🤔</span><span><b>Esto creemos, pero no es seguro:</b> que el acuerdo de junio esté completamente muerto. Irán advirtió que no volverá a negociar mientras sigan las amenazas, pero ninguna de las partes lo ha declarado roto de forma oficial.</span></div>
+    <div class="t-row"><span class="dot">💭</span><span><b>Esto es solo una posibilidad:</b> que surjan acuerdos regionales —entre países vecinos, sin depender de Washington— capaces de poner algo de orden donde antes lo ponía Estados Unidos.</span></div>
+  </div>
+
+  <div class="dyn">
+    <div class="lbl">Por qué importa, en cristiano</div>
+    <p>Imagínese un vecindario donde, durante ochenta años, una sola persona se encargaba de separar las peleas y hacer cumplir las reglas no escritas. Un día, esa persona anuncia que ya no quiere ese trabajo. No es que las peleas vayan a empezar todas al mismo tiempo, pero cualquier chispa —un barco atacado, una frontera cruzada— tiene menos probabilidad de apagarse rápido, porque ya no hay quien la apague por costumbre. Eso es lo que los analistas llaman un <em class="term">interregno</em>: el viejo orden se fue, y el nuevo todavía no llega.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">🌱 ¿Y en Costa Rica, qué tiene que ver?</div>
+    <p>Costa Rica ha construido su política exterior alrededor del multilateralismo: confiar en reglas y organismos internacionales en lugar de en la fuerza. Ese activo vale menos cuando el marco que lo sostenía —encabezado durante décadas por Estados Unidos— se debilita. La buena noticia es que el país también ha diversificado sus relaciones (con la Unión Europea, con Asia, con Israel); esa diversificación es exactamente la estrategia que más conviene en un mundo sin un solo árbitro.</p>
+  </div>
+
+  <div class="roads">
+    <div class="lbl">¿Hacia dónde puede ir esto?</div>
+    <div class="road"><span class="arrow">→</span><p><b>Orden regional:</b> surgen acuerdos entre países vecinos que absorben parte del vacío dejado por Washington, sin llegar a un nuevo orden global único.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Turbulencia prolongada:</b> las treguas siguen siendo frágiles y reversibles durante meses o años, sin que ningún actor logre imponer estabilidad duradera.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Escalada sin freno:</b> algún conflicto —Ormuz, Ucrania, otro— se sale de control precisamente porque ya no hay quien lo contenga desde afuera.</p></div>
+  </div>
+</article>
+
+
+<!-- ============ 2. ASAMBLEA ============ -->
+<article id="n2">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M10 26l22-14 22 14"/>
+    <path d="M12 26h40v4H12z"/>
+    <line x1="16" y1="30" x2="16" y2="50"/>
+    <line x1="26" y1="30" x2="26" y2="50"/>
+    <line x1="38" y1="30" x2="38" y2="50"/>
+    <line x1="48" y1="30" x2="48" y2="50"/>
+    <path d="M10 50h44v4H10z"/>
+  </svg></div>
+  <div class="eyebrow">Costa Rica · Política</div>
+  <h2 class="question">¿Por qué el presupuesto se volvió el pleito más grande de la Asamblea esta semana?</h2>
+  <span class="question-tag">el gobierno le recorta el 5% a los otros poderes del Estado, y la Contraloría advierte que podría "cerrarse técnicamente"</span>
+
+  <figure class="fig">
+    <img src="img/asamblea.jpg" alt="Fachada de un edificio legislativo, símbolo del pulso presupuestario entre poderes del Estado." loading="lazy">
+    <figcaption>El mismo edificio donde se vota la ley es, ahora, el escenario del pulso entre poderes.</figcaption>
+  </figure>
+
+  <h3 class="subh">Qué pasó de verdad</h3>
+  <p class="lead">El 24 de junio, el ministro de Hacienda, Rodrigo Chaves, anunció que le recortaría cerca del 5% del presupuesto a los demás poderes del Estado para lo que resta de 2026: unos ₡27.000 millones al Poder Judicial, ₡6.825 millones al Tribunal Supremo de Elecciones, ₡311 millones a la Defensoría de los Habitantes y ₡1.000 millones a la Contraloría. "Aquí no hay poderes con corona", dijo. El ajuste necesita el visto bueno de la Asamblea, donde el partido de gobierno tiene mayoría.</p>
+  <p>Las instituciones afectadas respondieron con preocupación real: el Poder Judicial aceptó recortar la mitad de lo pedido, pero el OIJ advirtió que investigaciones contra el crimen organizado se harían más lentas. El TSE avisó que la logística de las elecciones municipales de 2028 quedaría comprometida. Y la Defensoría alertó sobre un posible "cierre técnico". Mientras tanto —y esto llamó la atención de la oposición— el mismo gobierno que pedía austeridad aprobó, en la misma sesión, más dinero para el equipo de comunicación de Casa Presidencial.</p>
+  <p><b>Una aclaración importante.</b> Esa misma semana, el ministro de Hacienda perdió el voto que tenía en la Junta del Banco Central. Es tentador leerlo como una "venganza" de la Asamblea contra el Ejecutivo, pero no lo es: se trata de una reforma de 2019, ligada a compromisos con la OCDE, que se activó automáticamente cuando por fin se llenó una plaza vacante desde hacía siete años. El propio gobierno propuso a esa persona. Mezclar los dos hechos como si fueran parte del mismo pleito sería una lectura equivocada.</p>
+
+  <div class="flash-p"><b>Última hora (7 de julio):</b> la Contraloría fue más lejos: dijo que solo puede recortar ₡100 millones sin afectar su trabajo de fiscalización, muy lejos de los ₡1.055 millones que le piden. Y el acuerdo que había avanzado sobre Crucitas —la mina de oro— se resquebrajó, con gobierno y oposición acusándose mutuamente de no cumplir lo pactado.</div>
+
+  <h3 class="subh">Qué tan seguros estamos</h3>
+  <div class="therm">
+    <div class="t-title">Termómetro de certeza</div>
+    <div class="t-row"><span class="dot">✅</span><span><b>Esto lo sabemos seguro:</b> el recorte del 5% fue anunciado con cifras concretas por institución, y el aumento al gasto de comunicación de Presidencia está documentado con las subpartidas exactas.</span></div>
+    <div class="t-row"><span class="dot">🤔</span><span><b>Esto creemos, pero no es seguro:</b> que el recorte, tal como está planteado, de verdad afecte la capacidad de investigar delitos o de organizar elecciones —depende del monto final que se apruebe.</span></div>
+    <div class="t-row"><span class="dot">💭</span><span><b>Esto es solo una posibilidad:</b> que el conflicto termine en los tribunales constitucionales si alguna institución considera que el recorte viola su autonomía.</span></div>
+  </div>
+
+  <div class="dyn">
+    <div class="lbl">Por qué importa, en cristiano</div>
+    <p>Costa Rica separa el poder en tres ramas —Ejecutivo, Legislativo, Judicial— más varios órganos independientes (Contraloría, TSE, Defensoría) precisamente para que nadie controle todo al mismo tiempo. Lo nuevo esta semana es que, por primera vez en mucho tiempo, un solo partido controla al mismo tiempo la Presidencia y la mayoría en el directorio de la Asamblea. Eso no es ilegal ni insólito en democracia, pero sí cambia el equilibrio: los órganos que deberían frenar al gobierno dependen, en parte, del dinero que ese mismo gobierno decide darles.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">🌱 ¿Y en Costa Rica, qué tiene que ver?</div>
+    <p>Esta es, literalmente, la nota de Costa Rica. Lo que está en juego no es solo dinero: es la fortaleza de los contrapesos que han hecho del país una excepción institucional en la región —un Poder Judicial independiente, un TSE confiable, una Defensoría activa. El ajuste fiscal puede ser necesario (la deuda ronda el 60% del PIB), pero la manera en que se haga importa tanto como el monto.</p>
+  </div>
+
+  <div class="roads">
+    <div class="lbl">¿Hacia dónde puede ir esto?</div>
+    <div class="road"><span class="arrow">→</span><p><b>Ajuste negociado:</b> los poderes acuerdan recortes distintos y justificados técnicamente, sin perder autonomía.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Imposición por mayoría:</b> el oficialismo aprueba los montos originales; las instituciones afectadas recurren a la Sala Constitucional.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Parálisis y tribunales:</b> el conflicto se traslada a la vía judicial y se estira durante meses sin resolverse en la Asamblea.</p></div>
+  </div>
+</article>
+
+
+<!-- ============ 3. CIENCIA ============ -->
+<article id="n3">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M26 8h12M28 8v14l-14 26a4 4 0 0 0 4 6h28a4 4 0 0 0 4-6L36 22V8"/>
+    <line x1="23" y1="38" x2="41" y2="38"/>
+  </svg></div>
+  <div class="eyebrow">Ciencia · Instituciones</div>
+  <h2 class="question">¿Por qué miles de científicos en Estados Unidos están pensando en irse del país?</h2>
+  <span class="question-tag">recortaron más de 7.800 proyectos de investigación en un año — la mayor sacudida a la ciencia en 80 años</span>
+
+  <figure class="fig">
+    <img src="img/ciencia.jpg" alt="Microscopio de laboratorio, símbolo de la infraestructura científica bajo presión." loading="lazy">
+    <figcaption>Investigar cuesta dinero real: cuando el flujo se corta, el laboratorio se apaga.</figcaption>
+  </figure>
+
+  <h3 class="subh">Qué pasó de verdad</h3>
+  <p class="lead">Desde 2025, el sistema científico de Estados Unidos —el mayor productor de conocimiento del mundo desde la Segunda Guerra Mundial— atraviesa lo que varios analistas describen como su mayor sacudida en ochenta años. Se cancelaron o suspendieron más de 7.800 proyectos de investigación financiados por el gobierno, muchos de ellos relacionados con temas que la administración actual considera incómodos: desinformación, enfermedades infecciosas, vacunas, estudios sobre grupos minoritarios. Una de las principales agencias de ciencias sociales del país cerró por completo en abril.</p>
+  <p>Hay también un "truco contable" revelador: aunque el Congreso rechazó los recortes más drásticos —los fondos totales incluso subieron un poco—, las agencias están dando menos becas nuevas, con más dinero cada una, a más años. En la práctica, muchos menos científicos jóvenes están recibiendo apoyo para empezar sus carreras. En una encuesta de la revista <em class="term">Nature</em>, el 75% de los científicos consultados dijo estar considerando irse del país.</p>
+  <p>La historia no es solo de daño: el Congreso, con apoyo de ambos partidos, frenó los recortes más extremos, y los tribunales fallaron que congelar fondos de forma masiva era "arbitrario". Esa resistencia institucional funcionó como amortiguador. Y la ciencia, a pesar de todo, sigue produciendo hallazgos importantes —como el que le contamos en la siguiente historia.</p>
+
+  <h3 class="subh">Qué tan seguros estamos</h3>
+  <div class="therm">
+    <div class="t-title">Termómetro de certeza</div>
+    <div class="t-row"><span class="dot">✅</span><span><b>Esto lo sabemos seguro:</b> el número de subvenciones canceladas (más de 7.800) está documentado en los sistemas oficiales de seguimiento de las agencias. El freno del Congreso y de los tribunales también está confirmado.</span></div>
+    <div class="t-row"><span class="dot">🤔</span><span><b>Esto creemos, pero no es seguro:</b> que la "fuga de cerebros" que muestra la encuesta se convierta en una salida real y masiva de científicos del país. Pensarlo no es lo mismo que hacerlo.</span></div>
+    <div class="t-row"><span class="dot">💭</span><span><b>Esto es solo una posibilidad:</b> que otros países —europeos, China, o incluso naciones más pequeñas con instituciones estables— logren capturar ese talento que Estados Unidos podría estar perdiendo.</span></div>
+  </div>
+
+  <div class="dyn">
+    <div class="lbl">Por qué importa, en cristiano</div>
+    <p>Hacer ciencia no es gratis: cuesta laboratorios, salarios, reactivos, electricidad. Es como un motor que necesita gasolina constante para seguir andando; si le cortan el combustible, no se detiene de golpe, pero empieza a fallar. Lo que pasó en Estados Unidos es exactamente eso: no apagaron el motor completo, pero le redujeron el flujo de combustible de forma selectiva, y ese tipo de recorte tarda años en mostrar todo su daño —se nota cuando faltan los investigadores que no se formaron.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">🌱 ¿Y en Costa Rica, qué tiene que ver?</div>
+    <p>Esto le importa al país en dos sentidos opuestos. Por un lado, Costa Rica depende de infraestructura científica de Estados Unidos —datos meteorológicos, financiamiento internacional, acceso a revistas— que se ha vuelto menos confiable. Por otro lado, si investigadores de primer nivel buscan dónde reubicarse, un país con universidades estables como la UCR o el TEC podría, en teoría, atraer parte de ese talento. Pero eso choca con la historia anterior: si Costa Rica recorta sus propias instituciones científicas por austeridad, pierde esa oportunidad antes de intentarla.</p>
+  </div>
+
+  <div class="roads">
+    <div class="lbl">¿Hacia dónde puede ir esto?</div>
+    <div class="road"><span class="arrow">→</span><p><b>El conocimiento se reparte:</b> otros países captan investigadores y proyectos; la ciencia mundial se vuelve menos centrada en Estados Unidos.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Golpe con recuperación:</b> se pierde una generación de científicos jóvenes, pero el sistema se estabiliza en unos años.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Deterioro largo:</b> la incertidumbre sobre el presupuesto se vuelve permanente y la planificación científica de largo plazo se hace casi imposible.</p></div>
+  </div>
+</article>
+
+
+<!-- ============ 4. SPUDCELL ============ -->
+<article id="n4">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M22 32c0-8 5-14 10-14s10 6 10 14-5 14-10 14-10-6-10-14z"/>
+    <path d="M22 32c0-8 5-14 10-14M42 32c0-8-5-14-10-14"/>
+    <circle cx="26" cy="28" r="1.6" fill="currentColor" stroke="none"/>
+    <circle cx="38" cy="36" r="1.6" fill="currentColor" stroke="none"/>
+    <circle cx="30" cy="40" r="1.6" fill="currentColor" stroke="none"/>
+  </svg></div>
+  <div class="eyebrow">Ciencia · Biología</div>
+  <h2 class="question">¿De verdad construyeron una célula desde cero que come, crece y se divide?</h2>
+  <span class="question-tag">sí — pero los propios científicos aclaran que todavía no está viva, y eso es lo más interesante del caso</span>
+
+  <figure class="fig">
+    <img src="img/celula.jpg" alt="Célula sintética dividiéndose, con hebras de ADN visibles en su interior, ilustración del hallazgo SpudCell." loading="lazy">
+    <figcaption>«SpudCell»: creada en el laboratorio a partir de piezas químicas no vivas, pero capaz de dividirse en dos.</figcaption>
+  </figure>
+
+  <h3 class="subh">Qué pasó de verdad</h3>
+  <p class="lead">Un equipo dirigido por la bióloga sintética Kate Adamala, de la Universidad de Minnesota, anunció haber construido —a partir de piezas químicas, ninguna de ellas viva por sí sola— una célula artificial capaz de alimentarse, copiar su propio ADN, crecer y dividirse en dos: el ciclo completo que hace una célula común. Le pusieron el apodo de "SpudCell". El resultado se publicó el 2 de julio, y aquí va un dato clave: todavía no ha pasado por la revisión de otros científicos, el filtro de calidad habitual antes de dar un hallazgo por confirmado del todo.</p>
+  <p>La propia investigadora fue clara sobre lo que esto significa: "Hemos replicado en química lo que antes solo era posible en biología… esto demuestra que las funciones más básicas de la vida no necesitan ninguna chispa mágica misteriosa". Otros científicos, sin embargo, insisten en una aclaración importante: <b>la célula no está viva por ninguna definición aceptada</b>. No puede sobrevivir sin que le entreguen constantemente alimento y ciertas piezas fabricadas afuera (los "ribosomas", la maquinaria que arma proteínas), y no se divide indefinidamente. Uno de los científicos consultados la comparó con el primer vuelo de los hermanos Wright en 1903: que el aparato volara doce segundos no le dio al mundo un avión comercial de inmediato —pero fue el comienzo de todo lo que vino después.</p>
+
+  <h3 class="subh">Qué tan seguros estamos</h3>
+  <div class="therm">
+    <div class="t-title">Termómetro de certeza</div>
+    <div class="t-row"><span class="dot">✅</span><span><b>Esto lo sabemos seguro:</b> el experimento se publicó, y expertos externos al equipo confirmaron que la célula cumple el ciclo básico de alimentarse, crecer y dividirse.</span></div>
+    <div class="t-row"><span class="dot">🤔</span><span><b>Esto creemos, pero no es seguro:</b> que la revisión formal por pares —todavía pendiente— confirme exactamente todo lo reportado en el primer anuncio. Es lo esperable, pero aún no ha pasado.</span></div>
+    <div class="t-row"><span class="dot">💭</span><span><b>Esto es solo una posibilidad:</b> que esta técnica se use algún día para fabricar medicinas o materiales biológicos a demanda. Los propios autores dicen que eso está todavía a años de distancia.</span></div>
+  </div>
+
+  <div class="dyn">
+    <div class="lbl">Por qué importa, en cristiano</div>
+    <p>Para que algo cuente como "vivo" de verdad, necesita dos cosas: comer y respirar del entorno (eso la SpudCell ya lo hace), y también fabricar por sí misma todas sus propias piezas, sin depender de que alguien se las entregue desde afuera (eso todavía no lo logra). Es como un carro que puede echarse combustible solo, pero que todavía necesita que un mecánico externo le arme el motor cada cierto tiempo. La SpudCell es el primer caso de laboratorio que nos deja ver, con tanta claridad, exactamente dónde está esa línea entre lo que come y lo que de verdad vive.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">🌱 ¿Y en Costa Rica, qué tiene que ver?</div>
+    <p>Costa Rica no va a competir construyendo células sintéticas —eso requiere laboratorios y presupuestos de país rico—. Pero el país sí tiene un activo real en este terreno: biodiversidad, una tradición fuerte en biología tropical (el legado del INBio —que cerró operaciones en 2015 por falta de presupuesto, aunque sus colecciones pasaron al Museo Nacional—, además de la UCR, la UNA y el CATIE) y una imagen internacional asociada a la vida. La pregunta, otra vez, es si el país logra participar del conocimiento que se construye a partir de esa riqueza natural, o si solo aporta la materia prima mientras la ganancia se queda en otro lado —el mismo dilema que ya vimos con los hongos y las mariposas en boletines anteriores.</p>
+  </div>
+
+  <div class="roads">
+    <div class="lbl">¿Hacia dónde puede ir esto?</div>
+    <div class="road"><span class="arrow">→</span><p><b>Se confirma y avanza:</b> la revisión por pares respalda el hallazgo; el campo acelera hacia células sintéticas cada vez más completas.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Hito real, pero parcial:</b> se confirma como avance importante, pero llegar a una célula totalmente autosuficiente toma más tiempo del esperado.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Se matiza:</b> la revisión formal reduce el alcance de lo anunciado y se abre un debate sobre qué cuenta realmente como "vida sintética".</p></div>
+  </div>
+</article>
+
+
+<!-- ============ 5. ECONOMÍA / CRUDO ============ -->
+<article id="n5">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M32 8c8 12 14 20 14 29a14 14 0 0 1-28 0c0-9 6-17 14-29z"/>
+    <path d="M14 46l8-8 6 5 10-12 12 10" stroke-width="2"/>
+  </svg></div>
+  <div class="eyebrow">Economía · Energía</div>
+  <h2 class="question">¿Por qué el respiro en el precio de la gasolina duró tan poco?</h2>
+  <span class="question-tag">el petróleo venía bajando desde hace semanas, hasta que los ataques del 7 de julio en Ormuz lo hicieron saltar de nuevo</span>
+
+  <figure class="fig">
+    <img src="img/economia.jpg" alt="Gráfico de precios de combustible descendiendo frente a una estación de gasolina al atardecer." loading="lazy">
+    <figcaption>El precio venía cayendo con calma — hasta que la geopolítica volvió a meterse en la ecuación.</figcaption>
+  </figure>
+
+  <h3 class="subh">Qué pasó de verdad</h3>
+  <p class="lead">Después del memorando de paz del 17 de junio entre Irán y Estados Unidos, y de que se anunciara una ruta más segura por el estrecho de Ormuz el 27 de junio, el precio internacional del petróleo empezó a bajar desde los máximos que había tocado durante la guerra —hasta 166 dólares el barril en marzo—. Para el 6 de julio, el crudo Brent rondaba mínimos de varios meses, por debajo de los 72 dólares. Para un país como Costa Rica, que importa el 100% de su combustible, esa tendencia prometía, con el tiempo, algo de alivio en el precio de la gasolina y el transporte.</p>
+  <p>Ese alivio duró poco. El 7 de julio, los mismos ataques a buques en Ormuz que le contamos en la primera historia de este boletín hicieron que Estados Unidos revocara la licencia que permitía a Irán vender su petróleo —la concesión más importante que Irán había obtenido a cambio de la tregua—. El Brent saltó de inmediato hacia los 76 dólares, y el nivel de riesgo del estrecho subió a "severo". El respiro no desapareció del todo, pero quedó condicionado a que la tregua se recomponga, y hoy eso se ve frágil.</p>
+
+  <h3 class="subh">Qué tan seguros estamos</h3>
+  <div class="therm">
+    <div class="t-title">Termómetro de certeza</div>
+    <div class="t-row"><span class="dot">✅</span><span><b>Esto lo sabemos seguro:</b> el precio del Brent bajó de forma sostenida hasta el 6 de julio y saltó con fuerza el 7, coincidiendo exactamente con los ataques en Ormuz y la revocación de la licencia petrolera.</span></div>
+    <div class="t-row"><span class="dot">🤔</span><span><b>Esto creemos, pero no es seguro:</b> cuánto tiempo tardará ese aumento en sentirse en el surtidor costarricense —el traslado no es inmediato ni automático.</span></div>
+    <div class="t-row"><span class="dot">💭</span><span><b>Esto es solo una posibilidad:</b> que el precio se estabilice pronto en niveles moderados. Depende enteramente de que la tregua en Ormuz se recomponga, algo que hoy no está garantizado.</span></div>
+  </div>
+
+  <div class="dyn">
+    <div class="lbl">Por qué importa, en cristiano</div>
+    <p>El precio del petróleo funciona como un termómetro conectado a Medio Oriente que todos llevamos en el bolsillo, aunque no lo veamos. Cuando hay calma en Ormuz, el termómetro baja y, con algo de rezago, baja también lo que pagamos por la gasolina. Cuando hay un ataque a un barco al otro lado del mundo, el termómetro sube casi al instante, mucho antes de que cualquier barril adicional llegue o deje de llegar realmente al mercado —porque lo que se mueve primero no es el petróleo, es el miedo a que falte.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">🌱 ¿Y en Costa Rica, qué tiene que ver?</div>
+    <p>Aquí es donde las cinco historias de este boletín se cierran en círculo: un petróleo más caro presiona el costo del transporte y la inflación, y también encarece la factura de importación justo cuando el gobierno discute recortes presupuestarios por falta de margen fiscal (historia 2). Costa Rica no produce ni una gota de petróleo: todo lo que pase en Ormuz —a más de 13.000 kilómetros de distancia— nos llega directo a la bomba de gasolina.</p>
+  </div>
+
+  <div class="roads">
+    <div class="lbl">¿Hacia dónde puede ir esto?</div>
+    <div class="road"><span class="arrow">→</span><p><b>Se calma de nuevo:</b> la tregua se recompone, Ormuz se estabiliza, y el precio vuelve a bajar hacia los niveles de antes del 7 de julio.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Vaivén constante:</b> el estrecho se cierra y se abre de forma intermitente durante meses, y el precio oscila sin asentarse.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Nueva escalada:</b> el acuerdo colapsa del todo, Ormuz se bloquea de forma más severa, y el precio vuelve a acercarse a los máximos de marzo.</p></div>
+  </div>
+</article>
+
+
+<!-- ============ CURIOSIDADES ============ -->
+<section class="curio" id="curio">
+  <h2>Rincón de curiosidades</h2>
+  <span class="sub">cositas para sorprender a la familia en la sobremesa</span>
+  <div class="curio-grid">
+    <div class="curio-card">
+      <p class="q">¿Sabía que...?</p>
+      <p>La palabra que usa Estados Unidos para describir su papel perdido —"Atlas"— viene del titán griego condenado a cargar el cielo sobre sus hombros para siempre. La metáfora no es casual: describe exactamente el peso de sostener un orden mundial.</p>
+    </div>
+    <div class="curio-card">
+      <p class="q">¿Sabía que...?</p>
+      <p>El presupuesto que la Contraloría dice que puede recortar sin afectarse (₡100 millones) es apenas el 9,5% de lo que el gobierno le está pidiendo (₡1.055 millones). La diferencia entre esas dos cifras es, literalmente, todo el pleito.</p>
+    </div>
+    <div class="curio-card">
+      <p class="q">¿Sabía que...?</p>
+      <p>La SpudCell tiene un genoma de unos 90.000 pares de bases —diminuto comparado con el genoma humano, que tiene más de 3.000 millones—. Aun así, es suficiente para completar un ciclo celular entero.</p>
+    </div>
+    <div class="curio-card">
+      <p class="q">¿Sabía que...?</p>
+      <p>El estrecho de Ormuz, por donde pasa cerca del 20% del petróleo mundial, mide apenas 33 kilómetros de ancho en su punto más angosto —menos que la distancia entre San José y Cartago.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ PREGUNTAS ABIERTAS ============ -->
+<section class="open">
+  <h2>Lo que todavía queda en el aire</h2>
+  <span class="sub">preguntas honestas, que nadie puede responder todavía con certeza</span>
+  <ul class="open-list">
+    <li>Tras los ataques del 7 de julio, ¿se recompondrá la tregua en Ormuz, o el memorando de junio quedará definitivamente roto?</li>
+    <li>¿Se procesará el ajuste presupuestario costarricense preservando la independencia de la Corte, el TSE y la Contraloría, o terminará en los tribunales constitucionales?</li>
+    <li>¿Logrará la crisis científica de Estados Unidos que otros países capten a los investigadores que se quieren ir, o el conocimiento simplemente se perderá?</li>
+    <li>¿Confirmará la revisión por pares lo que se anunció sobre la SpudCell, y cuánto falta realmente para una célula sintética que no dependa de nada externo?</li>
+    <li>¿Puede un país pequeño como Costa Rica convertir estos repliegues del "núcleo" —científico y geopolítico— en una oportunidad, o solo va a absorber sus costos?</li>
+  </ul>
+</section>
+
+<div class="closing">
+  <p><b>Una palabra sobre cómo trabajamos.</b> Detrás de cada una de estas historias hay un análisis técnico bastante más detallado: revisamos qué tan confiable es cada dato, estudiamos cómo se conectan los hechos entre sí, y miramos el lugar de Costa Rica en el mundo grande. Esa versión completa, con todos los códigos epistémicos y la lectura dinámica, también está disponible para quien quiera ir más al fondo.</p>
+  <p>Esta edición nace de una convicción sencilla: entender el mundo no debería ser un privilegio de unos pocos. Por eso le contamos las cosas con calma y sin palabras complicadas, pero sin recortarle la verdad —porque tratar a alguien como capaz de comprender es la forma más honesta de respetarlo.</p>
+  <p>Como siempre: lo que aquí se cuenta es análisis, no una bola de cristal ni un consejo de qué hacer. El futuro nadie lo tiene asegurado, ni nosotros tampoco.</p>
+</div>
+
+</main>
+
+<footer>
+  <span class="ft-stamp">Hasta la próxima semana</span>
+  <div>ANCA-ADD © 2026 · <a href="https://antropos.app">antropos.app</a></div>
+  <div style="margin-top:6px">Boletín Semanal N.° 012 · Edición Popular · 8 jul 2026</div>
+</footer>
+
+<script data-goatcounter="https://antropos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

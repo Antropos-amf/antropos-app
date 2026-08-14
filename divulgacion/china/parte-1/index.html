@@ -20,6 +20,7 @@
       --muted:     #9a9589;
       --border:    #2a2a3a;
       --green:     #27ae60;
+      --blue:      #7ab8f5;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -72,28 +73,18 @@
     /* NARRATIVE BODY */
     .narrative { padding: 56px 0; }
 
-    .period { margin-bottom: 64px; }
-
+    .period { margin-bottom: 72px; }
     .period-header { margin-bottom: 28px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
     .period-dates { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--gold); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 8px; }
     .period h2 { font-family: 'Playfair Display', serif; font-size: clamp(22px, 3vw, 30px); font-weight: 900; color: var(--text); line-height: 1.2; }
     .period h2 em { color: var(--gold); }
 
-    .period p { margin-bottom: 1.3rem; color: var(--text); }
-    .period p:last-child { margin-bottom: 0; }
-    .period strong { color: var(--gold-light); }
-    .period em { font-style: italic; }
-
-    /* PULL QUOTE */
-    .pullquote { border-left: 3px solid var(--gold); padding: 16px 24px; margin: 32px 0; background: rgba(212,160,23,0.05); }
-    .pullquote p { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-style: italic; color: var(--gold-light); margin: 0; line-height: 1.6; }
-    .pullquote cite { display: block; font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); margin-top: 10px; letter-spacing: 0.08em; text-transform: uppercase; }
-
-    /* COSTA RICA ASIDE */
-    .cr-aside { background: rgba(39,174,96,0.08); border: 1px solid rgba(39,174,96,0.25); border-left: 3px solid var(--green); padding: 20px 24px; margin: 32px 0; }
-    .cr-aside .cr-label { font-family: 'Space Mono', monospace; font-size: 9px; color: var(--green); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 8px; }
-    .cr-aside p { font-size: 15px; color: var(--muted); margin: 0; }
-    .cr-aside p + p { margin-top: 0.8rem; }
+    /* RESUMEN */
+    .resumen { margin-bottom: 28px; }
+    .resumen p { margin-bottom: 1.3rem; color: var(--text); }
+    .resumen p:last-child { margin-bottom: 0; }
+    .resumen strong { color: var(--gold-light); }
+    .resumen em { font-style: italic; }
 
     /* EPISTEMIC TAGS */
     .ep { display: inline-block; font-family: 'Space Mono', monospace; font-size: 9px; font-weight: 700; padding: 1px 5px; border-radius: 2px; margin: 0 2px; vertical-align: middle; }
@@ -102,18 +93,80 @@
     .ep-H   { background: #5c3a1a; color: #f5c07a; }
     .ep-Int { background: #4a1a5c; color: #d07af5; }
 
+    /* PULL QUOTE */
+    .pullquote { border-left: 3px solid var(--gold); padding: 16px 24px; margin: 28px 0; background: rgba(212,160,23,0.05); }
+    .pullquote p { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-style: italic; color: var(--gold-light); margin: 0; line-height: 1.6; }
+    .pullquote cite { display: block; font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); margin-top: 10px; letter-spacing: 0.08em; text-transform: uppercase; }
+
+    /* SUBSECCIÓN LABEL */
+    .subsec-label { font-family: 'Space Mono', monospace; font-size: 9px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 14px; padding-bottom: 8px; }
+
+    /* ANÁLISIS CRÍTICO (MEEE-G) */
+    .meeg-block { background: rgba(26,58,92,0.2); border: 1px solid rgba(122,184,245,0.2); border-left: 3px solid var(--blue); padding: 22px 26px; margin: 24px 0; }
+    .meeg-block .subsec-label { color: var(--blue); border-bottom: 1px solid rgba(122,184,245,0.15); }
+    .meeg-block ul { list-style: none; padding: 0; }
+    .meeg-block li { font-size: 15px; color: var(--muted); margin-bottom: 1rem; padding-left: 1rem; position: relative; }
+    .meeg-block li::before { content: '·'; position: absolute; left: 0; color: var(--blue); }
+    .meeg-block li:last-child { margin-bottom: 0; }
+    .meeg-block strong { color: var(--text); }
+    .meeg-block em { color: #c0d8f0; font-style: italic; }
+
+    /* LECTURA DINÁMICA (ADD) */
+    .add-block { background: rgba(212,160,23,0.06); border: 1px solid rgba(212,160,23,0.18); border-left: 3px solid var(--gold); padding: 22px 26px; margin: 24px 0; }
+    .add-block .subsec-label { color: var(--gold); border-bottom: 1px solid rgba(212,160,23,0.18); }
+    .add-block ul { list-style: none; padding: 0; }
+    .add-block li { font-size: 15px; color: var(--muted); margin-bottom: 1rem; padding-left: 1rem; position: relative; }
+    .add-block li::before { content: '·'; position: absolute; left: 0; color: var(--gold); }
+    .add-block li:last-child { margin-bottom: 0; }
+    .add-block strong { color: var(--text); }
+    .add-block em { color: var(--gold-light); font-style: italic; }
+
+    /* RELEVANCIA COSTA RICA */
+    .cr-block { background: rgba(39,174,96,0.08); border: 1px solid rgba(39,174,96,0.25); border-left: 3px solid var(--green); padding: 22px 26px; margin: 24px 0; }
+    .cr-block .subsec-label { color: var(--green); border-bottom: 1px solid rgba(39,174,96,0.2); }
+    .cr-block ul { list-style: none; padding: 0; }
+    .cr-block li { font-size: 15px; color: var(--muted); margin-bottom: 1rem; padding-left: 1rem; position: relative; }
+    .cr-block li::before { content: '·'; position: absolute; left: 0; color: var(--green); }
+    .cr-block li:last-child { margin-bottom: 0; }
+    .cr-block p { font-size: 15px; color: var(--muted); margin-bottom: 0.8rem; }
+    .cr-block p:last-child { margin-bottom: 0; }
+    .cr-block strong { color: var(--text); }
+
     /* INFOGRAFÍA */
     .infografia-wrap { margin: 48px -40px; background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 0; }
     .infografia-wrap img { width: 100%; display: block; }
     .infografia-caption { padding: 12px 40px; font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.08em; text-align: center; }
 
-    /* SLIDE IMAGE */
-    .slide-img { margin: 36px 0; }
-    .slide-img img { width: 100%; display: block; border: 1px solid var(--border); }
-    .slide-img figcaption { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); padding: 8px 0; letter-spacing: 0.06em; }
-
     /* DIVIDER */
-    .divider { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+    .divider { border: none; border-top: 1px solid var(--border); margin: 56px 0; }
+
+    /* PLACEHOLDER DE IMAGEN */
+    .img-placeholder { border: 2px dashed var(--border); background: var(--bg2); padding: 32px 24px; margin: 28px 0; text-align: center; position: relative; }
+    .img-placeholder::before { content: '＋'; font-size: 32px; color: var(--border); display: block; margin-bottom: 12px; }
+    .img-placeholder .ph-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+    .img-placeholder .ph-desc { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--muted); line-height: 1.5; }
+    .img-placeholder .ph-size { font-family: 'Space Mono', monospace; font-size: 9px; color: #444; margin-top: 8px; }
+
+    /* SECCIÓN INTRODUCTORIA */
+    .intro-section { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 48px 0; }
+    .intro-section .intro-title { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--gold); letter-spacing: 0.06em; margin-bottom: 12px; }
+    .intro-section .intro-lead { font-size: 16px; color: var(--muted); margin-bottom: 36px; font-style: italic; }
+    .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px; }
+    @media (max-width: 700px) { .intro-grid { grid-template-columns: 1fr; } }
+    .intro-card { background: var(--bg3); border: 1px solid var(--border); padding: 24px; }
+    .intro-card h3 { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+    .intro-card dt { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--text); margin-top: 12px; margin-bottom: 3px; }
+    .intro-card dd { font-size: 14px; color: var(--muted); margin-left: 0; line-height: 1.5; }
+    .tags-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; align-items: center; }
+    .tag-demo { font-family: 'Space Mono', monospace; font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 2px; }
+    .tag-label { font-size: 13px; color: var(--muted); }
+    .abrev-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 8px; }
+    .abrev-table td { padding: 6px 0; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .abrev-table td:first-child { font-family: 'Space Mono', monospace; color: var(--gold); width: 80px; padding-right: 12px; }
+    .abrev-table tr:last-child td { border-bottom: none; }
+    .intro-slide { margin-top: 24px; }
+    .intro-slide img { width: 100%; display: block; border: 1px solid var(--border); }
+    .intro-slide figcaption { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); padding: 8px 0; }
 
     /* SYNTHESIS */
     .synthesis { background: var(--bg2); border: 1px solid var(--border); border-top: 2px solid var(--gold); padding: 36px 40px; margin: 48px 0; }
@@ -175,7 +228,7 @@
     <div class="hero-kicker">Especial 04 · Historia de China · Parte I de III</div>
     <h2>La Senda del <em>Dragón</em></h2>
     <p class="hero-lead">De los primeros agricultores del río Amarillo a la víspera de la tormenta mongola: cómo un sistema civilizatorio construyó, fracturó y reconstruyó su atractor durante tres mil años.</p>
-    <div class="hero-meta">c. 5000 a.C. – 1211 d.C. &nbsp;·&nbsp; 12 períodos &nbsp;·&nbsp; Alfredo Montero Fonseca · UCR</div>
+    <div class="hero-meta">c. 5000 a.C. – 1211 d.C. &nbsp;·&nbsp; 9 períodos &nbsp;·&nbsp; Alfredo Montero Fonseca · UCR</div>
   </div>
 </section>
 
@@ -186,228 +239,509 @@
   </audio>
 </div>
 
+<!-- SECCIÓN INTRODUCTORIA -->
+<div class="intro-section">
+<div class="container">
+  <div class="intro-title">Marco Analítico</div>
+  <p class="intro-lead">Este análisis combina dos marcos complementarios: la Matriz Explicacionista de Evaluación Epistémica (MEEE-G) para clasificar el estatus de cada afirmación, y la Antropología Dinámica del Devenir (ADD) para interpretar los procesos históricos como sistemas complejos.</p>
+
+  <div class="intro-grid">
+    <div class="intro-card">
+      <h3>Matriz MEEE-G · Estatus epistémico de las afirmaciones</h3>
+      <p style="font-size:14px; color:var(--muted); margin-bottom:16px;">Cada afirmación en el texto lleva una etiqueta que indica qué tan sólida es la evidencia que la sostiene. La transparencia epistémica no debilita el análisis: lo hace honesto.</p>
+      <div class="tags-row">
+        <span class="tag-demo ep-DC" style="background:#1a4a2e;color:#7fdbac;">DC</span>
+        <span class="tag-label"><strong style="color:var(--text)">Dato Confirmado</strong> — verificado por fuentes independientes</span>
+      </div>
+      <div class="tags-row">
+        <span class="tag-demo ep-IP" style="background:#1a3a5c;color:#7ab8f5;">IP</span>
+        <span class="tag-label"><strong style="color:var(--text)">Inferencia Plausible</strong> — derivado lógicamente de DC con alta probabilidad</span>
+      </div>
+      <div class="tags-row">
+        <span class="tag-demo ep-H" style="background:#5c3a1a;color:#f5c07a;">H</span>
+        <span class="tag-label"><strong style="color:var(--text)">Hipótesis</strong> — explicación posible, no confirmada, requiere más evidencia</span>
+      </div>
+      <div class="tags-row">
+        <span class="tag-demo ep-Int" style="background:#4a1a5c;color:#d07af5;">Int</span>
+        <span class="tag-label"><strong style="color:var(--text)">Interpretación</strong> — lectura analítica del autor bajo el marco ADD</span>
+      </div>
+      <div class="tags-row">
+        <span class="tag-demo" style="background:#3a3a3a;color:#aaa;">C</span>
+        <span class="tag-label"><strong style="color:var(--text)">Conjetura</strong> — especulación razonada sin base empírica sólida actual</span>
+      </div>
+    </div>
+
+    <div class="intro-card">
+      <h3>ADD · Categorías de análisis dinámico</h3>
+      <p style="font-size:14px; color:var(--muted); margin-bottom:12px;">La Antropología Dinámica del Devenir (ADD) trata los fenómenos históricos como sistemas complejos no lineales. Sus categorías analíticas provienen de la termodinámica de sistemas alejados del equilibrio.</p>
+      <dl>
+        <dt>Atractor</dt>
+        <dd>Estado o configuración hacia el que tiende un sistema. Puede ser una ciudad, una ideología, un modo de producción o una forma política.</dd>
+        <dt>Clausura organizacional</dt>
+        <dd>La lógica interna que define la identidad del sistema y lo distingue de su entorno. Lo que hace que "China" sea China.</dd>
+        <dt>Flujos disipativos</dt>
+        <dd>Intercambio de materia, energía e información con el entorno: comercio, migración, tecnología, ideas.</dd>
+        <dt>Perturbación</dt>
+        <dd>Choque externo o interno que obliga al sistema a responder.</dd>
+        <dt>Punto de inflexión / Bifurcación</dt>
+        <dd>Momento crítico donde el sistema se reorganiza o colapsa hacia un nuevo régimen. Irreversible por definición.</dd>
+        <dt>Acoplamiento</dt>
+        <dd>Relación de interdependencia entre dos sistemas distintos que se influyen mutuamente.</dd>
+        <dt>Régimen de turbulencia</dt>
+        <dd>Estado del sistema caracterizado por alta inestabilidad antes de una bifurcación.</dd>
+      </dl>
+    </div>
+  </div>
+
+  <div class="intro-card" style="margin-bottom:24px;">
+    <h3>Abreviaturas frecuentes</h3>
+    <table class="abrev-table">
+      <tr><td>ADD</td><td>Antropología Dinámica del Devenir — marco teórico principal</td></tr>
+      <tr><td>MEEE-G</td><td>Matriz Explicacionista de Evaluación Epistémica de Goldman — sistema de clasificación epistémica</td></tr>
+      <tr><td>ANCA-ADD</td><td>Agente Noticioso Crítico de Actualidad — Análisis Dinámico del Devenir — publicación de origen</td></tr>
+      <tr><td>a.C. / d.C.</td><td>Antes de Cristo / Después de Cristo (cronología estándar sinológica)</td></tr>
+      <tr><td>UCR</td><td>Universidad de Costa Rica</td></tr>
+    </table>
+  </div>
+
+  <figure class="intro-slide">
+    <img src="../img/slide3-02.jpg" alt="La Lente Analítica: ADD y Evaluación Epistémica — diagrama de clausura organizacional, flujos disipativos y bifurcación">
+    <figcaption>Diagrama del marco analítico ADD · Clausura organizacional → Flujos disipativos → Bifurcación · Fuente: presentación ANCA-ADD, abril 2026</figcaption>
+  </figure>
+</div>
+</div>
+
 <div class="narrative">
 <div class="container">
-
-<!-- INFOGRAFÍA GENERAL -->
 </div>
+
 <div class="infografia-wrap">
   <img src="../img/infografia-parte-1.jpg" alt="La Senda del Dragón: Evolución Sistémica de la China Milenaria — infografía ANCA-ADD">
   <div class="infografia-caption">Mapa sistémico de la Parte I · La Senda del Dragón: Evolución Sistémica de la China Milenaria (Perspectiva ANCA-ADD)</div>
 </div>
+
 <div class="container">
 
-<!-- PERÍODO 1 -->
+<!-- ═══════════════════════════════════════════ -->
+<!-- PERÍODO 1: ORÍGENES NEOLÍTICOS             -->
+<!-- ═══════════════════════════════════════════ -->
 <div class="period" id="origenes">
   <div class="period-header">
     <div class="period-dates">c. 5000 – 1600 a.C.</div>
-    <h2>Los Primeros Pueblos del <em>Río Amarillo</em></h2>
+    <h2>1 · Los Primeros Pueblos del <em>Río Amarillo</em></h2>
   </div>
 
-  <p>Antes de que existiera algo llamado "China", existía el río. El Huang He —el Río Amarillo— arrastraba cada primavera toneladas de loess fértil desde las estepas del noroeste y las depositaba en la llanura central. Era un río caprichoso, propenso a las inundaciones catastróficas, pero esa misma inestabilidad obligaba a los grupos humanos que vivían en sus orillas a hacer algo inédito: cooperar a gran escala.</p>
+  <div class="resumen">
+    <p>Antes de que existiera algo llamado "China", existía el río. El Huang He —el Río Amarillo— arrastraba cada primavera toneladas de loess fértil desde las estepas del noroeste y las depositaba en la llanura central. Era un río caprichoso, propenso a inundaciones catastróficas, pero esa misma inestabilidad obligaba a los grupos humanos que vivían en sus orillas a hacer algo inédito: cooperar a gran escala.</p>
 
-  <p><span class="ep ep-DC">DC</span> La cultura de <strong>Yangshao</strong> (仰韶文化, c. 5000–3000 a.C.) es la primera gran civilización neolítica documentada en China. Sus aldeas de hasta 200,000 metros cuadrados producían una cerámica pintada reconocible por sus motivos geométricos y animales, cultivaban mijo y criaban cerdos. A Yangshao le siguió <strong>Longshan</strong> (龙山文化, c. 3000–1900 a.C.), que añadió cerámica negra bruñida, estratificación social evidente en las diferencias funerarias, y —significativamente— las primeras murallas de tierra apisonada: alguien, en algún momento, sintió que valía la pena defender lo que había acumulado.</p>
+    <p><span class="ep ep-DC">DC</span> La cultura de <strong>Yangshao</strong> (仰韶文化, c. 5000–3000 a.C.) es la primera gran civilización neolítica documentada en China. Sus aldeas de hasta 200,000 metros cuadrados producían una cerámica pintada reconocible por sus motivos geométricos y animales, cultivaban mijo y criaban cerdos. A Yangshao le siguió <strong>Longshan</strong> (龙山文化, c. 3000–1900 a.C.), que añadió cerámica negra bruñida, estratificación social evidente en las diferencias funerarias, y —significativamente— las primeras murallas de tierra apisonada: alguien, en algún momento, sintió que valía la pena defender lo que había acumulado.</p>
 
-  <p>Pero decir que una "sucedió a la otra" es simplificar demasiado. <span class="ep ep-IP">IP</span> La evidencia arqueológica sugiere más bien un mosaico de culturas regionales —Dawenkou en el este, Hongshan en el noreste— que intercambiaban bienes e ideas antes de que la cuenca del río Amarillo se consolidara como el núcleo dominante. La historia de China no comienza como una línea recta, sino como una red.</p>
+    <p>Pero decir que una "sucedió a la otra" es simplificar demasiado. <span class="ep ep-IP">IP</span> La evidencia arqueológica sugiere más bien un mosaico de culturas regionales —Dawenkou en el este, Hongshan en el noreste— que intercambiaban bienes e ideas antes de que la cuenca del río Amarillo se consolidara como el núcleo dominante. La historia de China no comienza como una línea recta, sino como una red.</p>
 
-  <div class="pullquote">
-    <p>La cuenca del río Amarillo se convirtió en un <em>atractor ecológico</em>: sus loess fértiles permitían una agricultura de alto rendimiento con tecnologías simples. La necesidad de gestionar colectivamente sus crecidas generó las primeras instituciones de cooperación a gran escala.</p>
-    <cite>Lectura ADD · Atractor ecológico y tensión cooperación-conflicto</cite>
+    <div class="img-placeholder">
+      <div class="ph-label">Imagen sugerida · Período 1</div>
+      <div class="ph-desc">Mapa del río Amarillo y las culturas neolíticas Yangshao y Longshan<br>o fotografía de cerámica pintada Yangshao</div>
+      <div class="ph-size">Formato recomendado: horizontal · JPG/PNG · mín. 1200px de ancho</div>
+    </div>
   </div>
 
-  <div class="cr-aside">
-    <div class="cr-label">Conexión · Costa Rica</div>
+  <div class="meeg-block">
+    <div class="subsec-label">Análisis Crítico · MEEE-G</div>
+    <ul>
+      <li><strong>Clasificación:</strong> Yangshao y Longshan son <em>datos confirmados</em> por décadas de excavaciones arqueológicas. La existencia de culturas regionales paralelas (Dawenkou, Hongshan) es igualmente un <em>dato confirmado</em>. La interpretación de China como "red" y no "línea recta" es una <em>interpretación analítica</em> del autor.</li>
+      <li><strong>Evaluación Explicacionista:</strong> El argumento de que la gestión del río Amarillo generó las primeras instituciones cooperativas a gran escala es una <em>inferencia plausible</em>, coherente con la teoría hidráulica de Wittfogel (aunque esa teoría en su versión fuerte sea objeto de debate). Lo que sí es claro es la correlación entre agricultura de loess, densidades poblacionales altas y estratificación social emergente.</li>
+    </ul>
+  </div>
+
+  <div class="add-block">
+    <div class="subsec-label">Lectura Dinámica · ADD</div>
+    <ul>
+      <li><strong>Atractor ecológico:</strong> La cuenca del río Amarillo funcionó como un atractor ecológico: su loess fértil permitía agricultura de alto rendimiento con tecnologías simples. Las inundaciones estacionales eran perturbaciones que el sistema debía absorber mediante cooperación colectiva.</li>
+      <li><strong>Tensión cooperación-conflicto:</strong> Las primeras murallas de Longshan señalan la emergencia de la tensión constitutiva de toda civilización: la misma acumulación que requiere cooperación interna genera conflicto externo. La red de intercambio neolítica ya anticipaba el patrón de China como civilización de cuenca.</li>
+      <li><strong>Flujos disipativos iniciales:</strong> La cerámica y los rituales funerarios diferenciados son evidencia de flujos de intercambio simbólico y material entre culturas regionales, sentando las bases de lo que será la clausura organizacional china.</li>
+    </ul>
+  </div>
+
+  <div class="cr-block">
+    <div class="subsec-label">Relevancia para Costa Rica</div>
     <p>La transición neolítica del río Amarillo tiene su eco en el Valle Central costarricense y en Guayabo de Turrialba: el control del excedente agrícola y la gestión del agua como catalizadores de centralización política. La arqueología local muestra cacicazgos complejos surgidos de las mismas tensiones entre cooperación hidráulica y competencia territorial.</p>
   </div>
 </div>
 
 <hr class="divider">
 
-<!-- PERÍODO 2: XIA -->
+<!-- ═══════════════════════════════════════════ -->
+<!-- PERÍODO 2: XIA                             -->
+<!-- ═══════════════════════════════════════════ -->
 <div class="period" id="xia">
   <div class="period-header">
     <div class="period-dates">c. 2070 – 1600 a.C.</div>
-    <h2>La Dinastía Xia: <em>¿Historia o Mito?</em></h2>
+    <h2>2 · La Dynastía Xia: <em>¿Historia o Mito?</em></h2>
   </div>
 
-  <p>Según las crónicas chinas, fue <strong>Yu el Grande</strong> quien domó las inundaciones y fundó la primera dinastía, la Xia. La tradición le atribuye haber recorrido personalmente cada río y montaña del imperio para diseñar un sistema de canales y diques. Es un relato hermoso. El problema es que ninguna inscripción contemporánea lo confirma.</p>
+  <div class="resumen">
+    <p>Según las crónicas chinas, fue <strong>Yu el Grande</strong> quien domó las inundaciones y fundó la primera dinastía, la Xia. La tradición le atribuye haber recorrido personalmente cada río y montaña del imperio para diseñar un sistema de canales y diques. Es un relato hermoso. El problema es que ninguna inscripción contemporánea lo confirma.</p>
 
-  <p><span class="ep ep-H">H</span> El yacimiento de <strong>Erlitou</strong> (c. 1900–1500 a.C.) en la provincia de Henan muestra una sociedad estratificada con palacios de tierra apisonada, talleres de bronce y tumbas de élite. La mayoría de los arqueólogos chinos lo identifican como la capital de la Xia tardía; fuera de China, esa identificación se considera una hipótesis no demostrada por falta de evidencia epigráfica contemporánea —no hay inscripciones que digan "esto es Xia".</p>
+    <p><span class="ep ep-H">H</span> El yacimiento de <strong>Erlitou</strong> (c. 1900–1500 a.C.) en la provincia de Henan muestra una sociedad estratificada con palacios de tierra apisonada, talleres de bronce y tumbas de élite. La mayoría de los arqueólogos chinos lo identifican como la capital de la Xia tardía; fuera de China, esa identificación se considera una hipótesis no demostrada por falta de evidencia epigráfica contemporánea —no hay inscripciones que digan "esto es Xia".</p>
 
-  <p>Lo que sí es <span class="ep ep-DC">DC</span> es que en Erlitou existió una entidad política compleja que centralizaba la producción de bronce: armas para la coerción, vasijas rituales para la legitimación. Sea o no la Xia legendaria, este lugar marca la primera <em>estabilidad regional</em> documentada en la llanura central. Y la transición de liderazgo basado en el mérito —la narrativa mítica de Yu— a la sucesión hereditaria marca una bifurcación que definiría toda la historia política china posterior: el poder ya no se gana, se hereda.</p>
+    <p>Lo que sí es <span class="ep ep-DC">DC</span> es que en Erlitou existió una entidad política compleja que centralizaba la producción de bronce: armas para la coerción, vasijas rituales para la legitimación. Sea o no la Xia legendaria, este lugar marca la primera <em>estabilidad regional</em> documentada en la llanura central. Y la transición de liderazgo basado en el mérito —la narrativa mítica de Yu— a la sucesión hereditaria marca una bifurcación que definiría toda la historia política china posterior: el poder ya no se gana, se hereda.</p>
 
-  <div class="cr-aside">
-    <div class="cr-label">Conexión · Costa Rica</div>
-    <p>El debate Xia-Erlitou ilustra una tensión que también enfrenta Costa Rica en la reconstrucción de sus historias indígenas precolombinas: cómo articular la tradición oral con la evidencia arqueológica sin caer en la mitificación ni en el descarte positivista.</p>
+    <div class="img-placeholder">
+      <div class="ph-label">Imagen sugerida · Dynastía Xia</div>
+      <div class="ph-desc">Fotografía del yacimiento de Erlitou (Henan) o vasija de bronce de la época<br>Alternativa: mapa comparativo de la llanura central con sitios arqueológicos</div>
+      <div class="ph-size">Formato recomendado: horizontal o cuadrado · JPG/PNG</div>
+    </div>
+  </div>
+
+  <div class="meeg-block">
+    <div class="subsec-label">Análisis Crítico · MEEE-G</div>
+    <ul>
+      <li><strong>Clasificación:</strong> La existencia de Erlitou como entidad política compleja con producción centralizada de bronce es un <em>dato confirmado</em>. Su identificación como la "capital Xia" es una <em>hipótesis</em> respaldada por arqueólogos chinos pero no por epigrafía contemporánea. La narrativa de Yu el Grande pertenece al registro mítico-fundacional: no es falsable.</li>
+      <li><strong>Evaluación Explicacionista:</strong> El debate Xia-Erlitou ilustra la diferencia metodológica entre la historiografía china (que integra la tradición literaria como evidencia) y la arqueología internacional (que exige corroboración material independiente). Ninguna de las dos posiciones es irracional; difieren en los estándares de evidencia aceptados.</li>
+    </ul>
+  </div>
+
+  <div class="add-block">
+    <div class="subsec-label">Lectura Dinámica · ADD</div>
+    <ul>
+      <li><strong>Primera estabilidad regional:</strong> Erlitou representa el primer atractor regional documentado en la llanura central: una entidad que centraliza la producción de bronce y con ello controla simultáneamente la coerción (armas) y la legitimación (vasijas rituales).</li>
+      <li><strong>Bifurcación fundacional:</strong> La transición del liderazgo por mérito al liderazgo hereditario (si es que ocurrió con la Xia) marca la primera gran bifurcación política china: el modelo que persistirá durante dos mil años —aunque siempre en tensión con el ideal meritocrático confuciano.</li>
+    </ul>
+  </div>
+
+  <div class="cr-block">
+    <div class="subsec-label">Relevancia para Costa Rica</div>
+    <p>El debate Xia-Erlitou ilustra una tensión que también enfrenta Costa Rica en la reconstrucción de sus historias indígenas precolombinas: cómo articular la tradición oral con la evidencia arqueológica sin caer en la mitificación ni en el descarte positivista. La arqueología de Guayabo enfrenta el mismo problema metodológico que Erlitou.</p>
   </div>
 </div>
 
 <hr class="divider">
 
-<!-- PERÍODO 3: SHANG -->
+<!-- ═══════════════════════════════════════════ -->
+<!-- PERÍODO 3: SHANG                           -->
+<!-- ═══════════════════════════════════════════ -->
 <div class="period" id="shang">
   <div class="period-header">
     <div class="period-dates">c. 1600 – 1046 a.C.</div>
-    <h2>La Dinastía Shang: <em>Los Huesos que Hablan</em></h2>
+    <h2>3 · La Dynastía Shang: <em>Los Huesos que Hablan</em></h2>
   </div>
 
-  <p>Con los Shang llegamos por fin al terreno de la historia documental. <span class="ep ep-DC">DC</span> En <strong>Yinxu</strong>, la capital tardía cerca de la actual Anyang, los arqueólogos han desenterrado casi 100,000 fragmentos de huesos de animales y caparazones de tortuga con inscripciones grabadas. Los reyes Shang aplicaban calor a estos objetos, interpretaban las grietas resultantes y registraban preguntas y respuestas: si llueve esta semana, si debemos atacar a los Qiang, si el rey sobrevivirá a su enfermedad. Son los <strong>huesos oráculo</strong>, la forma más antigua de escritura china madura, y hablan con una voz que tiene más de tres mil años.</p>
+  <div class="resumen">
+    <p>Con los Shang llegamos por fin al terreno de la historia documental. <span class="ep ep-DC">DC</span> En <strong>Yinxu</strong>, la capital tardía cerca de la actual Anyang, los arqueólogos han desenterrado casi 100,000 fragmentos de huesos de animales y caparazones de tortuga con inscripciones grabadas. Los reyes Shang aplicaban calor a estos objetos, interpretaban las grietas resultantes y registraban preguntas y respuestas: si llueve esta semana, si debemos atacar a los Qiang, si el rey sobrevivirá a su enfermedad. Son los <strong>huesos oráculo</strong>, la forma más antigua de escritura china madura, y hablan con una voz que tiene más de tres mil años.</p>
 
-  <p>La sociedad Shang era fuertemente jerárquica y militarista. Sus reyes eran divinidades en vida, rodeados de una aristocracia guerrera y de una industria del bronce sin paralelo en la época. <span class="ep ep-IP">IP</span> El "mandato divino" como marco de legitimación ideológica está implícito en la forma misma de los huesos oráculo, aunque su formulación explícita vendrá después, con los Zhou.</p>
+    <p>La sociedad Shang era fuertemente jerárquica y militarista. Sus reyes eran divinidades en vida, rodeados de una aristocracia guerrera y de una industria del bronce sin paralelo en la época. <span class="ep ep-IP">IP</span> El "mandato divino" como marco de legitimación ideológica está implícito en la forma misma de los huesos oráculo —el rey consulta a los antepasados y al Cielo—, aunque su formulación explícita como "Mandato del Cielo" vendrá solo con los Zhou.</p>
 
-  <div class="pullquote">
-    <p>El control de las minas de cobre y estaño en el Yangtsé medio actuó como <em>atractor de poder</em>: quien fundía bronce, producía armas para la coerción y vasijas rituales para la legitimación. La tecnología y el ritual se volvieron inseparables.</p>
-    <cite>Lectura ADD · Atractores de poder en la China Shang</cite>
+    <div class="img-placeholder">
+      <div class="ph-label">Imagen sugerida · Dynastía Shang</div>
+      <div class="ph-desc">Fotografía de huesos oráculo (jiǎgǔwén) o vasija de bronce ritual Shang<br>Alternativa: imagen del yacimiento de Yinxu (Anyang)</div>
+      <div class="ph-size">Formato recomendado: horizontal · JPG/PNG</div>
+    </div>
   </div>
 
-  <div class="cr-aside">
-    <div class="cr-label">Conexión · Costa Rica</div>
-    <p>La escritura sobre hueso es un recordatorio de que crear registros permanentes es una tecnología de poder: permite la administración a distancia y la transmisión de mandatos a través del tiempo. Costa Rica, que invierte en alfabetización digital y preservación de archivos históricos, participa de esa misma lógica, aunque con tecnologías radicalmente distintas.</p>
+  <div class="meeg-block">
+    <div class="subsec-label">Análisis Crítico · MEEE-G</div>
+    <ul>
+      <li><strong>Clasificación:</strong> Los huesos oráculo de Yinxu son <em>datos confirmados</em> de la más alta solidez: son documentos primarios que se pueden datar, leer y cruzar. La caracterización de los reyes Shang como "divinidades en vida" es una <em>inferencia plausible</em> del registro ritual; la noción exacta de "divinidad" en el pensamiento Shang es objeto de debate académico.</li>
+      <li><strong>Evaluación Explicacionista:</strong> El control de las minas de cobre y estaño como fundamento del poder Shang es una <em>inferencia plausible</em> bien documentada. La correlación entre capacidad técnica en bronce, poder ritual y poder militar es uno de los patrones más sólidos de la arqueología china temprana.</li>
+    </ul>
+  </div>
+
+  <div class="add-block">
+    <div class="subsec-label">Lectura Dinámica · ADD</div>
+    <ul>
+      <li><strong>Atractor de poder dual:</strong> El control de las minas de cobre y estaño en el Yangtsé medio actuó como atractor de poder: quien fundía bronce producía armas para la coerción y vasijas rituales para la legitimación. La tecnología y el ritual se volvieron inseparables.</li>
+      <li><strong>Escritura como tecnología de administración:</strong> Los huesos oráculo son el primer flujo de información estructurado y persistente en China: permiten la transmisión de decisiones a través del tiempo y el espacio, y son por tanto la infraestructura de un proto-Estado.</li>
+      <li><strong>Yinxu como primer atractor geopolítico con nombre:</strong> La capital Shang es el primer lugar que podemos nombrar con certeza como centro de gravedad del sistema político chino.</li>
+    </ul>
+  </div>
+
+  <div class="cr-block">
+    <div class="subsec-label">Relevancia para Costa Rica</div>
+    <p>La escritura sobre hueso es un recordatorio de que crear registros permanentes es una tecnología de poder: permite la administración a distancia y la transmisión de mandatos a través del tiempo. Costa Rica, que invierte en digitalización de archivos históricos y alfabetización digital, participa de esa misma lógica con tecnologías radicalmente distintas pero con la misma función: mantener la clausura institucional del Estado a través del tiempo.</p>
   </div>
 </div>
 
 <hr class="divider">
 
-<!-- PERÍODO 4: ZHOU -->
+<!-- ═══════════════════════════════════════════ -->
+<!-- PERÍODO 4: ZHOU                            -->
+<!-- ═══════════════════════════════════════════ -->
 <div class="period" id="zhou">
   <div class="period-header">
     <div class="period-dates">c. 1046 – 256 a.C.</div>
-    <h2>La Dinastía Zhou: <em>El Mandato del Cielo y el Caos Fértil</em></h2>
+    <h2>4 · La Dynastía Zhou: <em>El Mandato del Cielo y el Caos Fértil</em></h2>
   </div>
 
-  <p>Los Zhou derrocaron a los Shang en el siglo XI a.C. y necesitaban justificar el regicidio. Su solución fue brillante: inventaron la doctrina del <strong>Mandato del Cielo</strong> (天命, <em>Tiānmìng</em>). El derecho a gobernar no es absoluto ni hereditario por naturaleza, sino que depende de la virtud del soberano. Si un rey se vuelve tiránico, el Cielo retira el mandato y se lo otorga a otro linaje más virtuoso. Era, en cierto sentido, la primera formulación de la legitimidad política condicionada a la eficacia y la virtud.</p>
+  <div class="resumen">
+    <p>Los Zhou derrocaron a los Shang en el siglo XI a.C. y necesitaban justificar el regicidio. Su solución fue brillante: inventaron la doctrina del <strong>Mandato del Cielo</strong> (天命, <em>Tiānmìng</em>). El derecho a gobernar no es absoluto ni puramente hereditario: depende de la virtud del soberano. Si un rey se vuelve tiránico, el Cielo retira el mandato y se lo otorga a otro linaje más virtuoso. Era la primera formulación de la legitimidad política condicionada al desempeño.</p>
 
-  <p><span class="ep ep-DC">DC</span> El <strong>Zhou Occidental (1046–771 a.C.)</strong> estableció un sistema feudal (<em>fengjian</em>) en el que el rey otorgaba tierras a parientes y aliados. Funcionó mientras el rey mantuvo el monopolio de la coerción. Dejó de funcionar cuando los nómadas del noroeste invadieron y asesinaron al rey You en 771 a.C., obligando a la corte a huir al este. A partir de ese momento comenzó el largo declive del poder central.</p>
+    <p><span class="ep ep-DC">DC</span> El <strong>Zhou Occidental (1046–771 a.C.)</strong> estableció un sistema feudal (<em>fengjian</em>) en el que el rey otorgaba tierras a parientes y aliados. Funcionó mientras el rey mantuvo el monopolio de la coerción. Dejó de funcionar cuando los nómadas del noroeste invadieron y asesinaron al rey You en 771 a.C., obligando a la corte a huir al este. A partir de ese momento comenzó el largo declive del poder central.</p>
 
-  <p>El <strong>Zhou Oriental (770–256 a.C.)</strong> es, en apariencia, una historia de fragmentación y violencia creciente —148 estados nominales que se reducen a siete grandes potencias que se exterminan entre sí. Pero hay algo paradójico: fue precisamente esa violencia la que generó los grandes florecimientos intelectuales de China. El <strong>Período de los Reinos Combatientes (475–221 a.C.)</strong> vio nacer el confucianismo, el taoísmo, el legalismo y el mohismo. <span class="ep ep-IP">IP</span> La guerra fue el motor de la innovación en tecnología militar (ballesta, caballería, murallas), administrativa (códigos legales escritos, burocracia meritocrática) y filosófica. La presión existencial fue, paradójicamente, creativa.</p>
+    <p>El <strong>Zhou Oriental (770–256 a.C.)</strong> es, en apariencia, una historia de fragmentación y violencia creciente: 148 estados nominales se reducen a siete grandes potencias que se exterminan entre sí. Pero hay algo paradójico. <span class="ep ep-IP">IP</span> Fue precisamente esa violencia la que generó los grandes florecimientos intelectuales de China. El <strong>Período de los Reinos Combatientes (475–221 a.C.)</strong> vio nacer el confucianismo, el taoísmo, el legalismo y el mohismo. La presión existencial impulsó innovación en tecnología militar (ballesta, caballería), administrativa (códigos legales escritos, burocracia meritocrática) y filosófica. La guerra fue, paradójicamente, creativa.</p>
 
-  <div class="pullquote">
-    <p>La fragmentación Zhou es un espejo invertido de la integración centroamericana: mientras China pasó de la unidad a la fragmentación, el istmo transitó el camino opuesto. El "Mandato del Cielo" sigue siendo una pregunta pertinente: ¿en qué se funda hoy la legitimidad de un Estado?</p>
-    <cite>Lectura comparativa ADD · Zhou y Centroamérica</cite>
+    <div class="img-placeholder">
+      <div class="ph-label">Imagen sugerida · Reinos Combatientes</div>
+      <div class="ph-desc">Mapa de los Siete Reinos Combatientes (475–221 a.C.)<br>o inscripción en bronce Zhou con el Mandato del Cielo</div>
+      <div class="ph-size">Formato recomendado: horizontal · JPG/PNG</div>
+    </div>
+  </div>
+
+  <div class="meeg-block">
+    <div class="subsec-label">Análisis Crítico · MEEE-G</div>
+    <ul>
+      <li><strong>Clasificación:</strong> El establecimiento del feudalismo Zhou Occidental, la invasión nómada de 771 y la subsiguiente fragmentación son <em>datos confirmados</em> por fuentes textuales e inscripciones en bronce. La tesis de que la guerra generó innovación intelectual y administrativa es una <em>inferencia plausible</em> bien documentada, aunque la causalidad directa es compleja.</li>
+      <li><strong>Evaluación Explicacionista:</strong> El Mandato del Cielo fue una solución elegante al problema de la legitimidad dinástica: convertía el éxito en evidencia de virtud y el fracaso en evidencia de corrupción, generando un sistema circular auto-legitimante. Su brillantez consiste en que era irrefutable en cualquier dirección.</li>
+    </ul>
+  </div>
+
+  <div class="add-block">
+    <div class="subsec-label">Lectura Dinámica · ADD</div>
+    <ul>
+      <li><strong>Primera clausura organizacional explícita:</strong> El Mandato del Cielo es la primera formulación articulada de lo que hace a China "China": la idea de que el orden político tiene una dimensión moral y cósmica. Esta clausura ideológica persistirá más de dos mil años.</li>
+      <li><strong>Régimen de turbulencia como motor:</strong> Los Reinos Combatientes son un caso de régimen de turbulencia que paradójicamente produce innovación: cuando la supervivencia requiere ventaja competitiva, el sistema genera soluciones radicales. Confucio, Laozi, Han Fei: todos emergen del caos.</li>
+      <li><strong>Bifurcación inminente:</strong> La dinámica de los Reinos Combatientes apunta hacia una bifurcación: o bien la guerra permanente fragmenta China definitivamente, o bien un actor periférico (Qin) rompe el equilibrio y unifica por la fuerza.</li>
+    </ul>
+  </div>
+
+  <div class="cr-block">
+    <div class="subsec-label">Relevancia para Costa Rica</div>
+    <p>La fragmentación Zhou es un espejo invertido de la integración centroamericana: mientras China pasó de la unidad a la fragmentación y luego a la reunificación forzada, el istmo transitó el camino opuesto desde las repúblicas centroamericanas hacia una integración parcial y siempre en tensión. El Mandato del Cielo sigue siendo una pregunta pertinente: ¿en qué se funda hoy la legitimidad de un Estado? ¿En el origen electoral, en la eficacia de sus políticas, o en alguna combinación de ambas?</p>
   </div>
 </div>
 
 <hr class="divider">
 
-<!-- PERÍODO 5: QIN -->
+<!-- ═══════════════════════════════════════════ -->
+<!-- PERÍODO 5: QIN                             -->
+<!-- ═══════════════════════════════════════════ -->
 <div class="period" id="qin">
   <div class="period-header">
     <div class="period-dates">221 – 206 a.C.</div>
-    <h2>La Dinastía Qin: <em>El Imperio que Duró Quince Años y Cambió Todo</em></h2>
+    <h2>5 · La Dynastía Qin: <em>El Imperio que Duró Quince Años y Cambió Todo</em></h2>
   </div>
 
-  <p>El estado de Qin era el más periférico de los siete grandes: situado en la frontera noroccidental, considerado semibárbaro por los estados del centro. Pero fue precisamente esa posición marginal la que le permitió adoptar sin remordimientos las doctrinas legalistas más radicales: centralización absoluta, meritocracia burocrática, estandarización de todo. Entre 230 y 221 a.C., el rey Zheng conquistó sistemáticamente los seis reinos restantes y se proclamó <strong>Qin Shi Huangdi</strong>, el "Primer Augusto Emperador".</p>
+  <div class="resumen">
+    <p>El estado de Qin era el más periférico de los siete grandes: situado en la frontera noroccidental, considerado semibárbaro por los estados del centro. Pero fue precisamente esa posición marginal la que le permitió adoptar sin remordimientos las doctrinas legalistas más radicales: centralización absoluta, meritocracia burocrática, estandarización de todo. Entre 230 y 221 a.C., el rey Zheng conquistó sistemáticamente los seis reinos restantes y se proclamó <strong>Qin Shi Huangdi</strong>, el "Primer Augusto Emperador".</p>
 
-  <p><span class="ep ep-DC">DC</span> Lo que siguió fue una revolución administrativa sin precedentes: abolió el feudalismo, dividió el imperio en 36 comandancias gobernadas por funcionarios civiles no hereditarios (nombrados y removidos por el centro), estandarizó la escritura, las medidas, las monedas y hasta el ancho de los ejes de las carretas para que los caminos fueran compatibles. También inició la construcción de una primera versión de la Gran Muralla. <span class="ep ep-IP">IP</span> Según la tradición confuciana, ordenó la "quema de libros y el enterramiento de eruditos"; la magnitud de esta represión cultural es probablemente amplificada por la hostilidad de los historiadores posteriores hacia el legalismo.</p>
+    <p><span class="ep ep-DC">DC</span> Lo que siguió fue una revolución administrativa sin precedentes: abolió el feudalismo, dividió el imperio en 36 comandancias gobernadas por funcionarios civiles no hereditarios —nombrados y removidos por el centro—, estandarizó la escritura, las medidas, las monedas y hasta el ancho de los ejes de las carretas para que los caminos fueran compatibles. También inició la construcción de la primera versión de la Gran Muralla. <span class="ep ep-IP">IP</span> Según la tradición confuciana, ordenó la "quema de libros y el enterramiento de eruditos"; la magnitud de esta represión cultural es probablemente amplificada por la hostilidad de los historiadores posteriores hacia el legalismo.</p>
 
-  <p>Qin Shi Huangdi murió en 210 a.C. Su hijo no supo gestionar las tensiones acumuladas. En 206 a.C. la dinastía colapsó. Solo había durado quince años. Pero la infraestructura que había creado —el modelo de estado centralizado burocráticamente— sobreviviría dos mil años más.</p>
+    <p>Qin Shi Huangdi murió en 210 a.C. Su hijo no supo gestionar las tensiones acumuladas. En 206 a.C. la dinastía colapsó. Solo había durado quince años. Pero la infraestructura que había creado —el modelo de estado centralizado burocráticamente— sobreviviría dos mil años más.</p>
 
-  <div class="cr-aside">
-    <div class="cr-label">Conexión · Costa Rica</div>
-    <p>La estandarización Qin fue la condición de posibilidad para un mercado interno integrado. Costa Rica, con una economía pequeña integrada al comercio global, debe preguntarse qué "estándares" —técnicos, laborales, ambientales— debe adoptar para insertarse en cadenas de valor globales sin perder autonomía regulatoria.</p>
+    <div class="img-placeholder">
+      <div class="ph-label">Imagen sugerida · Dynastía Qin</div>
+      <div class="ph-desc">Fotografía del Ejército de Terracota (Xi'an) — la prueba arqueológica más icónica del período<br>Alternativa: mapa del primer Imperio Qin unificado (221–206 a.C.)</div>
+      <div class="ph-size">Formato recomendado: horizontal, gran formato · JPG/PNG</div>
+    </div>
+  </div>
+
+  <div class="meeg-block">
+    <div class="subsec-label">Análisis Crítico · MEEE-G</div>
+    <ul>
+      <li><strong>Clasificación:</strong> La revolución administrativa Qin —abolición del feudalismo, estandarización, comandancias— es un <em>dato confirmado</em> por fuentes textuales y arqueológicas (incluido el Ejército de Terracota). La "quema de libros y enterramiento de eruditos" es un <em>dato confirmado</em> como evento, pero su magnitud es una <em>inferencia plausible</em> que probablemente fue amplificada por la historiografía Han posterior.</li>
+      <li><strong>Evaluación Explicacionista:</strong> El colapso Qin en solo 15 años es un ejemplo clásico de lo que la ADD llama "éxito que genera su propia destrucción": la centralización extrema acumuló tensiones que el modelo no tenía mecanismos para liberar gradualmente. El modelo sobrevivió; el fundador no.</li>
+    </ul>
+  </div>
+
+  <div class="add-block">
+    <div class="subsec-label">Lectura Dinámica · ADD</div>
+    <ul>
+      <li><strong>Nodo periférico como innovador:</strong> El estado Qin, por ser marginal al sistema de los Reinos Combatientes, podía adoptar doctrinas radicales (legalismo) sin la inercia institucional de los estados centrales. Los nodos periféricos son con frecuencia los catalizadores de las bifurcaciones sistémicas.</li>
+      <li><strong>Atractor estatal de largo plazo:</strong> Lo que Qin creó no fue solo un imperio: fue el modelo de Estado burocrático centralizado que permanecerá como el atractor dominante de la política china durante dos milenios. Las dinastías cambiarán; el modelo persistirá.</li>
+      <li><strong>Bifurcación irreversible:</strong> La unificación Qin fue una bifurcación de la que China no regresó: nunca más el feudalismo descentralizado sería la norma. Incluso los períodos de fragmentación posteriores se conceptualizarán como desviaciones temporales de la unidad.</li>
+    </ul>
+  </div>
+
+  <div class="cr-block">
+    <div class="subsec-label">Relevancia para Costa Rica</div>
+    <p>La estandarización Qin fue la condición de posibilidad para un mercado interno integrado. Costa Rica, con una economía pequeña integrada al comercio global, debe preguntarse qué "estándares" —técnicos, laborales, ambientales, digitales— debe adoptar para insertarse en cadenas de valor globales sin perder autonomía regulatoria. La lección de Qin: la estandarización crea eficiencia pero también crea fragilidad cuando no se articula con mecanismos de participación y legitimación.</p>
   </div>
 </div>
 
 <hr class="divider">
 
-<!-- PERÍODO 6: HAN -->
+<!-- ═══════════════════════════════════════════ -->
+<!-- PERÍODO 6: HAN                             -->
+<!-- ═══════════════════════════════════════════ -->
 <div class="period" id="han">
   <div class="period-header">
     <div class="period-dates">206 a.C. – 220 d.C.</div>
-    <h2>La Dinastía Han: <em>El Imperio que Definió una Identidad</em></h2>
+    <h2>6 · La Dynastía Han: <em>El Imperio que Definió una Identidad</em></h2>
   </div>
 
-  <p>Liu Bang era un funcionario de bajo rango que lideró una rebelión campesina, derrotó a sus rivales y fundó la dinastía Han. El grupo étnico mayoritario de China se llama hasta hoy <em>Han</em>: esa sola palabra mide la profundidad de la huella que dejó esta dinastía en la identidad colectiva china.</p>
+  <div class="resumen">
+    <p>Liu Bang era un funcionario de bajo rango que lideró una rebelión campesina, derrotó a sus rivales y fundó la dinastía Han. El grupo étnico mayoritario de China se llama hasta hoy <em>Han</em>: esa sola palabra mide la profundidad de la huella que dejó esta dinastía en la identidad colectiva china.</p>
 
-  <p><span class="ep ep-DC">DC</span> Los Han adoptaron el confucianismo como ideología de estado y establecieron un sistema de exámenes para seleccionar funcionarios (aunque limitado en alcance inicial). Expandieron las fronteras hacia Corea, Vietnam y la cuenca del Tarim, y abrieron la <strong>Ruta de la Seda</strong> hacia Asia Central, Persia y, eventualmente, el Imperio Romano. China exportaba seda y papel; importaba vidrio, lana, jade y, crucialmente, el budismo. Por esta misma ruta viajaron también patógenos que sembraron epidemias en ambos extremos del continente. El intercambio global tiene siempre dos caras.</p>
+    <p><span class="ep ep-DC">DC</span> Los Han adoptaron el confucianismo como ideología de estado y establecieron un sistema de exámenes para seleccionar funcionarios. Expandieron las fronteras hacia Corea, Vietnam y la cuenca del Tarim, y abrieron la <strong>Ruta de la Seda</strong> hacia Asia Central, Persia y, eventualmente, el Imperio Romano. China exportaba seda y papel; importaba vidrio, lana, jade y, crucialmente, el budismo. Por esta misma ruta viajaron también patógenos que sembraron epidemias en ambos extremos del continente. <span class="ep ep-IP">IP</span> El intercambio global tiene siempre dos caras: enriquecedor y devastador al mismo tiempo.</p>
 
-  <p>La síntesis Han —centralización administrativa Qin más legitimidad confuciana— resultó extraordinariamente estable. Las tensiones vinieron de otro lado: facciones de eunucos en la corte, revueltas campesinas como la de los Turbantes Amarillos, y la creciente autonomía de los señores militares regionales. En 220 d.C. el último emperador Han abdicó y China se fragmentó en tres reinos.</p>
+    <p>La síntesis Han —centralización administrativa Qin más legitimidad confuciana— resultó extraordinariamente estable. Las tensiones vinieron de otro lado: facciones de eunucos en la corte, revueltas campesinas como la de los Turbantes Amarillos, y la creciente autonomía de los señores militares regionales. En 220 d.C. el último emperador Han abdicó y China se fragmentó en tres reinos.</p>
 
-  <div class="pullquote">
-    <p>La Ruta de la Seda fue el primer flujo transcontinental sostenido de bienes, tecnologías, ideas y patógenos. El precedente histórico de la globalización: enriquecedor y devastador al mismo tiempo.</p>
-    <cite>Lectura ADD · Flujos y acoplamientos en la era Han</cite>
+    <div class="img-placeholder">
+      <div class="ph-label">Imagen sugerida · Dynastía Han / Ruta de la Seda</div>
+      <div class="ph-desc">Mapa de la Ruta de la Seda terrestre y marítima en época Han<br>Alternativa: artefactos de intercambio (vidrio romano, seda china, monedas)</div>
+      <div class="ph-size">Formato recomendado: horizontal · JPG/PNG</div>
+    </div>
   </div>
 
-  <div class="cr-aside">
-    <div class="cr-label">Conexión · Costa Rica</div>
-    <p>Costa Rica firmó en 2010 un TLC con China —el primero de Centroamérica. Participa de una red global de intercambios análoga a la Ruta de la Seda, aunque con asimetrías de poder más pronunciadas. La adopción del 5G chino, la influencia del confucianismo en prácticas empresariales: son los acoplamientos contemporáneos que un nodo periférico debe gestionar con conciencia de su posición.</p>
+  <div class="meeg-block">
+    <div class="subsec-label">Análisis Crítico · MEEE-G</div>
+    <ul>
+      <li><strong>Clasificación:</strong> La adopción del confucianismo como ideología de estado, la Ruta de la Seda y la expansión territorial Han son <em>datos confirmados</em>. La tesis de que los patógenos también viajaban por la Ruta de la Seda es una <em>inferencia plausible</em> apoyada en estudios de historia de las enfermedades, aunque la correlación directa es difícil de establecer con certeza para el período Han.</li>
+      <li><strong>Evaluación Explicacionista:</strong> La "síntesis Han" —modelo Qin de Estado + legitimidad confuciana— es una <em>interpretación</em> analítica bien establecida en la historiografía. Explica la durabilidad del modelo: la centralización burocrática sin legitimación moral colapsa (Qin); la legitimación sin burocracia eficiente se fragmenta (Zhou tardío). La combinación fue la solución.</li>
+    </ul>
+  </div>
+
+  <div class="add-block">
+    <div class="subsec-label">Lectura Dinámica · ADD</div>
+    <ul>
+      <li><strong>Clausura organizacional consolidada:</strong> La síntesis Han fija el modelo de civilización china que persistirá: Estado centralizado + legitimidad confuciana + exámenes meritocráticos. Esta clausura organizacional es lo suficientemente flexible para absorber perturbaciones externas (nómadas, budismo) sin perder su identidad.</li>
+      <li><strong>Ruta de la Seda como flujo disipativo:</strong> La Ruta de la Seda es el primer flujo transnacional sostenido de bienes, tecnologías, ideas y patógenos. Su apertura bajo los Han convierte a China en el nodo occidental de una red global que se extenderá hasta el Mediterráneo.</li>
+      <li><strong>Acoplamiento China-Roma:</strong> El acoplamiento indirecto entre las dos grandes civilizaciones del siglo I d.C. a través de intermediarios sogdianos y partos es uno de los acoplamientos sistémicos más fascinantes de la historia antigua.</li>
+    </ul>
+  </div>
+
+  <div class="cr-block">
+    <div class="subsec-label">Relevancia para Costa Rica</div>
+    <p>Costa Rica firmó en 2010 un TLC con China —el primero de Centroamérica. Participa de una red global de intercambios análoga a la Ruta de la Seda, aunque con asimetrías de poder más pronunciadas. La adopción del 5G chino, la influencia del confucianismo en prácticas empresariales, la creciente presencia de inversiones chinas: son los acoplamientos contemporáneos que un nodo periférico debe gestionar con conciencia de su posición sistémica. La lección Han: los intercambios enriquecen, pero también transmiten vulnerabilidades.</p>
   </div>
 </div>
 
 <hr class="divider">
 
-<!-- PERÍODOS 7-10 condensados -->
+<!-- ═══════════════════════════════════════════ -->
+<!-- PERÍODO 7: INTERLUDIO                      -->
+<!-- ═══════════════════════════════════════════ -->
 <div class="period" id="fragmentacion">
   <div class="period-header">
     <div class="period-dates">220 – 960 d.C.</div>
-    <h2>El Largo Interludio: <em>Tres Reinos, Sui, Tang y la Fragmentación Post-Tang</em></h2>
+    <h2>7 · El Largo Interludio: <em>Tres Reinos, Sui, Tang y la Fragmentación</em></h2>
   </div>
 
-  <p>Los siglos que siguieron al colapso Han son, desde la narrativa tradicional china, una historia de "desunión y caos". Desde la perspectiva ADD, son algo más interesante: una demostración de que "China" no es un hecho natural sino un proyecto político que debe ser constantemente reconstruido.</p>
+  <div class="resumen">
+    <p>Los siglos que siguieron al colapso Han son, desde la narrativa tradicional china, una historia de "desunión y caos". Desde la perspectiva ADD, son algo más interesante: una demostración de que "China" no es un hecho natural sino un proyecto político que debe ser constantemente reconstruido.</p>
 
-  <p>Los <strong>Tres Reinos (220–280)</strong> y las subsiguientes <strong>Dinastías Meridionales y Septentrionales (317–589)</strong> duraron casi cuatro siglos. <span class="ep ep-DC">DC</span> Durante este tiempo el sur —la región del Yangtsé— emergió como nuevo centro económico gracias al cultivo de arroz inundado, mientras el norte era gobernado por sucesivas dinastías fundadas por pueblos nómadas que adoptaban cada vez más la cultura china. El budismo floreció en ambos lados de la frontera como única religión unificadora.</p>
+    <p>Los <strong>Tres Reinos (220–280)</strong> y las subsiguientes <strong>Dynastías Meridionales y Septentrionales (317–589)</strong> duraron casi cuatro siglos. <span class="ep ep-DC">DC</span> Durante este tiempo el sur —la región del Yangtsé— emergió como nuevo centro económico gracias al cultivo de arroz inundado, mientras el norte era gobernado por sucesivas dynastías fundadas por pueblos nómadas que adoptaban cada vez más la cultura china. El budismo floreció en ambos lados de la frontera como única religión unificadora.</p>
 
-  <p>La <strong>dinastía Sui (581–618)</strong> reunificó China en menos de una década. Construyó el <strong>Gran Canal</strong>, conectando el norte con el sur, una obra faraónica que reconfiguró los flujos económicos para siempre. Pero agotó al campesinado con corveas masivas y colapsó tras solo dos emperadores —otro caso de infraestructura brillante con costo político insostenible.</p>
+    <p>La <strong>dynastía Sui (581–618)</strong> reunificó China en menos de una década. Construyó el <strong>Gran Canal</strong>, conectando el norte con el sur: una obra que reconfiguró los flujos económicos para siempre. Pero agotó al campesinado con corveas masivas y colapsó tras solo dos emperadores —otro caso de infraestructura brillante con costo político insostenible.</p>
 
-  <p>La <strong>dinastía Tang (618–907)</strong> heredó esa infraestructura y la convirtió en el apogeo cosmopolita de la historia china. La capital, <strong>Chang'an</strong>, con más de un millón de habitantes, tenía barrios persas, sogdianos, coreanos y japoneses. <span class="ep ep-DC">DC</span> Era literalmente la ciudad más grande del mundo. La rebelión de <strong>An Lushan (755–763)</strong> marcó el punto de inflexión: el reemplazo del servicio militar campesino por ejércitos profesionales comandados por gobernadores militares autónomos (<em>jiedushi</em>) creó una fragmentación del poder que hacía inevitable el colapso final en 907.</p>
+    <p>La <strong>dynastía Tang (618–907)</strong> heredó esa infraestructura y la convirtió en el apogeo cosmopolita de la historia china. La capital, <strong>Chang'an</strong>, con más de un millón de habitantes, tenía barrios persas, sogdianos, coreanos y japoneses. <span class="ep ep-DC">DC</span> Era la ciudad más grande del mundo. La rebelión de <strong>An Lushan (755–763)</strong> fue el punto de inflexión: el reemplazo del servicio militar campesino por ejércitos profesionales comandados por gobernadores militares autónomos (<em>jiedushi</em>) creó una fragmentación del poder que hacía inevitable el colapso final en 907. Tras el Tang, cinco efímeras dynastías en el norte y diez reinos independientes en el sur —el <strong>Período de las Cinco Dynastías y los Diez Reinos (907–960)</strong>— antes de que los Song reunificaran.</p>
+  </div>
 
-  <p>Tras el Tang, cinco efímeras dinastías en el norte y diez reinos independientes en el sur: el <strong>Período de las Cinco Dinastías y los Diez Reinos (907–960)</strong>. Paradójicamente, mientras el norte se desangraba en guerras de sucesión, el sur acumulaba capital a través del comercio marítimo con el sudeste asiático y el mundo árabe. Esos recursos serían decisivos cuando llegara el momento de la reunificación Song.</p>
+  <div class="meeg-block">
+    <div class="subsec-label">Análisis Crítico · MEEE-G</div>
+    <ul>
+      <li><strong>Clasificación:</strong> La existencia del Gran Canal Sui, la magnificencia cosmopolita de Chang'an y la rebelión de An Lushan son <em>datos confirmados</em> por fuentes chinas, árabes y japonesas concordantes. La tesis de que los <em>jiedushi</em> causaron la fragmentación Tang es una <em>inferencia plausible</em> bien documentada.</li>
+      <li><strong>Evaluación Explicacionista:</strong> El Sui es un caso clásico de "catapulta histórica": una dynastía de vida corta que crea la infraestructura que permite el apogeo de la siguiente. El Gran Canal es el factor que explica la prosperidad Tang tanto como la eficacia militar de los primeros emperadores. El costo fue el agotamiento fiscal y social que destruyó al Sui mismo.</li>
+    </ul>
+  </div>
 
-  <div class="cr-aside">
-    <div class="cr-label">Conexión · Costa Rica</div>
-    <p>Costa Rica abolió el ejército en 1949, optando —como los reinos del sur durante este período— por invertir en educación y comercio en lugar de capacidad coercitiva. La lección del Gran Canal Sui: la infraestructura puede catalizar el desarrollo, pero su financiamiento no debe agotar al Estado. La lección Tang: la delegación del poder militar en actores autónomos crea dinámicas de fragmentación que son muy difíciles de revertir.</p>
+  <div class="add-block">
+    <div class="subsec-label">Lectura Dinámica · ADD</div>
+    <ul>
+      <li><strong>Gran Canal como reconfiguración de flujos:</strong> El Gran Canal conectó el excedente agrícola del sur con los ejércitos y la burocracia del norte. Reconfiguró la geografía económica de China de manera permanente: a partir de ese momento, el sur alimenta al norte. Esta reconfiguración de flujos es irreversible.</li>
+      <li><strong>Delegación militar como perturbación sistémica:</strong> La decisión Tang de crear los <em>jiedushi</em> —gobernadores militares autónomos— fue racional en el contexto de la amenaza An Lushan, pero generó un acoplamiento que descentralizó el poder militar de forma irreversible. La seguridad a corto plazo comprometió la estabilidad a largo plazo.</li>
+      <li><strong>"China" como proyecto político:</strong> Los cuatro siglos de fragmentación post-Han demuestran que la identidad china no es natural: es una construcción que debe ser reproducida activamente. Incluso durante la fragmentación, la aspiración a la reunificación nunca desapareció del horizonte político chino.</li>
+    </ul>
+  </div>
+
+  <div class="cr-block">
+    <div class="subsec-label">Relevancia para Costa Rica</div>
+    <p>Costa Rica abolió el ejército en 1949, optando —como los reinos del sur durante este período— por invertir en educación y comercio en lugar de capacidad coercitiva. La lección del Gran Canal Sui: la infraestructura puede catalizar el desarrollo, pero su financiamiento no debe agotar al Estado. La lección Tang: la delegación del poder militar en actores autónomos crea dinámicas de fragmentación muy difíciles de revertir. En términos contemporáneos: la subcontratación de funciones estatales críticas puede generar acoplamientos que eventualmente escapan al control público.</p>
   </div>
 </div>
 
 <hr class="divider">
 
-<!-- PERÍODO 11: SONG -->
+<!-- ═══════════════════════════════════════════ -->
+<!-- PERÍODO 8: SONG                            -->
+<!-- ═══════════════════════════════════════════ -->
 <div class="period" id="song">
   <div class="period-header">
     <div class="period-dates">960 – 1279 d.C.</div>
-    <h2>La Dinastía Song: <em>El Genio que No Podía Defenderse</em></h2>
+    <h2>8 · La Dynastía Song: <em>El Genio que No Podía Defenderse</em></h2>
   </div>
 
-  <p>La historia Song es una de las más fascinantes y más perturbadoras de la historia mundial: una civilización que fue simultáneamente la más avanzada de su tiempo y militarmente incapaz de defenderse.</p>
+  <div class="resumen">
+    <p>La historia Song es una de las más fascinantes y más perturbadoras de la historia mundial: una civilización que fue simultáneamente la más avanzada de su tiempo y militarmente incapaz de defenderse.</p>
 
-  <p><span class="ep ep-DC">DC</span> Los Song fueron el primer gobierno en emitir papel moneda de uso generalizado, el primero en establecer una armada permanente con barcos de vapor rudimentarios, los inventores de la imprenta de tipos móviles —dos siglos antes que Gutenberg—, los primeros en aplicar la brújula a la navegación y la pólvora a las armas de fuego. La producción de hierro y acero alcanzó niveles no vistos en Europa hasta la Revolución Industrial. Hangzhou y Quanzhou se convirtieron en los mayores puertos comerciales del mundo. <span class="ep ep-Int">Int</span> China, en el período Song, fue el principal exportador de innovación del planeta.</p>
+    <p><span class="ep ep-DC">DC</span> Los Song fueron el primer gobierno en emitir papel moneda de uso generalizado, el primero en establecer una armada permanente, los inventores de la imprenta de tipos móviles —dos siglos antes que Gutenberg—, los primeros en aplicar la brújula a la navegación y la pólvora a las armas de fuego. La producción de hierro y acero alcanzó niveles no vistos en Europa hasta la Revolución Industrial. Hangzhou y Quanzhou se convirtieron en los mayores puertos comerciales del mundo. <span class="ep ep-Int">Int</span> China, en el período Song, fue el principal exportador de innovación del planeta.</p>
 
-  <p>Y sin embargo. Los Song nunca recuperaron el norte de China, perdido ante los Jin. Pagaban tributo anual a los Liao y luego a los Jin a cambio de una paz precaria. Su estrategia militar fue deliberadamente defensiva: el Estado había invertido en control civil de los militares para evitar los golpes de estado que habían destruido el Tang. <span class="ep ep-IP">IP</span> Esta decisión institucional fue racional a corto plazo —evitó el caudillismo— pero catastrófica a largo plazo: los dejó sin la capacidad de resistir cuando apareciera un enemigo verdaderamente formidable.</p>
+    <p>Y sin embargo. Los Song nunca recuperaron el norte de China, perdido ante los Jin. Pagaban tributo anual a los Liao y luego a los Jin a cambio de una paz precaria. Su estrategia militar fue deliberadamente defensiva: el Estado había invertido en control civil de los militares para evitar los golpes de estado que habían destruido el Tang. <span class="ep ep-IP">IP</span> Esta decisión institucional fue racional a corto plazo —evitó el caudillismo— pero catastrófica a largo plazo: dejó al sistema sin capacidad de resistir cuando apareciera un enemigo verdaderamente formidable.</p>
 
-  <div class="pullquote">
-    <p>El contraste Song es un caso de <em>especialización asimétrica</em>: cuando un sistema invierte todo en una dimensión —la económico-cultural— a costa de otra —la militar—, se vuelve extraordinariamente brillante y extraordinariamente vulnerable al mismo tiempo.</p>
-    <cite>Lectura ADD · La paradoja de la fragilidad Song</cite>
+    <div class="img-placeholder">
+      <div class="ph-label">Imagen sugerida · Dynastía Song</div>
+      <div class="ph-desc">Ilustración "A lo largo del río durante el Festival Qingming" (Qingming Shanghe Tu)<br>o fotografía de papel moneda Song (jiaozi) — primer papel moneda del mundo</div>
+      <div class="ph-size">Formato recomendado: horizontal ancho · JPG/PNG</div>
+    </div>
   </div>
 
-  <div class="cr-aside">
-    <div class="cr-label">Conexión · Costa Rica</div>
-    <p>La analogía Song-Costa Rica es la más directa de toda esta historia: un país sin ejército, con alta inversión en educación y cultura, una economía basada en servicios de alto valor y comercio exterior. El dilema Song —¿cuánta fragilidad defensiva puede sostener un sistema que apuesta todo al capital simbólico?— es también el dilema costarricense en un mundo que se vuelve cada vez más inestable.</p>
+  <div class="meeg-block">
+    <div class="subsec-label">Análisis Crítico · MEEE-G</div>
+    <ul>
+      <li><strong>Clasificación:</strong> Las innovaciones tecnológicas Song (papel moneda, imprenta, brújula, pólvora, armada) son <em>datos confirmados</em> por evidencia textual y arqueológica. El tributo a Liao y Jin es igualmente un <em>dato confirmado</em>. La decisión estratégica de subordinar lo militar a lo civil como causa de la vulnerabilidad Song es una <em>inferencia plausible</em>.</li>
+      <li><strong>Evaluación Explicacionista:</strong> La paradoja Song —máxima innovación + máxima vulnerabilidad— es un caso de <em>especialización asimétrica</em>: el sistema invirtió todo en la dimensión económico-cultural a costa de la dimensión militar. Fue una decisión racional (evitar el caudillismo Tang) que generó consecuencias no previstas (fragilidad ante actores externos que no tenían las mismas inhibiciones institucionales).</li>
+    </ul>
+  </div>
+
+  <div class="add-block">
+    <div class="subsec-label">Lectura Dinámica · ADD</div>
+    <ul>
+      <li><strong>Especialización asimétrica:</strong> El caso Song es el ejemplo histórico más claro de un sistema que desarrolla capacidades extraordinarias en una dimensión y se vuelve extraordinariamente vulnerable en otra. Es un patrón que se repite en sistemas complejos: la especialización genera eficiencia pero reduce resiliencia.</li>
+      <li><strong>Atractor comercial global:</strong> Hangzhou y Quanzhou como los mayores puertos del mundo medieval son la expresión de un sistema que ha hecho del comercio su atractor principal. La economía Song es la primera "economía de mercado" en sentido moderno, según algunos historiadores.</li>
+      <li><strong>Paradoja institucional:</strong> El control civil del militar, óptimo a corto plazo para prevenir el caudillismo, fue catastrófico a largo plazo. Es un ejemplo de cómo las soluciones a problemas anteriores generan nuevas vulnerabilidades sistémicas.</li>
+    </ul>
+  </div>
+
+  <div class="cr-block">
+    <div class="subsec-label">Relevancia para Costa Rica</div>
+    <p>La analogía Song-Costa Rica es la más directa de toda esta historia: un país sin ejército, con alta inversión en educación y cultura, una economía basada en servicios de alto valor y comercio exterior. El dilema Song —¿cuánta fragilidad defensiva puede sostener un sistema que apuesta todo al capital simbólico?— es también el dilema costarricense en un mundo que se vuelve cada vez más inestable geopolíticamente. La respuesta Song fue el multilateralismo y el pago de tributo; la respuesta costarricense ha sido el Derecho Internacional y la neutralidad. Ambas son estrategias racionales; ambas dependen de que el entorno sistémico las respete.</p>
   </div>
 </div>
 
 <hr class="divider">
 
-<!-- PERÍODO 12: MONGOLES -->
+<!-- ═══════════════════════════════════════════ -->
+<!-- PERÍODO 9: ASCENSO MONGOL                  -->
+<!-- ═══════════════════════════════════════════ -->
 <div class="period" id="mongoles">
   <div class="period-header">
     <div class="period-dates">1206 – 1234 d.C.</div>
-    <h2>El Ascenso Mongol: <em>La Tormenta desde la Estepa</em></h2>
+    <h2>9 · El Ascenso Mongol: <em>La Tormenta desde la Estepa</em></h2>
   </div>
 
-  <p>En 1206, en las orillas del río Onon, una asamblea tribal proclamó a Temüjin <strong>Gengis Khan</strong> —"Gobernante Universal" u "Océano de Poder". Temüjin había unificado a las tribus mongolas mediante una combinación de alianzas matrimoniales, reformas militares radicales y una brutalidad calculada que convertía la rendición en la única opción racional: las ciudades que resistían eran destruidas; las que se rendían, incorporadas. Era terror como política exterior.</p>
+  <div class="resumen">
+    <p>En 1206, en las orillas del río Onon, una asamblea tribal proclamó a Temüjin <strong>Gengis Khan</strong> —"Gobernante Universal". Temüjin había unificado a las tribus mongolas mediante una combinación de alianzas matrimoniales, reformas militares radicales y una brutalidad calculada que convertía la rendición en la única opción racional: las ciudades que resistían eran destruidas; las que se rendían, incorporadas. Era terror como política exterior.</p>
 
-  <p><span class="ep ep-DC">DC</span> En 1211, Gengis declaró la guerra a la dinastía Jin, que gobernaba el norte de China. La campaña duró más de dos décadas. Los mongoles combinaban la caballería de arco compuesto —con un alcance y cadencia muy superiores a los arqueros chinos— con la artillería de asedio china que capturaban a sus ingenieros. En 1215 tomaron Zhongdu, la actual Pekín. El último emperador Jin se suicidó en 1234. Este es el punto donde termina esta primera parte: <em>la víspera</em>. Los Song del sur sobrevivían todavía. Por poco tiempo.</p>
+    <p><span class="ep ep-DC">DC</span> En 1211, Gengis declaró la guerra a la dynastía Jin, que gobernaba el norte de China. La campaña duró más de dos décadas. Los mongoles combinaban la caballería de arco compuesto —con un alcance y cadencia muy superiores a los arqueros chinos— con la artillería de asedio china que capturaban con sus ingenieros. En 1215 tomaron Zhongdu, la actual Pekín. El último emperador Jin se suicidó en 1234. Este es el punto donde termina esta primera parte: <em>la víspera</em>. Los Song del sur sobrevivían todavía. Por poco tiempo.</p>
 
-  <p>La conquista del norte de China fue extraordinariamente destructiva —las estimaciones de mortalidad, aunque debatidas, son de escala catastrófica. <span class="ep ep-IP">IP</span> Pero los mongoles también mostraron una notable capacidad de adaptación: adoptaron la administración china, incorporaron a funcionarios kitanos y chinos, y comenzaron el largo proceso de sinización que culminaría bajo Kublai Khan. Este patrón —el conquistador que termina siendo conquistado culturalmente— se repetiría varias veces más en la historia china.</p>
+    <p>La conquista del norte de China fue extraordinariamente destructiva —las estimaciones de mortalidad, aunque debatidas, son de escala catastrófica. <span class="ep ep-IP">IP</span> Pero los mongoles también mostraron una notable capacidad de adaptación: adoptaron la administración china, incorporaron a funcionarios kitanos y chinos, y comenzaron el largo proceso de sinización que culminaría bajo Kublai Khan. Este patrón —el conquistador que termina siendo conquistado culturalmente— se repetiría varias veces más en la historia china.</p>
 
-  <div class="pullquote">
-    <p>La superioridad militar mongola fue un <em>efecto sistémico</em>: movilidad (caballos de pastoreo), tecnología (arco compuesto), organización (disciplina decimal) y terror psicológico (la reputación de masacre como disuasión). Ninguno de estos elementos era nuevo; su síntesis fue lo que resultó imparable.</p>
-    <cite>Lectura ADD · El acoplamiento que conquistó el mundo</cite>
+    <div class="img-placeholder">
+      <div class="ph-label">Imagen sugerida · El Ascenso Mongol</div>
+      <div class="ph-desc">Mapa de las conquistas mongolas (1206–1234) en el norte de China<br>Alternativa: miniatura persa de Gengis Khan o representación de caballería mongola</div>
+      <div class="ph-size">Formato recomendado: horizontal · JPG/PNG</div>
+    </div>
   </div>
 
-  <div class="cr-aside">
-    <div class="cr-label">Conexión · Costa Rica</div>
-    <p>El ascenso mongol demuestra cómo un nodo periférico —las tribus de la estepa, consideradas "bárbaras"— puede convertirse en un atractor global mediante innovación organizativa. Costa Rica, como nodo periférico en el sistema global, debe estar atenta a las disrupciones que pueden alterar el equilibrio de poder desde los márgenes: hoy, inteligencia artificial, energías renovables o biotecnología.</p>
+  <div class="meeg-block">
+    <div class="subsec-label">Análisis Crítico · MEEE-G</div>
+    <ul>
+      <li><strong>Clasificación:</strong> La proclamación de Gengis Khan, la guerra contra los Jin y la toma de Zhongdu son <em>datos confirmados</em> por fuentes chinas, persas y europeas. La magnitud de la mortalidad en la conquista es un <em>dato confirmado</em> en cuanto a su escala catastrófica, pero las cifras exactas son <em>hipótesis</em> con amplios rangos de incertidumbre. La sinización gradual de los mongoles es una <em>inferencia plausible</em> bien documentada.</li>
+      <li><strong>Evaluación Explicacionista:</strong> El terror calculado de Gengis Khan como política exterior es un caso de <em>disuasión sistémica</em>: la reputación de destrucción total por resistencia hacía que la rendición fuera racionalmente preferible, reduciendo el costo total de la conquista al mismo tiempo que maximizaba su extensión territorial.</li>
+    </ul>
+  </div>
+
+  <div class="add-block">
+    <div class="subsec-label">Lectura Dinámica · ADD</div>
+    <ul>
+      <li><strong>Superioridad mongola como efecto sistémico:</strong> La ventaja mongola no radicaba en ningún elemento aislado, sino en su síntesis: movilidad (caballos de pastoreo), tecnología (arco compuesto), organización (disciplina decimal), capacidad de aprendizaje (ingenieros capturados) y terror psicológico (reputación como disuasión). El sistema mongol fue adaptativo en tiempo real.</li>
+      <li><strong>Patrón conquistador-conquistado:</strong> La sinización gradual de los mongoles anticipa el patrón que se repetirá con los manchúes Qing: el conquistador militar termina siendo absorbido por la clausura organizacional china, más "pegajosa" que cualquier ejército.</li>
+      <li><strong>Perturbación sistémica de escala máxima:</strong> La conquista mongola fue la mayor perturbación externa que experimentó el sistema chino hasta el siglo XIX. El hecho de que China sobreviviera como entidad civilizatoria es en sí mismo evidencia de la robustez de su clausura organizacional.</li>
+    </ul>
+  </div>
+
+  <div class="cr-block">
+    <div class="subsec-label">Relevancia para Costa Rica</div>
+    <p>El ascenso mongol demuestra cómo un nodo periférico —las tribus de la estepa, consideradas "bárbaras" por las civilizaciones asentadas— puede convertirse en un atractor global mediante innovación organizativa y síntesis tecnológica. Costa Rica, como nodo periférico en el sistema global, debe estar atenta a las disrupciones que pueden alterar el equilibrio de poder desde los márgenes: inteligencia artificial, energías renovables, biotecnología. Los nuevos "ejércitos mongoles" no llevan arcos: llevan algoritmos.</p>
   </div>
 </div>
 
@@ -418,7 +752,7 @@
   <h3>Síntesis · China como Atractor Histórico</h3>
   <p>Tres mil años de historia china, analizados desde la ADD, revelan un <strong>atractor civilizatorio</strong> de extraordinaria resiliencia. Sus cinco pilares:</p>
   <ul>
-    <li><strong>El Estado burocrático-confuciano:</strong> centralización administrativa (Qin) más legitimidad moral (Han). Las dinastías cambian; el modelo persiste más de dos milenios.</li>
+    <li><strong>El Estado burocrático-confuciano:</strong> centralización administrativa (Qin) más legitimidad moral (Han). Las dynastías cambian; el modelo persiste más de dos milenios.</li>
     <li><strong>La escritura logográfica:</strong> un sistema que crea un espacio de comunicabilidad entre hablantes de lenguas mutuamente ininteligibles. El pegamento cultural del imperio.</li>
     <li><strong>La economía del arroz y el mijo:</strong> un excedente agrícola que financia burocracia, ejércitos, artesanos y comerciantes. La base material del atractor.</li>
     <li><strong>La relación asimétrica con la estepa:</strong> ninguna estrategia —tributo, murallas, expediciones punitivas— fue definitiva. La conquista mongola fue la solución temporal, pero también condujo a la sinización del conquistador.</li>
@@ -441,5 +775,6 @@
   </nav>
 </footer>
 
+<script data-goatcounter="https://antropos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

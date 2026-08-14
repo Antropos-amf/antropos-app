@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANCA-ADE · FEES 2027 · UCR: Contribuciones estructurales y coyunturales · Abril 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#080b0e; --bg-card:#0e1318; --bg-section:#131a21;
+  --granate:#6B1528; --granate-bright:#9B2540;
+  --amber:#d4850a; --amber-light:#f0a030;
+  --teal:#0d8a7e; --teal-light:#1ab8aa;
+  --text:#dfe6ec; --text-muted:#8a9ba8; --text-dim:#546070;
+  --border:#1e2e3a; --border-light:#2a3f50;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;font-weight:300;font-size:16px;line-height:1.8;}
+
+.ticker-outer{background:var(--granate);position:sticky;top:0;z-index:100;overflow:hidden;height:30px;display:flex;align-items:center;}
+.ticker-label{font-family:'Space Mono',monospace;font-size:9.5px;font-weight:700;letter-spacing:.12em;color:#fff;padding:0 14px;white-space:nowrap;background:rgba(0,0,0,.3);height:100%;display:flex;align-items:center;flex-shrink:0;}
+.ticker-track{display:flex;animation:ticker 45s linear infinite;white-space:nowrap;}
+.ticker-track span{font-family:'Space Mono',monospace;font-size:9.5px;color:rgba(255,255,255,.88);padding:0 28px;letter-spacing:.06em;}
+.ticker-track span::before{content:'▸ ';color:rgba(255,255,255,.45);}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+.masthead{background:linear-gradient(180deg,#000d18 0%,var(--bg) 100%);border-bottom:1px solid var(--border);padding:48px 40px 36px;position:relative;overflow:hidden;}
+.masthead::before{content:'';position:absolute;left:0;top:0;bottom:0;width:8px;background:var(--granate);}
+.masthead-nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:36px;padding-left:20px;}
+.masthead-logo{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:.15em;color:var(--text);text-decoration:none;}
+.nav-links{display:flex;gap:24px;font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;}
+.nav-links a{color:var(--text-muted);text-decoration:none;}
+.nav-links a:hover{color:var(--text);}
+.masthead-inner{padding-left:20px;}
+.report-tag{font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--granate-bright);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.report-tag::before{content:'';display:block;width:28px;height:1px;background:var(--granate);}
+.masthead h1{font-family:'Playfair Display',serif;font-size:clamp(24px,4vw,40px);font-weight:700;line-height:1.15;color:var(--text);margin-bottom:14px;}
+.masthead .subtitle{font-style:italic;font-size:17px;color:var(--text-muted);line-height:1.5;max-width:680px;margin-bottom:28px;}
+.masthead-meta{display:flex;gap:28px;font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-dim);border-top:1px solid var(--border);padding-top:20px;flex-wrap:wrap;}
+.masthead-meta span{color:var(--text-muted);}
+.masthead-meta a{color:var(--text-muted);text-decoration:none;}
+
+main{max-width:1100px;margin:0 auto;padding:0 40px;}
+section{padding:56px 0 36px;border-bottom:1px solid var(--border);}
+section:last-child{border-bottom:none;}
+.sec-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--granate-bright);margin-bottom:18px;display:flex;align-items:center;gap:10px;}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--border);max-width:100px;}
+section h2{font-family:'Playfair Display',serif;font-size:clamp(20px,3vw,28px);font-weight:700;color:var(--text);line-height:1.2;margin-bottom:24px;}
+section p{margin-bottom:1rem;color:var(--text);}
+
+.epist{display:inline-block;font-family:'Space Mono',monospace;font-size:8.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border:1px solid;padding:2px 7px;border-radius:2px;vertical-align:middle;margin-left:6px;}
+.epist-conf{border-color:#1ab8aa;color:#1ab8aa;}
+.epist-infer{border-color:var(--amber-light);color:var(--amber-light);}
+.epist-hip{border-color:var(--text-dim);color:var(--text-dim);}
+
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:28px 0;}
+.card{background:var(--bg-card);border:1px solid var(--border);border-top:3px solid var(--granate);padding:22px 24px;border-radius:2px;}
+.card-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--text-dim);margin-bottom:10px;}
+.card h3{font-size:1.0rem;font-weight:600;color:var(--text);margin-bottom:8px;}
+.card p{font-size:0.87rem;color:var(--text-muted);margin-bottom:0;}
+
+.tabla-wrap{overflow-x:auto;margin:28px 0;}
+table{width:100%;border-collapse:collapse;font-size:.85rem;}
+thead tr{background:var(--granate);}
+thead th{padding:10px 14px;text-align:left;font-family:'Space Mono',monospace;font-size:8.5px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,.9);white-space:nowrap;}
+tbody tr{border-bottom:1px solid var(--border);}
+tbody tr:hover{background:var(--bg-card);}
+tbody td{padding:10px 14px;color:var(--text-muted);vertical-align:top;}
+tbody td:first-child{color:var(--text);}
+.cifra{font-family:'Space Mono',monospace;font-size:.82rem;color:var(--amber-light);}
+
+.info-box{background:var(--bg-section);border:1px solid var(--border-light);border-left:4px solid var(--teal);padding:18px 22px;margin:24px 0;}
+.info-box p{font-size:.9rem;color:var(--text-muted);margin-bottom:.5rem;}
+.info-box p:last-child{margin-bottom:0;}
+
+.escenario-block{background:var(--bg-card);border:1px solid var(--border);padding:24px 28px;margin:20px 0;border-radius:2px;}
+.esc-granate{border-top:3px solid var(--granate-bright);}
+.esc-amber{border-top:3px solid var(--amber);}
+.esc-teal{border-top:3px solid var(--teal);}
+.escenario-block h3{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--text);margin-bottom:12px;}
+.escenario-block p{font-size:.9rem;color:var(--text-muted);margin-bottom:.7rem;}
+.escenario-block p:last-child{margin-bottom:0;}
+.prob-badge{display:inline-block;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:2px;margin-bottom:12px;}
+.prob-alta{background:rgba(107,21,40,.3);color:var(--granate-bright);border:1px solid var(--granate);}
+.prob-media{background:rgba(212,133,10,.15);color:var(--amber-light);border:1px solid var(--amber);}
+.prob-baja{background:rgba(13,138,126,.1);color:var(--teal-light);border:1px solid var(--teal);}
+
+.nota-meto{background:var(--bg-section);border:1px solid var(--border);padding:20px 24px;margin-top:32px;font-size:.82rem;color:var(--text-dim);line-height:1.6;}
+.nota-meto strong{color:var(--text-muted);}
+.nota-meto a{color:var(--teal-light);text-decoration:none;}
+
+footer{background:#030507;border-top:1px solid var(--border);padding:24px 40px;font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.12em;color:var(--text-dim);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+footer a{color:var(--text-muted);text-decoration:none;}
+footer a:hover{color:var(--text);}
+
+@media(max-width:680px){.masthead{padding:32px 20px;}.masthead-inner{padding-left:12px;}main{padding:0 20px;}footer{flex-direction:column;text-align:center;}}
+</style>
+</head>
+<body>
+
+<div class="ticker-outer">
+  <div class="ticker-label">FEES 2027</div>
+  <div class="ticker-track">
+    <span>UCR: presupuesto ₡373.595 millones para 2026</span>
+    <span>Becas: ₡41.398 millones · 23.000+ estudiantes beneficiados</span>
+    <span>FEES representa el 95,9% del presupuesto de la UCR</span>
+    <span>Principal productora de conocimiento científico del país</span>
+    <span>UCR: presupuesto ₡373.595 millones para 2026</span>
+    <span>Becas: ₡41.398 millones · 23.000+ estudiantes beneficiados</span>
+    <span>FEES representa el 95,9% del presupuesto de la UCR</span>
+    <span>Principal productora de conocimiento científico del país</span>
+  </div>
+</div>
+
+<div class="masthead">
+  <div class="masthead-nav">
+    <a class="masthead-logo" href="/">ANTROPOS.APP</a>
+    <div class="nav-links">
+      <a href="/informes-estrategicos/fees-2027/">Informe 1</a>
+      <a href="anexo.html">Anexo</a>
+      <a href="/articulos/fees-2027/">Artículo →</a>
+    </div>
+  </div>
+  <div class="masthead-inner">
+    <div class="report-tag">Informe Estratégico · FEES 2027 · 2 de 3</div>
+    <h1>Universidad de Costa Rica<br>Contribuciones estructurales y coyunturales<br>a la economía, el bienestar social y los capitales nacionales</h1>
+    <p class="subtitle">Análisis de la relación entre la inversión pública en la UCR y las contribuciones multidimensionales que genera para el país, en contraste con su presupuesto y gastos. Marcos Bourdieanos y evaluación epistémica MEEE-G.</p>
+    <div class="masthead-meta">
+      <span>ANCA-ADE · UCR</span>
+      <span>·</span>
+      <span>Metodología MEEE-G + ADD</span>
+      <span>·</span>
+      <span>23 de abril de 2026</span>
+    </div>
+  </div>
+</div>
+
+<main>
+
+  <section>
+    <div class="sec-label">1 · Delimitación</div>
+    <h2>Aportes estructurales, coyunturales y capitales</h2>
+    <p>El análisis distingue entre <strong>aportes estructurales</strong> (rol histórico como institución autónoma: formación de capital humano, generación de conocimiento, extensión cultural y social), <strong>aportes coyunturales</strong> (respuestas a desafíos nacionales específicos: crisis económicas, pandemias, emergencias) y <strong>capitales según Bourdieu</strong> (contribución a la acumulación y distribución de capital económico, cultural, social y simbólico).</p>
+
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-label">Datos confirmados <span class="epist epist-conf">✓</span></div>
+        <h3>Presupuesto UCR 2026</h3>
+        <p><span class="cifra">₡373.595 millones</span> (aumento del 3,6%). FEES aportado: <span class="cifra">₡296.511 millones</span> (49,96% del FEES total). Becas: <span class="cifra">₡41.398 millones</span> (aumento del 6% respecto a 2025). Más de <strong>23.000 estudiantes</strong> con beca activa.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Inferencias plausibles <span class="epist epist-infer">~</span></div>
+        <h3>Impacto económico</h3>
+        <p>La UCR genera un impacto económico positivo medible, aunque no sistematizado en un único estudio de impacto. Estudios de instituciones similares sugieren un retorno que puede superar el 5-10% del PIB cuando se consideran efectos multiplicadores.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Lagunas</div>
+        <h3>Información insuficiente</h3>
+        <p>No existe un estudio integral reciente que cuantifique el impacto directo e indirecto de la UCR en el PIB. Faltan datos desagregados sobre la tasa de retorno social de la inversión en investigación y extensión.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-label">2 · Mapa de actores</div>
+    <h2>Intereses y roles en el sistema FEES</h2>
+    <div class="tabla-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Actor</th>
+            <th>Rol</th>
+            <th>Objetivo principal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>UCR (Administración)</td>
+            <td>Ejecutora del presupuesto, garante de la autonomía universitaria</td>
+            <td>Maximizar el impacto social y académico con recursos limitados; defender y aumentar el FEES</td>
+          </tr>
+          <tr>
+            <td>Gobierno central (Ejecutivo)</td>
+            <td>Define el techo presupuestario del FEES en negociación con las universidades</td>
+            <td>Controlar el gasto público; cumplir la regla fiscal; responder a demandas de eficiencia</td>
+          </tr>
+          <tr>
+            <td>Asamblea Legislativa</td>
+            <td>Aprueba el presupuesto nacional, del cual deriva el FEES</td>
+            <td>Fiscalizar el gasto; equilibrar demandas de educación, salud e infraestructura</td>
+          </tr>
+          <tr>
+            <td>CONARE</td>
+            <td>Coordina la distribución del FEES entre las cinco universidades</td>
+            <td>Asegurar una distribución equitativa que fortalezca al sistema en su conjunto</td>
+          </tr>
+          <tr>
+            <td>Estudiantado</td>
+            <td>Principal beneficiario de becas y servicios educativos</td>
+            <td>Acceder a educación de calidad con equidad; permanencia y graduación</td>
+          </tr>
+          <tr>
+            <td>Sector productivo</td>
+            <td>Empleador de graduados; socio potencial en investigación aplicada</td>
+            <td>Disponer de capital humano calificado; acceso a innovación y transferencia tecnológica</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-label">3 · Aportes y capitales</div>
+    <h2>Repercusiones multidimensionales para Costa Rica</h2>
+
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-label">Económico</div>
+        <h3>Contribución al PIB y competitividad</h3>
+        <p>La UCR forma profesionales altamente capacitados que alimentan sectores clave: medicina, ingeniería, ciencias agroalimentarias, informática y administración. <span class="epist epist-infer">Infer.</span>: aporta al menos un 1-2% del PIB directamente vía masa salarial y compras, más un efecto indirecto considerable.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Social</div>
+        <h3>Movilidad social y bienestar</h3>
+        <p>La beca UCR permite que estudiantes de extrema pobreza accedan y permanezcan en la educación superior, contribuyendo a romper la reproducción intergeneracional de la desigualdad. Los proyectos de extensión fortalecen el tejido social comunitario. <span class="epist epist-conf">Conf.</span></p>
+      </div>
+      <div class="card">
+        <div class="card-label">Cultural y simbólico</div>
+        <h3>Capital cultural y autoridad epistémica</h3>
+        <p>La UCR es la principal productora y difusora de conocimiento científico, humanístico y artístico del país. Goza de alto reconocimiento social y confianza pública, lo que le otorga autoridad moral y capacidad de incidencia en políticas públicas. <span class="epist epist-interp" style="border-color:#8070c0;color:#9080d0;">Interp.</span></p>
+      </div>
+      <div class="card">
+        <div class="card-label">Científico</div>
+        <h3>Producción científica e innovación</h3>
+        <p>Publica las principales revistas académicas del país, alberga centros de investigación de excelencia y participa en redes internacionales. Genera patentes y conocimientos que pueden ser base para nuevas empresas, aunque la transferencia tecnológica es aún incipiente. <span class="epist epist-conf">Conf.</span></p>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <p><strong>Atractores del sistema UCR (ADD):</strong></p>
+      <p>· <em>Atractor de equidad:</em> la política de becas (23.000+ estudiantes, cobertura &gt;80% en sedes regionales) como mecanismo de redistribución de oportunidades.</p>
+      <p>· <em>Atractor de desarrollo regional:</em> inversión en sedes regionales (₡58.161 millones para 2026) como polo de desarrollo descentralizado.</p>
+      <p>· <em>Atractor de calidad e internacionalización:</em> producción científica, rankings regionales y acreditación de carreras que atraen recursos y colaboraciones internacionales.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-label">4 · Escenarios plausibles</div>
+    <h2>Trayectorias probables del sistema</h2>
+
+    <div class="escenario-block esc-teal">
+      <div class="prob-badge prob-alta">Probabilidad: media-alta</div>
+      <h3>Escenario 1 — Consolidación virtuosa</h3>
+      <p>El FEES se mantiene o crece moderadamente en términos reales. La UCR continúa aumentando la inversión en becas y sedes regionales, reduciendo brechas de acceso. Se publican estudios de impacto económico que evidencian un retorno social positivo, fortaleciendo el respaldo político. La producción científica y la transferencia tecnológica crecen, apoyando la diversificación productiva del país.</p>
+    </div>
+
+    <div class="escenario-block esc-amber">
+      <div class="prob-badge prob-media">Probabilidad: media</div>
+      <h3>Escenario 2 — Estabilidad con presión fiscal</h3>
+      <p>El FEES se congela o crece por debajo de la inflación. La UCR optimiza recursos mediante eficiencia administrativa y proyectos plurianuales. La inversión en becas e infraestructura se mantiene, pero la investigación y la actualización tecnológica sufren rezagos. El debate público sobre el «retorno de la inversión» se intensifica, exigiendo mayor rendición de cuentas.</p>
+    </div>
+
+    <div class="escenario-block esc-granate">
+      <div class="prob-badge" style="background:rgba(107,21,40,.15);color:var(--granate-bright);border:1px solid var(--granate);">Probabilidad: baja pero no nula</div>
+      <h3>Escenario 3 — Erosión del financiamiento</h3>
+      <p>El Estado reduce el FEES en términos reales por crisis fiscal o cambios en prioridades de gasto. La UCR enfrenta recortes que afectan la cobertura de becas, el mantenimiento de infraestructura y la contratación de personal. Se produce un círculo vicioso: menor inversión → menor calidad y equidad → menor percepción de valor público → más presión para reducir fondos.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-label">5 · Incertidumbres abiertas</div>
+    <h2>Límites del análisis disponible</h2>
+    <p><strong>Cuantificación precisa del impacto económico:</strong> no se dispone de un estudio robusto y reciente que calcule el aporte de la UCR al PIB, la productividad o el ahorro fiscal derivado de la formación de capital humano. <span class="epist epist-infer">Infer.</span></p>
+    <p><strong>Retorno de la inversión en investigación básica:</strong> genera beneficios a muy largo plazo y de difícil atribución directa. <span class="epist epist-hip" style="border-color:var(--text-dim);color:var(--text-dim);">Hip.</span></p>
+    <p><strong>Eficiencia comparativa:</strong> faltan datos para afirmar con certeza que la UCR es más o menos eficiente que universidades privadas o extranjeras en términos de costo por graduado o impacto por colón invertido.</p>
+    <p><strong>Futuro del FEES:</strong> las negociaciones políticas anuales introducen alta incertidumbre, especialmente en contextos de fragilidad fiscal o cambio de gobierno (a partir del 8 de mayo de 2026, presidencia de Laura Fernández).</p>
+
+    <div class="nota-meto">
+      <strong>Nota metodológica:</strong> Análisis MEEE-G + ADD. Las afirmaciones están clasificadas según su estatus epistémico. No constituye predicción determinista ni recomendación política. Ver también: <a href="index.html">Informe 1 — Articulación institucional</a> · <a href="anexo.html">Anexo — Programas estratégicos</a> · <a href="/articulos/fees-2027/">Artículo divulgativo</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span><a href="/">ANTROPOS.APP</a> · Alfredo Montero Fonseca</span>
+  <span>ANCA-ADE · FEES 2027 · Informe 2 de 3</span>
+  <span><a href="/articulos/fees-2027/">← Artículo divulgativo</a></span>
+</footer>
+
+<script data-goatcounter="https://antropos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

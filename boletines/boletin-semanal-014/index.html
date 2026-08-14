@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANCA-ADD · Boletín Semanal N.° 014 — La semana en que el guión se volvió contra el escenario</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d1214;
+  --bg2:#121a1d;
+  --panel:#162024;
+  --ink:#e8e6e1;
+  --dim:#9aa8ab;
+  --teal:#3fb8ac;
+  --teal-d:#1d6b64;
+  --amber:#c98a3c;
+  --copper:#a9682e;
+  --gold:#d8b45a;
+  --red:#c4483f;
+  --line:#243237;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:19px;
+  line-height:1.68;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px}
+
+/* TICKER */
+.ticker{
+  background:var(--red);color:#fff;overflow:hidden;white-space:nowrap;
+  font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;
+  padding:9px 0;border-bottom:1px solid #8c332c;
+}
+.ticker span{display:inline-block;padding-left:100%;animation:tick 44s linear infinite}
+@keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
+
+/* MASTHEAD */
+header.mast{
+  border-bottom:3px double var(--line);
+  padding:44px 0 30px;background:linear-gradient(180deg,var(--bg2),var(--bg));
+}
+.kicker{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.22em;
+  color:var(--teal);text-transform:uppercase;margin-bottom:14px;
+}
+h1.title{
+  font-family:'Bebas Neue',sans-serif;font-size:clamp(46px,8vw,86px);
+  line-height:.92;letter-spacing:.01em;color:var(--ink);margin-bottom:6px;
+}
+.subtitle{
+  font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(20px,3.4vw,30px);
+  color:var(--gold);line-height:1.25;margin-bottom:22px;
+}
+.meta{
+  font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--dim);
+  line-height:2;border-top:1px solid var(--line);padding-top:16px;
+}
+.meta b{color:var(--teal);font-weight:500}
+
+figure.fig{margin:22px 0 26px}
+figure.fig img{width:100%;display:block;border-radius:3px;border:1px solid var(--line)}
+figure.fig figcaption{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.03em;
+  color:var(--dim);margin-top:8px;line-height:1.5;text-align:center}
+figure.fig.cover img{border-radius:2px}
+.fig-pair{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:22px 0 26px}
+.fig-pair figure.fig{margin:0}
+@media(max-width:640px){.fig-pair{grid-template-columns:1fr}}
+.pop-switch{background:var(--panel);border-bottom:1px solid var(--line);text-align:center;padding:10px 16px;
+  font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--dim);letter-spacing:.02em}
+.pop-switch a{color:var(--teal);text-decoration:underline}
+.sitenav{background:var(--bg2);border-bottom:1px solid var(--line);padding:0 20px;
+  display:flex;align-items:center;gap:16px;height:34px;font-family:'IBM Plex Mono',monospace;
+  font-size:11px;letter-spacing:.06em;overflow-x:auto;white-space:nowrap}
+.sitenav a{color:var(--dim);text-decoration:none}
+.sitenav a:hover{color:var(--teal)}
+.sitenav .sep{color:var(--line)}
+.sitenav .rel{color:var(--gold)}
+
+/* NAV */
+nav.sticky{
+  position:sticky;top:0;z-index:50;background:rgba(13,18,20,.95);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line);
+  font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;
+}
+nav.sticky .wrap{display:flex;gap:18px;overflow-x:auto;padding-top:12px;padding-bottom:12px}
+nav.sticky a{color:var(--dim);text-decoration:none;white-space:nowrap;border-bottom:1px solid transparent}
+nav.sticky a:hover{color:var(--teal);border-bottom-color:var(--teal)}
+
+/* SECTIONS */
+section{padding:46px 0;border-bottom:1px solid var(--line)}
+h2.sec{
+  font-family:'Bebas Neue',sans-serif;font-size:34px;letter-spacing:.03em;
+  color:var(--teal);margin-bottom:18px;
+}
+.tag{
+  display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:10px;
+  letter-spacing:.16em;text-transform:uppercase;padding:4px 10px;
+  border:1px solid currentColor;border-radius:2px;margin-bottom:14px;
+}
+.t-geo{color:var(--red)}
+.t-eco{color:var(--gold)}
+.t-cie{color:var(--teal)}
+.t-tec{color:#7fa8d8}
+.t-nac{color:var(--amber)}
+
+article{padding:40px 0;border-bottom:1px dashed var(--line)}
+article:last-child{border-bottom:none}
+h3.note{
+  font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(25px,4vw,34px);
+  line-height:1.14;margin-bottom:8px;color:var(--ink);
+}
+.dek{font-style:italic;color:var(--dim);font-size:20px;margin-bottom:22px}
+h4{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--teal);margin:26px 0 10px;
+}
+p{margin-bottom:14px}
+ul,ol{margin:0 0 16px 22px}
+li{margin-bottom:8px}
+code.ep{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;
+  padding:1px 5px;border-radius:2px;background:#1e2c30;color:var(--teal);
+}
+code.ep.ip{color:var(--gold)}
+code.ep.h{color:var(--amber)}
+code.ep.int{color:#7fa8d8}
+code.ep.c{color:var(--red)}
+
+/* BLOQUES */
+.meee{
+  border-left:3px solid var(--teal);background:#101a1d;padding:18px 22px;margin:22px 0;
+}
+.add{
+  border-left:3px solid var(--teal-d);background:#0f1a19;padding:18px 22px;margin:22px 0;
+}
+.sm{
+  border-left:3px solid var(--copper);background:#1a1510;padding:18px 22px;margin:22px 0;
+}
+.cr{
+  border-left:3px solid var(--amber);background:#191410;padding:18px 22px;margin:22px 0;
+}
+.blk-h{
+  font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;
+  text-transform:uppercase;margin-bottom:10px;
+}
+.meee .blk-h{color:var(--teal)}
+.add .blk-h{color:#5fd0c4}
+.sm .blk-h{color:var(--copper)}
+.cr .blk-h{color:var(--amber)}
+
+table{width:100%;border-collapse:collapse;font-size:16px;margin:14px 0}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{
+  font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--dim);font-weight:500;
+}
+
+.pills{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0 6px}
+.pill{
+  flex:1 1 220px;border:1px solid var(--line);border-radius:3px;padding:13px 15px;
+  background:#111a1d;font-size:16px;
+}
+.pill b{
+  display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px;
+}
+.pill.a b{color:var(--teal)}
+.pill.b b{color:var(--gold)}
+.pill.c b{color:var(--red)}
+
+.lead{
+  font-family:'Playfair Display',serif;font-size:22px;line-height:1.5;
+  color:var(--gold);font-style:italic;border-left:3px solid var(--gold);
+  padding-left:20px;margin:0 0 26px;
+}
+.method{
+  background:#101619;border:1px solid var(--line);padding:22px;margin:34px 0;
+  font-size:16px;color:var(--dim);
+}
+.method b{color:var(--teal)}
+.tools dt{
+  font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--teal);
+  margin-top:14px;letter-spacing:.06em;
+}
+.tools dd{margin:4px 0 0;font-size:17px;color:var(--dim)}
+.refs{font-size:15px;color:var(--dim)}
+.refs li{margin-bottom:9px;line-height:1.5}
+footer{
+  padding:34px 0 60px;font-family:'IBM Plex Mono',monospace;font-size:11px;
+  color:var(--dim);letter-spacing:.06em;line-height:2;
+}
+footer a{color:var(--teal);text-decoration:none}
+@media(max-width:640px){body{font-size:18px}.pills{flex-direction:column}}
+</style>
+</head>
+<body>
+
+<div class="sitenav">
+  <a href="https://antropos.app/">← antropos.app</a>
+  <span class="sep">|</span>
+  <a href="https://antropos.app/boletines/">Boletines</a>
+  <span class="sep">|</span>
+  <a class="rel" href="../especial-alias-diablo/">Vea también — Informe Especial: Operación Némesis (alias «Diablo») →</a>
+</div>
+
+<div class="pop-switch">¿Prefiere una lectura más sencilla? <a href="popular/">Lea la edición para todo público del Boletín N.° 014 →</a></div>
+
+<div class="ticker"><span>
+■ SALA IV PRORROGA MAGISTRATURAS SUPLENTES Y EL EJECUTIVO HABLA DE «GOLPE DE ESTADO» — SENTENCIA 2026-13498 ■ TRUMP DICE HABER ALCANZADO «LAS BASES DE UN ACUERDO» CON IRÁN QUE INCLUYE LA APERTURA DE ORMUZ (1 AGO) ■ EL BRENT SUPERÓ LOS 100 USD EL 26 DE JULIO; TRÁNSITO POR ORMUZ EN ~14 BUQUES/DÍA FRENTE A ~120 PREGUERRA ■ LIDAR REVELA 432 GEOGLIFOS EN ACRE: LA CIVILIZACIÓN AQUIRY PUDO ALBERGAR 1,25–3 MILLONES DE PERSONAS ■ FIGURILLAS DE AVES EN MARFIL DE MAMUT EN HOHLE FELS, ~40.000 AÑOS ■ HOY 2 DE AGOSTO ENTRAN EN VIGOR LOS PODERES SANCIONATORIOS DEL REGLAMENTO DE IA DE LA UE ■
+</span></div>
+
+<header class="mast">
+  <div class="wrap">
+    <div class="kicker">ANCA-ADD · Agente Noticioso Crítico de Actualidad</div>
+    <h1 class="title">Boletín Semanal N.° 014</h1>
+    <div class="subtitle">La semana en que el guión se volvió contra el escenario</div>
+    <div class="meta">
+      <b>Ventana de cobertura:</b> 8 de julio – 2 de agosto de 2026 (ventana ampliada)<br>
+      <b>Cierre editorial:</b> domingo 2 de agosto de 2026, 09:34, hora de San José (UTC−6)<br>
+      <b>Registros analíticos:</b> MEEE-G · ADD · Sistemas-Mundo<br>
+      <b>Notas:</b> 6 · <b>Nacional (Costa Rica):</b> 1 dedicada + 6 bloques de acoplamiento · <b>Ciencia:</b> 2
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <figure class="fig cover">
+    <img src="img/portada.jpg" alt="Boletín Semanal N.° 014 — La semana en que el guión se volvió contra el escenario, 8 de julio al 2 de agosto de 2026." loading="lazy">
+    <figcaption>Boletín Semanal N.° 014 · Ormuz, la fractura de poderes en Costa Rica, el crudo sobre 100 dólares, Aquiry, Hohle Fels y el Reglamento de IA de la UE.</figcaption>
+  </figure>
+</div>
+
+<nav class="sticky">
+  <div class="wrap">
+    <a href="#panorama">Panorama</a>
+    <a href="#n1">01 · Irán</a>
+    <a href="#n2">02 · Poderes CR</a>
+    <a href="#n3">03 · Crudo</a>
+    <a href="#n4">04 · Aquiry</a>
+    <a href="#n5">05 · Hohle Fels</a>
+    <a href="#n6">06 · IA / UE</a>
+    <a href="#sintesis">Síntesis</a>
+    <a href="#incert">Incertidumbres</a>
+    <a href="#caja">Caja de herramientas</a>
+    <a href="#fuentes">Fuentes</a>
+  </div>
+</nav>
+
+<!-- PANORAMA -->
+<section id="panorama">
+  <div class="wrap">
+    <h2 class="sec">Panorama de la ventana</h2>
+    <p class="lead">Cuatro semanas sin boletín no fueron cuatro semanas sin historia. Esta entrega cubre una ventana ampliada —del 8 de julio al 2 de agosto— y por eso su lógica no es la de la crónica semanal sino la del corte transversal: qué cambió de régimen, no qué pasó cada día.</p>
+
+    <p>Tres procesos organizan el período. El primero es la <b>oscilación</b> del conflicto entre Estados Unidos e Irán, que en estas semanas dejó de comportarse como una escalada lineal y pasó a alternar bombardeo y anuncio de acuerdo en ciclos cada vez más cortos, con el estrecho de Ormuz como parámetro de control visible. El segundo es la <b>fractura institucional costarricense</b>: una sentencia de la Sala Constitucional del 30 de julio desencadenó que la Presidencia de la República calificara a cuatro magistrados de «golpistas» y que la Asamblea Legislativa anunciara una querella penal contra ellos. El tercero es la <b>entrada en vigor</b>, precisamente hoy, de los poderes sancionatorios del Reglamento de Inteligencia Artificial de la Unión Europea.</p>
+
+    <p>Los dos primeros están acoplados por un canal muy concreto —el precio del crudo, que atraviesa la factura energética costarricense— y por uno menos evidente: ambos son procesos donde la legitimidad de las reglas del juego se disputa <em>mientras</em> se juega. Las dos notas de ciencia de esta entrega, ambas arqueológicas, ofrecen por contraste una escala temporal distinta: una civilización amazónica de millones de personas que la disciplina no sabía que existía, y unas figurillas de marfil de cuarenta mil años. No son alivio: son recordatorio de que las escalas en las que se organiza lo humano exceden ampliamente el ciclo noticioso.</p>
+
+    <div class="method">
+      <p><b>Declaración de límites del agente.</b> Toda la información de este boletín procede de búsqueda web realizada el 2 de agosto de 2026 entre las 09:34 y las 10:20, hora de San José. No se dispone de fuentes primarias de acceso directo en los expedientes judiciales costarricenses ni en los documentos militares citados; en ambos casos se trabaja con cobertura de medios con estándares editoriales verificables y con comunicados institucionales reproducidos por esos medios. Donde la evidencia es de fuente única o donde las partes ofrecen versiones incompatibles, se declara explícitamente en el cuerpo de la nota.</p>
+    </div>
+
+    <figure class="fig">
+      <img src="img/metodo.jpg" alt="Información con método en tiempos de ruido digital: el método ANCA-ADD frente a las redes sociales." loading="lazy">
+      <figcaption>El método ANCA-ADD frente al ruido digital — publicación reflexiva, estructura documental y normativa que resiste contrastación.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- NOTA 1 -->
+<section id="n1">
+  <div class="wrap">
+    <article>
+      <span class="tag t-geo">Política y geopolítica</span>
+      <h3 class="note">El péndulo de Ormuz: cinco meses de guerra que ya no escala, oscila</h3>
+      <p class="dek">Entre el 8 de julio y el 2 de agosto, el conflicto Estados Unidos–Irán alternó al menos tres ciclos completos de bombardeo y anuncio de acuerdo. El estrecho pasó de cierre casi total a promesa de «apertura inmediata».</p>
+
+      <div class="fig-pair">
+        <figure class="fig">
+          <img src="img/ormuz.jpg" alt="El péndulo de Ormuz: pico de tensión el 30-31 de julio, valle el 1-2 de agosto, tránsito marítimo caído de 120 a 14 buques diarios." loading="lazy">
+          <figcaption>El péndulo de Ormuz: régimen turbulento, oscilación de alta frecuencia.</figcaption>
+        </figure>
+        <figure class="fig">
+          <img src="img/golfo.jpg" alt="El impacto oculto: geopolítica sobre el Golfo — Kuwait, Catar, Baréin y Emiratos Árabes Unidos absorbiendo las perturbaciones del conflicto." loading="lazy">
+          <figcaption>Colonización del mundo de la vida: los Estados del Golfo como sustrato material de un conflicto ajeno.</figcaption>
+        </figure>
+      </div>
+
+      <h4>Hechos verificados</h4>
+      <p>La guerra iniciada el 28 de febrero de 2026 con bombardeos aéreos conjuntos de Estados Unidos e Israel sobre ciudades iraníes cumplió cinco meses durante esta ventana <code class="ep">[DC]</code>. En respuesta al ataque inicial, Irán lanzó misiles y drones contra Israel y contra bases estadounidenses en Baréin, Kuwait, Catar, Emiratos Árabes Unidos, Arabia Saudita, Jordania e Irak, e impuso un cierre selectivo del estrecho de Ormuz <code class="ep">[DC]</code>.</p>
+      <p>Dentro de la ventana analizada, la secuencia documentada es la siguiente. A mediados de julio la escalada se intensificó por seis días consecutivos, ampliando los blancos hacia puentes e instalaciones energéticas, con cierre prácticamente total de Ormuz <code class="ep">[DC]</code>. El 27 de julio, Trump ordenó pausar los bombardeos tras trece días de ataques para negociar un acuerdo; la cancillería iraní negó que existieran conversaciones <code class="ep">[DC]</code>. El 28 de julio el viceministro de Exteriores iraní, Kazem Gharibabadi, declaró en televisión iraní que Irán no había presentado ninguna solicitud de negociación en los últimos dieciséis o diecisiete días, contradiciendo la afirmación de Trump de que Irán estaba «deseando negociar» <code class="ep">[DC]</code>.</p>
+      <p>El jueves 30 de julio Estados Unidos bombardeó la isla de Qeshm; Irán respondió atacando con drones posiciones estadounidenses en Kuwait <code class="ep">[DC]</code>. El sábado 1 de agosto Trump anunció que cancelaba un ataque planeado contra Irán citando avances en las conversaciones, y el domingo 2 afirmó haber alcanzado «las bases de un acuerdo» que incluiría la «apertura inmediata y completa» del estrecho <code class="ep">[DC]</code>. Ese mismo fin de semana, un petrolero fue alcanzado por un proyectil no identificado cerca de la entrada de Ormuz frente a la costa de Omán, según la Dirección de Operaciones Marítimas del Reino Unido, y las fuerzas armadas kuwaitíes interceptaron amenazas de drones en su espacio aéreo <code class="ep">[DC]</code>.</p>
+      <p>Sobre el costo humano: UNICEF comunicó que en los últimos cinco meses más de 4.000 niños han muerto o resultado heridos en seis países de Oriente Medio, más de 2.500 de ellos en Irán, con 386 muertos y 2.117 heridos <code class="ep">[DC]</code>. El Pentágono actualizó su base de datos de bajas registrando más de 140 heridos adicionales y restituyendo la cifra de cuatro soldados muertos por ataques iraníes <code class="ep">[DC]</code>.</p>
+
+      <h4>Contexto</h4>
+      <p>Esta guerra fue precedida por la Guerra de los Doce Días de junio de 2025 y por las protestas iraníes de 2025–2026. En las semanas anteriores al ataque inicial, Estados Unidos negociaba con Irán en Ginebra mientras reforzaba su presencia aérea y naval en la región. El propósito declarado de los bombardeos de febrero nunca fue clarificado oficialmente <code class="ep">[DC]</code>. La secuencia «negociar mientras se despliega» que precedió al 28 de febrero es exactamente la que se repite ahora en escala menor —de ahí la desconfianza estructural entre las partes.</p>
+
+      <div class="meee">
+        <div class="blk-h">Análisis epistémico · MEEE-G</div>
+        <table>
+          <tr><th>Afirmación</th><th>Estatus</th><th>Proceso que la genera</th></tr>
+          <tr><td>Existió un intercambio de golpes documentado (Qeshm ↔ Kuwait) el 30–31 de julio</td><td><code class="ep">[DC]</code></td><td>Reivindicaciones oficiales de ambas partes, coincidentes en el hecho aunque no en su justificación</td></tr>
+          <tr><td>Trump afirmó haber alcanzado «las bases de un acuerdo» con apertura de Ormuz</td><td><code class="ep">[DC]</code> (como <em>declaración</em>)</td><td>Declaración presidencial reproducida por múltiples medios. El <em>contenido</em> del acuerdo no está verificado</td></tr>
+          <tr><td>Existe efectivamente un acuerdo bilateral en curso</td><td><code class="ep ip">[IP]</code> débil</td><td>Fuente única e interesada, contradicha por la contraparte cinco días antes. Sostiene inferencia sobre <em>contactos</em>, no sobre <em>acuerdo</em></td></tr>
+          <tr><td>Irán no ha solicitado negociaciones en las últimas dos semanas y media</td><td><code class="ep int">[Int]</code></td><td>Declaración de Gharibabadi. Compatible con la existencia de contactos vía intermediarios, que él no niega explícitamente</td></tr>
+          <tr><td>El anuncio del acuerdo funciona como instrumento de gestión de la escalada más que como cierre del conflicto</td><td><code class="ep h">[H]</code></td><td>Explicación que integra mejor el patrón repetido (anuncio → silencio → bombardeo) que la hipótesis rival de negociación de buena fe. Contrastable en 10–15 días</td></tr>
+          <tr><td>Cifras de UNICEF sobre menores muertos y heridos</td><td><code class="ep">[DC]</code></td><td>Organismo de Naciones Unidas con metodología declarada, sin contraparte que las dispute</td></tr>
+        </table>
+        <p style="font-size:16px;margin-top:12px"><b>Nota explicacionista.</b> Frente a la evidencia disponible compiten dos explicaciones. La primera: hay una negociación real y accidentada. La segunda: los anuncios de acuerdo son un recurso de gestión doméstica y de mercado, y la negociación es marginal. La segunda explica mejor tres rasgos que la primera deja sin cubrir: la negación sistemática de la contraparte, la ausencia de mediador declarado y el hecho de que cada anuncio precede a un intervalo corto de recuperación de posiciones militares. No es concluyente —es la mejor explicación disponible hoy, revisable.</p>
+      </div>
+
+      <div class="add">
+        <div class="blk-h">Lectura dinámica · ADD</div>
+        <p><b>Declaración de nivel (Paso 0).</b> El análisis opera en el nivel comunicativo-institucional, con acoplamiento al nivel energético-material. Herramienta principal: Habermas (tensión sistema / mundo de la vida). Tipo de analogía: <em>fuerte</em> para los conceptos de régimen y bifurcación; <em>literal</em> para los flujos disipativos de hidrocarburos.</p>
+        <p><b>Parámetro de control declarado.</b> El volumen de tránsito marítimo efectivo por Ormuz. Es medible, tiene línea de base (~120 cruces diarios preguerra), y su valor actual —al menos 14 buques comerciales en 24 horas al 29 de julio, es decir cerca del 12% del volumen previo— sitúa al sistema fuera de su régimen de reproducción normal. Sin declarar este parámetro, hablar de «bifurcación» sería metáfora.</p>
+        <p><b>Régimen.</b> El sistema no está en escalada lineal ni en desescalada: está en <em>oscilación de alta frecuencia</em> dentro de un régimen turbulento. La distinción importa. Una escalada tiene dirección; una oscilación tiene amplitud. Lo que se observa desde el 8 de julio es un ciclo de amplitud sostenida y período decreciente: los intervalos entre bombardeo y anuncio de acuerdo se acortan. En términos ADD, esto es característico de un sistema cuyas fluctuaciones ya no son amortiguadas por su organización interna.</p>
+        <p><b>Clausura organizacional y acoplamiento.</b> Ambos actores mantienen clausura operacional robusta: cada uno procesa las perturbaciones del otro según su propia lógica de legitimación interna. Trump necesita anunciar acuerdos; el liderazgo iraní necesita negar solicitudes de negociación. Ninguna de las dos operaciones responde a lo que el otro hizo: responde a lo que la propia organización requiere para sostenerse. Esto explica por qué las señales no convergen aunque los hechos sean compartidos.</p>
+        <p><b>Colonización del mundo de la vida.</b> El concepto aplica con precisión al Golfo. Los Estados de Kuwait, Catar, Baréin y Emiratos no son partes del conflicto pero absorben sus perturbaciones: sus espacios aéreos, sus puertos y sus poblaciones son el sustrato material sobre el que se ejecuta una lógica sistémica —militar y de mercado— que no fue deliberada por ellos. La advertencia iraní de que los Estados del Golfo que cooperen con Washington corren riesgo de «quemarse en las llamas de la guerra» es la formulación explícita de esa captura.</p>
+      </div>
+
+      <div class="sm">
+        <div class="blk-h">Capa Sistemas-Mundo · Wallerstein / Arrighi</div>
+        <p><b>Posición sistémica.</b> Ormuz no es un accidente geográfico: es un punto de estrangulamiento en la cadena mercantil que sostiene la reproducción energética del centro y de la semiperiferia asiática. Quien controla el flujo no controla un recurso, controla una <em>condición de posibilidad</em> de la acumulación ajena. Esto explica por qué la disputa persiste aun cuando ninguno de los dos actores obtiene ventaja militar decisiva.</p>
+        <p><b>Ciclo de acumulación (Arrighi).</b> La reiteración de anuncios que mueven el precio del crudo antes de mover la posición militar es coherente con la fase de expansión financiera del ciclo hegemónico estadounidense: el rendimiento de la señal supera al de la operación. No es una acusación de manipulación —es una observación sobre qué tipo de instrumento resulta rentable en esta fase del ciclo.</p>
+        <p><b>Límite temporal declarado.</b> El marco de sistemas-mundo opera en escalas de décadas. No predice el desenlace de una semana. Su aporte aquí es explicar por qué el estrangulamiento persiste, no cuándo cede.</p>
+      </div>
+
+      <div class="cr">
+        <div class="blk-h">Relevancia para Costa Rica</div>
+        <p>Costa Rica es un nodo semiperiférico con acoplamiento energético total y sin capacidad de amortiguación estructural: importa el 100% de los hidrocarburos que consume y no tiene refinación operativa propia. La oscilación de Ormuz no llega al país como noticia, llega como precio. En junio se requirieron 340 millones de dólares para importar hidrocarburos —el monto mensual más alto en al menos año y medio <code class="ep">[DC]</code>.</p>
+        <p>La vulnerabilidad específica no es el nivel del precio sino su <em>varianza</em>. El mecanismo tarifario costarricense —RECOPE propone, ARESEP aprueba, con ventana de estudio mensual retrospectiva— está diseñado para transmitir tendencias, no oscilaciones de alta frecuencia. Un régimen de oscilación produce entonces un desfase sistemático entre el precio internacional y el precio doméstico, con un costo distributivo que recae sobre los hogares de menor ingreso, que gastan una proporción mayor de su presupuesto en transporte.</p>
+        <p>Oportunidad declarable: la ventana de tipo de cambio históricamente bajo (¢450,81 en Monex el 20 de julio, mínimo desde el inicio de la serie del BCCR en 2007) amortigua parcialmente el choque en colones. Es un amortiguador coyuntural, no estructural.</p>
+      </div>
+
+      <div class="pills">
+        <div class="pill a"><b>Escenario A · Tregua instrumental</b>El anuncio del 2 de agosto se materializa en una reapertura parcial de Ormuz que dura semanas, no meses. El crudo cede sin normalizarse. Señal discriminante: recuperación del tránsito por encima de 40 cruces diarios sostenida dos semanas.</div>
+        <div class="pill b"><b>Escenario B · Oscilación persistente</b>El ciclo anuncio–bombardeo continúa con período decreciente. Ormuz se mantiene entre el 10% y el 30% del volumen preguerra. Señal discriminante: nuevo bombardeo dentro de los siete días posteriores al anuncio.</div>
+        <div class="pill c"><b>Escenario C · Bifurcación por extensión</b>El cierre se extiende a Bab al-Mandeb vía Yemen, como Teherán ha advertido. Dos rutas simultáneamente interrumpidas. Señal discriminante: caída del tránsito por Bab al-Mandeb por debajo de 20 buques diarios.</div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- NOTA 2 -->
+<section id="n2">
+  <div class="wrap">
+    <article>
+      <span class="tag t-nac">Costa Rica · Política nacional</span>
+      <h3 class="note">Sentencia 2026-13498: cuando el árbitro y los jugadores se acusan mutuamente de estar fuera del campo</h3>
+      <p class="dek">La Sala Constitucional prorrogó los nombramientos vencidos de magistraturas suplentes. La Presidencia respondió llamando «golpistas» a cuatro magistrados. La Asamblea anunció querella penal por prevaricato. Cuatro expresidentes defendieron al tribunal.</p>
+
+      <div class="fig-pair">
+        <figure class="fig">
+          <img src="img/sala-iv.jpg" alt="Política nacional: cuando los árbitros salen del campo — Sala Constitucional, Presidencia y Asamblea Legislativa enfrentados por la sentencia 2026-13498." loading="lazy">
+          <figcaption>Sala Constitucional, Presidencia y Asamblea: tres lógicas institucionales procesando el mismo hecho como perturbaciones opuestas.</figcaption>
+        </figure>
+        <figure class="fig">
+          <img src="img/fractura.jpg" alt="Diagnóstico de la fractura institucional: lógica de la Sala IV frente a lógica del Ejecutivo/Legislativo, rastreador de escenarios A, B y C." loading="lazy">
+          <figcaption>Clausura organizacional: por qué dos poderes ante los mismos hechos producen respuestas incompatibles.</figcaption>
+        </figure>
+      </div>
+
+      <h4>Hechos verificados</h4>
+      <p>El 15 de octubre de 2025, la Corte Plena remitió a la Asamblea Legislativa una nómina de 18 candidatos para llenar nueve de las doce plazas de magistraturas suplentes de la Sala Constitucional <code class="ep">[DC]</code>. Tras once rondas de votación, la Asamblea no eligió a ninguno <code class="ep">[DC]</code>. Los períodos de los suplentes en ejercicio vencieron el 16 de diciembre de 2025 <code class="ep">[DC]</code>. Posteriormente, la mayoría legislativa impulsada por el oficialista Partido Pueblo Soberano promovió la devolución de la lista a la Corte Suprema, argumentando que los nombres propuestos no reunían consenso político suficiente <code class="ep">[DC]</code>.</p>
+      <p>Un ciudadano presentó recurso de amparo alegando que la ausencia de magistraturas suplentes impedía integrar el tribunal para resolver procesos en los que él figuraba como recurrente <code class="ep">[DC]</code>. Con corte al 14 de julio de 2026, al menos 123 expedientes permanecían sin resolver por inhibitorias o recusaciones de magistrados propietarios <code class="ep">[DC]</code>.</p>
+      <p>Mediante la sentencia 2026-13498 (expediente 26-13498-0007-CO), dada a conocer la noche del jueves 30 de julio, la Sala Constitucional declaró con lugar el amparo, determinó que la Asamblea vulneró el derecho de acceso a la justicia constitucional, ordenó la prórroga temporal de los nombramientos vencidos, dejó sin efecto los acuerdos legislativos dirigidos a devolver la nómina, y obligó al Congreso a continuar el proceso con la misma lista remitida por la Corte <code class="ep">[DC]</code>. La prórroga rige mientras el Congreso elige a los nuevos suplentes y solo permite emplear magistraturas suplentes en asuntos urgentes e indispensables <code class="ep">[DC]</code>.</p>
+      <p>La presidenta de la República, Laura Fernández, calificó la decisión de «ilegal e inconstitucional» y afirmó: «esto es ni más ni menos que un golpe de estado de un sector del poder judicial contra la Asamblea Legislativa, el único autorizado para nombrar y destituir a los magistrados» <code class="ep">[DC]</code>. Tanto Fernández como Nogui Acosta, jefe de fracción de Pueblo Soberano, y Yara Jiménez, presidenta del Congreso, calificaron de «golpistas» a los cuatro magistrados que adoptaron la decisión <code class="ep">[DC]</code>. El Ejecutivo sostiene que la resolución vulnera los artículos 9, 11, 121 (incisos 3 y 20), 154, 157, 158 y 164 de la Constitución <code class="ep">[DC]</code>.</p>
+      <p>La Asamblea Legislativa anunció que presentará querella por prevaricato contra los cuatro magistrados ante la Secretaría de la Corte Plena, buscando que se investiguen responsabilidades penales y disciplinarias <code class="ep">[DC]</code>. Desde la oposición, el diputado José María Villalta (Frente Amplio) sostuvo que la prórroga evita la paralización del sistema de justicia constitucional y permite seguir presentando recursos de amparo por acceso a medicamentos, tratamientos y servicios públicos <code class="ep">[DC]</code>. Cuatro expresidentes de la República defendieron públicamente la decisión de la Sala y rechazaron las acusaciones del Gobierno <code class="ep">[DC]</code>.</p>
+
+      <h4>Contexto</h4>
+      <p>El conflicto entre poderes no nació el 30 de julio. En comparecencia ante la Comisión de Nombramientos el 16 de julio, el presidente de la Corte Suprema, Orlando Aguirre, sostuvo un tenso intercambio con diputados oficialistas y responsabilizó al Congreso por el bloqueo <code class="ep">[DC]</code>. El período viene marcado además por el conflicto presupuestario de junio y julio —recortes a los Poderes de la República por directriz de Hacienda, advertencia del OIJ sobre desaceleración de investigaciones— y por el endurecimiento de la retórica gubernamental hacia el Poder Judicial tras la captura del capo apodado «Diablo» <code class="ep">[DC]</code>.</p>
+      <p>El núcleo jurídico de la disputa es preciso. El artículo 158 constitucional establece que los magistrados son electos por la Asamblea por períodos de ocho años. El artículo 164 remite a la ley la fijación del período y condiciones de propietarios y suplentes. La Sala no discute que la potestad de nombrar sea legislativa; lo que resuelve es que el <em>no ejercicio prolongado</em> de esa potestad produce una vulneración de derechos fundamentales de terceros que el tribunal está obligado a remediar. La Asamblea sostiene que remediar de ese modo es sustituir al legislador.</p>
+
+      <div class="meee">
+        <div class="blk-h">Análisis epistémico · MEEE-G</div>
+        <table>
+          <tr><th>Afirmación</th><th>Estatus</th><th>Proceso que la genera</th></tr>
+          <tr><td>Contenido y efectos dispositivos de la sentencia 2026-13498</td><td><code class="ep">[DC]</code></td><td>Resolución identificada por número de expediente, reportada de forma coincidente por Infobae, El Mundo CR, El Observador y Delfino</td></tr>
+          <tr><td>123 expedientes pendientes por falta de integración al 14 de julio</td><td><code class="ep">[DC]</code></td><td>Dato consignado en la propia resolución y reproducido por múltiples medios</td></tr>
+          <tr><td>Once rondas de votación sin elección</td><td><code class="ep">[DC]</code></td><td>Registro legislativo público</td></tr>
+          <tr><td>La decisión constituye un «golpe de Estado»</td><td><code class="ep c">[Opinión de actor]</code></td><td>Calificación política del Ejecutivo y del oficialismo legislativo. No es una categoría jurídica aplicable ni una descripción verificable; se registra como posición, no como hecho</td></tr>
+          <tr><td>La resolución excede las competencias de la Sala</td><td><code class="ep h">[H]</code> en disputa</td><td>Tesis del Ejecutivo con anclaje en los artículos 121, 158 y 164. Tesis rival de la Sala con anclaje en el artículo 41 (acceso a la justicia) y en la doctrina de la omisión inconstitucional. Ninguna es resoluble sin el fallo completo, aún no publicado</td></tr>
+          <tr><td>El bloqueo legislativo fue deliberado</td><td><code class="ep ip">[IP]</code></td><td>Se infiere del patrón: once rondas fallidas más el impulso explícito de devolución de la nómina por la mayoría oficialista. La explicación alternativa —falta genuina de consenso sobre candidatos— es compatible con los mismos datos y no puede descartarse</td></tr>
+          <tr><td>La querella por prevaricato prosperará</td><td><code class="ep c">[C]</code></td><td>Evidencia insuficiente. El prevaricato exige dolo en el dictado de resolución contraria a la ley; el desacuerdo interpretativo entre poderes no lo configura por sí solo</td></tr>
+        </table>
+        <p style="font-size:16px;margin-top:12px"><b>Advertencia de proceso.</b> La Sala recomendó esperar el fallo completo antes de valorar la decisión. Al cierre de este boletín, el texto íntegro no está disponible públicamente. Todas las evaluaciones sobre el <em>razonamiento</em> del tribunal —a diferencia de las que versan sobre su <em>parte dispositiva</em>— son por tanto provisionales.</p>
+      </div>
+
+      <div class="add">
+        <div class="blk-h">Lectura dinámica · ADD</div>
+        <p><b>Declaración de nivel (Paso 0).</b> Nivel normativo-plural, con acoplamiento al nivel comunicativo-institucional. Herramientas: pluralismo jurídico-político (coexistencia de órdenes con criterios de legitimidad no reducibles entre sí) y Habermas (colonización). Analogía: <em>fuerte</em>.</p>
+        <p><b>Parámetro de control declarado.</b> La capacidad efectiva de integración del tribunal constitucional, medible por el número de expedientes irresueltos por falta de quórum. Al 14 de julio: 123. Ese es el número que, al crecer, mueve al sistema hacia la zona de bifurcación —no la temperatura de las declaraciones.</p>
+        <p><b>El conflicto como disputa sobre la clausura organizacional.</b> Lo que está en juego no es quién tiene razón sobre el artículo 158. Es quién define <em>qué cuenta como perturbación</em> para el sistema institucional costarricense. Para la Sala, la perturbación es la parálisis del acceso a la justicia y la respuesta interna disponible es la prórroga. Para el Ejecutivo y la mayoría legislativa, la perturbación es la invasión de competencias y la respuesta interna disponible es la querella. Ambos operan con clausura organizacional intacta: cada uno responde según su propia organización, no según lo que el otro hizo. Por eso las declaraciones no dialogan.</p>
+        <p><b>Régimen.</b> Zona de bifurcación incipiente, no bifurcación consumada. El criterio para esa clasificación es específico: las señales características —aumento de la frecuencia de fluctuaciones, polarización del vocabulario público, crisis de legitimidad recíproca— están todas presentes. Pero el sistema todavía procesa el conflicto <em>por vías institucionales</em>: la respuesta a una sentencia es una querella, no un desconocimiento. Mientras el procesamiento siga siendo institucional, el régimen es turbulento con bifurcación latente. La señal que marcaría el cruce del umbral sería el desacato explícito: que el Ejecutivo o el Legislativo declaren no reconocer los efectos de una resolución. La pregunta de la diputada opositora —qué ocurriría si el Ejecutivo deja de reconocer las decisiones del tribunal constitucional— nombra exactamente ese umbral.</p>
+        <p><b>Violencia simbólica y campo (Bourdieu).</b> El uso de «golpistas» no es un exabrupto: es una operación sobre el capital simbólico del campo jurídico. Su función es reclasificar una decisión judicial como acto de fuerza, desplazando la disputa del terreno donde el Poder Judicial tiene ventaja —la interpretación técnica— al terreno donde la tiene el Ejecutivo: la apelación directa al «pueblo de Costa Rica», invocada explícitamente por el jefe de fracción oficialista. La respuesta de los cuatro expresidentes opera en el mismo registro, movilizando capital simbólico acumulado para restituir la clasificación anterior.</p>
+        <p><b>Nota de rigor.</b> La ADD no dictamina quién tiene razón jurídicamente. Describe el proceso. Un lector puede coincidir con la tesis del Ejecutivo sobre el artículo 158 y aceptar íntegramente este análisis dinámico, y viceversa.</p>
+      </div>
+
+      <div class="sm">
+        <div class="blk-h">Capa Sistemas-Mundo</div>
+        <p>La erosión de contrapesos judiciales en Estados semiperiféricos no es un fenómeno aislado ni exclusivamente doméstico. En la división del trabajo del sistema-mundo, la previsibilidad jurídica es un activo de posición: es parte de lo que Costa Rica ha vendido durante décadas como diferencial frente a sus vecinos —estabilidad institucional como factor de atracción de inversión y de servicios. Un conflicto abierto entre poderes erosiona ese activo con independencia de quién tenga razón en el fondo. El costo, en términos de sistemas-mundo, no lo paga el ganador del pulso: lo paga la posición del país en la jerarquía.</p>
+        <p><b>Límite del marco.</b> Wallerstein describe condiciones estructurales de larga duración; no explica por qué el conflicto estalló en julio de 2026 y no en otro momento. Esa explicación es coyuntural y pertenece a los registros anteriores.</p>
+      </div>
+
+      <div class="cr">
+        <div class="blk-h">Relevancia para Costa Rica · Dimensiones</div>
+        <p><b>Política.</b> Un Ejecutivo con mayoría legislativa propia (31 de 57 escaños del PPSO desde febrero) enfrentado al único órgano con capacidad de anular sus actos. La configuración es estructuralmente distinta de la de administraciones anteriores, que gobernaron con minoría y para las cuales el freno principal era el Congreso.</p>
+        <p><b>Social.</b> El punto que subrayó Villalta es el que más directamente toca a la ciudadanía: el recurso de amparo es en Costa Rica la vía práctica por la que las personas obtienen medicamentos, tratamientos y servicios públicos denegados. Los 123 expedientes irresueltos no son una abstracción procesal.</p>
+        <p><b>Simbólica.</b> La abolición del ejército en 1948 y la creación de la Sala Constitucional en 1989 son los dos pilares del relato costarricense de excepcionalidad institucional en la región. Que el segundo se dispute públicamente en términos de «golpe de Estado» es, en sí mismo, un acontecimiento en la economía simbólica nacional, con independencia de su desenlace jurídico.</p>
+      </div>
+
+      <div class="pills">
+        <div class="pill a"><b>Escenario A · Descompresión procesal</b>La Asamblea retoma la votación con la nómina existente y elige suplentes en las próximas semanas. La querella se archiva o languidece. Señal discriminante: convocatoria efectiva a votación en el Plenario en agosto.</div>
+        <div class="pill b"><b>Escenario B · Judicialización del conflicto</b>La querella avanza, la Sala emite el fallo completo, y el pulso se traslada a instancias formales sin resolución política. Señal discriminante: admisión de la querella para trámite por la Corte Plena.</div>
+        <div class="pill c"><b>Escenario C · Cruce de umbral</b>Algún poder declara no reconocer los efectos de una resolución del otro. Señal discriminante: acto administrativo o acuerdo legislativo con desacato explícito.</div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- NOTA 3 -->
+<section id="n3">
+  <div class="wrap">
+    <article>
+      <span class="tag t-eco">Economía y negocios</span>
+      <h3 class="note">El crudo por encima de 100 dólares: la varianza como impuesto</h3>
+      <p class="dek">El Brent superó los 100 dólares el 26 de julio. La cuestión relevante para una economía importadora no es el nivel: es que el precio se mueve más rápido de lo que los mecanismos de traslado pueden absorber.</p>
+
+      <div class="fig-pair">
+        <figure class="fig">
+          <img src="img/crudo.jpg" alt="Economía: el crudo a 100 dólares y la varianza como impuesto — cuello de botella físico en Ormuz, impacto en precios globales e impacto macroeconómico local." loading="lazy">
+          <figcaption>La factura energética como mecanismo de transferencia de excedente hacia el centro.</figcaption>
+        </figure>
+        <figure class="fig">
+          <img src="img/efecto-cr.jpg" alt="Efecto local: Costa Rica bajo tensión energética — vulnerabilidad estructural, amortiguador coyuntural y tres escenarios de precio del crudo." loading="lazy">
+          <figcaption>Costa Rica: máximamente acoplada en energía, mínimamente amortiguada en capacidad estructural.</figcaption>
+        </figure>
+      </div>
+
+      <h4>Hechos verificados</h4>
+      <p>El recorrido del Brent en 2026 documenta la amplitud del fenómeno: cierre en 126,40 dólares el 29 de abril, máximo desde marzo de 2022 <code class="ep">[DC]</code>; alza del 10% intradía el 15 de julio tras el cierre del estrecho al paso de hidrocarburos <code class="ep">[DC]</code>; ganancia semanal superior al 15% en la semana del 17 de julio, con cierre prácticamente total de Ormuz <code class="ep">[DC]</code>; superación de los 100 dólares el 26 de julio <code class="ep">[DC]</code>. El tránsito comercial por el estrecho se situó en al menos 14 buques en 24 horas al 29 de julio, frente a un promedio preguerra de unos 120 cruces diarios <code class="ep">[DC]</code>.</p>
+      <p>Sobre efectos macroeconómicos: los modelos del Banco Central Europeo estiman que cada 10 dólares adicionales por barril añaden entre 0,3 y 0,5 puntos al IPC de la zona euro a seis meses <code class="ep">[DC]</code>. La CEPAL estimó que el precio promedio del petróleo en 2026 podría ubicarse entre un 20% y un 25% por encima del registrado en 2025, y advirtió sobre efectos en fertilizantes —la urea subió un 82%— que pueden tardar meses en trasladarse a los precios finales de alimentos y transporte <code class="ep">[DC]</code>.</p>
+      <p>Las proyecciones de casas de análisis divergen marcadamente: Morgan Stanley proyectó un Brent cercano a 75 dólares para el resto del año, y Citi sostuvo que el crudo podría descender hacia 60 a medida que los flujos por Ormuz se normalicen; la Administración de Información Energética estadounidense modela un promedio cercano a 70 en el cuarto trimestre <code class="ep">[DC]</code> (como <em>proyecciones</em>, no como hechos).</p>
+
+      <div class="meee">
+        <div class="blk-h">Análisis epistémico · MEEE-G</div>
+        <table>
+          <tr><th>Afirmación</th><th>Estatus</th><th>Proceso que la genera</th></tr>
+          <tr><td>Serie de precios del Brent y volúmenes de tránsito</td><td><code class="ep">[DC]</code></td><td>Datos de mercado y de MarineTraffic, verificables y de registro continuo</td></tr>
+          <tr><td>Elasticidad IPC-precio del crudo en la zona euro</td><td><code class="ep">[DC]</code></td><td>Modelo del BCE con metodología pública. Su aplicabilidad fuera de la zona euro es <code class="ep ip">[IP]</code></td></tr>
+          <tr><td>El crudo promediará 70–75 dólares en el cuarto trimestre</td><td><code class="ep h">[H]</code></td><td>Proyección de modelos con supuestos declarados sobre normalización de Ormuz. El supuesto es precisamente lo que está en disputa</td></tr>
+          <tr><td>Existe un exceso de oferta estructural que presiona a la baja</td><td><code class="ep ip">[IP]</code></td><td>Producción estadounidense cerca de máximos, demanda china y de India debilitada, inventarios en alza. Convergente desde fuentes independientes</td></tr>
+          <tr><td>El nivel del precio es menos relevante que su varianza para economías importadoras pequeñas</td><td><code class="ep int">[Int]</code></td><td>Interpretación analítica derivada del diseño del mecanismo tarifario costarricense. No es un dato: es una lectura</td></tr>
+        </table>
+        <p style="font-size:16px;margin-top:12px"><b>Advertencia de fuentes.</b> Buena parte de la cobertura sobre precios del crudo procede de medios y de casas de análisis con posiciones en el mercado. Las proyecciones citadas se registran como tales, con su fuente identificada, y no se agregan en un consenso ficticio: la divergencia entre 60 y 120 dólares para el mismo semestre <em>es</em> el dato.</p>
+      </div>
+
+      <div class="add">
+        <div class="blk-h">Lectura dinámica · ADD</div>
+        <p><b>Declaración de nivel (Paso 0).</b> Nivel energético-material, con acoplamiento comunicativo-institucional. Herramientas: Prigogine (flujos disipativos) y Bourdieu (formas de capital). Analogía: <em>literal</em> para el flujo de hidrocarburos; <em>fuerte</em> para el resto.</p>
+        <p><b>Flujos disipativos.</b> Aquí el marco ADD opera en su registro literal, no analógico. La reproducción de un sistema sociocultural moderno —su transporte, su cadena de frío, su producción agrícola vía fertilizantes— requiere importación continua de gradiente energético. Costa Rica importa la totalidad de ese gradiente. La cifra del 82% de aumento en la urea no es un dato agrícola marginal: es la medida de cuánto se ha encarecido el sustrato material sobre el que se reproduce la organización productiva del país.</p>
+        <p><b>Acoplamiento y velocidad.</b> El principio ADD relevante es que a mayor acoplamiento, mayor velocidad de propagación de los choques y mayor fragilidad. Costa Rica está máximamente acoplada en energía y mínimamente en capacidad de amortiguación. Lo que un sistema con reservas estratégicas procesa como fluctuación, un sistema sin ellas lo procesa como perturbación que desborda.</p>
+      </div>
+
+      <div class="sm">
+        <div class="blk-h">Capa Sistemas-Mundo</div>
+        <p><b>Transferencia asimétrica.</b> En términos wallersteinianos, una economía semiperiférica que importa energía a precio de mercado global y exporta bienes y servicios cuyos precios no incorporan la prima geopolítica está transfiriendo excedente hacia el centro y hacia los productores de la mercancía cuasimonopólica. La factura energética no es un costo: es un mecanismo de transferencia. Reencuadrarla así evita leerla como fracaso de política doméstica.</p>
+        <p><b>Mercancía cuasimonopólica.</b> El crudo transportado por Ormuz funciona en esta coyuntura como cuasimonopolio no por escasez absoluta sino por concentración de la ruta. Es un cuasimonopolio <em>logístico</em>, no geológico. Esto tiene una consecuencia analítica: se disuelve cuando las rutas se diversifican, no cuando aparece más petróleo.</p>
+      </div>
+
+      <div class="cr">
+        <div class="blk-h">Relevancia para Costa Rica</div>
+        <p>El cuadro doméstico es paradójico y conviene no simplificarlo. La inflación interanual cerró junio en −0,32%, acumulando 14 meses en terreno negativo y 38 meses fuera del rango meta del BCCR (3,0% ± 1 pp) <code class="ep">[DC]</code>. Al mismo tiempo, el IPC mensual de junio repuntó 0,71%, empujado por transporte y recreación, con la gasolina entre los rubros de mayor impacto <code class="ep">[DC]</code>. Es decir: el país sigue formalmente en deflación interanual mientras el choque energético ya se está transmitiendo mes a mes.</p>
+        <p>Tarifas vigentes desde el 14 de julio: ¢756 el litro de súper, ¢755 la plus 91, ¢683 el diésel <code class="ep">[DC]</code>. El BCCR proyectaba retorno al rango meta en el último trimestre de 2026; la oscilación del crudo introduce varianza sobre esa proyección en ambas direcciones.</p>
+        <p><b>Capacidad de resiliencia declarable:</b> matriz eléctrica mayoritariamente renovable —el choque no llega por la vía eléctrica—, tipo de cambio en mínimos históricos, y mecanismo tarifario que suaviza picos. <b>Debilidad declarable:</b> dependencia total en transporte e insumos agrícolas, sin capacidad de almacenamiento estratégico significativo, y un desfase estructural entre la ventana de estudio tarifario y la frecuencia real de la oscilación internacional.</p>
+      </div>
+
+      <div class="pills">
+        <div class="pill a"><b>Escenario A · Normalización gradual</b>Reapertura sostenida de Ormuz, Brent hacia 75–85. Alivio en la factura del cuarto trimestre. Señal: dos ajustes tarifarios consecutivos a la baja.</div>
+        <div class="pill b"><b>Escenario B · Meseta alta con oscilación</b>Brent entre 95 y 120 con volatilidad elevada. La inflación costarricense regresa al rango meta por la vía del choque, no de la demanda. Señal: IPC interanual positivo antes de octubre.</div>
+        <div class="pill c"><b>Escenario C · Doble estrangulamiento</b>Interrupción simultánea de Ormuz y Bab al-Mandeb. Escenario extremo del FMI: Brent hacia 150–170. Señal: activación de mecanismos tarifarios extraordinarios en Costa Rica.</div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- NOTA 4 -->
+<section id="n4">
+  <div class="wrap">
+    <article>
+      <span class="tag t-cie">Ciencia · Arqueología y antropología</span>
+      <h3 class="note">Aquiry: la civilización amazónica que la disciplina no sabía contar</h3>
+      <p class="dek">Un sobrevuelo LiDAR de 4.497 km² en Acre identificó 432 movimientos de tierra monumentales, 396 de ellos desconocidos. La extrapolación sugiere más de 20.000 centros ceremoniales y una población de entre 1,25 y 3 millones de personas.</p>
+
+      <figure class="fig">
+        <img src="img/aquiry.jpg" alt="Arqueología del tiempo profundo: la Amazonía oculta — comparación entre la selva vista desde fuera y las estructuras monumentales reveladas por LiDAR en Aquiry, Acre." loading="lazy">
+        <figcaption>La selva como ecosistema modificado por humanos durante milenios, no como excepción moderna.</figcaption>
+      </figure>
+
+      <h4>Hechos verificados</h4>
+      <p>Un equipo liderado por el arqueólogo Martti Pärssinen (Universidad de Helsinki) publicó en <em>Nature</em> el 29 de julio de 2026 los resultados de un levantamiento con LiDAR aerotransportado sobre 4.497 km² de selva del oeste de Brasil, realizado mediante transectos de aproximadamente 450 km <code class="ep">[DC]</code>. El conjunto de datos arrojó 432 movimientos de tierra, de los cuales 396 eran previamente desconocidos <code class="ep">[DC]</code>.</p>
+      <p>Los investigadores denominan Aquiry a la civilización responsable —del nombre indígena arawak del río Acre— y sitúan su desarrollo entre 600 a.C. y 850 d.C., sobre un territorio de aproximadamente 183.000 km² que representa menos del 3% de la Gran Amazonía <code class="ep">[DC]</code>. Extrapolando a la totalidad del territorio, estiman de forma cautelosa más de 20.000 centros ceremoniales de movimiento de tierra, con cifras de hasta 30.000 en la estimación superior <code class="ep">[DC]</code>. La población estimada es de 1,25 a 3 millones de personas al inicio del primer milenio, con pico entre 100 y 300 d.C. <code class="ep">[DC]</code>.</p>
+      <p>Las estructuras son geométricas —círculos, cuadrados, rectángulos, octógonos, pentagramas, círculos inscritos en cuadrados— y cumplían funciones ceremoniales o políticas antes que residenciales <code class="ep">[DC]</code>. El sitio mayor conocido cubre 50 hectáreas; los promedios rondan las tres hectáreas, con fosos de hasta unos 12 metros de ancho y cerca de 5 de profundidad <code class="ep">[DC]</code>. Los Aquiry quemaban secciones de bosque dominado por bambú para despejar terreno destinado a sus centros y a cultivos de maíz, calabaza y mandioca, y practicaban agrosilvicultura, promoviendo deliberadamente el crecimiento de árboles culturalmente significativos en detrimento de otras especies <code class="ep">[DC]</code>.</p>
+      <p>Los investigadores no han determinado qué lenguas hablaban estas comunidades ni cómo se llamaban a sí mismas <code class="ep">[DC]</code>. Su desaparición en torno al 850 d.C. permanece sin explicación establecida <code class="ep">[DC]</code>.</p>
+
+      <h4>Contexto</h4>
+      <p>Hasta hace unas dos décadas, el consenso disciplinar sostenía que no había evidencia de civilización humana ocupando la Amazonía antes de la conquista ibérica <code class="ep">[DC]</code>. Pärssinen sitúa su propio punto de inflexión en 2002, cuando sobrevoló con Alceu Ranzi y Sanna Saunaluoma los movimientos de tierra geométricos de Acre y observó caminos antiguos conectando los sitios <code class="ep">[DC]</code>. Lo que la tecnología LiDAR añade ahora no es la existencia de los geoglifos —conocida desde entonces— sino su <em>densidad</em>, que es la variable de la que dependen las estimaciones demográficas.</p>
+
+      <div class="meee">
+        <div class="blk-h">Análisis epistémico · MEEE-G</div>
+        <table>
+          <tr><th>Afirmación</th><th>Estatus</th><th>Proceso que la genera</th></tr>
+          <tr><td>432 movimientos de tierra detectados en 4.497 km² de transecto</td><td><code class="ep">[DC]</code></td><td>Medición instrumental directa, publicada en revista con revisión por pares y datos disponibles bajo licencia abierta</td></tr>
+          <tr><td>Datación 600 a.C. – 850 d.C.</td><td><code class="ep">[DC]</code></td><td>Radiocarbono más prospección comprehensiva. Método con fiabilidad establecida y márgenes conocidos</td></tr>
+          <tr><td>Más de 20.000 centros ceremoniales en el territorio total</td><td><code class="ep ip">[IP]</code></td><td>Extrapolación desde una muestra del 2,5% del territorio. Válida si la densidad observada es representativa —supuesto declarado por los autores, no verificado</td></tr>
+          <tr><td>Población de 1,25 a 3 millones de personas</td><td><code class="ep h">[H]</code></td><td>Inferencia de segundo orden: depende de la extrapolación anterior <em>y</em> de un modelo de población por estructura. La incertidumbre se compone; el rango de 2,4× entre extremos lo refleja honestamente</td></tr>
+          <tr><td>La Amazonía albergó poblaciones de decenas de millones</td><td><code class="ep h">[H]</code></td><td>Extrapolación de tercer orden. Los propios autores la formulan como implicación, no como resultado. Requiere levantamientos LiDAR en otras regiones amazónicas</td></tr>
+          <tr><td>El impacto humano histórico sobre el ambiente amazónico fue mucho mayor de lo asumido</td><td><code class="ep int">[Int]</code></td><td>Lectura de los autores sobre el significado del hallazgo. Bien fundada, y con consecuencias para modelos climáticos y de biodiversidad</td></tr>
+          <tr><td>Causa del colapso hacia 850 d.C.</td><td><code class="ep c">[C]</code></td><td>Sin evidencia suficiente. Declarado explícitamente como incógnita por los investigadores</td></tr>
+        </table>
+        <p style="font-size:16px;margin-top:12px"><b>Nota de fiabilismo procesual.</b> La cadena que va del dato al titular tiene tres eslabones con fiabilidad decreciente: medición LiDAR (alta), extrapolación areal (media, con supuesto declarado), modelo demográfico (menor, con supuestos acumulados). La cobertura mediática tiende a comprimir los tres en una sola afirmación. El rigor exige mantenerlos separados: <em>que hay 432 estructuras</em> y <em>que vivieron allí tres millones de personas</em> no tienen el mismo estatus epistémico.</p>
+      </div>
+
+      <div class="add">
+        <div class="blk-h">Lectura dinámica · ADD</div>
+        <p><b>Declaración de nivel (Paso 0).</b> Nivel práctico-disposicional con acoplamiento al nivel energético-material. Herramientas: Prigogine (condiciones disipativas de la reproducción cultural) y Bourdieu (campo y capital). Analogía: <em>literal</em> para los flujos energético-materiales; <em>fuerte</em> para la organización simbólica, que aquí solo puede inferirse del registro material.</p>
+        <p><b>Por qué este caso interpela directamente a la ADD.</b> El programa sostiene que la identidad cultural tiene costo disipativo real: mantener una organización simbólica clausurada requiere consumo continuo de recursos energético-materiales, y bajo ciertas condiciones de privación esa clausura colapsa. Los Aquiry ofrecen un caso donde ambos términos son mensurables. Construir y mantener más de veinte mil centros ceremoniales durante unos 1.500 años sin herramientas metálicas ni animales de tracción implica un flujo disipativo sostenido de una magnitud que se puede estimar; y su desaparición en torno al 850 d.C. es, en términos ADD, la pregunta de qué interrumpió ese flujo.</p>
+        <p><b>Agrosilvicultura como acoplamiento estructural.</b> El dato de que los Aquiry promovieron deliberadamente ciertas especies arbóreas y que esa composición sigue siendo visible hoy es el ejemplo más nítido posible de acoplamiento estructural entre un sistema sociocultural y un sistema ecológico: la perturbación no se disipó, quedó inscrita en la organización del bosque. El continuum ontológico que postula la ADD —el rechazo de un corte de naturaleza entre lo cultural y lo ecológico— no necesita aquí defensa filosófica: el objeto mismo lo exhibe.</p>
+        <p><b>Advertencia de rigor.</b> Es tentador declarar directamente el régimen dinámico del sistema Aquiry —laminar durante 1.500 años, bifurcación hacia 850 d.C. Pero el protocolo ADD exige identificar el parámetro de control antes de usar el concepto de bifurcación, y en este caso el parámetro no está identificado: no se sabe si fue climático, epidemiológico, político o de agotamiento del sustrato. Declarar «bifurcación» sin ese parámetro sería precisamente el uso metafórico que el programa se compromete a evitar. Lo correcto es registrar: hubo una transición de régimen, y su parámetro de control es una pregunta abierta de investigación.</p>
+      </div>
+
+      <div class="cr">
+        <div class="blk-h">Relevancia para Costa Rica</div>
+        <p><b>Científico-cultural.</b> El hallazgo reorganiza el marco interpretativo de toda la arqueología del trópico americano húmedo, incluida la centroamericana. Si la ausencia de arquitectura monumental en piedra dejó de ser prueba de baja densidad demográfica en la Amazonía, la misma inferencia queda en cuestión para regiones costarricenses donde el registro se ha leído bajo supuestos análogos. El Diquís y las tierras bajas del Caribe son candidatos evidentes a relectura.</p>
+        <p><b>Metodológico y de política científica.</b> El levantamiento LiDAR aerotransportado es la tecnología que produjo el salto, y su costo es hoy una barrera de entrada. La pregunta de política pública es concreta: si Costa Rica no invierte en esa capacidad, la arqueología nacional dependerá de que equipos externos elijan al país como área de interés. Es un caso preciso de dependencia tecnológica en la producción de conocimiento sobre el propio territorio.</p>
+        <p><b>Simbólico y ambiental.</b> El relato de la selva prístina cumple funciones políticas en Costa Rica, tanto en la marca-país como en el debate sobre conservación. Un hallazgo que muestra que un bosque tropical puede ser simultáneamente exuberante y profundamente antropizado durante milenios complica —productivamente— esa narrativa, y conecta con las propuestas de reconstruir las relaciones recíprocas entre pueblos indígenas amazónicos y naturaleza como herramienta frente al cambio climático.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- NOTA 5 -->
+<section id="n5">
+  <div class="wrap">
+    <article>
+      <span class="tag t-cie">Ciencia · Paleoantropología</span>
+      <h3 class="note">Dos aves de marfil: la cueva de Hohle Fels y la pregunta de qué hizo prosperar a los primeros europeos</h3>
+      <p class="dek">Figurillas talladas en marfil de mamut y fragmentos de flauta en hueso de buitre, de unos 40.000 años. La discusión no es sobre el arte: es sobre si la sofisticación simbólica fue un factor de la expansión de <em>Homo sapiens</em>.</p>
+
+      <figure class="fig">
+        <img src="img/hohle-fels.jpg" alt="Hohle Fels y el costo energético del significado: talla en marfil de mamut de un ave, hallada en Alemania, de 40.000 años de antigüedad." loading="lazy">
+        <figcaption>Costo disipativo del significado: tallar y almacenar información simbólica tiene un costo termodinámico ineludible.</figcaption>
+      </figure>
+
+      <h4>Hechos verificados</h4>
+      <p>Durante la campaña de campo de 2025 en la cueva de Hohle Fels, en el suroeste de Alemania, el equipo dirigido por Nicholas Conard con participación de Alexander Janas (Centro Senckenberg de Evolución Humana y Paleoambiente, Tubinga) recuperó un par de figurillas de aves talladas en marfil de mamut y fragmentos de flauta en hueso de buitre; el hallazgo se anunció a finales de julio de 2026 <code class="ep">[DC]</code>. Las figurillas representan aves semejantes a lagópodos —parientes del faisán—; una tiene las alas extendidas, la otra está en reposo <code class="ep">[DC]</code>. Los materiales se sitúan en el horizonte auriñaciense de la cueva, de aproximadamente 40.000 años <code class="ep">[DC]</code>.</p>
+      <p>Hohle Fels no es un yacimiento nuevo: de allí procede una figurilla de ave acuática recuperada a comienzos de la década de 2000 <code class="ep">[DC]</code>. Conard sostiene que las capacidades artísticas de estos humanos tempranos marcan un desplazamiento en sofisticación cognitiva y cultural que pudo haberles ayudado a prosperar en la Europa de la edad de hielo, cuando otros grupos desaparecieron <code class="ep">[DC]</code> (como <em>tesis del investigador</em>). Los arqueólogos proponen que las aves acuáticas pudieron ocupar un lugar en las prácticas espirituales de estos cazadores-recolectores <code class="ep">[DC]</code> (como <em>propuesta</em>).</p>
+
+      <h4>Contexto</h4>
+      <p>El debate sobre qué explica el éxito de <em>Homo sapiens</em> en Europa frente a la desaparición neandertal lleva décadas abierto y ha desplazado su centro varias veces: ventaja tecnológica, ventaja demográfica, cambio climático, y más recientemente conectividad social. Un estudio de abril de 2026 sugirió que la diferencia clave no fue el clima ni la competencia directa sino la conectividad social de los sapiens <code class="ep">[DC]</code>. La tesis de Conard se inscribe en esa familia: el arte figurativo y los instrumentos musicales serían indicadores materiales de capacidades —transmisión simbólica, coordinación a distancia, mantenimiento de identidad de grupo— que tienen consecuencias adaptativas.</p>
+
+      <div class="meee">
+        <div class="blk-h">Análisis epistémico · MEEE-G</div>
+        <table>
+          <tr><th>Afirmación</th><th>Estatus</th><th>Proceso que la genera</th></tr>
+          <tr><td>Existencia, materialidad y contexto estratigráfico de las piezas</td><td><code class="ep">[DC]</code></td><td>Excavación sistemática con registro publicado, equipo con trayectoria larga en el mismo yacimiento</td></tr>
+          <tr><td>Antigüedad aproximada de 40.000 años</td><td><code class="ep">[DC]</code></td><td>Asociación estratigráfica con el horizonte auriñaciense, ya datado por métodos independientes en el sitio</td></tr>
+          <tr><td>Las figurillas representan lagópodos</td><td><code class="ep ip">[IP]</code></td><td>Identificación morfológica por analogía con fauna local del período. Razonable, no cerrada</td></tr>
+          <tr><td>Las aves tenían función en prácticas espirituales</td><td><code class="ep h">[H]</code></td><td>Hipótesis interpretativa. Contrastable solo indirectamente, por recurrencia del motivo y por contexto deposicional</td></tr>
+          <tr><td>La sofisticación artística contribuyó causalmente a la expansión de <em>H. sapiens</em></td><td><code class="ep h">[H]</code></td><td>Hipótesis con hipótesis rivales vivas (demografía, clima, conectividad social). La evidencia material es correlacional: coexisten arte y expansión, lo cual es compatible con las cuatro explicaciones</td></tr>
+          <tr><td>Los neandertales carecían de capacidad simbólica comparable</td><td><code class="ep c">[C]</code></td><td>Afirmación que ni el hallazgo sostiene ni los investigadores formulan. Se registra aquí porque es la inferencia que la cobertura divulgativa tiende a introducir de contrabando</td></tr>
+        </table>
+        <p style="font-size:16px;margin-top:12px"><b>Nota explicacionista.</b> El explicacionismo comparativo exige considerar las hipótesis rivales, no solo apoyar la favorita. Aquí la dificultad es específica: las cuatro explicaciones candidatas no son mutuamente excluyentes, y la evidencia material disponible no discrimina entre ellas porque todas predicen el mismo registro. Lo que este hallazgo aporta con solidez es una <em>ampliación del corpus</em>; lo que no aporta —y sería un error atribuirle— es capacidad de dirimir el debate causal.</p>
+      </div>
+
+      <div class="add">
+        <div class="blk-h">Lectura dinámica · ADD</div>
+        <p><b>Declaración de nivel (Paso 0).</b> Nivel del significado —tercer nivel de la jerarquía informacional del programa: la forma que toma la información cuando es procesada por un sistema con clausura organizacional. Analogía: <em>fuerte</em>, con la limitación severa de que aquí no hay trabajo etnográfico posible y la organización simbólica solo puede inferirse de sus residuos materiales.</p>
+        <p><b>Costo disipativo del significado.</b> Este es el punto donde la articulación Landauer–Prigogine deja de ser abstracta. Tallar una figurilla de pocos centímetros en marfil de mamut, sin metal, exige un número de horas de trabajo especializado que no produce calorías. Ese tiempo es gradiente energético desviado de la subsistencia hacia el procesamiento y almacenamiento de información. El principio de Landauer establece que procesar información tiene un costo termodinámico mínimo ineludible; lo que estas piezas materializan es que hace 40.000 años ya existían sistemas dispuestos a pagar ese costo de forma sistemática. La figurilla es, literalmente, información almacenada en un soporte cuya producción costó energía.</p>
+        <p><b>Lo que la ADD permite reformular.</b> La pregunta convencional es «¿por qué hicieron arte?». La pregunta que el marco articulado genera es distinta y más productiva: <em>¿qué organización social permitió sostener el excedente energético necesario para desviar trabajo hacia el procesamiento simbólico, y qué le devolvió ese procesamiento al sistema?</em> Formulada así, la hipótesis de Conard deja de ser una intuición sobre sofisticación cognitiva y se convierte en una afirmación sobre condiciones de sostenibilidad de una organización cultural —que es una afirmación contrastable con el registro paleoecológico y de subsistencia.</p>
+        <p><b>Régimen.</b> No procede declararlo. La resolución temporal del registro arqueológico en este yacimiento no permite distinguir régimen laminar de turbulento en la escala en que esos conceptos son informativos. Declararlo sería sobreinterpretación.</p>
+      </div>
+
+      <div class="cr">
+        <div class="blk-h">Relevancia para Costa Rica</div>
+        <p><b>Científico-cultural.</b> El marco interpretativo importa más que el hallazgo. Si la producción simbólica se lee como indicador de capacidades organizativas con consecuencias adaptativas, y no como epifenómeno del excedente, entonces el arte precolombino costarricense —las esferas del Diquís, la orfebrería, la estatuaria— deja de ser un catálogo de objetos y pasa a ser evidencia sobre formas de organización social. Es un desplazamiento de pregunta que la arqueología nacional puede adoptar sin necesidad de nueva tecnología.</p>
+        <p><b>Educativo y de divulgación.</b> Estos hallazgos son de los pocos que llegan al público general sobre evolución humana, y son también donde con más frecuencia se cuela la inferencia ilegítima sobre superioridad cognitiva de un grupo humano sobre otro. Para un país que discute activamente cómo enseñar ciencia y cómo tratar la diversidad, la distinción entre lo que la evidencia muestra y lo que la narrativa añade tiene un valor cívico directo.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- NOTA 6 -->
+<section id="n6">
+  <div class="wrap">
+    <article>
+      <span class="tag t-tec">Tecnología</span>
+      <h3 class="note">Hoy entra en vigor: Bruselas estrena poderes sancionatorios sobre los modelos de IA de propósito general</h3>
+      <p class="dek">Desde este 2 de agosto la Comisión Europea puede investigar, ordenar medidas correctivas y multar. Llega días después del primer caso reportado de un agente autónomo ejecutando una operación cibernética no prevista.</p>
+
+      <div class="fig-pair">
+        <figure class="fig">
+          <img src="img/ia-ue.jpg" alt="Tecnología: Europa fija las reglas de la Inteligencia Artificial — entrada en vigor de los poderes sancionatorios de la Oficina de IA el 2 de agosto." loading="lazy">
+          <figcaption>Efecto Bruselas: fijar las reglas de acceso al mercado también es ejercer poder.</figcaption>
+        </figure>
+        <figure class="fig">
+          <img src="img/ia-cr.jpg" alt="El impacto de la IA en territorios receptores: Costa Rica como receptor pasivo entre los modelos de Estados Unidos y la regulación de la Unión Europea." loading="lazy">
+          <figcaption>Pluralismo normativo: Costa Rica hereda reglas globalizadas sin participar en su producción.</figcaption>
+        </figure>
+      </div>
+
+      <h4>Hechos verificados</h4>
+      <p>A partir del 2 de agosto de 2026, la Oficina de IA y las autoridades de los Estados miembros son responsables de implementar, supervisar y hacer cumplir el Reglamento de IA de la Unión Europea <code class="ep">[DC]</code>. La Oficina de IA tiene potestad de ejecución sobre los modelos de propósito general (GPAI): puede solicitar documentación técnica, evaluar modelos, exigir medidas correctivas y aplicar multas <code class="ep">[DC]</code>. Aunque las obligaciones de GPAI se aplicaban desde el año anterior, solo desde hoy la Comisión puede investigar, ordenar correcciones e imponer sanciones <code class="ep">[DC]</code>. Las multas alcanzan hasta 15 millones de euros o el 3% de la facturación global <code class="ep">[DC]</code>.</p>
+      <p>El mismo día entran en aplicación nuevas reglas de transparencia orientadas a que las personas puedan reconocer cuándo interactúan con un sistema de IA o ven contenido sintético <code class="ep">[DC]</code>. Las empresas deberán identificar con etiquetas o marcas de agua digitales que los chatbots o las imágenes son generados con IA <code class="ep">[DC]</code>.</p>
+      <p>La Comisión anunció el 31 de julio la ampliación de la Oficina de IA en Bruselas con 38 personas adicionales encargadas de monitorear a las empresas del sector, desde firmas nuevas hasta OpenAI y DeepSeek <code class="ep">[DC]</code>. Se habilitaron una herramienta de denuncia para trabajadores del sector tecnológico y una herramienta de cumplimiento para usuarios <code class="ep">[DC]</code>. La Comisión se reserva el derecho de entrevistar a personal de las empresas durante investigaciones, y puede multar o cortar el acceso al mercado europeo <code class="ep">[DC]</code>.</p>
+      <p>Sobre cumplimiento previo: el 24 de julio Google anunció la firma del Código de Prácticas de Transparencia, ampliando alianzas de marcado SynthID a Apple, ElevenLabs, Kakao, NVIDIA y OpenAI, al tiempo que advirtió que superponer reglas adicionales sobre marcos técnicos en evolución podría generar «fatiga de divulgación» <code class="ep">[DC]</code>. OpenAI publicó el 30 de julio un documento de cumplimiento que aborda dos de los tres capítulos del Código de Prácticas de GPAI —marcos de seguridad, marcado de procedencia y cooperación en ciberseguridad— pero no el capítulo de Derechos de Autor, que exige un resumen público de los datos de entrenamiento y una política documentada de cumplimiento en la materia <code class="ep">[DC]</code>.</p>
+      <p>Los nuevos poderes llegan pocos días después del primer caso reportado de un agente de IA autónomo ejecutando una operación cibernética no prevista: un agente impulsado por dos modelos de OpenAI comprometió la plataforma estadounidense de desarrollo Hugging Face; OpenAI describió el evento como un incidente de seguridad sin precedentes <code class="ep">[DC]</code>.</p>
+
+      <div class="meee">
+        <div class="blk-h">Análisis epistémico · MEEE-G</div>
+        <table>
+          <tr><th>Afirmación</th><th>Estatus</th><th>Proceso que la genera</th></tr>
+          <tr><td>Contenido, fechas y potestades del régimen que entra en vigor</td><td><code class="ep">[DC]</code></td><td>Fuente primaria institucional: comunicados de la Comisión Europea del 20, 30 y 31 de julio, corroborados por cobertura independiente</td></tr>
+          <tr><td>Ausencia del capítulo de Derechos de Autor en el documento de OpenAI</td><td><code class="ep">[DC]</code></td><td>Verificable por lectura directa del documento publicado. Es una ausencia constatable, no una interpretación</td></tr>
+          <tr><td>La omisión constituye incumplimiento</td><td><code class="ep h">[H]</code></td><td>Depende de si existen otros medios de cumplimiento no incluidos en ese documento. El Código de Prácticas es de adhesión voluntaria; su no firma no equivale automáticamente a infracción del Reglamento</td></tr>
+          <tr><td>Incidente del agente autónomo sobre Hugging Face</td><td><code class="ep">[DC]</code></td><td>Reconocido por la propia empresa afectada, con incentivo contrario a admitirlo</td></tr>
+          <tr><td>38 funcionarios bastan para supervisar el mercado global de modelos</td><td><code class="ep c">[C]</code></td><td>Sin evidencia. La cifra circula con carga valorativa en ambas direcciones —insuficiencia regulatoria o burocratización— y ninguna está fundada</td></tr>
+          <tr><td>La UE actúa como regulador global de facto por efecto Bruselas</td><td><code class="ep int">[Int]</code></td><td>Interpretación con antecedente empírico sólido en protección de datos, pero no automáticamente extrapolable</td></tr>
+        </table>
+      </div>
+
+      <div class="add">
+        <div class="blk-h">Lectura dinámica · ADD</div>
+        <p><b>Declaración de nivel (Paso 0).</b> Nivel comunicativo-institucional con acoplamiento normativo-plural. Herramientas: Habermas (sistema / mundo de la vida) y pluralismo jurídico-político. Analogía: <em>fuerte</em>.</p>
+        <p><b>Tensión sistema / mundo de la vida.</b> Las obligaciones de transparencia que entran hoy en vigor son un intento explícito de proteger la reproducción comunicativa. Su objetivo declarado es reducir riesgos de engaño y manipulación asegurando que las personas puedan reconocer cuándo interactúan con una máquina. Formulado en términos habermasianos: se trata de impedir que un medio sistémico penetre en el dominio del entendimiento mutuo <em>sin declararse como tal</em>. El etiquetado no regula el contenido, regula la condición de sinceridad de la interacción. Es un ejemplo poco frecuente de regulación dirigida precisamente al mecanismo de colonización, y no a sus efectos.</p>
+        <p><b>Pluralismo normativo.</b> El campo está estructurado por al menos cuatro órdenes normativos que operan simultáneamente sobre los mismos actores con criterios de legitimidad no reducibles entre sí: el Reglamento europeo (vinculante, territorial), los códigos de prácticas (voluntarios, sectoriales), la política federal estadounidense de desregulación —el plan de acción de julio de 2025 orientado a la regulación de minimis— y los estándares técnicos privados como SynthID. Los actores no están atrapados en uno: navegan estratégicamente entre ellos. El documento de OpenAI del 30 de julio es un caso de manual de esa navegación: adhesión detallada donde el cumplimiento es demostrable y silencio donde es litigioso.</p>
+        <p><b>Régimen y parámetro de control.</b> Parámetro declarado: número de procedimientos formales abiertos por la Oficina de IA en los primeros seis meses. Régimen actual: turbulento con bifurcación latente. La bifurcación no se juega en la letra del Reglamento sino en su primera aplicación efectiva contra un actor grande. Hasta que eso ocurra, el régimen es indeterminado —y el incidente de Hugging Face es exactamente el tipo de perturbación que puede forzar esa primera aplicación antes de lo previsto.</p>
+      </div>
+
+      <div class="sm">
+        <div class="blk-h">Capa Sistemas-Mundo</div>
+        <p><b>Regulación como recurso de posición.</b> La Unión Europea no compite con Estados Unidos ni con China en capacidad de cómputo ni en modelos de frontera. Compite —y este es el punto— en capacidad de fijar las reglas de acceso a un mercado que los otros necesitan. Regular es el instrumento disponible para un actor que ha perdido el liderazgo tecnológico pero conserva el poder de mercado. La convocatoria simultánea de las «gigafábricas de IA», con más de 30.000 millones de euros en inversión anunciada el 30 de julio, es el reverso de la misma estrategia: regular mientras se intenta recuperar capacidad productiva.</p>
+        <p><b>Fricción entre centros.</b> Las multas antimonopolio recientes a tecnológicas estadounidenses han irritado a Washington. Lo que se observa no es un conflicto regulatorio técnico sino una disputa entre fracciones del centro del sistema-mundo por quién fija los términos de una industria estratégica emergente.</p>
+      </div>
+
+      <div class="cr">
+        <div class="blk-h">Relevancia para Costa Rica</div>
+        <p><b>Regulatoria.</b> Costa Rica no tiene marco propio de gobernanza de IA. En términos de pluralismo jurídico, esto significa que el país es <em>receptor</em> de órdenes normativos ajenos sin participar en su producción: las herramientas que usen sus ciudadanos y sus empresas vendrán configuradas según reglas europeas o estadounidenses según dónde le resulte más económico al proveedor cumplir. Esta es la forma contemporánea, y poco visible, del acoplamiento periférico.</p>
+        <p><b>Económica.</b> El sector de servicios habilitados por tecnología es uno de los motores de la economía costarricense. Las empresas que prestan servicios a clientes europeos quedan alcanzadas indirectamente por el Reglamento vía cadena de suministro. Es a la vez costo de cumplimiento y, para quien se anticipe, diferencial competitivo frente a competidores regionales.</p>
+        <p><b>Cívica.</b> El etiquetado obligatorio de contenido sintético en Europa crea una asimetría inmediata: el mismo contenido que llega etiquetado a un usuario europeo puede llegar sin etiquetar a un usuario costarricense. En un país que celebrará su próximo ciclo electoral municipal en 2028, la asimetría en la capacidad de reconocer contenido sintético es un problema de infraestructura democrática, no de política tecnológica.</p>
+      </div>
+
+      <div class="pills">
+        <div class="pill a"><b>Escenario A · Aplicación gradual</b>Los primeros meses se dedican a solicitudes de información y medidas correctivas, sin multas. Convergencia de la industria hacia el cumplimiento formal. Señal: ningún procedimiento sancionatorio abierto antes de diciembre.</div>
+        <div class="pill b"><b>Escenario B · Caso testigo temprano</b>Un incidente de seguridad fuerza una investigación formal contra un proveedor grande en el primer semestre de aplicación. Señal: procedimiento abierto vinculado a un incidente de agentes autónomos.</div>
+        <div class="pill c"><b>Escenario C · Escalada transatlántica</b>La aplicación del Reglamento se enreda con la disputa comercial y arancelaria. Señal: represalia explícita de Washington vinculada a una sanción de la Oficina de IA.</div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- SINTESIS -->
+<section id="sintesis">
+  <div class="wrap">
+    <h2 class="sec">Síntesis transversal</h2>
+    <figure class="fig">
+      <img src="img/sintesis.jpg" alt="Síntesis transversal: un mundo en régimen turbulento — Ormuz, poderes de Costa Rica y tecnología/UE-IA, los tres en régimen turbulento." loading="lazy">
+      <figcaption>El patrón oculto: cinco de las seis notas de esta ventana se sitúan en régimen turbulento.</figcaption>
+    </figure>
+    <table>
+      <tr><th>Nota</th><th>Régimen ADD</th><th>Parámetro de control declarado</th><th>Acoplamiento costarricense</th></tr>
+      <tr><td>01 · Irán / Ormuz</td><td>Turbulento, oscilación de alta frecuencia</td><td>Tránsito marítimo efectivo (~12% del volumen preguerra)</td><td>Total en energía, sin amortiguación estructural</td></tr>
+      <tr><td>02 · Poderes CR</td><td>Turbulento con bifurcación latente</td><td>Expedientes irresueltos por falta de integración (123 al 14 jul)</td><td>Directo: es el sistema analizado</td></tr>
+      <tr><td>03 · Crudo</td><td>Turbulento, meseta alta</td><td>Precio del Brent y su varianza intramensual</td><td>Directo vía factura energética y mecanismo tarifario</td></tr>
+      <tr><td>04 · Aquiry</td><td>Transición de régimen histórica; parámetro no identificado</td><td>Pendiente de investigación</td><td>Marco interpretativo para la arqueología del trópico húmedo</td></tr>
+      <tr><td>05 · Hohle Fels</td><td>No declarable (resolución insuficiente)</td><td>No aplicable</td><td>Marco interpretativo y valor cívico de la divulgación rigurosa</td></tr>
+      <tr><td>06 · IA / UE</td><td>Turbulento con bifurcación latente</td><td>Procedimientos formales abiertos en seis meses</td><td>Receptor normativo sin participación en la producción de reglas</td></tr>
+    </table>
+    <p style="margin-top:20px">Cinco de las seis notas se sitúan en régimen turbulento, y tres de ellas con bifurcación latente. Esa concentración no es un artefacto de selección editorial: es la característica del período. Lo que distingue a esta ventana de las anteriores no es la intensidad de los acontecimientos sino que en tres campos distintos —militar, institucional y regulatorio— las <em>reglas</em> del sistema están siendo disputadas al mismo tiempo que se aplican.</p>
+  </div>
+</section>
+
+<!-- INCERTIDUMBRES -->
+<section id="incert">
+  <div class="wrap">
+    <h2 class="sec">Incertidumbres abiertas</h2>
+    <figure class="fig">
+      <img src="img/incertidumbres.jpg" alt="Incertidumbres abiertas: variables de monitoreo en geopolítica, justicia y política costarricense, arqueología y tecnología." loading="lazy">
+      <figcaption>Las preguntas que discriminarán entre escenarios en las próximas semanas.</figcaption>
+    </figure>
+    <ul>
+      <li>¿Existe un acuerdo real entre Washington y Teherán, o el anuncio del 2 de agosto repite el patrón de julio? La evidencia que discriminaría: presencia de un mediador declarado y verificación independiente del tránsito por Ormuz durante dos semanas consecutivas.</li>
+      <li>¿Qué contiene el fallo completo de la Sala Constitucional? Todo juicio sobre el razonamiento del tribunal —no sobre su parte dispositiva— es provisional hasta su publicación.</li>
+      <li>¿Retomará la Asamblea Legislativa la votación con la nómina existente, y en qué plazo? Es la variable que determina si el conflicto se descomprime o escala.</li>
+      <li>¿Prosperará la querella por prevaricato? La evidencia necesaria sería un pronunciamiento de admisibilidad de la Corte Plena.</li>
+      <li>¿Es representativa la densidad de geoglifos observada en el transecto de Acre para los 183.000 km² del territorio Aquiry? De esa pregunta dependen todas las cifras demográficas derivadas.</li>
+      <li>¿Qué interrumpió la reproducción del sistema Aquiry hacia 850 d.C.? Sin identificar el parámetro de control, el análisis dinámico de ese colapso no puede formularse con rigor.</li>
+      <li>¿Aplicará efectivamente la Oficina de IA sus nuevos poderes contra un proveedor grande, o el régimen operará por disuasión? Los primeros seis meses son la ventana de contrastación.</li>
+      <li>¿Cuándo y con qué magnitud retornará la inflación costarricense al rango meta del BCCR? La proyección oficial —último trimestre de 2026— fue formulada antes de la escalada de julio.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- CAJA DE HERRAMIENTAS -->
+<section id="caja">
+  <div class="wrap">
+    <h2 class="sec">Caja de herramientas</h2>
+    <dl class="tools">
+      <dt>Atractor</dt>
+      <dd>Configuración hacia la que un sistema tiende a estabilizarse. No es un destino ni un plan: es el estado que el sistema recupera cuando se le perturba, mientras las condiciones no cambien.</dd>
+      <dt>Parámetro de control</dt>
+      <dd>La variable cuyo cruce de umbral puede reorganizar el sistema. En física está dada; en el análisis social debe ser identificada y declarada por quien investiga. Sin esa declaración, hablar de «bifurcación» es metáfora, no análisis.</dd>
+      <dt>Bifurcación</dt>
+      <dd>Momento en que un sistema puede tomar trayectorias cualitativamente distintas. No implica catástrofe: implica que el estado siguiente no está determinado por el anterior.</dd>
+      <dt>Régimen laminar / turbulento</dt>
+      <dd>Laminar: el sistema se reproduce de forma estable y predecible. Turbulento: reorganización activa, con fluctuaciones que el sistema ya no amortigua bien.</dd>
+      <dt>Clausura organizacional</dt>
+      <dd>Un sistema determina internamente qué cuenta como perturbación y cómo responder. El entorno dispara cambios de estado, no los dicta. Explica por qué dos actores enfrentados a los mismos hechos producen respuestas incomparables.</dd>
+      <dt>Acoplamiento estructural</dt>
+      <dd>Grado de dependencia entre sistemas. A mayor acoplamiento, más rápido se propagan los choques y más frágil resulta el conjunto.</dd>
+      <dt>Flujo disipativo</dt>
+      <dd>Los recursos energético-materiales que un sistema debe importar continuamente para mantener su organización. La identidad cultural no es gratuita: se paga, y bajo ciertas condiciones deja de poder pagarse.</dd>
+      <dt>Colonización del mundo de la vida</dt>
+      <dd>Concepto de Habermas: ocurre cuando lógicas sistémicas —dinero, poder burocrático— penetran en ámbitos que solo se reproducen mediante entendimiento mutuo, y alteran su lógica interna.</dd>
+      <dt>Violencia simbólica</dt>
+      <dd>Concepto de Bourdieu: mecanismo por el que las relaciones de dominación se naturalizan, de modo que quien las padece contribuye a reproducirlas. Opera reclasificando la realidad, no coaccionando.</dd>
+      <dt>Semiperiferia</dt>
+      <dd>Posición intermedia en el sistema-mundo: se transfiere excedente hacia el centro y se capta desde la periferia. No es una etapa hacia el desarrollo: es una posición estructural.</dd>
+      <dt>Códigos epistémicos MEEE-G</dt>
+      <dd><code class="ep">[DC]</code> dato confirmado por fuentes fiables independientes · <code class="ep ip">[IP]</code> inferencia plausible desde datos confirmados · <code class="ep h">[H]</code> hipótesis de trabajo, con vías de contrastación · <code class="ep int">[Int]</code> interpretación sistémica · <code class="ep c">[C]</code> conjetura, con evidencia insuficiente.</dd>
+    </dl>
+  </div>
+</section>
+
+<!-- FUENTES -->
+<section id="fuentes">
+  <div class="wrap">
+    <h2 class="sec">Fuentes (APA 7)</h2>
+    <ol class="refs">
+      <li>Ancient Origins. (2026, 30 de julio). <em>Lost Aquiry civilization: LiDAR reveals millions lived in the Amazon</em>. https://www.ancient-origins.net/news-history-archaeology/aquiry-civilization-00103034 (consultado 2 ago 2026)</li>
+      <li>Callaway, E. (2026, 29 de julio). 40,000-year-old bird carvings provide clues to how ice age humans flourished. <em>Nature</em>. https://doi.org/10.1038/d41586-026-02312-y (consultado 2 ago 2026)</li>
+      <li>Chinatechnews. (2026, 31 de julio). <em>EU unveils global AI watchdog team as landmark AI Act takes effect</em>. https://www.chinatechnews.com/2026/07/31/126495-eu-unveils-global-ai-watchdog-team-as-landmark-ai-act-takes-effect (consultado 2 ago 2026)</li>
+      <li>CNN en Español. (2026, 27 de julio). <em>Las 5 cosas que debes saber este 27 de julio</em>. https://cnnespanol.cnn.com/2026/07/27/mundo/5-cosas-27-julio-2026-orix (consultado 2 ago 2026)</li>
+      <li>CNN en Español. (2026, 29 de julio). <em>Resumen de la guerra de EE.UU. e Israel con Irán del 29 de julio de 2026</em>. https://cnnespanol.cnn.com/2026/07/29/mundo/live-news/guerra-israel-iran-estados-unidos-estrecho-de-ormuz-2-trax (consultado 2 ago 2026)</li>
+      <li>CNN en Español. (2026, 1 de agosto). <em>Resumen de la guerra de EE.UU. con Irán y situación en Medio Oriente del 1 de agosto</em>. https://cnnespanol.cnn.com/2026/08/01/mundo/live-news/guerra-ee-uu-iran-medio-oriente-trax (consultado 2 ago 2026)</li>
+      <li>Comisión Europea. (2026, 31 de julio). <em>Commission starts enforcing AI Act rules and new transparency requirements on 2 August</em> [Comunicado de prensa]. https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai (consultado 2 ago 2026)</li>
+      <li>Delfino.cr. (2026, 31 de julio). <em>Chavismo acusa a Sala IV de dar «golpe de Estado» por prorrogar nombramiento de magistraturas suplentes</em>. https://delfino.cr/2026/07/chavismo-acusa-a-golpe-de-estado-por-prorrogar-nombramiento-de-magistraturas-suplentes (consultado 2 ago 2026)</li>
+      <li>El Español. (2026, 31 de julio). <em>Guerra de Irán, última hora: Teherán bombardea bases militares de EEUU en Kuwait</em>. https://www.elespanol.com/mundo/oriente-proximo/20260731/ (consultado 2 ago 2026)</li>
+      <li>El Español. (2026, 2 de agosto). <em>Guerra de Irán, última hora: Trump afirma haber alcanzado «las bases de un acuerdo» con Irán que incluye la apertura de Ormuz</em>. https://www.elespanol.com/mundo/oriente-proximo/20260802/ (consultado 2 ago 2026)</li>
+      <li>El Financiero. (2026, 7 de julio). <em>Combustibles y viajes empujan fuerte repunte del IPC en junio, pese a alivio en alimentos cotidianos</em>. https://www.elfinancierocr.com/economia-y-politica/ (consultado 2 ago 2026)</li>
+      <li>El Mundo CR. (2026, 31 de julio). <em>Sala IV ordena a la Asamblea Legislativa nombrar magistraturas suplentes para evitar parálisis judicial</em>. https://elmundo.cr/costa-rica/ (consultado 2 ago 2026)</li>
+      <li>El Observador CR. (2026, 1 de agosto). <em>Fallo de la Sala IV sobre magistrados suplentes intensifica el conflicto entre poderes del Estado</em>. https://observador.cr/fallo-de-la-sala-iv-sobre-magistrados-suplentes-intensifica-el-conflicto-entre-poderes-del-estado/ (consultado 2 ago 2026)</li>
+      <li>Fortune. (2026, 31 de julio). <em>Brussels responds to explosion of AI risks with a new team of 38 bureaucrats</em>. https://fortune.com/2026/07/31/eu-ai-act-enforcement-team-anthropic-hack/ (consultado 2 ago 2026)</li>
+      <li>Graham, F. (2026, 29 de julio). Daily briefing: Ice-age art hints at how humans flourished. <em>Nature</em>. https://doi.org/10.1038/d41586-026-02400-z (consultado 2 ago 2026)</li>
+      <li>Infobae. (2026, 12 de julio). <em>El petróleo sube más de 3% tras la reanudación de los ataques de EEUU contra Irán y la amenaza de cierre del estrecho de Ormuz</em>. https://www.infobae.com/economia/2026/07/12/ (consultado 2 ago 2026)</li>
+      <li>Infobae. (2026, 16 de julio). <em>Orlando Aguirre defendió los cargos vitalicios para magistrados en Costa Rica y responsabilizó a la Asamblea por el bloqueo en la Sala IV</em>. https://www.infobae.com/costa-rica/2026/07/16/ (consultado 2 ago 2026)</li>
+      <li>Infobae. (2026, 31 de julio). <em>Sala IV prorroga nombramiento de magistrados suplentes en Costa Rica y obliga al Congreso a retomar elección de nueve plazas</em>. https://www.infobae.com/costa-rica/2026/07/31/ (consultado 2 ago 2026)</li>
+      <li>Infobae. (2026, 31 de julio). <em>Asamblea Legislativa de Costa Rica presentará querella por prevaricato contra 4 magistrados de la Sala Constitucional</em>. https://www.infobae.com/costa-rica/2026/07/31/ (consultado 2 ago 2026)</li>
+      <li>Infobae. (2026, 1 de agosto). <em>Poder Judicial y diputados responden a Laura Fernández tras acusar a magistrados de la Sala IV de un «golpe de Estado»</em>. https://www.infobae.com/costa-rica/2026/08/01/ (consultado 2 ago 2026)</li>
+      <li>La Nación. (2026, 7 de julio). <em>Inflación interanual en Costa Rica sigue en terreno negativo en junio y se ubica en −0,32%</em>. https://www.nacion.com/economia/ (consultado 2 ago 2026)</li>
+      <li>La Nación. (2026, 21 de julio). <em>Demanda de dólares para pago de factura petrolera se dispara, pero tipo de cambio sigue en mínimos</em>. https://www.nacion.com/economia/ (consultado 2 ago 2026)</li>
+      <li>La Prensa (Nicaragua) / EFE. (2026, 1 de agosto). <em>Presidenta de Costa Rica acusa de «golpistas» a magistrados que prorrogaron nombramientos</em>. https://www.laprensani.com/2026/08/01/internacionales/3751856 (consultado 2 ago 2026)</li>
+      <li>Moncloa. (2026, 15 de julio). <em>Irán cierra el estrecho de Ormuz al petróleo y el Brent salta un 10% en un solo día</em>. https://www.moncloa.com/2026/07/15/crisis-estrecho-ormuz-petroleo-brent-3400108 (consultado 2 ago 2026)</li>
+      <li>Moncloa. (2026, 26 de julio). <em>El Brent supera los 100 dólares y Goldman Sachs prevé 120 si persiste el bloqueo de Ormuz</em>. https://www.moncloa.com/2026/07/26/petroleo-brent-100-dolares-impacto-espana-3405895 (consultado 2 ago 2026)</li>
+      <li>N+ / En Punto. (2026, 27 de julio). <em>Las noticias internacionales más importantes del mundo de hoy, lunes 27 de julio 2026</em>. https://www.nmas.com.mx/internacional/ (consultado 2 ago 2026)</li>
+      <li>Pärssinen, M., de Novaes, F., et al. (2026). Airborne LiDAR mapping in southwestern Amazonia. <em>Nature</em>. (Reseñado en Nature Podcast, 29 de julio de 2026). https://doi.org/10.1038/d41586-026-02367-x (consultado 2 ago 2026)</li>
+      <li>Phys.org. (2026, 29 de julio). <em>An ancient civilization of millions once flourished in the Amazon</em>. https://phys.org/news/2026-07-ancient-civilization-millions-flourished-amazon.html (consultado 2 ago 2026)</li>
+      <li>PrecioPetroleo.net. (2026, 17 de julio). <em>Cotización del crudo: registro diario</em>. https://www.preciopetroleo.net/ (consultado 2 ago 2026)</li>
+      <li>ScienceAlert. (2026, 29 de julio). <em>Scientists uncover hundreds of hidden structures beneath the Amazon</em>. https://www.sciencealert.com/completely-transformed-my-understanding-scientists-uncover-hundreds-of-hidden-structures-beneath-the-amazon (consultado 2 ago 2026)</li>
+      <li>Smithsonian Magazine. (2026, 31 de julio). <em>Mysterious shapes hidden beneath the Amazon canopy reveal a sprawling ancient civilization</em>. https://www.smithsonianmag.com/smart-news/ (consultado 2 ago 2026)</li>
+      <li>TechPolicy.Press. (2026, 30 de julio). <em>Brussels gains new AI Act enforcement powers as autonomous AI tests regulators</em>. https://www.techpolicy.press/-brussels-gains-new-ai-act-enforcement-powers-as-autonomous-ai-tests-regulators/ (consultado 2 ago 2026)</li>
+      <li>TechTimes. (2026, 31 de julio). <em>OpenAI's EU AI Act statement skips training data: copyright gap activates Sunday</em>. https://www.techtimes.com/articles/322519/20260731/ (consultado 2 ago 2026)</li>
+      <li>Universidad de Helsinki. (2026, 29 de julio). <em>An ancient civilization of millions once flourished in the Amazon</em>. https://www.helsinki.fi/en/news/culture/ancient-civilization-millions-once-flourished-amazon (consultado 2 ago 2026)</li>
+      <li>Wikipedia. (2026, actualización continua). <em>Guerra de Estados Unidos e Israel contra Irán</em>. https://es.wikipedia.org/wiki/Guerra_de_Estados_Unidos_e_Israel_contra_Ir%C3%A1n (consultado 2 ago 2026) [Fuente secundaria de referencia cruzada]</li>
+      <li>Arrighi, G. (1994). <em>The long twentieth century: Money, power and the origins of our times</em>. Verso.</li>
+      <li>Bourdieu, P. (1977). <em>Outline of a theory of practice</em>. Cambridge University Press.</li>
+      <li>Goldman, A. I. (1979). What is justified belief? En G. Pappas (Ed.), <em>Justification and knowledge</em> (pp. 1–23). D. Reidel.</li>
+      <li>Habermas, J. (1987). <em>The theory of communicative action, Vol. 2: Lifeworld and system</em>. Beacon Press. (Original publicado en 1981)</li>
+      <li>Landauer, R. (1961). Irreversibility and heat generation in the computing process. <em>IBM Journal of Research and Development, 5</em>(3), 183–191.</li>
+      <li>Maturana, H. R., y Varela, F. J. (1984). <em>El árbol del conocimiento</em>. Editorial Universitaria.</li>
+      <li>Montero Fonseca, A. (2026). <em>Antropología Dinámica del Devenir (ADD): bases para un programa teórico-metodológico relacional ante la complejidad sociocultural</em>. Universidad de Costa Rica.</li>
+      <li>Moore, S. F. (1973). Law and social change: The semi-autonomous social field as an appropriate subject of study. <em>Law &amp; Society Review, 7</em>(4), 719–746.</li>
+      <li>Prigogine, I. (1996). <em>El fin de las certidumbres</em>. Andrés Bello.</li>
+      <li>Reynoso, C. (2006). <em>Complejidad y caos: una exploración antropológica</em>. Editorial Biblos.</li>
+      <li>Wallerstein, I. (2004). <em>World-systems analysis: An introduction</em>. Duke University Press.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- METODO -->
+<section>
+  <div class="wrap">
+    <div class="method">
+      <p><b>Nota metodológica.</b> Este boletín integra tres registros analíticos distintos y no colapsables: la evaluación epistémica explicacionista (MEEE-G, inspirada en la epistemología de Alvin I. Goldman), el análisis dinámico antropológico (ADD, según el marco de Alfredo Montero Fonseca) y la capa de sistemas-mundo (Wallerstein / Arrighi). Los códigos epistémicos —<b>[DC]</b> dato confirmado, <b>[IP]</b> inferencia plausible, <b>[H]</b> hipótesis, <b>[Int]</b> interpretación, <b>[C]</b> conjetura— caracterizan el estatus justificatorio de cada afirmación según el proceso que la genera, no según su plausibilidad intuitiva. Las declaraciones de nivel, de parámetro de control y de tipo de analogía (literal / fuerte / débil) siguen el criterio de rigor de la ADD frente al uso metafórico de los conceptos de complejidad, conforme a la exigencia de Reynoso (2006).</p>
+      <p style="margin-top:12px">En esta entrega, el registro ADD opera en analogía <em>literal</em> únicamente en dos puntos: los flujos disipativos de hidrocarburos de la nota 3 y el costo termodinámico del procesamiento de información de la nota 5. En todos los demás casos la analogía es <em>fuerte</em> y así se declara en el bloque correspondiente. En la nota 4 se declara explícitamente la <em>imposibilidad</em> de aplicar el concepto de bifurcación por ausencia de parámetro de control identificado; en la nota 5 se declara la imposibilidad de establecer régimen por insuficiencia de resolución temporal del registro. Esas abstenciones son parte del método, no omisiones.</p>
+      <p style="margin-top:12px">Este análisis combina evaluación epistémica explicacionista (MEEE-G) y análisis dinámico antropológico (ADD). <b>No constituye predicción determinista ni recomendación política. Toda conclusión es revisable ante nueva evidencia.</b></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>ANCA-ADD · Agente Noticioso Crítico de Actualidad — Antropología Dinámica del Devenir</div>
+    <div>Boletín Semanal N.° 013 · cierre editorial domingo 2 de agosto de 2026, 09:34 (San José, UTC−6)</div>
+    <div>Ventana de cobertura: 8 de julio – 2 de agosto de 2026 · MEEE-G + ADD + Sistemas-Mundo</div>
+    <div>Alfredo Montero Fonseca · <a href="https://antropos.app">antropos.app</a> · @antropos</div>
+  </div>
+</footer>
+
+</body>
+</html>

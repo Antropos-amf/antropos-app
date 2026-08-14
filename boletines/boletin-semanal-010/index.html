@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANCA-ADD · Boletín Semanal N.° 010 · 13–19 jun 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0c0e11; --bg2:#13161a; --panel:#171b20; --panel2:#1c2127;
+    --ink:#e9e6df; --ink2:#b7b2a8; --muted:#7f7a70;
+    --teal:#37b1a2; --teal-dim:#1f5c55; --teal-bg:rgba(55,177,162,.08);
+    --amber:#c98a3c; --copper:#b5672e; --amber-bg:rgba(201,138,60,.08);
+    --gold:#d8b25a; --red:#d65a4e; --line:#2a2f36;
+    --dc:#37b1a2; --ip:#7fb8d8; --h:#d8b25a; --int:#c98a3c; --c:#b78bd0;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:'Cormorant Garamond',Georgia,serif;font-size:20px;line-height:1.55;}
+  ::selection{background:var(--teal-dim);color:#fff}
+
+  /* TICKER */
+  .ticker{position:sticky;top:0;z-index:60;background:#08090b;border-bottom:1px solid var(--line);
+    overflow:hidden;white-space:nowrap;font-family:'IBM Plex Mono',monospace;font-size:12.5px;
+    letter-spacing:.04em;color:var(--ink2);padding:7px 0}
+  .ticker .track{display:inline-block;padding-left:100%;animation:scroll 48s linear infinite}
+  .ticker b{color:var(--teal)}
+  .ticker .sep{color:var(--red);margin:0 .8em}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+  @media(prefers-reduced-motion:reduce){.ticker .track{animation:none;padding-left:1em}}
+
+  /* NAV */
+  nav{position:sticky;top:31px;z-index:55;background:rgba(12,14,17,.92);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--line);
+    font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.05em}
+  nav .wrap{max-width:920px;margin:0 auto;padding:9px 22px;display:flex;flex-wrap:wrap;gap:4px 18px;align-items:center}
+  nav a{color:var(--muted);text-decoration:none;text-transform:uppercase;transition:color .2s}
+  nav a:hover,nav a:focus{color:var(--teal)}
+  nav .brand{color:var(--ink);font-weight:600;margin-right:auto}
+
+  main{max-width:920px;margin:0 auto;padding:0 22px 80px}
+
+  /* MASTHEAD */
+  header.mast{padding:54px 0 30px;border-bottom:2px solid var(--ink);margin-bottom:6px}
+  .kicker{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.32em;
+    text-transform:uppercase;color:var(--teal);margin-bottom:18px}
+  h1.title{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:clamp(54px,11vw,108px);
+    line-height:.92;letter-spacing:.005em;margin:0;color:var(--ink)}
+  h1.title span{color:var(--teal)}
+  .subtitle{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(20px,3vw,27px);
+    color:var(--ink2);margin:12px 0 0;font-weight:400}
+  .mast-meta{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--muted);
+    margin-top:22px;display:flex;flex-wrap:wrap;gap:6px 26px;letter-spacing:.03em}
+  .mast-meta b{color:var(--ink2);font-weight:500}
+
+  /* PANORAMA */
+  .panorama{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--teal);
+    padding:24px 28px;margin:30px 0 8px;border-radius:2px}
+  .panorama h2{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--teal);margin:0 0 12px}
+  .panorama p{margin:0 0 10px;font-size:19px;color:var(--ink2)}
+  .panorama p:last-child{margin-bottom:0}
+
+  /* ARTICLES */
+  article{padding:46px 0 8px;border-bottom:1px solid var(--line)}
+  .art-head{display:flex;align-items:baseline;gap:16px;margin-bottom:6px;flex-wrap:wrap}
+  .art-num{font-family:'Bebas Neue',sans-serif;font-size:46px;color:var(--teal-dim);line-height:1}
+  .cat{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;
+    text-transform:uppercase;padding:4px 10px;border-radius:2px;border:1px solid;white-space:nowrap}
+  .cat.geo{color:var(--red);border-color:rgba(214,90,78,.4);background:rgba(214,90,78,.07)}
+  .cat.sci{color:var(--teal);border-color:rgba(55,177,162,.4);background:var(--teal-bg)}
+  .cat.tec{color:var(--ip);border-color:rgba(127,184,216,.4);background:rgba(127,184,216,.07)}
+  .cat.nac{color:var(--gold);border-color:rgba(216,178,90,.4);background:rgba(216,178,90,.07)}
+  .cat.eco{color:var(--amber);border-color:rgba(201,138,60,.4);background:var(--amber-bg)}
+  h3.head{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(28px,4.5vw,40px);
+    line-height:1.08;margin:10px 0 4px;color:var(--ink)}
+  .dek{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:21px;color:var(--ink2);margin:0 0 22px}
+
+  .sub{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--muted);margin:26px 0 9px;
+    padding-bottom:5px;border-bottom:1px solid var(--line)}
+  article p{margin:0 0 14px}
+  article p.lead{font-size:21px}
+  em.term{font-style:italic;color:var(--teal)}
+
+  /* MEEE-G TABLE */
+  .meee{width:100%;border-collapse:collapse;font-family:'IBM Plex Mono',monospace;
+    font-size:13px;margin:6px 0 8px}
+  .meee th{text-align:left;color:var(--muted);font-weight:500;letter-spacing:.05em;
+    padding:7px 10px;border-bottom:1px solid var(--line);font-size:10.5px;text-transform:uppercase}
+  .meee td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink2);line-height:1.45}
+  .meee tr:last-child td{border-bottom:none}
+  .code{font-weight:600;white-space:nowrap}
+  .code.dc{color:var(--dc)} .code.ip{color:var(--ip)} .code.h{color:var(--h)}
+  .code.int{color:var(--int)} .code.c{color:var(--c)}
+
+  /* ADD BLOCK (teal) */
+  .add{background:var(--teal-bg);border:1px solid var(--teal-dim);border-left:3px solid var(--teal);
+    padding:20px 24px;margin:18px 0;border-radius:2px}
+  .add .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--teal);margin-bottom:6px}
+  .add .regime{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink2);
+    margin-bottom:12px;display:flex;flex-wrap:wrap;gap:6px 18px}
+  .add .regime b{color:var(--teal);font-weight:500}
+  .add p{margin:0 0 10px;font-size:19px}
+  .add p:last-child{margin-bottom:0}
+
+  /* WORLD-SYSTEMS BLOCK (amber/copper) */
+  .ws{background:var(--amber-bg);border:1px solid var(--copper);border-left:3px solid var(--amber);
+    padding:20px 24px;margin:18px 0;border-radius:2px}
+  .ws .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--amber);margin-bottom:10px}
+  .ws p{margin:0 0 10px;font-size:19px}
+  .ws p:last-child{margin-bottom:0}
+
+  /* CR BLOCK */
+  .cr{border:1px solid var(--line);border-top:2px solid var(--gold);padding:18px 24px;
+    margin:18px 0;border-radius:2px;background:var(--bg2)}
+  .cr .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+  .cr p{margin:0;font-size:19px;color:var(--ink2)}
+
+  /* SCENARIOS */
+  .scen{margin:20px 0 4px}
+  .scen .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  .pill{display:block;padding:13px 18px;margin:8px 0;border-radius:2px;border:1px solid var(--line);
+    background:var(--panel);font-size:18px;color:var(--ink2)}
+  .pill b{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;
+    text-transform:uppercase;display:inline-block;margin-right:8px;padding:2px 8px;border-radius:2px}
+  .pill.a b{color:var(--teal);background:var(--teal-bg)}
+  .pill.b b{color:var(--gold);background:rgba(216,178,90,.07)}
+  .pill.c b{color:var(--red);background:rgba(214,90,78,.07)}
+
+  /* SYNTHESIS */
+  section.synth{padding:46px 0}
+  .synth h2,.uncert h2,.refs h2{font-family:'Bebas Neue',sans-serif;font-size:34px;
+    letter-spacing:.02em;color:var(--ink);margin:0 0 18px}
+  .synth table{width:100%;border-collapse:collapse;font-family:'IBM Plex Mono',monospace;font-size:12.5px}
+  .synth th{text-align:left;padding:8px 10px;border-bottom:1px solid var(--ink);color:var(--teal);
+    font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+  .synth td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink2);line-height:1.45}
+  .synth td:first-child{color:var(--ink);font-weight:500}
+
+  /* UNCERTAINTIES */
+  .uncert{padding:20px 0 46px}
+  .uncert ul{list-style:none;padding:0;margin:0}
+  .uncert li{padding:13px 0 13px 30px;border-bottom:1px solid var(--line);position:relative;color:var(--ink2);font-size:19px}
+  .uncert li:before{content:"?";position:absolute;left:0;top:13px;font-family:'IBM Plex Mono',monospace;
+    color:var(--red);font-weight:600}
+
+  /* REFS */
+  .refs{padding:30px 0}
+  .refs ol{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);
+    line-height:1.6;padding-left:22px}
+  .refs li{margin-bottom:9px}
+  .refs em{color:var(--ink2);font-style:italic}
+
+  /* METHOD */
+  .method{background:var(--panel);border:1px solid var(--line);padding:22px 26px;
+    border-radius:2px;margin:14px 0}
+  .method p{font-family:'IBM Plex Mono',monospace;font-size:12.5px;line-height:1.7;color:var(--ink2);margin:0}
+  .method b{color:var(--teal)}
+
+  footer{border-top:2px solid var(--ink);padding:28px 22px;max-width:920px;margin:0 auto;
+    font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--muted);
+    display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+
+  @media(max-width:640px){
+    body{font-size:18px}
+    .meee{font-size:11.5px} .meee th,.meee td{padding:7px 6px}
+    .synth table{font-size:11px} .synth td,.synth th{padding:7px 5px}
+    nav .wrap{font-size:10.5px;gap:3px 12px}
+    .art-num{font-size:36px}
+  }
+
+  /* FIGURES */
+  figure.fig{margin:22px 0 26px}
+  figure.fig img{width:100%;display:block;border-radius:3px;border:1px solid var(--line)}
+  figure.fig figcaption{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.03em;
+    color:var(--muted);margin-top:8px;line-height:1.5}
+  figure.fig.cover img{border-radius:2px}
+
+  /* SWITCH BANNER */
+  .switch{background:var(--panel);border-bottom:1px solid var(--line);text-align:center;
+    padding:10px 16px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink2);letter-spacing:.02em}
+  .switch a{color:var(--teal);text-decoration:underline}
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker"><div class="track">
+  <b>IRÁN·EE.UU.</b> Memorando de 14 puntos firmado por sorpresa en Versalles (17 jun); negociaciones de paz inician en Suiza<span class="sep">///</span>
+  <b>CRUDO</b> Brent cae ~4 % a USD 83,9 con la reapertura de Ormuz tras +100 días de cierre<span class="sep">///</span>
+  <b>COLOMBIA</b> Balotaje 21 jun: De la Espriella (43,7 %) vs. Cepeda (40,9 %)<span class="sep">///</span>
+  <b>JUNO</b> Primer resultado en Nature: precisión 1,6× sobre todos los experimentos previos combinados<span class="sep">///</span>
+  <b>HONGOS</b> Primer mapa global de redes micorrízicas: ~110 billones de km de hifas en Science<span class="sep">///</span>
+  <b>G7</b> CEOs de IA piden coalición internacional de estándares en Évian<span class="sep">///</span>
+  <b>COSTA RICA</b> Polémica por declaraciones de Fernández sobre el régimen de Ortega<span class="sep">///</span>
+</div></div>
+
+<div class="switch">¿Prefiere una versión en lenguaje sencillo? <a href="popular/">Lea el Boletín N.° 010 para Todo Público →</a></div>
+
+<!-- NAV -->
+<nav><div class="wrap">
+  <a class="brand" href="#top">ANCA-ADD · N.°010</a>
+  <a href="https://antropos.app/">Inicio</a>
+  <a href="https://antropos.app/boletines/">Boletines</a>
+  <a href="#n1">Irán</a>
+  <a href="#n2">Colombia</a>
+  <a href="#n3">JUNO</a>
+  <a href="#n4">Hongos</a>
+  <a href="#n5">IA·G7</a>
+  <a href="#n6">Costa Rica</a>
+  <a href="#sintesis">Síntesis</a>
+</div></nav>
+
+<main id="top">
+
+<!-- MASTHEAD -->
+<header class="mast">
+  <div class="kicker">Agente Noticioso Crítico de Actualidad — Antropología Dinámica del Devenir</div>
+  <h1 class="title">BOLETÍN <span>SEMANAL</span></h1>
+  <p class="subtitle">Evaluación epistémica, lectura dinámica y análisis de sistemas-mundo de la semana</p>
+  <div class="mast-meta">
+    <span><b>Edición:</b> N.° 010</span>
+    <span><b>Semana:</b> 13–19 de junio de 2026</span>
+    <span><b>Cierre:</b> viernes 19 jun, 19:16 (San José)</span>
+    <span><b>Registros:</b> MEEE-G · ADD · Sistemas-Mundo</span>
+  </div>
+</header>
+
+<figure class="fig cover">
+  <img src="img/portada.jpg" alt="Síntesis visual de los cuatro ejes del boletín: política y seguridad, geopolítica, ciencia y medio ambiente, tecnología y gobernanza de IA." loading="lazy">
+  <figcaption>Observación sistémica ante la complejidad sociocultural — síntesis visual de los cuatro ejes de esta edición.</figcaption>
+</figure>
+
+<!-- PANORAMA -->
+<div class="panorama">
+  <h2>Panorama de la semana</h2>
+  <p>La semana cierra con una bisagra geopolítica que el boletín venía siguiendo desde febrero: la guerra entre Estados Unidos e Irán pasó de tregua quebradiza a memorando de entendimiento <em class="term">firmado</em>, en una rúbrica sorpresiva durante una cena en Versalles. El alivio se trasladó de inmediato al crudo —y, por acoplamiento, a un importador neto como Costa Rica.</p>
+  <p>En paralelo, dos resultados científicos de primer orden cartografían lo invisible a escalas opuestas: el observatorio JUNO mide oscilaciones de neutrinos con precisión inédita desde las profundidades de Guangdong, y un equipo internacional traza por primera vez el mapa global de las redes de hongos micorrízicos que mueven carbono bajo nuestros pies. La gobernanza de la inteligencia artificial se desplazó al G7, y en Colombia el balotaje del domingo define una bifurcación de régimen. El ancla nacional: las declaraciones de la presidenta Fernández sobre Nicaragua y la tensión entre realismo comercial y consenso de derechos humanos.</p>
+</div>
+
+<figure class="fig">
+  <img src="img/metodologia.jpg" alt="Nota editorial ANCA-ADD: factualidad contrastada, pluralismo metodológico, transparencia y análisis." loading="lazy">
+  <figcaption>Nota editorial — el compromiso de método que sostiene cada edición de este boletín.</figcaption>
+</figure>
+
+<!-- ARTICLE 1 — IRAN -->
+<article id="n1">
+  <div class="art-head">
+    <span class="art-num">01</span>
+    <span class="cat geo">Política y geopolítica</span>
+  </div>
+  <h3 class="head">El fin de la guerra EE.UU.–Irán se firma en una cena en Versalles</h3>
+  <p class="dek">De ultimátum a memorando: catorce puntos, sesenta días y un estrecho que vuelve a abrirse.</p>
+
+  <figure class="fig">
+    <img src="img/iran-acuerdo.jpg" alt="Esquema ADD: punto de presión, bifurcación e irreversibilidad en el fin de la guerra EE.UU.-Irán." loading="lazy">
+    <figcaption>Lectura ADD: estructuras disipativas y transición de régimen tras la firma del memorando.</figcaption>
+  </figure>
+
+  <div class="sub">Hechos verificados</div>
+  <p class="lead">El 17 de junio, durante una cena ofrecida por Emmanuel Macron en el Palacio de Versalles, el presidente Donald Trump firmó personalmente el memorando de entendimiento con Irán para poner fin a la guerra iniciada el 28 de febrero de 2026. Por la parte iraní rubricó el presidente Masoud Pezeshkian. La firma improvisada dejó sin efecto la ceremonia formal prevista para Ginebra, aunque las negociaciones de paz se mantienen en suelo suizo a partir de esta semana.</p>
+  <p>El documento, leído ante la prensa por un alto funcionario estadounidense el día anterior, resume en catorce puntos un entendimiento provisional: terminación de las operaciones militares, reapertura del estrecho de Ormuz con paso comercial gratuito por 60 días, levantamiento gradual de sanciones vinculado al avance nuclear, descongelamiento de activos y un horizonte de reconstrucción para Irán cifrado en al menos USD 300.000 millones. Las cuestiones más espinosas —el desmantelamiento del programa nuclear— quedan diferidas a un acuerdo definitivo en un plazo de 60 días prorrogable.</p>
+  <p>El efecto en los mercados fue inmediato: con la reapertura de Ormuz tras más de cien días de cierre, el Brent cayó cerca de 4 % a unos USD 83,9 por barril y el WTI a unos USD 81. El propio Trump condicionó su permanencia en el pacto a su criterio, dejando explícita la puerta de salida.</p>
+
+  <div class="sub">Contexto</div>
+  <p>Ormuz canalizaba alrededor del 20 % del petróleo mundial antes del conflicto. Su cierre disparó el Brent por encima de USD 113 en marzo y produjo el peor mes del crudo desde la pandemia. El memorando es la coronación de una secuencia de ultimátums, treguas rotas y mediaciones (Pakistán, Omán) que el boletín ha seguido desde la N.° 005. La firma llega tras la cumbre del G7 en Évian-les-Bains, donde los líderes respaldaron el acuerdo como vía para impedir un Irán nuclear.</p>
+
+  <div class="sub">Análisis epistémico · MEEE-G</div>
+  <table class="meee">
+    <tr><th>Afirmación</th><th>Código</th><th>Justificación procesual</th></tr>
+    <tr><td>Trump y Pezeshkian firmaron el memorando el 17 jun en Versalles.</td><td class="code dc">[DC]</td><td>Cobertura concordante de múltiples agencias y medios con registro visual.</td></tr>
+    <tr><td>El texto contempla reapertura de Ormuz por 60 días y USD 300 mil M de reconstrucción.</td><td class="code dc">[DC]</td><td>Texto difundido oficialmente y leído ante la prensa; coincidente con filtraciones previas.</td></tr>
+    <tr><td>El crudo cederá de forma sostenida si el tránsito se normaliza.</td><td class="code ip">[IP]</td><td>Inferencia respaldada por la caída inmediata, pero condicionada a la apertura real (analistas anticipan una reapertura «parcial»).</td></tr>
+    <tr><td>El acuerdo definitivo nuclear se alcanzará dentro del plazo de 60 días.</td><td class="code h">[H]</td><td>Hipótesis sin garantía: el punto más espinoso quedó diferido y el pacto admite salida unilateral.</td></tr>
+    <tr><td>La firma responde más a la presión de mercados que a un giro estratégico de fondo.</td><td class="code int">[Int]</td><td>Interpretación apoyada en la propia justificación económica esgrimida por Trump en el G7.</td></tr>
+  </table>
+
+  <div class="add">
+    <div class="lbl">Lectura dinámica · ADD</div>
+    <div class="regime"><span>Régimen: <b>bifurcación estabilizadora (no consumada)</b></span><span>Analogía: <b>fuerte</b></span><span>Parámetro de control declarado: <b>credibilidad del compromiso</b></span></div>
+    <p>El sistema regional cruzó un umbral: la firma actúa como atractor que reorganiza el flujo energético global hacia un nuevo estado de menor turbulencia. Pero la bifurcación no está consumada. El parámetro de control —siguiendo la advertencia ADD de declararlo antes de invocar el concepto— no es militar sino la credibilidad del compromiso: mientras una de las partes conserve la opción explícita de «volver a disparar», el atractor de paz coexiste con el atractor de guerra y el régimen permanece metaestable.</p>
+    <p>El crudo opera aquí como flujo disipativo en sentido casi literal: la economía-mundo importa energía y exporta entropía, y el precio del barril es la variable que mide la tensión del acoplamiento entre el chokepoint físico de Ormuz y la red global de producción.</p>
+  </div>
+
+  <div class="ws">
+    <div class="lbl">◆ Sistemas-Mundo · Wallerstein / Arrighi</div>
+    <p>El episodio es un ejercicio de gestión hegemónica del núcleo sobre una mercancía cuasi-monopólica: el petróleo del Golfo. Estados Unidos no busca producir el recurso sino administrar el acceso a la ruta, fijando los términos del paso por Ormuz —y reservándose la potestad de revisarlos. En la lectura de Arrighi, es un movimiento característico de una potencia que ejerce poder territorial (control del chokepoint) al servicio de la acumulación de capital (estabilización de precios y flujos).</p>
+    <p>El gran ausente del reparto es el principal comprador del crudo iraní: China, que adquiría a precios de descuento durante el cierre. La normalización reconfigura las semiperiferias productoras del Golfo y desplaza el eje de disputa hacia quién «administrará» la ruta a futuro, con Omán como mediador semiperiférico.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">★ Relevancia para Costa Rica</div>
+    <p>Costa Rica es importadora neta de hidrocarburos y un nodo semiperiférico cuyo costo energético se acopla directamente al Brent. El choque que en la N.° 009 llevó al Banco Mundial a recortar el crecimiento 2026 al 3,5 % se origina en este mismo conflicto. Una distensión sostenida del crudo aliviaría la factura de RECOPE, la presión inflacionaria y el costo del transporte. La cautela es obligada: el alivio depende de que la reapertura sea real y no nominal, y la dependencia estructural del país ante choques externos de energía permanece intacta.</p>
+  </div>
+
+  <div class="scen">
+    <div class="lbl">Escenarios plausibles</div>
+    <span class="pill a"><b>Estabilización</b> Ormuz se normaliza, el crudo se asienta bajo USD 85 y el acuerdo de 60 días avanza hacia un marco nuclear verificable.</span>
+    <span class="pill b"><b>Tregua congelada</b> Apertura parcial del estrecho y pacto que sobrevive sin avanzar; precios volátiles en banda alta sin resolución de fondo.</span>
+    <span class="pill c"><b>Reversión</b> El compromiso nuclear se rompe, la cláusula de salida se activa y el conflicto rebrota, con nuevo salto del Brent.</span>
+  </div>
+</article>
+
+<!-- ARTICLE 2 — COLOMBIA -->
+<article id="n2">
+  <div class="art-head">
+    <span class="art-num">02</span>
+    <span class="cat geo">Política y geopolítica</span>
+  </div>
+  <h3 class="head">Colombia ante el balotaje: dos proyectos antagónicos para 2026–2030</h3>
+  <p class="dek">De la Espriella contra Cepeda; el domingo se decide la continuidad o la clausura del ciclo petrista.</p>
+
+  <div class="sub">Hechos verificados</div>
+  <p class="lead">El domingo 21 de junio Colombia celebra la segunda vuelta presidencial entre Abelardo de la Espriella, abogado y outsider de ultraderecha que encabezó la primera vuelta con 43,74 % (más de 10 millones de votos), e Iván Cepeda, candidato del Pacto Histórico, con 40,9 %. Ninguno alcanzó el umbral para ganar el 31 de mayo. Los programas son opuestos: Cepeda propone dar continuidad a la agenda de Gustavo Petro e implementar el acuerdo de paz; De la Espriella plantea clausurar la «paz total» y un giro de mano dura en seguridad.</p>
+  <p>El proceso se desarrolla en alta polarización, agravada por el asesinato del precandidato Miguel Uribe Turbay en 2025 y por las disputas en torno a la consulta popular y la propuesta —luego retirada— de asamblea constituyente. La Misión de Observación Electoral de la OEA, encabezada por Leonel Fernández, pidió a las campañas un clima de respeto. Cepeda, a diez días de la elección, matizó su discurso y dejó fuera la constituyente para no espantar al centro.</p>
+
+  <div class="sub">Contexto</div>
+  <p>El presidente Trump respaldó explícitamente a De la Espriella, enmarcando la elección como decisiva para la relación con Estados Unidos. La votación define si el experimento de gobierno de izquierda iniciado por Petro en 2022 tiene continuidad institucional o si se revierte hacia una nueva derecha que desplazó al uribismo tradicional.</p>
+
+  <div class="sub">Análisis epistémico · MEEE-G</div>
+  <table class="meee">
+    <tr><th>Afirmación</th><th>Código</th><th>Justificación procesual</th></tr>
+    <tr><td>El balotaje es el 21 jun entre De la Espriella y Cepeda.</td><td class="code dc">[DC]</td><td>Resultados oficiales de la Registraduría; cobertura unánime.</td></tr>
+    <tr><td>De la Espriella obtuvo 43,74 % y Cepeda 40,9 % en primera vuelta.</td><td class="code dc">[DC]</td><td>Datos preliminares divulgados por la autoridad electoral.</td></tr>
+    <tr><td>El resultado del domingo es altamente incierto pese a la ventaja inicial.</td><td class="code ip">[IP]</td><td>Inferencia: ~3 puntos de diferencia y el realineamiento del centro hacen el balotaje abierto.</td></tr>
+    <tr><td>El apoyo de Trump moviliza o repele votos en magnitud decisiva.</td><td class="code h">[H]</td><td>Hipótesis no resuelta: la intervención externa puede operar en ambas direcciones.</td></tr>
+    <tr><td>Cualquiera de los dos resultados reorienta la política exterior del país.</td><td class="code int">[Int]</td><td>Interpretación derivada del contraste programático declarado.</td></tr>
+  </table>
+
+  <div class="add">
+    <div class="lbl">Lectura dinámica · ADD</div>
+    <div class="regime"><span>Régimen: <b>bifurcación electoral</b></span><span>Analogía: <b>fuerte</b></span><span>Parámetro de control declarado: <b>realineamiento del electorado de centro</b></span></div>
+    <p>El sistema político colombiano se encuentra en un punto de inflexión genuino: dos atractores de régimen —continuidad transformadora vs. restauración de mano dura— compiten por capturar la trayectoria del país. El parámetro de control que decide la rama es el comportamiento del electorado de centro, hoy desacoplado de ambos polos. El giro táctico de Cepeda (soltar la constituyente) es un intento de reducir la fricción de acoplamiento con ese segmento.</p>
+    <p>En clave Habermas, la elección tensiona mundo de la vida y sistema: la «paz total» pertenece a una lógica comunicativa de reconciliación, mientras la oferta de seguridad de De la Espriella moviliza una lógica sistémica de orden y sanción. La violencia política previa (el magnicidio de 2025) opera como perturbación que erosiona la deliberación y empuja al sistema hacia la polarización.</p>
+  </div>
+
+  <div class="ws">
+    <div class="lbl">◆ Sistemas-Mundo · Wallerstein / Arrighi</div>
+    <p>Colombia es una semiperiferia bisagra en la división regional del trabajo y un nodo clave de la política antidrogas hemisférica. El respaldo abierto de la potencia hegemónica a uno de los candidatos revela la disputa por la orientación del nodo: alineamiento estrecho con Washington frente a una autonomía relativa heredada del ciclo petrista. La elección no se juega solo en lo doméstico; reconfigura el mapa de alineamientos en una región donde el núcleo busca contener tanto a China como a las «fuerzas iliberales».</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">★ Relevancia para Costa Rica</div>
+    <p>El resultado afecta el clima ideológico centroamericano y la arquitectura de cooperación regional en seguridad y migración. Para Costa Rica —que comparte con Colombia la condición de semiperiferia alineada con Estados Unidos y enfrenta presiones similares en narcotráfico y flujos migratorios— el giro de Bogotá ofrece una señal sobre el margen de maniobra de los gobiernos del istmo ante la presión hegemónica. Un eventual reacomodo también incide en los precios y rutas del corredor logístico que conecta a la región.</p>
+  </div>
+
+  <div class="scen">
+    <div class="lbl">Escenarios plausibles</div>
+    <span class="pill a"><b>Continuidad</b> Cepeda captura el centro, gana ajustadamente y prolonga la agenda de paz con moderación táctica.</span>
+    <span class="pill b"><b>Alternancia dura</b> De la Espriella confirma su ventaja, clausura la «paz total» y estrecha el alineamiento con Washington.</span>
+    <span class="pill c"><b>Crisis de legitimidad</b> Resultado estrecho con impugnaciones del preconteo y judicialización; turbulencia institucional poselectoral.</span>
+  </div>
+</article>
+
+<!-- ARTICLE 3 — JUNO -->
+<article id="n3">
+  <div class="art-head">
+    <span class="art-num">03</span>
+    <span class="cat sci">Ciencia · Física de partículas</span>
+  </div>
+  <h3 class="head">JUNO mide los neutrinos con precisión inédita desde 700 metros bajo tierra</h3>
+  <p class="dek">El primer resultado del observatorio chino, portada de Nature, anticipa una respuesta al orden de las masas.</p>
+
+  <figure class="fig">
+    <img src="img/juno-neutrinos.jpg" alt="Monitoreo espacial y el proyecto JUNO: clima espacial macro y física de neutrinos micro." loading="lazy">
+    <figcaption>Del clima espacial a los neutrinos: la falacia de la excepcionalidad humana frente a la contingencia cósmica.</figcaption>
+  </figure>
+
+  <div class="sub">Hechos verificados</div>
+  <p class="lead">El Observatorio Subterráneo de Neutrinos de Jiangmen (JUNO), enterrado a unos 700 metros bajo Guangdong (China), publicó el 10 de junio su primer resultado físico como artículo de portada en <em>Nature</em>. Con apenas 59 días de datos efectivos (26 ago – 2 nov de 2025), midió dos parámetros de oscilación de neutrinos con una precisión 1,6 veces mejor que la combinación de todos los experimentos previos de décadas. El detector es una esfera de 20.000 toneladas de líquido centellador rodeada de decenas de miles de fotomultiplicadores; la colaboración reúne a unos 750 investigadores.</p>
+  <p>El resultado confirma además la llamada «tensión del neutrino solar» —una discrepancia de ~1,5 desviaciones estándar entre las mediciones con neutrinos solares y de reactor—, que sigue abierta. El objetivo principal de JUNO es determinar el ordenamiento de las masas de los neutrinos (si el tercer estado de masa es más pesado que el segundo), meta para la que este primer dato demuestra estar en buen camino.</p>
+
+  <div class="sub">Contexto</div>
+  <p>Los neutrinos son partículas casi sin masa, eléctricamente neutras y de enorme poder de penetración; «oscilan» entre tres tipos mientras viajan a velocidades cercanas a la de la luz. Resolver su jerarquía de masas orientaría a otros experimentos y arrojaría luz sobre fenómenos cósmicos, desde supernovas hasta la evolución galáctica. JUNO inauguró una nueva generación de detectores de gran escala que entró en operación en agosto de 2025.</p>
+
+  <div class="sub">Análisis epistémico · MEEE-G</div>
+  <table class="meee">
+    <tr><th>Afirmación</th><th>Código</th><th>Justificación procesual</th></tr>
+    <tr><td>JUNO logró precisión 1,6× sobre los experimentos previos combinados.</td><td class="code dc">[DC]</td><td>Artículo revisado por pares en Nature, con metodología y datos públicos.</td></tr>
+    <tr><td>La «tensión del neutrino solar» persiste.</td><td class="code dc">[DC]</td><td>Reportado en el mismo estudio como discrepancia de ~1,5σ.</td></tr>
+    <tr><td>JUNO determinará el ordenamiento de masas en los próximos años.</td><td class="code ip">[IP]</td><td>Inferencia plausible: la sensibilidad proyectada y el desempeño inicial lo respaldan, sin garantía temporal.</td></tr>
+    <tr><td>La tensión solar revelará física más allá del modelo estándar.</td><td class="code h">[H]</td><td>Hipótesis abierta: podría reflejar nueva física o efectos sistemáticos aún no resueltos.</td></tr>
+  </table>
+
+  <div class="add">
+    <div class="lbl">Lectura dinámica · ADD</div>
+    <div class="regime"><span>Régimen: <b>laminar (programa en consolidación)</b></span><span>Analogía: <b>débil (heurística)</b></span></div>
+    <p>Como objeto físico, un neutrino no es un sistema sociocultural y no admite lectura ADD literal; la analogía es deliberadamente débil. Lo que sí es analizable en términos ADD es JUNO como <em class="term">sistema sociotécnico</em>: una organización científica que mantiene su clausura operacional (protocolos, calibración, criterios de validación) mediante una apertura disipativa enorme —energía, financiamiento, talento internacional— sostenida durante más de una década de construcción. El primer resultado marca la transición de un régimen de montaje a un régimen laminar de producción de conocimiento estable.</p>
+  </div>
+
+  <div class="ws">
+    <div class="lbl">◆ Sistemas-Mundo · Wallerstein / Arrighi</div>
+    <p>La «gran ciencia» es hoy un terreno de competencia hegemónica. Que el primer detector de nueva generación y su resultado inaugural en portada de Nature provengan de China señala un ascenso en la división internacional del trabajo científico: el país transita de ensamblador periférico de conocimiento a productor de cuasi-monopolios cognitivos —infraestructuras únicas que ningún otro Estado posee. En la lectura de Arrighi, la inversión en megaproyectos de ciencia básica es una apuesta de largo plazo por el prestigio y la capacidad tecnológica que sostienen las transiciones hegemónicas.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">★ Relevancia para Costa Rica</div>
+    <p>Costa Rica no participa en física de altas energías, pero el caso ilumina su posición: la frontera del conocimiento se concentra en nodos del núcleo con capacidad de inversión sostenida. La estrategia costarricense realista no es competir en megainfraestructura sino acoplarse mediante nichos de alto valor —el país ya aporta a modelos astrofísicos internacionales (esta misma semana, a un modelo sobre chorros protoestelares)— y consolidar capital cultural científico vía formación e inserción en colaboraciones globales.</p>
+  </div>
+
+  <div class="scen">
+    <div class="lbl">Escenarios plausibles</div>
+    <span class="pill a"><b>Resolución</b> JUNO determina el ordenamiento de masas en el horizonte previsto y redefine la agenda de la física de neutrinos.</span>
+    <span class="pill b"><b>Tensión productiva</b> La discrepancia solar persiste y abre una línea de investigación de física más allá del modelo estándar.</span>
+    <span class="pill c"><b>Meseta</b> Los sistemáticos limitan la sensibilidad y la determinación del orden de masas se prolonga más de lo esperado.</span>
+  </div>
+</article>
+
+<!-- ARTICLE 4 — FUNGI -->
+<article id="n4">
+  <div class="art-head">
+    <span class="art-num">04</span>
+    <span class="cat sci">Ciencia · Ecología</span>
+  </div>
+  <h3 class="head">El primer mapa global de la red de hongos que mueve carbono bajo el suelo</h3>
+  <p class="dek">110 billones de kilómetros de hifas: una infraestructura viva que regula el clima sale por fin a la luz.</p>
+
+  <figure class="fig">
+    <img src="img/hongos-mapa.jpg" alt="El mapa global de hongos: 110 billones de km de filamentos, 70% de plantas asociadas, 4.000 millones de toneladas de CO2 capturadas al año." loading="lazy">
+    <figcaption>El hallazgo en cifras: la infraestructura fúngica del subsuelo como sistema disipativo real.</figcaption>
+  </figure>
+
+  <div class="sub">Hechos verificados</div>
+  <p class="lead">Un equipo internacional publicó en <em>Science</em> (11 de junio) el primer mapa global de la distribución y la masa de las redes de hongos micorrízicos arbusculares (HMA), que forman simbiosis con cerca del 70 % de las especies vegetales. A partir de más de 16.000 muestras de suelo y modelos de aprendizaje automático, estiman que estas redes suman ~110 billones de kilómetros de hifas —casi mil veces la distancia Tierra-Sol— y ~300 megatoneladas de carbono en biomasa viva (de 4 a 6 veces la masa de toda la humanidad).</p>
+  <p>Las redes transportan cada año el equivalente a unos 4.000 millones de toneladas de CO₂ hacia los suelos —cerca del 11 % de las emisiones humanas. Los pastizales silvestres concentran ~40 % de esta infraestructura; los suelos agrícolas muestran densidades hasta ~50 % menores. El estudio, liderado por la organización SPUN, se acompaña de una visualización interactiva para informar agendas climáticas y modelos de carbono.</p>
+
+  <div class="sub">Contexto</div>
+  <p>Las micorrizas actúan como un sistema circulatorio del planeta: extienden el alcance de las raíces hasta cien veces y aportan más del 80 % del fósforo de muchas plantas, a cambio del carbono que estas fijan de la atmósfera. Pese a su importancia, más del 70 % de los ecosistemas seguían sin muestrear. El mapa identifica vacíos críticos de datos y zonas de alta densidad (pastizales de Sudán del Sur, los Everglades, la meseta tibetana).</p>
+
+  <div class="sub">Análisis epistémico · MEEE-G</div>
+  <table class="meee">
+    <tr><th>Afirmación</th><th>Código</th><th>Justificación procesual</th></tr>
+    <tr><td>Es el primer mapa global de densidad y biomasa de HMA.</td><td class="code dc">[DC]</td><td>Publicado en Science, revisado por pares, con datos y métodos abiertos.</td></tr>
+    <tr><td>Las redes mueven ~4.000 M t de CO₂-eq al suelo por año.</td><td class="code ip">[IP]</td><td>Inferencia derivada de modelos sobre 16.000+ núcleos; magnitud sujeta a incertidumbre de muestreo.</td></tr>
+    <tr><td>Las cifras totales (110 billones de km; 300 Mt C) son estimaciones de modelo.</td><td class="code ip">[IP]</td><td>Extrapolación por aprendizaje automático; los propios autores señalan vacíos de muestreo.</td></tr>
+    <tr><td>Proteger estas redes mitigaría el cambio climático de forma significativa.</td><td class="code h">[H]</td><td>Hipótesis razonable que requiere cuantificar permanencia y manejabilidad del carbono capturado.</td></tr>
+  </table>
+
+  <div class="add">
+    <div class="lbl">Lectura dinámica · ADD</div>
+    <div class="regime"><span>Régimen: <b>laminar bajo presión</b></span><span>Analogía: <b>literal (nivel disipativo) / débil (la metáfora de «red»)</b></span></div>
+    <p>Aquí la ADD opera en su registro más sólido. La red micorrízica es un <em class="term">sistema disipativo</em> en sentido literal (Prigogine + Landauer): mantiene orden —el intercambio carbono/nutrientes— procesando flujos de energía y materia, y ese procesamiento tiene un costo termodinámico real. La metáfora de «sistema circulatorio» o «red de información», en cambio, debe declararse como analogía débil: el hongo «decide» intercambios sin un punto central de procesamiento, y traducir eso a lenguaje de redes humanas exige cautela.</p>
+    <p>El acoplamiento estructural es nítido: la agricultura industrial perturba el sistema reduciendo su densidad ~50 %. La perturbación opera sobre los flujos disipativos del suelo, amenazando un servicio ecosistémico que sostiene la productividad vegetal. La conversión de pastizal silvestre a cropland es, en términos ADD, una colonización de la lógica ecológica por la lógica sistémica del rendimiento.</p>
+  </div>
+
+  <div class="ws">
+    <div class="lbl">◆ Sistemas-Mundo · Wallerstein / Arrighi</div>
+    <p>El carbono del suelo se perfila como un nuevo objeto de valorización en la economía-mundo: mercados de carbono, créditos y geoingeniería del suelo. Cartografiar las redes micorrízicas es también producir el dato sobre el que se construirán esas mercancías. La pregunta de sistemas-mundo es quién captura la renta de ese conocimiento y de esos servicios: las semiperiferias y periferias biodiversas —donde se localiza buena parte de la infraestructura fúngica— corren el riesgo de aportar el sustrato natural mientras el núcleo captura el valor de los instrumentos financieros y tecnológicos asociados.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">★ Relevancia para Costa Rica</div>
+    <p>Para un país que ha hecho de la conservación y los servicios ambientales una marca de Estado —pago por servicios ambientales, reforestación, REDD+—, este mapa convierte un activo invisible en cuantificable. Los suelos forestales y agrícolas costarricenses albergan estas redes; protegerlas es relevante para la productividad agropecuaria (café, cacao) y para la posición del país en mercados de carbono. La oportunidad: integrar la salud micorrízica en la política de suelos y en la diferenciación de su agricultura. El riesgo: que la valorización del carbono se diseñe en el núcleo y reproduzca la captura desigual de renta.</p>
+  </div>
+
+  <div class="scen">
+    <div class="lbl">Escenarios plausibles</div>
+    <span class="pill a"><b>Integración</b> Las redes fúngicas entran en modelos climáticos y agendas de suelos; la agricultura regenerativa gana tracción.</span>
+    <span class="pill b"><b>Dato sin política</b> El mapa queda como hito científico sin traducción regulatoria, y la degradación de suelos continúa.</span>
+    <span class="pill c"><b>Mercantilización desigual</b> El carbono del suelo se financiariza con captura de renta concentrada en el núcleo.</span>
+  </div>
+
+  <div class="cr" style="border-top:2px solid var(--teal)">
+    <div class="lbl" style="color:var(--teal)">↳ Informe Estratégico ampliado</div>
+    <p>Esta nota se cruza esta misma semana con la gira presidencial a Crucitas. Desarrollamos ambos hechos —el mapa micorrízico y la disputa por la minería de oro— en un informe estratégico completo: <a href="https://antropos.app/informes-estrategicos/crucitas-subsuelo-vivo/" style="color:var(--teal);text-decoration:underline;">El subsuelo vivo frente al oro →</a></p>
+  </div>
+</article>
+
+<!-- ARTICLE 5 — AI G7 -->
+<article id="n5">
+  <div class="art-head">
+    <span class="art-num">05</span>
+    <span class="cat tec">Tecnología · Gobernanza de IA</span>
+  </div>
+  <h3 class="head">Los jefes de la IA llevan al G7 la pregunta por quién fija las reglas</h3>
+  <p class="dek">Una coalición de estándares, un foro internacional de pruebas y una disputa sobre legitimidad y chips.</p>
+
+  <figure class="fig">
+    <img src="img/ia-g7.jpg" alt="Gobernanza tecnológica: ciberextorsión autónoma y disputa en el G7 sobre quién regula a los algoritmos." loading="lazy">
+    <figcaption>Autopoiesis digital y colonización del mundo de la vida: la disputa por las reglas de la IA en el G7.</figcaption>
+  </figure>
+
+  <div class="sub">Hechos verificados</div>
+  <p class="lead">En un almuerzo a puerta cerrada durante la cumbre del G7 en Évian-les-Bains (17 de junio), los CEOs de los principales laboratorios de IA plantearon a los jefes de Estado crear mecanismos de gobernanza internacional. Según CNBC —con base en fuentes anónimas—, Dario Amodei (Anthropic) y Demis Hassabis (Google DeepMind) propusieron una coalición liderada por EE.UU. para fijar reglas y estándares; Sam Altman (OpenAI) abogó públicamente por un foro internacional de pruebas y evaluación. Asistieron también ejecutivos de Meta y Mistral, junto a Trump y los secretarios Bessent, Lutnick y Rubio. No surgieron compromisos vinculantes.</p>
+  <p>Amodei habría señalado que la cooperación debería incluir el acceso estructurado a modelos de frontera y un comercio de chips y componentes críticos que excluya a China, además de coordinación frente a riesgos de ciberseguridad y bioterrorismo. La propuesta llega días después de que la administración Trump forzara la salida de operación de los últimos modelos de Anthropic para cumplir controles de exportación —restricciones que la empresa dijo no considerar justificadas. Macron calificó la medida de reacción «estrictamente nacionalista».</p>
+
+  <div class="sub">Contexto</div>
+  <p>2026 ha consolidado la «soberanía de IA» como eje: gobiernos que buscan controlar infraestructura crítica sin depender de proveedores extranjeros. La UE avanza por su propia vía regulatoria; China presentó borradores para sistemas que simulan interacción humana. El telón de fondo es la afirmación, hecha por los propios CEOs, de que la industria no puede regularse a sí misma: el futuro de la tecnología debería ser moldeado por instituciones democráticas y la sociedad, no solo por quienes construyen los sistemas más capaces.</p>
+
+  <div class="sub">Análisis epistémico · MEEE-G</div>
+  <table class="meee">
+    <tr><th>Afirmación</th><th>Código</th><th>Justificación procesual</th></tr>
+    <tr><td>Altman pidió públicamente un foro internacional de estándares y pruebas.</td><td class="code dc">[DC]</td><td>Declaraciones públicas atribuibles y reportadas por múltiples medios.</td></tr>
+    <tr><td>Amodei y Hassabis propusieron una coalición liderada por EE.UU.</td><td class="code ip">[IP]</td><td>Reunión a puerta cerrada; basado en fuentes anónimas concordantes de CNBC, sin acta pública.</td></tr>
+    <tr><td>La cooperación propuesta incluiría excluir a China del comercio de chips.</td><td class="code ip">[IP]</td><td>Atribuido a una sola persona con conocimiento de la discusión; plausible pero no confirmado oficialmente.</td></tr>
+    <tr><td>De la reunión surgirá una coalición efectiva de estándares.</td><td class="code h">[H]</td><td>Hipótesis débil: no hubo compromisos vinculantes y varios miembros del G7 siguen vías propias.</td></tr>
+    <tr><td>Quien fija los estándares de la IA fija una porción del poder global.</td><td class="code int">[Int]</td><td>Interpretación estructural sobre el significado del episodio.</td></tr>
+  </table>
+
+  <div class="add">
+    <div class="lbl">Lectura dinámica · ADD</div>
+    <div class="regime"><span>Régimen: <b>turbulento (gobernanza no estabilizada)</b></span><span>Analogía: <b>fuerte (nivel comunicativo-institucional)</b></span></div>
+    <p>La escena es un caso de manual de la tensión habermasiana entre <em class="term">sistema</em> y <em class="term">mundo de la vida</em>. La IA de frontera es un medio sistémico —opera por capital y capacidad técnica— que penetra dominios (información, deliberación pública, ciencia) que se reproducen por comprensión comunicativa. La paradoja declarada por los propios CEOs es que reconocen la colonización potencial y piden, desde el sistema, que el mundo de la vida (instituciones democráticas) ponga las reglas. Que quienes construyen la tecnología se sienten a diseñar su control plantea, en clave Bourdieu, un problema de violencia simbólica: el capital técnico tiende a naturalizarse como autoridad legítima sobre las reglas.</p>
+    <p>El régimen es turbulento: ningún atractor de gobernanza ha estabilizado el campo. El choque entre la propuesta de coalición y los controles de exportación del mismo Estado que la lideraría revela la contradicción del momento —el núcleo quiere a la vez coordinar y monopolizar.</p>
+  </div>
+
+  <div class="ws">
+    <div class="lbl">◆ Sistemas-Mundo · Wallerstein / Arrighi</div>
+    <p>Los modelos de frontera son la cuasi-mercancía monopólica de este ciclo de acumulación: quien controla cómputo, chips y estándares controla un cuello de botella de la economía-mundo emergente. La propuesta de una coalición «de democracias» liderada por EE.UU., con exclusión explícita de China del comercio de componentes, es la formalización de una división del trabajo tecnológico de núcleo cerrado. Las periferias y semiperiferias —Costa Rica entre ellas— quedan como tomadoras de estándares: dependen de proveedores del núcleo y carecen de voz en la mesa donde se redactan las reglas. La «soberanía de IA» nombra precisamente esa asimetría.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">★ Relevancia para Costa Rica</div>
+    <p>Costa Rica es consumidora de IA, no productora de frontera; su exposición es la de un nodo que adoptará estándares decididos fuera. Las restricciones de acceso a modelos avanzados —como las que esta semana afectaron a un laboratorio del núcleo— ilustran que la disponibilidad de la herramienta puede cambiar por decisiones geopolíticas ajenas. La agenda realista: diversificar proveedores, construir capacidad regulatoria y de evaluación propia, y participar en foros multilaterales para no quedar reducida a receptora pasiva de reglas. Es la misma lógica de acoplamiento semiperiférico que atraviesa todo el boletín.</p>
+  </div>
+
+  <div class="scen">
+    <div class="lbl">Escenarios plausibles</div>
+    <span class="pill a"><b>Coalición efectiva</b> Cuaja un foro internacional de evaluación con estándares compartidos y cierta legitimidad pública.</span>
+    <span class="pill b"><b>Fragmentación</b> EE.UU., UE y China avanzan por vías incompatibles; la gobernanza se balcaniza por bloques.</span>
+    <span class="pill c"><b>Captura corporativa</b> Los estándares se diseñan a medida de los grandes laboratorios, con déficit de legitimidad democrática.</span>
+  </div>
+</article>
+
+<!-- ARTICLE 6 — COSTA RICA -->
+<article id="n6">
+  <div class="art-head">
+    <span class="art-num">06</span>
+    <span class="cat nac">Nacional · Política y geopolítica</span>
+  </div>
+  <h3 class="head">Fernández y Nicaragua: el realismo comercial choca con el consenso de derechos humanos</h3>
+  <p class="dek">Una frase en televisión abre una grieta entre la tradición de derechos humanos del país y la diplomacia de la convivencia.</p>
+
+  <figure class="fig">
+    <img src="img/nicaragua-diplomacia.jpg" alt="Diplomacia fronteriza, derechos humanos y el sistema-mundo del narco: acoplamiento estructural entre el régimen Ortega-Murillo y el narcotráfico regional." loading="lazy">
+    <figcaption>Acoplamiento estructural y violencia estructural: la frontera norte como vector geopolítico de presión.</figcaption>
+  </figure>
+
+  <div class="sub">Hechos verificados</div>
+  <p class="lead">En una entrevista con el programa <em>La Noche</em> de NTN24 (emitida el 13 de junio), la presidenta Laura Fernández afirmó que los nicaragüenses tienen «la forma de gobierno que han elegido tener» y defendió una relación «cordial» y «armoniosa» con el régimen de Daniel Ortega y Rosario Murillo, centrada en comercio y migración. Comparó favorablemente las condiciones de vida en Nicaragua frente a las de Cuba o Venezuela. Las declaraciones desataron indignación entre periodistas, opositores y exiliados nicaragüenses.</p>
+  <p>Las expresidentas y expresidentes costarricenses reaccionaron: Laura Chinchilla pidió disculpas públicas y calificó las palabras de «atroces», recordando las «reelecciones» de 2011, 2016 y 2021; Luis Guillermo Solís las llamó «desafortunadas», «muy graves» e «insólitas». El Servicio Jesuita para Migrantes (15 jun) las rechazó por desconocer las conclusiones del Grupo de Expertos en Derechos Humanos de la ONU. El 17 de junio Fernández replicó tildando de «majaderos» a los exmandatarios y acusándolos de sacar frases de contexto, al tiempo que reconoció que no puede «despotricar» contra la dictadura y reiteró su interés en una relación «fraternal» en comercio y migración.</p>
+
+  <div class="sub">Contexto</div>
+  <p>La postura contrasta con la de Estados Unidos, principal aliado de Costa Rica, que califica al régimen de dictadura: el secretario Rubio lo nombró así en febrero y Washington sancionó en abril a dos hijos de Ortega y Murillo por el opaco negocio del oro con China. Organismos como la ONU, la OEA y el Parlamento Europeo han documentado violaciones sistemáticas y procesos electorales fraudulentos. La relación bilateral CR–EE.UU. atraviesa además tensiones propias: acusaciones por manejo comercial vinculado a trabajo forzado y una caída de ~12 % de las exportaciones costarricenses en el primer cuatrimestre.</p>
+
+  <div class="sub">Análisis epistémico · MEEE-G</div>
+  <table class="meee">
+    <tr><th>Afirmación</th><th>Código</th><th>Justificación procesual</th></tr>
+    <tr><td>Fernández dijo que los nicaragüenses tienen el gobierno «que han elegido tener».</td><td class="code dc">[DC]</td><td>Entrevista grabada y difundida; cita verificada por múltiples medios.</td></tr>
+    <tr><td>ONU, OEA y otros han documentado fraude electoral y violaciones de DD.HH. en Nicaragua.</td><td class="code dc">[DC]</td><td>Informes institucionales públicos y concordantes a lo largo de años.</td></tr>
+    <tr><td>La afirmación de «elección» libre es factualmente insostenible.</td><td class="code int">[Int]</td><td>Interpretación: el consenso documentado contradice la premisa de comicios competitivos.</td></tr>
+    <tr><td>La postura responde a intereses de comercio y migración fronteriza.</td><td class="code ip">[IP]</td><td>Inferencia respaldada por la propia explicación de la mandataria y por analistas regionales.</td></tr>
+    <tr><td>La declaración tensiona la alianza CR–EE.UU. de forma duradera.</td><td class="code h">[H]</td><td>Hipótesis: analistas anticipan bajo impacto bilateral, pero el desalineamiento simbólico es real.</td></tr>
+  </table>
+
+  <div class="add">
+    <div class="lbl">Lectura dinámica · ADD</div>
+    <div class="regime"><span>Régimen: <b>turbulento (crisis de legitimidad simbólica)</b></span><span>Analogía: <b>fuerte (nivel comunicativo y práctico-disposicional)</b></span></div>
+    <p>El episodio escenifica una tensión entre dos lógicas del mundo de la vida costarricense. Por un lado, la <em class="term">organización simbólica</em> histórica del país —su identidad como nodo de derechos humanos, neutralidad activa y vocación democrática— que funciona como clausura organizacional del Estado y como capital simbólico internacional. Por otro, una lógica sistémica de realismo fronterizo (comercio, migración, estabilidad limítrofe) que coloniza el discurso normativo y lo reescribe en clave de convivencia pragmática.</p>
+    <p>La reacción de las expresidencias es el sistema autoobservándose: una parte del campo político activa la narrativa identitaria como perturbación correctiva. En clave Bourdieu, la frase «han elegido tener» naturaliza —vuelve invisible— la coerción, operación característica de la violencia simbólica. El régimen es turbulento: una crisis de legitimidad simbólica de baja intensidad que pone a prueba qué cuenta como perturbación inadmisible para la organización del Estado.</p>
+  </div>
+
+  <div class="ws">
+    <div class="lbl">◆ Sistemas-Mundo · Wallerstein / Arrighi</div>
+    <p>Costa Rica es una semiperiferia acoplada que debe gestionar dos vínculos asimétricos a la vez: el hegemón del norte (EE.UU.), que presiona contra Ortega-Murillo, y el vecino fronterizo (Nicaragua), del que depende en comercio y flujos migratorios. La declaración revela el estrecho margen de maniobra de un nodo que no puede alinearse plenamente con la cruzada del núcleo sin asumir costos materiales inmediatos en su frontera. Analistas advierten, en clave de economía política, que Centroamérica no será aliada en la restauración democrática nicaragüense precisamente por sus intereses económicos con Managua: la semiperiferia subordina la posición normativa a la reproducción de sus flujos.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">★ Relevancia para Costa Rica</div>
+    <p>El costo no es tanto material como reputacional: el capital simbólico de «excepcionalidad democrática» que Costa Rica proyecta internacionalmente es un activo de su posición semiperiférica, y declaraciones que erosionan ese capital tienen consecuencias en foros multilaterales, cooperación y soft power. La disyuntiva de fondo —realismo fronterizo vs. consistencia de principios— seguirá tensionando a la administración Fernández mientras coexistan la presión estadounidense y la interdependencia con Managua. Es una decisión de identidad de Estado, no solo de política exterior.</p>
+  </div>
+
+  <div class="scen">
+    <div class="lbl">Escenarios plausibles</div>
+    <span class="pill a"><b>Recalibración</b> El gobierno matiza el discurso y recupera un lenguaje de principios sin romper la convivencia fronteriza.</span>
+    <span class="pill b"><b>Realismo asumido</b> La administración sostiene la diplomacia comercial-migratoria y absorbe el costo reputacional como precio del pragmatismo.</span>
+    <span class="pill c"><b>Fricción aliada</b> La divergencia con Washington se profundiza y se suma a las tensiones comerciales ya existentes.</span>
+  </div>
+</article>
+
+<!-- SYNTHESIS -->
+<section class="synth" id="sintesis">
+  <h2>Síntesis tricolumnar de la semana</h2>
+
+  <figure class="fig">
+    <img src="img/sintesis.jpg" alt="La meta-crisis: agencia compartida en sistemas abiertos. Humanos, ríos, redes de hongos, algoritmos e instituciones forman un entramado vivo y acoplado." loading="lazy">
+    <figcaption>La meta-crisis como hilo conductor: agencia compartida en sistemas abiertos y ética ecocéntrica.</figcaption>
+  </figure>
+
+  <table>
+    <tr><th>Tema</th><th>Epistémico (MEEE-G)</th><th>Dinámica (ADD)</th><th>Sistemas-Mundo</th></tr>
+    <tr><td>Irán–EE.UU.</td><td>Firma [DC]; alivio del crudo [IP]; pacto nuclear [H]</td><td>Bifurcación estabilizadora no consumada; metaestable</td><td>Gestión hegemónica del chokepoint; China desplazada del reparto</td></tr>
+    <tr><td>Colombia</td><td>Balotaje y cifras [DC]; resultado abierto [IP]</td><td>Bifurcación electoral; control = centro</td><td>Semiperiferia bisagra; disputa por su alineamiento</td></tr>
+    <tr><td>JUNO</td><td>Precisión 1,6× [DC]; orden de masas [IP]</td><td>Sistema sociotécnico en régimen laminar; analogía débil</td><td>Ascenso científico de China; cuasi-monopolio cognitivo</td></tr>
+    <tr><td>Hongos micorrízicos</td><td>Primer mapa [DC]; cifras de modelo [IP]</td><td>Disipativo literal; acoplamiento perturbado por agricultura</td><td>Carbono del suelo como mercancía emergente; captura de renta</td></tr>
+    <tr><td>IA · G7</td><td>Foro público [DC]; coalición y chips [IP]; estándares [H]</td><td>Sistema vs. mundo de la vida; régimen turbulento</td><td>Modelos de frontera = cuasi-mercancía; división de núcleo</td></tr>
+    <tr><td>Costa Rica · Nicaragua</td><td>Cita y consenso DD.HH. [DC]; motivos [IP]</td><td>Crisis de legitimidad simbólica; violencia simbólica</td><td>Semiperiferia entre hegemón y vecino; primacía de los flujos</td></tr>
+  </table>
+</section>
+
+<!-- UNCERTAINTIES -->
+<section class="uncert">
+  <h2>Incertidumbres abiertas</h2>
+  <ul>
+    <li>¿Será la reapertura de Ormuz real y sostenida, o solo parcial y reversible? El acuerdo admite salida unilateral y deja el núcleo nuclear sin resolver.</li>
+    <li>¿Captura Cepeda al electorado de centro o confirma De la Espriella su ventaja? El balotaje del 21 de junio es genuinamente abierto.</li>
+    <li>¿Logrará JUNO determinar el ordenamiento de masas, y revelará la tensión solar nueva física o sistemáticos no resueltos?</li>
+    <li>¿Se traducirá el mapa micorrízico en política de suelos y modelos climáticos, o quedará como hito sin consecuencias regulatorias?</li>
+    <li>¿Cuaja una coalición de gobernanza de IA con legitimidad democrática, o se impone la fragmentación por bloques y la captura corporativa?</li>
+    <li>¿Recalibrará el gobierno costarricense su discurso sobre Nicaragua, o asumirá el costo reputacional del realismo fronterizo?</li>
+  </ul>
+</section>
+
+<!-- REFERENCES -->
+<section class="refs">
+  <h2>Fuentes · APA 7</h2>
+
+  <figure class="fig">
+    <img src="img/fuentes.jpg" alt="Fuentes y metodología del boletín ANCA-ADD." loading="lazy">
+    <figcaption>Las analogías de este boletín se declaran operativamente bajo el marco de la ADD.</figcaption>
+  </figure>
+
+  <ol>
+    <li>La Nación (Argentina). (2026, 17 de junio). <em>Los 14 puntos del acuerdo entre EE.UU. e Irán</em>. https://www.lanacion.com.ar/el-mundo/</li>
+    <li>El Constitucional. (2026, 17 de junio). <em>Estados Unidos publica el acuerdo provisional con Irán: 14 puntos para reabrir Ormuz</em>. https://www.elconstitucional.es/</li>
+    <li>Voz Media. (2026, 18 de junio). <em>Trump firma personalmente el memorando de entendimiento con Irán durante una cena en Versalles</em>. https://voz.us/</li>
+    <li>OilPrice.com. (2026, 15 de junio). <em>Oil prices plunge as U.S. and Iran reach deal to reopen Strait of Hormuz</em>. https://oilprice.com/</li>
+    <li>Wikipedia. (2026, 19 de junio). <em>Elecciones presidenciales de Colombia de 2026</em>. https://es.wikipedia.org/</li>
+    <li>Semana. (2026, junio). <em>Segunda vuelta presidencial 2026: compare las propuestas de Cepeda y De la Espriella</em>. https://www.semana.com/</li>
+    <li>JUNO Collaboration. (2026, 10 de junio). Measurement of reactor neutrino oscillation with the first JUNO data. <em>Nature, 654</em>(8118). https://doi.org/10.1038/s41586-026-10538-z</li>
+    <li>CGTN. (2026, 11 de junio). <em>China's JUNO publishes first physics result in Nature</em>. https://news.cgtn.com/</li>
+    <li>Stewart, J. D., et al. (2026, 11 de junio). Global density and biomass of arbuscular mycorrhizal fungal networks. <em>Science, 392</em>(6803), 1171. https://doi.org/10.1126/science.adu4373</li>
+    <li>University of Sheffield. (2026, 11 de junio). <em>First global map reveals underground fungi networks</em>. https://www.sheffield.ac.uk/news/</li>
+    <li>CNBC. (2026, 17 de junio). <em>CEOs of Anthropic and Google DeepMind call for U.S.-led AI coalition at G7</em>. https://www.cnbc.com/</li>
+    <li>Capacity. (2026, 17 de junio). <em>Tech titans caution G7: frontier models are too dangerous to ignore</em>. https://capacityglobal.com/</li>
+    <li>El Financiero (Costa Rica). (2026, 15 de junio). <em>Laura Fernández dice que los nicaragüenses eligieron su forma de gobierno; la ONU, la OEA y el Parlamento Europeo han documentado lo contrario</em>. https://www.elfinancierocr.com/</li>
+    <li>La Nación (Costa Rica). (2026, 14 de junio). <em>Mientras Estados Unidos aumenta la presión contra la dictadura Ortega-Murillo, Laura Fernández da declaraciones inaceptables para exiliados nicaragüenses</em>. https://www.nacion.com/</li>
+    <li>La Mesa Redonda. (2026, 17 de junio). <em>Laura Fernández tilda de "majaderos" a expresidentes que cuestionaron su posición sobre Nicaragua</em>. https://www.lamesaredonda.net/</li>
+  </ol>
+</section>
+
+<!-- METHOD -->
+<div class="method">
+  <p><b>Nota metodológica.</b> Este boletín integra tres registros analíticos distintos y no colapsables: la evaluación epistémica explicacionista (MEEE-G, inspirada en Goldman), el análisis dinámico antropológico (ADD, según Montero Fonseca) y la capa de sistemas-mundo (Wallerstein/Arrighi). Los códigos epistémicos —<b>[DC]</b> dato confirmado, <b>[IP]</b> inferencia plausible, <b>[H]</b> hipótesis, <b>[Int]</b> interpretación, <b>[C]</b> conjetura— caracterizan el estatus justificatorio de cada afirmación según los procesos que la generan, no la convicción subjetiva del analista. Las declaraciones de analogía (literal / fuerte / débil) y de parámetro de control siguen el criterio de rigor de la ADD frente a la crítica de Reynoso sobre el uso metafórico de los conceptos de complejidad. <b>El análisis combina evaluación epistémica explicacionista y análisis dinámico antropológico; no constituye predicción determinista ni recomendación política.</b> Los escenarios son trayectorias plausibles derivadas de la dinámica observada; su realización depende de variables no completamente identificables al momento de cierre.</p>
+</div>
+
+</main>
+
+<footer>
+  <div>ANCA-ADD © 2026 · <a href="https://antropos.app" style="color:var(--teal);text-decoration:none;">antropos.app</a></div>
+  <div>Boletín Semanal N.° 010 · 19 jun 2026 · MEEE-G + ADD + Sistemas-Mundo</div>
+</footer>
+
+<script data-goatcounter="https://antropos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

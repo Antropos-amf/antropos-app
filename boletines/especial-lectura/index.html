@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANCA-ADD | ESPECIAL: La Lectura y el Horizonte de las Sociedades Ágrafas</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-deep: #0a0a0c;
+    --bg-panel: #111116;
+    --bg-card: #16161e;
+    --bg-card-alt: #1a1a24;
+    --accent-red: #c0392b;
+    --accent-red-bright: #e74c3c;
+    --accent-gold: #d4a017;
+    --accent-gold-light: #f0c040;
+    --accent-green: #2ecc71;
+    --accent-green-dim: #1a7a45;
+    --text-primary: #e8e4d9;
+    --text-secondary: #a09a8e;
+    --text-dim: #6b6560;
+    --border: rgba(200,190,170,0.10);
+    --border-accent: rgba(212,160,23,0.25);
+    --rule: rgba(192,57,43,0.5);
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-body: 'Source Serif 4', Georgia, serif;
+    --font-mono: 'Space Mono', monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: var(--bg-deep);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.72;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── TICKER ── */
+  .ticker-wrap {
+    background: var(--accent-red);
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 6px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .ticker-inner {
+    display: inline-block;
+    animation: ticker 60s linear infinite;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: #fff;
+    padding-left: 100%;
+  }
+  .ticker-inner span { margin-right: 4em; }
+  @keyframes ticker {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--bg-panel);
+    border-bottom: 1px solid var(--border-accent);
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    height: 48px;
+    position: sticky;
+    top: 30px;
+    z-index: 90;
+    overflow-x: auto;
+  }
+  nav a {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--text-secondary);
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: color 0.2s;
+    padding: 4px 0;
+    border-bottom: 2px solid transparent;
+  }
+  nav a:hover { color: var(--accent-gold-light); border-bottom-color: var(--accent-gold); }
+  .nav-brand {
+    font-family: var(--font-display);
+    font-size: 18px;
+    letter-spacing: 0.05em;
+    color: var(--accent-red-bright) !important;
+    border-bottom: none !important;
+    margin-right: auto;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 72px 40px 56px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 480px; height: 480px;
+    background: radial-gradient(circle at top right, rgba(192,57,43,0.07) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .hero-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--accent-red);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(52px, 8vw, 96px);
+    line-height: 0.92;
+    color: var(--text-primary);
+    letter-spacing: 0.02em;
+    margin-bottom: 24px;
+  }
+  .hero-title em {
+    font-style: normal;
+    color: var(--accent-gold);
+  }
+  .hero-subtitle {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 22px;
+    color: var(--text-secondary);
+    max-width: 680px;
+    line-height: 1.5;
+    margin-bottom: 32px;
+    border-left: 3px solid var(--accent-red);
+    padding-left: 20px;
+  }
+  .hero-meta {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .hero-meta span { color: var(--accent-gold); }
+
+  /* ── LAYOUT ── */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* ── SECTION HEADERS ── */
+  .section-header {
+    padding: 56px 0 32px;
+    border-top: 1px solid var(--border);
+    margin-top: 56px;
+  }
+  .section-header:first-of-type { margin-top: 0; border-top: none; }
+  .section-number {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--accent-red);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    display: block;
+  }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 5vw, 52px);
+    line-height: 1;
+    color: var(--text-primary);
+    letter-spacing: 0.03em;
+  }
+  .section-title em { font-style: normal; color: var(--accent-gold); }
+
+  /* ── BODY PROSE ── */
+  .prose { max-width: 780px; }
+  .prose p {
+    margin-bottom: 1.4em;
+    color: var(--text-primary);
+  }
+  .prose p:last-child { margin-bottom: 0; }
+  .prose strong { color: var(--accent-gold-light); font-weight: 600; }
+  .prose em { font-style: italic; color: var(--text-secondary); }
+
+  .lead {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    line-height: 1.65;
+    font-weight: 300;
+    color: var(--text-primary);
+    margin-bottom: 2em;
+  }
+
+  /* ── MEEE-G TABLE ── */
+  .meee-g {
+    background: var(--bg-card);
+    border: 1px solid var(--border-accent);
+    border-radius: 2px;
+    margin: 36px 0;
+    overflow: hidden;
+  }
+  .meee-g-header {
+    background: rgba(212,160,23,0.08);
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid var(--border-accent);
+  }
+  .meee-g-header h4 {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+  }
+  .meee-g table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .meee-g th {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    padding: 10px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    background: rgba(0,0,0,0.2);
+  }
+  .meee-g td {
+    padding: 11px 16px;
+    border-bottom: 1px solid rgba(200,190,170,0.05);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  .meee-g tr:last-child td { border-bottom: none; }
+  .badge {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+  .badge-dc  { background: rgba(46,204,113,0.15); color: var(--accent-green); border: 1px solid rgba(46,204,113,0.3); }
+  .badge-ip  { background: rgba(52,152,219,0.15); color: #74b9ff; border: 1px solid rgba(52,152,219,0.3); }
+  .badge-h   { background: rgba(212,160,23,0.12); color: var(--accent-gold-light); border: 1px solid rgba(212,160,23,0.3); }
+  .badge-int { background: rgba(155,89,182,0.15); color: #c39bd3; border: 1px solid rgba(155,89,182,0.3); }
+  .badge-c   { background: rgba(192,57,43,0.12); color: var(--accent-red-bright); border: 1px solid rgba(192,57,43,0.3); }
+
+  /* ── ADE PANEL ── */
+  .ade-panel {
+    background: var(--bg-card-alt);
+    border-left: 3px solid var(--accent-red);
+    padding: 28px 32px;
+    margin: 36px 0;
+    border-radius: 0 2px 2px 0;
+  }
+  .ade-panel h4 {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-red);
+    margin-bottom: 16px;
+  }
+  .ade-panel p {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.68;
+    margin-bottom: 0.9em;
+  }
+  .ade-panel p:last-child { margin-bottom: 0; }
+  .ade-panel strong { color: var(--text-primary); }
+
+  /* ── COSTA RICA BOX ── */
+  .cr-box {
+    background: rgba(26, 122, 69, 0.08);
+    border: 1px solid rgba(46,204,113,0.2);
+    border-left: 3px solid var(--accent-green);
+    padding: 24px 28px;
+    margin: 36px 0;
+    border-radius: 0 2px 2px 0;
+  }
+  .cr-box h4 {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-green);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .cr-box p {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin-bottom: 0.85em;
+  }
+  .cr-box p:last-child { margin-bottom: 0; }
+  .cr-box strong { color: #6fd49a; }
+
+  /* ── STAT CARDS ── */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin: 36px 0;
+  }
+  .stat-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 24px 20px;
+    border-top: 2px solid var(--accent-red);
+  }
+  .stat-number {
+    font-family: var(--font-display);
+    font-size: 42px;
+    line-height: 1;
+    color: var(--accent-gold);
+    margin-bottom: 6px;
+  }
+  .stat-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    line-height: 1.4;
+  }
+  .stat-source {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    color: var(--text-dim);
+    margin-top: 8px;
+    opacity: 0.7;
+  }
+
+  /* ── PULL QUOTE ── */
+  .pull-quote {
+    padding: 40px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin: 48px 0;
+  }
+  .pull-quote blockquote {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: clamp(20px, 3vw, 28px);
+    line-height: 1.45;
+    color: var(--text-primary);
+    max-width: 720px;
+    padding-left: 32px;
+    border-left: 4px solid var(--accent-gold);
+  }
+  .pull-quote cite {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-top: 16px;
+    padding-left: 32px;
+    font-style: normal;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 48px 0;
+    color: var(--accent-red);
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  /* ── SYNTHESIS TABLE ── */
+  .synthesis-table {
+    background: var(--bg-card);
+    border: 1px solid var(--border-accent);
+    overflow: hidden;
+    margin: 36px 0;
+  }
+  .synthesis-table h3 {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    padding: 16px 20px;
+    background: rgba(212,160,23,0.06);
+    border-bottom: 1px solid var(--border-accent);
+  }
+  .synthesis-table table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  .synthesis-table th {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    padding: 10px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    background: rgba(0,0,0,0.15);
+  }
+  .synthesis-table td {
+    padding: 11px 16px;
+    border-bottom: 1px solid rgba(200,190,170,0.04);
+    vertical-align: top;
+    line-height: 1.5;
+    color: var(--text-secondary);
+  }
+  .synthesis-table tr:last-child td { border-bottom: none; }
+  .synthesis-table td:first-child { color: var(--text-primary); font-weight: 600; }
+
+  /* ── UNCERTAINTY BOX ── */
+  .uncertainty-box {
+    background: rgba(192,57,43,0.05);
+    border: 1px solid rgba(192,57,43,0.2);
+    padding: 28px 32px;
+    margin: 36px 0;
+  }
+  .uncertainty-box h4 {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-red-bright);
+    margin-bottom: 16px;
+  }
+  .uncertainty-box ul { list-style: none; padding: 0; }
+  .uncertainty-box li {
+    font-size: 14.5px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(192,57,43,0.08);
+    padding-left: 20px;
+    position: relative;
+  }
+  .uncertainty-box li:last-child { border-bottom: none; }
+  .uncertainty-box li::before {
+    content: '?';
+    position: absolute;
+    left: 0;
+    color: var(--accent-red);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  /* ── REFERENCES ── */
+  .references {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 36px;
+    margin: 48px 0;
+  }
+  .references h3 {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 24px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .references ol { padding-left: 20px; }
+  .references li {
+    font-size: 12.5px;
+    color: var(--text-dim);
+    line-height: 1.7;
+    margin-bottom: 10px;
+    font-family: var(--font-mono);
+  }
+  .references a { color: var(--accent-gold); text-decoration: none; }
+  .references a:hover { text-decoration: underline; }
+
+  /* ── METHODOLOGICAL NOTE ── */
+  .method-note {
+    background: rgba(212,160,23,0.04);
+    border: 1px solid rgba(212,160,23,0.15);
+    border-top: 2px solid var(--accent-gold);
+    padding: 28px 32px;
+    margin: 48px 0 32px;
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    letter-spacing: 0.04em;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+  .method-note strong {
+    color: var(--accent-gold-light);
+    display: block;
+    margin-bottom: 8px;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--bg-panel);
+    border-top: 1px solid var(--border-accent);
+    padding: 40px;
+    margin-top: 72px;
+    text-align: center;
+  }
+  footer .footer-brand {
+    font-family: var(--font-display);
+    font-size: 28px;
+    color: var(--accent-red-bright);
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+  }
+  footer p {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+  }
+
+  /* ── INTRO CHAPTER ── */
+  .chapter-intro {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 40px;
+    align-items: start;
+    margin-bottom: 40px;
+  }
+  @media (max-width: 760px) {
+    .chapter-intro { grid-template-columns: 1fr; }
+    .hero { padding: 48px 24px 40px; }
+    .container { padding: 0 24px; }
+    nav { padding: 0 20px; }
+  }
+
+  .timeline {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 20px;
+  }
+  .timeline h4 {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .tl-item {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 14px;
+    align-items: flex-start;
+  }
+  .tl-year {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--accent-red);
+    min-width: 68px;
+    padding-top: 2px;
+  }
+  .tl-text {
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  /* ── SCENARIO CARDS ── */
+  .scenario-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    margin: 32px 0;
+  }
+  .scenario-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 24px;
+  }
+  .scenario-card .sc-label {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .sc-label.optimista { color: var(--accent-green); }
+  .sc-label.critico   { color: var(--accent-red-bright); }
+  .sc-label.intermedio { color: var(--accent-gold); }
+  .scenario-card h5 {
+    font-family: var(--font-serif);
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+  }
+  .scenario-card p {
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* ── HIGHLIGHT ── */
+  .highlight {
+    background: rgba(212,160,23,0.07);
+    border: 1px solid rgba(212,160,23,0.2);
+    padding: 16px 20px;
+    margin: 20px 0;
+    font-size: 15px;
+    color: var(--text-primary);
+    font-style: italic;
+    font-family: var(--font-serif);
+    border-left: 3px solid var(--accent-gold);
+  }
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker-wrap" aria-hidden="true">
+  <div class="ticker-inner">
+    <span>ANCA-ADD · BOLETÍN ESPECIAL</span>
+    <span>La Lectura, la Escritura y el Horizonte de las Sociedades Ágrafas</span>
+    <span>Análisis Dinámico del Devenir · MEEE-G · Abril 2026</span>
+    <span>Costa Rica: 98% de alfabetización formal / 14% de comprensión lectora satisfactoria en ingreso universitario</span>
+    <span>La lectura recreativa cayó un 40% en EE.UU. en dos décadas</span>
+    <span>Francia: uno de cada tres jóvenes de 16–19 años ya no lee</span>
+    <span>ANCA-ADD · BOLETÍN ESPECIAL</span>
+    <span>La Lectura, la Escritura y el Horizonte de las Sociedades Ágrafas</span>
+    <span>Análisis Dinámico del Devenir · MEEE-G · Abril 2026</span>
+    <span>Costa Rica: 98% de alfabetización formal / 14% de comprensión lectora satisfactoria en ingreso universitario</span>
+    <span>La lectura recreativa cayó un 40% en EE.UU. en dos décadas</span>
+    <span>Francia: uno de cada tres jóvenes de 16–19 años ya no lee</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="/">antropos.app</a>
+  <a href="/boletines/">← Boletines</a>
+  <a href="#i">I. Origen</a>
+  <a href="#ii">II. ¿Por qué leer?</a>
+  <a href="#iii">III. Actualidad global</a>
+  <a href="#iv">IV. Amenazas</a>
+  <a href="#v">V. Costa Rica</a>
+  <a href="#vi">VI. Escenarios</a>
+  <a href="#vii">VII. Síntesis</a>
+  <a href="#refs">Fuentes</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <p class="hero-label">ANCA-ADD · Boletín Especial · Nº ESPECIAL-05</p>
+  <h1 class="hero-title">LA LECTURA<br>Y EL <em>HORIZONTE</em><br>DE LAS SOCIEDADES<br>ÁGRAFAS</h1>
+  <p class="hero-subtitle">Por qué importa, de dónde viene, qué la amenaza: un análisis epistémico y dinámico de la práctica que hizo posible la civilización — y que podría abandonarla.</p>
+  <div class="hero-meta">
+    <div>Fecha <span>23 de abril de 2026</span></div>
+    <div>Tipo <span>Boletín Especial Temático</span></div>
+    <div>Marco <span>MEEE-G / ADD</span></div>
+    <div>Ancla geopolítica <span>Costa Rica</span></div>
+  </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<main class="container">
+
+  <!-- INTRO -->
+  <div class="section-header">
+    <span class="section-number">Introducción</span>
+    <h2 class="section-title">Una práctica ante el abismo</h2>
+  </div>
+
+  <div class="chapter-intro">
+    <div class="prose">
+      <p class="lead">Hace aproximadamente cinco mil años, en las márgenes del Tigris y el Éufrates, alguien presionó un estilete de caña sobre una tableta de arcilla y dejó una marca que no era solo un número: era el inicio de la memoria externa de la especie humana. Hoy, esa cadena —escritura, lectura, transmisión del saber— enfrenta una ruptura sin precedentes no desde la ignorancia, sino desde la abundancia de estímulos.</p>
+      <p>El 23 de abril se celebra el Día Mundial del Libro y del Derecho de Autor, una fecha que en 2026 adquiere una resonancia particular: mientras los índices formales de alfabetización alcanzan cotas históricas en América Latina, los datos sobre comprensión lectora, lectura profunda y pensamiento crítico apuntan en dirección opuesta. Es posible —y este boletín argumenta que es probable— que estemos construyendo sociedades que saben decodificar símbolos pero que han dejado de <em>leer</em> en el sentido pleno del término.</p>
+      <p>Este boletín especial analiza la lectura como fenómeno civilizatorio, epistémico y dinámico. Traza sus antecedentes históricos, evalúa su estado actual, identifica las fuerzas que la amenazan —en particular la economía de la atención y el uso pasivo de la inteligencia artificial—, y examina el caso de Costa Rica como nodo periférico acoplado a estas tensiones globales.</p>
+    </div>
+    <div class="timeline">
+      <h4>Línea de tiempo: escritura y lectura</h4>
+      <div class="tl-item"><span class="tl-year">ca. 3500 a.C.</span><span class="tl-text">Escritura cuneiforme en Sumeria (Mesopotamia). Registro de transacciones.</span></div>
+      <div class="tl-item"><span class="tl-year">ca. 3200 a.C.</span><span class="tl-text">Escritura jeroglífica en Egipto. Función religiosa y de Estado.</span></div>
+      <div class="tl-item"><span class="tl-year">ca. 1050 a.C.</span><span class="tl-text">Alfabeto fenicio. Reducción radical: 22 signos para todas las lenguas semíticas.</span></div>
+      <div class="tl-item"><span class="tl-year">ca. 700 a.C.</span><span class="tl-text">Alfabeto griego. Primera escritura fonética completa con vocales.</span></div>
+      <div class="tl-item"><span class="tl-year">1440 d.C.</span><span class="tl-text">Imprenta de Gutenberg. La lectura deja de ser monopolio clerical.</span></div>
+      <div class="tl-item"><span class="tl-year">Siglo XIX</span><span class="tl-text">Alfabetización masiva. Primer ciclo de expansión de lectores de masas.</span></div>
+      <div class="tl-item"><span class="tl-year">2007</span><span class="tl-text">iPhone. Inicio del giro estructural hacia la lectura fragmentada en pantalla.</span></div>
+      <div class="tl-item"><span class="tl-year">2022–2026</span><span class="tl-text">IA generativa. Posible externalización del acto de lectura y escritura.</span></div>
+    </div>
+  </div>
+
+
+  <!-- SECCIÓN I: HISTORIA -->
+  <div id="i" class="section-header">
+    <span class="section-number">Sección I</span>
+    <h2 class="section-title">De la arcilla al <em>scroll</em>: antecedentes históricos de la escritura y la lectura</h2>
+  </div>
+
+  <div class="prose">
+    <p>La escritura no fue un regalo divino ni un salto creativo repentino: fue una respuesta funcional a la complejidad administrativa. <strong>En Mesopotamia, hacia el 3500–3200 a.C.</strong>, los sumerios de Uruk necesitaban registrar el flujo de bienes en sus graneros y templos. Los primeros signos cuneiformes eran, en esencia, recibos de grano y cuentas de ganado. La poesía vendría después; la burocracia llegó primero.</p>
+    <p>Lo mismo ocurrió en Egipto —donde la escritura jeroglífica emergió con funciones mágico-religiosas y de Estado— y, de forma independiente, en China, Mesoamérica e India. El hecho de que la escritura surgiera de manera autónoma en al menos cuatro focos geográficos distintos sugiere que no fue un accidente cultural, sino una respuesta a una presión sistémica: la necesidad de externalizar la memoria cuando la complejidad social supera la capacidad cognitiva individual.</p>
+    <p>La lectura, durante milenios, fue una práctica de élite. En Mesopotamia, los escribas —escribas de templo, de palacio, de tribunales— eran una casta especializada que pasaba años en las <em>edubba</em> (casas de tablillas) aprendiendo a leer y escribir. La primera autora conocida de la historia, Enheduanna —sacerdotesa sumeria del siglo XXIII a.C.— compuso himnos a la diosa Inanna que los investigadores consideran antecedentes directos de los Salmos bíblicos. El conocimiento escrito era poder; el control de la escritura era control del Estado.</p>
+    <p>El punto de inflexión más dramático antes del siglo XX fue la imprenta de Gutenberg (ca. 1440). Al democratizar la reproducción de textos, la imprenta fracturó el monopolio clerical y académico sobre la lectura, alimentó la Reforma Protestante, catalizó las revoluciones científica e ilustrada, y creó por primera vez la posibilidad de un <em>público lector masivo</em>. La lectura dejó de ser la destreza de unos pocos y se convirtió en el índice de ciudadanía plena.</p>
+    <p>El siglo XIX añadió la escolarización obligatoria y la prensa popular. El siglo XX universalizó la aspiración a la alfabetización. Para el inicio del siglo XXI, la UNESCO reportaba tasas de alfabetización superiores al 86% a nivel global. Se cumpliría así el ciclo completo: de unos pocos miles de escribas mesopotámicos a miles de millones de personas capaces de leer. Y es precisamente en ese momento de máxima extensión formal cuando emerge la crisis que este boletín analiza.</p>
+  </div>
+
+  <div class="meee-g">
+    <div class="meee-g-header">
+      <h4>Evaluación epistémica MEEE-G — Antecedentes históricos</h4>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Afirmación</th>
+          <th>Estatus</th>
+          <th>Fundamento</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>La escritura cuneiforme surgió en Mesopotamia ca. 3500–3200 a.C.</td>
+          <td><span class="badge badge-dc">DC</span></td>
+          <td>Registro arqueológico extenso; tabletas de Uruk verificadas.</td>
+        </tr>
+        <tr>
+          <td>La escritura emergió como respuesta funcional a complejidad administrativa.</td>
+          <td><span class="badge badge-dc">DC</span></td>
+          <td>Evidencia material de las primeras tablillas (contabilidad, no literatura).</td>
+        </tr>
+        <tr>
+          <td>La escritura surgió de forma independiente en cuatro focos geográficos.</td>
+          <td><span class="badge badge-ip">IP</span></td>
+          <td>Consenso predominante; algunos investigadores debaten influencia difusionista entre focos.</td>
+        </tr>
+        <tr>
+          <td>Enheduanna es la primera autora conocida por nombre en la historia.</td>
+          <td><span class="badge badge-dc">DC</span></td>
+          <td>Tabletas identificadas con su nombre y autoría en excavaciones de Ur.</td>
+        </tr>
+        <tr>
+          <td>La imprenta de Gutenberg fue el principal catalizador de la alfabetización masiva moderna.</td>
+          <td><span class="badge badge-ip">IP</span></td>
+          <td>Correlación histórica sólida; otros factores (Estado, Iglesia, capitalismo) también coadyuvan.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="ade-panel">
+    <h4>Lectura dinámica ADD — La escritura como atractor civilizatorio</h4>
+    <p>Desde la ADD, la emergencia de la escritura puede leerse como la formación de un <strong>atractor de segundo orden</strong>: no solo organiza flujos de información, sino que produce una clausura organizacional de escala civilizatoria. La escritura no es simplemente un medio de comunicación; es el mecanismo que permite a los sistemas socioculturales <strong>superar el límite cognitivo individual</strong> y acumular complejidad a lo largo del tiempo.</p>
+    <p>En términos de Prigogine, cada nuevo soporte de escritura —tableta de arcilla, papiro, códex, imprenta, pantalla— representa una <strong>bifurcación disipativa</strong>: el sistema reorganiza su estructura informacional a un costo energético distinto, abriendo nuevas trayectorias de complejidad que el régimen anterior no podía sostener. La imprenta de Gutenberg no "democratizó" la lectura en sentido abstracto: redujo el costo disipativo de la reproducción textual en varios órdenes de magnitud, haciendo sostenible un nuevo régimen de circulación del conocimiento.</p>
+    <p>La pregunta que plantea la era digital es si el régimen actual representa una nueva bifurcación hacia mayor complejidad o una <strong>regresión disipativa</strong>: un estado en el que la infraestructura formal (conectividad, dispositivos, contenido) está más extendida que nunca, pero en el que el procesamiento profundo de información —la lectura reflexiva— se retrae hacia una minoría.</p>
+  </div>
+
+
+  <!-- SECCIÓN II: POR QUÉ LEER -->
+  <div id="ii" class="section-header">
+    <span class="section-number">Sección II</span>
+    <h2 class="section-title">La neurociencia de la <em>lectura profunda</em>: por qué importa</h2>
+  </div>
+
+  <div class="prose">
+    <p class="lead">Leer no es simplemente decodificar símbolos. Desde la perspectiva neurocientífica, la lectura profunda —la lectura lenta, reflexiva, de textos extensos y argumentativos— es uno de los ejercicios cognitivos más complejos que realiza el cerebro humano, y sus efectos sobre el pensamiento crítico, la empatía y la salud mental son sustanciales y verificables.</p>
+    <p>Un dato fundamental: <strong>el cerebro humano no evolucionó para leer</strong>. No existe un "área de la lectura" genéticamente codificada en el cerebro, a diferencia del lenguaje oral. La lectura es una tecnología cultural que tiene apenas unos seis mil años y que requiere un proceso de reorganización neurológica llamado <strong>subespecialización</strong>: zonas del córtex que evolucionaron para otras funciones —reconocimiento de objetos, procesamiento del lenguaje, memoria— son repropuestas para decodificar texto escrito. Esta reorganización, que tarda años en consolidarse en la infancia, es precisamente lo que la hace tan poderosa: obliga al cerebro a construir conexiones entre regiones que en otras circunstancias no interactuarían.</p>
+    <p>La evidencia científica acumulada identifica al menos seis beneficios cognitivos y sociales de la lectura profunda regular:</p>
+    <p><strong>Pensamiento crítico y capacidad analítica.</strong> Los textos argumentativos —ensayos, novelas complejas, tratados— exigen al lector anticipar consecuencias, evaluar premisas, detectar contradicciones y construir interpretaciones propias. Este proceso fortalece las redes neurales del razonamiento ejecutivo ubicadas en el córtex prefrontal. Las lecturas fragmentadas y superficiales —características del consumo en redes sociales— no activan el mismo nivel de procesamiento.</p>
+    <p><strong>Empatía e inteligencia emocional.</strong> La lectura de narrativa literaria, en particular, obliga al lector a "habitar" perspectivas ajenas, desarrollando lo que los psicólogos llaman <em>teoría de la mente</em>: la capacidad de modelar internamente los estados mentales de otros. Estudios de Stanford han correlacionado el declive de la lectura con una caída de aproximadamente el 40% en las medidas de empatía entre jóvenes en las últimas dos décadas.</p>
+    <p><strong>Memoria y concentración.</strong> La lectura de textos largos entrena la memoria de trabajo y la atención sostenida —capacidades que la economía de la atención digital sistemáticamente erosiona mediante la recompensa constante de la novedad y la brevedad.</p>
+    <p><strong>Vocabulario y capacidad expresiva.</strong> El acceso a vocabulario rico —que la lectura proporciona de forma sostenida— amplía el rango de conceptos que un individuo puede articular, procesar y defender. Un vocabulario empobrecido no es solo un déficit expresivo: es una limitación cognitiva que restringe el pensamiento mismo.</p>
+    <p><strong>Reducción del estrés y salud mental.</strong> Investigaciones publicadas en <em>Brain Connectivity</em> y <em>NeuroImage</em> señalan que la lectura puede reducir el estrés y la ansiedad, mejorar la regulación emocional y contribuir a la prevención del deterioro cognitivo relacionado con la edad, incluyendo formas de demencia.</p>
+    <p><strong>Construcción de ciudadanía democrática.</strong> La lectura es el mecanismo por excelencia de acceso al archivo histórico de la humanidad. Una ciudadanía que no lee —en el sentido profundo del término— es una ciudadanía más vulnerable a la manipulación informativa, la desinformación y el pensamiento simplificador que alimenta los autoritarismos contemporáneos.</p>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="stat-number">40%</div>
+      <div class="stat-label">Caída en empatía medida en jóvenes en EE.UU. en dos décadas</div>
+      <div class="stat-source">Stanford / Konrath et al.</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">6 mil</div>
+      <div class="stat-label">Años aproximados de antigüedad de la escritura como tecnología</div>
+      <div class="stat-source">Registro arqueológico</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">×10</div>
+      <div class="stat-label">Más tiempo pasan jóvenes franceses (7–19 años) frente a pantallas que leyendo libros</div>
+      <div class="stat-source">Centre national du livre, 2024</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">40%</div>
+      <div class="stat-label">Caída en lectura recreativa en EE.UU. en los últimos 20 años</div>
+      <div class="stat-source">Bureau of Labor Statistics / Infobae 2025</div>
+    </div>
+  </div>
+
+  <div class="pull-quote">
+    <blockquote>
+      "No todas las lecturas generan el mismo impacto en el desarrollo cognitivo. Los textos que más potencian esta ventaja son aquellos que exigen comprensión profunda: obligan a interpretar, anticipar y relacionar ideas. Las lecturas fragmentadas, frecuentes en redes sociales, no activan el mismo nivel de procesamiento mental."
+    </blockquote>
+    <cite>— Síntesis de la literatura neurocientífica (Infobae / Neuroeducación, 2026)</cite>
+  </div>
+
+  <div class="meee-g">
+    <div class="meee-g-header">
+      <h4>Evaluación epistémica MEEE-G — Beneficios cognitivos de la lectura</h4>
+    </div>
+    <table>
+      <thead>
+        <tr><th>Afirmación</th><th>Estatus</th><th>Fundamento</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>La lectura profunda fortalece el pensamiento crítico y la capacidad analítica.</td>
+          <td><span class="badge badge-dc">DC</span></td>
+          <td>Múltiples estudios en neuroeducación con respaldo de neuroimagen (fMRI).</td>
+        </tr>
+        <tr>
+          <td>La lectura de narrativa literaria aumenta la empatía y la teoría de la mente.</td>
+          <td><span class="badge badge-ip">IP</span></td>
+          <td>Correlaciones robustas (Kidd & Castano, 2013; Mar et al., 2006). Algunos estudios de replicación cuestionan el tamaño del efecto.</td>
+        </tr>
+        <tr>
+          <td>El cerebro no tiene áreas genéticas especializadas para la lectura.</td>
+          <td><span class="badge badge-dc">DC</span></td>
+          <td>Consenso en neurociencia cognitiva; proceso de "subespecialización" bien documentado.</td>
+        </tr>
+        <tr>
+          <td>La lectura regular previene el deterioro cognitivo y formas de demencia.</td>
+          <td><span class="badge badge-ip">IP</span></td>
+          <td>Asociaciones estadísticas sólidas; causalidad difícil de aislar de otros factores (educación, estilo de vida).</td>
+        </tr>
+        <tr>
+          <td>La caída en lectura produce deterioro medible de la empatía social.</td>
+          <td><span class="badge badge-h">H</span></td>
+          <td>Correlación temporal sugestiva (Stanford/Konrath). Causalidad no establecida definitivamente; múltiples factores intervinientes.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="ade-panel">
+    <h4>Lectura dinámica ADD — Lectura como clausura organizacional</h4>
+    <p>Desde la ADD, el acto de la lectura profunda puede comprenderse como el ejercicio activo de la <strong>clausura organizacional simbólica</strong> de un individuo o una comunidad. Leer no es solo recibir información: es procesar esa información según la organización interna del sujeto lector —su habitus (Bourdieu), su mundo de vida (Habermas)— y producir significado que retroalimenta esa organización.</p>
+    <p>En este sentido, la lectura profunda es el mecanismo por excelencia de la <strong>recursividad escalar</strong> de la ADD: los textos permiten al individuo acceder a escalas de procesamiento informacional —histórica, geopolítica, científica, filosófica— que trascienden su experiencia inmediata. Una sociedad que abandona la lectura profunda no pierde simplemente un hábito cultural: pierde la herramienta principal de su clausura organizacional reflexiva. Pierde la capacidad de observarse a sí misma procesando información y producir significado a partir de esa auto-observación (von Foerster, 2003).</p>
+    <p>La diferencia entre la lectura superficial —el <em>scroll</em> incesante de plataformas digitales— y la lectura profunda no es de formato sino de <strong>régimen dinámico</strong>: la primera opera en régimen laminar-pasivo, la segunda activa un régimen de turbulencia productiva que reorganiza las redes cognitivas del lector. Esta distinción tiene consecuencias para el capital cultural (Bourdieu) de individuos y comunidades.</p>
+  </div>
+
+
+  <!-- SECCIÓN III: ACTUALIDAD GLOBAL -->
+  <div id="iii" class="section-header">
+    <span class="section-number">Sección III</span>
+    <h2 class="section-title">Panorama global: entre <em>datos contradictorios</em> y tendencias estructurales</h2>
+  </div>
+
+  <div class="prose">
+    <p class="lead">El panorama global de la lectura en 2026 es paradójico: los indicadores de acceso a texto escrito son los más altos de la historia, pero los indicadores de lectura profunda, comprensión y lectura recreativa apuntan en muchos contextos a un declive sostenido.</p>
+    <p><strong>Europa mediterránea: señales mixtas.</strong> España ofrece el caso más documentado en lengua española. El Barómetro de Hábitos de Lectura 2024 registró que el 65,5% de la población española declara leer por ocio — una cifra que ha crecido 5,8 puntos porcentuales desde 2017. Los lectores frecuentes (al menos una vez por semana) superan el 51%. Entre los jóvenes de 14 a 24 años, el 75,3% declara leer por placer. Estos datos son, en términos de declaración de hábito, alentadores.</p>
+    <p>Sin embargo, el mismo panorama español muestra que el 27% de los no lectores prefiere emplear su tiempo en otros entretenimientos, y el 25% declara directamente falta de interés por la lectura. La principal barrera declarada es la falta de tiempo — que se acumula diferencialmente sobre la población en edad de trabajar. El perfil del lector tipo sigue siendo, significativamente, una <strong>mujer joven con estudios universitarios en entorno urbano</strong>: la lectura reproduce brechas de clase, género y territorio.</p>
+    <p><strong>Francia: el modelo pedagógico en crisis.</strong> El informe 2024 del Centre national du livre sobre los jóvenes franceses y la lectura reporta que uno de cada tres jóvenes de 16 a 19 años ya no lee. Entre los 7 y los 19 años, los jóvenes franceses pasan diez veces más tiempo frente a pantallas que leyendo libros. Casi uno de cada dos lectores jóvenes realiza otra actividad mientras lee (mensajería, vídeos, redes sociales). Un dato que los investigadores describen como emblemático: el 42% ha escuchado audiolibros y el 55% prefiere los cómics como género. No son señales de rechazo a la narrativa, sino de transformación en los soportes y la atención.</p>
+    <p><strong>América Latina: la heterogeneidad como dato.</strong> Argentina reportó en 2022 que solo el 51% de la población leyó al menos un libro en el año — con un promedio de dos libros por persona, situándola entre los países con menor lectura per cápita según World Population Review. México, tras una reformulación metodológica de su encuesta nacional (MOLEC 2025) que incluyó por primera vez lectura en redes sociales y a mayores de 12 años, reportó un salto al 62,5% de lectores — un cambio que refleja tanto expansión real como ampliación de la definición operativa de "lectura".</p>
+    <p><strong>Estados Unidos: el declive como alarma estructural.</strong> La tendencia más documentada y preocupante proviene de EE.UU., donde la lectura recreativa cayó aproximadamente un 40% en los últimos 20 años según el Bureau of Labor Statistics. Solo el 2% de los adultos lee regularmente con niños pequeños. Las personas con mayor nivel educativo tienen el doble de probabilidades de leer por placer que quienes tienen menor formación — la brecha lectora es inseparable de la brecha socioeconómica.</p>
+  </div>
+
+  <div class="divider">Datos globales seleccionados</div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="stat-number">65.5%</div>
+      <div class="stat-label">Población española que lee por ocio (2024)</div>
+      <div class="stat-source">FGEE / Ministerio de Cultura</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">1 de 3</div>
+      <div class="stat-label">Jóvenes franceses (16–19) que ya no leen (2024)</div>
+      <div class="stat-source">Centre national du livre, Francia</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">62.5%</div>
+      <div class="stat-label">Población mexicana que leyó libros en 2025 (nueva metodología)</div>
+      <div class="stat-source">INEGI / MOLEC 2025</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">51%</div>
+      <div class="stat-label">Población argentina que leyó al menos un libro en 2022</div>
+      <div class="stat-source">ENCC Argentina 2022</div>
+    </div>
+  </div>
+
+  <div class="highlight">
+    Importante: las estadísticas de "lectura" son altamente sensibles a las definiciones metodológicas utilizadas. Incluir o excluir redes sociales, foros digitales o audiolibros puede producir variaciones de más de 20 puntos porcentuales en los mismos contextos. La comparación internacional requiere cautela epistémica.
+  </div>
+
+  <div class="meee-g">
+    <div class="meee-g-header">
+      <h4>Evaluación epistémica MEEE-G — Tendencias globales</h4>
+    </div>
+    <table>
+      <thead>
+        <tr><th>Afirmación</th><th>Estatus</th><th>Fundamento</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Los índices formales de alfabetización alcanzan máximos históricos globales.</td>
+          <td><span class="badge badge-dc">DC</span></td>
+          <td>UNESCO, reportes nacionales verificables. Tasas globales superan el 86%.</td>
+        </tr>
+        <tr>
+          <td>La lectura recreativa ha disminuido en EE.UU. en las últimas dos décadas.</td>
+          <td><span class="badge badge-dc">DC</span></td>
+          <td>Series temporales del Bureau of Labor Statistics (ATUS) con metodología consistente.</td>
+        </tr>
+        <tr>
+          <td>El aumento en lectura por redes sociales compensa cognitivamente la caída en lectura profunda.</td>
+          <td><span class="badge badge-c">C</span></td>
+          <td>Sin evidencia empírica de equivalencia cognitiva. La hipótesis de sustitución carece de sustento neurológico.</td>
+        </tr>
+        <tr>
+          <td>La generación Z rechaza la lectura más que generaciones anteriores.</td>
+          <td><span class="badge badge-int">Int</span></td>
+          <td>Dato contextualmente dependiente. Algunos indicadores (España, México) muestran aumento en jóvenes; la Gen Z también impulsa el resurgimiento del libro físico como objeto cultural.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <!-- SECCIÓN IV: AMENAZAS -->
+  <div id="iv" class="section-header">
+    <span class="section-number">Sección IV</span>
+    <h2 class="section-title">Las fuerzas que <em>erosionan</em> la lectura profunda</h2>
+  </div>
+
+  <div class="prose">
+    <p class="lead">La crisis de la lectura profunda no es resultado de la ignorancia ni del acceso limitado: es el producto de una estructura de incentivos específica que opera a escala de miles de millones de usuarios, diseñada deliberadamente para capturar y retener la atención en el modo de menor profundidad cognitiva posible.</p>
+
+    <p><strong>La economía de la atención y el bucle de gratificación inmediata.</strong> Las plataformas de redes sociales operan con un modelo de negocio basado en la monetización del tiempo de atención. Sus algoritmos están optimizados para maximizar el tiempo de uso, no la calidad del procesamiento informacional. El resultado es una arquitectura de estímulo que favorece el contenido breve, emocionalmente intenso y visualmente inmediato — exactamente lo opuesto a las condiciones que requiere la lectura profunda: silencio, sostenimiento de la atención, tolerancia a la demora de significado.</p>
+
+    <p><strong>La fragmentación de la atención como fenómeno estructural.</strong> Los estudios de neuroeducación documentan un deterioro sostenido en la capacidad de atención sostenida entre jóvenes — la capacidad de mantener el foco en un único objeto de atención durante períodos prolongados. Esta capacidad no es simplemente un hábito: es una competencia cognitiva que se construye con la práctica de lectura extensa y se erosiona con el consumo de contenido fragmentado. El problema es que sin atención sostenida, no hay lectura profunda; y sin lectura profunda, la atención sostenida no se entrena.</p>
+
+    <p><strong>La inteligencia artificial generativa: la amenaza más reciente y más compleja.</strong> Desde 2022, la IA generativa ha añadido una nueva dimensión a este panorama. El uso de herramientas como ChatGPT para resumir, parafrasear o reemplazar la lectura de textos — una práctica documentada en estudiantes de todos los niveles — introduce lo que los lingüistas denominan el riesgo de <strong>externalización cognitiva del acto de leer</strong>. Si el cerebro no realiza el proceso de interpretación y construcción de significado, no obtiene los beneficios cognitivos de la lectura, independientemente de que el contenido sea "procesado" por una herramienta algorítmica.</p>
+
+    <p>Un análisis publicado en <em>The Conversation</em> en agosto de 2025 (Allington) describió esta situación como una <strong>"tormenta perfecta"</strong>: la IA llegó precisamente cuando tanto niños como adultos ya dedicaban menos tiempo a la lectura que en décadas anteriores. Los expertos del Centro de Investigación Avanzada en Educación (CIAE) de la Universidad de Chile y del CENIA alertaron en septiembre de 2025 que el uso pasivo de la IA podría afectar las bases mismas de la alfabetización, socavando no solo la comprensión lectora sino la capacidad de escritura propia.</p>
+
+    <p><strong>La brecha social de la lectura como vector de desigualdad.</strong> El declive de la lectura no afecta de manera uniforme a todos los sectores. Los datos estadounidenses muestran que las personas con ingresos bajos tienen el doble de probabilidad de no leer que quienes tienen ingresos altos. Esto significa que la crisis de la lectura profunda no es solo un fenómeno cultural: es un <strong>mecanismo de reproducción de la desigualdad</strong>. El capital cultural que la lectura provee —pensamiento crítico, vocabulario, capacidad argumentativa— se concentra en sectores ya privilegiados, mientras que los sectores más vulnerables son más susceptibles a los patrones de consumo digital de menor profundidad cognitiva.</p>
+  </div>
+
+  <div class="ade-panel">
+    <h4>Lectura dinámica ADD — La colonización del mundo-de-vida lector</h4>
+    <p>En términos habermasianos, la economía de la atención digital constituye una forma de <strong>colonización del mundo de vida lector</strong> por la lógica sistémica del mercado (monetización de atención). Las plataformas operan mediante el dinero y el poder algorítmico — medios sistémicos no comunicativos — para invadir el dominio que solo puede reproducirse mediante comprensión comunicativa sostenida: el espacio interior de la lectura reflexiva.</p>
+    <p>Esta colonización produce lo que Bourdieu llamaría una <strong>violencia simbólica</strong> particular: la percepción, por parte de los propios lectores, de que la lectura profunda es una práctica anacrónica, ineficiente o elitista. El lector que abandona la novela por el carrusel de TikTok no lo hace necesariamente por falta de voluntad: lo hace porque el sistema ha incorporado en su habitus la equivalencia entre velocidad y valor informacional, entre estímulo y comprensión.</p>
+    <p>La IA generativa añade una bifurcación adicional: introduce la posibilidad técnica de <strong>externalizar la clausura organizacional simbólica</strong> misma. Si el sistema puede producir síntesis, interpretaciones y narrativas "en nombre del lector", la pregunta ya no es solo si la gente lee: es si la construcción de significado permanece como proceso interno del sujeto o se externaliza a sistemas que operan sin subjetividad, sin historia, sin habitus. La ADD señala que esta externalización tiene un costo disipativo cognitivo que el principio de Landauer vuelve observable: la no realización del procesamiento informacional activo implica la no construcción de las redes neurales que ese procesamiento habría generado.</p>
+  </div>
+
+
+  <!-- SECCIÓN V: COSTA RICA -->
+  <div id="v" class="section-header">
+    <span class="section-number">Sección V · Relevancia para Costa Rica</span>
+    <h2 class="section-title">El <em>nodo periférico</em>: Costa Rica entre la paradoja de la alfabetización</h2>
+  </div>
+
+  <div class="cr-box">
+    <h4>🇨🇷 Costa Rica — Nodo periférico acoplado</h4>
+    <p>Costa Rica presenta la paradoja lectora en su forma más aguda de América Latina: posee una de las tasas de alfabetización formal más altas del continente (<strong>superior al 98%</strong>, según la UNESCO — la más alta de América Latina) y al mismo tiempo registra indicadores críticos de comprensión lectora que sugieren que el alfabetismo formal no se traduce en lectura efectiva.</p>
+    <p>El Décimo Informe Estado de la Educación (2025) presentado por el CONARE y el Programa Estado de la Nación registró que <strong>en Costa Rica los estudiantes de 15 años tienen una comprensión lectora semejante a la de un niño de 9 años</strong>. El informe señala textualmente que "tenemos estudiantes en noveno año que leen como si estuvieran en tercer grado".</p>
+    <p>La curva del deterioro es además regresiva: en primer grado, el 63% alcanza un nivel adecuado de comprensión lectora; en quinto grado baja al 57%; y en secundaria apenas una cuarta parte posee la capacidad de lectura esperada. El sistema educativo, en lugar de construir progresivamente competencias lectoras, las erosiona.</p>
+    <p>La Universidad Nacional (UNA) corroboró esta imagen con datos propios: en 2024, <strong>solo el 14% de los estudiantes de primer ingreso en Estudios Generales alcanzó un nivel satisfactorio de comprensión lectora</strong>. En las sedes de Golfito y Santa Cruz, ningún estudiante — literalmente ninguno — alcanzó ese nivel, revelando la dimensión territorial de la crisis.</p>
+    <p>El país invierte en libros para liceos rurales (el MEP distribuyó 25.894 libros en 2025) y declara el lema "Leer y escribir: el primer paso para transformar vidas" — gestos de voluntad política real. Pero el informe Estado de la Educación advierte que la inversión educativa ha sufrido la peor caída de las últimas cuatro décadas, y que decisiones improvisadas —eliminación de programas diagnósticos, ruptura de convenios educativos— han contribuido a profundizar la crisis.</p>
+    <p><strong>La brecha costarricense tiene implicaciones que trascienden lo educativo.</strong> Un país que no lee profundamente es un país con menor capacidad de procesamiento crítico de la información — una vulnerabilidad directa en un contexto de auge de desinformación, polarización política y decisiones públicas complejas. La lectura es, en última instancia, infraestructura democrática.</p>
+  </div>
+
+  <div class="meee-g">
+    <div class="meee-g-header">
+      <h4>Evaluación epistémica MEEE-G — Situación lectora en Costa Rica</h4>
+    </div>
+    <table>
+      <thead>
+        <tr><th>Afirmación</th><th>Estatus</th><th>Fundamento</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Costa Rica tiene una tasa de alfabetización formal superior al 98%.</td>
+          <td><span class="badge badge-dc">DC</span></td>
+          <td>UNESCO; Ministerio de Educación Pública; series históricas verificadas.</td>
+        </tr>
+        <tr>
+          <td>Los estudiantes costarricenses de 15 años tienen comprensión lectora semejante a niños de 9 años.</td>
+          <td><span class="badge badge-dc">DC</span></td>
+          <td>Décimo Informe Estado de la Educación 2025 (CONARE / Programa Estado de la Nación), basado en PISA 2022 y pruebas MEP 2024.</td>
+        </tr>
+        <tr>
+          <td>Solo el 14% de los estudiantes de primer ingreso de la UNA tiene comprensión lectora satisfactoria.</td>
+          <td><span class="badge badge-dc">DC</span></td>
+          <td>Informe Habilidades de Comprensión Lectora, UNA 2024.</td>
+        </tr>
+        <tr>
+          <td>La brecha lectora territorial (sedes rurales vs. central) es indicativa de inequidad estructural.</td>
+          <td><span class="badge badge-ip">IP</span></td>
+          <td>Dato de la UNA (0% en Golfito y Santa Cruz) es muy sugestivo; requiere replicación con muestra más amplia para inferencia causal robusta.</td>
+        </tr>
+        <tr>
+          <td>El deterioro lector compromete la capacidad democrática del país.</td>
+          <td><span class="badge badge-int">Int</span></td>
+          <td>Inferencia fundamentada en la literatura sobre lectura crítica y ciudadanía; no existe evidencia causal directa para Costa Rica específicamente.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="ade-panel">
+    <h4>Lectura dinámica ADD — Costa Rica en la zona de bifurcación lectora</h4>
+    <p>Costa Rica ilustra un tipo específico de <strong>bifurcación sistémica</strong>: un sistema que ha alcanzado la cobertura formal universal de una competencia (alfabetización), pero que enfrenta ahora la pregunta de si esa cobertura produce el nivel de procesamiento cognitivo necesario para las funciones sociales que esa competencia debería sostener. El sistema no está en crisis de acceso: está en crisis de profundidad.</p>
+    <p>Desde la perspectiva de los flujos disipativos (Prigogine), el sistema educativo costarricense muestra señales de <strong>agotamiento de capital cultural</strong> (Bourdieu): la inversión pública decreciente en educación amenaza los flujos que sostienen la reproducción de la clausura organizacional lectora en las nuevas generaciones. No es que Costa Rica no tenga libros o escuelas — es que la estructura disipativa que debería producir lectores reflexivos está operando por debajo de su umbral de sostenimiento.</p>
+    <p>La dimensión territorial es especialmente relevante desde la ADD: la brecha entre San José y las sedes costeras/rurales no es simplemente una brecha de recursos materiales. Es una <strong>diferencia de régimen dinámico</strong>: los sistemas educativos en contextos rurales periféricos operan con menores flujos de capital cultural, social y económico, lo que reduce su capacidad de reproducir la clausura organizacional lectora incluso cuando la infraestructura formal (escuelas, libros) está presente.</p>
+  </div>
+
+
+  <!-- SECCIÓN VI: ESCENARIOS -->
+  <div id="vi" class="section-header">
+    <span class="section-number">Sección VI</span>
+    <h2 class="section-title">Escenarios plausibles y <em>posibilidades</em></h2>
+  </div>
+
+  <div class="prose">
+    <p>El análisis dinámico no produce predicciones deterministas. Identifica, en cambio, bifurcaciones plausibles según el estado actual del sistema y las perturbaciones previsibles. Los escenarios siguientes no son pronósticos: son ejercicios de exploración de trayectorias posibles.</p>
+  </div>
+
+  <div class="scenario-grid">
+    <div class="scenario-card">
+      <div class="sc-label optimista">Escenario 1 — Optimista</div>
+      <h5>La reconquista de la lectura profunda</h5>
+      <p>La reacción de la Generación Z al agotamiento digital —ya documentada en el resurgimiento del libro físico— se amplifica. Las instituciones educativas integran la neurociencia de la lectura en sus pedagogías. La IA se usa para democratizar el acceso a textos, no para reemplazar su lectura. Costa Rica fortalece la inversión educativa y recupera programas de lectura comprensiva.</p>
+    </div>
+    <div class="scenario-card">
+      <div class="sc-label critico">Escenario 2 — Crítico</div>
+      <h5>La bifurcación cognitiva permanente</h5>
+      <p>La brecha entre lectores profundos (minoría educada y urbana) y no lectores (mayoría digital) se amplía estructuralmente. La IA externaliza el procesamiento textual, reduciendo la demanda social de lectura. La ciudadanía se divide entre quienes pueden pensar a escala larga y quienes consumen síntesis algorítmicas. Las democracias se vuelven más vulnerables al pensamiento simplificador.</p>
+    </div>
+    <div class="scenario-card">
+      <div class="sc-label intermedio">Escenario 3 — Transición turbulenta</div>
+      <h5>Reconfiguración de la práctica lectora</h5>
+      <p>La lectura no desaparece pero se transforma radicalmente en sus formas y soportes. Los géneros cortos (microficción, ensayo breve, narrativa visual) ganan terreno. La lectura profunda subsiste en nichos académicos y culturales. Emerge una nueva forma de alfabetización híbrida que integra lectura, escucha y producción textual asistida por IA, con resultados cognitivos parcialmente distintos pero no necesariamente inferiores en todas las dimensiones.</p>
+    </div>
+  </div>
+
+  <div class="prose" style="margin-top: 32px;">
+    <p>Para Costa Rica, el margen de maniobra en este trifurcación es estrecho pero real. El país posee instituciones académicas con capacidad de investigación (UCR, UNA, TEC), una red de bibliotecas públicas y el antecedente histórico de haber apostado por la educación pública como vector de desarrollo. La reconstitución de la inversión educativa, la formación docente en neuroeducación y lectura comprensiva, y una política de IA educativa que ponga la lectura activa en el centro son posibilidades concretas — pero requieren voluntad política sostenida en un entorno de restricción fiscal severa.</p>
+  </div>
+
+
+  <!-- SECCIÓN VII: SÍNTESIS -->
+  <div id="vii" class="section-header">
+    <span class="section-number">Sección VII</span>
+    <h2 class="section-title">Tabla de síntesis e incertidumbres abiertas</h2>
+  </div>
+
+  <div class="synthesis-table">
+    <h3>Tabla de síntesis analítica — Dimensiones del problema</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Dimensión</th>
+          <th>Estado actual (IP/DC)</th>
+          <th>Tendencia</th>
+          <th>Acoplamiento con Costa Rica</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Alfabetización formal</td>
+          <td>Máximos históricos globales [DC]</td>
+          <td>↑ continúa creciendo</td>
+          <td>98%+ formal; crisis en comprensión real [DC]</td>
+        </tr>
+        <tr>
+          <td>Lectura recreativa profunda</td>
+          <td>Declive en contextos anglosajones y nórdicos [DC]; mixto en Iberoamérica [IP]</td>
+          <td>↓ con contracorrientes jóvenes</td>
+          <td>No hay datos nacionales sistemáticos recientes [límite de información]</td>
+        </tr>
+        <tr>
+          <td>Comprensión lectora escolar</td>
+          <td>Deterioro documentado en múltiples países [DC]</td>
+          <td>↓ acelerado en secundaria</td>
+          <td>Crisis severa documentada en EE 2025 [DC]</td>
+        </tr>
+        <tr>
+          <td>Economía de la atención digital</td>
+          <td>Estructura de incentivos adversa a lectura profunda [DC]</td>
+          <td>→ sin cambio estructural visible</td>
+          <td>Penetración de smartphones y redes sociales equiparable a región [IP]</td>
+        </tr>
+        <tr>
+          <td>IA generativa y externalización lectora</td>
+          <td>Riesgo identificado por investigadores [IP]; evidencia causal aún parcial [H]</td>
+          <td>↑ uso en expansión acelerada</td>
+          <td>Adopción en sistema educativo sin regulación robusta [IP]</td>
+        </tr>
+        <tr>
+          <td>Brecha socioeconómica lectora</td>
+          <td>Lectura profunda correlaciona con nivel educativo e ingreso [DC]</td>
+          <td>→ se mantiene o amplía</td>
+          <td>Brecha territorial documentada (urbano/rural) [DC]</td>
+        </tr>
+        <tr>
+          <td>Inversión pública en educación lectora</td>
+          <td>Disminución en CR, la peor en cuatro décadas [DC]</td>
+          <td>↓ presión fiscal estructural</td>
+          <td>Riesgo de colapso de programas de fomento lector [IP]</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="uncertainty-box">
+    <h4>Incertidumbres abiertas</h4>
+    <ul>
+      <li>¿La lectura en formatos digitales (e-books, apps de lectura) produce los mismos beneficios cognitivos que la lectura en papel? La evidencia es contradictoria: algunos estudios sugieren menor comprensión profunda en pantalla, pero los estudios son de alta variabilidad metodológica.</li>
+      <li>¿El resurgimiento del libro físico entre la Generación Z es una tendencia estructural sostenible o un nicho cultural de minorías urbanas con alto capital cultural?</li>
+      <li>¿Cuál es el umbral mínimo de lectura profunda para sostener una ciudadanía democrática funcional? Esta pregunta carece de respuesta empírica; es un umbral normativo implícito, no un umbral empíricamente establecido.</li>
+      <li>¿Puede la IA generativa, usada activamente (como interlocutora de la lectura, no como sustituta), mejorar en lugar de degradar la comprensión lectora? Los estudios disponibles son incipientes y los contextos de uso muy variables.</li>
+      <li>¿Costa Rica puede revertir el deterioro lector documentado con los recursos institucionales disponibles, dada la restricción fiscal vigente? La voluntad política es insuficiente sin recursos sostenidos.</li>
+      <li>¿Cómo interactúan la pobreza de vocabulario, la comprensión lectora deficiente y la polarización política? La hipótesis de que sociedades con menor lectura profunda son más vulnerables al pensamiento simplificador y al autoritarismo es plausible pero no ha sido probada causalmente para el contexto costarricense.</li>
+    </ul>
+  </div>
+
+  <div class="pull-quote">
+    <blockquote>
+      "Costa Rica presume, con razón, de una tasa de alfabetización superior al 98%. Pero saber leer y entender lo que se lee son habilidades distintas. Lo que el sistema produce, en demasiados casos, son lectores que pasan la vista por las palabras sin que las palabras les digan nada."
+    </blockquote>
+    <cite>— Editorial, La Nación, Costa Rica, abril 2026</cite>
+  </div>
+
+
+  <!-- REFERENCIAS -->
+  <div id="refs">
+    <div class="references">
+      <h3>Referencias — APA 7</h3>
+      <ol>
+        <li>Allington, D. (2025, 28 de agosto). AI is making reading books feel obsolete and students have a lot to lose. <em>The Conversation</em>. Recuperado de https://theconversation.com/ai-is-making-reading-books-feel-obsolete-and-students-have-a-lot-to-lose-262680</li>
+        <li>Bérut, A., Arakelyan, A., Petrosyan, A., Ciliberto, S., Dillenschneider, R., &amp; Lutz, E. (2012). Experimental verification of Landauer's principle linking information and thermodynamics. <em>Nature, 483</em>, 187–189. https://doi.org/10.1038/nature10872</li>
+        <li>Bourdieu, P. (1977). <em>Outline of a theory of practice</em>. Cambridge University Press.</li>
+        <li>Centre national du livre. (2024). <em>Les jeunes Français et la lecture</em>. Ministerio de Cultura, Francia.</li>
+        <li>CONARE / Programa Estado de la Nación. (2025). <em>Décimo Informe Estado de la Educación</em>. Consejo Nacional de Rectores.</li>
+        <li>De Zubiría Samper, J. (2025, 22 de abril). ¿Cómo afecta a nuestro cerebro la lectura en pantallas? <em>El Espectador</em>. Recuperado de https://www.elespectador.com/opinion/columnistas/julian-de-zubiria-samper/como-afecta-a-nuestro-cerebro-la-lectura-en-pantallas/</li>
+        <li>Federación de Gremios de Editores de España [FGEE]. (2025). <em>Barómetro de Hábitos de Lectura y Compra de Libros en España 2024</em>. Ministerio de Cultura.</li>
+        <li>Goldman, A. I. (1979). What is justified belief? En G. S. Pappas (Ed.), <em>Justification and knowledge</em> (pp. 1–23). D. Reidel Publishing.</li>
+        <li>Guerra, E., &amp; Araya, R. (2025, 7 de septiembre). Investigadores advierten que la IA puede debilitar la lectura profunda en estudiantes. <em>Cooperativa.cl</em>. Centro de Investigación Avanzada en Educación (CIAE), Universidad de Chile.</li>
+        <li>Habermas, J. (1987). <em>The theory of communicative action, Vol. 2: Lifeworld and system</em>. Beacon Press. (Original publicado en 1981)</li>
+        <li>INEGI. (2025). <em>Módulo sobre Lectura (MOLEC) 2025</em>. Instituto Nacional de Estadística y Geografía, México.</li>
+        <li>Jean, G. (2012). <em>La escritura: Memoria de la humanidad</em>. Blume.</li>
+        <li>Kidd, D. C., &amp; Castano, E. (2013). Reading literary fiction improves theory of mind. <em>Science, 342</em>(6156), 377–380.</li>
+        <li>Landauer, R. (1961). Irreversibility and heat generation in the computing process. <em>IBM Journal of Research and Development, 5</em>(3), 183–191.</li>
+        <li>La Nación. (2026, abril). Editorial: Costa Rica sabe leer, pero no entiende lo que lee. <em>La Nación</em>. Recuperado de https://www.nacion.com</li>
+        <li>Mar, R. A., Oatley, K., Hirsh, J., de la Paz, J., &amp; Peterson, J. B. (2006). Bookworms versus nerds: Exposure to fiction versus non-fiction, divergent associations with social ability and the simulation of fictional social worlds. <em>Journal of Research in Personality, 40</em>(5), 694–712.</li>
+        <li>Maturana, H. R., &amp; Varela, F. J. (1984). <em>El árbol del conocimiento: Las bases biológicas del entendimiento humano</em>. Editorial Universitaria.</li>
+        <li>Ministerio de Educación Pública [MEP]. (2024). <em>Informe de resultados de las pruebas comprensivas 2023–2024</em>. MEP, Costa Rica.</li>
+        <li>Montero Fonseca, A. (2025). Antropología Dinámica del Devenir (ADD): bases para un programa teórico-metodológico relacional ante la complejidad sociocultural. Manuscrito en preparación, Universidad de Costa Rica.</li>
+        <li>Prigogine, I. (1996). <em>El fin de las certidumbres</em>. Andrés Bello.</li>
+        <li>Semanario Universidad. (2024, 30 de abril). Costa Rica sigue a ciegas en comprensión lectora. <em>Semanario Universidad</em>. Recuperado de https://semanariouniversidad.com</li>
+        <li>Universidad Nacional [UNA]. (2024). <em>Informe de Habilidades de Comprensión Lectora de Estudiantes de Primer Ingreso</em>. Universidad Nacional, Costa Rica.</li>
+        <li>von Foerster, H. (2003). <em>Understanding understanding: Essays on cybernetics and cognition</em>. Springer.</li>
+        <li>World History Encyclopedia. (2020). <em>Los escribas de la antigua Mesopotamia</em>. Recuperado de https://www.worldhistory.org/trans/es/2-249</li>
+      </ol>
+    </div>
+  </div>
+
+
+  <!-- NOTA METODOLÓGICA -->
+  <div class="method-note">
+    <strong>Nota metodológica obligatoria</strong>
+    El presente análisis combina evaluación epistémica explicacionista (MEEE-G, fundamentada en el fiabilismo procesual y el explicacionismo comparativo de Alvin I. Goldman) con análisis dinámico antropológico (ADD, según el marco teórico de Alfredo Montero Fonseca, que integra los aportes de Prigogine, Maturana y Varela, Habermas, Bourdieu y el pluralismo jurídico-político). Las afirmaciones son clasificadas explícitamente como datos confirmados [DC], inferencias plausibles [IP], hipótesis [H], interpretaciones [Int] o conjeturas [C]. El análisis no constituye predicción determinista ni recomendación de política específica. Las incertidumbres identificadas son componentes estructurales del análisis, no deficiencias a superar. Costa Rica es tratada como nodo periférico acoplado a dinámicas regionales y globales.
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">ANCA-ADD</div>
+  <p>Agente Noticioso Crítico de Actualidad · Análisis Dinámico del Devenir</p>
+  <p style="margin-top:8px;">Boletín Especial N.° ESPECIAL-05 · 23 de abril de 2026 · Día Mundial del Libro</p>
+</footer>
+
+<script data-goatcounter="https://antropos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

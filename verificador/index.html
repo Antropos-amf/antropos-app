@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verificador de Ideas · Contra el Supermercado de la Indignación — antropos.app</title>
+<meta name="description" content="Una herramienta para evaluar el estatus epistémico de cualquier idea, argumento o narrativa. Basada en la MEEE-G de Alvin Goldman.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --ink-light: #4a4a4a;
+    --ink-faint: #8a8a8a;
+    --paper: #f7f4ef;
+    --paper-warm: #ede9e1;
+    --accent: #8b2e0f;
+    --accent-light: #c4512a;
+    --accent-faint: #f0e0d8;
+    --border: #d4cec4;
+    --mono: 'JetBrains Mono', monospace;
+    --serif: 'Source Serif 4', Georgia, serif;
+    --display: 'Playfair Display', Georgia, serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 18px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--accent-light); }
+
+  /* HEADER */
+  header {
+    border-bottom: 1px solid var(--border);
+    padding: 1.25rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--paper);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .logo {
+    font-family: var(--display);
+    font-size: 1.15rem;
+    letter-spacing: 0.06em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .logo span { color: var(--accent); }
+
+  nav a {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    text-decoration: none;
+    margin-left: 1.75rem;
+    transition: color 0.2s;
+  }
+  nav a:hover { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 5rem 2rem 3rem;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero-tag {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .hero-tag::before {
+    content: '';
+    display: inline-block;
+    width: 2rem;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  h1 {
+    font-family: var(--display);
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    line-height: 1.15;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    font-family: var(--display);
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    font-style: italic;
+    color: var(--ink-light);
+    font-weight: 400;
+    margin-bottom: 2.5rem;
+  }
+
+  .meta {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  /* ARTICLE BODY */
+  .article {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 3rem 2rem 2rem;
+    animation: fadeUp 0.6s ease 0.1s both;
+  }
+
+  .article p { margin-bottom: 1.5rem; color: var(--ink); font-size: 1.05rem; }
+
+  .article h2 {
+    font-family: var(--display);
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 3rem 0 1rem;
+    line-height: 1.25;
+  }
+
+  .article h3 {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 2.5rem 0 0.75rem;
+  }
+
+  /* PULLQUOTE */
+  .pullquote {
+    border-left: 3px solid var(--accent);
+    padding: 1.25rem 2rem;
+    margin: 2.5rem 0;
+    background: var(--accent-faint);
+  }
+  .pullquote p {
+    font-family: var(--display);
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--ink);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* CLAIM BOX */
+  .claim-box {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 2rem 2.5rem;
+    margin: 2.5rem 0;
+    border-radius: 2px;
+  }
+  .claim-box .claim-label {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    margin-bottom: 0.75rem;
+  }
+  .claim-box p {
+    font-family: var(--display);
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--paper);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* MODULES */
+  .modules {
+    background: var(--paper-warm);
+    border: 1px solid var(--border);
+    padding: 2.5rem;
+    margin: 3rem 0;
+  }
+  .modules-title {
+    font-family: var(--display);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+  }
+  .modules-sub {
+    font-family: var(--serif);
+    font-size: 0.9rem;
+    color: var(--ink-light);
+    font-style: italic;
+    margin-bottom: 2rem;
+  }
+  .module-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+  }
+  .module-item { display: flex; gap: 1rem; align-items: flex-start; }
+  .module-letter {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--accent);
+    background: var(--accent-faint);
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+    letter-spacing: 0.05em;
+  }
+  .module-text strong {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: block;
+    color: var(--ink);
+    margin-bottom: 0.2rem;
+  }
+  .module-text span { font-size: 0.85rem; color: var(--ink-light); line-height: 1.4; }
+
+  /* RESULT BOX */
+  .result-box {
+    border: 1px solid var(--border);
+    padding: 2rem 2.5rem;
+    margin: 2.5rem 0;
+    background: white;
+  }
+  .result-box .result-label {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 1rem;
+  }
+  .confidence-bar { display: flex; align-items: center; gap: 1rem; margin: 1rem 0; }
+  .bar-track { flex: 1; height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
+  .bar-fill { height: 100%; background: var(--accent); border-radius: 3px; width: 8%; transition: width 1s ease; }
+  .bar-value { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); white-space: nowrap; font-weight: 500; }
+  .verdict { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-top: 0.5rem; }
+
+  /* APP EMBED */
+  .app-embed-section {
+    background: var(--ink);
+    padding: 4rem 2rem;
+    margin: 4rem 0 0;
+  }
+  .app-embed-inner { max-width: 900px; margin: 0 auto; }
+  .app-embed-kicker {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .app-embed-kicker::before {
+    content: '';
+    display: inline-block;
+    width: 2rem;
+    height: 1px;
+    background: var(--accent-light);
+  }
+  .app-embed-section h2 {
+    font-family: var(--display);
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    color: var(--paper);
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+  }
+  .app-embed-section p {
+    color: #a8a49e;
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.65;
+    max-width: 600px;
+  }
+  .app-frame-wrap {
+    border: 1px solid #3a3630;
+    background: #0f0f0f;
+    overflow: hidden;
+  }
+  .app-frame-wrap iframe {
+    width: 100%;
+    height: 780px;
+    border: none;
+    display: block;
+  }
+  .app-frame-caption {
+    padding: 0.75rem 1.25rem;
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    color: #5a5650;
+    text-transform: uppercase;
+    border-top: 1px solid #2a2a26;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .app-frame-caption a {
+    color: var(--accent-light);
+    text-decoration: none;
+  }
+  .app-frame-caption a:hover { color: var(--paper); }
+
+  /* CTA / TIERS */
+  .cta-section {
+    background: #111;
+    padding: 4rem 2rem;
+  }
+  .cta-inner { max-width: 600px; margin: 0 auto; text-align: center; }
+  .cta-section h2 {
+    font-family: var(--display);
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    color: var(--paper);
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+  .cta-section p { color: #a8a49e; font-size: 1rem; margin-bottom: 2.5rem; line-height: 1.65; }
+
+  .cta-divider {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    color: #5a5650;
+    letter-spacing: 0.15em;
+    margin: 2rem 0 1.5rem;
+    text-transform: uppercase;
+  }
+
+  .tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; text-align: left; }
+  @media (max-width: 640px) { .tiers { grid-template-columns: 1fr; } }
+
+  .tier { border: 1px solid #3a3630; padding: 1.5rem; }
+  .tier-name {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    margin-bottom: 0.4rem;
+  }
+  .tier-price {
+    font-family: var(--display);
+    font-size: 1.4rem;
+    color: var(--paper);
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  .tier-price span { font-size: 0.8rem; font-family: var(--serif); font-weight: 300; color: #7a7670; }
+  .tier ul { list-style: none; padding: 0; }
+  .tier ul li { font-size: 0.82rem; color: #a8a49e; padding: 0.3rem 0 0.3rem 1rem; position: relative; line-height: 1.4; }
+  .tier ul li::before { content: '→'; position: absolute; left: 0; color: var(--accent-light); font-size: 0.7rem; }
+  .tier-link {
+    display: block;
+    margin-top: 1.25rem;
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    text-decoration: none;
+    border: 1px solid var(--accent);
+    padding: 0.6rem 1rem;
+    text-align: center;
+    transition: background 0.2s, color 0.2s;
+  }
+  .tier-link:hover { background: var(--accent); color: var(--paper); }
+
+  .sinpe-note {
+    margin-top: 2rem;
+    padding: 1.25rem;
+    border: 1px solid #3a3630;
+    background: #1e1e1a;
+  }
+  .sinpe-note p {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    color: #6a6660;
+    margin: 0;
+    text-align: center;
+  }
+  .sinpe-note strong { color: #a8a49e; }
+
+  /* GLOSSARY */
+  .glosario { max-width: 780px; margin: 0 auto; padding: 3rem 2rem 1rem; }
+
+  /* FOOTER */
+  footer {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  footer p { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.1em; color: var(--ink-faint); text-transform: uppercase; }
+  footer a { color: var(--ink-faint); text-decoration: none; transition: color 0.2s; }
+  footer a:hover { color: var(--accent); }
+
+  /* ANIMATION */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 640px) {
+    header { padding: 1rem; }
+    nav a { margin-left: 1rem; }
+    .hero, .article { padding-left: 1.25rem; padding-right: 1.25rem; }
+    .modules { padding: 1.5rem; }
+    .app-embed-section, .cta-section { padding: 3rem 1.25rem; }
+    .app-frame-wrap iframe { height: 600px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="/" class="logo">Antro<span>pos</span></a>
+  <nav>
+    <a href="/">Inicio</a>
+    <a href="/analisis-add/">Análisis ADD</a>
+    <a href="/divulgacion/">Cosas que no sé</a>
+    <a href="mailto:antropos.amf@proton.me">Contacto</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="hero-tag">Herramienta &middot; Epistemología aplicada</div>
+  <h1>Contra el Supermercado de la Indignación: un Verificador de Ideas</h1>
+  <p class="subtitle">Por qué construí una herramienta para evaluar lo que pensamos y lo que nos dicen</p>
+  <div class="meta">
+    <span>Alfredo Montero &middot; Antropólogo</span>
+    <span>Antropos &middot; MEEE-G</span>
+    <span>Lectura: 8 min</span>
+  </div>
+</div>
+
+<div class="article">
+
+  <h3>El problema</h3>
+
+  <p>Hace varios años empecé a preocuparme por algo que iba más allá de la desinformación en sí: la baja calidad de las discusiones públicas. No solo que circulen mentiras —eso siempre ha ocurrido— sino que cada vez sea más difícil distinguir <em>qué tipo de cosa</em> nos están diciendo, o incluso, nos estamos diciendo. ¿Es esto un argumento o una opinión? ¿Una hipótesis o una certeza? ¿Una inferencia válida o una falacia bien empaquetada?</p>
+
+  <p>Esa preocupación me llevó a la epistemología: cómo se construye conocimiento, cómo se evalúa la calidad de una afirmación, qué hace que una inferencia sea confiable o no. De ese proceso surgió una sistematización de herramientas teóricas —en especial de la epistemología naturalizada de Alvin Goldman— que con el tiempo se convirtió en algo más concreto y más inmediatamente útil: el Verificador de Ideas.</p>
+
+  <div class="pullquote">
+    <p>Lo que me preocupa no es solo que existan personas que mienten. Me preocupa más que la inexactitud y el engaño han dejado de ser instrumentos vergonzosos y se han convertido en formas de comunicación casi prestigiosas.</p>
+  </div>
+
+  <p>Vivimos en lo que llamo el <strong>Supermercado de la Indignación</strong>: un ecosistema mediático diseñado para vender reacciones viscerales, polarización y certezas prefabricadas. No es un fenómeno accidental —responde a lógicas económicas y de poder concretas que prosperan cuando pensamos menos y reaccionamos más. Frente a eso, el Verificador de Ideas es una apuesta deliberada por la calidad epistémica.</p>
+
+  <p>Mi posición no es partidaria. No me interesa defender una bandera ideológica particular. Me interesa algo más básico: que podamos discutir la realidad con exactitud, limpiar los lentes con los que miramos el mundo, y tener mejores herramientas para tomar decisiones —individuales y colectivas— con la mayor claridad posible.</p>
+
+  <h3>Cómo funciona la herramienta</h3>
+
+  <p>El Verificador de Ideas aplica la <strong>Matriz Explicacionista de Evaluación Epistémica (MEEE-G)</strong>, un instrumento analítico basado principalmente, pero no de manera exclusiva, en la epistemología externalista de Alvin Goldman. No evalúa sinceridad ni coherencia retórica: evalúa <em>estatus epistémico</em> —qué tan bien conectada está una afirmación con la evidencia y los procesos que la generaron.</p>
+
+  <div class="modules">
+    <div class="modules-title">Los cinco módulos del análisis</div>
+    <div class="modules-sub">Cada afirmación pasa por estos filtros, de forma iterativa, no lineal.</div>
+    <div class="module-grid">
+      <div class="module-item">
+        <div class="module-letter">A</div>
+        <div class="module-text">
+          <strong>Identificación Epistémica</strong>
+          <span>¿Qué tipo de afirmación es? ¿Qué pretende demostrar exactamente?</span>
+        </div>
+      </div>
+      <div class="module-item">
+        <div class="module-letter">B</div>
+        <div class="module-text">
+          <strong>Análisis Genealógico-Procesual</strong>
+          <span>¿Cómo se formó esta creencia? ¿Qué procesos cognitivos la produjeron?</span>
+        </div>
+      </div>
+      <div class="module-item">
+        <div class="module-letter">C</div>
+        <div class="module-text">
+          <strong>Evaluación de Fiabilidad</strong>
+          <span>¿Los procesos que generaron esta creencia son confiables y sensibles a la verdad?</span>
+        </div>
+      </div>
+      <div class="module-item">
+        <div class="module-letter">D</div>
+        <div class="module-text">
+          <strong>Evaluación Explicativa</strong>
+          <span>¿La afirmación explica la evidencia mejor que las alternativas disponibles?</span>
+        </div>
+      </div>
+      <div class="module-item">
+        <div class="module-letter">E</div>
+        <div class="module-text">
+          <strong>Diagnóstico Epistémico</strong>
+          <span>Síntesis: estado epistémico resultante y grado de confianza racional recomendado.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p>El diagnóstico en lenguaje natural es gratuito y de acceso libre. El análisis técnico completo —con los cinco módulos, identificación de sesgos e informe descargable— está disponible para quienes apoyan el proyecto.</p>
+
+  <!-- DEMOSTRACIÓN -->
+  <div style="border-top: 2px solid var(--ink); padding-top: 3rem; margin-top: 1rem;">
+    <div class="hero-tag" style="margin-bottom: 1rem;">Demostración &middot; Caso real</div>
+    <h2 style="font-size: clamp(1.6rem, 3.5vw, 2.4rem); margin-bottom: 0.5rem;">"Los nazis eran comunistas": cuando el nombre engaña</h2>
+    <p style="font-style: italic; color: var(--ink-light); margin-bottom: 2rem; font-size: 0.95rem; font-family: var(--serif);">El siguiente análisis fue producido con el Verificador de Ideas.</p>
+  </div>
+
+  <p>Este argumento circula con más frecuencia de lo que parece:</p>
+
+  <div class="claim-box">
+    <div class="claim-label">Afirmación a analizar</div>
+    <p>"Los nazis eran comunistas porque lo dice el nombre del partido: Nacional Socialista. Además todo lo manejaban desde el Estado y quitaban libertades, como todos los gobiernos comunistas y socialistas."</p>
+  </div>
+
+  <p>Suena razonable. Tiene una lógica interna aparente. Pero ¿qué tan sólido es? Lo pasé por el Verificador de Ideas como ejemplo de funcionamiento.</p>
+
+  <h3>Lo que encontró el análisis</h3>
+
+  <div class="result-box">
+    <div class="result-label">Diagnóstico &middot; Módulo E</div>
+    <p style="font-size:0.95rem; color: #3a3a3a; margin-bottom: 1rem;">Esta afirmación ha sido refutada por evidencia abrumadora. El argumento usa métodos poco confiables —razonamiento por el nombre, analogías superficiales— e ignora evidencia histórica bien documentada.</p>
+    <div class="confidence-bar">
+      <div class="bar-track"><div class="bar-fill"></div></div>
+      <div class="bar-value">5–10% confianza racional</div>
+    </div>
+    <div class="verdict">Estado epistémico: Derrotada (genealógica y explicativamente)</div>
+  </div>
+
+  <p>Una de las preguntas que lo desarma es simple: si nazis y comunistas eran lo mismo, ¿por qué fueron enemigos mortales? ¿Por qué los primeros en ser perseguidos, arrestados y asesinados cuando Hitler llegó al poder fueron precisamente los comunistas y socialdemócratas?</p>
+
+  <p>El argumento no tiene respuesta para eso. Y cuando una explicación no puede dar cuenta de los contraejemplos más obvios, eso nos dice algo importante sobre su fiabilidad.</p>
+
+  <h2>Por qué este tipo de argumento convence</h2>
+
+  <p>Porque apela a algo que parece lógico: si algo se llama "socialista", debe ser socialista. Pero los nombres de los partidos políticos no son definiciones filosóficas —son herramientas de comunicación, y a veces de propaganda. El Partido Nacionalsocialista usó esas palabras para capturar votos de sectores que desconfiaban del capitalismo, no porque su programa fuera socialista en ningún sentido técnico. En la práctica, gobernó en alianza con industriales y grandes empresarios, destruyó sindicatos y ejecutó a dirigentes de izquierda.</p>
+
+  <div class="pullquote">
+    <p>No hace falta mentir para engañar. Basta con elegir bien qué omitir.</p>
+  </div>
+
+  <p>Esto es lo que llamo el <strong>Supermercado de la Indignación</strong>: contenido construido no para informar, sino para activar una respuesta emocional, usando el lenguaje y la apariencia de la argumentación rigurosa. Datos seleccionados con precisión, analogías que suenan sólidas, una conclusión que se siente verdadera aunque no resista el análisis.</p>
+
+  <h2>Una nota final</h2>
+
+  <p>No escribo esto para tomar partido en ningún debate político contemporáneo. Lo escribo porque creo que la calidad del pensamiento es una condición de la convivencia —y que abandonar el esfuerzo por distinguir lo certero de lo falso no es una posición neutral, sino una forma de derrota.</p>
+
+  <p>Tenemos retos enormes por delante como especie. Muchos de ellos no admiten el lujo de la confusión deliberada. Y si algo puede ayudarnos a navegar ese panorama, no será tener más información, sino mejorar nuestra capacidad para evaluarla.</p>
+
+  <p><strong>Para eso existe el Verificador de Ideas.</strong></p>
+
+</div><!-- /article -->
+
+<!-- APP EMBEBIDA -->
+<div class="app-embed-section">
+  <div class="app-embed-inner">
+    <div class="app-embed-kicker">Herramienta &middot; Acceso directo</div>
+    <h2>Probalo con tu propia idea</h2>
+    <p>Ingresá cualquier afirmación, argumento o narrativa que te genere dudas. El diagnóstico en lenguaje natural es gratuito y de acceso libre.</p>
+    <div class="app-frame-wrap">
+      <iframe
+        src="https://verificador-meee-g.netlify.app/"
+        title="Verificador de Ideas MEEE-G"
+        loading="lazy"
+        allow="clipboard-write">
+      </iframe>
+      <div class="app-frame-caption">
+        <span>Verificador de Ideas &middot; MEEE-G &middot; Alfredo Montero Fonseca</span>
+        <a href="https://verificador-meee-g.netlify.app/" target="_blank" rel="noopener">Abrir en pantalla completa →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TIERS / SUSCRIPCIÓN -->
+<div class="cta-section">
+  <div class="cta-inner">
+    <h2>Apoyá el proyecto</h2>
+    <p>Quienes apoyan Antropos voluntariamente acceden al análisis técnico completo —los cinco módulos MEEE-G con identificación de sesgos, comparación histórica e informe descargable— y a beneficios adicionales.</p>
+
+    <div class="tiers">
+      <div class="tier">
+        <div class="tier-name">Gratuito</div>
+        <div class="tier-price">₡0</div>
+        <ul>
+          <li>Diagnóstico en lenguaje natural</li>
+          <li>Veredicto con nivel de confianza</li>
+        </ul>
+        <a href="#verificador" class="tier-link">Usar ahora →</a>
+      </div>
+      <div class="tier">
+        <div class="tier-name">Apoyo</div>
+        <div class="tier-price">₡500 <span>· pago único</span></div>
+        <ul>
+          <li>Contribución voluntaria al proyecto</li>
+        </ul>
+        <a href="https://buy.onvopay.com/live_s-lqxQBgJSVNqp9d2euZbi6TfWk" target="_blank" rel="noopener" class="tier-link">Apoyar →</a>
+      </div>
+      <div class="tier">
+        <div class="tier-name">Navegante</div>
+        <div class="tier-price">₡1.000 <span>/ mes · precio de lanzamiento</span></div>
+        <ul>
+          <li>Diagnóstico en lenguaje natural</li>
+          <li>Análisis completo módulos A–E</li>
+          <li>Informe descargable</li>
+        </ul>
+        <a href="https://buy.onvopay.com/live_1bJBUy3iZq-0-L0JpX6LTCZjveg" target="_blank" rel="noopener" class="tier-link">Suscribirse →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- GLOSARIO -->
+<div class="glosario">
+  <h3 style="font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem;">Glosario de términos clave</h3>
+  <dl style="display: grid; gap: 1.25rem;">
+    <div style="border-left: 2px solid var(--border); padding-left: 1.25rem;">
+      <dt style="font-family: var(--serif); font-weight: 600; font-size: 0.95rem; color: var(--ink); margin-bottom: 0.3rem;">Estatus epistémico</dt>
+      <dd style="font-size: 0.88rem; color: var(--ink-light); line-height: 1.55; margin: 0;">El grado de justificación o respaldo que tiene una creencia o afirmación, según los procesos que la generaron y la evidencia disponible. No es lo mismo que verdad: una afirmación puede tener alto estatus epistémico y ser revisada más adelante.</dd>
+    </div>
+    <div style="border-left: 2px solid var(--border); padding-left: 1.25rem;">
+      <dt style="font-family: var(--serif); font-weight: 600; font-size: 0.95rem; color: var(--ink); margin-bottom: 0.3rem;">Fiabilidad</dt>
+      <dd style="font-size: 0.88rem; color: var(--ink-light); line-height: 1.55; margin: 0;">Probabilidad de que un proceso cognitivo, sistema o método funcione correctamente y dé resultados consistentes bajo condiciones específicas. Un proceso es fiable si, aplicado en situaciones similares, tiende a producir creencias verdaderas.</dd>
+    </div>
+    <div style="border-left: 2px solid var(--border); padding-left: 1.25rem;">
+      <dt style="font-family: var(--serif); font-weight: 600; font-size: 0.95rem; color: var(--ink); margin-bottom: 0.3rem;">Epistemología externalista</dt>
+      <dd style="font-size: 0.88rem; color: var(--ink-light); line-height: 1.55; margin: 0;">Corriente filosófica según la cual la justificación de una creencia depende de factores externos al sujeto —cómo se originó, qué procesos la produjeron, qué tan conectada está con la realidad— y no solo de lo que el sujeto puede reflexionar internamente.</dd>
+    </div>
+    <div style="border-left: 2px solid var(--border); padding-left: 1.25rem;">
+      <dt style="font-family: var(--serif); font-weight: 600; font-size: 0.95rem; color: var(--ink); margin-bottom: 0.3rem;">Análisis genealógico</dt>
+      <dd style="font-size: 0.88rem; color: var(--ink-light); line-height: 1.55; margin: 0;">Rastreo del origen y formación de una creencia. Pregunta: ¿cómo llegó esta idea a existir? ¿Qué intereses, experiencias o sesgos la produjeron? Una creencia puede parecer sólida y tener un origen poco fiable.</dd>
+    </div>
+    <div style="border-left: 2px solid var(--border); padding-left: 1.25rem;">
+      <dt style="font-family: var(--serif); font-weight: 600; font-size: 0.95rem; color: var(--ink); margin-bottom: 0.3rem;">Derrota epistémica</dt>
+      <dd style="font-size: 0.88rem; color: var(--ink-light); line-height: 1.55; margin: 0;">Situación en que una creencia pierde su justificación frente a nueva evidencia o a la revelación de fallas en su origen. Puede ser evidencial (la evidencia la contradice), genealógica (su origen era poco fiable) o explicativa (existen mejores explicaciones del mismo fenómeno).</dd>
+    </div>
+    <div style="border-left: 2px solid var(--border); padding-left: 1.25rem;">
+      <dt style="font-family: var(--serif); font-weight: 600; font-size: 0.95rem; color: var(--ink); margin-bottom: 0.3rem;">Inferencia abductiva</dt>
+      <dd style="font-size: 0.88rem; color: var(--ink-light); line-height: 1.55; margin: 0;">Razonamiento que parte de la evidencia para llegar a la explicación más plausible. No garantiza certeza, pero elige la hipótesis que mejor da cuenta de los datos. Es el tipo de razonamiento que usan los científicos y los detectives.</dd>
+    </div>
+    <div style="border-left: 2px solid var(--border); padding-left: 1.25rem;">
+      <dt style="font-family: var(--serif); font-weight: 600; font-size: 0.95rem; color: var(--ink); margin-bottom: 0.3rem;">Sesgo de confirmación</dt>
+      <dd style="font-size: 0.88rem; color: var(--ink-light); line-height: 1.55; margin: 0;">Tendencia cognitiva a buscar, interpretar y recordar información que confirma lo que ya creemos, e ignorar la que lo contradice. Es uno de los procesos menos fiables para formar creencias verdaderas.</dd>
+    </div>
+  </dl>
+</div>
+
+<footer>
+  <p>&copy; 2026 Alfredo Montero &middot; Antropos</p>
+  <p>
+    <a href="https://antropos.substack.com" target="_blank" rel="noopener">Substack</a> &nbsp;&middot;&nbsp;
+    <a href="https://verificador-meee-g.netlify.app" target="_blank" rel="noopener">Verificador</a>
+  </p>
+</footer>
+
+<script>
+  const barFill = document.querySelector('.bar-fill');
+  if (barFill) {
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) barFill.style.width = '8%';
+      });
+    }, { threshold: 0.5 });
+    observer.observe(barFill);
+  }
+</script>
+
+<script data-goatcounter="https://antropos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

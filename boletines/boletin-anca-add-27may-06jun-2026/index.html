@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANCA-ADD · Boletín Quincena 27 May–6 Jun 2026 · Fracturas en la gobernanza · antropos.app</title>
+<meta name="description" content="Boletín ANCA-ADD: fracturas en la gobernanza, Ley de Armonización, drenaje fiscal, El Niño y saneamiento. Análisis epistémico de la quincena 27 mayo–6 junio 2026, Costa Rica.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet"></noscript>
+<style>
+:root {
+  --bg: #0c0c0c;
+  --s1: #141414;
+  --s2: #1a1a1a;
+  --s3: #222;
+  --bdr: #2c2c2c;
+  --red: #b83030;
+  --red2: #e04040;
+  --gold: #c9a84c;
+  --gold2: #e8c96a;
+  --teal: #2b7d7d;
+  --blue: #4a6eb8;
+  --grn: #3a9060;
+  --amber: #c07820;
+  --txt: #e4dcd2;
+  --txt2: #9c9080;
+  --txt3: #504840;
+  --ff: 'Bebas Neue', 'Arial Narrow', sans-serif;
+  --fs: 'Cormorant Garamond', Georgia, serif;
+  --fb: 'Source Serif 4', Georgia, serif;
+  --fm: 'IBM Plex Mono', 'Courier New', monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--txt);
+  font-family: var(--fb);
+  font-size: 16px;
+  line-height: 1.80;
+  overflow-x: hidden;
+}
+
+/* ─── TICKER ─────────────────────────────────────────────── */
+.ticker-wrap {
+  position: sticky; top: 0; z-index: 300;
+  background: var(--red); padding: 6px 0;
+  overflow: hidden; white-space: nowrap;
+  border-bottom: 1px solid #900;
+}
+.ticker-track {
+  display: inline-block;
+  animation: scroll-ticker 80s linear infinite;
+  font-family: var(--fm); font-size: 10px;
+  letter-spacing: .12em; color: #fff;
+  text-transform: uppercase;
+}
+@keyframes scroll-ticker {
+  from { transform: translateX(100vw); }
+  to { transform: translateX(-100%); }
+}
+
+/* ─── NAV ─────────────────────────────────────────────────── */
+nav {
+  background: var(--s1);
+  border-bottom: 1px solid var(--bdr);
+  padding: 10px 0;
+  position: sticky; top: 28px; z-index: 200;
+}
+.nav-inner {
+  max-width: 1180px; margin: 0 auto;
+  padding: 0 30px;
+  display: flex; align-items: center;
+  gap: 6px; flex-wrap: wrap;
+}
+.nav-brand {
+  font-family: var(--ff); font-size: 1.3rem;
+  color: var(--gold); letter-spacing: .05em;
+  margin-right: 20px;
+}
+nav a {
+  color: var(--txt2);
+  text-decoration: none;
+  font-family: var(--fm); font-size: 9px;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: 4px 10px;
+  border: 1px solid transparent;
+  transition: all .2s;
+}
+nav a:hover {
+  color: var(--gold);
+  border-color: var(--bdr);
+}
+
+/* ─── MASTHEAD ────────────────────────────────────────────── */
+.masthead {
+  background: linear-gradient(160deg, #111 0%, #0a0a0a 60%, #131008 100%);
+  border-bottom: 2px solid var(--gold);
+  padding: 70px 30px 50px;
+  position: relative; overflow: hidden;
+}
+.masthead::before {
+  content: 'ANCA';
+  position: absolute; right: -20px; top: -30px;
+  font-family: var(--ff); font-size: 28vw;
+  color: rgba(201,168,76,.03);
+  line-height: 1; pointer-events: none;
+}
+.masthead-inner {
+  max-width: 1180px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr auto;
+  align-items: end; gap: 40px;
+}
+.masthead-title {
+  font-family: var(--ff); font-size: clamp(3.2rem, 9vw, 8rem);
+  line-height: .9; color: var(--txt);
+  letter-spacing: .02em;
+}
+.masthead-title span { color: var(--gold); }
+.masthead-sub {
+  font-family: var(--fs); font-size: 1.05rem;
+  font-style: italic; color: var(--txt2);
+  margin-top: 14px; max-width: 580px;
+  font-weight: 300; line-height: 1.6;
+}
+.masthead-meta {
+  text-align: right;
+  font-family: var(--fm); font-size: 10px;
+  color: var(--txt3); letter-spacing: .1em;
+  line-height: 2.2; text-transform: uppercase;
+}
+.masthead-meta strong { color: var(--gold); font-size: 12px; }
+.issue-badge {
+  display: inline-block;
+  background: var(--gold); color: #000;
+  font-family: var(--ff); font-size: 1.2rem;
+  padding: 4px 18px; margin-bottom: 10px;
+  letter-spacing: .08em;
+}
+
+/* ─── SECTION HEADERS ─────────────────────────────────────── */
+.section-label {
+  font-family: var(--fm); font-size: 9px;
+  letter-spacing: .25em; text-transform: uppercase;
+  padding: 6px 14px; display: inline-block;
+  margin-bottom: 28px;
+}
+.lbl-geo { background: var(--red); color: #fff; }
+.lbl-eco { background: var(--amber); color: #000; }
+.lbl-sci { background: var(--teal); color: #fff; }
+.lbl-tech { background: var(--blue); color: #fff; }
+.lbl-soc { background: var(--grn); color: #fff; }
+.lbl-esp { background: var(--gold); color: #000; }
+
+/* ─── CONTAINER ───────────────────────────────────────────── */
+.container { max-width: 1180px; margin: 0 auto; padding: 0 30px; }
+
+/* ─── EDITORIAL ───────────────────────────────────────────── */
+.editorial {
+  background: var(--s1);
+  border-left: 4px solid var(--gold);
+  padding: 40px 50px;
+  margin: 50px 0;
+}
+.editorial-title {
+  font-family: var(--ff); font-size: 1.6rem;
+  color: var(--gold); letter-spacing: .06em;
+  margin-bottom: 16px;
+}
+.editorial p {
+  font-family: var(--fs); font-size: 1.08rem;
+  color: var(--txt2); line-height: 1.9;
+  margin-bottom: 12px; font-weight: 300;
+}
+.editorial ol {
+  padding-left: 1.5rem; margin: 14px 0;
+}
+.editorial ol li {
+  font-family: var(--fs); font-size: 1.05rem;
+  color: var(--txt2); margin-bottom: 8px;
+  line-height: 1.8; font-weight: 300;
+}
+.editorial blockquote {
+  border-left: 2px solid var(--gold);
+  margin: 18px 0 18px 12px;
+  padding: 6px 20px;
+  font-style: italic;
+  color: #b0a090;
+}
+
+/* ─── ARTICLE CARD ────────────────────────────────────────── */
+.article {
+  background: var(--s1);
+  border-top: 3px solid var(--bdr);
+  margin-bottom: 56px;
+  padding: 40px 46px 44px;
+  position: relative;
+}
+.article-geo { border-top-color: var(--red); }
+.article-eco { border-top-color: var(--amber); }
+.article-sci { border-top-color: var(--teal); }
+.article-tech { border-top-color: var(--blue); }
+.article-soc { border-top-color: var(--grn); }
+.article-esp { border-top-color: var(--gold); border-width: 5px; background: #0f0e08; }
+
+.art-num {
+  font-family: var(--fm); font-size: 10px;
+  color: var(--txt3); letter-spacing: .2em;
+  margin-bottom: 6px;
+}
+.art-title {
+  font-family: var(--fs); font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 600; line-height: 1.2;
+  color: var(--txt); margin-bottom: 8px;
+}
+.art-deck {
+  font-family: var(--fs); font-style: italic;
+  font-size: 1.05rem; color: var(--txt2);
+  font-weight: 300; margin-bottom: 28px;
+  line-height: 1.6;
+}
+
+/* ─── ARTICLE BODY SECTIONS ───────────────────────────────── */
+.art-section {
+  margin-bottom: 26px;
+}
+.art-section h4 {
+  font-family: var(--fm); font-size: 9.5px;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: var(--gold2); margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--bdr);
+}
+.art-section p {
+  font-family: var(--fb); font-size: .97rem;
+  line-height: 1.85; color: var(--txt);
+  margin-bottom: 10px;
+}
+.art-section ul {
+  padding-left: 1.4rem; margin-bottom: 12px;
+}
+.art-section ul li {
+  font-size: .95rem; color: var(--txt2);
+  line-height: 1.75; margin-bottom: 4px;
+}
+
+/* ─── MEEE-G TABLE ────────────────────────────────────────── */
+.meee-table {
+  width: 100%; border-collapse: collapse;
+  margin: 20px 0; font-size: .88rem;
+}
+.meee-table th {
+  background: #1e1e1e;
+  font-family: var(--fm); font-size: 8px;
+  letter-spacing: .15em; text-transform: uppercase;
+  color: var(--txt2); padding: 8px 12px;
+  text-align: left; border-bottom: 1px solid var(--bdr);
+}
+.meee-table td {
+  padding: 9px 12px;
+  border-bottom: 1px solid #1e1e1e;
+  font-family: var(--fb); font-size: .88rem;
+  vertical-align: top; line-height: 1.6;
+}
+.meee-table tr:hover td { background: #171717; }
+.tag-dc { color: #4fc86a; font-family: var(--fm); font-size: .82rem; font-weight: 500; }
+.tag-ip { color: #6ab0e8; font-family: var(--fm); font-size: .82rem; font-weight: 500; }
+.tag-h  { color: #d4a830; font-family: var(--fm); font-size: .82rem; font-weight: 500; }
+.tag-int{ color: #d080d0; font-family: var(--fm); font-size: .82rem; font-weight: 500; }
+
+/* ─── DATA TABLE ──────────────────────────────────────────── */
+.data-table {
+  width: 100%; border-collapse: collapse;
+  margin: 20px 0; font-size: .88rem;
+}
+.data-table th {
+  background: #1e1e1e;
+  font-family: var(--fm); font-size: 8px;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--gold); padding: 10px 14px;
+  text-align: left; border-bottom: 2px solid var(--gold);
+}
+.data-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #1c1c1c;
+  font-family: var(--fb); line-height: 1.6;
+  vertical-align: top;
+}
+.data-table tr:hover td { background: #161616; }
+
+/* ─── ADD BLOCK ───────────────────────────────────────────── */
+.add-block {
+  background: #101418;
+  border-left: 3px solid var(--teal);
+  padding: 20px 24px; margin: 22px 0;
+}
+.add-block h4 {
+  font-family: var(--fm); font-size: 8.5px;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: var(--teal); margin-bottom: 12px;
+}
+.add-block p {
+  font-size: .92rem; color: #b8c8c0;
+  line-height: 1.82; margin-bottom: 8px;
+}
+.add-block p:last-child { margin-bottom: 0; }
+.add-item {
+  display: flex; gap: 10px; align-items: flex-start;
+  margin-bottom: 7px;
+}
+.add-item-label {
+  font-family: var(--fm); font-size: 8px;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--teal); min-width: 90px; padding-top: 3px;
+}
+.add-item-val {
+  font-size: .9rem; color: #b0c0b8; line-height: 1.7;
+}
+.regime-tag {
+  display: inline-block;
+  font-family: var(--fm); font-size: 9px;
+  letter-spacing: .15em; text-transform: uppercase;
+  padding: 3px 10px; margin-top: 8px;
+  border: 1px solid;
+}
+.reg-lam { color: #4fc86a; border-color: #4fc86a; }
+.reg-tur { color: #d4a830; border-color: #d4a830; }
+.reg-bif { color: var(--red2); border-color: var(--red2); }
+
+/* ─── CR BLOCK ────────────────────────────────────────────── */
+.cr-block {
+  background: #0a0f0a;
+  border-left: 3px solid #3a7a3a;
+  padding: 20px 24px; margin: 22px 0;
+}
+.cr-block h4 {
+  font-family: var(--fm); font-size: 8.5px;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: #5aaa5a; margin-bottom: 10px;
+}
+.cr-block p {
+  font-size: .91rem; color: #b0c8a8; line-height: 1.82;
+  margin-bottom: 8px;
+}
+.cr-block p:last-child { margin-bottom: 0; }
+
+/* ─── REFERENCES ──────────────────────────────────────────── */
+.references {
+  background: var(--s1);
+  border-top: 2px solid var(--bdr);
+  padding: 40px 46px;
+  margin-top: 50px;
+}
+.references h3 {
+  font-family: var(--ff); font-size: 1.5rem;
+  color: var(--txt2); letter-spacing: .05em;
+  margin-bottom: 24px;
+}
+.ref-category {
+  font-family: var(--fm); font-size: 8px;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: var(--gold2); border-bottom: 1px solid var(--bdr);
+  padding-bottom: 5px; margin: 20px 0 12px;
+}
+.ref-item {
+  font-family: var(--fm); font-size: .78rem;
+  color: var(--txt3); line-height: 1.9;
+  border-bottom: 1px solid #181818;
+  padding: 7px 0;
+  padding-left: 20px; text-indent: -20px;
+}
+
+/* ─── DISCLAIMER ──────────────────────────────────────────── */
+.disclaimer {
+  background: #0a0a0a;
+  border-top: 1px solid #1a1a1a;
+  padding: 30px 46px;
+}
+.disclaimer p {
+  font-family: var(--fm); font-size: 9px;
+  color: var(--txt3); line-height: 1.8;
+  letter-spacing: .04em;
+}
+
+/* ─── SYNTHESIS LINK ──────────────────────────────────────── */
+.synthesis-box {
+  background: linear-gradient(135deg, #1a1600 0%, #0f0e08 100%);
+  border: 2px solid var(--gold);
+  padding: 30px 46px;
+  margin: 50px 0;
+  text-align: center;
+}
+.synthesis-box .esp-tag {
+  font-family: var(--fm); font-size: 9px;
+  letter-spacing: .3em; text-transform: uppercase;
+  color: var(--gold); display: block; margin-bottom: 12px;
+}
+.synthesis-box h3 {
+  font-family: var(--fs); font-size: 1.5rem;
+  font-weight: 600; color: var(--txt); margin-bottom: 8px;
+}
+.synthesis-box p {
+  font-family: var(--fs); font-style: italic;
+  font-size: 1rem; color: var(--txt2); margin-bottom: 18px;
+  font-weight: 300;
+}
+.synthesis-box a {
+  display: inline-block;
+  background: var(--gold); color: #000;
+  font-family: var(--fm); font-size: 10px;
+  letter-spacing: .15em; text-transform: uppercase;
+  padding: 10px 28px; text-decoration: none;
+  transition: background .2s;
+}
+.synthesis-box a:hover { background: var(--gold2); }
+
+/* ─── FOOTER ──────────────────────────────────────────────── */
+footer {
+  background: var(--s1);
+  border-top: 2px solid var(--gold);
+  padding: 28px 30px;
+  display: flex; justify-content: space-between;
+  align-items: center; flex-wrap: wrap; gap: 16px;
+}
+.ft-brand {
+  font-family: var(--ff); font-size: 2rem;
+  color: var(--gold); letter-spacing: .08em;
+}
+.ft-info {
+  font-family: var(--fm); font-size: 9px;
+  color: var(--txt3); line-height: 2;
+  text-align: right; letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.ft-info a { color: var(--txt3); text-decoration: underline; }
+
+/* ─── DIVIDERS ────────────────────────────────────────────── */
+.divider { height: 1px; background: var(--bdr); margin: 50px 0; }
+.divider-gold {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 60px 0;
+}
+
+/* ─── SITE NAV BAR ────────────────────────────────────────── */
+.site-nav {
+  background: #080808;
+  border-bottom: 1px solid #1e1e1e;
+  padding: 8px 30px;
+  display: flex; align-items: center; gap: 20px;
+  font-family: var(--fm); font-size: 9px;
+  letter-spacing: .12em; text-transform: uppercase;
+}
+.site-nav a {
+  color: var(--txt3); text-decoration: none;
+  transition: color .2s;
+}
+.site-nav a:hover { color: var(--gold); }
+.site-nav .sep { color: var(--txt3); }
+
+/* ─── RESPONSIVE ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .masthead-inner { grid-template-columns: 1fr; }
+  .masthead-meta { text-align: left; }
+  .article, .editorial, .references { padding: 24px 20px; }
+  .synthesis-box { padding: 22px 20px; }
+  .site-nav { padding: 8px 16px; flex-wrap: wrap; }
+  .data-table { font-size: .82rem; }
+  .data-table td, .data-table th { padding: 8px 10px; }
+}
+</style>
+</head>
+<body>
+
+<!-- SITE NAV -->
+<div class="site-nav">
+  <a href="/boletines/">← Boletines</a>
+  <span class="sep">/</span>
+  <a href="/">antropos.app</a>
+  <span class="sep">/</span>
+  <a href="/analisis-add/">Análisis ADD</a>
+</div>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <span class="ticker-track">
+    ANCA-ADD · QUINCENA 27 MAYO – 6 JUNIO 2026 &nbsp;///&nbsp;
+    61 PANDILLAS ACTIVAS EN DISPUTA TERRITORIAL · PECOV Y "FUERZA ÉLITE" ACTIVADOS &nbsp;///&nbsp;
+    LEY DE ARMONIZACIÓN ELÉCTRICA 23.414 DESCONVOCADA · CRISIS POLÍTICA EN ENERGÍA &nbsp;///&nbsp;
+    CARGA TRIBUTARIA: 11.4% DEL PIB · NIVEL MÁS BAJO EN 20 AÑOS &nbsp;///&nbsp;
+    84.000 PERSONAS ABANDONARON LA FUERZA LABORAL · 63.000 MUJERES &nbsp;///&nbsp;
+    OMM: 80% DE PROBABILIDAD DE EL NIÑO · -50% LLUVIA Y +2°C PROYECTADOS PARA 2027 &nbsp;///&nbsp;
+    LIBERIA: INUNDACIONES POR FALLO DE ALCANTARILLADO · BASURA COMO MULTIPLICADOR DE RIESGO &nbsp;///&nbsp;
+    HEPATITIS E (GENOTIPO 3) DETECTADA EN AGUAS RESIDUALES DE LA GAM &nbsp;///&nbsp;
+    OVSICORI-UNA: PRIMERA ESTACIÓN SÍSMICA PERMANENTE EN ISLA DEL COCO &nbsp;///&nbsp;
+    PRESENCIA MILITAR RUSA EN NICARAGUA · CANCILLER TOVAR EXPRESA PREOCUPACIÓN &nbsp;///&nbsp;
+    ANCA-ADD · ANÁLISIS EPISTÉMICO · MEEE-G · ADD · GOLDMAN · PRIGOGINE &nbsp;///&nbsp;
+  </span>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-brand">ANCA-ADD</div>
+    <a href="#editorial">Editorial</a>
+    <a href="#gobernanza">Gobernanza</a>
+    <a href="#energia">Energía</a>
+    <a href="#economia">Economía</a>
+    <a href="#ambiente">Ambiente</a>
+    <a href="#ciencia">Ciencia</a>
+    <a href="#sociedad">Sociedad</a>
+    <a href="#fuentes">Fuentes</a>
+  </div>
+</nav>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="masthead-inner">
+    <div>
+      <div class="masthead-title">
+        Agente<br>Noticioso<br><span>Crítico</span>
+      </div>
+      <p class="masthead-sub">
+        Fracturas en la gobernanza y desafíos de estabilidad ·
+        Análisis epistémico y dinámico · MEEE-G · ADD
+      </p>
+    </div>
+    <div class="masthead-meta">
+      <div class="issue-badge">QUINCENA</div><br>
+      <strong>Boletín ANCA-ADD</strong><br>
+      27 Mayo – 6 Junio · 2026<br>
+      Cierre editorial: 6 · VI · 2026<br>
+      San José, Costa Rica<br><br>
+      ANCA-ADD<br>
+      antropos.app
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+<!-- EDITORIAL -->
+<div id="editorial" class="editorial">
+  <div class="editorial-title">El método contra el ruido</div>
+  <p>Habitamos un ecosistema informativo donde la inmediatez secuestró a la verificación y la indignación se volvió el combustible de la interacción digital. En la Costa Rica de 2026, el ruido mediático opera como una cortina de humo que impide ver las señales estructurales que moldean nuestro destino colectivo.</p>
+  <p>Lo que sigue no es un compendio de noticias, sino un ejercicio de <em>señal contra ruido</em>. ANCA-ADD parte de una convicción: en la era de la saturación, la <strong>publicación reflexiva</strong> es un acto de resistencia intelectual frente a la viralidad vacía. No buscamos la primicia ni la reacción, sino la estructura y la comprensión profunda de los hechos.</p>
+  <p>Cinco principios operativos diferencian este trabajo:</p>
+  <ol>
+    <li><strong>Factualidad contrastada</strong> — doble verificación independiente antes de publicar.</li>
+    <li><strong>Transparencia de fuentes</strong> — trazabilidad total para permitir la auditoría ciudadana.</li>
+    <li><strong>Contextualización estructural</strong> — los hechos se ubican en marcos temporales y sistémicos.</li>
+    <li><strong>Pluralismo metodológico</strong> — triangulación entre versiones gubernamentales, criterios técnicos internacionales y datos empíricos.</li>
+    <li><strong>Utilidad pública</strong> — se prioriza la información por su capacidad de mejorar la toma de decisiones.</li>
+  </ol>
+  <blockquote>La información pública de calidad no es un lujo: es un pilar de la democracia.</blockquote>
+  <p>Cada afirmación de este boletín lleva su estatus epistémico: <span class="tag-dc">[DC]</span> para datos verificados, <span class="tag-ip">[IP]</span> para inferencias sustentadas, <span class="tag-int">[Int]</span> para interpretaciones sistémicas.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     SECCIÓN 1 — GOBERNANZA Y SEGURIDAD
+════════════════════════════════════════════════ -->
+<div id="gobernanza" class="section-label lbl-geo">01 · Gobernanza y Seguridad</div>
+
+<article class="article article-geo">
+  <div class="art-num">SECCIÓN 01 · GOBERNANZA — SEGURIDAD PÚBLICA</div>
+  <h2 class="art-title">Entre la mano dura y el control institucional: el PECOV, la Fuerza Élite y la fricción Ejecutivo–Judicial</h2>
+  <p class="art-deck">La crisis de seguridad empujó al modelo democrático costarricense hacia un desplazamiento peligroso: medidas espectaculares de dudoso valor probatorio que erosionan la autonomía judicial en nombre de la eficiencia.</p>
+
+  <div class="art-section">
+    <h4>Resumen factual</h4>
+    <p>Las autoridades mapearon <strong>61 pandillas activas</strong> en disputa violenta por el control territorial. En respuesta, la administración activó el Plan Estratégico de Contención y Control de la Violencia (PECOV) y anunció la creación de una "Fuerza Élite". El OIJ fijó como meta cerrar 2026 con <strong>menos de 800 homicidios</strong>, lo que representaría la primera reducción significativa desde 2022. La estrategia ataca el narcomenudeo, responsable del 80% de las muertes violentas.</p>
+    <p>La propuesta de aplicar <strong>pruebas de polígrafo</strong> a jerarcas de Seguridad, Justicia y Comunicación, junto con la intervención de las comunicaciones entre internos y abogados, fue presentada como respuesta a casos emblemáticos —incluido un sospechoso detenido <strong>388 veces</strong> y aún en libertad. La vigilancia fronteriza enfrenta un drenaje operativo masivo: se estiman <strong>200 pistas de aterrizaje clandestinas</strong>, mientras la contención de la minería ilegal en Crucitas demanda <strong>USD 1 millón mensual</strong>.</p>
+  </div>
+
+  <div class="art-section">
+    <h4>Evaluación epistémica — MEEE-G</h4>
+    <table class="meee-table">
+      <tr><th>Afirmación</th><th>Código</th><th>Fundamento</th></tr>
+      <tr><td>61 pandillas activas en disputa territorial</td><td><span class="tag-dc">[DC]</span></td><td>Mapeo oficial de autoridades de Seguridad, citado por La Nación.</td></tr>
+      <tr><td>Meta OIJ: menos de 800 homicidios en 2026</td><td><span class="tag-dc">[DC]</span></td><td>Declaración pública del OIJ, medios nacionales.</td></tr>
+      <tr><td>Narcomenudeo responsable del 80% de muertes violentas</td><td><span class="tag-dc">[DC]</span></td><td>Diagnóstico oficial del Ministerio de Seguridad.</td></tr>
+      <tr><td>200 pistas clandestinas · USD 1 millón/mes en Crucitas</td><td><span class="tag-dc">[DC]</span></td><td>Reportes del Ministerio de Seguridad Pública y medios verificados.</td></tr>
+      <tr><td>Los polígrafos son medida espectacular de dudoso valor probatorio</td><td><span class="tag-int">[Int]</span></td><td>Interpretación sistémica: el polígrafo no es admitido como prueba en el sistema penal costarricense y su uso se orienta al efecto comunicativo.</td></tr>
+      <tr><td>Las medidas erosionan la autonomía judicial</td><td><span class="tag-ip">[IP]</span></td><td>Inferencia plausible: la intervención de comunicaciones abogado-cliente contradice principios del debido proceso consolidados en la jurisprudencia constitucional.</td></tr>
+    </table>
+  </div>
+
+  <div class="add-block">
+    <h4>Lectura sistémica — ADD</h4>
+    <div class="add-item"><span class="add-item-label">Bifurcación</span><span class="add-item-val">La propuesta de pruebas de polígrafo y la intervención de comunicaciones internas constituyen una bifurcación de alto riesgo para el equilibrio de poderes. El Ejecutivo utiliza casos críticos como catalizador de reformas que transfieren poder institucional.</span></div>
+    <div class="add-item"><span class="add-item-label">Acoplamiento</span><span class="add-item-val">El acoplamiento entre operatividad policial y sistema de control penal es la falla estructural reconocida. Las medidas espectaculares atacan el síntoma (percepción de impunidad) sin reparar el acoplamiento deficiente (coordinación entre captura, proceso y reinserción).</span></div>
+    <div class="add-item"><span class="add-item-label">Parámetro crítico</span><span class="add-item-val">La brecha de legitimidad encarnada en el sospechoso detenido 388 veces actúa como perturbación simbólica que amplifica la demanda de soluciones autoritarias. Históricamente, esa brecha abre la puerta a regímenes de mano dura que sacrifican derechos por sensación de orden.</span></div>
+    <span class="regime-tag reg-tur">Régimen turbulento / riesgo de bifurcación institucional</span>
+  </div>
+
+  <div class="cr-block">
+    <h4>Perspectiva estructural</h4>
+    <p>El costo de oportunidad de USD 1 millón mensual en Crucitas y los recursos del PECOV recaen sobre un presupuesto con ingresos tributarios en caída. La seguridad y la hacienda pública están acopladas: lo que se gasta en contención es lo que no se invierte en prevención, educación y salud. El sistema no resuelve su déficit de seguridad con más gasto si simultáneamente se erosiona la base fiscal.</p>
+  </div>
+</article>
+
+<!-- ═══════════════════════════════════════════════
+     SECCIÓN 2 — POLÍTICA Y ENERGÍA
+════════════════════════════════════════════════ -->
+<div id="energia" class="section-label lbl-esp">02 · Política y Marco Energético</div>
+
+<article class="article article-esp">
+  <div class="art-num">SECCIÓN 02 · POLÍTICA NACIONAL — ENERGÍA</div>
+  <h2 class="art-title">El tira y afloja de la Ley de Armonización: de la aprobación técnica al campo de batalla ideológico</h2>
+  <p class="art-deck">La Ley de Armonización del Mercado Eléctrico (Expediente 23.414), clave para la competitividad, pasó de propuesta técnica a paralización política. El Ejecutivo recurrió a una retórica de polarización que destruye los puentes necesarios para la supermayoría.</p>
+
+  <div class="art-section">
+    <h4>Resumen factual</h4>
+    <p>Tras aprobarse en primer debate el <strong>26 de mayo</strong>, el proyecto fue <strong>desconvocado por la presidencia</strong> ante la falta de los 38 votos necesarios para la supermayoría constitucional. La OCDE, en sus informes de junio de 2026, sostiene que la apertura del mercado es indispensable para la innovación y la adopción de energías renovables en Costa Rica.</p>
+    <p>El Ejecutivo recurrió a una retórica que calificó la oposición técnica como defensa de ideologías "comunistas" y comparó el debate con los modelos de Cuba y Venezuela. El Partido Liberación Nacional —cuya bancada presentó el texto sustitutivo en discusión— quedó ante una bifurcación estratégica: ceder a la presión política o sostener su rechazo. El futuro energético, las tarifas y el rol del ICE quedaron en un limbo de incertidumbre regulatoria.</p>
+  </div>
+
+  <div class="art-section">
+    <h4>Evaluación epistémica — MEEE-G</h4>
+    <table class="meee-table">
+      <tr><th>Afirmación</th><th>Código</th><th>Fundamento</th></tr>
+      <tr><td>Proyecto aprobado en primer debate el 26 de mayo</td><td><span class="tag-dc">[DC]</span></td><td>Actas de la Asamblea Legislativa, múltiples medios verificados.</td></tr>
+      <tr><td>Desconvocado por falta de supermayoría (38 votos)</td><td><span class="tag-dc">[DC]</span></td><td>Declaración de la presidencia de la Asamblea.</td></tr>
+      <tr><td>La OCDE respalda la apertura del mercado eléctrico</td><td><span class="tag-dc">[DC]</span></td><td>OCDE (junio 2026), citado por La Nación y El Observador.</td></tr>
+      <tr><td>La retórica gubernamental destruye puentes hacia la supermayoría</td><td><span class="tag-int">[Int]</span></td><td>Interpretación sistémica: etiquetar la oposición técnica como "comunismo" aleja a votos centristas necesarios para los 38 escaños.</td></tr>
+      <tr><td>El futuro energético queda en incertidumbre regulatoria</td><td><span class="tag-ip">[IP]</span></td><td>Inferencia plausible: sin reforma aprobada ni arquitectura alternativa clara, las decisiones de inversión en generación se postergan.</td></tr>
+    </table>
+  </div>
+
+  <div class="add-block">
+    <h4>Lectura sistémica — ADD</h4>
+    <div class="add-item"><span class="add-item-label">Polarización</span><span class="add-item-val">La polarización ideológica destruye los puentes que se necesitan precisamente para aprobar reformas estructurales. Etiquetar al rival produce clics y aplausos; no produce la mayoría calificada que exige la energía.</span></div>
+    <div class="add-item"><span class="add-item-label">Acoplamiento crítico</span><span class="add-item-val">La incertidumbre regulatoria energética se acopla con El Niño 2026-2027: las decisiones que definen cómo producimos electricidad bajo estrés climático quedan suspendidas en el momento de mayor vulnerabilidad hídrica.</span></div>
+    <div class="add-item"><span class="add-item-label">Bifurcación PLN</span><span class="add-item-val">El PLN enfrenta bifurcación intrapartidaria: el campo político-energético opera con dos habitus en conflicto dentro del mismo partido. El resultado de su posición declarará cuál lógica controla su capital simbólico en este período.</span></div>
+    <span class="regime-tag reg-bif">Zona de bifurcación — incertidumbre regulatoria sostenida</span>
+  </div>
+
+  <div class="cr-block">
+    <h4>Implicaciones directas</h4>
+    <p>Costa Rica necesita nueva capacidad de generación para enfrentar el crecimiento de demanda y la transición a electromovilidad. La parálisis regulatoria frena la inversión privada en renovables y deja al ICE como único actor con capacidad de planificación de largo plazo, pero con restricciones fiscales crecientes. El período sin resolución legislativa es tiempo perdido que El Niño no perdona.</p>
+  </div>
+</article>
+
+<!-- ═══════════════════════════════════════════════
+     SECCIÓN 3 — ECONOMÍA Y FISCAL
+════════════════════════════════════════════════ -->
+<div id="economia" class="section-label lbl-eco">03 · Panorama Económico y Fiscal</div>
+
+<article class="article article-eco">
+  <div class="art-num">SECCIÓN 03 · ECONOMÍA — HACIENDA PÚBLICA</div>
+  <h2 class="art-title">La paradoja de la confianza externa y el drenaje interno: blindaje macroeconómico sobre cimientos fiscales erosionados</h2>
+  <p class="art-deck">El FMI certifica estabilidad mientras la carga tributaria alcanza su nivel más bajo en 20 años. La economía crece en sectores con exenciones o alta informalidad, desacoplando producción de recaudación.</p>
+
+  <div class="art-section">
+    <h4>Indicadores clave — Dicotomía externa/interna</h4>
+    <table class="data-table">
+      <tr>
+        <th>Indicador</th>
+        <th>Visión externa (FMI)</th>
+        <th>Realidad interna (Hacienda / Academia)</th>
+      </tr>
+      <tr>
+        <td>Crecimiento del PIB</td>
+        <td>4.6% en 2025</td>
+        <td>Proyección 3.6% en 2026 (desaceleración)</td>
+      </tr>
+      <tr>
+        <td>Confianza financiera</td>
+        <td>Línea de Crédito Flexible · USD 1.500 millones</td>
+        <td>Caída proyectada del 5% en ingresos tributarios (2026)</td>
+      </tr>
+      <tr>
+        <td>Carga tributaria</td>
+        <td>Percepción de estabilidad institucional</td>
+        <td>11.4% del PIB — nivel más bajo en 20 años</td>
+      </tr>
+      <tr>
+        <td>Mercado laboral</td>
+        <td>Desempleo "estable" en 6.9%</td>
+        <td>84.000 personas fuera de la fuerza laboral · tasa de ocupación 50.3%</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="art-section">
+    <h4>Evaluación epistémica — MEEE-G</h4>
+    <table class="meee-table">
+      <tr><th>Afirmación</th><th>Código</th><th>Fundamento</th></tr>
+      <tr><td>Carga tributaria: 11.4% del PIB · nivel más bajo en 20 años</td><td><span class="tag-dc">[DC]</span></td><td>Ministerio de Hacienda, citado por OES-UNA.</td></tr>
+      <tr><td>Proyección de caída del 5% en ingresos tributarios 2026</td><td><span class="tag-dc">[DC]</span></td><td>OES-UNA (junio 2026).</td></tr>
+      <tr><td>Línea de Crédito Flexible del FMI: USD 1.500 millones</td><td><span class="tag-dc">[DC]</span></td><td>FMI (mayo 2026), Artículo IV.</td></tr>
+      <tr><td>84.000 personas salieron de la fuerza laboral · 63.000 mujeres</td><td><span class="tag-ip">[IP]</span></td><td>INEC (ECE, junio 2026): dato de variación interanual. Inferencia sobre la causa (crisis de cuidados) requiere análisis adicional.</td></tr>
+      <tr><td>El desempleo estable en 6.9% es ilusión estadística</td><td><span class="tag-int">[Int]</span></td><td>Interpretación sistémica: la tasa se mantiene porque los "trabajadores desalentados" salen del denominador, no porque encuentren empleo.</td></tr>
+      <tr><td>Fin de 38 meses de deflación · IPC +0.58% en mayo</td><td><span class="tag-dc">[DC]</span></td><td>INEC (IPC mayo 2026).</td></tr>
+      <tr><td>Gasolina regular ₡748/litro · diésel +24.77% interanual</td><td><span class="tag-dc">[DC]</span></td><td>ARESEP, tarifas vigentes junio 2026.</td></tr>
+    </table>
+  </div>
+
+  <div class="add-block">
+    <h4>Lectura sistémica — ADD</h4>
+    <div class="add-item"><span class="add-item-label">Desacople</span><span class="add-item-val">El blindaje macroeconómico externo es real, pero coexiste con un drenaje fiscal interno. La producción ya no se traduce en recaudación: el sistema crece en sectores exentos o informales, generando una bifurcación entre PIB y capacidad estatal de inversión.</span></div>
+    <div class="add-item"><span class="add-item-label">Atractor exclusión</span><span class="add-item-val">El mercado laboral funciona como atractor de exclusión: las 84.000 personas que abandonaron la búsqueda de empleo no "mejoran" la estadística —la corrompen. La concentración en mujeres señala el colapso de los sistemas de cuidado como variable oculta.</span></div>
+    <div class="add-item"><span class="add-item-label">Propuesta tabú</span><span class="add-item-val">El Observatorio Económico y Social de la UNA propone medidas de alto costo político: gravar zonas francas, vigilar SINPE Móvil, reformar la renta. Son las reformas que el sistema necesita y que la polarización hace imposibles.</span></div>
+    <span class="regime-tag reg-tur">Régimen de drenaje silencioso — invisible en titulares</span>
+  </div>
+
+  <div class="cr-block">
+    <h4>El fin de la deflación y el bolsillo real</h4>
+    <p>El IPC positivo no responde a demanda dinámica: es el costo del petróleo a ~USD 100/barril. La gasolina regular a ₡748/litro y el tipo de cambio en ₡456 por dólar encarecen la canasta básica en una economía donde la mitad de la población ya está fuera del mercado laboral activo. La estabilidad del FMI no llega al recibo de la tienda del barrio.</p>
+  </div>
+</article>
+
+<!-- ═══════════════════════════════════════════════
+     SECCIÓN 4 — INFRAESTRUCTURA Y AMBIENTE
+════════════════════════════════════════════════ -->
+<div id="ambiente" class="section-label lbl-sci">04 · Infraestructura y Medio Ambiente</div>
+
+<article class="article article-sci">
+  <div class="art-num">SECCIÓN 04 · AMBIENTE — INFRAESTRUCTURA — SANEAMIENTO</div>
+  <h2 class="art-title">La fragilidad ante el cambio climático: cuando la negligencia administrativa se convierte en atractor de desastres</h2>
+  <p class="art-deck">Las inundaciones de Liberia y la Hepatitis E en la GAM son síntomas del mismo problema: la ausencia de mantenimiento preventivo y gestión de residuos transforma riesgos meteorológicos en emergencias de gobernanza urbana.</p>
+
+  <div class="art-section">
+    <h4>Resumen factual</h4>
+    <p>Las inundaciones en Liberia (junio de 2026), con acumulados de <strong>40–60 mm en 12 horas</strong>, no fueron causadas por lluvias excepcionales. El colapso del alcantarillado por <strong>acumulación masiva de residuos sólidos</strong> fue el factor determinante: un fenómeno meteorológico moderado se convirtió en emergencia urbana por una falla de gobernanza acumulada.</p>
+    <p>La OMM advierte un <strong>80% de probabilidad</strong> de desarrollo de "El Niño". Para 2027 se proyecta una reducción de lluvias de hasta <strong>50%</strong> y un aumento de <strong>2°C</strong> en el Pacífico Norte, una amenaza directa para la seguridad hídrica y agrícola.</p>
+    <p>Investigadores de la UCR y la Universidad Nacional de Córdoba (Argentina) detectaron <strong>Hepatitis E (genotipo 3)</strong> en aguas residuales de San José, a partir de muestras de marzo a septiembre de 2025. El hallazgo confirma el deterioro del saneamiento ambiental de la Gran Área Metropolitana.</p>
+  </div>
+
+  <div class="art-section">
+    <h4>Evaluación epistémica — MEEE-G</h4>
+    <table class="meee-table">
+      <tr><th>Afirmación</th><th>Código</th><th>Fundamento</th></tr>
+      <tr><td>Inundaciones Liberia: 40–60 mm en 12 horas</td><td><span class="tag-dc">[DC]</span></td><td>CNE e IMN, 6 de junio de 2026.</td></tr>
+      <tr><td>Colapso del alcantarillado por residuos sólidos</td><td><span class="tag-dc">[DC]</span></td><td>CNE, reporte técnico sobre causa de la emergencia.</td></tr>
+      <tr><td>OMM: 80% de probabilidad de El Niño para 2026-2027</td><td><span class="tag-dc">[DC]</span></td><td>WEF/OMM (2026), proyecciones climáticas estacionales.</td></tr>
+      <tr><td>Proyección: -50% lluvia y +2°C para el Pacífico Norte en 2027</td><td><span class="tag-dc">[DC]</span></td><td>IMN, boletín climático junio 2026.</td></tr>
+      <tr><td>Hepatitis E (genotipo 3) en efluentes de la GAM</td><td><span class="tag-dc">[DC]</span></td><td>UCR y Universidad Nacional de Córdoba (2026), publicación verificada.</td></tr>
+      <tr><td>La crisis de basura es el principal multiplicador de riesgo de desastre</td><td><span class="tag-int">[Int]</span></td><td>Interpretación sistémica: el acoplamiento entre gestión deficiente de residuos e infraestructura de drenaje amplifica el impacto de cualquier evento meteorológico moderado.</td></tr>
+    </table>
+  </div>
+
+  <div class="add-block">
+    <h4>Lectura sistémica — ADD</h4>
+    <div class="add-item"><span class="add-item-label">Fallo de acoplamiento</span><span class="add-item-val">Las inundaciones de Liberia son un fallo de acoplamiento sistémico, no una fatalidad climática. La negligencia administrativa funciona como atractor de desastres: acumula condiciones que convierten eventos menores en catástrofes.</span></div>
+    <div class="add-item"><span class="add-item-label">Amenaza existencial</span><span class="add-item-val">Una red de infraestructura debilitada y sin mantenimiento preventivo está a punto de recibir golpes climáticos cada vez más extremos. Y lo hace mientras la reforma del sector energético —que decidiría cómo producimos electricidad bajo ese estrés— está congelada.</span></div>
+    <div class="add-item"><span class="add-item-label">Hepatitis E</span><span class="add-item-val">No es un brote, todavía. Es la confirmación de que el saneamiento que debería protegernos lleva años deteriorándose sin que lo viéramos. La vigilancia epidemiológica activa es la respuesta inmediata necesaria.</span></div>
+    <span class="regime-tag reg-tur">Régimen turbulento — vulnerabilidad sistémica creciente</span>
+  </div>
+
+  <div class="cr-block">
+    <h4>Gestión de residuos como política de seguridad</h4>
+    <p>La crisis de basura dejó de ser un problema estético o ambiental periférico: es hoy una amenaza directa a la seguridad pública urbana. Cada retraso en la reforma del sistema de gestión de residuos sólidos es capital de riesgo acumulado para el próximo evento meteorológico. Ante El Niño que se avecina, la sequía no es el único vector de riesgo: la saturación de suelos en episodios cortos de lluvia intensa seguirá produciendo emergencias.</p>
+  </div>
+</article>
+
+<!-- ═══════════════════════════════════════════════
+     SECCIÓN 5 — CIENCIA, TECNOLOGÍA Y GEOPOLÍTICA
+════════════════════════════════════════════════ -->
+<div id="ciencia" class="section-label lbl-tech">05 · Ciencia, Tecnología y Geopolítica</div>
+
+<article class="article article-tech">
+  <div class="art-num">SECCIÓN 05 · CIENCIA — TECNOLOGÍA — GEOPOLÍTICA</div>
+  <h2 class="art-title">Monitoreo y posicionamiento global: Isla del Coco, Nicaragua, Taiwán y la profesionalización de la diplomacia</h2>
+  <p class="art-deck">La ciencia se confirma como la herramienta estatal más efectiva para anticipar desastres, mientras la geopolítica exige coherencia en las decisiones de política exterior.</p>
+
+  <div class="art-section">
+    <h4>Resumen factual</h4>
+    <p>El Ovsicori-UNA, en colaboración con EarthScope (consorcio geofísico estadounidense), instaló la <strong>primera estación sísmica permanente en la Isla del Coco</strong>. Este sensor GNSS de alta precisión es vital para la alerta temprana de tsunamis y el estudio tectónico del Pacífico. En medio del debate presupuestario del FEES, el hallazgo refuerza el argumento de que la inversión en ciencia pública tiene retorno concreto en términos de seguridad ciudadana.</p>
+    <p>El canciller <strong>Manuel Tovar</strong> expresó preocupación por la presencia militar rusa en Nicaragua, señalando un factor de inestabilidad fronteriza que marca un giro hacia un alineamiento más fuerte con Occidente en materia de seguridad regional.</p>
+    <p>Se monitorea la participación de la ministra de Taiwán, <strong>Yang Jen-ni</strong>, en foros de APEC bajo la anuencia táctica de China: una concesión que estabiliza temporalmente las cadenas de suministro del Pacífico.</p>
+    <p>El Gobierno nombró a <strong>Boris Marchegiani</strong> —empresario turístico sin experiencia diplomática— como embajador ante la ONU, lo que generó cuestionamientos sobre la profesionalización del servicio exterior costarricense.</p>
+  </div>
+
+  <div class="art-section">
+    <h4>Evaluación epistémica — MEEE-G</h4>
+    <table class="meee-table">
+      <tr><th>Afirmación</th><th>Código</th><th>Fundamento</th></tr>
+      <tr><td>Primera estación sísmica permanente en Isla del Coco</td><td><span class="tag-dc">[DC]</span></td><td>Ovsicori-UNA, reporte técnico junio 2026.</td></tr>
+      <tr><td>Canciller Tovar: preocupación por presencia militar rusa en Nicaragua</td><td><span class="tag-dc">[DC]</span></td><td>Declaración pública del Ministerio de Relaciones Exteriores, medios nacionales.</td></tr>
+      <tr><td>Participación Taiwan-APEC bajo anuencia táctica de China</td><td><span class="tag-ip">[IP]</span></td><td>Inferencia plausible: el patrón de señalización de Beijing ante foros regionales sugiere cálculo estratégico, no descuido.</td></tr>
+      <tr><td>Estabilización de cadenas de suministro del Pacífico</td><td><span class="tag-ip">[IP]</span></td><td>Inferencia derivada de la lógica de las cadenas logísticas Pacífico-Asia que benefician a Costa Rica exportadora.</td></tr>
+      <tr><td>Marchegiani carece de experiencia diplomática formal</td><td><span class="tag-dc">[DC]</span></td><td>Perfil público verificado; cuestionamiento levantado por la prensa nacional.</td></tr>
+    </table>
+  </div>
+
+  <div class="add-block">
+    <h4>Lectura sistémica — ADD</h4>
+    <div class="add-item"><span class="add-item-label">Ciencia y Estado</span><span class="add-item-val">La estación en Isla del Coco demuestra que el débil argumento presupuestario contra el FEES ignora el retorno sistémico de la ciencia pública: cada sensor instalado es capital preventivo contra catástrofes futuras.</span></div>
+    <div class="add-item"><span class="add-item-label">Geopolítica regional</span><span class="add-item-val">La presencia militar rusa en Nicaragua reconfigura el entorno de seguridad regional de Costa Rica. El alineamiento con Occidente tiene coherencia estratégica, pero exige una diplomacia profesional que pueda sostener esa posición con credibilidad en foros multilaterales.</span></div>
+    <div class="add-item"><span class="add-item-label">Tensión</span><span class="add-item-val">El nombramiento de Marchegiani ante la ONU —en el momento en que Costa Rica reafirma su alineamiento geopolítico con Occidente— envía una señal contradictoria sobre la seriedad institucional del servicio exterior nacional.</span></div>
+    <span class="regime-tag reg-lam">Régimen mixto — oportunidad científica / riesgo diplomático</span>
+  </div>
+
+  <div class="cr-block">
+    <h4>La ciencia como respuesta preventiva</h4>
+    <p>Ante el inminente impacto de El Niño y la amenaza sísmica del Pacífico, la inversión en infraestructura científica de monitoreo es la forma más eficiente de reducir el costo futuro de desastres. La estación en Isla del Coco debería ser el argumento central en el debate del FEES: no es gasto, es seguro contra catástrofes.</p>
+    <p style="margin-top: 14px; font-family: var(--fm); font-size: 8.5px; letter-spacing: .15em; text-transform: uppercase; color: #5aaa5a;">
+      Anexo → <a href="/analisis-add/ciencia-fees-sensores/" style="color: #7aca7a; text-decoration: underline;">Apagar los sensores antes de la tormenta — FEES, ciencia pública y la inversión que no se ve hasta que falta</a>
+    </p>
+  </div>
+</article>
+
+<!-- ═══════════════════════════════════════════════
+     SECCIÓN 6 — SOCIEDAD Y CULTURA
+════════════════════════════════════════════════ -->
+<div id="sociedad" class="section-label lbl-soc">06 · Sociedad y Cultura</div>
+
+<article class="article article-soc">
+  <div class="art-num">SECCIÓN 06 · SOCIEDAD — CULTURA — EMPRESA</div>
+  <h2 class="art-title">El fútbol como termómetro del ánimo nacional y el inicio de la medición de sostenibilidad empresarial</h2>
+  <p class="art-deck">La Selección Nacional bajo Batista concentra la atención emocional del país mientras el sector privado enfrenta su primera medición formal de sostenibilidad.</p>
+
+  <div class="art-section">
+    <h4>Resumen factual</h4>
+    <p>El desempeño de la <strong>Selección Nacional</strong> bajo la dirección de Batista, en su preparación para el encuentro ante Inglaterra, actúa como termómetro del ánimo nacional. Reportes de indisciplina interna han afectado la cohesión del grupo en un momento en que el ánimo colectivo del país ya está presionado por múltiples frentes de incertidumbre.</p>
+    <p>El inicio de la <strong>primera medición nacional de sostenibilidad empresarial</strong> marca un hito en la cultura productiva costarricense, buscando alinear al sector privado con los desafíos ambientales y sociales del siglo XXI.</p>
+  </div>
+
+  <div class="art-section">
+    <h4>Evaluación epistémica — MEEE-G</h4>
+    <table class="meee-table">
+      <tr><th>Afirmación</th><th>Código</th><th>Fundamento</th></tr>
+      <tr><td>La Selección enfrenta reportes de indisciplina interna</td><td><span class="tag-ip">[IP]</span></td><td>Inferencia plausible basada en reportes de medios deportivos especializados; no confirmado oficialmente por la Federación.</td></tr>
+      <tr><td>Inicio de primera medición nacional de sostenibilidad empresarial</td><td><span class="tag-dc">[DC]</span></td><td>Anuncio oficial del ente coordinador, citado por Teletica y La Nación.</td></tr>
+      <tr><td>El fútbol funciona como termómetro del ánimo colectivo</td><td><span class="tag-int">[Int]</span></td><td>Interpretación sistémica: en períodos de alta tensión institucional y económica, el deporte nacional amplifica tanto la euforia como la frustración colectiva.</td></tr>
+    </table>
+  </div>
+
+  <div class="add-block">
+    <h4>Lectura sistémica — ADD</h4>
+    <div class="add-item"><span class="add-item-label">Ritual colectivo</span><span class="add-item-val">El fútbol nacional opera como válvula de cohesión simbólica en momentos de estrés sistémico. Su desempeño no es trivial como indicador cultural: en períodos de alta incertidumbre, los fracasos deportivos amplifican la frustración acumulada y los triunfos la canalizan productivamente.</span></div>
+    <div class="add-item"><span class="add-item-label">Sostenibilidad</span><span class="add-item-val">La medición de sostenibilidad empresarial es una señal de madurez del campo empresarial: por primera vez, el sector privado acepta ser evaluado por criterios que van más allá de la rentabilidad. Su implementación efectiva depende de que los resultados sean públicos y vinculantes.</span></div>
+    <span class="regime-tag reg-lam">Régimen laminar — señales de cambio cultural gradual</span>
+  </div>
+</article>
+
+<!-- SYNTHESIS LINK -->
+<div class="synthesis-box">
+  <span class="esp-tag">Análisis de síntesis · Lectura ADD profunda</span>
+  <h3>El espejismo del éxito</h3>
+  <p>Lo que el FMI celebra y su bolsillo lamenta: los tres acoplamientos que definen el momento país y por qué leerlos por separado es el error que nos mantiene reaccionando al síntoma.</p>
+  <a href="/analisis-add/espejismo-del-exito/">Leer análisis completo →</a>
+</div>
+
+<div class="divider-gold"></div>
+
+<!-- REFERENCES -->
+<div id="fuentes" class="references">
+  <h3>Fuentes y Base Documental</h3>
+  <div class="ref-category">Instituciones y reportes oficiales</div>
+  <div class="ref-item">CNE (2026, 6 de junio). <em>Reporte de alertas: vertiente del Pacífico y crisis de residuos en Liberia.</em></div>
+  <div class="ref-item">FMI (2026, 29 de mayo). <em>Informe de Consulta del Artículo IV: resiliencia y Línea de Crédito Flexible para Costa Rica.</em></div>
+  <div class="ref-item">IMN (2026, 6 de junio). <em>Proyecciones climáticas: fenómeno de El Niño y saturación de suelos.</em></div>
+  <div class="ref-item">INEC (2026, 4 de junio). <em>Encuesta Continua de Empleo (ECE).</em></div>
+  <div class="ref-item">INEC (2026, 5 de junio). <em>Índice de Precios al Consumidor (IPC).</em></div>
+  <div class="ref-item">OCDE (2026, 4 de junio). <em>Reformas al mercado eléctrico y competitividad en Costa Rica.</em></div>
+  <div class="ref-item">OES-UNA (2026, 6 de junio). <em>Desafíos fiscales y propuestas de reforma estructural.</em></div>
+  <div class="ref-item">Ovsicori-UNA (2026, 6 de junio). <em>Estación sísmica permanente en Isla del Coco: reporte técnico.</em></div>
+  <div class="ref-item">WEF / OMM (2026). <em>Proyecciones climáticas: El Niño como choque sistémico.</em></div>
+  <div class="ref-item">UCR y Universidad Nacional de Córdoba (2026). <em>Detección de Hepatitis E (genotipo 3) en efluentes de la GAM.</em></div>
+  <div class="ref-category">Monitoreo de medios (27 mayo – 6 junio 2026)</div>
+  <div class="ref-item">La Nación, El Observador, Diario Extra, Infobae, CRHoy, Teletica. Consulta estructurada sobre crimen organizado, reforma eléctrica, finanzas públicas, nombramientos y geopolítica.</div>
+  <div class="ref-item"><em>Lectura recomendada:</em> el informe completo del OES-UNA, para profundizar en las implicaciones del gravamen a zonas francas sobre el modelo de exportación.</div>
+</div>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+  <p>Nota metodológica: análisis estructurado bajo el marco de la <strong>Antropología Dinámica del Devenir (ADD)</strong> y la <strong>Matriz Explicacionista de Evaluación Epistémica (MEEE-G)</strong>, desarrolladas por A. Montero Fonseca. Archivo documental ANCA-ADD — Antropos. Este análisis no constituye predicción determinista ni recomendación política. Las interpretaciones sistémicas [Int] son del autor y están explícitamente marcadas.</p>
+</div>
+
+</div><!-- /container -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-brand">ANCA-ADD</div>
+  <div class="ft-info">
+    Alfredo Montero Fonseca<br>
+    Universidad de Costa Rica<br>
+    <a href="https://orcid.org/0009-0009-9696-4106">ORCID 0009-0009-9696-4106</a><br>
+    <a href="/boletines/">← Todos los boletines</a> &nbsp;·&nbsp; <a href="/">antropos.app</a>
+  </div>
+</footer>
+
+<script data-goatcounter="https://antropos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

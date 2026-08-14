@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANCA-ADE — Boletín Especial: Las Conversaciones de Islamabad · 11 Abr 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400&family=Raleway:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:         #f5f0e8;
+    --bg2:        #ede7d9;
+    --bg3:        #e3ddd0;
+    --ink:        #1a1612;
+    --ink2:       #3d3730;
+    --ink3:       #6b6259;
+    --rule:       #c5bfb5;
+    --red:        #8b1a1a;
+    --red2:       #b52222;
+    --navy:       #1a2744;
+    --navy2:      #243560;
+    --gold:       #8b6914;
+    --gold2:      #b8901c;
+    --green:      #1a4a2e;
+    --green2:     #245f3c;
+    --alert:      #5c3310;
+    --alert2:     #7a4515;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 1.8;
+  }
+
+  /* ── TICKER ── */
+  .ticker-wrap {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--navy);
+    overflow: hidden;
+    height: 30px;
+    display: flex; align-items: center;
+    border-bottom: 2px solid var(--gold2);
+  }
+  .ticker-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--gold2);
+    background: var(--ink);
+    padding: 0 14px;
+    height: 100%;
+    display: flex; align-items: center;
+    flex-shrink: 0;
+    border-right: 2px solid var(--gold2);
+    white-space: nowrap;
+    text-transform: uppercase;
+  }
+  .ticker-content {
+    display: flex;
+    animation: ticker 70s linear infinite;
+    white-space: nowrap;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: #c8c0b0;
+    letter-spacing: 0.5px;
+  }
+  .ticker-content span { margin: 0 36px; }
+  @keyframes ticker {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--ink);
+    border-bottom: 3px double var(--gold2);
+    padding: 0 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 54px;
+    position: sticky; top: 30px; z-index: 99;
+  }
+  .nav-brand {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 5px;
+    color: var(--gold2);
+  }
+  .nav-links {
+    display: flex; gap: 28px;
+    list-style: none;
+  }
+  .nav-links a {
+    color: #8a8070;
+    text-decoration: none;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--gold2); }
+
+  /* ── MASTHEAD ── */
+  .masthead {
+    background: var(--ink);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .masthead-flag {
+    background: var(--red);
+    padding: 10px 48px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: #f0e8d8;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+  }
+  .masthead-inner {
+    padding: 56px 48px 48px;
+    position: relative;
+  }
+  /* Subtle grid pattern */
+  .masthead-inner::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+  }
+  .masthead-kicker {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--gold2);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .masthead h1 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(40px, 6vw, 80px);
+    line-height: 1.0;
+    color: #f5f0e8;
+    max-width: 820px;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+  }
+  .masthead h1 em {
+    color: var(--gold2);
+    font-style: italic;
+    font-weight: 300;
+  }
+  .masthead-deck {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-size: 21px;
+    font-weight: 300;
+    color: #9c9085;
+    max-width: 680px;
+    line-height: 1.55;
+    margin-bottom: 28px;
+    border-left: 3px solid var(--gold2);
+    padding-left: 18px;
+  }
+  .masthead-meta {
+    display: flex; gap: 32px; flex-wrap: wrap;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: #6a6258;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-top: 1px solid rgba(255,255,255,.08);
+    padding-top: 18px;
+  }
+  .masthead-meta span strong { color: var(--gold2); }
+
+  /* ── CONTAINER ── */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+
+  /* ── SECTION DIVIDER ── */
+  .sec-div {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 52px 0 24px;
+    margin-bottom: 32px;
+    border-bottom: 2px solid var(--ink);
+  }
+  .sec-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: #f5f0e8;
+    background: var(--ink);
+    padding: 4px 12px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .sec-title {
+    font-family: 'Raleway', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: var(--ink2);
+    text-transform: uppercase;
+  }
+  .sec-rule { flex: 1; height: 1px; background: var(--rule); }
+  .sec-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--ink3);
+    letter-spacing: 2px;
+  }
+
+  /* ── ARTICLE ── */
+  .art {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-top: 4px solid var(--red);
+    padding: 40px 44px;
+    margin-bottom: 28px;
+    box-shadow: 0 2px 12px rgba(0,0,0,.06);
+  }
+  .art.navy-top  { border-top-color: var(--navy); }
+  .art.gold-top  { border-top-color: var(--gold); }
+  .art.green-top { border-top-color: var(--green); }
+  .art.alert-top { border-top-color: var(--alert); }
+
+  .art-cat {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 10px;
+  }
+  .art.navy-top  .art-cat { color: var(--navy); }
+  .art.gold-top  .art-cat { color: var(--gold); }
+  .art.green-top .art-cat { color: var(--green); }
+  .art.alert-top .art-cat { color: var(--alert); }
+
+  .art h2 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(22px, 2.5vw, 28px);
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .art-date {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--ink3);
+    margin-bottom: 28px;
+    letter-spacing: 1px;
+  }
+
+  /* ── SUB-SECTIONS ── */
+  .sub { margin-bottom: 26px; }
+  .sub-lbl {
+    font-family: 'Raleway', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: var(--navy);
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--navy);
+    padding-bottom: 4px;
+    margin-bottom: 14px;
+    display: inline-block;
+  }
+  .art.red-top   .sub-lbl { color: var(--red);   border-bottom-color: var(--red); }
+  .art.gold-top  .sub-lbl { color: var(--gold);  border-bottom-color: var(--gold); }
+  .art.green-top .sub-lbl { color: var(--green); border-bottom-color: var(--green); }
+  .art.alert-top .sub-lbl { color: var(--alert); border-bottom-color: var(--alert); }
+  .sub p { margin-bottom: 10px; color: var(--ink2); }
+
+  /* ── MEEE-G TABLE ── */
+  .mt {
+    width: 100%; border-collapse: collapse;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    margin: 14px 0;
+  }
+  .mt th {
+    background: var(--ink);
+    color: #c8c0b0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 8px 12px;
+    text-align: left;
+    font-size: 9px;
+    border: 1px solid var(--ink2);
+  }
+  .mt td {
+    padding: 9px 12px;
+    border: 1px solid var(--rule);
+    vertical-align: top;
+    line-height: 1.55;
+    color: var(--ink2);
+    font-size: 11.5px;
+  }
+  .mt tr:nth-child(even) td { background: var(--bg2); }
+
+  .badge {
+    display: inline-block;
+    padding: 2px 7px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+  .dc  { background: #e6f5ec; color: var(--green);  border: 1px solid var(--green2); }
+  .ip  { background: #e6edf8; color: var(--navy);   border: 1px solid var(--navy2); }
+  .hip { background: #fef4e6; color: var(--gold);   border: 1px solid var(--gold2); }
+  .int { background: #f5f0e8; color: var(--ink2);   border: 1px solid var(--rule); }
+  .con { background: #fce8e8; color: var(--red);    border: 1px solid var(--red2); }
+
+  /* ── ADE BLOCK ── */
+  .ade {
+    background: var(--bg2);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--navy);
+    padding: 22px 26px;
+    margin: 14px 0;
+  }
+  .ade p { color: var(--ink2); margin-bottom: 10px; font-size: 16.5px; }
+  .ade p:last-child { margin-bottom: 0; }
+  .ade strong { color: var(--ink); }
+  .art.gold-top  .ade { border-left-color: var(--gold); }
+  .art.green-top .ade { border-left-color: var(--green); }
+  .art.alert-top .ade { border-left-color: var(--alert); }
+
+  /* ── CR ANNEX ── */
+  .cr {
+    background: #eef6f1;
+    border: 1px solid #b5d9c5;
+    border-left: 4px solid var(--green);
+    padding: 18px 22px;
+    margin-top: 22px;
+  }
+  .cr-lbl {
+    font-family: 'Raleway', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--green);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .cr p { color: var(--ink2); font-size: 15.5px; margin-bottom: 8px; }
+  .cr p:last-child { margin-bottom: 0; }
+
+  /* ── TWO-COLUMN LAYOUT ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 28px;
+  }
+  @media (max-width: 760px) { .two-col { grid-template-columns: 1fr; } }
+
+  /* ── DELEGATIONS BOX ── */
+  .del-box {
+    background: #fff;
+    border: 1px solid var(--rule);
+    padding: 22px 26px;
+  }
+  .del-box h4 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .del-box.us h4 { color: var(--navy); border-bottom-color: var(--navy); }
+  .del-box.ir h4 { color: var(--red); border-bottom-color: var(--red); }
+  .del-item {
+    display: flex; flex-direction: column;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--bg2);
+  }
+  .del-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+  .del-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--ink);
+  }
+  .del-role {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--ink3);
+    letter-spacing: 0.5px;
+  }
+
+  /* ── POSITIONS TABLE ── */
+  .pos-table {
+    width: 100%; border-collapse: collapse;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 15.5px;
+    margin: 16px 0;
+  }
+  .pos-table th {
+    background: var(--ink);
+    color: #c8c0b0;
+    padding: 9px 14px;
+    text-align: left;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 1px solid var(--ink2);
+  }
+  .pos-table td {
+    padding: 10px 14px;
+    border: 1px solid var(--rule);
+    vertical-align: top;
+    line-height: 1.6;
+    color: var(--ink2);
+  }
+  .pos-table tr:nth-child(even) td { background: var(--bg2); }
+  .pos-us td:first-child { background: #eef2fb; }
+  .pos-ir td:first-child { background: #fceaea; }
+  .td-hard { color: var(--red); font-weight: 600; font-style: italic; }
+  .td-poss { color: var(--gold); font-style: italic; }
+
+  /* ── SYNTHESIS ── */
+  .syn-table {
+    width: 100%; border-collapse: collapse;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    margin: 14px 0;
+  }
+  .syn-table th {
+    background: var(--red);
+    color: #f5f0e8;
+    padding: 8px 12px;
+    text-align: left;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 9px;
+    border: 1px solid var(--red2);
+  }
+  .syn-table td {
+    padding: 10px 14px;
+    border: 1px solid var(--rule);
+    vertical-align: top;
+    color: var(--ink2);
+    line-height: 1.6;
+  }
+  .syn-table tr:nth-child(even) td { background: var(--bg2); }
+
+  /* ── UNCERTAINTIES ── */
+  .unc-list {
+    list-style: none;
+    margin: 12px 0;
+  }
+  .unc-list li {
+    padding: 10px 0 10px 32px;
+    position: relative;
+    border-bottom: 1px solid var(--rule);
+    color: var(--ink2);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  .unc-list li:last-child { border-bottom: none; }
+  .unc-list li::before {
+    content: '?';
+    position: absolute; left: 0;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--alert);
+  }
+
+  /* ── SCENARIO TABLE ── */
+  .sce-table {
+    width: 100%; border-collapse: collapse;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15.5px;
+    margin: 14px 0;
+  }
+  .sce-table th {
+    background: var(--navy);
+    color: #c8c0b0;
+    padding: 8px 14px;
+    text-align: left;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 1px solid var(--navy2);
+  }
+  .sce-table td {
+    padding: 10px 14px;
+    border: 1px solid var(--rule);
+    vertical-align: top;
+    color: var(--ink2);
+    line-height: 1.65;
+  }
+  .sce-table tr:nth-child(even) td { background: var(--bg2); }
+  .s-high  { background: #fdf5f5; }
+  .s-med   { background: #f5f8fd; }
+  .s-low   { background: #f5fbf7; }
+
+  /* ── BAJAS BOX ── */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 2px;
+    margin: 14px 0;
+    border: 1px solid var(--rule);
+  }
+  .stat-cell {
+    background: var(--bg2);
+    padding: 16px 18px;
+    text-align: center;
+    border: 1px solid var(--rule);
+  }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--red);
+    display: block;
+    line-height: 1.1;
+  }
+  .stat-lbl {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--ink3);
+    text-transform: uppercase;
+    margin-top: 4px;
+    display: block;
+  }
+
+  /* ── REFERENCES ── */
+  .refs-wrap {
+    background: var(--ink);
+    padding: 40px 48px;
+    margin-top: 48px;
+  }
+  .refs-wrap h3 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: #6a6258;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+  }
+  .refs-wrap ol {
+    padding-left: 20px;
+  }
+  .refs-wrap li {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: #5a5248;
+    margin-bottom: 10px;
+    line-height: 1.65;
+  }
+  .refs-wrap a { color: var(--gold2); }
+
+  /* ── DISCLAIMER ── */
+  .disc {
+    background: var(--bg3);
+    border-top: 3px double var(--ink3);
+    padding: 28px 48px;
+  }
+  .disc p {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    color: var(--ink3);
+    line-height: 1.8;
+    letter-spacing: 0.2px;
+    max-width: 960px;
+  }
+  .disc strong { color: var(--ink); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    border-top: 2px solid var(--gold);
+    padding: 26px 48px;
+    text-align: center;
+  }
+  footer p {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: #5a5248;
+    letter-spacing: 1px;
+  }
+  footer a { color: var(--gold2); }
+
+  /* ── PULL QUOTE ── */
+  blockquote.pq {
+    border: none;
+    border-left: 4px solid var(--gold);
+    padding: 14px 20px;
+    margin: 18px 0;
+    background: var(--bg);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--ink2);
+    line-height: 1.65;
+  }
+  blockquote.pq cite {
+    display: block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    font-style: normal;
+    color: var(--ink3);
+    margin-top: 8px;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 700px) {
+    .container, .masthead-inner, nav, .refs-wrap, .disc, footer { padding-left: 20px; padding-right: 20px; }
+    .art { padding: 22px 20px; }
+    nav { flex-direction: column; height: auto; padding: 10px 20px; gap: 8px; }
+    .nav-links { flex-wrap: wrap; gap: 12px; }
+    .masthead-meta { flex-direction: column; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-label">⚑ En directo</div>
+  <div class="ticker-content">
+    <span>Día 43 · Conversaciones de Islamabad en curso · Vance + Ghalibaf + Araghchi · Hotel Serena blindado</span>
+    <span>▸ Primeras negociaciones directas EE.UU.–Irán desde 2015 · Histórico</span>
+    <span>▸ EE.UU.: plan de 15 puntos · Irán: plan de 10 puntos · brechas enormes</span>
+    <span>▸ Ormuz: solo ~14 buques cruzaron desde el alto el fuego · tráfico al 7% del histórico</span>
+    <span>▸ Israel continúa ofensiva en Líbano · más de 1.730 muertos · millón de desplazados</span>
+    <span>▸ WTI ronda US$97 · Brent ~US$97 · mercados escépticos</span>
+    <span>▸ 63 países y la UE condenan ataques israelíes sobre civiles libaneses</span>
+    <span>▸ Trump: "Si no hay acuerdo, bombardeos más intensos que nunca"</span>
+    <span>▸ Irán: delegación de 71 miembros con plena autoridad para decidir</span>
+    <span>▸ Costa Rica: RECOPE prevé ajuste tarifario combustibles semana próxima</span>
+    <span>▸ Día 43 · Conversaciones de Islamabad en curso · Vance + Ghalibaf + Araghchi · Hotel Serena blindado</span>
+    <span>▸ Primeras negociaciones directas EE.UU.–Irán desde 2015 · Histórico</span>
+    <span>▸ EE.UU.: plan de 15 puntos · Irán: plan de 10 puntos · brechas enormes</span>
+    <span>▸ Ormuz: solo ~14 buques cruzaron desde el alto el fuego · tráfico al 7% del histórico</span>
+    <span>▸ Israel continúa ofensiva en Líbano · más de 1.730 muertos · millón de desplazados</span>
+    <span>▸ WTI ronda US$97 · Brent ~US$97 · mercados escépticos</span>
+    <span>▸ 63 países y la UE condenan ataques israelíes sobre civiles libaneses</span>
+    <span>▸ Trump: "Si no hay acuerdo, bombardeos más intensos que nunca"</span>
+    <span>▸ Irán: delegación de 71 miembros con plena autoridad para decidir</span>
+    <span>▸ Costa Rica: RECOPE prevé ajuste tarifario combustibles semana próxima</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">ANCA · ADE</div>
+  <ul class="nav-links">
+    <li><a href="/">antropos.app</a></li>
+    <li><a href="/boletines/">Boletines</a></li>
+    <li><a href="/analisis-add/">Análisis ADD</a></li>
+    <li><a href="/informes-estrategicos/">Informes</a></li>
+  </ul>
+</nav>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="masthead-flag">Boletín Especial de Actualidad · ANCA-ADE · Edición N.° 2026-04-11</div>
+  <div class="masthead-inner">
+    <div class="masthead-kicker">Guerra EE.UU.–Israel–Irán · Día 43 de la Operación Furia Épica · 11 de Abril de 2026</div>
+    <h1>Las Conversaciones<br>de <em>Islamabad</em></h1>
+    <p class="masthead-deck">
+      El conflicto alcanza su primer diálogo directo de alto nivel desde 1979. Vance y Ghalibaf se sientan frente a frente mientras el estrecho de Ormuz permanece casi cerrado, Israel arrasa Líbano y el reloj de la tregua corre hacia el 21 de abril.
+    </p>
+    <div class="masthead-meta">
+      <span><strong>Día del conflicto:</strong> 43</span>
+      <span><strong>Fecha:</strong> Sábado 11 de Abril de 2026</span>
+      <span><strong>Sede:</strong> Hotel Serena, Islamabad (Pakistán)</span>
+      <span><strong>WTI:</strong> ~US$97/barril</span>
+      <span><strong>Tregua vigente hasta:</strong> c. 21 de Abril</span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ════════════ SEC I: POLÍTICA Y GEOPOLÍTICA ════════════ -->
+<div class="sec-div">
+  <span class="sec-tag">I</span>
+  <span class="sec-title">Política y Geopolítica</span>
+  <span class="sec-rule"></span>
+  <span class="sec-num">Items 01–03</span>
+</div>
+
+<!-- ITEM 01: ISLAMABAD -->
+<div class="art navy-top">
+  <div class="art-cat">Política · Diplomacia · Hecho Histórico</div>
+  <h2>Islamabad: el primer diálogo directo entre EE.UU. e Irán desde la Revolución de 1979</h2>
+  <div class="art-date">11 abril 2026 · Hotel Serena, Islamabad · Pakistán</div>
+
+  <div class="sub">
+    <div class="sub-lbl">Resumen Factual</div>
+    <p>Las primeras negociaciones cara a cara de alto nivel entre Estados Unidos e Irán desde la Revolución Islámica de 1979 comenzaron este sábado en Islamabad, según confirmaron agencias iraníes Fars y Tasnim, la CBS y la oficina del Primer Ministro paquistaní Shehbaz Sharif. Los participantes confirmados son, por parte estadounidense: el vicepresidente JD Vance, el enviado especial Steve Witkoff y el asesor Jared Kushner. Por Irán: el presidente del Parlamento Mohammad Bagher Ghalibaf, el canciller Abbas Araghchi, el secretario del Consejo Supremo de Defensa Nacional Ali Akbar Ahmadian y el gobernador del Banco Central Abdolnaser Hemati. La delegación iraní —de 71 miembros— llegó primero; la estadounidense aterrizó este sábado temprano en la base aérea de Nur Khan.</p>
+    <p>Según el New York Times, el nuevo líder supremo Mojtaba Jamenei otorgó a Ghalibaf plena autoridad para alcanzar un acuerdo o retirarse, sin consultar a Teherán. Las conversaciones se desarrollaron en formato cara a cara a tres bandas —EE.UU., Irán y Pakistán como mediador— según una fuente pakistaní citada por Reuters. Sin embargo, ambigüedades sobre el formato (¿directo o con intermediarios?) persisten. Las calles de Islamabad permanecen desiertas por un feriado público especial de dos días decretado para el operativo de seguridad.</p>
+    <p>Vance llegó con un mandato preciso de Trump: "Nada de armas nucleares. Eso es el 99% de lo que buscamos." Antes de partir, advirtió: "Si intentan engañarnos, se darán cuenta de que el equipo negociador no es muy receptivo." El primer vicepresidente iraní Mohammad Reza Aref declaró: "Si negociamos en Islamabad con representantes de 'Estados Unidos Primero', es probable alcanzar un acuerdo beneficioso para ambas partes." Ghalibaf declaró al llegar: "Tenemos buenas intenciones, pero no confiamos."</p>
+  </div>
+
+  <!-- Delegaciones -->
+  <div class="two-col">
+    <div class="del-box us">
+      <h4>🇺🇸 Delegación Estadounidense</h4>
+      <div class="del-item">
+        <span class="del-name">JD Vance</span>
+        <span class="del-role">Vicepresidente de Estados Unidos · Jefe de delegación</span>
+      </div>
+      <div class="del-item">
+        <span class="del-name">Steve Witkoff</span>
+        <span class="del-role">Enviado especial para Medio Oriente</span>
+      </div>
+      <div class="del-item">
+        <span class="del-name">Jared Kushner</span>
+        <span class="del-role">Asesor externo / Yerno del Presidente</span>
+      </div>
+    </div>
+    <div class="del-box ir">
+      <h4>🇮🇷 Delegación Iraní — «Minab 168»</h4>
+      <div class="del-item">
+        <span class="del-name">Mohammad Bagher Ghalibaf</span>
+        <span class="del-role">Presidente del Parlamento · Jefe de delegación · Plenos poderes del Líder Supremo</span>
+      </div>
+      <div class="del-item">
+        <span class="del-name">Abbas Araghchi</span>
+        <span class="del-role">Ministro de Asuntos Exteriores</span>
+      </div>
+      <div class="del-item">
+        <span class="del-name">Ali Akbar Ahmadian</span>
+        <span class="del-role">Sec. del Consejo Supremo de Defensa Nacional</span>
+      </div>
+      <div class="del-item">
+        <span class="del-name">Abdolnaser Hemati</span>
+        <span class="del-role">Gobernador del Banco Central</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub">
+    <div class="sub-lbl">Mapa de posiciones: líneas rojas y zonas de posible convergencia</div>
+    <table class="pos-table">
+      <thead>
+        <tr>
+          <th>Asunto</th>
+          <th>Posición EE.UU.</th>
+          <th>Posición Irán</th>
+          <th>Margen</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="pos-us">
+          <td><strong>Programa nuclear</strong></td>
+          <td class="td-hard">Cero enriquecimiento; entrega de reservas de uranio al 60%</td>
+          <td class="td-hard">Reconocimiento explícito del derecho a enriquecer en suelo iraní</td>
+          <td class="td-hard">Brecha máxima — línea roja para ambas partes</td>
+        </tr>
+        <tr class="pos-ir">
+          <td><strong>Estrecho de Ormuz</strong></td>
+          <td class="td-hard">Apertura total, libre e incondicional</td>
+          <td class="td-hard">Paso regulado y coordinado bajo autoridad de las FF.AA. iraníes</td>
+          <td class="td-poss">Posible fórmula de "paso coordinado con escolta" — en negociación</td>
+        </tr>
+        <tr class="pos-us">
+          <td><strong>Líbano / Hezbollah</strong></td>
+          <td>Excluido del alto el fuego; negociación bilateral Israel–Líbano</td>
+          <td class="td-hard">Condición previa: cese de hostilidades israelíes en Líbano</td>
+          <td class="td-hard">Vance: "sería tonto que las negociaciones se rompan por esto"</td>
+        </tr>
+        <tr class="pos-ir">
+          <td><strong>Sanciones y activos</strong></td>
+          <td>No confirmó desbloqueo previo; EE.UU. desmintió acuerdo previo</td>
+          <td class="td-hard">Liberación de activos como condición previa para negociar</td>
+          <td class="td-poss">Posible acuerdo en fases — en discusión</td>
+        </tr>
+        <tr class="pos-us">
+          <td><strong>Tropas EE.UU. en región</strong></td>
+          <td>Presencia mantenida como palanca de presión</td>
+          <td class="td-hard">Retirada total de fuerzas de combate de la región</td>
+          <td class="td-hard">No negociable a corto plazo para EE.UU.</td>
+        </tr>
+        <tr class="pos-ir">
+          <td><strong>Indemnizaciones de guerra</strong></td>
+          <td>Sin mención pública en propuesta de 15 puntos</td>
+          <td class="td-hard">Reparaciones económicas por reconstrucción</td>
+          <td class="td-poss">Posible conversión en "fondo de reconstrucción" con terceros</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sub">
+    <div class="sub-lbl">Análisis Crítico · MEEE-G</div>
+    <table class="mt">
+      <thead>
+        <tr><th>Afirmación</th><th>Estatuto</th><th>Fundamento</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Conversaciones cara a cara entre EE.UU. e Irán han comenzado en Islamabad</td>
+          <td><span class="badge dc">DC</span></td>
+          <td>Reuters (fuente pakistaní), CBS, agencias iraníes Fars/Tasnim, oficina de Sharif</td>
+        </tr>
+        <tr>
+          <td>Son las primeras conversaciones directas de alto nivel desde 1979</td>
+          <td><span class="badge dc">DC</span></td>
+          <td>El Grand Continent, El Diario.es, múltiples medios</td>
+        </tr>
+        <tr>
+          <td>Ghalibaf tiene plena autoridad para cerrar o romper sin consultar a Teherán</td>
+          <td><span class="badge ip">IP</span></td>
+          <td>NYT, "tres altos funcionarios iraníes"; no confirmado por comunicado oficial</td>
+        </tr>
+        <tr>
+          <td>EE.UU. aceptó el plan iraní de 10 puntos como "base" de negociación</td>
+          <td><span class="badge ip">IP</span></td>
+          <td>Declaración de Trump del 8 abr; la Casa Blanca afirma simultáneamente que presentó su propio plan de 15 puntos — posiciones no reconciliadas</td>
+        </tr>
+        <tr>
+          <td>Se alcanzará un acuerdo definitivo en el marco de las dos semanas de tregua</td>
+          <td><span class="badge hip">H</span></td>
+          <td>Brechas estructurales en nuclear, Ormuz y Líbano hacen improbable una resolución total; posibles acuerdos parciales o extensión</td>
+        </tr>
+        <tr>
+          <td>Las conversaciones son "directas" (sin intermediarios)</td>
+          <td><span class="badge ip">IP</span></td>
+          <td>Reuters indica formato a 3 bandas (EE.UU. + Irán + Pakistán); medios iraníes no precisan si son directas o indirectas</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sub">
+    <div class="sub-lbl">Lectura Dinámica · ADD</div>
+    <div class="ade">
+      <p><strong>Régimen de transición: de la bifurcación catastrófica a la turbulencia negociada.</strong> Islamabad representa un salto cualitativo en el régimen dinámico del conflicto: el sistema pasó de la amenaza de destrucción masiva de infraestructura civil (bifurcación extrema) a un régimen de turbulencia negociada, donde los actores interactúan directamente por primera vez. Sin embargo, la turbulencia negociada no equivale a estabilidad: las posiciones de partida son radicalmente asimétricas y las dos semanas de tregua constituyen un parámetro de control que expira el ~21 de abril.</p>
+      <p><strong>Capital simbólico y narrativas de victoria (Bourdieu).</strong> Ambas partes llegan con narrativas propias de triunfo: Trump proclamó "haber cumplido y superado todos los objetivos militares"; Irán presentó el acuerdo como una demostración de que obligó a EE.UU. a negociar sobre bases iraníes. Esta asimetría narrativa es políticamente necesaria para ambos líderes (Trump ante una opinión pública donde solo el 34% aprueba la guerra; Jamenei II ante una población iraní que sufrió más de 2.000 muertos y 3 millones de desplazados). El choque de narrativas, en términos de la ADD-Bourdieu, produce una forma específica de violencia simbólica: la que impide admitir públicamente las concesiones reales que cualquier acuerdo requeriría.</p>
+      <p><strong>Habitus negociador y clausura organizacional.</strong> La delegación iraní llega con la cultura estratégica del largo plazo chiíta —paciencia táctica, posiciones máximas como apertura, lentitud deliberada como instrumento—. La delegación estadounidense opera con el habitus trumpiano: velocidad, presión, declaraciones de victoria prematura, deadlines. Estos habitus son estructuralmente incompatibles en términos de tempo negociador. Pakistán como campo semi-autónomo (Moore) tiene el mandato de contener esa incompatibilidad temporal.</p>
+      <p><strong>Atractor nuclear como línea roja sistémica.</strong> La cuestión nuclear no es solo una demanda política: es el atractor que organiza toda la dinámica del conflicto desde 2025. Si se resuelve (acuerdo de no enriquecimiento verificable), el sistema puede estabilizarse. Si no se resuelve, cualquier paz será estructuralmente frágil —como lo fue el JCPOA de 2015, colapsado en 2018. La bifurcación entre un acuerdo duradero y una "Guerra de los Doce Días II" en 2028 se juega, en última instancia, aquí.</p>
+    </div>
+  </div>
+
+  <div class="cr">
+    <div class="cr-lbl">🌿 Relevancia para Costa Rica</div>
+    <p>El inicio de negociaciones directas EE.UU.–Irán es la noticia más positiva para Costa Rica en lo que va del conflicto. El país tiene interés estructural en la estabilidad del orden normativo internacional y en la reducción del riesgo energético global. [DC: posición histórica de Costa Rica a favor del multilateralismo y el diálogo diplomático.] Una eventual resolución negociada reduciría la presión inflacionaria sobre combustibles y fertilizantes, con beneficio directo para el sector agropecuario costarricense. [IP]</p>
+    <p>Sin embargo, la cuestión nuclear —si Irán renunciara al enriquecimiento— tiene implicación indirecta para Costa Rica en la medida en que reforzaría el régimen de no proliferación del cual el país es signatario activo. Por el contrario, si la negociación fracasa, la reanudación de los bombardeos en un escenario más intenso que el anterior tendría impacto energético y económico severo. [H]</p>
+  </div>
+</div>
+
+<!-- ITEM 02: LÍBANO Y LA GRIETA DEL ALTO EL FUEGO -->
+<div class="art" style="border-top-color: var(--red);">
+  <div class="art-cat">Geopolítica · Humanitario · Derecho Internacional</div>
+  <h2>La grieta de Líbano: Israel bombardea con su mayor ofensiva mientras Irán condiciona la tregua</h2>
+  <div class="art-date">8–11 abril 2026 · Beirut / Líbano · Valle del Becá · Sur del Líbano</div>
+
+  <div class="sub">
+    <div class="sub-lbl">Resumen Factual</div>
+    <p>En las horas inmediatamente posteriores al anuncio del alto el fuego EE.UU.–Irán del 7 de abril, Israel intensificó drásticamente sus ataques contra Hezbollah en Líbano. El miércoles 8 de abril, las FDI ejecutaron su mayor oleada de bombardeos desde el inicio de la operación "Rugido del León" (2 de marzo): más de 100 objetivos en Beirut, el valle del Becá y el sur, provocando al menos 357 muertos y 1.165 heridos en un solo día, según el Ministerio de Salud libanés actualizado posteriormente. La cifra acumulada desde el inicio del conflicto supera los 1.730 muertos y 5.870 heridos, con más de un millón de desplazados.</p>
+    <p>Netanyahu declaró que el alto el fuego EE.UU.–Irán no incluye a Líbano. EE.UU. respaldó esa interpretación. Pakistán e Irán sostienen que el acuerdo del 7 de abril sí incluía a Líbano explícitamente. Esta divergencia de interpretación se convirtió en la principal amenaza para la continuidad del proceso diplomático: el presidente iraní Pezeshkian llegó a declarar que las conversaciones en Islamabad "carecerían de sentido" mientras los ataques israelíes continuaran en Líbano.</p>
+    <p>Hezbollah lanzó misiles hacia el norte de Israel como respuesta. Al menos 10 personas murieron en ataques israelíes en el sur del Líbano durante la mañana del sábado 11 de abril, en la víspera del inicio de las conversaciones de Islamabad. El Alto Comisionado de la ONU para los Derechos Humanos Volker Türk calificó la destrucción de "horrífica". 63 países y la Unión Europea firmaron una declaración de "profunda preocupación" desde la sede de la ONU en Nueva York.</p>
+    <p>Ante las presiones, Israel accedió a iniciar conversaciones con el gobierno libanés en Washington la semana próxima, sin incluir a Hezbollah. Netanyahu declaró que el objetivo es el "desarme de Hezbollah y una relación pacífica y estable con Líbano."</p>
+  </div>
+
+  <div class="sub">
+    <div class="sub-lbl">Datos humanitarios acumulados al 11 abril 2026</div>
+    <div class="stats-grid">
+      <div class="stat-cell">
+        <span class="stat-num">+2.000</span>
+        <span class="stat-lbl">Muertos en Irán (civiles + militares)</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-num">+1.730</span>
+        <span class="stat-lbl">Muertos en Líbano (desde 2 mar)</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-num">+3.2M</span>
+        <span class="stat-lbl">Desplazados internos en Irán</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-num">+1M</span>
+        <span class="stat-lbl">Desplazados en Líbano</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-num">1.250</span>
+        <span class="stat-lbl">Objetivos atacados en Irán por EE.UU./Israel</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-num">~$280B</span>
+        <span class="stat-lbl">Costo estimado de la guerra para EE.UU.</span>
+      </div>
+    </div>
+    <p style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--ink3); margin-top:8px;">Fuentes: Min. Salud iraní, Min. Salud libanés, Periodista Digital, AP, Reuters. Las cifras de muertos militares iraníes según fuentes occidentales ascienden a más de 6.000; Teherán no lo confirma.</p>
+  </div>
+
+  <div class="sub">
+    <div class="sub-lbl">Análisis Crítico · MEEE-G</div>
+    <table class="mt">
+      <thead>
+        <tr><th>Afirmación</th><th>Estatuto</th><th>Nota</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Al menos 357 muertos en Líbano el 8 de abril, mayor cifra diaria desde el inicio del conflicto</td>
+          <td><span class="badge dc">DC</span></td>
+          <td>Min. Salud libanés (actualización); AP, La Jornada, Infobae</td>
+        </tr>
+        <tr>
+          <td>Israel dijo que el alto el fuego EE.UU.–Irán no aplica a Líbano; EE.UU. respaldó esa posición</td>
+          <td><span class="badge dc">DC</span></td>
+          <td>Netanyahu, Leavitt (portavoz Casa Blanca); diverge de lo declarado por Pakistán e Irán</td>
+        </tr>
+        <tr>
+          <td>Pakistán e Irán afirman que el acuerdo incluía explícitamente a Líbano</td>
+          <td><span class="badge dc">DC</span></td>
+          <td>Comunicado del Consejo Supremo iraní; declaración de Sharif</td>
+        </tr>
+        <tr>
+          <td>Los ataques en zonas civiles densamente pobladas de Beirut constituyen crímenes de guerra</td>
+          <td><span class="badge int">INT</span></td>
+          <td>Interpretación de Convenios de Ginebra por el Alto Comisionado Türk, Human Rights Watch (bombas de fósforo blanco); Israel argumenta uso militar de zonas civiles por Hezbollah</td>
+        </tr>
+        <tr>
+          <td>Hezbollah fue suficientemente debilitado por los ataques para que Líbano acceda al desarme</td>
+          <td><span class="badge hip">H</span></td>
+          <td>Israel afirma haber degradado "capacidades militares significativas"; analistas (Macaron) advierten de "larga guerra de desgaste" independientemente del resultado de las negociaciones Irán–EE.UU.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sub">
+    <div class="sub-lbl">Lectura Dinámica · ADD</div>
+    <div class="ade">
+      <p><strong>Acoplamiento estructural asimétrico: Irán–Hezbollah.</strong> Irán y Hezbollah operan como sistemas con clausura organizacional diferenciada pero fuertemente acoplados. La tregua EE.UU.–Irán crea una perturbación sobre ese acoplamiento: Teherán puede negociar en Islamabad sin coordinar directamente con Hezbollah, pero no puede ignorar que los ataques israelíes sobre Líbano erosionan su capital simbólico ante su propia base y ante la "resistencia" regional. Este es el nudo central de la negociación.</p>
+      <p><strong>Violencia estructural y colonización del mundo de la vida (Galtung + Habermas).</strong> Con más de un millón de desplazados y 1.730 muertos en Líbano, el tejido social libanés —ya extraordinariamente frágil por la crisis bancaria de 2019, la explosión del puerto en 2020 y la guerra de 2024— enfrenta una tercera perturbación de colapso en cinco años. Esto no es solo una tragedia humanitaria: es, en términos de la ADD, el colapso acelerado de la apertura disipativa que sostenía la clausura organizacional de la sociedad civil libanesa. Las consecuencias son irreversibles en el plazo humano.</p>
+      <p><strong>Bifurcación normativa en el sistema de seguridad colectiva.</strong> La divergencia de interpretación sobre si Líbano está incluido en la tregua expone una fractura sistémica en el multilateralismo: diferentes actores con igual legitimidad declarativa producen interpretaciones incompatibles del mismo acuerdo. Para la ADD, esto es un indicador de que el "régimen normativo" del alto el fuego opera más como capital simbólico performativo que como dato confirmado. El riesgo de colapso es endógeno al propio texto del acuerdo.</p>
+    </div>
+  </div>
+
+  <div class="cr">
+    <div class="cr-lbl">🌿 Relevancia para Costa Rica</div>
+    <p>Costa Rica tiene fuerte tradición de apoyo a las fuerzas de paz de la ONU (UNIFIL). Con tres soldados indonesios de UNIFIL muertos en Líbano durante el conflicto —una de las causas que llevó a 63 países a firmar la declaración conjunta en la ONU el 10 de abril— la situación toca directamente la defensa del multilateralismo de seguridad en el que Costa Rica basa su modelo de paz. [DC]</p>
+    <p>La declaración de los 63 países fue leída por el embajador de Indonesia; Costa Rica está históricamente entre los países que respaldan activamente estas iniciativas en el Consejo de Derechos Humanos. [IP: es plausible que Costa Rica se haya sumado a la declaración, aunque no se ha encontrado confirmación específica en las búsquedas.] El efecto de imagen de los ataques sobre civiles libaneses daña el capital simbólico estadounidense, con el que Costa Rica debe mantener relación pragmática dado el TLC y la Iniciativa para el Desarrollo de Infraestructura de las Américas.</p>
+  </div>
+</div>
+
+<!-- ITEM 03: ORMUZ — TRÁFICO FANTASMA -->
+<div class="art gold-top">
+  <div class="art-cat">Geopolítica · Energía · Derecho Marítimo</div>
+  <h2>El estrecho fantasma: Ormuz registra solo 14 tránsitos en cuatro días — Irán cobra peajes y alerta por minas</h2>
+  <div class="art-date">8–11 abril 2026 · Estrecho de Ormuz · Golfo Pérsico</div>
+
+  <div class="sub">
+    <div class="sub-lbl">Resumen Factual</div>
+    <p>Desde la declaración del alto el fuego el 7 de abril, la empresa de monitoreo Marine Traffic registró solo 14 tránsitos por el estrecho de Ormuz en cuatro días —frente al histórico de más de 100 buques diarios—, de los cuales apenas la mitad transportaban carga. El 70% son embarcaciones que salen del Golfo; apenas el 13% entran. Irán alertó que existen minas navales en el corredor habitual del Esquema de Separación del Tráfico, desviando a los buques hacia aguas cercanas a la costa iraní, lo que aumenta el control de Teherán. Según Lloyd's List Intelligence, algunos buques pagaron hasta US$2 millones para obtener permiso de paso; otros utilizaron identidades falsas de buques desmantelados. La flota "clandestina" con transpondedores AIS apagados representa una fracción significativa de los tránsitos registrados.</p>
+    <p>Trump reaccionó amenazando a Irán con consecuencias si cobra "tarifas" a los petroleros, y declaró que EE.UU. está "comenzando el proceso de desminado" del estrecho. Irán reafirmó que el paso es posible siempre que los buques se coordinen con sus Fuerzas Armadas. El Brent cotizó hoy alrededor de US$97/barril —una baja sustancial respecto al pico de US$126— pero los analistas advierten que la recuperación real del flujo tomará meses, no días.</p>
+  </div>
+
+  <div class="sub">
+    <div class="sub-lbl">Análisis Crítico · MEEE-G</div>
+    <table class="mt">
+      <thead>
+        <tr><th>Afirmación</th><th>Estatuto</th><th>Nota</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Solo 14 buques cruzaron Ormuz en los 4 días posteriores al alto el fuego</td>
+          <td><span class="badge dc">DC</span></td>
+          <td>Marine Traffic (fuente primaria de monitoreo marítimo); citado por AP, Infobae</td>
+        </tr>
+        <tr>
+          <td>Irán cobra hasta US$2M a buques por autorizar el paso</td>
+          <td><span class="badge ip">IP</span></td>
+          <td>Bloomberg / El Financiero (fuentes anónimas familiarizadas); no desmentido oficialmente por Teherán; Trump reaccionó dando credibilidad a los reportes</td>
+        </tr>
+        <tr>
+          <td>Existen minas navales en el corredor habitual de tránsito</td>
+          <td><span class="badge ip">IP</span></td>
+          <td>Agencias iraníes Tasnim/ISNA publicaron esquema con "zona de peligro"; no verificado por autoridades marítimas internacionales independientes</td>
+        </tr>
+        <tr>
+          <td>EE.UU. "comenzó el proceso de desminado"</td>
+          <td><span class="badge ip">IP</span></td>
+          <td>Declaración de Trump en Truth Social; sin confirmación operativa de la Marina de EE.UU. al cierre de este boletín</td>
+        </tr>
+        <tr>
+          <td>El tráfico por Ormuz retornará a normalidad en semanas con la tregua</td>
+          <td><span class="badge con">C</span></td>
+          <td>Rystad Energy estima 3–5 meses para normalización plena; ~2.000 buques todavía atrapados en el Golfo según la OMI; daños en infraestructura portuaria regional; reticencia de navieras a regresar sin seguridad garantizada</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sub">
+    <div class="sub-lbl">Lectura Dinámica · ADD</div>
+    <div class="ade">
+      <p><strong>El peaje como capital geopolítico nuevo (Bourdieu).</strong> La imposición de facto de tarifas de paso por el estrecho de Ormuz representa un intento iraní de convertir el control territorial en capital económico permanente —independientemente del resultado de las negociaciones. Si esta práctica se consolida, Irán habría logrado transformar estructuralmente su posición en el sistema-mundo energético: de actor sancionado a gatekeeper reconocido del corredor petrolero más estratégico del planeta. Esta es la ganancia estructural de largo plazo que Teherán persigue.</p>
+      <p><strong>La brecha señal-física del mercado.</strong> El Brent cayó de US$126 a US$97 con la tregua: el mercado descontó el riesgo político. Pero el flujo físico real permanece al 7% del histórico. Esta disociación entre precio financiero y realidad energética física es típica de los momentos de bifurcación: los mercados anticipan una trayectoria que aún no existe materialmente. Si las negociaciones de Islamabad fracasan, la reversión alcista del precio será violenta y rápida.</p>
+      <p><strong>Minas como instrumento de clausura territorial.</strong> La presencia de minas navales —si se confirma— convierte el estrecho en un espacio de clausura organizacional operada por Irán: define unilateralmente quién puede pasar, cuándo y en qué condiciones. Esto es estructuralmente incompatible con la demanda estadounidense de libre navegación. El proceso de desminado anunciado por Trump, si se materializa, es una operación militar activa —potencialmente un casus belli— no simplemente logística.</p>
+    </div>
+  </div>
+
+  <div class="cr">
+    <div class="cr-lbl">🌿 Relevancia para Costa Rica</div>
+    <p>El tráfico parcial por Ormuz —aunque muy reducido— contiene el riesgo de escasez catastrófica de combustible de aviación que afectaría rutas aéreas centroamericanas. [IP] La recuperación gradual del Brent hacia US$97 es una señal positiva para los próximos ajustes tarifarios de RECOPE, aunque el precio sigue siendo un 38% superior al de febrero. El próximo ajuste semestral de RECOPE reflejará el promedio del período de guerra, no solo los precios de la tregua. [DC: mecanismo del diferencial tarifario semestral de RECOPE.] Para el sector agropecuario, la persistencia del bloqueo de fertilizantes y químicos petroquímicos en el Golfo seguirá presionando costos de producción durante el segundo trimestre de 2026. [IP]</p>
+  </div>
+</div>
+
+<!-- ════════════ SEC II: ECONOMÍA ════════════ -->
+<div class="sec-div">
+  <span class="sec-tag">II</span>
+  <span class="sec-title">Economía y Mercados</span>
+  <span class="sec-rule"></span>
+  <span class="sec-num">Item 04</span>
+</div>
+
+<!-- ITEM 04: PETRÓLEO E INFLACIÓN -->
+<div class="art alert-top">
+  <div class="art-cat">Economía Global · Energía · Inflación</div>
+  <h2>La guerra termina parcialmente; el shock energético no: petróleo, inflación y el horizonte de recuperación</h2>
+  <div class="art-date">8–11 abril 2026 · Mercados globales / EE.UU. / América Latina</div>
+
+  <div class="sub">
+    <div class="sub-lbl">Resumen Factual</div>
+    <p>La semana posterior al alto el fuego registró movimientos de mercado sin precedente: el WTI colapsó de US$114 a US$93 el martes por la noche; los tres grandes índices bursátiles de EE.UU. subieron más del 3% en la semana. Sin embargo, el repunte del WTI hacia los US$97 entre el jueves y el sábado refleja el escepticismo: los inversores recuerdan que el estrecho sigue casi cerrado. La inflación de marzo en EE.UU. registró un aumento del 3.3% interanual y un 0.9% mensual —impulsado principalmente por el combustible—, el mayor alza mensual en 60 años. La Reserva Federal difícilmente podrá recortar tasas en este entorno. La OCDE ya proyecta inflación de 4.2% para EE.UU. en 2026.</p>
+    <p>En América Latina, el efecto es diferenciado: países exportadores de petróleo (Venezuela, México, Colombia, Brasil, Argentina con Vaca Muerta) se benefician de precios altos. Países importadores netos —que incluyen a todos los países de Centroamérica— absorben el golpe inflacionario en combustibles y fertilizantes. RECOPE Costa Rica anunció un ajuste tarifario para la semana próxima que combina alza moderada en diésel y gasolina regular con baja leve en gasolina súper, gracias a los contratos de precio fijo de fleje y el diferencial semestral.</p>
+  </div>
+
+  <div class="sub">
+    <div class="sub-lbl">Análisis Crítico · MEEE-G</div>
+    <table class="mt">
+      <thead>
+        <tr><th>Indicador</th><th>Dato</th><th>Estatuto</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>WTI actual (~11 abr)</td>
+          <td>~US$97/barril (−15% vs. pico de US$114 del 7 abr; −5% vs. cierre del martes)</td>
+          <td><span class="badge dc">DC</span></td>
+        </tr>
+        <tr>
+          <td>Brent actual</td>
+          <td>~US$97/barril (−25% vs. pico de US$126)</td>
+          <td><span class="badge dc">DC</span></td>
+        </tr>
+        <tr>
+          <td>Inflación mensual EE.UU. marzo 2026</td>
+          <td>+0.9% mensual / +3.3% interanual · mayor alza mensual en 60 años</td>
+          <td><span class="badge dc">DC</span></td>
+        </tr>
+        <tr>
+          <td>Tráfico Ormuz post-tregua</td>
+          <td>14 buques en 4 días (~7% del histórico de 40/día)</td>
+          <td><span class="badge dc">DC</span></td>
+        </tr>
+        <tr>
+          <td>El petróleo volverá a US$70/barril si se cierra el acuerdo</td>
+          <td>Proyección La Nación CR (Goldman Sachs) de inicio del conflicto; ahora muy optimista dado daño en infraestructura</td>
+          <td><span class="badge hip">H</span></td>
+        </tr>
+        <tr>
+          <td>Ajuste RECOPE próxima semana: alza diésel + regular, baja súper</td>
+          <td>Confirmado por presidenta de RECOPE Karla Montero</td>
+          <td><span class="badge dc">DC</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sub">
+    <div class="sub-lbl">Lectura Dinámica · ADD</div>
+    <div class="ade">
+      <p><strong>La economía como sistema disipativo bajo perturbación prolongada (Prigogine + Landauer).</strong> Cuarenta y tres días de interrupción masiva del flujo energético han generado perturbaciones acumuladas e irreversibles en las cadenas de suministro globales: inventarios agotados, contratos renegociados, rutas redirigidas, infraestructura dañada. Estas perturbaciones no desaparecen con la firma de un acuerdo —son consecuencias del procesamiento de información a escala global que tiene costos energético-materiales reales (principio de Landauer). La economía necesita tiempo para redirigir sus flujos, independientemente de la velocidad del acuerdo político.</p>
+      <p><strong>Señal financiera vs. flujo real: el desacoplamiento como zona de turbulencia.</strong> El mercado de futuros anticipó un escenario de recuperación que el mercado físico aún no sostiene. Este desacoplamiento es típico de las zonas de turbulencia ADD: genera volatilidad amplificada ante cualquier señal negativa (un ataque, un fracaso en Islamabad, un misil sobre un buque en Ormuz). El Brent puede subir US$20 en horas si las negociaciones se rompen —y caer US$30 si se alcanza un acuerdo nuclear completo.</p>
+    </div>
+  </div>
+
+  <div class="cr">
+    <div class="cr-lbl">🌿 Relevancia para Costa Rica</div>
+    <p>Costa Rica enfrenta una coyuntura en que las señales financieras son más favorables que la realidad física. El Brent en torno a US$97 —si se sostiene— es significativamente mejor que el escenario de US$115+ proyectado por la EIA para el segundo trimestre. Esto presiona a la baja el ajuste tarifario de RECOPE. [IP: el mecanismo de diferencial semestral actúa sobre el promedio del período, no el precio del día.] El alza de la inflación estadounidense a 3.3% eleva el riesgo de que la Fed no recorte tasas, lo que mantiene el colón bajo presión cambiaria y encarece la deuda pública costarricense en dólares. [INT] Los fondos de pensiones nacionales (con 40–45% de cartera en instrumentos internacionales) se beneficiaron de la recuperación bursátil de la semana, pero el riesgo de reversión es alto. [IP]</p>
+  </div>
+</div>
+
+<!-- ════════════ SEC III: SOCIEDAD Y HUMANITARIO ════════════ -->
+<div class="sec-div">
+  <span class="sec-tag">III</span>
+  <span class="sec-title">Sociedad, Cultura y Ambiente</span>
+  <span class="sec-rule"></span>
+  <span class="sec-num">Item 05</span>
+</div>
+
+<!-- ITEM 05 -->
+<div class="art green-top">
+  <div class="art-cat">Sociedad · Ciencia Social · Humanitario</div>
+  <h2>El Irán bajo guerra: apagón de internet récord mundial, desplazamiento masivo y reconstrucción como imposible inmediato</h2>
+  <div class="art-date">Febrero–Abril 2026 · Teherán / Irán / Región</div>
+
+  <div class="sub">
+    <div class="sub-lbl">Resumen Factual</div>
+    <p>El apagón de internet en Irán alcanzó el día 37 de interrupción consecutiva —el más largo registrado por ningún país en la historia— según la organización de monitoreo NetBlocks. Planet Labs, a solicitud del gobierno estadounidense, suspendió la publicación de imágenes satelitales de Irán desde el 9 de marzo indefinidamente. La inflación iraní, que antes del conflicto ya rondaba el 50%, se ha disparado con el colapso de la infraestructura energética. Más de 3.2 millones de personas han sido desplazadas internamente. El costo de la guerra para EE.UU. se aproxima a los US$280.000 millones —con un gasto operativo de ~US$1.000 millones diarios.</p>
+    <p>El gobierno iraní demanda como parte de las negociaciones en Islamabad el pago de reparaciones de guerra para la reconstrucción del país. Los daños incluyen: red ferroviaria destruida, puentes derribados, infraestructura petroquímica atacada, zonas residenciales bombardeadas en Teherán y otras ciudades, y la sinagoga Rafi-Nia de Teherán — uno de los últimos centros de la comunidad judía histórica iraní— totalmente destruida. La Fiscalía de Turquía abrió proceso penal contra Netanyahu por los ataques. Amnistía Internacional y Human Rights Watch documentan el uso israelí de bombas de fósforo blanco en zonas residenciales libanesas.</p>
+  </div>
+
+  <div class="sub">
+    <div class="sub-lbl">Lectura Dinámica · ADD</div>
+    <div class="ade">
+      <p><strong>El colapso disipativo de la sociedad iraní como proceso irreversible.</strong> Siguiendo el marco ADD-Prigogine, la sociedad iraní post-guerra no es un sistema que "retorna al estado previo" cuando se firme la paz. Ha procesado perturbaciones de tal magnitud —en los tres niveles del esquema ADD: energético-material, informacional y simbólico-organizacional— que su trayectoria post-conflicto será cualitativamente distinta. La destrucción de la sinagoga Rafi-Nia no es solo un daño material: es el colapso irreversible de una comunidad que lleva siglos coexistiendo en Teherán. Ningún acuerdo la restaura.</p>
+      <p><strong>El apagón informacional como violencia epistémica sistémica.</strong> El bloqueo de internet de 37+ días no es solo una restricción comunicativa: es, en términos de Landauer, la interrupción forzada del procesamiento de información necesario para que la sociedad iraní reproduzca su clausura organizacional. La combinación de apagón + desplazamiento + inflación del 50%+ configura exactamente las "condiciones de privación" que en la ADD predicen el colapso de la organización simbólica comunitaria — no por voluntad política, sino por imposibilidad disipativa.</p>
+      <p><strong>La cuestión de las reparaciones como capital simbólico de reconocimiento.</strong> La demanda iraní de reparaciones de guerra no es solo económica: es simbólica (Bourdieu). Exige el reconocimiento de que la guerra fue una agresión, no una operación de legítima defensa. Este reconocimiento es exactamente lo que EE.UU. no puede conceder públicamente sin alterar la narrativa doméstica de "victoria". La brecha entre demanda iraní y oferta americana en este punto es tan profunda como la nuclear.</p>
+    </div>
+  </div>
+
+  <div class="cr">
+    <div class="cr-lbl">🌿 Relevancia para Costa Rica</div>
+    <p>La escala del daño humanitario en Irán y Líbano es relevante para Costa Rica en varios planos. En el de las migraciones: si el conflicto genera un flujo masivo de refugiados iraníes o libaneses hacia América, algunos podrían buscar asilo en Costa Rica, que tiene tradición de recepción humanitaria pero limitada capacidad de absorción. [H: escenario de baja probabilidad inmediata pero no descartable en un horizonte de 6–12 meses post-guerra.] En el plano de la cooperación científica y cultural: la destrucción de sitios universitarios, centros culturales y patrimonio religioso en Irán es una pérdida del patrimonio de la humanidad que Costa Rica, como signataria de convenciones de la UNESCO, tiene interés en documentar y condenar formalmente.</p>
+  </div>
+</div>
+
+<!-- ════════════ SÍNTESIS Y ESCENARIOS ════════════ -->
+<div class="sec-div">
+  <span class="sec-tag">SÍN</span>
+  <span class="sec-title">Síntesis y Escenarios Plausibles</span>
+  <span class="sec-rule"></span>
+  <span class="sec-num">Estado del Sistema · 11 Abr 2026</span>
+</div>
+
+<div class="art navy-top">
+  <div class="art-cat">Síntesis Analítica</div>
+  <h2>Tabla de estado del sistema · 11 de Abril de 2026</h2>
+
+  <table class="syn-table">
+    <thead>
+      <tr>
+        <th>Dimensión</th>
+        <th>Estado Actual</th>
+        <th>Régimen ADD</th>
+        <th>Tendencia a 2 semanas</th>
+        <th>Relevancia CR</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Negociación</strong></td>
+        <td>Islamabad: comenzó hoy. Posiciones muy alejadas. Formato a 3 bandas. Primera vez directas desde 1979.</td>
+        <td>Turbulencia negociada</td>
+        <td>Incierta · posible acuerdo parcial nuclear + Ormuz</td>
+        <td>Alta: estabilidad normativa global</td>
+      </tr>
+      <tr>
+        <td><strong>Combates directos Irán</strong></td>
+        <td>Suspendidos desde 7 abr (tregua de 2 semanas). Irán: "Preparados para cualquier error del enemigo."</td>
+        <td>Estabilidad condicional</td>
+        <td>Dependiente de Islamabad y comportamiento de Israel</td>
+        <td>Media: riesgo de reversión energética</td>
+      </tr>
+      <tr>
+        <td><strong>Líbano / Hezbollah</strong></td>
+        <td>Ataques israelíes continúan. 1.730+ muertos. Conversaciones Israel–Líbano en Washington próxima semana.</td>
+        <td>Turbulencia activa</td>
+        <td>Reducción de intensidad posible · desescalada no garantizada</td>
+        <td>Media-alta: normas internacionales, UNIFIL</td>
+      </tr>
+      <tr>
+        <td><strong>Estrecho de Ormuz</strong></td>
+        <td>~7% del tráfico histórico. Minas navales. Peajes iraníes. Proceso de desminado anunciado por EE.UU.</td>
+        <td>Turbulencia disipativa</td>
+        <td>Mejora gradual si hay acuerdo · colapso inmediato si hay fracaso</td>
+        <td>Alta: combustibles, fertilizantes, fletes</td>
+      </tr>
+      <tr>
+        <td><strong>Energía global</strong></td>
+        <td>Brent/WTI ~US$97. Caída del 25% desde el pico. Inflación en EE.UU.: +3.3%. Rystad: 3–5 meses para normalizar Ormuz.</td>
+        <td>Transición incierta</td>
+        <td>Presión a la baja si hay progreso; posible rebote alcista si fracasa</td>
+        <td>Alta: RECOPE, fondos pensiones, exportaciones</td>
+      </tr>
+      <tr>
+        <td><strong>Programa nuclear</strong></td>
+        <td>Punto más complejo de negociación. EE.UU.: cero enriquecimiento. Irán: reconocimiento del derecho a enriquecer.</td>
+        <td>Bifurcación estructural</td>
+        <td>Sin resolución en 2 semanas; posible acuerdo de principios</td>
+        <td>Estructural: régimen de no proliferación</td>
+      </tr>
+      <tr>
+        <td><strong>D.H. y normas int.</strong></td>
+        <td>63 países + UE condenan ataques civiles. Fiscalía turca vs. Netanyahu. HRW documenta fósforo blanco.</td>
+        <td>Erosión normativa activa</td>
+        <td>Continuación de condenas · sin mecanismo de aplicación efectivo</td>
+        <td>Estructural: seguridad jurídica internacional</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ESCENARIOS PLAUSIBLES -->
+<div class="art navy-top">
+  <div class="art-cat">Prospectiva · Escenarios ADD</div>
+  <h2>Tres escenarios plausibles para las próximas dos semanas</h2>
+
+  <table class="sce-table">
+    <thead>
+      <tr>
+        <th>Escenario</th>
+        <th>Descripción</th>
+        <th>Condiciones</th>
+        <th>Impacto CR</th>
+        <th>Estatuto ADD</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="s-med">
+        <td><strong>A — Acuerdo Nuclear Parcial</strong><br><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--navy);">ESCENARIO CENTRAL · Probabilidad: moderada</span></td>
+        <td>Islamabad produce acuerdo de principios sobre el programa nuclear (congelamiento del enriquecimiento a cambio de alivio parcial de sanciones) y protocolo de reapertura gradual de Ormuz bajo supervisión tripartita (EE.UU./Irán/Omán). Líbano queda pendiente para negociaciones separadas. Tregua extendida 4–6 semanas adicionales.</td>
+        <td>Irán cede en enriquecimiento a cambio de activos congelados; EE.UU. acepta fórmula "coordinación" Ormuz; Israel recibe garantías sobre el norte; Hezbollah acepta silencio temporal</td>
+        <td>Brent cae a US$80–90; combustibles CR bajan en 2–3 meses; presión fertilizantes se reduce gradualmente; relativa estabilidad financiera</td>
+        <td><span class="badge ip">IP</span> — Plausible pero requiere múltiples concesiones simultáneas difíciles de coordinar</td>
+      </tr>
+      <tr class="s-low">
+        <td><strong>B — Extensión sin acuerdo</strong><br><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--green);">ESCENARIO POSITIVO · Probabilidad: moderada-alta</span></td>
+        <td>Las conversaciones producen avances insuficientes para un acuerdo completo pero suficientes para extender la tregua 4–8 semanas adicionales. Negociaciones continúan en formato técnico (Araghchi–Witkoff). Ormuz abre parcialmente bajo control iraní informal. Irán recibe alivio simbólico de sanciones. Israel sigue en Líbano.</td>
+        <td>Ninguna de las partes quiere ser responsable del colapso; Trump necesita narrativa de "victoria en proceso"; Irán necesita recuperación económica; Pakistán tiene incentivo de capital político</td>
+        <td>Situación estable pero sin resolución; combustibles CR en nivel actual; incertidumbre prolongada sobre fertilizantes; fondos pensiones en terreno positivo</td>
+        <td><span class="badge ip">IP</span> — Coherente con la lógica de aplazamiento sistemático observada en el patrón Trump desde marzo</td>
+      </tr>
+      <tr class="s-high">
+        <td><strong>C — Colapso de las conversaciones</strong><br><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--red);">ESCENARIO ADVERSO · Probabilidad: moderada-baja pero no negligible</span></td>
+        <td>Las brechas en el nuclear y en Líbano llevan a una ruptura en Islamabad antes del 21 de abril. Trump reanuda los bombardeos "más intensos que nunca." Irán cierra completamente Ormuz, posiblemente atacando infraestructura saudí. Brent supera US$130. Recesión global inminente.</td>
+        <td>Israel lanza ataque mayor en Líbano que Irán interpreta como violación; o EE.UU. rechaza cualquier forma de "derecho a enriquecer"; o Trump usa el colapso como herramienta de presión política doméstica</td>
+        <td>Combustibles CR subirían 20–30% adicional; inflación nacional sobre 4%; posible racionamiento de combustible de aviación en la región; crisis de fertilizantes agropecuarios severa</td>
+        <td><span class="badge hip">H</span> — Hipótesis sustentada por la distancia estructural entre posiciones de partida; requiere serie de eventos contingentes negativos simultáneos</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- INCERTIDUMBRES ABIERTAS -->
+<div class="sec-div">
+  <span class="sec-tag">INC</span>
+  <span class="sec-title">Incertidumbres Abiertas</span>
+  <span class="sec-rule"></span>
+  <span class="sec-num">Al cierre de este boletín</span>
+</div>
+
+<div class="art" style="border-top-color: var(--alert);">
+  <div class="art-cat">Preguntas sin respuesta verificable</div>
+  <h2>Lo que no sabemos — y por qué importa</h2>
+
+  <ul class="unc-list">
+    <li>¿Producirán las conversaciones de Islamabad algún resultado concreto en esta primera ronda? Axios señaló antes del inicio que "no está claro si se puede lograr algún progreso significativo en la primera ronda." La delegación iraní llegó con una "larga lista de exigencias"; la posición de Trump sobre el nuclear parece no negociable.</li>
+    <li>¿Qué ocurrirá con Israel en Líbano durante y después de las negociaciones? La reducción de ataques en Beirut fue mencionada como condición para el inicio del diálogo; si Israel reinicia ofensivas masivas, Irán podría abandonar la mesa.</li>
+    <li>¿Qué significa exactamente "paso coordinado bajo autoridad iraní" en Ormuz? La diferencia entre un "peaje" y una "coordinación de seguridad" es política y jurídicamente crucial. El derecho internacional del mar (UNCLOS) prohíbe los peajes; pero Irán nunca ratificó la UNCLOS.</li>
+    <li>¿Cuál es el estado real de salud de Mojtaba Jamenei? Un medio español reportó que el nuevo Líder Supremo estaba "inconsciente y grave" el 7 de abril. Si fuera así, la delegación en Islamabad podría estar operando sin orientación activa del liderazgo máximo, lo que abre o cierra posibilidades impredecibles. Esta información no pudo verificarse con fuentes independientes confiables.</li>
+    <li>¿Aceptará la Reserva Federal subir tasas si la inflación americana supera el 4% por el choque del petróleo? Una subida de tasas en EE.UU. tendría impacto inmediato sobre el tipo de cambio del colón y el costo de la deuda pública costarricense.</li>
+    <li>¿Qué sucede con los ~2.000 buques todavía atrapados en el Golfo Pérsico? La apertura de Ormuz no resuelve automáticamente este problema logístico masivo.</li>
+    <li>¿Formalizará Costa Rica alguna posición pública sobre el conflicto o las negociaciones de Islamabad? El silencio del gobierno Chaves Robles hasta el momento puede ser estratégico, pero comienza a crear una asimetría respecto a otros estados pequeños que sí se pronunciaron.</li>
+  </ul>
+</div>
+
+</div><!-- /container -->
+
+<!-- RECURSOS DE DIFUSIÓN -->
+<div style="background:var(--bg2); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); margin-top:32px;">
+  <div class="container" style="padding-top:40px; padding-bottom:40px;">
+
+    <div class="sec-div" style="padding-top:0;">
+      <div class="sec-tag">Recursos</div>
+      <div class="sec-title">Difusión y Resumen</div>
+      <div class="sec-rule"></div>
+    </div>
+
+    <!-- Audio del boletín -->
+    <div class="art gold-top" style="margin-bottom:24px;">
+      <div class="art-cat" style="color:var(--gold);">Boletín en Audio</div>
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:600; margin:10px 0 6px;">Hambre global tras la Operación Furia Épica</h3>
+      <p style="font-size:15px; color:var(--ink2); margin-bottom:18px; line-height:1.6;">Versión en audio del boletín para escucha y difusión.</p>
+      <audio controls style="width:100%; accent-color:var(--gold2);">
+        <source src="Hambre_global_tras_la_Operación_Furia_Épica.m4a" type="audio/mp4">
+        Tu navegador no soporta el elemento de audio.
+      </audio>
+    </div>
+
+    <!-- Resumen gráfico PDF -->
+    <div class="art navy-top">
+      <div class="art-cat" style="color:var(--navy);">Resumen Gráfico</div>
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:600; margin:10px 0 6px;">Islamabad Strategic Intelligence Brief</h3>
+      <p style="font-size:15px; color:var(--ink2); margin-bottom:18px; line-height:1.6;">Resumen visual del presente boletín. <a href="Islamabad_Strategic_Intelligence_Brief.pdf" download style="color:var(--gold2); font-family:'IBM Plex Mono',monospace; font-size:13px;">⬇ Descargar PDF</a></p>
+      <iframe src="Islamabad_Strategic_Intelligence_Brief.pdf" style="width:100%; height:620px; border:1px solid var(--rule); display:block;" title="Islamabad Strategic Intelligence Brief — Resumen gráfico"></iframe>
+    </div>
+
+  </div>
+</div>
+
+<!-- REFERENCIAS -->
+<div class="refs-wrap">
+  <div style="max-width:1100px; margin:0 auto;">
+    <h3>Referencias · APA 7</h3>
+    <ol>
+      <li>Última Hora (ES). (2026, 11 de abril). <em>Irán y Estados Unidos comienzan conversaciones de paz en Islamabad, según medios iraníes</em>. https://www.ultimahora.es/</li>
+      <li>La República (PE). (2026, 11 de abril). <em>Irán y EE. UU. inician negociaciones de paz en Pakistán por la crisis en Medio Oriente bajo un clima de desconfianza</em>. https://larepublica.pe/</li>
+      <li>MDZol (AR). (2026, 11 de abril). <em>Negociación histórica entre Irán y EE. UU. en Islamabad: comenzaron las charlas</em>. https://www.mdzol.com/</li>
+      <li>Infobae. (2026, 11 de abril). <em>Estados Unidos e Irán negocian un acuerdo de paz que ponga fin a la guerra en Medio Oriente</em>. https://www.infobae.com/</li>
+      <li>Infobae. (2026, 11 de abril). <em>EN VIVO: Alto el fuego entre Estados Unidos e Irán</em>. https://www.infobae.com/</li>
+      <li>El Diario.es. (2026, 11 de abril, 17:07 h). <em>Guerra en Irán, última hora del ataque de EEUU e Israel en directo</em>. https://www.eldiario.es/</li>
+      <li>OKDIARIO. (2026, 11 de abril). <em>Arrancan las negociaciones en Islamabad: el estrecho de Ormuz y Líbano, entre las líneas rojas de EEUU e Irán</em>. https://okdiario.com/</li>
+      <li>Le Grand Continent (ES). (2026, 11 de abril). <em>Negociaciones en Islamabad: ¿qué pretenden Estados Unidos e Irán?</em> https://legrandcontinent.eu/es/</li>
+      <li>Vatican News (ES). (2026, 11 de abril). <em>Inician las conversaciones entre EE.UU e Irán. Trump pide la renuncia al nuclear</em>. https://www.vaticannews.va/es/</li>
+      <li>El Tiempo (CO). (2026, 11 de abril). <em>La delegación de Estados Unidos liderada por Vance llega a Islamabad para negociar con Irán</em>. https://www.eltiempo.com/</li>
+      <li>RT (ES). (2026, 11 de abril). <em>Tregua en el limbo: ¿llegarán Estados Unidos e Irán a un acuerdo en Islamabad?</em> https://actualidad.rt.com/</li>
+      <li>Excélsior (MX). (2026, 11 de abril). <em>Comienzan las negociaciones en Pakistán para poner fin a la guerra entre Irán y Estados Unidos</em>. https://www.excelsior.com.mx/</li>
+      <li>N+ Univision. (2026, 10 de abril). <em>Guerra en Irán hoy; últimas noticias del conflicto — viernes 10 de abril</em>. https://www.univision.com/</li>
+      <li>CNN en Español. (2026, 9 de abril). <em>Resumen de la guerra EE.UU. e Israel con Irán — día 40</em>. https://cnnespanol.cnn.com/</li>
+      <li>La Jornada (MX). (2026, 8 de abril). <em>Al menos 112 muertos y 837 heridos por bombardeos israelíes en Líbano</em>. https://www.jornada.com.mx/</li>
+      <li>Infobae. (2026, 8 de abril). <em>Israel llevó a cabo el mayor ataque contra la infraestructura de Hezbollah en Líbano</em>. https://www.infobae.com/</li>
+      <li>AP / Diario.mx. (2026, 9 de abril). <em>Qué saber sobre la guerra en curso entre Israel y Hezbollah</em>. https://diario.mx/</li>
+      <li>La Jornada (MX). (2026, 10 de abril). <em>Condena internacional a ataques de Israel contra civiles en Líbano</em>. https://www.jornada.com.mx/</li>
+      <li>El Financiero (MX). (2026, 10 de abril). <em>Irán reafirma que estrecho de Ormuz está abierto y alerta a embarcaciones por minas navales</em>. https://www.elfinanciero.com.mx/</li>
+      <li>Ámbito (AR). (2026, 9 de abril). <em>El plan de Irán de cobrar peaje en el estrecho de Ormuz amenaza con subas en el precio del petróleo mundial</em>. https://www.ambito.com/</li>
+      <li>Periodista Digital. (2026, 11 de abril). <em>Irán y EEUU negocian en Pakistán los detalles del plan de paz, mientras sigue casi cerrado el Estrecho de Ormuz</em>. https://www.periodistadigital.com/</li>
+      <li>La Nación (CR). (2026, 5 de marzo). <em>El cuello de botella del petróleo mundial: qué pasa en el estrecho de Ormuz y por qué le importa a Costa Rica</em>. https://www.nacion.com/</li>
+      <li>Wikipedia (es). (2026, actualizado 11 de abril). <em>Guerra de Estados Unidos e Israel contra Irán · Guerra del Líbano de 2026</em>. https://es.wikipedia.org/ [Fuente secundaria; usada para cronología y cifras acumuladas de bajas.]</li>
+    </ol>
+  </div>
+</div>
+
+<!-- DISCLAIMER -->
+<div class="disc">
+  <p><strong>Nota metodológica obligatoria ANCA-ADE:</strong> El presente boletín combina evaluación epistémica explicacionista (MEEE-G, basada en el fiabilismo procesual y el explicacionismo comparativo de Alvin I. Goldman) con análisis dinámico del devenir (ADD, según el marco teórico de Alfredo Montero Fonseca). Todas las afirmaciones están clasificadas según su estatuto epistémico: <strong>[DC]</strong> dato confirmado · <strong>[IP]</strong> inferencia plausible · <strong>[H]</strong> hipótesis · <strong>[INT]</strong> interpretación · <strong>[C]</strong> conjetura. El análisis no constituye predicción determinista ni recomendación política. Se privilegiaron fuentes primarias y medios con estándares editoriales verificables. Las cifras de bajas provienen de fuentes oficiales institucionales (Ministerios de Salud) y pueden diferir de estimaciones de organizaciones humanitarias. La situación evoluciona con extrema rapidez: este boletín refleja el estado de la información al 11 de abril de 2026 a la hora de su producción. Los lectores deben contrastar con actualizaciones en tiempo real.</p>
+</div>
+
+<footer>
+  <p><strong>ANCA · ADE</strong> — Agente Noticioso Crítico de Actualidad · Análisis Dinámico del Devenir<br>
+  Boletín Especial N.° 2026-04-11 · "Las Conversaciones de Islamabad" · Metodología MEEE-G + ADD<br>
+  © 2026 · <a href="/">antropos.app</a></p>
+</footer>
+
+<script data-goatcounter="https://antropos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

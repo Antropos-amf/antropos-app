@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANCA-ADE · FEES 2027 · Anexo: Programas estratégicos acoplados al Estado · Abril 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#080b0e;--bg-card:#0e1318;--bg-section:#131a21;--granate:#6B1528;--granate-bright:#9B2540;--amber:#d4850a;--amber-light:#f0a030;--teal:#0d8a7e;--teal-light:#1ab8aa;--text:#dfe6ec;--text-muted:#8a9ba8;--text-dim:#546070;--border:#1e2e3a;--border-light:#2a3f50;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;font-weight:300;font-size:16px;line-height:1.8;}
+
+.ticker-outer{background:var(--granate);position:sticky;top:0;z-index:100;overflow:hidden;height:30px;display:flex;align-items:center;}
+.ticker-label{font-family:'Space Mono',monospace;font-size:9.5px;font-weight:700;letter-spacing:.12em;color:#fff;padding:0 14px;white-space:nowrap;background:rgba(0,0,0,.3);height:100%;display:flex;align-items:center;flex-shrink:0;}
+.ticker-track{display:flex;animation:ticker 55s linear infinite;white-space:nowrap;}
+.ticker-track span{font-family:'Space Mono',monospace;font-size:9.5px;color:rgba(255,255,255,.88);padding:0 28px;letter-spacing:.06em;}
+.ticker-track span::before{content:'▸ ';color:rgba(255,255,255,.45);}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+.masthead{background:linear-gradient(180deg,#000d18 0%,var(--bg) 100%);border-bottom:1px solid var(--border);padding:48px 40px 36px;position:relative;overflow:hidden;}
+.masthead::before{content:'';position:absolute;left:0;top:0;bottom:0;width:8px;background:var(--granate);}
+.masthead-nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:36px;padding-left:20px;}
+.masthead-logo{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:.15em;color:var(--text);text-decoration:none;}
+.nav-links{display:flex;gap:24px;font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;}
+.nav-links a{color:var(--text-muted);text-decoration:none;}
+.nav-links a:hover{color:var(--text);}
+.masthead-inner{padding-left:20px;}
+.report-tag{font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--granate-bright);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.report-tag::before{content:'';display:block;width:28px;height:1px;background:var(--granate);}
+.masthead h1{font-family:'Playfair Display',serif;font-size:clamp(24px,4vw,40px);font-weight:700;line-height:1.15;color:var(--text);margin-bottom:14px;}
+.masthead .subtitle{font-style:italic;font-size:17px;color:var(--text-muted);line-height:1.5;max-width:680px;margin-bottom:28px;}
+.masthead-meta{display:flex;gap:28px;font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-dim);border-top:1px solid var(--border);padding-top:20px;flex-wrap:wrap;}
+.masthead-meta span{color:var(--text-muted);}
+.masthead-meta a{color:var(--text-muted);text-decoration:none;}
+
+main{max-width:1100px;margin:0 auto;padding:0 40px;}
+
+.univ-seccion{padding:52px 0 32px;border-bottom:1px solid var(--border);}
+.univ-seccion:last-child{border-bottom:none;}
+
+.univ-header{display:flex;align-items:center;gap:16px;margin-bottom:28px;}
+.univ-badge{font-family:'Space Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:4px 12px;border-radius:2px;white-space:nowrap;}
+.badge-ucr{background:rgba(107,21,40,.3);color:var(--granate-bright);border:1px solid var(--granate);}
+.badge-una{background:rgba(13,138,126,.15);color:var(--teal-light);border:1px solid var(--teal);}
+.badge-tec{background:rgba(212,133,10,.15);color:var(--amber-light);border:1px solid var(--amber);}
+.badge-uned{background:rgba(100,100,200,.15);color:#9090e0;border:1px solid #7070c0;}
+.badge-utn{background:rgba(80,150,80,.15);color:#80c080;border:1px solid #60a060;}
+
+.univ-header h2{font-family:'Playfair Display',serif;font-size:clamp(18px,2.5vw,24px);font-weight:700;color:var(--text);line-height:1.2;}
+
+.prog-tabla{width:100%;border-collapse:collapse;font-size:.84rem;margin-top:8px;}
+.prog-tabla thead tr{background:var(--granate);}
+.prog-tabla thead th{padding:10px 14px;text-align:left;font-family:'Space Mono',monospace;font-size:8px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,.9);}
+.prog-tabla tbody tr{border-bottom:1px solid var(--border);}
+.prog-tabla tbody tr:hover{background:var(--bg-card);}
+.prog-tabla tbody td{padding:12px 14px;color:var(--text-muted);vertical-align:top;line-height:1.55;}
+.prog-tabla tbody td:first-child{color:var(--text);font-weight:400;min-width:200px;}
+.prog-tabla tbody td:nth-child(2){color:var(--text-dim);font-size:.82rem;min-width:160px;}
+
+.epist-mini{display:inline-block;font-family:'Space Mono',monospace;font-size:7.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border:1px solid;padding:1px 5px;border-radius:2px;vertical-align:middle;margin-top:4px;}
+.epist-conf{border-color:#1ab8aa;color:#1ab8aa;}
+.epist-infer{border-color:var(--amber-light);color:var(--amber-light);}
+.epist-hip{border-color:var(--text-dim);color:var(--text-dim);}
+
+.nota-lagunas{background:var(--bg-section);border:1px solid var(--border-light);border-left:4px solid var(--text-dim);padding:22px 26px;margin:48px 0 32px;}
+.nota-lagunas h3{font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.25em;text-transform:uppercase;color:var(--text-dim);margin-bottom:14px;}
+.nota-lagunas p{font-size:.87rem;color:var(--text-dim);margin-bottom:.7rem;}
+.nota-lagunas p:last-child{margin-bottom:0;}
+
+.nota-meto{background:var(--bg-section);border:1px solid var(--border);padding:20px 24px;margin-top:32px;font-size:.82rem;color:var(--text-dim);line-height:1.6;}
+.nota-meto strong{color:var(--text-muted);}
+.nota-meto a{color:var(--teal-light);text-decoration:none;}
+
+footer{background:#030507;border-top:1px solid var(--border);padding:24px 40px;font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.12em;color:var(--text-dim);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+footer a{color:var(--text-muted);text-decoration:none;}
+footer a:hover{color:var(--text);}
+
+@media(max-width:680px){.masthead{padding:32px 20px;}.masthead-inner{padding-left:12px;}main{padding:0 20px;}footer{flex-direction:column;text-align:center;}.prog-tabla{font-size:.78rem;}.prog-tabla th,.prog-tabla td{padding:8px 10px;}}
+</style>
+</head>
+<body>
+
+<div class="ticker-outer">
+  <div class="ticker-label">FEES 2027 · ANEXO</div>
+  <div class="ticker-track">
+    <span>ICP: 100.000 frascos de sueros antiofídicos por año</span>
+    <span>Ciclotrón PET/CT: 3.850 estudios / USD 4,1 millones — contrato con CCSS</span>
+    <span>CIEMic: único microscopio confocal de fluorescencia en Costa Rica</span>
+    <span>CICAP activo desde 1976 formando funcionarios públicos</span>
+    <span>CIPA-TEC: gestión ambiental para MINAE, AyA y municipalidades</span>
+    <span>ICP: 100.000 frascos de sueros antiofídicos por año</span>
+    <span>Ciclotrón PET/CT: 3.850 estudios / USD 4,1 millones — contrato con CCSS</span>
+    <span>CIEMic: único microscopio confocal de fluorescencia en Costa Rica</span>
+    <span>CICAP activo desde 1976 formando funcionarios públicos</span>
+    <span>CIPA-TEC: gestión ambiental para MINAE, AyA y municipalidades</span>
+  </div>
+</div>
+
+<div class="masthead">
+  <div class="masthead-nav">
+    <a class="masthead-logo" href="/">ANTROPOS.APP</a>
+    <div class="nav-links">
+      <a href="index.html">Informe 1</a>
+      <a href="contribuciones.html">Informe 2</a>
+      <a href="/articulos/fees-2027/">Artículo →</a>
+    </div>
+  </div>
+  <div class="masthead-inner">
+    <div class="report-tag">Informe Estratégico · FEES 2027 · Anexo (3 de 3)</div>
+    <h1>Programas, servicios e institutos estratégicos<br>de las universidades públicas acoplados<br>al Estado costarricense</h1>
+    <p class="subtitle">Muestra documentada de los acoplamientos operativos entre las cinco universidades públicas y el Estado costarricense. No agota la totalidad de los acoplamientos existentes. Fuentes abiertas verificadas al 2026.</p>
+    <div class="masthead-meta">
+      <span>ANCA-ADE · UCR</span>
+      <span>·</span>
+      <span>Metodología MEEE-G</span>
+      <span>·</span>
+      <span>23 de abril de 2026</span>
+    </div>
+  </div>
+</div>
+
+<main>
+
+  <!-- UCR -->
+  <div class="univ-seccion">
+    <div class="univ-header">
+      <span class="univ-badge badge-ucr">UCR</span>
+      <h2>Universidad de Costa Rica</h2>
+    </div>
+
+    <table class="prog-tabla">
+      <thead>
+        <tr>
+          <th>Programa / Instituto</th>
+          <th>Tipo</th>
+          <th>Contraparte estatal</th>
+          <th>Función y alcance</th>
+          <th>Estado epistémico</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Ciclotrón PET/CT (CICANUM)</strong></td>
+          <td>Servicio clínico de alta tecnología</td>
+          <td>CCSS</td>
+          <td>Diagnóstico oncológico, cardiovascular y neurológico mediante PET/CT. Produce radiofármacos inaccesibles en la red hospitalaria pública. Contrato vigente: 3.850 estudios / USD 4,1 millones (octubre 2024).</td>
+          <td><span class="epist-mini epist-conf">Confirmado</span></td>
+        </tr>
+        <tr>
+          <td><strong>Instituto Clodomiro Picado (ICP)</strong></td>
+          <td>Producción biomédica, investigación, formación</td>
+          <td>CCSS, Ministerio de Salud</td>
+          <td>Produce 100.000 frascos de sueros antiofídicos al año para CR y exportación a América Latina, África y Asia. Desarrolló suero anti-SARS-CoV-2. Lanzó app móvil para identificación de serpientes venenosas (abril 2026).</td>
+          <td><span class="epist-mini epist-conf">Confirmado</span></td>
+        </tr>
+        <tr>
+          <td><strong>Centro de Investigación en Estructuras Microscópicas (CIEMic)</strong></td>
+          <td>Servicio tecnológico de alta resolución</td>
+          <td>Comunidad científica nacional, sector productivo</td>
+          <td>Opera el único microscopio confocal de fluorescencia de Costa Rica. Esencial para investigación en microbiología, biología molecular y ciencias de materiales. Activo en talleres de anotación de genomas.</td>
+          <td><span class="epist-mini epist-conf">Confirmado</span></td>
+        </tr>
+        <tr>
+          <td><strong>Centro Nacional de Ciencia y Tecnología de Alimentos (CITA)</strong></td>
+          <td>Capacitación, transferencia tecnológica, inocuidad</td>
+          <td>Sector agroalimentario, MAG</td>
+          <td>Investigación aplicada y capacitación en inocuidad alimentaria. Promueve la seguridad alimentaria mediante Promotores de Inocuidad y apoyo al emprendimiento local.</td>
+          <td><span class="epist-mini epist-conf">Confirmado</span></td>
+        </tr>
+        <tr>
+          <td><strong>Repositorio Kérwá</strong></td>
+          <td>Acceso abierto al conocimiento</td>
+          <td>Público en general, investigadores, formuladores de políticas</td>
+          <td>Almacena y difunde producción científica y académica de la UCR en acceso abierto (libros, artículos, tesis, informes). Activo desde julio 2010.</td>
+          <td><span class="epist-mini epist-conf">Confirmado</span></td>
+        </tr>
+        <tr>
+          <td><strong>CICAP — Centro de Investigación y Capacitación en Administración Pública</strong></td>
+          <td>Capacitación, investigación aplicada, asesoría técnica</td>
+          <td>Todo el sector público (ministerios, municipalidades, instituciones autónomas)</td>
+          <td>Formación y actualización de cuadros profesionales de la administración pública. Activo desde 1976. Más de 10 capacitaciones por semestre.</td>
+          <td><span class="epist-mini epist-conf">Confirmado</span></td>
+        </tr>
+        <tr>
+          <td><strong>Centro de Investigación en Nutrición Animal (CINA)</strong></td>
+          <td>Asesoría científica para políticas agropecuarias</td>
+          <td>MAG, sector agropecuario</td>
+          <td>Genera conocimiento sobre recursos alimenticios y su utilización en sistemas sostenibles. Evalúa la cadena de inocuidad, incluyendo micotoxinas y seguridad de piensos.</td>
+          <td><span class="epist-mini epist-conf">Confirmado</span></td>
+        </tr>
+        <tr>
+          <td><strong>Instituto de Investigación en Educación (INIE)</strong></td>
+          <td>Investigación educativa y asesoría para políticas</td>
+          <td>MEP, centros educativos, formación docente</td>
+          <td>Genera conocimiento sobre prácticas pedagógicas, gestión educativa, formación docente y políticas curriculares. Propicia la mejora de la calidad educativa en todos los niveles.</td>
+          <td><span class="epist-mini epist-conf">Confirmado</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- UNA -->
+  <div class="univ-seccion">
+    <div class="univ-header">
+      <span class="univ-badge badge-una">UNA</span>
+      <h2>Universidad Nacional</h2>
+    </div>
+
+    <table class="prog-tabla">
+      <thead>
+        <tr>
+          <th>Programa / Instituto</th>
+          <th>Tipo</th>
+          <th>Contraparte estatal</th>
+          <th>Función y alcance</th>
+          <th>Estado epistémico</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>IDESPO — Instituto de Estudios Sociales en Población</strong></td>
+          <td>Investigación aplicada, producción de datos sociodemográficos</td>
+          <td>Poder Ejecutivo, Asamblea Legislativa, ministerios, CCSS, gobiernos locales</td>
+          <td>Genera evidencia científica para políticas públicas en población, percepciones ciudadanas, migraciones y envejecimiento. Cuenta con Centro Tecnológico de Investigación Social (Cetis) para encuestas con estándares internacionales.</td>
+          <td><span class="epist-mini epist-conf">Confirmado</span></td>
+        </tr>
+        <tr>
+          <td><strong>CIDE — Centro de Investigación y Docencia en Educación</strong></td>
+          <td>Formación especializada y producción de conocimiento pedagógico</td>
+          <td>MEP, centros de formación docente</td>
+          <td>Prepara educadores para el liderazgo. Ofrece programas de bachillerato, licenciatura y posgrado para fortalecer la calidad del sistema educativo nacional.</td>
+          <td><span class="epist-mini epist-conf">Confirmado</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- TEC -->
+  <div class="univ-seccion">
+    <div class="univ-header">
+      <span class="univ-badge badge-tec">TEC</span>
+      <h2>Tecnológico de Costa Rica</h2>
+    </div>
+
+    <table class="prog-tabla">
+      <thead>
+        <tr>
+          <th>Programa / Instituto</th>
+          <th>Tipo</th>
+          <th>Contraparte estatal</th>
+          <th>Función y alcance</th>
+          <th>Estado epistémico</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>CIPA — Centro de Investigación en Protección Ambiental</strong></td>
+          <td>Investigación científica y tecnológica en gestión ambiental</td>
+          <td>MINAE, AyA, municipalidades, ICE, MAG</td>
+          <td>Prevención, mitigación y corrección de problemas ambientales. Investigación en tratamiento de agua potable, gestión de residuos y análisis del ciclo de vida. Activo desde 1994.</td>
+          <td><span class="epist-mini epist-conf">Confirmado</span></td>
+        </tr>
+        <tr>
+          <td><strong>CTTM — Centro de Transferencia y Transformación de Materiales</strong></td>
+          <td>Procesamiento de residuos y economía circular</td>
+          <td>Municipalidades, MINAE, PYMES rurales</td>
+          <td>Acondiciona residuos plásticos para que microempresarios fabriquen productos de uso común. Investigación en tecnologías limpias para gestión de residuos.</td>
+          <td><span class="epist-mini epist-conf">Confirmado</span></td>
+        </tr>
+        <tr>
+          <td><strong>CETIA — Centro de Investigación y Extensión en Tecnología e Ingeniería Agrícola</strong></td>
+          <td>Investigación, extensión y transferencia en agricultura de precisión</td>
+          <td>MAG, sector agroalimentario, productores</td>
+          <td>Soluciones automatizadas para la agricultura de precisión. Aplica deep learning y redes neuronales para detección de cultivos tropicales (café). Undécimo centro de investigación del TEC.</td>
+          <td><span class="epist-mini epist-conf">Confirmado</span></td>
+        </tr>
+        <tr>
+          <td><strong>CEQIATEC — Centro de Servicios Químicos y Microbiológicos</strong></td>
+          <td>Servicios analíticos especializados y control de calidad</td>
+          <td>MAG, MINAE, Ministerio de Salud, AyA, agroindustria</td>
+          <td>Evaluación de contaminantes químicos y microbiológicos en matrices ambientales, agroindustriales y farmacéuticas. Apoya la competitividad y el cumplimiento de estándares de exportación.</td>
+          <td><span class="epist-mini epist-hip" style="border-color:var(--text-dim);color:var(--text-dim);">Hip. plausible</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- UNED -->
+  <div class="univ-seccion">
+    <div class="univ-header">
+      <span class="univ-badge badge-uned">UNED</span>
+      <h2>Universidad Estatal a Distancia</h2>
+    </div>
+
+    <table class="prog-tabla">
+      <thead>
+        <tr>
+          <th>Programa / Instituto</th>
+          <th>Tipo</th>
+          <th>Contraparte estatal</th>
+          <th>Función y alcance</th>
+          <th>Estado epistémico</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Laboratorio de Análisis Físico-Químicos y Microbiológicos de Agua y Suelos</strong></td>
+          <td>Servicio analítico especializado</td>
+          <td>AyA, MINAE, municipalidades, sector agropecuario, comunidades rurales</td>
+          <td>Analiza calidad del agua para consumo humano y riego, y composición de suelos para uso agrícola y ambiental. Inaugurado setiembre 2025 en alianza con MICITT.</td>
+          <td><span class="epist-mini epist-conf">Confirmado</span></td>
+        </tr>
+        <tr>
+          <td><strong>LIIT — Laboratorio de Investigación e Innovación Tecnológica</strong></td>
+          <td>Investigación e innovación en tecnologías educativas</td>
+          <td>Sector productivo, MEP, MICITT</td>
+          <td>Desarrolla prototipos tecnológicos y soluciones de software para mejorar la productividad industrial. Investiga metodologías para la enseñanza de ciencias e ingeniería en entornos virtuales.</td>
+          <td><span class="epist-mini epist-hip" style="border-color:var(--text-dim);color:var(--text-dim);">Conjetura</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- UTN -->
+  <div class="univ-seccion">
+    <div class="univ-header">
+      <span class="univ-badge badge-utn">UTN</span>
+      <h2>Universidad Técnica Nacional</h2>
+    </div>
+
+    <table class="prog-tabla">
+      <thead>
+        <tr>
+          <th>Programa / Instituto</th>
+          <th>Tipo</th>
+          <th>Contraparte estatal</th>
+          <th>Función y alcance</th>
+          <th>Estado epistémico</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>CEDS — Centro de Estudios sobre Desarrollo Sostenible</strong></td>
+          <td>Investigación aplicada, asesoría y transferencia tecnológica territorial</td>
+          <td>Municipalidades, MYPES rurales, MiAMBIENTE, MAG</td>
+          <td>Promueve soluciones innovadoras para el desarrollo sostenible territorial. Articula la vinculación universitaria con necesidades de comunidades y el sector productivo desde un enfoque de economía circular.</td>
+          <td><span class="epist-mini epist-conf">Confirmado</span></td>
+        </tr>
+        <tr>
+          <td><strong>Servicios de consultoría, asesoría y capacitación a empresas</strong></td>
+          <td>Transferencia de conocimiento técnico y tecnológico</td>
+          <td>PYMES, agroindustria, cooperativas, municipalidades, sector turismo rural</td>
+          <td>Consultoría, asesoría, asistencia técnica y capacitación enfocadas en el mejoramiento de la productividad, la calidad y la competitividad de empresas en el ámbito regional y nacional.</td>
+          <td><span class="epist-mini epist-conf">Confirmado</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- NOTA LAGUNAS -->
+  <div class="nota-lagunas">
+    <h3>Nota sobre lagunas de información</h3>
+    <p>Este anexo no agota la totalidad de los acoplamientos existentes entre las universidades y el Estado. La información disponible en fuentes abiertas es parcial; algunos centros operan activamente sin presencia digital robusta.</p>
+    <p><strong>Pendiente:</strong> Centros de investigación sin presencia digital detallada · servicios sin cuantificación agregada de volumen anual · programas de extensión ante emergencias no documentados en repositorios de acceso abierto · alcance de los acuerdos de acceso a equipos de alta tecnología universitaria por parte de investigadores del Estado.</p>
+    <p>El equipo del Agente Noticioso Crítico de Actualidad (ANCA-ADE) continuará con la búsqueda de evidencias empíricas para complementar este anexo con futuras adendas.</p>
+  </div>
+
+  <div class="nota-meto">
+    <strong>Nota metodológica:</strong> Clasificación epistémica MEEE-G. <em>Confirmado:</em> fuentes institucionales verificadas. <em>Hipótesis plausible:</em> mencionado en fuentes secundarias sin documentación primaria completa. <em>Conjetura:</em> activo en eventos pero sin acuerdos formales documentados. Ver: <a href="index.html">Informe 1 — Articulación institucional</a> · <a href="contribuciones.html">Informe 2 — Contribuciones al país</a> · <a href="/articulos/fees-2027/">Artículo divulgativo</a>
+  </div>
+
+</main>
+
+<footer>
+  <span><a href="/">ANTROPOS.APP</a> · Alfredo Montero Fonseca</span>
+  <span>ANCA-ADE · FEES 2027 · Anexo (3 de 3)</span>
+  <span><a href="/articulos/fees-2027/">← Artículo divulgativo</a></span>
+</footer>
+
+<script data-goatcounter="https://antropos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

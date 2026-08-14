@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apagar los sensores antes de la tormenta — Alfredo Montero Fonseca · antropos.app</title>
+<meta name="description" content="Anexo al Boletín ANCA-ADD Jun 2026: la ciencia pública como sistema sensorial del país, el FEES bajo presión y por qué recortar el conocimiento antes de la tormenta es la peor economía imaginable.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Mono:wght@0,400;0,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --negro: #0a0a0a;
+    --azul: #1a3a5c;
+    --azul-claro: #2c5282;
+    --teal: #1a4a4a;
+    --teal-claro: #2b7d7d;
+    --crema: #f5f0e8;
+    --crema-oscuro: #ede4d0;
+    --gris-texto: #2c2c2c;
+    --gris-medio: #555;
+    --gris-claro: #888;
+    --oro: #b8942a;
+    --oro-claro: #d4a017;
+    --ancho-max: 760px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--crema);
+    color: var(--gris-texto);
+    font-family: 'Source Serif 4', serif;
+    font-size: 18px;
+    line-height: 1.82;
+  }
+
+  a { color: var(--azul-claro); }
+
+  /* ── SITE NAV ── */
+  .site-nav {
+    background: var(--negro);
+    padding: 8px 40px;
+    display: flex; align-items: center; gap: 20px;
+    font-family: 'Space Mono', monospace; font-size: 9px;
+    letter-spacing: .12em; text-transform: uppercase;
+  }
+  .site-nav a { color: #777; text-decoration: none; transition: color .2s; }
+  .site-nav a:hover { color: var(--oro-claro); }
+  .site-nav .sep { color: #444; }
+
+  /* ── HEADER ── */
+  .cabecera {
+    background: var(--negro);
+    color: var(--crema);
+  }
+
+  .cab-top {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 12px 48px;
+    border-bottom: 1px solid #1e1e1e;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+  }
+  .cab-top a { color: var(--crema); text-decoration: none; }
+  .cab-top a:hover { color: var(--oro-claro); }
+
+  .cab-main {
+    max-width: 900px; margin: 0 auto;
+    padding: 60px 40px 52px;
+  }
+
+  .etiqueta {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--teal-claro); margin-bottom: 10px; display: block;
+  }
+  .etiqueta-anexo {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: #555; margin-bottom: 24px; display: block;
+  }
+
+  .cab-main h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 5.5vw, 3.6rem);
+    font-weight: 900; line-height: 1.1;
+    margin-bottom: 16px; color: var(--crema);
+  }
+
+  .subtitulo-cabecera {
+    font-size: 1rem; color: #999;
+    margin-bottom: 36px; font-style: italic; line-height: 1.6;
+  }
+
+  .metadatos {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: #555; border-top: 1px solid #1e1e1e; padding-top: 18px;
+    display: flex; gap: 2rem; flex-wrap: wrap;
+  }
+
+  /* ── CONTENIDO ── */
+  .contenido {
+    max-width: var(--ancho-max);
+    margin: 0 auto;
+    padding: 60px 32px 96px;
+  }
+
+  /* ── LEAD ── */
+  .lead {
+    font-size: 1.1rem; line-height: 1.85;
+    border-left: 4px solid var(--teal-claro);
+    padding: 22px 28px;
+    background: var(--crema-oscuro);
+    margin-bottom: 52px;
+  }
+
+  /* ── SECCIÓN ── */
+  .seccion { margin-bottom: 60px; }
+
+  .seccion-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--teal-claro); margin-bottom: 6px; display: block;
+  }
+
+  .seccion h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.55rem; font-weight: 700;
+    margin-bottom: 22px; color: var(--negro);
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--crema-oscuro);
+  }
+
+  .seccion p { margin-bottom: 1.1rem; }
+
+  /* ── CITA DESTACADA ── */
+  .cita {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; font-style: italic; font-weight: 700;
+    color: var(--negro);
+    border-left: 4px solid var(--teal-claro);
+    padding: 16px 24px;
+    margin: 28px 0;
+    background: var(--crema-oscuro);
+    line-height: 1.55;
+  }
+
+  /* ── DATO ── */
+  .dato-bloque {
+    background: var(--negro);
+    color: var(--crema);
+    padding: 22px 28px;
+    margin: 28px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px;
+  }
+  .dato-item { text-align: center; }
+  .dato-valor {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; font-weight: 900;
+    color: var(--oro-claro); display: block; line-height: 1;
+  }
+  .dato-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: #888; margin-top: 6px; display: block; line-height: 1.5;
+  }
+
+  /* ── AVISO ── */
+  .aviso {
+    background: #0a0f0a;
+    border-left: 3px solid var(--teal-claro);
+    padding: 18px 24px; margin: 24px 0;
+    color: #b0c8b0;
+    font-size: 0.95rem; line-height: 1.8;
+  }
+  .aviso strong {
+    font-family: 'Space Mono', monospace;
+    font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--teal-claro); display: block; margin-bottom: 8px;
+  }
+
+  /* ── CIERRE ── */
+  .cierre-bloque {
+    background: var(--crema-oscuro);
+    border-top: 3px solid var(--teal-claro);
+    padding: 32px 36px;
+    margin: 48px 0;
+  }
+  .cierre-bloque h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem; font-weight: 700;
+    margin-bottom: 16px; color: var(--negro);
+  }
+  .cierre-bloque p { margin-bottom: 1rem; font-size: 0.97rem; }
+
+  /* ── NOTA METODOLÓGICA ── */
+  .nota-metodologica {
+    border-top: 1px solid var(--crema-oscuro);
+    padding-top: 24px; margin-top: 48px;
+  }
+  .nota-metodologica p {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px; letter-spacing: 0.04em;
+    color: var(--gris-claro); line-height: 1.9;
+  }
+  .nota-metodologica a { color: var(--gris-claro); }
+
+  /* ── BOLETIN LINK ── */
+  .boletin-link {
+    background: var(--crema-oscuro);
+    border-left: 4px solid var(--oro);
+    padding: 16px 22px; margin: 36px 0;
+    font-size: 0.88rem; line-height: 1.7;
+  }
+  .boletin-link strong {
+    font-family: 'Space Mono', monospace;
+    font-size: 8.5px; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--oro); display: block; margin-bottom: 6px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--negro); color: #666;
+    padding: 32px 40px; text-align: center;
+    font-family: 'Space Mono', monospace;
+    font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
+    line-height: 2.2;
+  }
+  footer a { color: var(--oro); text-decoration: none; }
+  footer a:hover { color: var(--oro-claro); }
+
+  @media (max-width: 680px) {
+    .cab-main { padding: 40px 20px 36px; }
+    .cab-top { padding: 10px 20px; font-size: 9px; }
+    .contenido { padding: 36px 18px 60px; }
+    .site-nav { padding: 8px 18px; flex-wrap: wrap; }
+    .dato-bloque { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- SITE NAV -->
+<div class="site-nav">
+  <a href="/analisis-add/">← Análisis ADD</a>
+  <span class="sep">/</span>
+  <a href="/boletines/boletin-anca-add-27may-06jun-2026/">Boletín 27 May – 6 Jun</a>
+  <span class="sep">/</span>
+  <a href="/">antropos.app</a>
+</div>
+
+<!-- HEADER -->
+<header class="cabecera">
+  <div class="cab-top">
+    <a href="/">antropos.app</a>
+    <span>Anexo científico · Boletín ANCA-ADD · Quincena Jun 2026</span>
+    <span>Junio 2026</span>
+  </div>
+  <div class="cab-main">
+    <span class="etiqueta">Ciencia Pública · FEES · Anticipación sistémica</span>
+    <span class="etiqueta-anexo">Anexo al Boletín ANCA-ADD del 27 de mayo al 6 de junio de 2026</span>
+    <h1>Apagar los sensores antes de la tormenta</h1>
+    <p class="subtitulo-cabecera">Las dos buenas noticias científicas de la quincena, el FEES y la inversión que no se ve hasta que falta.</p>
+    <div class="metadatos">
+      <span>Alfredo Montero Fonseca</span>
+      <span>Universidad de Costa Rica</span>
+      <span>Junio 2026</span>
+      <span>ANCA-ADD</span>
+    </div>
+  </div>
+</header>
+
+<!-- CONTENIDO -->
+<main class="contenido">
+
+  <!-- LEAD -->
+  <div class="lead">
+    En medio de una quincena dominada por fracturas —seguridad, fisco, clima, polarización—, dos noticias pasaron casi inadvertidas y, sin embargo, son las más esperanzadoras del período. Ambas vienen de la universidad pública. Ambas tratan de lo mismo, aunque parezcan distintas. Y ambas ocurren en el peor momento posible para su financiamiento.
+    <br><br>
+    La primera: el Ovsicori-UNA, en colaboración con EarthScope, instaló la primera estación sísmica permanente en la Isla del Coco, un sensor GNSS de alta precisión capaz de monitorear el movimiento de las placas del Pacífico con detalle milimétrico. La segunda: investigadores de la UCR, junto con la Universidad Nacional de Córdoba, detectaron el virus de la Hepatitis E en las aguas residuales de la Gran Área Metropolitana, a partir de muestras tomadas a lo largo de 2025.
+    <br><br>
+    A simple vista, una es geofísica y la otra es salud pública. En realidad, son la misma cosa: <strong>un sistema que aprende a verse a sí mismo antes de que el daño sea irreversible.</strong>
+  </div>
+
+  <!-- SECCIÓN 1 -->
+  <div class="seccion">
+    <span class="seccion-num">I</span>
+    <h2>La ciencia como sistema sensorial del país</h2>
+
+    <p>Vale la pena nombrar el hilo común, porque es el argumento entero. La estación de la Isla del Coco no predice terremotos, pero acorta los segundos entre un evento y la alerta de tsunami: segundos que son vidas. El análisis de aguas residuales no cura la Hepatitis E, pero revela que el patógeno ya circula de forma silenciosa antes de que aparezca el primer brote clínico. En ambos casos, lo que la ciencia aporta no es la solución del desastre, sino su <strong>anticipación</strong>.</p>
+
+    <p>Esto conecta directamente con la lectura sistémica que hemos venido sosteniendo. Un país que se acerca a umbrales de bifurcación —donde las crisis se acoplan y se aceleran— no se salva por tener más recursos, sino por <strong>detectar las señales a tiempo</strong>. La capacidad de anticipación es, literalmente, el aparato sensorial de un sistema complejo.</p>
+
+    <div class="cita">Sin sensores, el sistema no es más fuerte: es más ciego. Y un sistema ciego que se aproxima a un punto de inflexión no toma mejores decisiones; toma las mismas decisiones tarde.</div>
+
+    <p>La ciencia pública es ese aparato sensorial. No es un adorno del desarrollo: es el órgano con el que el país detecta el peligro mientras todavía es barato evitarlo.</p>
+
+    <div class="aviso">
+      <strong>Datos de la quincena — Ciencia pública</strong>
+      Ovsicori-UNA / EarthScope: primera estación sísmica permanente en Isla del Coco — monitoreo de placas tectónicas del Pacífico con precisión milimétrica, vital para alerta temprana de tsunamis.<br><br>
+      UCR / Universidad Nacional de Córdoba: detección de Hepatitis E (genotipo 3) en aguas residuales de la GAM, muestras mar–sep 2025 — indicador de deterioro del saneamiento ambiental, exige vigilancia epidemiológica inmediata.
+    </div>
+  </div>
+
+  <!-- SECCIÓN 2 -->
+  <div class="seccion">
+    <span class="seccion-num">II</span>
+    <h2>El órgano que se está desfinanciando</h2>
+
+    <p>Aquí aparece la paradoja que da título a este anexo. Esa capacidad de ver no es gratuita ni espontánea: la sostiene, en Costa Rica, el Fondo Especial para la Educación Superior (FEES), el mecanismo que el artículo 85 de la Constitución obliga al Estado a garantizar para las universidades públicas. Las estaciones sísmicas, los laboratorios de virología, las horas de investigación que produjeron las dos noticias de esta quincena salen de ahí.</p>
+
+    <p>Y ese fondo atraviesa su momento más tenso en años. El 21 de abril de 2026 el Gobierno dio por cerradas las negociaciones del FEES y trasladó la decisión al Congreso, tras un choque con los rectores: las universidades defendían un incremento cercano al 3% por inflación y demanda estudiantil, mientras el Ejecutivo proponía congelar el presupuesto.</p>
+
+    <div class="dato-bloque">
+      <div class="dato-item">
+        <span class="dato-valor">5.7%</span>
+        <span class="dato-label">Inversión en educación<br>/ PIB · 2023</span>
+      </div>
+      <div class="dato-item">
+        <span class="dato-valor">5.0%</span>
+        <span class="dato-label">Inversión en educación<br>/ PIB · 2025</span>
+      </div>
+      <div class="dato-item">
+        <span class="dato-valor">4.6%</span>
+        <span class="dato-label">Proyección<br>2026</span>
+      </div>
+      <div class="dato-item">
+        <span class="dato-valor">−4.73%</span>
+        <span class="dato-label">Caída real del FEES<br>2019 – 2024</span>
+      </div>
+    </div>
+
+    <p>Dicho de otro modo: mientras los titulares celebran el "blindaje" macroeconómico certificado por el FMI, el país está recortando, en términos reales, el presupuesto del órgano con el que detecta sus propios riesgos. Estamos apagando los sensores justo cuando la Organización Meteorológica Mundial anuncia la tormenta —ese 80% de probabilidad de un "El Niño" extremo para 2027—.</p>
+  </div>
+
+  <!-- SECCIÓN 3 -->
+  <div class="seccion">
+    <span class="seccion-num">III</span>
+    <h2>La trampa del corto plazo</h2>
+
+    <p>¿Por qué es tan fácil recortar la ciencia? Porque su retorno es invisible. El éxito de la vigilancia epidemiológica es el brote que no ocurrió; el de la red sísmica, la alerta que llegó a tiempo. Nadie agradece el desastre que no sucedió, y por eso ningún político cosecha votos por financiar lo que previene catástrofes que el electorado nunca llegará a ver.</p>
+
+    <p>Esa es la lógica del corto plazo aplicada a su forma más costosa. Lo que no se mide se subvalora, y lo que se subvalora se recorta primero. Pero la ciencia tiene tiempos de maduración largos: una capacidad de investigación que se desmantela no se reconstruye con el presupuesto del año siguiente. Se pierden equipos, se van investigadores, se interrumpen series de datos que tardaron décadas en levantarse.</p>
+
+    <div class="cita">Cuando la tormenta llega y se buscan los sensores, ya no están. El ahorro de hoy se paga, multiplicado, en la emergencia de mañana.</div>
+  </div>
+
+  <!-- SECCIÓN 4 -->
+  <div class="seccion">
+    <span class="seccion-num">IV</span>
+    <h2>Todas las ramas, no solo las que se ven</h2>
+
+    <p>Conviene una precisión final, porque la defensa de la ciencia suele encogerse hasta caber únicamente en lo aplicado y lo tecnológico: el sensor, la vacuna, el satélite. Esos son los frutos visibles. Pero la capacidad de un país para entenderse a sí mismo no se agota en medir; necesita también <strong>interpretar</strong>.</p>
+
+    <p>Las dos noticias de la quincena lo muestran si se las mira completas. La estación sísmica detecta el movimiento de la placa, pero entender por qué la basura tapó el alcantarillado de Liberia —por qué una lluvia moderada se volvió desastre— es una pregunta de gestión, de cultura, de organización social. El laboratorio detecta el virus en las aguas, pero comprender por qué 63.000 mujeres salieron de la fuerza laboral, o por qué la polarización bloquea las reformas urgentes, exige las ciencias sociales y las humanidades tanto como la microbiología exige sus reactivos.</p>
+
+    <p>Un país que solo financia los sensores y desfinancia la interpretación termina con muchos datos y poca comprensión: sabe que algo se mueve, pero no por qué, ni qué hacer. La producción de conocimiento es un sistema único y complementario —geofísica y antropología, virología y economía, ingeniería y filosofía— porque los problemas reales nunca llegan separados por disciplina. Llegan acoplados, como las crisis de esta quincena. Y solo un aparato de conocimiento igualmente amplio puede leerlos.</p>
+  </div>
+
+  <!-- CIERRE -->
+  <div class="cierre-bloque">
+    <h3>La inversión más barata que tenemos</h3>
+    <p>La estación de la Isla del Coco y la alerta de la Hepatitis E son recordatorios de algo que el debate presupuestario tiende a olvidar: la ciencia pública es la herramienta estatal más costo-efectiva para anticipar desastres y proteger la vida. No compite con la seguridad ni con la salud por el presupuesto; es la condición que hace que ese presupuesto se gaste con los ojos abiertos.</p>
+    <p>En un país que se acerca a umbrales irreversibles, sostener la capacidad científica —en todas sus ramas, a través del FEES— no es un gasto cultural ni un lujo de tiempos prósperos. Es el seguro más barato contra cruzar el umbral sin haberlo visto venir. Apagar los sensores para ahorrar unos colones, justo antes de la tormenta, es la peor economía imaginable.</p>
+    <p><em>Lo que no se valora, se pierde. Y lo que perdemos esta vez no es solo dinero: es la capacidad de ver.</em></p>
+  </div>
+
+  <!-- BOLETÍN LINK -->
+  <div class="boletin-link">
+    <strong>Origen documental</strong>
+    Las noticias científicas citadas provienen del <a href="/boletines/boletin-anca-add-27may-06jun-2026/">Boletín ANCA-ADD · Quincena del 27 de mayo al 6 de junio de 2026</a> (Sección 5: Ciencia, tecnología y geopolítica). Los datos sobre el FEES están contrastados con fuentes públicas: artículo 85 de la Constitución; informes de la negociación FEES 2026-2027; Estado de la Educación 2025.
+  </div>
+
+  <!-- NOTA METODOLÓGICA -->
+  <div class="nota-metodologica">
+    <p>Anexo elaborado bajo el marco de la Antropología Dinámica del Devenir (ADD) y la Matriz Explicacionista de Evaluación Epistémica (MEEE-G), de A. Montero Fonseca. Antropos — <a href="https://antropos.app">antropos.app</a></p>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <p>Alfredo Montero Fonseca · <a href="https://orcid.org/0009-0009-9696-4106">ORCID</a> · Universidad de Costa Rica</p>
+  <p style="margin-top: 8px;">
+    <a href="/analisis-add/">← Análisis ADD</a> &nbsp;·&nbsp;
+    <a href="/boletines/boletin-anca-add-27may-06jun-2026/">Boletín fuente</a> &nbsp;·&nbsp;
+    <a href="/">antropos.app</a>
+  </p>
+</footer>
+
+<script data-goatcounter="https://antropos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

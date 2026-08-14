@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANCA-ADE | Boletín Especial: Guerra en Irán · 7 Abr 2026</title>
+<meta name="description" content="Boletín especial de análisis sobre la guerra en Irán, emitido el 7 de abril de 2026 por ANCA-ADE.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=Space+Mono:wght@0,400;0,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --negro: #0a0a0a;
+    --rojo: #c0392b;
+    --crema: #f5f0e8;
+    --gris-texto: #2c2c2c;
+    --gris-medio: #666;
+    --ancho-max: 1100px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--crema);
+    color: var(--gris-texto);
+    font-family: 'Source Serif 4', serif;
+    font-size: 17px;
+    line-height: 1.75;
+  }
+
+  /* ─── NAV ─── */
+  .topnav {
+    background: var(--negro);
+    padding: 0.75rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--rojo);
+  }
+  .topnav a {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--crema);
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.15s;
+  }
+  .topnav a:hover { opacity: 1; }
+  .topnav .logo { font-size: 0.85rem; opacity: 1; letter-spacing: 0.05em; }
+  .topnav nav { display: flex; gap: 1.5rem; }
+
+  /* ─── MASTHEAD ─── */
+  .masthead {
+    background: var(--negro);
+    color: var(--crema);
+    text-align: center;
+    padding: 3rem 2rem 2rem;
+    border-bottom: 4px solid var(--rojo);
+  }
+  .masthead-kicker {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.25em;
+    color: var(--rojo);
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+  .masthead-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3.5rem, 10vw, 7rem);
+    letter-spacing: 0.04em;
+    line-height: 0.92;
+    color: var(--crema);
+  }
+  .masthead-title span { color: var(--rojo); }
+  .masthead-sub {
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: #aaa;
+    margin-top: 0.75rem;
+  }
+  .masthead-meta {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
+    color: #555;
+    margin-top: 1.2rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border-top: 1px solid #2a2a2a;
+    padding-top: 0.8rem;
+  }
+
+  /* ─── TICKER ─── */
+  .ticker-bar {
+    background: var(--rojo);
+    color: #fff;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem;
+    padding: 0.35rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .ticker-inner {
+    display: inline-block;
+    animation: ticker 35s linear infinite;
+    padding-left: 100%;
+  }
+  @keyframes ticker {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  }
+
+  /* ─── INTRO ─── */
+  .intro-banda {
+    background: #111;
+    color: var(--crema);
+    padding: 2rem 1.5rem;
+    border-bottom: 1px solid #222;
+  }
+  .intro-inner {
+    max-width: var(--ancho-max);
+    margin: 0 auto;
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .intro-texto {
+    flex: 1 1 400px;
+  }
+  .intro-texto p {
+    font-size: 0.95rem;
+    color: #aaa;
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
+  }
+  .intro-ficha {
+    flex: 0 1 220px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #555;
+    border-left: 2px solid var(--rojo);
+    padding-left: 1rem;
+  }
+  .intro-ficha dt {
+    color: var(--rojo);
+    margin-top: 0.75rem;
+  }
+  .intro-ficha dt:first-child { margin-top: 0; }
+  .intro-ficha dd {
+    color: #bbb;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 0.75rem;
+    margin-top: 0.1rem;
+  }
+
+  /* ─── IFRAME PDF ─── */
+  .pdf-wrapper {
+    background: #1a1a1a;
+    padding: 1.5rem 1.5rem 0;
+  }
+  .pdf-wrapper iframe {
+    display: block;
+    width: 100%;
+    height: 85vh;
+    min-height: 600px;
+    border: none;
+    background: #fff;
+  }
+  .pdf-actions {
+    background: #1a1a1a;
+    padding: 1rem 1.5rem 1.5rem;
+    text-align: center;
+  }
+  .pdf-actions a {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--crema);
+    background: var(--rojo);
+    padding: 0.55rem 1.4rem;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.15s;
+  }
+  .pdf-actions a:hover { background: #a93226; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--negro);
+    color: #444;
+    text-align: center;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    padding: 1.5rem;
+    margin-top: 0;
+    border-top: 1px solid #1a1a1a;
+  }
+  footer a { color: var(--rojo); text-decoration: none; }
+</style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="topnav">
+    <a class="logo" href="/">antropos.app</a>
+    <nav>
+      <a href="/boletines/">Boletines</a>
+      <a href="/analisis-add/">Análisis ADD</a>
+      <a href="/">Inicio</a>
+    </nav>
+  </nav>
+
+  <!-- MASTHEAD -->
+  <header class="masthead">
+    <div class="masthead-kicker">ANCA-ADE · Boletín Especial · 7 de Abril, 2026</div>
+    <h1 class="masthead-title">GUERRA<br>EN <span>IRÁN</span></h1>
+    <p class="masthead-sub">Análisis de coyuntura desde el Análisis Dinámico del Devenir</p>
+    <div class="masthead-meta">Alfredo Montero Fonseca &nbsp;·&nbsp; Universidad de Costa Rica &nbsp;·&nbsp; ANCA-ADE</div>
+  </header>
+
+  <!-- TICKER -->
+  <div class="ticker-bar">
+    <span class="ticker-inner">
+      GUERRA EN IRÁN &nbsp;·&nbsp; BOLETÍN ESPECIAL ANCA-ADE &nbsp;·&nbsp; 7 ABR 2026 &nbsp;·&nbsp; ANÁLISIS DINÁMICO DEL DEVENIR &nbsp;·&nbsp; MEEE-G &nbsp;·&nbsp; ALFREDO MONTERO FONSECA &nbsp;·&nbsp; UNIVERSIDAD DE COSTA RICA &nbsp;·&nbsp; GUERRA EN IRÁN &nbsp;·&nbsp; BOLETÍN ESPECIAL ANCA-ADE &nbsp;·&nbsp; 7 ABR 2026 &nbsp;·&nbsp; ANÁLISIS DINÁMICO DEL DEVENIR &nbsp;·&nbsp; MEEE-G &nbsp;·&nbsp;
+    </span>
+  </div>
+
+  <!-- INTRO -->
+  <div class="intro-banda">
+    <div class="intro-inner">
+      <div class="intro-texto">
+        <p>Boletín especial de análisis de coyuntura sobre el conflicto en Irán, elaborado en el marco del Análisis Dinámico del Devenir (ADD). El documento examina el estado actual del conflicto, sus vectores explicativos y los escenarios plausibles a corto plazo.</p>
+        <p>Las afirmaciones están clasificadas con la metodología MEEE-G: dato confirmado, inferencia plausible, hipótesis, interpretación o conjetura.</p>
+      </div>
+      <dl class="intro-ficha">
+        <dt>Tipo</dt>
+        <dd>Boletín Especial</dd>
+        <dt>Fecha</dt>
+        <dd>7 de Abril de 2026</dd>
+        <dt>Metodología</dt>
+        <dd>ADD · MEEE-G</dd>
+        <dt>Institución</dt>
+        <dd>ANCA-ADE · UCR</dd>
+        <dt>Autor</dt>
+        <dd>Alfredo Montero Fonseca</dd>
+      </dl>
+    </div>
+  </div>
+
+  <!-- PDF EMBEBIDO -->
+  <div class="pdf-wrapper">
+    <iframe
+      src="https://drive.google.com/file/d/1OCv80j1eRIjCIejO5wcYiPSMdo3pvoZZ/preview"
+      title="Boletín Especial ANCA-ADE: Guerra en Irán · 7 Abr 2026"
+      allow="autoplay"
+      loading="lazy">
+    </iframe>
+  </div>
+  <div class="pdf-actions">
+    <a href="https://drive.google.com/file/d/1OCv80j1eRIjCIejO5wcYiPSMdo3pvoZZ/view?usp=sharing" target="_blank" rel="noopener">
+      Abrir / Descargar PDF →
+    </a>
+  </div>
+
+  <footer>
+    &copy; <span id="yr"></span> Alfredo Montero Fonseca &nbsp;·&nbsp;
+    <a href="/">antropos.app</a> &nbsp;·&nbsp;
+    ANCA-ADE · Universidad de Costa Rica
+  </footer>
+
+  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+<script data-goatcounter="https://antropos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANCA-ADD · ESPECIAL · Ley de Armonización Eléctrica 23.414 · 25 Mayo 2026 · antropos.app</title>
+<meta name="description" content="Análisis especial del expediente 23.414 — Ley de Armonización del Sistema Eléctrico Nacional. ECOSEN, MEN, votación en el Plenario, paradoja PLN, El Niño y el modelo solidario. ANCA-ADD · 25 mayo 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400&family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,400;0,7..72,500;1,7..72,300;1,7..72,400&family=JetBrains+Mono:wght@300;400;500&display=swap" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400&family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,400;0,7..72,500;1,7..72,300;1,7..72,400&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet"></noscript>
+<style>
+:root {
+  --bg:      #080808;
+  --s1:      #101010;
+  --s2:      #161616;
+  --s3:      #1e1e1e;
+  --bdr:     #282828;
+  --volt:    #e8c000;       /* amarillo eléctrico */
+  --volt2:   #f5d840;
+  --volt3:   #a88800;
+  --red:     #c02828;
+  --red2:    #e03838;
+  --grn:     #2a7a3a;
+  --grn2:    #40aa58;
+  --teal:    #207070;
+  --teal2:   #30a0a0;
+  --muted:   #888070;
+  --txt:     #ddd8cc;
+  --txt2:    #908878;
+  --txt3:    #484038;
+
+  --fb: 'Literata', Georgia, serif;
+  --fd: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  --fm: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--txt);
+  font-family: var(--fb);
+  font-size: 16px;
+  line-height: 1.82;
+  overflow-x: hidden;
+}
+
+/* ─── NOISE TEXTURE overlay ─────────────────────── */
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  background-size: 128px;
+  opacity: .5;
+}
+.container, nav, header, footer, section, article, .block { position: relative; z-index: 1; }
+
+/* ─── EMERGENCY TICKER ─────────────────────────── */
+.ticker-wrap {
+  position: sticky; top: 0; z-index: 400;
+  background: var(--volt);
+  padding: 5px 0; overflow: hidden; white-space: nowrap;
+}
+.ticker-track {
+  display: inline-block;
+  animation: tkroll 60s linear infinite;
+  font-family: var(--fm); font-size: 10px;
+  letter-spacing: .12em; color: #000;
+  text-transform: uppercase; font-weight: 500;
+}
+@keyframes tkroll {
+  from { transform: translateX(100vw); }
+  to   { transform: translateX(-100%); }
+}
+
+/* ─── NAV ──────────────────────────────────────── */
+nav {
+  background: rgba(8,8,8,.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--bdr);
+  padding: 10px 0;
+  position: sticky; top: 27px; z-index: 300;
+}
+.nav-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 32px;
+  display: flex; align-items: center; gap: 4px; flex-wrap: wrap;
+}
+.nav-brand {
+  font-family: var(--fd); font-size: 1.4rem;
+  font-weight: 800; color: var(--volt);
+  letter-spacing: .06em; margin-right: 18px;
+}
+nav a {
+  color: var(--txt2);
+  text-decoration: none;
+  font-family: var(--fm); font-size: 9px;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: 4px 10px;
+  border: 1px solid transparent;
+  transition: all .2s;
+}
+nav a:hover { color: var(--volt); border-color: var(--bdr); }
+
+/* ─── MASTHEAD ──────────────────────────────────── */
+.masthead {
+  background:
+    linear-gradient(180deg, rgba(8,8,8,0) 60%, #080808 100%),
+    radial-gradient(ellipse 120% 80% at 60% 40%, rgba(232,192,0,.06) 0%, transparent 70%),
+    #080808;
+  padding: 80px 32px 60px;
+  border-bottom: 2px solid var(--volt3);
+  overflow: hidden; position: relative;
+}
+.masthead::after {
+  content: '⚡';
+  position: absolute; right: 40px; top: 10px;
+  font-size: 28vw; opacity: .025;
+  line-height: 1; pointer-events: none;
+  color: var(--volt);
+}
+.masthead-inner { max-width: 1200px; margin: 0 auto; }
+
+.esp-kicker {
+  font-family: var(--fm); font-size: 9px;
+  letter-spacing: .3em; text-transform: uppercase;
+  color: var(--volt); display: block; margin-bottom: 16px;
+}
+.esp-kicker span {
+  background: var(--volt); color: #000;
+  padding: 2px 10px; margin-right: 10px;
+  font-weight: 700;
+}
+.masthead h1 {
+  font-family: var(--fd);
+  font-size: clamp(3rem, 10vw, 8.5rem);
+  font-weight: 800; line-height: .92;
+  letter-spacing: .01em; color: var(--txt);
+  text-transform: uppercase; max-width: 900px;
+}
+.masthead h1 em {
+  font-style: normal; color: var(--volt);
+}
+.masthead-deck {
+  font-family: var(--fb); font-size: 1.1rem;
+  font-style: italic; color: var(--txt2);
+  font-weight: 300; margin-top: 20px;
+  max-width: 680px; line-height: 1.7;
+}
+.masthead-meta-row {
+  display: flex; gap: 30px; flex-wrap: wrap;
+  margin-top: 30px; align-items: center;
+}
+.meta-chip {
+  font-family: var(--fm); font-size: 9px;
+  letter-spacing: .12em; text-transform: uppercase;
+  padding: 5px 14px;
+  border: 1px solid var(--bdr); color: var(--txt2);
+}
+.meta-chip.alert {
+  background: var(--red); color: #fff;
+  border-color: var(--red);
+  animation: blink 2s ease-in-out infinite;
+}
+@keyframes blink {
+  0%,100% { opacity: 1; } 50% { opacity: .55; }
+}
+
+/* ─── LAYOUT: COLUMNAS ──────────────────────────── */
+.page { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 48px; align-items: start;
+}
+@media (max-width: 900px) { .two-col { grid-template-columns: 1fr; } }
+
+/* ─── SECTION HEADERS ─────────────────────────── */
+.sec-head {
+  font-family: var(--fd); font-size: clamp(1.4rem, 4vw, 2.4rem);
+  font-weight: 700; text-transform: uppercase;
+  letter-spacing: .04em; line-height: 1.05;
+  color: var(--txt); margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--bdr);
+}
+.sec-head span { color: var(--volt); }
+.mono-label {
+  font-family: var(--fm); font-size: 8.5px;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: var(--volt3); display: block; margin-bottom: 10px;
+}
+
+/* ─── PROSE ─────────────────────────────────────── */
+.prose { font-family: var(--fb); font-size: .97rem; line-height: 1.88; }
+.prose p { margin-bottom: 14px; color: var(--txt); }
+.prose p:last-child { margin-bottom: 0; }
+.prose strong { color: var(--volt2); font-weight: 500; }
+.prose em { color: var(--txt2); }
+
+/* ─── KEY BOX ───────────────────────────────────── */
+.key-box {
+  background: var(--s1);
+  border-left: 3px solid var(--volt);
+  padding: 22px 26px; margin: 28px 0;
+}
+.key-box p {
+  font-family: var(--fb); font-size: .98rem;
+  line-height: 1.82; color: var(--txt);
+}
+.key-box strong { color: var(--volt2); }
+
+/* ─── MEEE-G TABLE ──────────────────────────────── */
+.table-wrap { overflow-x: auto; margin: 24px 0; }
+.mt {
+  width: 100%; border-collapse: collapse;
+  font-size: .87rem;
+}
+.mt th {
+  background: var(--s2);
+  font-family: var(--fm); font-size: 8px;
+  letter-spacing: .15em; text-transform: uppercase;
+  color: var(--volt3); padding: 9px 14px;
+  text-align: left; border-bottom: 1px solid var(--volt3);
+}
+.mt td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--s3);
+  font-family: var(--fb); vertical-align: top;
+  line-height: 1.65;
+}
+.mt tr:hover td { background: var(--s2); }
+.dc  { color: #48cc68; font-family: var(--fm); font-size:.82rem; font-weight:500; }
+.ip  { color: #58aaee; font-family: var(--fm); font-size:.82rem; font-weight:500; }
+.h   { color: #d4a830; font-family: var(--fm); font-size:.82rem; font-weight:500; }
+.int_{ color: #c870c8; font-family: var(--fm); font-size:.82rem; font-weight:500; }
+.c   { color: #d07848; font-family: var(--fm); font-size:.82rem; font-weight:500; }
+
+/* ─── ADD ANALYSIS BLOCK ─────────────────────────── */
+.add-wrap {
+  background: #0a0e0c;
+  border: 1px solid #203028;
+  border-left: 4px solid var(--teal2);
+  padding: 28px 30px; margin: 28px 0;
+}
+.add-wrap .add-title {
+  font-family: var(--fd); font-size: 1rem;
+  font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--teal2);
+  margin-bottom: 18px;
+}
+.add-row {
+  display: grid; grid-template-columns: 120px 1fr;
+  gap: 10px 16px; margin-bottom: 12px;
+  padding-bottom: 12px; border-bottom: 1px solid #1a2820;
+}
+.add-row:last-of-type { border-bottom: none; margin-bottom: 0; }
+.add-key {
+  font-family: var(--fm); font-size: 8px;
+  letter-spacing: .15em; text-transform: uppercase;
+  color: var(--teal2); padding-top: 3px; line-height: 1.5;
+}
+.add-val {
+  font-size: .9rem; color: #b0c8bc; line-height: 1.78;
+}
+
+/* ─── REGIME BADGE ──────────────────────────────── */
+.regime {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--fm); font-size: 9px;
+  letter-spacing: .18em; text-transform: uppercase;
+  padding: 5px 14px; margin-top: 14px;
+  border: 1px solid;
+}
+.reg-lam { color: var(--grn2); border-color: var(--grn2); }
+.reg-tur { color: #d4a830; border-color: #d4a830; }
+.reg-bif { color: var(--red2); border-color: var(--red2); }
+.reg-bif::before { content: '⚡ '; }
+
+/* ─── SIDEBAR ───────────────────────────────────── */
+.sidebar { display: flex; flex-direction: column; gap: 24px; }
+.side-card {
+  background: var(--s1);
+  border-top: 2px solid var(--bdr);
+  padding: 20px 22px;
+}
+.side-card.volt-top { border-top-color: var(--volt); }
+.side-card.red-top  { border-top-color: var(--red);  }
+.side-card.teal-top { border-top-color: var(--teal2); }
+.side-card.grn-top  { border-top-color: var(--grn2); }
+.side-card h4 {
+  font-family: var(--fm); font-size: 8.5px;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: var(--txt2); margin-bottom: 14px;
+}
+
+/* ─── VOTE METER ─────────────────────────────────── */
+.vote-meter { margin-bottom: 8px; }
+.vm-row {
+  display: flex; align-items: center;
+  gap: 10px; margin-bottom: 7px; font-size: .82rem;
+}
+.vm-party {
+  font-family: var(--fm); font-size: 8px;
+  letter-spacing: .1em; min-width: 52px;
+  color: var(--txt2); text-transform: uppercase;
+}
+.vm-bar-wrap {
+  flex: 1; background: var(--s3); height: 6px;
+  border-radius: 2px; overflow: hidden;
+}
+.vm-bar {
+  height: 100%; border-radius: 2px;
+  transition: width .6s ease;
+}
+.vm-n { font-family: var(--fm); font-size: 9px; color: var(--txt2); min-width: 16px; text-align: right; }
+.vm-status {
+  font-family: var(--fm); font-size: 8px;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: 2px 8px; margin-left: 4px;
+}
+.st-apoya  { background: var(--grn);  color: #aeffbe; }
+.st-contra { background: #600;        color: #ffaaaa; }
+.st-divide { background: #604008;     color: #ffe090; }
+.st-desc   { background: var(--s3);   color: var(--txt3); }
+.threshold-line {
+  font-family: var(--fm); font-size: 8px;
+  color: var(--volt); letter-spacing: .1em;
+  padding: 6px 0; border-top: 1px dashed var(--volt3);
+  margin-top: 10px;
+}
+
+/* ─── ACTOR CARDS ────────────────────────────────── */
+.actor-card {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--bdr);
+  font-size: .85rem;
+}
+.actor-card:last-child { border-bottom: none; }
+.actor-name {
+  font-family: var(--fd); font-weight: 700;
+  font-size: 1rem; color: var(--txt);
+}
+.actor-pos {
+  font-family: var(--fm); font-size: 8px;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: 2px 8px; display: inline-block; margin: 3px 0;
+}
+.pos-a   { background: #0a2a14; color: var(--grn2); }
+.pos-c   { background: #2a0808; color: var(--red2); }
+.pos-d   { background: #2a2008; color: var(--volt); }
+.pos-n   { background: var(--s3); color: var(--txt2); }
+.actor-quote {
+  font-family: var(--fb); font-style: italic;
+  font-size: .82rem; color: var(--txt2); line-height: 1.6;
+  margin-top: 4px;
+}
+
+/* ─── SCENARIO CARDS ─────────────────────────────── */
+.scenarios { display: flex; flex-direction: column; gap: 16px; margin: 28px 0; }
+.sc {
+  background: var(--s1);
+  border: 1px solid var(--bdr);
+  border-left: 4px solid var(--bdr);
+  padding: 20px 24px;
+}
+.sc.sc-a { border-left-color: var(--grn2); }
+.sc.sc-b { border-left-color: var(--volt); }
+.sc.sc-c { border-left-color: var(--red2); }
+.sc-label {
+  font-family: var(--fd); font-size: 1.1rem;
+  font-weight: 700; text-transform: uppercase;
+  letter-spacing: .06em; margin-bottom: 6px;
+}
+.sc-a .sc-label { color: var(--grn2); }
+.sc-b .sc-label { color: var(--volt); }
+.sc-c .sc-label { color: var(--red2); }
+.sc-cond {
+  font-family: var(--fm); font-size: 8.5px;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--txt3); margin-bottom: 10px;
+}
+.sc p { font-size: .9rem; color: var(--txt2); line-height: 1.72; }
+
+/* ─── TIMELINE SECTION ───────────────────────────── */
+.timeline { position: relative; padding-left: 32px; margin: 28px 0; }
+.timeline::before {
+  content: ''; position: absolute; left: 10px; top: 0; bottom: 0;
+  width: 1px; background: var(--bdr);
+}
+.tl-item {
+  position: relative; margin-bottom: 22px;
+  padding-bottom: 22px; border-bottom: 1px solid var(--s3);
+}
+.tl-item:last-child { border-bottom: none; }
+.tl-dot {
+  position: absolute; left: -26px; top: 5px;
+  width: 8px; height: 8px;
+  background: var(--volt3);
+  border-radius: 50%;
+}
+.tl-dot.live { background: var(--red2); animation: blink 1.2s ease-in-out infinite; }
+.tl-date {
+  font-family: var(--fm); font-size: 8px;
+  letter-spacing: .15em; color: var(--txt3);
+  text-transform: uppercase; margin-bottom: 4px;
+}
+.tl-text { font-size: .88rem; color: var(--txt2); line-height: 1.65; }
+.tl-text strong { color: var(--txt); }
+
+/* ─── DIVIDERS ───────────────────────────────────── */
+.div-volt {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--volt3), transparent);
+  margin: 50px 0;
+}
+
+/* ─── UNCERTAINTIES ──────────────────────────────── */
+.unc-list { margin: 20px 0; }
+.unc-item {
+  display: flex; gap: 14px; padding: 12px 0;
+  border-bottom: 1px solid var(--s3);
+}
+.unc-item:last-child { border-bottom: none; }
+.unc-n { font-family: var(--fm); font-size: 9px; color: var(--txt3); min-width: 24px; }
+.unc-t { font-size: .91rem; color: var(--txt2); line-height: 1.7; }
+.unc-t strong { color: var(--txt); }
+
+/* ─── REFERENCES ─────────────────────────────────── */
+.refs {
+  background: var(--s1);
+  border-top: 1px solid var(--bdr);
+  padding: 40px 32px;
+}
+.refs h3 {
+  font-family: var(--fd); font-size: 1.4rem;
+  font-weight: 700; text-transform: uppercase;
+  letter-spacing: .06em; color: var(--txt2);
+  margin-bottom: 20px;
+}
+.ref-item {
+  font-family: var(--fm); font-size: .78rem;
+  color: var(--txt3); line-height: 1.85;
+  border-bottom: 1px solid #141414;
+  padding: 7px 0; padding-left: 18px;
+  text-indent: -18px;
+}
+.ref-item a { color: var(--txt3); }
+
+/* ─── DISCLAIMER ─────────────────────────────────── */
+.disclaimer {
+  background: #060606; padding: 28px 32px;
+  border-top: 1px solid #141414;
+}
+.disclaimer p {
+  font-family: var(--fm); font-size: 8.5px;
+  color: var(--txt3); line-height: 1.8; letter-spacing: .04em;
+}
+
+/* ─── FOOTER ─────────────────────────────────────── */
+footer {
+  background: var(--s1);
+  border-top: 2px solid var(--volt3);
+  padding: 26px 32px;
+  display: flex; justify-content: space-between;
+  align-items: center; flex-wrap: wrap; gap: 16px;
+}
+.ft-brand {
+  font-family: var(--fd); font-size: 2.2rem;
+  font-weight: 800; color: var(--volt);
+  letter-spacing: .08em; text-transform: uppercase;
+}
+.ft-info {
+  font-family: var(--fm); font-size: 8.5px;
+  color: var(--txt3); line-height: 2;
+  text-align: right; letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+/* ─── SECTION SPACING ────────────────────────────── */
+.sec { padding: 50px 0; }
+.sec + .sec { padding-top: 0; }
+
+/* ─── SITE NAV BAR ─────────────────────────────────── */
+.site-nav {
+  background: #050505;
+  border-bottom: 1px solid #1e1e1e;
+  padding: 8px 32px;
+  display: flex; align-items: center; gap: 20px;
+  font-family: var(--fm); font-size: 9px;
+  letter-spacing: .12em; text-transform: uppercase;
+  position: relative; z-index: 500;
+}
+.site-nav a { color: var(--txt3); text-decoration: none; transition: color .2s; }
+.site-nav a:hover { color: var(--volt); }
+.site-nav .sep { color: var(--txt3); }
+
+/* ─── GLOSARIO ─────────────────────────────────────── */
+.glosario {
+  background: #0a0a0a;
+  border-top: 2px solid var(--volt3);
+  padding: 60px 32px;
+}
+.glosario-inner { max-width: 1200px; margin: 0 auto; }
+.glosario h3 {
+  font-family: var(--fd); font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 700; text-transform: uppercase;
+  letter-spacing: .05em; color: var(--volt);
+  margin-bottom: 4px;
+}
+.glosario .glos-sub {
+  font-family: var(--fm); font-size: 9px;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: var(--txt3); margin-bottom: 44px;
+}
+.glos-cat { margin-bottom: 40px; }
+.glos-cat-title {
+  font-family: var(--fm); font-size: 8.5px;
+  letter-spacing: .25em; text-transform: uppercase;
+  color: var(--volt); border-bottom: 1px solid var(--volt3);
+  padding-bottom: 6px; margin-bottom: 18px;
+}
+.glos-item {
+  display: grid; grid-template-columns: 220px 1fr;
+  gap: 12px 28px; padding: 13px 0;
+  border-bottom: 1px solid #131313;
+}
+.glos-item:last-child { border-bottom: none; }
+.glos-term {
+  font-family: var(--fm); font-size: .82rem;
+  font-weight: 500; color: var(--txt);
+  letter-spacing: .04em; line-height: 1.5;
+}
+.glos-term em {
+  display: block; color: var(--volt3);
+  font-style: normal; font-size: .75rem;
+  margin-bottom: 2px;
+}
+.glos-def {
+  font-family: var(--fb); font-size: .9rem;
+  color: var(--txt2); line-height: 1.8;
+}
+@media (max-width: 768px) {
+  .glosario { padding: 36px 20px; }
+  .glos-item { grid-template-columns: 1fr; gap: 5px; }
+  .site-nav { padding: 8px 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- SITE NAV -->
+<div class="site-nav">
+  <a href="/boletines/">← Boletines</a>
+  <span class="sep">/</span>
+  <a href="/">antropos.app</a>
+  <span class="sep">/</span>
+  <a href="/analisis-add/">Análisis ADD</a>
+</div>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <span class="ticker-track">
+    ⚡ ANCA-ADD · ANÁLISIS ESPECIAL · EXPEDIENTE 23.414 — LEY DE ARMONIZACIÓN ELÉCTRICA · PLENARIO HOY 25 MAYO 2026 · POSIBLE VOTACIÓN MAÑANA 26 MAYO ·
+    PPSO TIENE 31 VOTOS — NECESITA 38 — PLN ES LA LLAVE · CLAUDIA DOBLES (CAC) ANUNCIA VOTO EN CONTRA ·
+    PLN ANUNCIA RECHAZO AL 23.414 Y PROPONE "LEY DE EMERGENCIA Y SEGURIDAD ENERGÉTICA NACIONAL" · HIDALGO (PUSC) LLAMA AL PLN "INCONSISTENTE E IRRESPONSABLE" ·
+    ECOSEN REEMPLAZARÍA FUNCIONES DE OPERACIÓN Y PLANIFICACIÓN DEL ICE · "LEY APAGÓN" VS "MODERNIZACIÓN" ·
+    EL NIÑO 2026-2027 CONFIRMADO: 50% MENOS LLUVIA EN PACÍFICO NORTE · PANAMÁ NIEGA VENTA DE ENERGÍA A CR ·
+    ANÁLISIS MEEE-G · ADD · GOLDMAN · PRIGOGINE · MATURANA-VARELA · HABERMAS · BOURDIEU ⚡
+  </span>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-brand">ANCA-ADD</div>
+    <a href="#contexto">Contexto</a>
+    <a href="#que-propone">Qué propone</a>
+    <a href="#actores">Actores</a>
+    <a href="#meee-g">MEEE-G</a>
+    <a href="#add">ADD</a>
+    <a href="#escenarios">Escenarios</a>
+    <a href="#glosario">Glosario</a>
+    <a href="#referencias">Fuentes</a>
+  </div>
+</nav>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="masthead-inner">
+    <span class="esp-kicker">
+      <span>ESPECIAL</span>
+      ANCA-ADD · Análisis en Profundidad · Política Energética Nacional
+    </span>
+    <h1>
+      Expediente<br>
+      <em>23.414</em><br>
+      En el<br>Plenario
+    </h1>
+    <p class="masthead-deck">
+      La reforma más profunda del modelo eléctrico costarricense en siete décadas llega hoy a primer debate legislativo.
+      Un texto que divide al partido que lo redactó, que enfrenta la primera prueba del gobierno Fernández,
+      y que se debate en el peor contexto climático posible.
+    </p>
+    <div class="masthead-meta-row">
+      <span class="meta-chip alert">⚡ Sesión hoy — 25 mayo 2026</span>
+      <span class="meta-chip">Posible votación: 26 mayo</span>
+      <span class="meta-chip">Requiere 38/57 votos</span>
+      <span class="meta-chip">ECOSEN · ICE · MEN</span>
+      <span class="meta-chip">ANCA-ADD · Cierre: 25·V·2026</span>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════════
+     CUERPO PRINCIPAL
+══════════════════════════════════════════════ -->
+<div class="page">
+
+  <div class="two-col" style="padding-top:50px;">
+
+    <!-- ─── COLUMNA PRINCIPAL ─── -->
+    <main>
+
+      <!-- ▸ CONTEXTO INMEDIATO -->
+      <section class="sec" id="contexto">
+        <span class="mono-label">01 · Contexto inmediato</span>
+        <h2 class="sec-head">Un proyecto que viene de lejos<br>llega en el peor <span>momento climático</span></h2>
+        <div class="prose">
+          <p>El expediente legislativo 23.414 no es un novato. Fue presentado originalmente por la administración de Rodrigo Chaves Robles en <strong>octubre de 2022</strong> y ha atravesado casi cuatro años de trámite legislativo que incluyen comisiones, informes técnicos contradictorios, dos textos sustitutivos y múltiples rondas de mociones. Esta semana, convocado en sesiones extraordinarias por la presidenta <strong>Laura Fernández Delgado</strong>, llega finalmente al Plenario para su primer debate —con todas las mociones de fondo agotadas y el plazo de consultas institucionales vencido precisamente <em>hoy, 25 de mayo de 2026</em>.</p>
+          <p>Lo que hace la coyuntura inusualmente densa no es solo la reforma en sí, sino la <strong>convergencia de tres perturbaciones simultáneas</strong>: el debate legislativo ocurre en la misma semana en que el Instituto Meteorológico Nacional confirmó la advertencia formal de El Niño 2026-2027; en que Panamá anunció que no venderá energía a Costa Rica; y en que el Banco Central proyectó un choque inflacionario vinculado al déficit hídrico proyectado para los primeros meses de 2027. Las decisiones sobre arquitectura energética que se tomen hoy no son prospectivas en abstracto: sus consecuencias operativas comenzarán a sentirse dentro del mismo período de sequía que ya se anuncia.</p>
+        </div>
+        <div class="key-box">
+          <p><strong>El umbral matemático:</strong> El informe del Departamento de Servicios Técnicos de la Asamblea Legislativa estableció que el expediente requiere <strong>38 votos</strong> —dos tercios de los 57 diputados— porque crearía una institución autónoma nueva: el ECOSEN. El oficialismo (PPSO) tiene asegurados sus 31 diputados. Necesita <strong>7 votos adicionales</strong>. El PLN, con la segunda bancada más numerosa, es el actor decisivo.</p>
+        </div>
+      </section>
+
+      <div class="div-volt"></div>
+
+      <!-- ▸ QUÉ PROPONE -->
+      <section class="sec" id="que-propone">
+        <span class="mono-label">02 · Contenido del expediente</span>
+        <h2 class="sec-head">Qué propone el <span>23.414</span>:<br>más que una armonización</h2>
+        <div class="prose">
+          <p>El nombre del proyecto —<em>Ley de Armonización del Sistema Eléctrico Nacional</em>— no captura su alcance. El análisis técnico del propio ICE (enero 2024) y el análisis de Delfino.cr (24 mayo 2026) coinciden en que estamos ante <strong>una reforma estructural del modelo energético costarricense</strong>, no ante un ajuste regulatorio cosmético.</p>
+
+          <p><strong>Los tres cambios centrales</strong> del texto sustitutivo vigente son:</p>
+
+          <p><strong>1. Creación del ECOSEN</strong> (Ente Coordinador del Sistema Eléctrico Nacional), institución autónoma que asumiría las funciones de operación, planificación y administración del Sistema Eléctrico Nacional y del nuevo Mercado Eléctrico Nacional. Actualmente esas funciones las ejerce el ICE a través de su División de Operación y Control del Sistema Eléctrico (DOCSE). El texto dispone que el ICE traslade paulatinamente a ECOSEN los activos, sistemas, recursos y personal correspondientes. La ARESEP evaluaría los activos del DOCSE necesarios y velaría por el traslado.</p>
+
+          <p><strong>2. Creación del Mercado Eléctrico Nacional (MEN)</strong>, donde distintos agentes —públicos, privados, cooperativas, distribuidores, autoproductores, generadores distribuidos— podrían comprar y vender energía bajo esquemas de subastas y contratos regulados. Los grandes consumidores (más de 73 clientes industriales de alta tensión) tendrían mayor libertad de negociar precios directamente en el mercado nacional y centroamericano.</p>
+
+          <p><strong>3. Nueva arquitectura de rectoría</strong>: el Ministerio de Ambiente y Energía (MINAE) como rector del subsector eléctrico, la ARESEP como regulador, y el ECOSEN como operador-coordinador. El ICE quedaría como generador y distribuidor —sin el rol de planificador e integrador que ha tenido históricamente.</p>
+        </div>
+
+        <div class="key-box">
+          <p><strong>¿Privatiza el ICE?</strong> La respuesta técnica más precisa es <em>no directamente</em>. El expediente no transfiere la propiedad del ICE a manos privadas ni lo disuelve. Lo que hace, según sus críticos, es <strong>"privatización funcional"</strong>: extraer del ICE sus funciones estratégicas de operación del sistema y planificación de largo plazo, trasladarlas a una nueva entidad más expuesta a presiones de mercado, y abrir el mercado mayorista a agentes privados. Para sus defensores, es exactamente esa separación de funciones la que crea neutralidad operativa y atrae inversión privada en generación renovable.</p>
+        </div>
+
+        <div class="prose">
+          <p>Una tensión técnica que ha pasado relativamente desapercibida en el debate público: varios expertos del sector han señalado que crear el ECOSEN <strong>añade burocracia institucional</strong> y docenas de nuevos intermediarios en el mercado, sin que esté claramente demostrado cómo ese diseño produce reducción de tarifas para el consumidor residencial promedio. La CICR, que apoya el proyecto, cita que Costa Rica necesitará 2,495 MW adicionales de capacidad instalada para 2040 —un crecimiento del 71.3%— y argumenta que esa inversión no puede financiarse solo con recursos públicos. Sus opositores responden que abrir el mercado beneficiará principalmente a los grandes consumidores industriales, mientras que los hogares de zonas no rentables asumirán los riesgos tarifarios.</p>
+        </div>
+      </section>
+
+      <div class="div-volt"></div>
+
+      <!-- ▸ LA PARADOJA PLN -->
+      <section class="sec">
+        <span class="mono-label">03 · La fractura interna</span>
+        <h2 class="sec-head">La paradoja <span>verdiblanca</span>:<br>un partido que vota<br>contra su propio texto</h2>
+        <div class="prose">
+          <p>El elemento más inusual de esta coyuntura legislativa es que el texto sustitutivo actualmente en debate fue <strong>presentado por el propio PLN</strong> —producto de una negociación entre diputados del PLN, PUSC, PLP y el oficialismo en la legislatura anterior. Sin embargo, el Partido Liberación Nacional llega a este debate profundamente dividido:</p>
+          <p>El <strong>secretario general del Comité Ejecutivo Nacional, Miguel Guillén</strong>, hizo un llamado público directo a los diputados liberacionistas para que no respalden el proyecto: <em>"Liberación Nacional no puede votar contra su propia historia. No puede acompañar una iniciativa que dividirá al Partido y pondrá en riesgo una de las conquistas más profundas del desarrollo costarricense"</em>. El Directorio Nacional de la <strong>Juventud Liberacionista</strong> publicó un documento técnico-político titulado "Argumentos técnicos y políticos contra la Ley de 'Armonización' del Sistema Eléctrico Nacional", advirtiendo sobre posibles riesgos constitucionales señalados por la Procuraduría General y por Servicios Técnicos de la Asamblea.</p>
+          <p>La diputada <strong>Claudia Dobles (CAC — Coalición Agenda Ciudadana)</strong>, ex primera dama de la República durante la administración Alvarado Quesada y única representante de esa coalición en la Asamblea, anunció el domingo 24 de mayo mediante video en redes sociales que <strong>su voto será negativo</strong>, cuestionando tanto el contenido técnico del expediente como sus posibles efectos sobre tarifas y cobertura: <em>"Este proyecto no garantiza el modelo solidario y universal que actualmente tenemos y va a incrementar el precio de la luz para las familias y los pequeños negocios"</em>.</p>
+          <p>El jefe de fracción liberacionista, <strong>Álvaro Ramírez</strong>, tenía una posición más matizada al cierre de edición: señaló que están estudiando el proyecto "a fondo" y que, aunque están de acuerdo en que el país necesita avanzar, consideran que se necesitan "acciones complementarias". Ramírez señaló que la <strong>retrotracción</strong> —un mecanismo que permite aprobar un proyecto en primer debate y devolverlo luego a comisión general para enmiendas— sería la vía para mejorar la propuesta sin rechazarla de plano. La fracción convocó para la mañana de este lunes una conferencia de prensa en la que anunciaría su posición oficial.</p>
+        </div>
+
+        <div class="key-box">
+          <p><strong>El "Combo" del 2000 como memoria colectiva:</strong> Las Juventudes del PAC y organizaciones opositoras evocaron deliberadamente el "Combo del ICE" de marzo del año 2000, cuando miles de personas salieron a las calles y la Sala Constitucional anuló un paquete de leyes que buscaba abrir el sector eléctrico y de telecomunicaciones a la competencia privada. La evocación de ese episodio —una de las mayores movilizaciones ciudadanas de la historia reciente— es un capital simbólico de movilización que los opositores están activando conscientemente.</p>
+        </div>
+
+        <!-- Timeline -->
+        <span class="mono-label" style="margin-top:28px; display:block;">Cronología reciente del expediente</span>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-date">Octubre 2022</div>
+            <div class="tl-text">Administración Chaves Robles presenta el expediente 23.414.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-date">Enero 2024</div>
+            <div class="tl-text"><strong>ICE emite criterio técnico crítico</strong>: el proyecto no es "armonización" sino creación de un mercado mayorista. Servicios Técnicos establece el requisito de 38 votos (dos tercios) por crear institución autónoma.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-date">Octubre 2025</div>
+            <div class="tl-text">La Comisión de Energía dictamina favorablemente el segundo informe de mociones. El proyecto avanza al Plenario. CICR celebra el avance.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-date">Mayo 2026 — Gobierno Fernández</div>
+            <div class="tl-text">La presidenta Laura Fernández convoca el 23.414 en sesiones extraordinarias. Frente Amplio, sindicatos y ecologistas organizan campaña de oposición. PPSO y CICR intensifican el respaldo.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-date">21 mayo 2026</div>
+            <div class="tl-text">Panamá suspende venta de energía a Costa Rica. ICE activa plan de racionamiento —el primero en 17 años— por el impacto de El Niño en caudales. El debate eléctrico adquiere urgencia operativa.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-date">22–24 mayo 2026</div>
+            <div class="tl-text">CEDET, CFIA (con reservas) y CICR respaldan el proyecto. Secretario general del PLN, Juventud Liberacionista, FA y sindicatos intensifican presión sobre la bancada verdiblanca. <strong>Claudia Dobles (CAC)</strong> anuncia voto negativo individualmente.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot live"></div>
+            <div class="tl-date">25 mayo 2026 — 11:12 a.m. — HOY</div>
+            <div class="tl-text"><strong>DECISIÓN DEL PLN:</strong> La fracción verdiblanca, en conferencia de prensa, anunció que sus <strong>17 diputados votarán en contra</strong> del expediente 23.414. En su lugar, presentaron una propuesta alternativa: <strong>Ley Marco Reguladora del Sector Energético en Costa Rica</strong> (también denominada <em>Ley de Emergencia y Seguridad Energética Nacional</em>), articulada en 7 medidas de emergencia. Con esta posición y el rechazo del FA, el gobierno no alcanza los 38 votos requeridos. Juan Carlos Hidalgo (PUSC) calificó la postura del PLN de "inconsistente e irresponsable".</div>
+          </div>
+        </div>
+      </section>
+
+      <div class="div-volt"></div>
+
+      <!-- ▸ MEEE-G -->
+      <section class="sec" id="meee-g">
+        <span class="mono-label">04 · Evaluación epistémica — MEEE-G</span>
+        <h2 class="sec-head">Estado de la<br><span>información disponible</span></h2>
+        <div class="table-wrap">
+          <table class="mt">
+            <tr>
+              <th style="min-width:260px">Afirmación</th>
+              <th style="min-width:70px">Código</th>
+              <th>Fundamento</th>
+            </tr>
+            <tr>
+              <td>El plenario debatirá el 23.414 a partir del 25 de mayo</td>
+              <td><span class="dc">[DC]</span></td>
+              <td>Múltiples fuentes: La Nación, El Mundo CR, Teletica, Semanario Universidad. El 25 de mayo vence el plazo de consultas y se agotan las mociones.</td>
+            </tr>
+            <tr>
+              <td>El proyecto requiere 38 votos (dos tercios) para aprobarse</td>
+              <td><span class="dc">[DC]</span></td>
+              <td>Informe del Departamento de Servicios Técnicos de la Asamblea Legislativa, enero 2024, por creación de institución autónoma (ECOSEN).</td>
+            </tr>
+            <tr>
+              <td>El PPSO tiene asegurados 31 votos propios</td>
+              <td><span class="dc">[DC]</span></td>
+              <td>Diario Extra, 25 mayo 2026. Fracción oficialista confirmó respaldo unánime.</td>
+            </tr>
+            <tr>
+              <td>El texto sustitutivo vigente fue presentado por el PLN</td>
+              <td><span class="dc">[DC]</span></td>
+              <td>El Mundo CR, 24 mayo 2026; Delfino.cr, 24 mayo 2026.</td>
+            </tr>
+            <tr>
+              <td>La diputada Claudia Dobles (<strong>CAC</strong>) votará en contra</td>
+              <td><span class="dc">[DC]</span></td>
+              <td>Video publicado por Dobles (CAC, no PLN) en redes sociales, domingo 24 mayo. Citado por Teletica y La Nación.</td>
+            </tr>
+            <tr>
+              <td>El proyecto crea de facto un mercado mayorista de electricidad</td>
+              <td><span class="dc">[DC]</span></td>
+              <td>ICE (criterio técnico enero 2024) y Delfino.cr (análisis 24 mayo 2026). El texto sustitutivo confirma creación del MEN con subastas y agentes públicos y privados.</td>
+            </tr>
+            <tr>
+              <td>El proyecto no vende ni disuelve el ICE</td>
+              <td><span class="dc">[DC]</span></td>
+              <td>Texto del expediente. El ICE mantiene su propiedad y funciones de generación y distribución; pierde la operación del sistema y la planificación central.</td>
+            </tr>
+            <tr>
+              <td>El ECOSEN podrá operar el sistema con eficacia desde su creación</td>
+              <td><span class="h">[H]</span></td>
+              <td>El CFIA señala vacíos técnicos. No existe evidencia verificada de un plan de transición operativa detallado. La construcción institucional de un ente de esta complejidad toma años.</td>
+            </tr>
+            <tr>
+              <td>La apertura del mercado reducirá las tarifas eléctricas</td>
+              <td><span class="h">[H]</span></td>
+              <td>Argumento central del PPSO, CICR y CEDET. La evidencia comparada internacional es mixta: la liberalización en Chile (años 1980) produjo reducción tarifaria en industria; en California (2001) produjo crisis. El efecto depende del diseño regulatorio.</td>
+            </tr>
+            <tr>
+              <td>La apertura pondrá en riesgo la cobertura en zonas rurales</td>
+              <td><span class="ip">[IP]</span></td>
+              <td>Inferencia plausible basada en experiencias comparadas. El texto incluye principios de solidaridad, pero su efectividad depende de cómo ECOSEN y MINAE los operacionalicen.</td>
+            </tr>
+            <tr>
+              <td>El PLN (17 diputados) rechazará el 23.414 y propondrá ley alternativa</td>
+              <td><span class="dc">[DC]</span></td>
+              <td>La Nación, 25 mayo 2026, 11:12 a.m. (Mora, Sequeira, Salazar): fracción verdiblanca anuncia voto en contra unánime y presenta <em>Ley Marco Reguladora del Sector Energético / Ley de Emergencia y Seguridad Energética Nacional</em> como alternativa. Con PLN + FA en contra, el gobierno no alcanza los 38 votos.</td>
+            </tr>
+            <tr>
+              <td>El proyecto tiene vicios de constitucionalidad</td>
+              <td><span class="ip">[IP]</span></td>
+              <td>Advertencia mencionada por la Juventud Liberacionista, atribuida a criterios de Procuraduría y Servicios Técnicos. No ha sido verificado el texto exacto del dictamen; inferencia plausible dado el alcance de la reforma.</td>
+            </tr>
+          </table>
+        </div>
+      </section>
+
+      <div class="div-volt"></div>
+
+      <!-- ▸ ADD -->
+      <section class="sec" id="add">
+        <span class="mono-label">05 · Análisis dinámico — ADD</span>
+        <h2 class="sec-head">Lectura estructural:<br><span>colonización, clausura</span><br>y bifurcación</h2>
+
+        <div class="add-wrap">
+          <div class="add-title">⬡ Antropología Dinámica del Devenir — Protocolo de 5 pasos</div>
+
+          <div class="add-row">
+            <div class="add-key">Paso 0<br>Nivel y herramienta</div>
+            <div class="add-val">El análisis opera en tres niveles simultáneamente: <strong>comunicativo-institucional</strong> (Habermas: tensión entre el sistema mercantil-burocrático y el mundo de vida del modelo solidario); <strong>práctico-disposicional</strong> (Bourdieu: habitus institucional del ICE y campo político-energético); <strong>normativo-plural</strong> (pluralismo: coexistencia de lógicas públicas y de mercado en el mismo espacio eléctrico).</div>
+          </div>
+
+          <div class="add-row">
+            <div class="add-key">Paso 1<br>Organización simbólica</div>
+            <div class="add-val">La clausura organizacional del modelo eléctrico costarricense se estructura en torno a tres principios normativos históricamente consolidados durante siete décadas: <strong>universalidad</strong> (acceso independiente de la rentabilidad territorial), <strong>solidaridad</strong> (tarifas cruzadas entre sectores), y <strong>planificación pública integrada</strong> (el ICE como operador que absorbe el riesgo de largo plazo). Este conjunto forma el <em>habitus</em> institucional del sector. La memoria colectiva del "Combo del 2000" funciona como capital simbólico de resistencia que puede movilizarse rápidamente cuando esa clausura se siente amenazada.</div>
+          </div>
+
+          <div class="add-row">
+            <div class="add-key">Paso 2<br>Flujos disipativos</div>
+            <div class="add-val">Las formas de capital que sostienen la organización actual: <strong>capital económico</strong> — el ICE como entidad con flujos financieros propios, acceso a crédito y capacidad de inversión en infraestructura; <strong>capital técnico-cultural</strong> — décadas de conocimiento acumulado en operación del sistema, meteorología eléctrica, ingeniería hídrica; <strong>capital simbólico</strong> — la legitimidad del ICE como garante del desarrollo eléctrico nacional, erosionada en los últimos años por narrativas de ineficiencia; <strong>capital social</strong> — redes de apoyo político transpartidario que históricamente protegieron al ICE de reformas radicales. El proyecto 23.414 busca redistribuir los flujos económicos hacia actores privados y el capital técnico-operativo hacia el ECOSEN.</div>
+          </div>
+
+          <div class="add-row">
+            <div class="add-key">Paso 3<br>Perturbaciones</div>
+            <div class="add-val">Tres perturbaciones operan simultáneamente sobre el sistema: (1) <strong>Perturbación sistémica-mercantil</strong>: el 23.414 como instrumento del sistema económico (lógica de competencia, inversión privada, reducción de costos) que penetra en el mundo de vida del modelo solidario — colonización habermasiana en sentido estricto; (2) <strong>Perturbación climática-disipativa</strong>: El Niño 2026-2027 interrumpe los flujos hídricos que sostienen la organización actual del sistema eléctrico, creando una presión material concreta que hace visible la fragilidad del modelo; (3) <strong>Perturbación político-partidaria</strong>: la fractura interna del PLN genera turbulencia en el campo político que puede, paradójicamente, tanto bloquear como facilitar la reforma dependiendo de cómo resuelvan la paradoja de votar contra su propio texto.</div>
+          </div>
+
+          <div class="add-row">
+            <div class="add-key">Paso 4<br>Acoplamiento estructural<br>y régimen</div>
+            <div class="add-val">El sistema político-energético costarricense está en <strong>zona de bifurcación</strong>. El parámetro de control es el capital político disponible para alcanzar 38 votos hoy. Dos estados posibles: (A) si los votos se materializan, el sistema entra en una trayectoria de transformación estructural con efectos de largo plazo; (B) si los votos fallan, el sistema retorna a un régimen laminar con reformas incrementales posibles. La bifurcación prigoginiana aquí es real, no metafórica: la misma estructura del sistema cambia cualitativamente en función de si se cruza o no el umbral de 38 votos esta semana.</div>
+          </div>
+
+          <div class="add-row">
+            <div class="add-key">Paso 5<br>Reflexividad declarada</div>
+            <div class="add-val">Este análisis es producido dentro del mismo campo que observa: Costa Rica como nodo periférico del sistema energético global, en el que la decisión sobre la arquitectura eléctrica local está acoplada a dinámicas de inversión internacional, precios de commodities energéticos y presiones del sistema financiero global. El análisis ANCA-ADD no recomienda posición política; identifica dinámicas y clasifica el estatus epistémico de las afirmaciones disponibles.</div>
+          </div>
+
+          <span class="regime reg-bif">⚡ Bifurcación resuelta — 23.414 sin votos · debate sobre ley alternativa</span>
+        </div>
+
+        <!-- Colonización habermasiana — análisis más profundo -->
+        <div style="margin-top: 32px;">
+          <span class="mono-label">Nota analítica: colonización del mundo de vida eléctrico</span>
+          <div class="prose">
+            <p>El concepto habermasiano de <strong>colonización del mundo de la vida</strong> captura con precisión el mecanismo central en disputa. La electricidad costarricense no fue solo una infraestructura: fue un proyecto de nación articulado alrededor del principio de que el acceso a la energía es un derecho y no un servicio de mercado. Esa lógica comunicativa —coordinación por consenso político sobre qué es el bien común energético— es exactamente lo que el modelo del MEN y el ECOSEN busca reemplazar por una lógica sistémica: coordinación por precio, competencia y señales de mercado.</p>
+            <p>Esto no significa que la reforma sea incorrecta. Significa que el debate real no es técnico-tarifario sino <strong>ontológico-político</strong>: ¿qué tipo de bien es la electricidad? ¿Es un commodity sujeto a las señales del mercado, o es un bien público cuya distribución define el tipo de sociedad que somos? La retórica de "modernización" funciona precisamente porque oculta esa pregunta de fondo detrás de argumentos técnicos sobre eficiencia y competitividad que son, en sí mismos, válidos pero insuficientes para responder la pregunta que importa.</p>
+            <p>Desde la perspectiva de la violencia simbólica bourdesiana, hay un elemento adicional que merece atención: la velocidad del proceso. Las Juventudes PAC y otros sectores críticos señalan que la <strong>"armonización acelerada"</strong>, sin suficiente discusión técnica pública ni participación ciudadana, genera sospechas legítimas. Cuando el ritmo del cambio institucional supera la capacidad de los actores afectados de procesar la perturbación y determinar internamente sus términos de respuesta, estamos ante lo que la ADD llamaría una perturbación que desborda la clausura organizacional —y eso produce exactamente el tipo de resistencia masiva que el "Combo" del 2000 evidenció.</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="div-volt"></div>
+
+      <!-- ▸ EL NIÑO Y LA PARADOJA TEMPORAL -->
+      <section class="sec">
+        <span class="mono-label">06 · La paradoja temporal</span>
+        <h2 class="sec-head">El Niño y la reforma:<br><span>dos bifurcaciones</span><br>en el mismo horizonte</h2>
+        <div class="prose">
+          <p>El contexto climático no es un telón de fondo: es un factor estructural del análisis. El IMN confirmó esta semana la advertencia formal de El Niño, con déficits de lluvia de hasta el 50% en el Pacífico Norte proyectados para junio-noviembre 2026, y el BCCR anticipa que los efectos sobre generación eléctrica se sentirán con mayor intensidad en los primeros meses de 2027 —exactamente cuando el ECOSEN estaría en sus primeras etapas de constitución institucional si el proyecto se aprueba hoy.</p>
+          <p>El presidente panameño Mulino ya anunció que Panamá no venderá energía a Costa Rica. El ICE activó el 21 de mayo un plan de racionamiento eléctrico que no se veía en 17 años. El costo adicional de la generación térmica de respaldo —dependiente del precio del petróleo que a su vez está condicionado por el cierre de Ormuz— representa un vector de presión sobre las tarifas que opera independientemente de lo que decida la Asamblea esta semana.</p>
+          <p>La paradoja temporal es esta: <strong>si el sistema eléctrico necesita más capacidad instalada para 2040</strong>, la reforma busca acelerar esa inversión. Pero el período de transición institucional —mientras el ECOSEN se construye, mientras el ICE transfiere activos y personal, mientras el mercado mayorista se pone en marcha— coincidirá con el período de mayor estrés hídrico en años. El modelo de mercado transfiere el riesgo de largo plazo a los actores privados; pero en épocas de incertidumbre climática extrema, los actores privados tienden a contratos cortos y posiciones conservadoras, no a inversiones de largo plazo en generación hidroeléctrica.</p>
+        </div>
+      </section>
+
+      <div class="div-volt"></div>
+
+      <!-- ▸ ESCENARIOS -->
+      <section class="sec" id="escenarios">
+        <span class="mono-label">07 · Escenarios plausibles</span>
+        <h2 class="sec-head">Tres trayectorias<br>para las próximas<br><span>48 horas</span></h2>
+        <div class="scenarios">
+          <div class="sc sc-c" style="border-left-color:var(--volt); border-left-width:5px;">
+            <div class="sc-label" style="color:var(--volt);">⚡ ACTUALIZACIÓN 11:12 A.M. — Escenario confirmado</div>
+            <div class="sc-cond">PLN (17 votos) + FA (3 votos) en contra: el gobierno no alcanza los 38 votos requeridos para el 23.414</div>
+            <p><strong>El PLN anunció esta mañana que sus 17 diputados votarán en contra del expediente 23.414.</strong> Combinado con el rechazo del Frente Amplio, el gobierno PPSO no puede alcanzar el umbral de 38 votos con sus 31 diputados más eventuales apoyos del PUSC. El escenario que era [H] hipótesis esta madrugada es ahora [DC] dato confirmado. Juan Carlos Hidalgo (PUSC) calificó la posición del PLN de "inconsistente e irresponsable", señalando que buena parte de los aspectos problemáticos del texto responden precisamente a condiciones impuestas por el propio PLN durante las negociaciones de los últimos cuatro años.</p>
+          </div>
+          <div class="sc sc-b">
+            <div class="sc-label">Escenario emergente — Ley alternativa del PLN</div>
+            <div class="sc-cond">Condición: el gobierno acepta negociar sobre la propuesta liberacionista</div>
+            <p>En lugar del 23.414, el PLN propone una <strong>Ley Marco Reguladora del Sector Energético en Costa Rica</strong> (también denominada <em>Ley de Emergencia y Seguridad Energética Nacional</em>), orientada a siete medidas: evitar racionamientos en 2026-2027; proteger hogares de alzas abruptas; fortalecer financieramente al ICE, JASEC, ESPH y cooperativas; acelerar almacenamiento y generación renovable; reforzar transmisión estratégica; crear una Ventanilla Única Energética; y establecer mecanismos de estabilidad tarifaria. Este escenario implica que el debate sobre la reforma eléctrica continúa, pero bajo una arquitectura legislativa distinta, posiblemente de carácter más incremental y con el ICE como eje central.</p>
+          </div>
+          <div class="sc sc-c">
+            <div class="sc-label">Escenario de riesgo — Parálisis y vacío regulatorio</div>
+            <div class="sc-cond">Condición: el gobierno no acepta la propuesta alternativa del PLN; el debate se estanca</div>
+            <p>Si el gobierno Fernández rechaza la propuesta alternativa del PLN y no logra negociar una tercera vía, el sistema eléctrico queda sin reforma estructural en el horizonte inmediato. El déficit de inversión hacia 2040 (2,495 MW adicionales requeridos según el ICE) sigue sin respuesta legislativa, y la presión de El Niño 2026-2027 se enfrenta con el marco institucional actual sin los mecanismos adicionales de generación privada que defendía el 23.414. La señal política es de debilidad ejecutiva en la primera prueba legislativa mayor del gobierno Fernández.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ▸ INCERTIDUMBRES -->
+      <section class="sec">
+        <span class="mono-label">08 · Incertidumbres abiertas</span>
+        <h2 class="sec-head">Lo que <span>no sabemos</span><br>al cierre de edición</h2>
+        <div class="unc-list">
+          <div class="unc-item">
+            <div class="unc-n">01</div>
+            <div class="unc-t"><strong>✓ RESUELTA (11:12 a.m.):</strong> El PLN anunció voto en contra unánime de sus 17 diputados. Con PLN + FA, el 23.414 no alcanza los 38 votos. La incertidumbre que persiste es si el gobierno Fernández aceptará negociar sobre la propuesta alternativa del PLN o insistirá con el 23.414.</div>
+          </div>
+          <div class="unc-item">
+            <div class="unc-n">02</div>
+            <div class="unc-t"><strong>¿El PUSC vota en bloque a favor?</strong> La socialcristiana Abril Gordienko no había dado posición definitiva al cierre de edición del domingo. El PUSC en general ha apoyado el proyecto, pero su posición oficial no estaba confirmada.</div>
+          </div>
+          <div class="unc-item">
+            <div class="unc-n">03</div>
+            <div class="unc-t"><strong>¿El gobierno acepta negociar sobre la Ley de Emergencia y Seguridad Energética Nacional propuesta por el PLN?</strong> La propuesta liberacionista prioriza medidas de emergencia para 2026-2027 sobre la reforma estructural del ECOSEN y el MEN. Si el gobierno la rechaza y mantiene el 23.414 como única opción, el debate puede paralizarse indefinidamente. Si la acepta como base de negociación, la reforma energética avanza en formato más incremental.</div>
+          </div>
+          <div class="unc-item">
+            <div class="unc-n">04</div>
+            <div class="unc-t"><strong>¿Qué dice exactamente el criterio de constitucionalidad de la Procuraduría y de Servicios Técnicos?</strong> La Juventud Liberacionista lo invocó, pero no ha circulado el texto completo. Si hay advertencias específicas sobre artículos, eso puede condicionar qué tipo de mayoría se requiere para distintas partes del proyecto.</div>
+          </div>
+          <div class="unc-item">
+            <div class="unc-n">05</div>
+            <div class="unc-t"><strong>¿Tiene el ECOSEN un diseño técnico-operativo real?</strong> El texto legislativo crea la institución pero no detalla su estructura de gobernanza, financiamiento inicial ni plan de transición de activos y personal desde el ICE. Esa indefinición es la principal fuente de riesgo operativo que el CFIA señaló.</div>
+          </div>
+          <div class="unc-item">
+            <div class="unc-n">06</div>
+            <div class="unc-t"><strong>¿Cómo afecta el contexto de El Niño la disposición de generadores privados a comprometerse en contratos de generación de largo plazo?</strong> El mercado mayorista propuesto asume inversión privada en generación renovable. Pero el horizonte de incertidumbre climática puede hacer que esa inversión no se materialice a la velocidad que el modelo supone.</div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ─── SIDEBAR ─── -->
+    <aside class="sidebar">
+
+      <!-- MAPA DE VOTOS -->
+      <div class="side-card volt-top">
+        <h4>⚡ Mapa de votos — umbral: 38/57</h4>
+        <div class="vote-meter">
+          <div class="vm-row">
+            <div class="vm-party">PPSO</div>
+            <div class="vm-bar-wrap"><div class="vm-bar" style="width:100%; background:var(--grn2);"></div></div>
+            <div class="vm-n">31</div>
+            <span class="vm-status st-apoya">A favor</span>
+          </div>
+          <div class="vm-row">
+            <div class="vm-party">PLN</div>
+            <div class="vm-bar-wrap"><div class="vm-bar" style="width:100%; background:var(--red);"></div></div>
+            <div class="vm-n">17</div>
+            <span class="vm-status st-contra">En contra ✓</span>
+          </div>
+          <div class="vm-row">
+            <div class="vm-party">PUSC</div>
+            <div class="vm-bar-wrap"><div class="vm-bar" style="width:70%; background:#4080c0;"></div></div>
+            <div class="vm-n">~5</div>
+            <span class="vm-status st-desc">Sin posición</span>
+          </div>
+          <div class="vm-row">
+            <div class="vm-party">FA</div>
+            <div class="vm-bar-wrap"><div class="vm-bar" style="width:100%; background:var(--red);"></div></div>
+            <div class="vm-n">3</div>
+            <span class="vm-status st-contra">En contra</span>
+          </div>
+          <div class="vm-row">
+            <div class="vm-party">Otros</div>
+            <div class="vm-bar-wrap"><div class="vm-bar" style="width:60%; background:#606060;"></div></div>
+            <div class="vm-n">~10</div>
+            <span class="vm-status st-desc">Mixto</span>
+          </div>
+        </div>
+        <div class="threshold-line">⚡ PLN (17) + FA (3) en contra: el 23.414 no alcanza 38 votos</div>
+        <p style="font-family:var(--fm); font-size:8.5px; color:var(--txt3); margin-top:10px; line-height:1.7;"><strong style="color:var(--red2);">ACTUALIZADO 11:12 a.m.:</strong> PLN confirma voto en contra unánime. Propone ley alternativa. La Nación, 25·V·2026.</p>
+      </div>
+
+      <!-- ACTORES CLAVE -->
+      <div class="side-card">
+        <h4>Actores clave — posiciones</h4>
+
+        <div class="actor-card">
+          <div class="actor-name">Gobierno Fernández / PPSO</div>
+          <span class="actor-pos pos-a">A favor</span>
+          <p class="actor-quote">"Modernización del sistema, mayor inversión, tarifas competitivas."</p>
+        </div>
+        <div class="actor-card">
+          <div class="actor-name">Miguel Guillén — Sec. Gral. PLN</div>
+          <span class="actor-pos pos-c">En contra</span>
+          <p class="actor-quote">"No es una reforma: es una ruptura. Liberación no puede votar contra su propia historia."</p>
+        </div>
+        <div class="actor-card">
+          <div class="actor-name">Claudia Dobles — diputada <strong>CAC</strong></div>
+          <span class="actor-pos pos-c">Voto en contra</span>
+          <p class="actor-quote">"Este proyecto no garantiza el modelo solidario y universal que tenemos y va a incrementar el precio de la luz."</p>
+        </div>
+        <div class="actor-card">
+          <div class="actor-name">Álvaro Ramírez — jefe fracción PLN</div>
+          <span class="actor-pos pos-c">17 votos en contra</span>
+          <p class="actor-quote">Confirma voto en contra unánime del PLN (25 mayo, 11:12 a.m.). Propone Ley de Emergencia y Seguridad Energética Nacional como alternativa.</p>
+        </div>
+        <div class="actor-card">
+          <div class="actor-name">CEDET</div>
+          <span class="actor-pos pos-a">A favor</span>
+          <p class="actor-quote">"El texto preserva solidaridad y mejora la posición de distribuidoras."</p>
+        </div>
+        <div class="actor-card">
+          <div class="actor-name">CFIA</div>
+          <span class="actor-pos pos-d">Apoyo con reservas</span>
+          <p class="actor-quote">Modernización necesaria, pero señala vacíos técnicos sobre transición del ECOSEN.</p>
+        </div>
+        <div class="actor-card">
+          <div class="actor-name">ICE</div>
+          <span class="actor-pos pos-c">Crítico</span>
+          <p class="actor-quote">Criterio técnico (ene. 2024): crea mercado mayorista con riesgos para planificación integrada.</p>
+        </div>
+        <div class="actor-card">
+          <div class="actor-name">Frente Amplio</div>
+          <span class="actor-pos pos-c">En contra</span>
+          <p class="actor-quote">"Apagones y tarifazos." Privatización funcional.</p>
+        </div>
+        <div class="actor-card">
+          <div class="actor-name">Sindicatos / SITRASEP</div>
+          <span class="actor-pos pos-c">En contra</span>
+          <p class="actor-quote">Movilización en la barra de la Asamblea.</p>
+        </div>
+        <div class="actor-card">
+          <div class="actor-name">CICR</div>
+          <span class="actor-pos pos-a">A favor</span>
+          <p class="actor-quote">CR necesita 2.495 MW adicionales para 2040. La inversión privada es indispensable.</p>
+        </div>
+      </div>
+
+      <!-- ECOSEN vs ICE -->
+      <div class="side-card teal-top">
+        <h4>ECOSEN vs. ICE — lo que cambia</h4>
+        <div style="font-family:var(--fm); font-size:8.5px; color:var(--txt2); line-height:2;">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:8px;">
+            <div style="color:var(--volt3);">HOY (ICE)</div>
+            <div style="color:var(--teal2);">CON 23.414</div>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; padding:6px 0; border-top:1px solid var(--bdr);">
+            <div>Opera el despacho nacional</div>
+            <div>ECOSEN</div>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; padding:6px 0; border-top:1px solid var(--bdr);">
+            <div>Planifica expansión del SEN</div>
+            <div>ECOSEN + MINAE</div>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; padding:6px 0; border-top:1px solid var(--bdr);">
+            <div>Administra el mercado</div>
+            <div>ECOSEN</div>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; padding:6px 0; border-top:1px solid var(--bdr);">
+            <div>Genera electricidad</div>
+            <div>ICE (mantiene)</div>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; padding:6px 0; border-top:1px solid var(--bdr);">
+            <div>Distribuye electricidad</div>
+            <div>ICE + distribuidoras</div>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; padding:6px 0; border-top:1px solid var(--bdr);">
+            <div>Regula tarifas</div>
+            <div>ARESEP (mantiene)</div>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; padding:6px 0; border-top:1px solid var(--bdr);">
+            <div>Generación privada: contratos ICE</div>
+            <div>Generación privada: MEN + contratos</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONTEXTO EL NIÑO -->
+      <div class="side-card red-top">
+        <h4>🌡 Contexto El Niño 2026-2027</h4>
+        <div style="font-family:var(--fm); font-size:8.5px; color:var(--txt2); line-height:2.2;">
+          <div>IMN: <strong style="color:var(--txt);">Advertencia formal confirmada</strong></div>
+          <div>NOAA: <strong style="color:var(--txt);">96% prob. hasta feb. 2027</strong></div>
+          <div>Pacífico Norte: <strong style="color:var(--red2);">hasta -50% lluvia</strong></div>
+          <div>Temperatura: <strong style="color:var(--red2);">+1.5–2°C sobre normal</strong></div>
+          <div>Panamá: <strong style="color:var(--red2);">no venderá energía a CR</strong></div>
+          <div>ICE: <strong style="color:var(--volt);">plan de racionamiento activo</strong></div>
+          <div>BCCR: choque inflacionario <strong style="color:var(--txt);">proyectado ini. 2027</strong></div>
+        </div>
+      </div>
+
+    </aside>
+  </div>
+
+</div><!-- /page -->
+
+<!-- REFERENCES -->
+<div class="refs">
+  <div style="max-width:1200px; margin:0 auto;">
+    <h3>Referencias — APA 7</h3>
+
+    <p class="ref-item">Asamblea Legislativa de Costa Rica. (2022). <em>Expediente 23.414 — Ley de Armonización del Sistema Eléctrico Nacional.</em> Texto original y texto sustitutivo. <a href="https://delfino.cr/asamblea/proyecto/23414">https://delfino.cr/asamblea/proyecto/23414</a></p>
+
+    <p class="ref-item">Departamento de Servicios Técnicos, Asamblea Legislativa de Costa Rica. (2024, 31 de enero). <em>Informe jurídico sobre el expediente 23.414: requisito de dos tercios por creación de institución autónoma (ECOSEN).</em> Citado en Semanario Universidad (2026, 24 de mayo) y Teletica (2026, 25 de mayo).</p>
+
+    <p class="ref-item">Instituto Costarricense de Electricidad [ICE]. (2024, enero). <em>Criterio técnico-jurídico sobre el expediente 23.414.</em> División Jurídica, firmado por L. Arguijo Vargas. Citado en Delfino.cr (2026, 24 de mayo).</p>
+
+    <p class="ref-item">Delfino, D. (2026, 24 de mayo). <em>Reforma eléctrica vuelve a la agenda: ¿qué propone el expediente 23.414 y por qué sus críticos hablan de "Ley Apagón"?</em> Delfino.cr. <a href="https://delfino.cr/2026/05/reforma-electrica-vuelve-a-la-agenda-que-propone-el-expediente-23414-y-por-que-sus-criticos-hablan-de-ley-apagon">https://delfino.cr</a></p>
+
+    <p class="ref-item">El Mundo CR. (2026, 24 de mayo). <em>PLN enfrentará votación de texto sustitutivo suyo sobre apertura eléctrica en medio de presión interna para rechazarlo.</em> <a href="https://elmundo.cr/costa-rica/pln-enfrentara-votacion-de-texto-sustitutivo-suyo">https://elmundo.cr</a></p>
+
+    <p class="ref-item">El Mundo CR. (2026, 24 de mayo). <em>CFIA respalda modernización eléctrica, pero advierte vacíos en proyecto de ley.</em> <a href="https://elmundo.cr/costa-rica/cfia-respalda-modernizacion-electrica">https://elmundo.cr</a></p>
+
+    <p class="ref-item">El Mundo CR. (2026, 23 de mayo). <em>CEDET respalda aprobación de proyecto de Ley de Armonización Eléctrica.</em> <a href="https://elmundo.cr/costa-rica/cedet-respalda-aprobacion">https://elmundo.cr</a></p>
+
+    <p class="ref-item">Mora, C., Sequeira, A., y Salazar, Y. (2026, 25 de mayo). <em>PLN anuncia cómo votará el proyecto de Ley de Armonización Eléctrica.</em> La Nación, 11:12 a.m. <a href="https://www.nacion.com/politica/pln-anuncia-como-votara-el-proyecto-para-reformar/6IYN5KRMXRBCJLF3S5OUXADGUU/story/">https://www.nacion.com</a></p>
+
+    <p class="ref-item">Teletica. (2026, 25 de mayo). <em>Juan Carlos Hidalgo arremete contra PLN por rechazo a proyecto de armonización eléctrica.</em> <a href="https://www.teletica.com/politica/juan-carlos-hidalgo-arremete-contra-pln-por-rechazo-a-proyecto-de-armonizacion-electrica_409385">https://www.teletica.com</a></p>
+
+    <p class="ref-item">Observador CR. (2026, 3 de febrero). <em>Claudia Dobles se convierte en la cuarta ex primera dama en alcanzar una diputación.</em> [Dobles electa por Coalición Agenda Ciudadana (CAC), no por PLN.] <a href="https://observador.cr/claudia-dobles-se-convierte-en-la-cuarta-ex-primera-dama-en-alcanzar-una-diputacion/">https://observador.cr</a></p>
+
+    <p class="ref-item">Astorga, L. (2026, 21 de mayo). <em>Reforma eléctrica: estos son los cambios que propone el gobierno para el ICE y el mercado energético.</em> La Nación. <a href="https://www.nacion.com/politica/reforma-electrica-estos-son-los-cambios-que">https://www.nacion.com</a></p>
+
+    <p class="ref-item">Teletica. (2026, 25 de mayo). <em>Claudia Dobles anuncia que votará en contra del proyecto para abrir el mercado eléctrico.</em> <a href="https://www.teletica.com/politica/claudia-dobles-anuncia-que-votara-en-contra-del-proyecto-para-abrir-el-mercado-electrico_409341">https://www.teletica.com</a></p>
+
+    <p class="ref-item">Teletica. (2026, 25 de mayo). <em>PLN convoca a conferencia para anunciar su posición sobre proyecto que abriría el mercado eléctrico.</em> <a href="https://www.teletica.com/politica/pln-convoca-a-conferencia-para-anunciar-su-posicion">https://www.teletica.com</a></p>
+
+    <p class="ref-item">Teletica. (2026, 25 de mayo). <em>Ariel Robles pide al PLN y CAC no dar sus votos para aprobar la armonización eléctrica.</em> <a href="https://www.teletica.com/politica/ariel-robles-pide-al-pln-y-cac-no-dar-sus-votos">https://www.teletica.com</a></p>
+
+    <p class="ref-item">Semanario Universidad. (2026, 24 de mayo). <em>Proyecto que privatiza servicio de electricidad requiere 38 votos para su aprobación, según informe legislativo.</em> <a href="https://semanariouniversidad.com/pais/proyecto-que-privatiza-servicio-de-electricidad-requiere-38-votos">https://semanariouniversidad.com</a></p>
+
+    <p class="ref-item">Semanario Universidad. (2026, 23 de mayo). <em>PLN, juventud liberacionista y organizaciones piden a fracción verdiblanca rechazar proyecto que privatiza sector eléctrico.</em> <a href="https://semanariouniversidad.com/pais/pln-juventud-liberacionista-y-organizaciones">https://semanariouniversidad.com</a></p>
+
+    <p class="ref-item">Diario Extra. (2026, 25 de mayo). <em>Armonización eléctrica divide criterios antes de discusión legislativa.</em> <a href="https://www.diarioextra.com/noticia/armonizacion-electrica-divide-criterios">https://www.diarioextra.com</a></p>
+
+    <p class="ref-item">CRHoy. (2026, 24 de mayo). <em>Empresarios respaldan proyecto de armonización eléctrica.</em> <a href="https://www.crhoy.com/nacionales/empresarios-respaldan-proyecto-de-armonizacion-electrica/">https://www.crhoy.com</a></p>
+
+    <p class="ref-item">Acontecer CR. (2026, 23 de mayo). <em>Guillén al PLN: no entreguen votos para debilitar al ICE.</em> <a href="https://acontecer.co.cr/nacionales/guillen-pln-no-entreguen-votos-debilitar-ice">https://acontecer.co.cr</a></p>
+
+    <p class="ref-item">Delfino.cr. (2026, mayo). <em>El debate sobre la apertura eléctrica en Costa Rica: ¿modernización o debilitamiento del modelo solidario?</em> <a href="https://delfino.cr/2026/05/el-debate-sobre-la-apertura-electrica-en-costa-rica">https://delfino.cr</a></p>
+
+    <p class="ref-item">Monumental. (2026, 21 de mayo). <em>Frente Amplio fustiga plan sobre armonización eléctrica y dice que provocará 'apagones y tarifazos'.</em> <a href="https://www.monumental.co.cr/2026/05/21">https://www.monumental.co.cr</a></p>
+
+    <p class="ref-item">El Financiero CR. (2026, 22 de mayo). <em>¿Costa Rica necesita comprar electricidad a Panamá? ¿Por qué?</em> <a href="https://www.elfinancierocr.com/economia-y-politica/costa-rica-necesita-comprar-electricidad-a-panama">https://www.elfinancierocr.com</a></p>
+
+    <p class="ref-item">Revista Summa. (2025, octubre). <em>Proyecto de Armonización del Sector Eléctrico Nacional da gran paso en su trámite legislativo.</em> <a href="https://revistasumma.com/costa-rica-proyecto-de-armonizacion-del-sector-electrico-nacional">https://revistasumma.com</a></p>
+
+    <p class="ref-item">Cámara de Industrias de Costa Rica [CICR]. (2023, octubre). <em>Texto sustitutivo — Expediente 23.414.</em> <a href="https://cicr.com/wp-content/uploads/2023/10/Sustitutivo-23.414-final-1.pdf">https://cicr.com</a></p>
+
+    <p class="ref-item">Habermas, J. (1987). <em>The Theory of Communicative Action, Vol. 2: Lifeworld and System.</em> Beacon Press. (Original publicado en 1981)</p>
+
+    <p class="ref-item">Bourdieu, P. (1977). <em>Outline of a Theory of Practice.</em> Cambridge University Press.</p>
+
+    <p class="ref-item">Prigogine, I. (1996). <em>El fin de las certidumbres: tiempo, caos y las leyes de la naturaleza.</em> Andrés Bello.</p>
+
+    <p class="ref-item">Maturana, H., & Varela, F. (1984). <em>El árbol del conocimiento.</em> Editorial Universitaria.</p>
+  </div>
+</div>
+
+<!-- GLOSARIO -->
+<div id="glosario" class="glosario">
+  <div class="glosario-inner">
+    <h3>Glosario de Conceptos Clave</h3>
+    <p class="glos-sub">Marco analítico · Instituciones · Actores · Expediente 23.414</p>
+
+    <!-- INSTITUCIONES Y ENTES -->
+    <div class="glos-cat">
+      <div class="glos-cat-title">Instituciones y entes del sistema eléctrico</div>
+
+      <div class="glos-item">
+        <div class="glos-term">ICE<em>Instituto Costarricense de Electricidad</em></div>
+        <div class="glos-def">Entidad estatal autónoma fundada en 1949. Operador histórico integrado verticalmente del sistema eléctrico costarricense: genera, transmite, distribuye y —hasta la aprobación del 23.414— opera y planifica el Sistema Eléctrico Nacional. Bajo el 23.414 mantendría sus funciones de generación y distribución pero perdería la operación del sistema y la planificación central, que pasarían al ECOSEN.</div>
+      </div>
+      <div class="glos-item">
+        <div class="glos-term">ECOSEN<em>Ente Coordinador del Sistema Eléctrico Nacional</em></div>
+        <div class="glos-def">Nueva institución autónoma propuesta en el expediente 23.414. Asumiría las funciones de operación, planificación y administración del Sistema Eléctrico Nacional y del Mercado Eléctrico Nacional —funciones que hoy ejerce el ICE. Su creación es el elemento más controvertido del proyecto y el que determina el requisito de 38 votos (dos tercios), pues la Constitución exige esa mayoría para crear instituciones autónomas.</div>
+      </div>
+      <div class="glos-item">
+        <div class="glos-term">MEN<em>Mercado Eléctrico Nacional</em></div>
+        <div class="glos-def">Mecanismo propuesto en el 23.414 donde distintos agentes —públicos, privados, cooperativas, distribuidores, autoproductores— comprarían y venderían electricidad mediante subastas y contratos regulados. Los grandes consumidores industriales (más de 73 clientes de alta tensión) tendrían acceso directo para negociar precios en el mercado nacional y centroamericano.</div>
+      </div>
+      <div class="glos-item">
+        <div class="glos-term">ARESEP<em>Autoridad Reguladora de los Servicios Públicos</em></div>
+        <div class="glos-def">Ente regulador independiente que fija las tarifas de los servicios públicos en Costa Rica, incluyendo la electricidad. Bajo el 23.414 mantendría su función regulatoria y supervisaría el proceso de traslado de activos del ICE al ECOSEN.</div>
+      </div>
+      <div class="glos-item">
+        <div class="glos-term">MINAE<em>Ministerio de Ambiente y Energía</em></div>
+        <div class="glos-def">Rector del subsector eléctrico según el 23.414. En la nueva arquitectura propuesta: el MINAE define la política energética nacional, la ARESEP regula las tarifas y el ECOSEN opera el sistema. El ICE quedaría como generador y distribuidor sin rol de planificador central.</div>
+      </div>
+      <div class="glos-item">
+        <div class="glos-term">CEDET<em>Consorcio de Empresas de Distribución Eléctrica de Costa Rica</em></div>
+        <div class="glos-def">Consorcio que agrupa a las distribuidoras eléctricas —cooperativas, ESPH, JASEC— que operan en distintas zonas del país. Respalda el 23.414 argumentando que el texto preserva los principios de solidaridad y mejora la posición competitiva de las distribuidoras no-ICE.</div>
+      </div>
+      <div class="glos-item">
+        <div class="glos-term">CICR<em>Cámara de Industrias de Costa Rica</em></div>
+        <div class="glos-def">Gremio empresarial que agrupa a las industrias manufactureras costarricenses. Apoya el 23.414 argumentando que Costa Rica necesita 2.495 MW adicionales de capacidad instalada para 2040 —un crecimiento del 71.3%— y que esa inversión no puede financiarse solo con recursos públicos.</div>
+      </div>
+      <div class="glos-item">
+        <div class="glos-term">CFIA<em>Colegio Federado de Ingenieros y de Arquitectos</em></div>
+        <div class="glos-def">Organismo profesional que respalda el 23.414 con reservas técnicas: considera que la modernización es necesaria, pero señala vacíos en el diseño de gobernanza del ECOSEN y en el plan de transición operativa desde el ICE.</div>
+      </div>
+      <div class="glos-item">
+        <div class="glos-term">IMN<em>Instituto Meteorológico Nacional</em></div>
+        <div class="glos-def">Entidad estatal costarricense adscrita al MINAE, responsable del monitoreo y pronóstico meteorológico y climático. En este análisis: confirmó la advertencia formal del ENOS/El Niño el 19 de mayo de 2026, elevando el nivel de certeza sobre el déficit hídrico 2026-2027.</div>
+      </div>
+      <div class="glos-item">
+        <div class="glos-term">BCCR<em>Banco Central de Costa Rica</em></div>
+        <div class="glos-def">Institución autónoma responsable de la política monetaria y cambiaria. Proyectó un choque inflacionario a inicios de 2027 vinculado al fenómeno El Niño, como efecto de mayores costos en generación térmica de respaldo y potenciales presiones sobre precios de alimentos del sector agropecuario.</div>
+      </div>
+    </div>
+
+    <!-- ACTORES POLÍTICOS -->
+    <div class="glos-cat">
+      <div class="glos-cat-title">Partidos y actores políticos</div>
+
+      <div class="glos-item">
+        <div class="glos-term">PPSO<em>Partido Progreso Social Democrático</em></div>
+        <div class="glos-def">Partido del gobierno de la presidenta Laura Fernández Delgado. Con 31 diputados, es la bancada más numerosa pero insuficiente para alcanzar los 38 votos requeridos. Impulsa el 23.414 como propuesta de modernización del sistema energético.</div>
+      </div>
+      <div class="glos-item">
+        <div class="glos-term">PLN<em>Partido Liberación Nacional</em></div>
+        <div class="glos-def">Segunda bancada con 17 diputados. Presentó el texto sustitutivo que está en debate, pero el 25 de mayo anunció voto en contra unánime. Propuso como alternativa la <em>Ley Marco Reguladora del Sector Energético / Ley de Emergencia y Seguridad Energética Nacional</em>. La paradoja: vota contra su propio texto.</div>
+      </div>
+      <div class="glos-item">
+        <div class="glos-term">PUSC<em>Partido Unidad Social Cristiana</em></div>
+        <div class="glos-def">Partido de oposición con varios diputados en la Asamblea. En general favorable al 23.414. El diputado Juan Carlos Hidalgo calificó la posición del PLN de "inconsistente e irresponsable" tras el anuncio de voto en contra.</div>
+      </div>
+      <div class="glos-item">
+        <div class="glos-term">FA<em>Frente Amplio</em></div>
+        <div class="glos-def">Partido de izquierda con 3 diputados. Rechaza el 23.414 argumentando que provocará "apagones y tarifazos" y constituye una privatización funcional del sistema eléctrico.</div>
+      </div>
+      <div class="glos-item">
+        <div class="glos-term">CAC<em>Coalición Agenda Ciudadana</em></div>
+        <div class="glos-def">Partido de centro-izquierda cuya única representante en la Asamblea es Claudia Dobles, ex primera dama de la República durante la administración Alvarado Quesada. Dobles anunció el 24 de mayo voto en contra del 23.414.</div>
+      </div>
+    </div>
+
+    <!-- CONCEPTOS LEGISLATIVOS -->
+    <div class="glos-cat">
+      <div class="glos-cat-title">Conceptos del proceso legislativo</div>
+
+      <div class="glos-item">
+        <div class="glos-term">Texto sustitutivo</div>
+        <div class="glos-def">En el procedimiento legislativo costarricense, un texto sustitutivo reemplaza el proyecto original en su totalidad. En el caso del 23.414, el texto sustitutivo fue presentado por el PLN en colaboración con el PUSC, PLP y el oficialismo, y es el documento que actualmente se debate en el Plenario.</div>
+      </div>
+      <div class="glos-item">
+        <div class="glos-term">Retrotracción</div>
+        <div class="glos-def">Mecanismo legislativo que permite aprobar un proyecto en primer debate y luego devolverlo a la Comisión de Gobierno y Administración para que realice enmiendas específicas antes del segundo debate. Fue mencionada por el jefe de fracción del PLN, Álvaro Ramírez, como posible vía para mejorar el texto sin rechazarlo de plano.</div>
+      </div>
+      <div class="glos-item">
+        <div class="glos-term">Dos tercios (38/57 votos)</div>
+        <div class="glos-def">Mayoría calificada exigida por la Constitución Política para crear instituciones autónomas. El Departamento de Servicios Técnicos de la Asamblea determinó en enero de 2024 que el 23.414 requiere esta mayoría porque crea el ECOSEN como entidad autónoma. El PPSO tiene 31 votos; necesita 7 adicionales de otros partidos.</div>
+      </div>
+      <div class="glos-item">
+        <div class="glos-term">Sesiones extraordinarias</div>
+        <div class="glos-def">Período de sesiones convocado por el Ejecutivo fuera del período ordinario (mayo-noviembre) para discutir temas específicos de su agenda legislativa. La presidenta Fernández convocó el 23.414 en sesiones extraordinarias, lo que indica el nivel de prioridad política que su gobierno asigna a la reforma energética.</div>
+      </div>
+      <div class="glos-item">
+        <div class="glos-term">"Combo del ICE" (2000)</div>
+        <div class="glos-def">Denominación popular del paquete de leyes aprobado en marzo del 2000 que buscaba abrir el sector eléctrico y de telecomunicaciones a la competencia privada. Generó las mayores movilizaciones ciudadanas de la historia reciente de Costa Rica. La Sala Constitucional anuló las leyes. La evocación del "Combo" por parte de los opositores al 23.414 activa esa memoria colectiva como capital simbólico de resistencia.</div>
+      </div>
+    </div>
+
+    <!-- CONCEPTOS ENERGÉTICOS Y CLIMÁTICOS -->
+    <div class="glos-cat">
+      <div class="glos-cat-title">Conceptos energéticos y climáticos</div>
+
+      <div class="glos-item">
+        <div class="glos-term">Modelo solidario eléctrico</div>
+        <div class="glos-def">Principio que rige el sistema eléctrico costarricense desde la creación del ICE en 1949: universalidad del servicio (acceso para todos sin importar la rentabilidad territorial), tarifas cruzadas entre sectores (usuarios industriales subsidian parcialmente las tarifas residenciales y rurales) y planificación pública integrada (el ICE absorbe el riesgo de inversión de largo plazo). El 23.414 modifica la tercera dimensión al crear el MEN y el ECOSEN.</div>
+      </div>
+      <div class="glos-item">
+        <div class="glos-term">Privatización funcional</div>
+        <div class="glos-def">Término utilizado por los críticos del 23.414 para describir el mecanismo central de la reforma: sin vender el ICE ni transferir su propiedad, el proyecto extrae sus funciones estratégicas (operación del sistema, planificación de expansión) y las traslada al ECOSEN —una institución más expuesta a presiones de mercado— mientras abre el mercado mayorista a agentes privados. No es privatización formal, pero produce efectos funcionales similares en la gestión del riesgo energético.</div>
+      </div>
+      <div class="glos-item">
+        <div class="glos-term">ENOS — El Niño Oscilación del Sur</div>
+        <div class="glos-def">Ciclo climático que alterna entre fases de calentamiento anómalo (El Niño) y enfriamiento (La Niña) de las aguas superficiales del Pacífico ecuatorial. El IMN confirmó la advertencia formal de El Niño el 19 de mayo de 2026, con déficits de lluvia proyectados de hasta el 50% en el Pacífico Norte y extensión hasta febrero de 2027 según la NOAA (96% de probabilidad). Para el sistema eléctrico costarricense —que genera más del 70% de su electricidad con fuentes hidroeléctricas— El Niño representa una perturbación disipativa directa: reduce los caudales que alimentan los embalses.</div>
+      </div>
+      <div class="glos-item">
+        <div class="glos-term">SEN — Sistema Eléctrico Nacional</div>
+        <div class="glos-def">El conjunto integrado de instalaciones, equipos y sistemas de generación, transmisión y distribución de electricidad que opera en Costa Rica. Actualmente operado y planificado por el ICE. El 23.414 propone que el ECOSEN asuma su operación y planificación.</div>
+      </div>
+    </div>
+
+    <!-- METODOLOGÍA ANALÍTICA -->
+    <div class="glos-cat">
+      <div class="glos-cat-title">Marco analítico — MEEE-G y ADD</div>
+
+      <div class="glos-item">
+        <div class="glos-term">MEEE-G<em>Metodología de Evaluación Epistémica Explicacionista-Goldman</em></div>
+        <div class="glos-def">Sistema de clasificación de afirmaciones según su solidez epistémica. Basado en el fiabilismo procesual de Alvin Goldman y el explicacionismo comparativo. Los códigos: <strong>[DC]</strong> dato confirmado · <strong>[IP]</strong> inferencia plausible · <strong>[H]</strong> hipótesis · <strong>[Int]</strong> interpretación · <strong>[C]</strong> conjetura.</div>
+      </div>
+      <div class="glos-item">
+        <div class="glos-term">ADD<em>Análisis Dinámico del Devenir</em></div>
+        <div class="glos-def">Marco analítico de Alfredo Montero Fonseca (ANCA-ADD). Analiza procesos sociales como sistemas dinámicos. Protocolo de 5 pasos: (0) identificar nivel y herramienta teórica; (1) mapear la organización simbólica; (2) describir los flujos disipativos; (3) identificar perturbaciones; (4) leer acoplamiento estructural y régimen; (5) declarar reflexividad.</div>
+      </div>
+      <div class="glos-item">
+        <div class="glos-term">Bifurcación (Prigogine)</div>
+        <div class="glos-def">Punto crítico en la dinámica de un sistema donde el cruce de un umbral —aquí el umbral de 38 votos— conduce a trayectorias cualitativamente distintas e irreversibles. Con 38 votos: transición estructural hacia el modelo ECOSEN-MEN. Sin 38 votos: retorno al régimen laminar con reformas incrementales posibles.</div>
+      </div>
+      <div class="glos-item">
+        <div class="glos-term">Colonización del mundo de la vida (Habermas)</div>
+        <div class="glos-def">La lógica del mercado eléctrico —coordinación por precio y competencia— penetra en un dominio que históricamente operó por lógica de planificación pública y valores comunicativos (universalidad, solidaridad). El nombre "armonización" suaviza retóricamente esa colonización al presentar el cambio de lógica como ajuste técnico-regulatorio neutral.</div>
+      </div>
+      <div class="glos-item">
+        <div class="glos-term">Clausura organizacional (Maturana/Varela)</div>
+        <div class="glos-def">La lógica interna que define la identidad del sistema eléctrico costarricense: el conjunto de principios que determinan cómo el sistema se reproduce a sí mismo. La clausura actual se organiza alrededor del modelo solidario. El 23.414 busca modificar esa clausura organizacional —no destruirla, pero sí transformar los principios que la sostienen.</div>
+      </div>
+      <div class="glos-item">
+        <div class="glos-term">Habitus y capital simbólico (Bourdieu)</div>
+        <div class="glos-def">El ICE tiene un <em>habitus</em> institucional construido durante 75 años: la disposición a actuar como garante del bien público energético, absorbiendo el riesgo de largo plazo. Su <em>capital simbólico</em> —legitimidad como institución del desarrollo nacional— ha sido erosionado sostenidamente por narrativas de ineficiencia burocrática. Esa erosión es la condición de posibilidad para la reforma.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+  <p>El presente análisis integra evaluación epistémica explicacionista (MEEE-G) y análisis dinámico según la ADD (Alfredo Montero Fonseca). Las clasificaciones [DC] dato confirmado, [IP] inferencia plausible, [H] hipótesis, [Int] interpretación y [C] conjetura reflejan el estado de la evidencia disponible. <strong>Actualización incorporada al 25 de mayo de 2026, 11:12 a.m.</strong>: confirmación del voto en contra del PLN (17 diputados) y presentación de la propuesta alternativa Ley Marco Reguladora / Ley de Emergencia y Seguridad Energética Nacional. <strong>Error corregido</strong>: Claudia Dobles es diputada de la Coalición Agenda Ciudadana (CAC), no del PLN; corrección aplicada en todas las secciones. El análisis no constituye predicción determinista ni recomendación de política pública. ANCA-ADD es una publicación analítica independiente.</p>
+</div>
+
+<footer>
+  <div class="ft-brand">ANCA-ADD</div>
+  <div class="ft-info">
+    Especial — Ley de Armonización Eléctrica<br>
+    Expediente 23.414 · Plenario 25 mayo 2026<br>
+    Cierre editorial: 25 · V · 2026<br>
+    antropos-amf.github.io/anca-ade.github.io
+  </div>
+</footer>
+
+<script data-goatcounter="https://antropos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

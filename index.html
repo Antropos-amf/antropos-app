@@ -15,14 +15,17 @@
       <nav>
         <a href="verificador/">Verificador</a>
         <a href="analisis-add/">Análisis ADD</a>
+        <a href="informes-estrategicos/">Informes</a>
+        <a href="boletines/">Boletines</a>
+        <a href="ensayos/">Ensayos</a>
         <a href="divulgacion/">Cosas que no sé</a>
-        <a href="mailto:antropos.amf@proton.me">Contacto</a>
+        <a href="mailto:alfredo.montero@antropos.app">Contacto</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <div class="container">
+    <div class="container" style="max-width: 1000px;">
 
       <!-- Hero -->
       <section class="hero">
@@ -42,86 +45,165 @@
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
             Substack
           </a>
-          <a href="mailto:hola@antropos.app">
+          <a href="mailto:alfredo.montero@antropos.app">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-            hola@antropos.app
+            alfredo.montero@antropos.app
           </a>
         </div>
       </section>
 
-      <!-- Verificador de Ideas -->
-      <section id="verificador" style="padding: 2rem; background: #111827; border-left: 4px solid #8b2e0f;">
-        <div style="font-family: var(--font-ui); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: #c4512a; margin-bottom: 0.6rem;">Herramienta · Epistemología aplicada</div>
-        <h2 style="font-size: 1.3rem; margin-bottom: 0.6rem; color: #f5f0e8;">Verificador de Ideas</h2>
-        <p style="font-size: 0.95rem; color: #9a9590; margin-bottom: 1.4rem; line-height: 1.65;">Evaluá el estatus epistémico de cualquier afirmación, argumento o narrativa. Basado en la Matriz Explicacionista de Evaluación Epistémica (MEEE-G).</p>
+      <!-- Fila 1: Verificador (izq) + Boletines (der) -->
+      <div class="two-col">
 
-        <!-- Tiers -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.75rem; margin-bottom: 1.4rem;">
-          <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09); padding: 0.9rem 1rem;">
-            <div style="font-family: var(--font-ui); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #6b7280; margin-bottom: 0.3rem;">Gratuito</div>
-            <div style="font-family: var(--font-ui); font-size: 0.95rem; font-weight: 600; color: #f5f0e8; margin-bottom: 0.4rem;">Público</div>
-            <div style="font-size: 0.8rem; color: #6b7280; line-height: 1.5;">Diagnóstico en lenguaje natural · Veredicto con nivel de confianza</div>
-          </div>
-          <div style="background: rgba(251,191,36,0.06); border: 1px solid rgba(251,191,36,0.2); padding: 0.9rem 1rem;">
-            <div style="font-family: var(--font-ui); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #d97706; margin-bottom: 0.3rem;">$2 / mes</div>
-            <div style="font-family: var(--font-ui); font-size: 0.95rem; font-weight: 600; color: #f5f0e8; margin-bottom: 0.4rem;">Navegante</div>
-            <div style="font-size: 0.8rem; color: #9a9590; line-height: 1.5;">Análisis completo (módulos A–E) · Informe descargable · Boletín ANCA-ADD</div>
-          </div>
-          <div style="background: rgba(139,92,246,0.07); border: 1px solid rgba(139,92,246,0.22); padding: 0.9rem 1rem;">
-            <div style="font-family: var(--font-ui); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #8b5cf6; margin-bottom: 0.3rem;">$5 / mes</div>
-            <div style="font-family: var(--font-ui); font-size: 0.95rem; font-weight: 600; color: #f5f0e8; margin-bottom: 0.4rem;">Cómplice</div>
-            <div style="font-size: 0.8rem; color: #9a9590; line-height: 1.5;">Todo lo anterior · Contenidos en profundidad antes de su publicación</div>
-          </div>
-          <div style="background: rgba(26,58,107,0.25); border: 1px solid rgba(96,165,250,0.2); padding: 0.9rem 1rem;">
-            <div style="font-family: var(--font-ui); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #60a5fa; margin-bottom: 0.3rem;">$10 / mes</div>
-            <div style="font-family: var(--font-ui); font-size: 0.95rem; font-weight: 600; color: #f5f0e8; margin-bottom: 0.4rem;">Fundador/a</div>
-            <div style="font-size: 0.8rem; color: #9a9590; line-height: 1.5;">Todo lo anterior · Posts de audio · Proponé temas para análisis</div>
-          </div>
-        </div>
+        <!-- Verificador de Ideas -->
+        <section id="verificador" style="padding: 1.4rem; background: #111827; border-left: 4px solid #8b2e0f;">
+          <div style="font-family: var(--font-ui); font-size: 0.65rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: #c4512a; margin-bottom: 0.5rem;">Herramienta · Epistemología aplicada</div>
+          <h2 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: #f5f0e8;">Verificador de Ideas</h2>
+          <p style="font-size: 0.85rem; color: #9a9590; margin-bottom: 1rem; line-height: 1.6;">Evaluá el estatus epistémico de cualquier afirmación, argumento o narrativa. Basado en la MEEE-G.</p>
 
-        <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
-          <a href="/verificador/" style="display: inline-block; font-family: var(--font-ui); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #f5f0e8; background: #8b2e0f; padding: 0.65rem 1.5rem; text-decoration: none;">Ir al Verificador →</a>
-          <a href="https://ko-fi.com/antropos" target="_blank" rel="noopener" style="font-family: var(--font-ui); font-size: 0.78rem; color: #d97706; text-decoration: none; border-bottom: 1px solid rgba(217,119,6,0.4);">Suscribirse vía Ko-fi</a>
-        </div>
-      </section>
+          <!-- Tiers -->
+          <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1rem;">
+            <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09); padding: 0.6rem 0.8rem;">
+              <div style="font-family: var(--font-ui); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #6b7280; margin-bottom: 0.2rem;">Gratuito</div>
+              <div style="font-size: 0.75rem; color: #6b7280; line-height: 1.5;">Diagnóstico en lenguaje natural · Veredicto con nivel de confianza</div>
+            </div>
+            <a href="https://buy.onvopay.com/live_s-lqxQBgJSVNqp9d2euZbi6TfWk" target="_blank" rel="noopener" style="text-decoration: none; display: block; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09); padding: 0.6rem 0.8rem;">
+              <div style="font-family: var(--font-ui); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #6b7280; margin-bottom: 0.2rem;">Apoyo · ₡500</div>
+              <div style="font-size: 0.75rem; color: #6b7280; line-height: 1.5;">Contribución voluntaria al proyecto</div>
+            </a>
+            <a href="https://buy.onvopay.com/live_1bJBUy3iZq-0-L0JpX6LTCZjveg" target="_blank" rel="noopener" style="text-decoration: none; display: block; background: rgba(255,255,255,0.06); border: 1px solid rgba(196,81,42,0.3); padding: 0.6rem 0.8rem;">
+              <div style="font-family: var(--font-ui); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #c4512a; margin-bottom: 0.2rem;">Navegante · ₡1.000/mes</div>
+              <div style="font-size: 0.75rem; color: #9a9590; line-height: 1.5;">Análisis completo módulos A–E · Informe descargable · Precio de lanzamiento</div>
+            </a>
+          </div>
 
-      <!-- Análisis ADD -->
-      <section id="analisis-add">
-        <h2 class="section-title">Análisis ADD</h2>
-        <ul class="article-list">
-          <li>
-            <span class="art-title"><a href="divulgacion/china/">La Senda del Dragón: Historia de China desde la ADD</a></span>
-            <span class="art-meta">Historia · Geopolítica &nbsp;·&nbsp; Serie en 3 partes · c. 5000 a.C. – 2026</span>
-          </li>
-          <li>
-            <span class="art-title"><a href="analisis-add/artemis/">La Luna no es el destino. El Polo Sur es la apuesta.</a></span>
-            <span class="art-meta">Ciencia · Geopolítica &nbsp;·&nbsp; Misión Artemis II</span>
-          </li>
-          <li>
-            <span class="art-title"><a href="analisis-add/cuba/">Cuba 2026: El Largo Colapso</a></span>
-            <span class="art-meta">Política · Historia &nbsp;·&nbsp; ANCA-ADE</span>
-          </li>
-          <li>
-            <span class="art-title"><a href="analisis-add/fascismo/">¿Qué es el Fascismo?</a></span>
-            <span class="art-meta">Política · Historia &nbsp;·&nbsp; ANCA-ADE</span>
-          </li>
-          <li>
-            <span class="art-title"><a href="analisis-add/">Ver toda la sección →</a></span>
-          </li>
-        </ul>
-      </section>
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center; margin-bottom: 1rem;">
+            <a href="/verificador/" style="display: inline-block; font-family: var(--font-ui); font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #f5f0e8; background: #8b2e0f; padding: 0.55rem 1.1rem; text-decoration: none;">¿Qué es? →</a>
+            <a href="https://buy.onvopay.com/live_1bJBUy3iZq-0-L0JpX6LTCZjveg" target="_blank" rel="noopener" style="font-family: var(--font-ui); font-size: 0.72rem; color: #c4512a; text-decoration: none; border-bottom: 1px solid rgba(196,81,42,0.4);">Ser Navegante →</a>
+          </div>
 
-      <!-- Artículos -->
-      <section id="articulos">
-        <h2 class="section-title">Artículos recientes</h2>
-        <ul class="article-list">
-          <!-- Los artículos se añaden aquí -->
-          <li>
-            <span class="art-title">Próximamente</span>
-            <span class="art-meta">Los primeros artículos estarán disponibles pronto.</span>
-          </li>
-        </ul>
-      </section>
+          <!-- App embebida -->
+          <div style="background: #0f0f0f; overflow: hidden;">
+            <iframe
+              src="https://verificador-meee-g.netlify.app/"
+              title="Verificador de Ideas MEEE-G"
+              loading="lazy"
+              allow="clipboard-write"
+              style="width: 100%; height: 490px; border: none; display: block;">
+            </iframe>
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.4rem 0.8rem; background: #1a1a1a; font-family: var(--font-ui); font-size: 0.6rem; color: #4b5563;">
+              <span>Verificador de Ideas · MEEE-G</span>
+              <a href="https://verificador-meee-g.netlify.app/" target="_blank" rel="noopener" style="color: #c4512a; text-decoration: none;">Pantalla completa →</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Boletines ANCA-ADD -->
+        <section id="boletines">
+          <h2 class="section-title">Boletines ANCA-ADD</h2>
+          <ul class="article-list">
+            <li>
+              <span class="art-title"><a href="boletines/especial-alias-diablo/popular/">Informe Especial: Operación Némesis — la captura de alias «Diablo» y la fractura institucional costarricense</a></span>
+              <span class="art-meta">Costa Rica · Crimen organizado · Poderes del Estado &nbsp;·&nbsp; 2 de agosto, 2026 · Llamada C &nbsp;·&nbsp; <a href="boletines/especial-alias-diablo/" style="color:var(--color-accent);">Versión técnica →</a></span>
+            </li>
+            <li>
+              <span class="art-title"><a href="boletines/boletin-semanal-014/popular/">Boletín Semanal N.° 014: La semana en que el guión se volvió contra el escenario · 8 julio–2 agosto 2026</a></span>
+              <span class="art-meta">Geopolítica · Costa Rica · Economía · Ciencia · Tecnología &nbsp;·&nbsp; 2 de agosto, 2026 · ventana ampliada &nbsp;·&nbsp; <a href="boletines/boletin-semanal-014/" style="color:var(--color-accent);">Versión técnica →</a></span>
+            </li>
+            <li>
+              <span class="art-title"><a href="boletines/boletin-semanal-013/popular/">Boletín Semanal N.° 013: El estrecho, la marca y el aliento del océano · 8–15 julio 2026</a></span>
+              <span class="art-meta">Geopolítica · Costa Rica · Economía · Ciencia &nbsp;·&nbsp; 15 de julio, 2026 &nbsp;·&nbsp; <a href="boletines/boletin-semanal-013/" style="color:var(--color-accent);">Versión técnica →</a></span>
+            </li>
+            <li>
+              <span class="art-title"><a href="boletines/boletin-semanal-012/popular/">Boletín Semanal N.° 012: Tres balances y dos hallazgos: el interregno global, el pulso presupuestario y SpudCell · 29 junio – 7 julio 2026</a></span>
+              <span class="art-meta">Geopolítica · Costa Rica · Ciencia · Economía &nbsp;·&nbsp; 7 de julio, 2026 · actualizada &nbsp;·&nbsp; <a href="boletines/boletin-semanal-012/" style="color:var(--color-accent);">Versión técnica →</a></span>
+            </li>
+            <li>
+              <span class="art-title"><a href="boletines/">Ver todos los boletines →</a></span>
+            </li>
+          </ul>
+        </section>
+
+      </div>
+
+      <!-- Fila 2: Análisis ADD (izq) + Informes Estratégicos (der) -->
+      <div class="two-col">
+
+        <!-- Análisis ADD -->
+        <section id="analisis-add">
+          <h2 class="section-title">Análisis ADD</h2>
+          <ul class="article-list">
+            <li>
+              <span class="art-title"><a href="analisis-add/ciencia-fees-sensores/">Apagar los sensores antes de la tormenta — FEES, ciencia pública y la inversión que no se ve</a></span>
+              <span class="art-meta">Ciencia Pública · FEES · Costa Rica &nbsp;·&nbsp; Anexo · Junio 2026</span>
+            </li>
+            <li>
+              <span class="art-title"><a href="analisis-add/espejismo-del-exito/">El espejismo del éxito: lo que el FMI celebra y su bolsillo lamenta</a></span>
+              <span class="art-meta">Costa Rica · Coyuntura · ADD &nbsp;·&nbsp; Quincena 27 May – 6 Jun, 2026</span>
+            </li>
+            <li>
+              <span class="art-title"><a href="divulgacion/caida-reich/">El Ocaso del Reich que Nunca Duró Mil Años</a></span>
+              <span class="art-meta">Historia · Geopolítica &nbsp;·&nbsp; ANCA-ADE ESP-05 · 8 de mayo, 2026 &nbsp;·&nbsp; <a href="analisis-add/caida-reich/" style="color:var(--color-accent);">Versión técnica →</a></span>
+            </li>
+            <li>
+              <span class="art-title"><a href="divulgacion/china/">La Senda del Dragón: Historia de China desde la ADD</a></span>
+              <span class="art-meta">Historia · Geopolítica &nbsp;·&nbsp; Serie en 3 partes · c. 5000 a.C. – 2026</span>
+            </li>
+            <li>
+              <span class="art-title"><a href="analisis-add/">Ver toda la sección →</a></span>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Informes Estratégicos -->
+        <section id="informes-estrategicos">
+          <h2 class="section-title">Informes Estratégicos</h2>
+          <ul class="article-list">
+            <li>
+              <span class="art-title"><a href="informes-estrategicos/pegasus-palantir/">Vigilar / Integrar: Pegasus y Palantir, dos arquitecturas del poder de ver</a></span>
+              <span class="art-meta">Tecnología · Vigilancia · Seguridad Nacional · CR &nbsp;·&nbsp; 29 de junio, 2026 · act. 14 de agosto</span>
+            </li>
+            <li>
+              <span class="art-title"><a href="informes-estrategicos/crucitas-subsuelo-vivo/popular/">El subsuelo vivo frente al oro: la red micorrízica global, Crucitas y el modelo de desarrollo de Costa Rica</a></span>
+              <span class="art-meta">Ambiente · Minería · Agropecuario · CR &nbsp;·&nbsp; 19 de junio, 2026 &nbsp;·&nbsp; <a href="informes-estrategicos/crucitas-subsuelo-vivo/" style="color:var(--color-accent);">Versión técnica →</a></span>
+            </li>
+            <li>
+              <span class="art-title"><a href="articulos/fees-2027/">La biblioteca que nadie quemó — El FEES 2027 y lo que Costa Rica puede perder</a></span>
+              <span class="art-meta">Educación · UCR · Día Internacional del Libro &nbsp;·&nbsp; 23 de abril, 2026 &nbsp;·&nbsp; <a href="informes-estrategicos/fees-2027/" style="color:var(--color-accent);">Informes de base →</a></span>
+            </li>
+            <li>
+              <span class="art-title"><a href="informes-estrategicos/paacume-agua-guanacaste/">El agua que no llegó: PAACUME, su parálisis y el futuro incierto de Guanacaste</a></span>
+              <span class="art-meta">Política Hídrica · Guanacaste &nbsp;·&nbsp; 19 de abril, 2026</span>
+            </li>
+            <li>
+              <span class="art-title"><a href="informes-estrategicos/">Ver todos los informes →</a></span>
+            </li>
+          </ul>
+        </section>
+
+      </div>
+
+      <!-- Fila 3: Ensayos -->
+      <div class="two-col">
+
+        <section id="ensayos">
+          <h2 class="section-title">Ensayos</h2>
+          <ul class="article-list">
+            <li>
+              <span class="art-title"><a href="ensayos/lo-que-no-se-valora-se-pierde/">Lo que no se valora se pierde</a></span>
+              <span class="art-meta">Política pública · Costa Rica &nbsp;·&nbsp; 21 de abril, 2026 · Delfino.cr</span>
+            </li>
+            <li>
+              <span class="art-title"><a href="ensayos/izquierda-memoria-costarica/">La izquierda, la memoria y la historia de Costa Rica</a></span>
+              <span class="art-meta">Historia · Memoria · Costa Rica &nbsp;·&nbsp; 19 de abril, 2026</span>
+            </li>
+            <li>
+              <span class="art-title"><a href="ensayos/">Ver todos los ensayos →</a></span>
+            </li>
+          </ul>
+        </section>
+
+      </div>
 
     </div>
   </main>
@@ -133,5 +215,6 @@
   </footer>
 
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script data-goatcounter="https://antropos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

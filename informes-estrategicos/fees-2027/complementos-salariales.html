@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANCA-ADE · FEES 2027 · Complementos salariales UCR: análisis estructural · Abril 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:          #080b0e;
+  --bg-card:     #0e1318;
+  --bg-section:  #131a21;
+  --bg-accent:   #0a1520;
+  --granate:     #6B1528;
+  --granate-bright: #9B2540;
+  --amber:       #d4850a;
+  --amber-light: #f0a030;
+  --teal:        #0d8a7e;
+  --teal-light:  #1ab8aa;
+  --text:        #dfe6ec;
+  --text-muted:  #8a9ba8;
+  --text-dim:    #546070;
+  --border:      #1e2e3a;
+  --border-light:#2a3f50;
+  --warning:     #e67e22;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* ── TICKER ── */
+.ticker-outer {
+  background: var(--granate);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  overflow: hidden;
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
+.ticker-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #fff;
+  padding: 0 14px;
+  white-space: nowrap;
+  background: rgba(0,0,0,0.3);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.ticker-track {
+  display: flex;
+  animation: ticker 55s linear infinite;
+  white-space: nowrap;
+}
+.ticker-track span {
+  font-family: 'Space Mono', monospace;
+  font-size: 9.5px;
+  color: rgba(255,255,255,0.88);
+  padding: 0 28px;
+  letter-spacing: 0.06em;
+}
+.ticker-track span::before { content: '▸ '; color: rgba(255,255,255,0.45); }
+@keyframes ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ── MASTHEAD ── */
+.masthead {
+  background: linear-gradient(180deg, #000d18 0%, var(--bg) 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 48px 40px 36px;
+  position: relative;
+  overflow: hidden;
+}
+.masthead::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 8px;
+  background: var(--granate);
+}
+.masthead-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 36px;
+  padding-left: 20px;
+}
+.masthead-logo {
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--text);
+  text-decoration: none;
+}
+.masthead-nav-links {
+  display: flex;
+  gap: 24px;
+  font-family: 'Space Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.masthead-nav-links a { color: var(--text-muted); text-decoration: none; }
+.masthead-nav-links a:hover { color: var(--text); }
+
+.masthead-inner { padding-left: 20px; }
+
+.report-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--granate-bright);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.report-tag::before { content: ''; display: block; width: 28px; height: 1px; background: var(--granate); }
+
+.masthead h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(24px, 3.5vw, 40px);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--text);
+  margin-bottom: 14px;
+}
+.masthead .subtitle {
+  font-family: 'Source Serif 4', serif;
+  font-style: italic;
+  font-size: 17px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  max-width: 680px;
+  margin-bottom: 28px;
+}
+.masthead-meta {
+  display: flex;
+  gap: 28px;
+  font-family: 'Space Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+  flex-wrap: wrap;
+}
+.masthead-meta span { color: var(--text-muted); }
+
+/* ── TOC ── */
+.toc-bar {
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 60px;
+  display: flex;
+  gap: 28px;
+  overflow-x: auto;
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  flex-wrap: wrap;
+}
+.toc-bar a { color: var(--text-dim); text-decoration: none; display: flex; align-items: center; gap: 6px; white-space: nowrap; }
+.toc-bar a:hover { color: var(--text-muted); }
+.toc-num { color: var(--granate-bright); font-weight: 700; }
+
+/* ── MAIN ── */
+main { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+
+section { padding: 56px 0 36px; border-bottom: 1px solid var(--border); }
+section:last-child { border-bottom: none; }
+
+.sec-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--granate-bright);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.sec-label::after { content: ''; flex: 1; height: 1px; background: var(--border); max-width: 100px; }
+
+section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(19px, 2.8vw, 26px);
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.2;
+  margin-bottom: 22px;
+}
+
+section h3 {
+  font-family: 'Source Serif 4', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--amber-light);
+  margin: 28px 0 12px;
+  letter-spacing: 0.02em;
+}
+
+section p { margin-bottom: 1.1rem; color: var(--text); }
+section p:last-child { margin-bottom: 0; }
+
+/* ── BADGES EPISTÉMICOS ── */
+.epist {
+  display: inline-block;
+  font-family: 'Space Mono', monospace;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid;
+  padding: 2px 6px;
+  border-radius: 2px;
+  vertical-align: middle;
+  margin-left: 5px;
+}
+.epist-conf  { border-color: #1ab8aa; color: #1ab8aa; }
+.epist-infer { border-color: var(--amber-light); color: var(--amber-light); }
+.epist-hip   { border-color: var(--text-dim); color: var(--text-dim); }
+.epist-interp{ border-color: #8070c0; color: #9080d0; }
+.epist-conj  { border-color: var(--granate-bright); color: var(--granate-bright); }
+
+/* ── TABLAS ── */
+.tabla-wrap { overflow-x: auto; margin: 24px 0; }
+table { width: 100%; border-collapse: collapse; font-size: 0.84rem; }
+thead tr { background: var(--granate); }
+thead th {
+  padding: 10px 14px;
+  text-align: left;
+  font-family: 'Space Mono', monospace;
+  font-size: 8.5px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: rgba(255,255,255,0.9);
+  white-space: nowrap;
+}
+tbody tr { border-bottom: 1px solid var(--border); }
+tbody tr:hover { background: var(--bg-card); }
+tbody td { padding: 10px 14px; color: var(--text-muted); vertical-align: top; line-height: 1.5; }
+tbody td:first-child { color: var(--text); }
+
+/* ── CAJAS INFO ── */
+.alerta {
+  background: rgba(107,21,40,0.12);
+  border: 1px solid var(--granate);
+  border-left: 4px solid var(--granate-bright);
+  padding: 18px 22px;
+  margin: 24px 0;
+}
+.alerta-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--granate-bright);
+  margin-bottom: 10px;
+}
+.alerta p { font-size: 0.9rem; color: var(--text); margin-bottom: 0.6rem; }
+.alerta p:last-child { margin-bottom: 0; }
+
+.info-box {
+  background: var(--bg-section);
+  border: 1px solid var(--border-light);
+  border-left: 4px solid var(--teal);
+  padding: 16px 20px;
+  margin: 20px 0;
+}
+.info-box p { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+.info-box p:last-child { margin-bottom: 0; }
+
+.amber-box {
+  background: rgba(212,133,10,0.06);
+  border: 1px solid rgba(212,133,10,0.2);
+  border-left: 4px solid var(--amber);
+  padding: 16px 20px;
+  margin: 20px 0;
+}
+.amber-box p { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+.amber-box p:last-child { margin-bottom: 0; }
+
+/* ── DATOS DESTACADOS ── */
+.cifra { font-family: 'Space Mono', monospace; color: var(--amber-light); }
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin: 24px 0;
+}
+.stat-block {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--granate);
+  padding: 18px 20px;
+}
+.stat-big {
+  font-family: 'Space Mono', monospace;
+  font-size: 1.8rem;
+  color: var(--amber-light);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.stat-desc {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  line-height: 1.4;
+}
+
+/* ── LISTA MECANISMOS ── */
+.mec-lista { list-style: none; margin: 16px 0; }
+.mec-item { display: flex; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+.mec-item:last-child { border-bottom: none; }
+.mec-num { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--granate-bright); font-weight: 700; flex-shrink: 0; width: 24px; margin-top: 2px; }
+.mec-content h4 { font-size: 0.92rem; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+.mec-content p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0; }
+
+/* ── ESCENARIOS ── */
+.escenario-block {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 26px 30px;
+  margin: 20px 0;
+}
+.esc-granate { border-top: 3px solid var(--granate-bright); }
+.esc-amber   { border-top: 3px solid var(--amber); }
+.esc-teal    { border-top: 3px solid var(--teal); }
+.esc-dim     { border-top: 3px solid var(--text-dim); }
+
+.escenario-block h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--text); margin-bottom: 12px; }
+.escenario-block p { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0.6rem; }
+.escenario-block p:last-child { margin-bottom: 0; }
+.escenario-block ul { margin: 10px 0 10px 20px; }
+.escenario-block li { font-size: 0.86rem; color: var(--text-muted); margin-bottom: 4px; }
+
+.prob-badge {
+  display: inline-block;
+  font-family: 'Space Mono', monospace;
+  font-size: 8.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  margin-bottom: 14px;
+}
+.prob-alta  { background: rgba(107,21,40,0.3); color: var(--granate-bright); border: 1px solid var(--granate); }
+.prob-media { background: rgba(212,133,10,0.15); color: var(--amber-light); border: 1px solid var(--amber); }
+.prob-baja  { background: rgba(84,96,112,0.2); color: var(--text-dim); border: 1px solid var(--border-light); }
+
+.delta-lista { list-style: none; margin: 10px 0; }
+.delta-item { display: flex; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.85rem; color: var(--text-muted); }
+.delta-item:last-child { border-bottom: none; }
+.delta-tag { font-family: 'Space Mono', monospace; font-size: 9px; color: var(--amber); flex-shrink: 0; width: 30px; padding-top: 2px; }
+
+/* ── CONCLUSIONES ── */
+.concl-item { padding: 16px 0; border-bottom: 1px solid var(--border); }
+.concl-item:last-child { border-bottom: none; }
+.concl-label { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal-light); margin-bottom: 8px; }
+.concl-item p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0; }
+
+/* ── FUENTES ── */
+.fuentes-lista { list-style: none; }
+.fuentes-lista li {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  padding: 7px 0;
+  border-bottom: 1px solid var(--border);
+  line-height: 1.55;
+}
+.fuentes-lista li:last-child { border-bottom: none; }
+.fuentes-lista a { color: var(--teal-light); text-decoration: none; }
+.fuentes-lista a:hover { text-decoration: underline; }
+
+.nota-meto {
+  background: var(--bg-section);
+  border: 1px solid var(--border);
+  padding: 18px 22px;
+  margin-top: 28px;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  line-height: 1.65;
+}
+.nota-meto strong { color: var(--text-muted); }
+
+/* ── FOOTER ── */
+footer {
+  background: #030507;
+  border-top: 1px solid var(--border);
+  padding: 28px 40px;
+  font-family: 'Space Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  color: var(--text-dim);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+footer a { color: var(--text-muted); text-decoration: none; }
+footer a:hover { color: var(--text); }
+
+@media (max-width: 680px) {
+  .masthead { padding: 32px 20px; }
+  .masthead-inner { padding-left: 12px; }
+  main { padding: 0 20px; }
+  .toc-bar { padding: 14px 20px; }
+  footer { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker-outer">
+  <div class="ticker-label">FEES 2027 · ANEXO</div>
+  <div class="ticker-track">
+    <span>Los complementos salariales representan 1,6 veces el salario base en la UCR</span>
+    <span>Más del 65% del FEES se consume en remuneraciones del sistema universitario</span>
+    <span>95,9% del presupuesto UCR 2026 proviene del FEES</span>
+    <span>Solo el 11,1% del presupuesto UCR se destina a becas estudiantiles</span>
+    <span>70% del profesorado es interino, sin acceso a complementos significativos</span>
+    <span>Fiscalía Anticorrupción: expediente 25-000210-1218-PE contra el rector Araya</span>
+    <span>Los complementos salariales representan 1,6 veces el salario base en la UCR</span>
+    <span>Más del 65% del FEES se consume en remuneraciones del sistema universitario</span>
+    <span>95,9% del presupuesto UCR 2026 proviene del FEES</span>
+    <span>Solo el 11,1% del presupuesto UCR se destina a becas estudiantiles</span>
+    <span>70% del profesorado es interino, sin acceso a complementos significativos</span>
+    <span>Fiscalía Anticorrupción: expediente 25-000210-1218-PE contra el rector Araya</span>
+  </div>
+</div>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="masthead-nav">
+    <a class="masthead-logo" href="/">ANTROPOS.APP</a>
+    <div class="masthead-nav-links">
+      <a href="/informes-estrategicos/">Informes</a>
+      <a href="/informes-estrategicos/fees-2027/">Serie FEES 2027</a>
+      <a href="/articulos/fees-2027/">Artículo →</a>
+    </div>
+  </div>
+  <div class="masthead-inner">
+    <div class="report-tag">Informe Estratégico · FEES 2027 · Anexo 2</div>
+    <h1>Complementos salariales en la UCR<br>y su relación con el FEES</h1>
+    <p class="subtitle">Análisis estructural, epistémico y dinámico del sistema de pluses salariales de la Universidad de Costa Rica: arquitectura, magnitud, marco normativo, casos documentados y escenarios de reforma.</p>
+    <div class="masthead-meta">
+      <div>Serie <span>FEES 2027</span></div>
+      <div>Documento <span>Anexo 2 · Complementos salariales</span></div>
+      <div>Fecha <span>Abril 2026</span></div>
+      <div>Marco <span>ANCA-ADE · MEEE-G · ADD</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOC -->
+<nav class="toc-bar">
+  <a href="#s1"><span class="toc-num">1</span> Delimitación</a>
+  <a href="#s2"><span class="toc-num">2</span> Información disponible</a>
+  <a href="#s3"><span class="toc-num">3</span> Marco normativo</a>
+  <a href="#s4"><span class="toc-num">4</span> Actores</a>
+  <a href="#s5"><span class="toc-num">5</span> MEEE-G</a>
+  <a href="#s6"><span class="toc-num">6</span> ADD</a>
+  <a href="#s7"><span class="toc-num">7</span> Escenarios</a>
+  <a href="#s8"><span class="toc-num">8</span> Repercusiones CR</a>
+  <a href="#s9"><span class="toc-num">9</span> Incertidumbres</a>
+  <a href="#s10"><span class="toc-num">10</span> Conclusiones</a>
+  <a href="#s11"><span class="toc-num">11</span> Referencias</a>
+</nav>
+
+<main>
+
+<!-- S1 -->
+<section id="s1">
+  <div class="sec-label">Sección 1</div>
+  <h2>Delimitación del fenómeno</h2>
+  <p>El presente análisis aborda la relación estructural entre los componentes salariales adicionales al salario base —comúnmente denominados "sobresueldos" o <em>pluses</em> en el discurso público— que perciben funcionarios de la Universidad de Costa Rica (UCR) y el presupuesto general que la institución recibe a través del Fondo Especial para la Educación Superior (FEES). El análisis no evalúa si los salarios universitarios son altos o bajos en términos absolutos, sino la <em>arquitectura</em> del sistema remunerativo y sus efectos dinámicos sobre las finanzas institucionales y el debate público en torno al FEES.</p>
+  <p>La noción de "sobresueldo" es técnicamente imprecisa. En el contexto de la UCR, los complementos salariales adoptan formas específicas: <strong>dedicación exclusiva</strong> (porcentaje adicional sobre el salario base por obligación de tiempo completo), <strong>anualidades</strong> (incrementos anuales por antigüedad), <strong>escalafones</strong> (aumentos por méritos académicos y experiencia), <strong>plus salarial</strong> (componente adicional sobre el salario base), y <strong>salario global</strong> (esquema de remuneración fija que incorpora diversos conceptos bajo la Ley Marco de Empleo Público).</p>
+  <p>El análisis se organiza en torno a cinco preguntas centrales: (i) ¿cómo se materializan los complementos en la estructura remunerativa de la UCR?; (ii) ¿qué proporción del presupuesto institucional —y por tanto del FEES— absorben estos conceptos?; (iii) ¿existen pagos que hayan vulnerado la legalidad vigente?; (iv) ¿cómo se distribuye el gasto salarial entre los distintos estratos del personal?; y (v) ¿cuáles son las posiciones institucionales y los escenarios de reforma?</p>
+</section>
+
+<!-- S2 -->
+<section id="s2">
+  <div class="sec-label">Sección 2</div>
+  <h2>Estado de la información disponible</h2>
+
+  <div class="stat-row">
+    <div class="stat-block">
+      <div class="stat-big">95,9%</div>
+      <div class="stat-desc">Del presupuesto UCR 2026 proviene del FEES (₡296.227M de ₡373.595M totales)</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-big">1,6×</div>
+      <div class="stat-desc">Los pluses superan al salario base en esa proporción (50% vs 31% de remuneraciones)</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-big">>65%</div>
+      <div class="stat-desc">Del FEES total se consume en remuneraciones del sistema universitario público</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-big">11,1%</div>
+      <div class="stat-desc">Del presupuesto UCR destinado a becas (₡41.389M de ₡373.595M en 2026)</div>
+    </div>
+  </div>
+
+  <h3>Datos confirmados <span class="epist epist-conf">DC</span></h3>
+  <ul class="mec-lista">
+    <li class="mec-item">
+      <div class="mec-num">01</div>
+      <div class="mec-content">
+        <h4>Presupuesto y fuente de financiamiento</h4>
+        <p>El presupuesto total de la UCR para 2026 asciende a <span class="cifra">₡373.595 millones</span>, de los cuales el 95,9% proviene del FEES (<span class="cifra">₡296.227 millones</span>). El resto corresponde a rentas propias y superávits específicos.</p>
+      </div>
+    </li>
+    <li class="mec-item">
+      <div class="mec-num">02</div>
+      <div class="mec-content">
+        <h4>Distribución del gasto en remuneraciones (2023)</h4>
+        <p>Del gasto total en remuneraciones en 2023 (<span class="cifra">₡207.000 millones</span>, equivalente al 55% de los ingresos totales), los salarios base representaron el 31% del total, los incentivos o pluses el 50% —es decir, 1,6 veces los salarios base—, y el resto correspondió a contribuciones patronales.</p>
+      </div>
+    </li>
+    <li class="mec-item">
+      <div class="mec-num">03</div>
+      <div class="mec-content">
+        <h4>Pluses sobre pluses: el efecto amplificador</h4>
+        <p>Durante décadas, la UCR calculó sobresueldos sobre el salario base <em>más</em> los pluses previos, generando un efecto amplificador. Algunos componentes, como los pasos académicos, se incluían en el cálculo de hasta tres incentivos distintos. Este mecanismo hacía que la institución pagara aproximadamente un <strong>27% adicional</strong> sobre lo que pagaría si el cálculo se realizara solo sobre el salario base, según advirtió desde 2015 la propia Comisión para el Análisis del Sistema de Administración de Salarios de la UCR.</p>
+      </div>
+    </li>
+    <li class="mec-item">
+      <div class="mec-num">04</div>
+      <div class="mec-content">
+        <h4>Número de pluses por institución (Contraloría)</h4>
+        <p>La Contraloría General de la República señaló que la UCR es la universidad pública con mayor cantidad de pluses, con <strong>17 sobresueldos distintos</strong>. La UNA ofrecía 16, el TEC 8 y la UNED 4.</p>
+      </div>
+    </li>
+    <li class="mec-item">
+      <div class="mec-num">05</div>
+      <div class="mec-content">
+        <h4>Salario promedio y composición</h4>
+        <p>El salario promedio anual de un trabajador de la UCR era de <span class="cifra">₡19,8 millones</span>, de los cuales el 40,3% correspondía a sobresueldos.</p>
+      </div>
+    </li>
+    <li class="mec-item">
+      <div class="mec-num">06</div>
+      <div class="mec-content">
+        <h4>Casos documentados de irregularidades</h4>
+        <p>El exrector Gustavo Gutiérrez Espeleta recibió salarios superiores al límite legal durante casi cuatro años, acumulando pagos indebidos que habrían superado los <span class="cifra">₡15 millones</span>. La Fiscalía Anticorrupción abrió el expediente <strong>25-000210-1218-PE</strong> contra el rector Carlos Araya Leandro por la aprobación del Régimen Salarial Académico sin los estudios técnicos, financieros y jurídicos de sostenibilidad exigidos por ley.</p>
+      </div>
+    </li>
+  </ul>
+
+  <h3>Cambios recientes documentados <span class="epist epist-conf">DC</span></h3>
+  <div class="info-box">
+    <p><strong>Desde enero de 2024</strong> el personal académico docente migró a un nuevo Régimen Salarial Académico basado en mérito profesional.</p>
+    <p><strong>Desde 2024</strong> la UCR implementó el salario global para el personal administrativo que ingresó a partir del 10 de marzo de 2023, bajo la Ley de Empleo Público (N.° 10159). El personal antiguo permanece en el esquema de salario compuesto.</p>
+    <p><strong>La dedicación exclusiva</strong> se redujo del 30% al 25% para funcionarios con grado de licenciatura o superior (2023–2025).</p>
+    <p><strong>La Ley N.° 9635</strong> redujo la anualidad del 3,75% calculada sobre salario base más pluses a un 1,94% calculado exclusivamente sobre el salario base, aplicable desde 2020.</p>
+  </div>
+
+  <h3>Inferencias plausibles <span class="epist epist-infer">IP</span></h3>
+  <p>La estructura salarial, caracterizada por un bajo peso del salario base frente a los complementos, explica que el gasto en remuneraciones alcance aproximadamente el <strong>71% del presupuesto total</strong> de la UCR (estimación de años previos; datos 2024–2025 no auditados públicamente). La distribución interna de los complementos es profundamente asimétrica: mientras un ≈3% del personal con más de 30 años de servicio percibe salarios superiores a <span class="cifra">₡4 millones/mes</span>, el <strong>47% de los empleados gana menos de ₡1 millón mensual</strong>, concentrándose en profesores interinos y personal administrativo de base. Aproximadamente el <strong>70% del profesorado es interino</strong>, sin acceso a los complementos más significativos.</p>
+
+  <div class="alerta">
+    <div class="alerta-label">Limitación informativa</div>
+    <p>Los datos más desagregados sobre la masa salarial total como porcentaje del presupuesto para 2024–2025 no están disponibles públicamente en forma consolidada. Los datos más precisos de la Contraloría corresponden al período 2018–2022. Las proyecciones sobre el estado actual de la masa salarial se clasifican como inferencia plausible, dado que la reforma parcial iniciada en 2024 no ha completado su transición.</p>
+  </div>
+</section>
+
+<!-- S3 -->
+<section id="s3">
+  <div class="sec-label">Sección 3</div>
+  <h2>Marco normativo</h2>
+  <p>El sistema de complementos salariales de la UCR opera dentro de un marco normativo en tensión entre la autonomía constitucional universitaria y la legislación de control fiscal:</p>
+  <ul class="mec-lista">
+    <li class="mec-item">
+      <div class="mec-num">Art. 84</div>
+      <div class="mec-content">
+        <h4>Constitución Política — Autonomía universitaria</h4>
+        <p>Garantiza la autonomía universitaria en gobierno, enseñanza y administración. La UCR invoca este artículo para resistir la aplicación plena de legislación de empleo público. La Sala Constitucional aún no se ha pronunciado definitivamente sobre la relación entre autonomía universitaria y la Ley Marco de Empleo Público.</p>
+      </div>
+    </li>
+    <li class="mec-item">
+      <div class="mec-num">Conv.</div>
+      <div class="mec-content">
+        <h4>Convención colectiva UCR</h4>
+        <p>Instrumento que ha formalizado durante décadas los pluses salariales como derechos adquiridos. La jurisprudencia constitucional ha protegido estos derechos incluso cuando han sido cuestionados por su onerosidad, limitando la capacidad de reforma unilateral.</p>
+      </div>
+    </li>
+    <li class="mec-item">
+      <div class="mec-num">9635</div>
+      <div class="mec-content">
+        <h4>Ley de Fortalecimiento de las Finanzas Públicas (2018)</h4>
+        <p>Nominalizó los pluses, suspendió anualidades en 2020–2022 y redujo la base de cálculo de la anualidad al salario base exclusivamente (del 3,75% sobre salario base + pluses al 1,94% solo sobre salario base). La UCR la aplicó de forma conflictiva y gradual.</p>
+      </div>
+    </li>
+    <li class="mec-item">
+      <div class="mec-num">10159</div>
+      <div class="mec-content">
+        <h4>Ley Marco de Empleo Público (2023)</h4>
+        <p>Establece el salario global y topes uniformes para todo el sector público. Su aplicabilidad a las universidades públicas —amparadas en la autonomía constitucional— está en disputa legal ante la Sala Constitucional. La Fiscalía investiga la implementación del salario global en la UCR por posible contravención de esta ley.</p>
+      </div>
+    </li>
+  </ul>
+</section>
+
+<!-- S4 -->
+<section id="s4">
+  <div class="sec-label">Sección 4</div>
+  <h2>Mapa de actores e incentivos</h2>
+  <div class="tabla-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Actor</th>
+          <th>Interés principal</th>
+          <th>Posición observable</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Personal docente y administrativo (régimen antiguo)</td>
+          <td>Preservar derechos adquiridos vía convención colectiva</td>
+          <td>Resistencia a modificación de pluses; presión sindical</td>
+        </tr>
+        <tr>
+          <td>Sindicatos (Sindéu, SEC)</td>
+          <td>Defender derechos laborales</td>
+          <td>Oposición a reducciones unilaterales; litigación activa</td>
+        </tr>
+        <tr>
+          <td>Administración UCR (Rectoría, Consejo Universitario)</td>
+          <td>Sostenibilidad financiera, retención de talento, autonomía</td>
+          <td>Reforma gradual; introducción de salario global para nuevos ingresos</td>
+        </tr>
+        <tr>
+          <td>Gobierno Central (Ejecutivo, MIDEPLAN, Hacienda)</td>
+          <td>Control del gasto público, redistribución del FEES</td>
+          <td>Presión por eficiencia; amenaza de congelamiento o redistribución</td>
+        </tr>
+        <tr>
+          <td>Asamblea Legislativa</td>
+          <td>Fiscalizar, responder a demanda ciudadana</td>
+          <td>Posición dividida entre autonomía universitaria y control fiscal</td>
+        </tr>
+        <tr>
+          <td>Contraloría General de la República</td>
+          <td>Legalidad y eficiencia del gasto público</td>
+          <td>Ha documentado irregularidades; informes con alcance vinculante</td>
+        </tr>
+        <tr>
+          <td>Fiscalía Anticorrupción</td>
+          <td>Investigar posibles delitos en manejo de fondos públicos</td>
+          <td>Expediente activo 25-000210-1218-PE contra el rector</td>
+        </tr>
+        <tr>
+          <td>Estudiantes y becarios</td>
+          <td>Acceso a becas y calidad de servicios</td>
+          <td>Afectados cuando la masa salarial comprime el presupuesto operativo</td>
+        </tr>
+        <tr>
+          <td>Ciudadanía y contribuyentes</td>
+          <td>Retorno social de la inversión pública</td>
+          <td>Percepción de inequidad; combustible del debate político sobre el FEES</td>
+        </tr>
+        <tr>
+          <td>Laura Fernández (presidenta electa, asume 8 mayo 2026)</td>
+          <td>Redistribución más equitativa del FEES entre universidades</td>
+          <td>Condiciona aumentos del FEES a reforma salarial; señala que UCR y UNA concentran el 75% del fondo</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- S5 -->
+<section id="s5">
+  <div class="sec-label">Sección 5</div>
+  <h2>Evaluación epistémica (MEEE-G)</h2>
+
+  <p>La evidencia disponible proviene de estados financieros auditados de la UCR (2023), actas y resoluciones del Consejo Universitario, informes de la Contraloría General, expedientes judiciales de la Fiscalía Anticorrupción, y cobertura periodística de medios con estándares editoriales establecidos. La calidad de la información es suficiente para establecer <strong>correlaciones robustas</strong> entre el gasto en complementos salariales y el presupuesto FEES, aunque limitada para atribuir causalidades directas entre los complementos y la restricción presupuestaria para otras áreas.</p>
+
+  <h3>Clasificación de enunciados centrales</h3>
+  <div class="tabla-wrap">
+    <table>
+      <thead>
+        <tr><th>Afirmación</th><th>Estatus</th><th>Fundamento</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Los pluses en la UCR superan al salario base en una proporción de 1,6:1</td>
+          <td><span class="epist epist-conf">DC</span></td>
+          <td>Estados financieros auditados 2023; citado por Gerardo Corrales en medios verificables</td>
+        </tr>
+        <tr>
+          <td>Más del 65% del FEES se consume en remuneraciones del sistema universitario</td>
+          <td><span class="epist epist-conf">DC</span></td>
+          <td>Contraloría General de la República (informe documentado)</td>
+        </tr>
+        <tr>
+          <td>El sistema de pluses sobre pluses produjo un efecto amplificador del 27%</td>
+          <td><span class="epist epist-conf">DC</span></td>
+          <td>Reconocido por comisión interna UCR desde 2015 y documentado por La Nación</td>
+        </tr>
+        <tr>
+          <td>El gasto en remuneraciones equivale al ≈71% del presupuesto total de la UCR</td>
+          <td><span class="epist epist-infer">IP</span></td>
+          <td>Estimación de años previos; datos 2024–2025 no auditados públicamente</td>
+        </tr>
+        <tr>
+          <td>La reforma de 2024 reducirá significativamente la masa salarial a mediano plazo</td>
+          <td><span class="epist epist-infer">IP</span></td>
+          <td>El cambio aplica solo a nuevos ingresos; la transición es gradual y lenta</td>
+        </tr>
+        <tr>
+          <td>Los pluses actuales son "exagerados" o "abusivos" en términos absolutos</td>
+          <td><span class="epist epist-interp">Int</span></td>
+          <td>Depende del marco comparativo: sector privado, otras universidades, costo de vida</td>
+        </tr>
+        <tr>
+          <td>La UCR utilizó los pluses para capturar recursos del FEES en beneficio de una élite laboral</td>
+          <td><span class="epist epist-hip">H</span></td>
+          <td>Requiere demostración de intencionalidad institucional; no puede afirmarse como dato</td>
+        </tr>
+        <tr>
+          <td>La reforma salarial de 2024 resolverá el problema estructural</td>
+          <td><span class="epist epist-conj">C</span></td>
+          <td>No hay evidencia suficiente dado el carácter gradual y la magnitud del personal en régimen antiguo</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Análisis comparativo</h3>
+  <div class="tabla-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Dimensión</th>
+          <th>UCR</th>
+          <th>Universidades latinoam. típicas</th>
+          <th>Sector público CR (no autónomo)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Proporción del presupuesto en salarios</td>
+          <td><span class="cifra">≈71%</span></td>
+          <td>40–55%</td>
+          <td>35–50%</td>
+        </tr>
+        <tr>
+          <td>Relación pluses / salario base</td>
+          <td><span class="cifra">1,6×</span></td>
+          <td>0,2–0,6 veces</td>
+          <td>0,1–0,3 veces (topes legales)</td>
+        </tr>
+        <tr>
+          <td>Mecanismo de ajuste salarial</td>
+          <td>Negociación anual (FEES) + convención colectiva</td>
+          <td>Tablas fijas + políticas nacionales</td>
+          <td>Escalas únicas + topes legales</td>
+        </tr>
+        <tr>
+          <td>Autonomía para definir estructuras</td>
+          <td>Sí (constitucional)</td>
+          <td>Parcial o restringida</td>
+          <td>No aplica</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="amber-box">
+    <p>La estructura de la UCR exhibe un peso de los complementos salariales <strong>sustancialmente superior</strong> al de otros sectores del Estado costarricense y al de universidades latinoamericanas típicas. Esta diferencia es un <span class="epist epist-conf">DC</span> en términos cuantitativos. Su calificación como "exagerada" o "razonable" constituye una interpretación valorativa que depende de referentes normativos explícitos.</p>
+  </div>
+</section>
+
+<!-- S6 -->
+<section id="s6">
+  <div class="sec-label">Sección 6</div>
+  <h2>Análisis dinámico (ADD)</h2>
+
+  <h3>Diagnóstico de nivel</h3>
+  <p>El fenómeno opera simultáneamente en el nivel <strong>práctico-disposicional</strong> (habitus institucional sedimentado en décadas de convención colectiva) y en el nivel <strong>comunicativo-institucional</strong> (tensión entre lógica sistémica del Estado —control fiscal— y mundo de vida universitario —autonomía, derechos adquiridos, misión académica—).</p>
+
+  <h3>Actores y habitus (Bourdieu)</h3>
+  <p>El sistema de pluses de la UCR no es una anomalía administrativa: es un <strong>habitus institucional incorporado</strong> a lo largo de décadas. El personal docente y administrativo en régimen antiguo tiene disposiciones completamente interiorizadas respecto a sus derechos salariales. La convención colectiva funciona como clausura organizacional simbólica que define qué perturbaciones (intentos de reforma) son percibidas como amenazas a la identidad institucional. Las formas de capital comprometidas son claras: el <strong>capital económico</strong> (monto del salario), el <strong>capital simbólico</strong> (el prestigio de trabajar en la UCR bajo condiciones históricamente privilegiadas) y el <strong>capital social</strong> (redes sindicales y gremiales que sostienen la convención colectiva).</p>
+  <p>La <strong>violencia simbólica</strong> opera en doble dirección: el personal universitario percibe las reformas como despojo legítimamente resistible; la ciudadanía percibe los pluses como privilegios ilegítimos. Ambas percepciones dificultan el diagnóstico técnico.</p>
+
+  <h3>Flujos disipativos y asimetría interna</h3>
+  <p>El FEES es el flujo energético-material que sostiene el sistema. La proporción consumida por la masa salarial —históricamente superior al 65%— deja un margen reducido para las funciones sustantivas. El sistema ha operado durante décadas priorizando la <strong>reproducción interna de su organización laboral</strong> sobre la apertura hacia los flujos de producción académica.</p>
+  <p>El flujo de complementos es profundamente asimétrico: mientras el ≈3% del personal con mayor antigüedad percibe salarios superiores a <span class="cifra">₡4 millones/mes</span>, el 47% gana menos de <span class="cifra">₡1 millón</span>, y el 70% del profesorado (interino) accede a complementos mínimos o nulos. El flujo de complementos está concentrado, no distribuido.</p>
+
+  <h3>Perturbaciones y su procesamiento</h3>
+  <ul class="mec-lista">
+    <li class="mec-item">
+      <div class="mec-num">P1</div>
+      <div class="mec-content">
+        <h4>Ley N.° 9635 (2018) — Fortalecimiento de las Finanzas Públicas</h4>
+        <p>Nominalizó los pluses y suspendió anualidades en 2020–2022. La UCR la aplicó de forma conflictiva y gradual. La perturbación fue procesada mediante resistencia institucional y litigación.</p>
+      </div>
+    </li>
+    <li class="mec-item">
+      <div class="mec-num">P2</div>
+      <div class="mec-content">
+        <h4>Ley N.° 10159 (2023) — Marco de Empleo Público</h4>
+        <p>Introdujo el salario global para nuevos funcionarios. La UCR implementó el cambio para personal administrativo nuevo desde 2024. Perturbación procesada mediante adaptación parcial que preserva el régimen antiguo.</p>
+      </div>
+    </li>
+    <li class="mec-item">
+      <div class="mec-num">P3</div>
+      <div class="mec-content">
+        <h4>Presión política del Ejecutivo sobre el FEES (2024–2026)</h4>
+        <p>El presidente Rodrigo Chaves amenazó con congelar el FEES o trasladar la decisión al Congreso si no hay una reducción significativa en la asignación a la UCR y la UNA. Esta perturbación opera directamente sobre los flujos disipativos del sistema. La respuesta universitaria ha sido invocar la autonomía constitucional (artículo 85).</p>
+      </div>
+    </li>
+  </ul>
+
+  <h3>Atractores y bifurcaciones</h3>
+  <p>El sistema presenta dos atractores en tensión:</p>
+  <div class="info-box">
+    <p><strong>Atractor 1 — Statu quo salarial:</strong> Sostenido por la convención colectiva, los derechos adquiridos, la cultura institucional y la masa crítica del personal en régimen antiguo. Tiene enorme inercia.</p>
+    <p><strong>Atractor 2 — Reforma estructural:</strong> Impulsado por la presión fiscal externa (Contraloría, Ejecutivo, Ley de Empleo Público), la insostenibilidad financiera a largo plazo y la demanda ciudadana de mayor equidad.</p>
+  </div>
+  <p>El sistema se encuentra en un régimen de <strong>turbulencia activa</strong>, no en bifurcación aún. El parámetro de control crítico es la velocidad de rotación del personal: mientras el personal en régimen antiguo siga activo, el atractor del statu quo domina. La bifurcación real ocurrirá cuando la proporción de personal bajo salario global supere la masa crítica, lo que podría tomar una o dos décadas.</p>
+
+  <h3>Tensiones estructurales</h3>
+  <ul class="mec-lista">
+    <li class="mec-item">
+      <div class="mec-num">T1</div>
+      <div class="mec-content">
+        <h4>Derechos adquiridos vs. sostenibilidad fiscal</h4>
+        <p>La jurisprudencia constitucional protege los derechos adquiridos mientras las Leyes N.° 9635 y N.° 10159 imponen topes. La UCR debe conciliar la protección de beneficios legítimos con la necesidad de contener el gasto.</p>
+      </div>
+    </li>
+    <li class="mec-item">
+      <div class="mec-num">T2</div>
+      <div class="mec-content">
+        <h4>Equidad interna vs. eficiencia institucional</h4>
+        <p>La estructura beneficia desproporcionadamente a un pequeño grupo con alta antigüedad, mientras el 47% gana menos de ₡1 millón/mes y el 70% del profesorado es interino con salarios precarios.</p>
+      </div>
+    </li>
+    <li class="mec-item">
+      <div class="mec-num">T3</div>
+      <div class="mec-content">
+        <h4>Autonomía universitaria vs. control del gasto público</h4>
+        <p>El Estado busca incidir en la política salarial universitaria a través del FEES y la legislación de empleo público. La UCR invoca su autonomía constitucional, pero el financiamiento proviene mayoritariamente del presupuesto nacional.</p>
+      </div>
+    </li>
+    <li class="mec-item">
+      <div class="mec-num">T4</div>
+      <div class="mec-content">
+        <h4>Corto plazo vs. largo plazo</h4>
+        <p>Los complementos (anualidades, escalafones) incrementan el gasto automáticamente, creando un compromiso financiero plurianual que reduce la flexibilidad presupuestaria frente a choques externos o cambios en prioridades.</p>
+      </div>
+    </li>
+  </ul>
+</section>
+
+<!-- S7 -->
+<section id="s7">
+  <div class="sec-label">Sección 7</div>
+  <h2>Escenarios plausibles</h2>
+
+  <div class="escenario-block esc-amber">
+    <div class="prob-badge prob-alta">Probabilidad media-alta</div>
+    <h3>Escenario A — Continuidad con ajustes marginales <span class="epist epist-infer">IP</span></h3>
+    <p>La UCR mantiene la estructura de complementos con ajustes porcentuales moderados. La presión de la Contraloría y la Fiscalía conduce a correcciones en casos específicos. El gasto en salarios continúa representando ≈71% del presupuesto total. La reforma de 2024 opera gradualmente: a medida que el personal antiguo se jubila, la masa salarial disminuye paulatinamente. El proceso tarda 15–20 años.</p>
+    <p><strong>Efectos en cascada:</strong> La disponibilidad de recursos para becas, investigación e infraestructura se mantiene limitada (11,1% en becas). Las tensiones con el Ejecutivo y la Asamblea por el FEES se reproducen anualmente. La equidad salarial interna no se resuelve estructuralmente.</p>
+  </div>
+
+  <div class="escenario-block esc-dim">
+    <div class="prob-badge prob-baja">Probabilidad baja a corto plazo</div>
+    <h3>Escenario B — Aplicación plena de la Ley Marco de Empleo Público <span class="epist epist-infer">IP</span></h3>
+    <p>La UCR adopta el salario global definitivo con topes uniformes. Se eliminan o integran los complementos en una escala única. El gasto en salarios se reduce en un porcentaje estimado entre 10% y 20%.</p>
+    <ul class="delta-lista">
+      <li class="delta-item"><span class="delta-tag">Δ₁</span> Liberación de recursos del FEES redirigibles a becas, investigación e infraestructura.</li>
+      <li class="delta-item"><span class="delta-tag">Δ₂</span> Fuga de talento altamente calificado hacia el sector privado o el extranjero, con pérdida de competitividad académica.</li>
+      <li class="delta-item"><span class="delta-tag">Δ₃</span> Conflicto legal prolongado (recursos de amparo, inconstitucionalidades) que podría anular o diferir la aplicación de la ley.</li>
+      <li class="delta-item"><span class="delta-tag">Δ₄</span> Reconfiguración del mercado laboral académico costarricense, con posible reducción de la calidad de la investigación y la docencia.</li>
+    </ul>
+  </div>
+
+  <div class="escenario-block esc-teal">
+    <div class="prob-badge prob-media">Probabilidad media</div>
+    <h3>Escenario C — Reforma gradual consensuada <span class="epist epist-infer">IP</span></h3>
+    <p>La UCR, el Gobierno y los sindicatos negocian una transición hacia un nuevo régimen salarial en un plazo de 5 a 8 años. Se mantienen los derechos adquiridos para el personal en servicio, pero se modifica el esquema para las nuevas contrataciones ("régimen cerrado"). Se introducen topes y criterios de sostenibilidad financiera.</p>
+    <p><strong>Efectos en cascada:</strong> Reducción gradual del peso relativo del gasto salarial. Estabilidad laboral y fiscal durante la transición. Mejora de la percepción ciudadana sobre la eficiencia del gasto universitario.</p>
+  </div>
+
+  <div class="escenario-block esc-granate">
+    <div class="prob-badge prob-baja">Probabilidad baja a corto plazo, creciente a mediano</div>
+    <h3>Escenario D — Reforma forzada por crisis fiscal <span class="epist epist-conj">C</span></h3>
+    <p>Una contracción fiscal severa del Estado obliga a negociar un FEES con crecimiento cero o negativo en términos reales, forzando una renegociación de la convención colectiva. La presión de la nueva administración Fernández —que ha condicionado los aumentos del FEES a una redistribución y a controles más estrictos sobre el gasto salarial— podría acelerar este escenario si la Asamblea Legislativa interviene en la fórmula de distribución.</p>
+  </div>
+</section>
+
+<!-- S8 -->
+<section id="s8">
+  <div class="sec-label">Sección 8</div>
+  <h2>Repercusiones para Costa Rica</h2>
+
+  <h3>Política</h3>
+  <p>El debate sobre los pluses de la UCR es un nodo de articulación entre tres tensiones estructurales del sistema político costarricense: la <strong>autonomía universitaria</strong> protegida constitucionalmente, la <strong>sostenibilidad fiscal del Estado</strong> (contexto de deuda pública elevada post-Ley 9635) y la <strong>legitimidad democrática</strong> de las instituciones públicas. La ruptura del diálogo FEES en abril de 2026 —cuando el presidente Chaves trasladó la decisión al Congreso— coloca el tema en el centro de la agenda legislativa del nuevo período presidencial. El caso del rector bajo investigación y el del exrector con pagos indebidos de ₡15 millones alimentan la narrativa de "abusos", erosionando la confianza en la educación superior pública.</p>
+
+  <h3>Económica</h3>
+  <p>El FEES representa una de las partidas de gasto social más significativas del presupuesto nacional. La proporción que se destina a pluses en lugar de a becas, investigación o infraestructura tiene un <strong>costo de oportunidad medible</strong>. La <strong>rigidez del gasto salarial</strong> reduce la capacidad de la UCR para responder a crisis fiscales: durante la aplicación de la regla fiscal (2019–2025), el porcentaje destinado a salarios no disminuyó significativamente, a diferencia de otros rubros. La alta proporción del FEES destinada a salarios (≈71%) limita la inversión en I+D, con consecuencias para la competitividad nacional basada en conocimiento.</p>
+
+  <h3>Social</h3>
+  <p>La baja proporción del presupuesto destinada a becas (<strong>11,1% en 2026: ₡41.389 millones</strong>) en relación con el gasto salarial constituye una tensión distributiva que afecta la capacidad de la UCR para promover movilidad social. La precariedad laboral del profesorado interino (≈70% del total) contrasta con la estabilidad y los altos ingresos de un pequeño grupo con alta antigüedad, generando tensiones al interior de la comunidad universitaria y proyectando hacia la ciudadanía una imagen de corporativismo que debilita el apoyo social a la inversión pública en educación superior.</p>
+
+  <h3>Científica y cultural</h3>
+  <p>La compresión del presupuesto no salarial afecta directamente la capacidad de investigación: laboratorios, equipamiento, proyectos de acción social y programas de internacionalización compiten por el 35% residual del FEES. La posible reducción del gasto salarial por aplicación de topes podría incentivar la <strong>fuga de investigadores altamente calificados</strong>; pero también podría liberar recursos para <strong>equipamiento científico</strong> y <strong>renovación generacional</strong> del personal académico, con efectos positivos en la productividad científica a mediano plazo.</p>
+</section>
+
+<!-- S9 -->
+<section id="s9">
+  <div class="sec-label">Sección 9</div>
+  <h2>Incertidumbres abiertas</h2>
+  <ul class="mec-lista">
+    <li class="mec-item">
+      <div class="mec-num">?</div>
+      <div class="mec-content"><p>¿Cuál es exactamente la proporción actual (2024–2025) de la masa salarial UCR sobre su presupuesto total, tras la implementación del nuevo Régimen Salarial Académico? Los datos auditados más recientes son de 2023.</p></div>
+    </li>
+    <li class="mec-item">
+      <div class="mec-num">?</div>
+      <div class="mec-content"><p>¿Cuántos funcionarios han migrado ya al salario global versus cuántos permanecen en régimen compuesto? La UCR no ha publicado datos desagregados verificables sobre este punto.</p></div>
+    </li>
+    <li class="mec-item">
+      <div class="mec-num">?</div>
+      <div class="mec-content"><p><strong>Desenlace del proceso judicial:</strong> el expediente 25-000210-1218-PE contra el rector Carlos Araya podría derivar en sanción penal, administrativa o absolución, con efectos sobre la política salarial futura.</p></div>
+    </li>
+    <li class="mec-item">
+      <div class="mec-num">?</div>
+      <div class="mec-content"><p><strong>Aplicabilidad de la Ley Marco de Empleo Público:</strong> la Sala Constitucional podría pronunciarse sobre recursos de amparo presentados por universidades públicas, clarificando si la ley es aplicable plenamente o si la autonomía universitaria la excluye.</p></div>
+    </li>
+    <li class="mec-item">
+      <div class="mec-num">?</div>
+      <div class="mec-content"><p>¿Cuál será la posición de la Asamblea Legislativa frente a una eventual legislación sobre el FEES que el Ejecutivo podría impulsar en 2026–2027?</p></div>
+    </li>
+    <li class="mec-item">
+      <div class="mec-num">?</div>
+      <div class="mec-content"><p>¿La nueva administración Fernández mantendrá la misma presión redistributiva que la administración Chaves, o adoptará una posición de mayor diálogo con las universidades?</p></div>
+    </li>
+    <li class="mec-item">
+      <div class="mec-num">?</div>
+      <div class="mec-content"><p>¿Puede la convención colectiva de la UCR ser modificada unilateralmente o requiere negociación tripartita? El marco jurídico aplicable sigue siendo objeto de interpretaciones encontradas.</p></div>
+    </li>
+  </ul>
+</section>
+
+<!-- S10 -->
+<section id="s10">
+  <div class="sec-label">Sección 10</div>
+  <h2>Conclusiones analíticas</h2>
+  <p>La relación entre los complementos salariales en la UCR y el presupuesto FEES es <strong>estructural, cuantitativamente significativa y jurídicamente disputada</strong>.</p>
+
+  <div class="concl-item">
+    <div class="concl-label">Dato confirmado</div>
+    <p>Los complementos salariales representan 1,6 veces el salario base y constituyen el 50% del gasto total en remuneraciones, mientras que los salarios base apenas alcanzan el 31%. El FEES financia el 95,9% del presupuesto de la UCR y, por tanto, financia en esa misma proporción el gasto en complementos.</p>
+  </div>
+
+  <div class="concl-item">
+    <div class="concl-label">Inferencia plausible</div>
+    <p>La rigidez y magnitud del gasto salarial —en particular de sus componentes complementarios— limitan la disponibilidad de recursos del FEES para otras funciones sustantivas (becas, investigación, infraestructura), aunque la atribución de causalidad directa ("los sobresueldos quitan recursos a las becas") no puede establecerse sin un análisis de elasticidades presupuestarias del cual no se dispone.</p>
+  </div>
+
+  <div class="concl-item">
+    <div class="concl-label">Casos documentados de irregularidades</div>
+    <p>El exrector Gustavo Gutiérrez Espeleta recibió pagos que superaron el tope legal en casi ₡15 millones durante cuatro años. La Fiscalía Anticorrupción investiga al actual rector por la aprobación del Régimen Salarial Académico sin estudios de sostenibilidad financiera. Estos casos no representan la totalidad del personal, pero han contribuido a la percepción de "abuso del sistema" que alimenta el debate político sobre el FEES.</p>
+  </div>
+
+  <div class="concl-item">
+    <div class="concl-label">Interpretación institucional</div>
+    <p>La UCR ha reconocido errores del pasado en materia salarial y ha adoptado medidas correctivas, pero sostiene que la estructura de complementos responde a una estrategia de compensación de salarios base históricamente bajos y a la necesidad de retener talento calificado frente a la competencia del sector privado y de universidades del exterior.</p>
+  </div>
+
+  <div class="alerta">
+    <div class="alerta-label">Síntesis</div>
+    <p>Existe una relación directa y cuantificable entre el presupuesto FEES y el gasto en complementos salariales de la UCR. La magnitud de los complementos —considerablemente superior al promedio del sector público costarricense y a los estándares de universidades latinoamericanas— es un <strong>dato confirmado</strong>. Su calificación como "exagerada" o "razonable" depende de criterios normativos explícitos (eficiencia, equidad, competitividad, autonomía) que este análisis no pretende zanjar, sino exponer en sus términos y tensiones.</p>
+  </div>
+</section>
+
+<!-- S11 -->
+<section id="s11">
+  <div class="sec-label">Sección 11</div>
+  <h2>Referencias (APA 7)</h2>
+  <ul class="fuentes-lista">
+    <li>Consejo Nacional de Rectores (CONARE). (2025, 2 de setiembre). <em>Universidades públicas alcanzan consenso para la redistribución del FEES 2026</em>. <a href="https://www.conare.ac.cr" target="_blank" rel="noopener">→ CONARE</a></li>
+    <li>Contraloría General de la República. (2019). <em>Informe sobre los esquemas remunerativos de las instituciones estatales</em>. San José, Costa Rica.</li>
+    <li>Corrales, G. (2024, 28 de agosto). Personal de la UCR gana más por pluses salariales que por salario base. <em>La República</em>. <a href="https://www.larepublica.net/noticia/personal-de-la-ucr-gana-mas-por-pluses-salariales-que-por-salario-base" target="_blank" rel="noopener">→ La República</a></li>
+    <li>CR Hoy. (2025, 9 de abril). Exrector de la UCR recibió salario por encima del límite legal durante su administración. <em>CR Hoy</em>.</li>
+    <li>CR Hoy. (2025, 10 de abril). Sobresueldos pagados a exrector de la UCR suman ₡15 millones. <em>CR Hoy</em>.</li>
+    <li>Delfino.cr. (2025, 17 de junio). Fiscalía abre causa penal contra Carlos Araya por presuntos delitos en implementación de salarios Universidad de Costa Rica. <a href="https://delfino.cr" target="_blank" rel="noopener">→ Delfino.cr</a></li>
+    <li>Infobae Costa Rica. (2026, 22 de abril). Gobierno de Costa Rica rompe negociación del FEES y traslada decisión al Congreso. <em>Infobae</em>.</li>
+    <li>Infobae Costa Rica. (2026, 23 de abril). La administración entrante mantiene el monto destinado a universidades, pero exige igualdad en el reparto. <em>Infobae</em>.</li>
+    <li><em>La Nación</em>. (2021, 27 de marzo). UCR calculó pluses sobre pluses con efecto multiplicador. <a href="https://www.nacion.com" target="_blank" rel="noopener">→ La Nación</a></li>
+    <li><em>La Nación</em>. (2021, 4 de diciembre). Reforma fiscal aplicada a regañadientes frenó de golpe crecimiento salarial en UCR.</li>
+    <li><em>La Nación</em>. (2025, 17 de junio). Fiscalía investiga a rector de la UCR por presunto reconocimiento ilegal de beneficios laborales.</li>
+    <li><em>La República</em>. (2025, 20 de febrero). UCR incrementa salarios a jerarcas y desata críticas de Rodrigo Chaves.</li>
+    <li><em>La República</em>. (2025, 25 de febrero). Rector de la UCR deroga aumento millonario de salario para puestos de confianza.</li>
+    <li>Montero Fonseca, A. (2025). Antropología Dinámica del Devenir (ADD): bases para un programa teórico-metodológico relacional ante la complejidad sociocultural. Manuscrito en preparación, Universidad de Costa Rica.</li>
+    <li>Semanario Universidad. (2024, enero). Empezó a regir nuevo régimen salarial para el personal docente basado en el mérito. <a href="https://semanariouniversidad.com" target="_blank" rel="noopener">→ Semanario Universidad</a></li>
+    <li>Semanario Universidad. (2024, 27 de noviembre). 71 funcionarios molestos por obligación de reintegrar dineros por error en contratos de dedicación exclusiva.</li>
+    <li>Semanario Universidad. (2024, 19 de diciembre). UCR definió salario global para administrativos según Ley de Empleo Público.</li>
+    <li>Semanario Universidad. (2025, 16 de junio). Fiscalía abre causa contra rector de la UCR por presunto reconocimiento ilegal de beneficios laborales.</li>
+    <li>Semanario Universidad. (2025, 12 de noviembre). UCR destinará ₡373.595 millones en su presupuesto 2026, con énfasis en becas e infraestructura.</li>
+    <li>Semanario Universidad. (2025, 21 de abril). Rectoría reduce a 25% el pago por dedicación exclusiva para personal de la UCR.</li>
+    <li>UNA Comunica. (2026, 21 de abril). Universidades públicas defienden aumento y cuestionan ruptura del diálogo. <a href="https://www.unacomunica.una.ac.cr" target="_blank" rel="noopener">→ UNA Comunica</a></li>
+    <li>Universidad de Costa Rica. (2024). <em>Presupuesto ordinario 2024</em>. Oficina de Planificación Universitaria. <a href="https://transparencia.ucr.ac.cr" target="_blank" rel="noopener">→ transparencia.ucr.ac.cr</a></li>
+    <li>Universidad de Costa Rica — Oficina de Recursos Humanos. (s.f.). <em>Remuneraciones</em>. <a href="https://rh.ucr.ac.cr/remuneraciones/" target="_blank" rel="noopener">→ rh.ucr.ac.cr</a></li>
+  </ul>
+
+  <div class="nota-meto">
+    <strong>Nota metodológica:</strong> El presente análisis combina evaluación epistémica explicacionista (MEEE-G, fundamentada en el fiabilismo procesual y el explicacionismo comparativo de Alvin I. Goldman) con análisis dinámico antropológico (ADD, según el marco teórico de Alfredo Montero Fonseca, que integra los aportes de Prigogine, Maturana y Varela, Habermas, Bourdieu y el pluralismo jurídico-político). Las afirmaciones son clasificadas explícitamente como datos confirmados [DC], inferencias plausibles [IP], hipótesis [H], interpretaciones [Int] o conjeturas [C]. El análisis no constituye predicción determinista ni recomendación política; identifica trayectorias dinámicas plausibles y zonas de incertidumbre abierta con base en la información verificable disponible a la fecha. Ver también: <a href="index.html">Informe 1 — Articulación institucional UCR</a> · <a href="contribuciones.html">Informe 2 — Contribuciones de la UCR</a> · <a href="anexo.html">Anexo 1 — Programas estratégicos</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <span>ANCA-ADE · FEES 2027 · Anexo 2 · Abril 2026</span>
+  <span><a href="/informes-estrategicos/fees-2027/">← Serie FEES 2027</a> &nbsp;·&nbsp; <a href="/">antropos.app</a></span>
+</footer>
+
+<script data-goatcounter="https://antropos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

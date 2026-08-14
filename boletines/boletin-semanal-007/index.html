@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANCA-ADD · Boletín Semanal N.° 007 · 18–25 Mayo 2026 · antropos.app</title>
+<meta name="description" content="Análisis epistémico y dinámico de la semana 18–25 mayo 2026: guerra EEUU-Irán, TLC México-UE, ébola Bundibugyo, Ley de Armonización Eléctrica 23.414 y El Niño 2026-27 en Costa Rica.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet"></noscript>
+<style>
+:root {
+  --bg: #0c0c0c;
+  --s1: #141414;
+  --s2: #1a1a1a;
+  --s3: #222;
+  --bdr: #2c2c2c;
+  --red: #b83030;
+  --red2: #e04040;
+  --gold: #c9a84c;
+  --gold2: #e8c96a;
+  --teal: #2b7d7d;
+  --blue: #4a6eb8;
+  --grn: #3a9060;
+  --amber: #c07820;
+  --txt: #e4dcd2;
+  --txt2: #9c9080;
+  --txt3: #504840;
+  --ff: 'Bebas Neue', 'Arial Narrow', sans-serif;
+  --fs: 'Cormorant Garamond', Georgia, serif;
+  --fb: 'Source Serif 4', Georgia, serif;
+  --fm: 'IBM Plex Mono', 'Courier New', monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--txt);
+  font-family: var(--fb);
+  font-size: 16px;
+  line-height: 1.80;
+  overflow-x: hidden;
+}
+
+/* ─── TICKER ─────────────────────────────────────────────── */
+.ticker-wrap {
+  position: sticky; top: 0; z-index: 300;
+  background: var(--red); padding: 6px 0;
+  overflow: hidden; white-space: nowrap;
+  border-bottom: 1px solid #900;
+}
+.ticker-track {
+  display: inline-block;
+  animation: scroll-ticker 70s linear infinite;
+  font-family: var(--fm); font-size: 10px;
+  letter-spacing: .12em; color: #fff;
+  text-transform: uppercase;
+}
+@keyframes scroll-ticker {
+  from { transform: translateX(100vw); }
+  to { transform: translateX(-100%); }
+}
+
+/* ─── NAV ─────────────────────────────────────────────────── */
+nav {
+  background: var(--s1);
+  border-bottom: 1px solid var(--bdr);
+  padding: 10px 0;
+  position: sticky; top: 28px; z-index: 200;
+}
+.nav-inner {
+  max-width: 1180px; margin: 0 auto;
+  padding: 0 30px;
+  display: flex; align-items: center;
+  gap: 6px; flex-wrap: wrap;
+}
+.nav-brand {
+  font-family: var(--ff); font-size: 1.3rem;
+  color: var(--gold); letter-spacing: .05em;
+  margin-right: 20px;
+}
+nav a {
+  color: var(--txt2);
+  text-decoration: none;
+  font-family: var(--fm); font-size: 9px;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: 4px 10px;
+  border: 1px solid transparent;
+  transition: all .2s;
+}
+nav a:hover {
+  color: var(--gold);
+  border-color: var(--bdr);
+}
+
+/* ─── MASTHEAD ────────────────────────────────────────────── */
+.masthead {
+  background: linear-gradient(160deg, #111 0%, #0a0a0a 60%, #131008 100%);
+  border-bottom: 2px solid var(--gold);
+  padding: 70px 30px 50px;
+  position: relative; overflow: hidden;
+}
+.masthead::before {
+  content: 'ANCA';
+  position: absolute; right: -20px; top: -30px;
+  font-family: var(--ff); font-size: 28vw;
+  color: rgba(201,168,76,.03);
+  line-height: 1; pointer-events: none;
+}
+.masthead-inner {
+  max-width: 1180px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr auto;
+  align-items: end; gap: 40px;
+}
+.masthead-title {
+  font-family: var(--ff); font-size: clamp(3.2rem, 9vw, 8rem);
+  line-height: .9; color: var(--txt);
+  letter-spacing: .02em;
+}
+.masthead-title span { color: var(--gold); }
+.masthead-sub {
+  font-family: var(--fs); font-size: 1.05rem;
+  font-style: italic; color: var(--txt2);
+  margin-top: 14px; max-width: 580px;
+  font-weight: 300; line-height: 1.6;
+}
+.masthead-meta {
+  text-align: right;
+  font-family: var(--fm); font-size: 10px;
+  color: var(--txt3); letter-spacing: .1em;
+  line-height: 2.2; text-transform: uppercase;
+}
+.masthead-meta strong { color: var(--gold); font-size: 12px; }
+.issue-badge {
+  display: inline-block;
+  background: var(--red); color: #fff;
+  font-family: var(--ff); font-size: 1.6rem;
+  padding: 4px 18px; margin-bottom: 10px;
+  letter-spacing: .08em;
+}
+
+/* ─── SECTION HEADERS ─────────────────────────────────────── */
+.section-label {
+  font-family: var(--fm); font-size: 9px;
+  letter-spacing: .25em; text-transform: uppercase;
+  padding: 6px 14px; display: inline-block;
+  margin-bottom: 28px;
+}
+.lbl-geo { background: var(--red); color: #fff; }
+.lbl-eco { background: var(--amber); color: #000; }
+.lbl-sci { background: var(--teal); color: #fff; }
+.lbl-tech { background: var(--blue); color: #fff; }
+.lbl-soc { background: var(--grn); color: #fff; }
+.lbl-esp { background: var(--gold); color: #000; }
+.lbl-cr { background: #2a4a2a; color: #90d090; border: 1px solid #3a7a3a; }
+
+/* ─── CONTAINER ───────────────────────────────────────────── */
+.container { max-width: 1180px; margin: 0 auto; padding: 0 30px; }
+
+/* ─── EDITORIAL INTRO ─────────────────────────────────────── */
+.editorial {
+  background: var(--s1);
+  border-left: 4px solid var(--gold);
+  padding: 40px 50px;
+  margin: 50px 0;
+}
+.editorial-title {
+  font-family: var(--ff); font-size: 1.6rem;
+  color: var(--gold); letter-spacing: .06em;
+  margin-bottom: 16px;
+}
+.editorial p {
+  font-family: var(--fs); font-size: 1.08rem;
+  color: var(--txt2); line-height: 1.9;
+  margin-bottom: 12px; font-weight: 300;
+}
+
+/* ─── ARTICLE CARD ────────────────────────────────────────── */
+.article {
+  background: var(--s1);
+  border-top: 3px solid var(--bdr);
+  margin-bottom: 56px;
+  padding: 40px 46px 44px;
+  position: relative;
+}
+.article-geo { border-top-color: var(--red); }
+.article-eco { border-top-color: var(--amber); }
+.article-sci { border-top-color: var(--teal); }
+.article-tech { border-top-color: var(--blue); }
+.article-soc { border-top-color: var(--grn); }
+.article-esp { border-top-color: var(--gold); border-width: 5px; background: #0f0e08; }
+.article-cr { border-top-color: #3a7a3a; }
+
+.art-num {
+  font-family: var(--fm); font-size: 10px;
+  color: var(--txt3); letter-spacing: .2em;
+  margin-bottom: 6px;
+}
+.art-title {
+  font-family: var(--fs); font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 600; line-height: 1.2;
+  color: var(--txt); margin-bottom: 8px;
+}
+.art-deck {
+  font-family: var(--fs); font-style: italic;
+  font-size: 1.05rem; color: var(--txt2);
+  font-weight: 300; margin-bottom: 28px;
+  line-height: 1.6;
+}
+
+/* ─── ARTICLE BODY SECTIONS ───────────────────────────────── */
+.art-section {
+  margin-bottom: 26px;
+}
+.art-section h4 {
+  font-family: var(--fm); font-size: 9.5px;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: var(--gold2); margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--bdr);
+}
+.art-section p {
+  font-family: var(--fb); font-size: .97rem;
+  line-height: 1.85; color: var(--txt);
+}
+
+/* ─── MEEE-G TABLE ────────────────────────────────────────── */
+.meee-table {
+  width: 100%; border-collapse: collapse;
+  margin: 20px 0; font-size: .88rem;
+}
+.meee-table th {
+  background: #1e1e1e;
+  font-family: var(--fm); font-size: 8px;
+  letter-spacing: .15em; text-transform: uppercase;
+  color: var(--txt2); padding: 8px 12px;
+  text-align: left; border-bottom: 1px solid var(--bdr);
+}
+.meee-table td {
+  padding: 9px 12px;
+  border-bottom: 1px solid #1e1e1e;
+  font-family: var(--fb); font-size: .88rem;
+  vertical-align: top; line-height: 1.6;
+}
+.meee-table tr:hover td { background: #171717; }
+.tag-dc { color: #4fc86a; font-family: var(--fm); font-size: .82rem; font-weight: 500; }
+.tag-ip { color: #6ab0e8; font-family: var(--fm); font-size: .82rem; font-weight: 500; }
+.tag-h  { color: #d4a830; font-family: var(--fm); font-size: .82rem; font-weight: 500; }
+.tag-int{ color: #d080d0; font-family: var(--fm); font-size: .82rem; font-weight: 500; }
+.tag-c  { color: #d08060; font-family: var(--fm); font-size: .82rem; font-weight: 500; }
+
+/* ─── ADD BLOCK ───────────────────────────────────────────── */
+.add-block {
+  background: #101418;
+  border-left: 3px solid var(--teal);
+  padding: 20px 24px; margin: 22px 0;
+}
+.add-block h4 {
+  font-family: var(--fm); font-size: 8.5px;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: var(--teal); margin-bottom: 12px;
+}
+.add-block p {
+  font-size: .92rem; color: #b8c8c0;
+  line-height: 1.82; margin-bottom: 8px;
+}
+.add-block p:last-child { margin-bottom: 0; }
+.add-item {
+  display: flex; gap: 10px; align-items: flex-start;
+  margin-bottom: 7px;
+}
+.add-item-label {
+  font-family: var(--fm); font-size: 8px;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--teal); min-width: 90px; padding-top: 3px;
+}
+.add-item-val {
+  font-size: .9rem; color: #b0c0b8; line-height: 1.7;
+}
+.regime-tag {
+  display: inline-block;
+  font-family: var(--fm); font-size: 9px;
+  letter-spacing: .15em; text-transform: uppercase;
+  padding: 3px 10px; margin-top: 8px;
+  border: 1px solid;
+}
+.reg-lam { color: #4fc86a; border-color: #4fc86a; }
+.reg-tur { color: #d4a830; border-color: #d4a830; }
+.reg-bif { color: var(--red2); border-color: var(--red2); }
+
+/* ─── CR BLOCK ────────────────────────────────────────────── */
+.cr-block {
+  background: #0a0f0a;
+  border-left: 3px solid #3a7a3a;
+  padding: 20px 24px; margin: 22px 0;
+}
+.cr-block h4 {
+  font-family: var(--fm); font-size: 8.5px;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: #5aaa5a; margin-bottom: 10px;
+}
+.cr-block p {
+  font-size: .91rem; color: #b0c8a8; line-height: 1.82;
+}
+
+/* ─── SPECIAL SECTION ─────────────────────────────────────── */
+.special-header {
+  background: linear-gradient(135deg, #1a1600 0%, #0f0e08 100%);
+  border: 2px solid var(--gold);
+  padding: 30px 46px;
+  margin-bottom: 0;
+}
+.special-header .esp-tag {
+  font-family: var(--fm); font-size: 9px;
+  letter-spacing: .3em; text-transform: uppercase;
+  color: var(--gold); display: block; margin-bottom: 12px;
+}
+.special-header h2 {
+  font-family: var(--ff); font-size: clamp(1.8rem, 5vw, 3.2rem);
+  color: var(--gold2); line-height: 1.0; letter-spacing: .03em;
+}
+.special-header .esp-sub {
+  font-family: var(--fs); font-style: italic;
+  font-size: 1.05rem; color: #a09020; margin-top: 10px;
+  font-weight: 300;
+}
+
+/* ─── SYNTHESIS TABLE ─────────────────────────────────────── */
+.synth-table {
+  width: 100%; border-collapse: collapse;
+  font-size: .88rem; margin: 20px 0;
+}
+.synth-table th {
+  background: var(--s2);
+  font-family: var(--fm); font-size: 8px;
+  letter-spacing: .15em; text-transform: uppercase;
+  color: var(--gold); padding: 10px 14px;
+  text-align: left; border-bottom: 2px solid var(--gold);
+}
+.synth-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #1c1c1c;
+  font-family: var(--fb); line-height: 1.6;
+  vertical-align: top;
+}
+.synth-table tr:hover td { background: #161616; }
+
+/* ─── UNCERTAINTIES ───────────────────────────────────────── */
+.uncertainties {
+  background: var(--s2);
+  border: 1px solid #2a2218;
+  padding: 32px 40px; margin: 40px 0;
+}
+.uncertainties h3 {
+  font-family: var(--ff); font-size: 1.4rem;
+  color: var(--gold); letter-spacing: .06em; margin-bottom: 18px;
+}
+.unc-item {
+  display: flex; gap: 14px;
+  border-bottom: 1px solid #201c18;
+  padding: 10px 0;
+}
+.unc-item:last-child { border-bottom: none; }
+.unc-n {
+  font-family: var(--fm); font-size: 9px;
+  color: var(--txt3); min-width: 30px; padding-top: 3px;
+}
+.unc-text { font-size: .91rem; color: var(--txt2); line-height: 1.7; }
+
+/* ─── REFERENCES ──────────────────────────────────────────── */
+.references {
+  background: var(--s1);
+  border-top: 2px solid var(--bdr);
+  padding: 40px 46px;
+  margin-top: 50px;
+}
+.references h3 {
+  font-family: var(--ff); font-size: 1.5rem;
+  color: var(--txt2); letter-spacing: .05em;
+  margin-bottom: 24px;
+}
+.ref-item {
+  font-family: var(--fm); font-size: .8rem;
+  color: var(--txt3); line-height: 1.8;
+  border-bottom: 1px solid #181818;
+  padding: 8px 0;
+  padding-left: 20px; text-indent: -20px;
+}
+.ref-item a { color: var(--txt3); text-decoration: underline; }
+
+/* ─── DISCLAIMER ──────────────────────────────────────────── */
+.disclaimer {
+  background: #0a0a0a;
+  border-top: 1px solid #1a1a1a;
+  padding: 30px 46px;
+}
+.disclaimer p {
+  font-family: var(--fm); font-size: 9px;
+  color: var(--txt3); line-height: 1.8;
+  letter-spacing: .04em;
+}
+
+/* ─── FOOTER ──────────────────────────────────────────────── */
+footer {
+  background: var(--s1);
+  border-top: 2px solid var(--gold);
+  padding: 28px 30px;
+  display: flex; justify-content: space-between;
+  align-items: center; flex-wrap: wrap; gap: 16px;
+}
+.ft-brand {
+  font-family: var(--ff); font-size: 2rem;
+  color: var(--gold); letter-spacing: .08em;
+}
+.ft-info {
+  font-family: var(--fm); font-size: 9px;
+  color: var(--txt3); line-height: 2;
+  text-align: right; letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+/* ─── DIVIDER ─────────────────────────────────────────────── */
+.divider {
+  height: 1px; background: var(--bdr);
+  margin: 50px 0;
+}
+.divider-gold {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 60px 0;
+}
+
+/* ─── ALERT TAG ───────────────────────────────────────────── */
+.alert-tag {
+  display: inline-block;
+  background: var(--red);
+  color: #fff;
+  font-family: var(--fm); font-size: 9px;
+  letter-spacing: .15em; text-transform: uppercase;
+  padding: 3px 10px; margin-left: 10px;
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .6; }
+}
+
+/* ─── RESPONSIVE ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .masthead-inner { grid-template-columns: 1fr; }
+  .masthead-meta { text-align: left; }
+  .article, .editorial, .references { padding: 24px 20px; }
+  .special-header { padding: 22px 20px; }
+}
+
+/* ─── SITE NAV BAR ────────────────────────────────────────── */
+.site-nav {
+  background: #080808;
+  border-bottom: 1px solid #1e1e1e;
+  padding: 8px 30px;
+  display: flex; align-items: center; gap: 20px;
+  font-family: var(--fm); font-size: 9px;
+  letter-spacing: .12em; text-transform: uppercase;
+}
+.site-nav a {
+  color: var(--txt3); text-decoration: none;
+  transition: color .2s;
+}
+.site-nav a:hover { color: var(--gold); }
+.site-nav .sep { color: var(--txt3); }
+
+/* ─── GLOSARIO ────────────────────────────────────────────── */
+.glosario {
+  background: #0d0d0d;
+  border-top: 2px solid var(--gold);
+  border-bottom: 2px solid var(--bdr);
+  padding: 50px 46px;
+  margin-top: 50px;
+}
+.glosario h3 {
+  font-family: var(--ff); font-size: 1.8rem;
+  color: var(--gold); letter-spacing: .05em;
+  margin-bottom: 6px;
+}
+.glosario .glos-sub {
+  font-family: var(--fm); font-size: 9px;
+  letter-spacing: .15em; text-transform: uppercase;
+  color: var(--txt3); margin-bottom: 36px;
+}
+.glos-category {
+  margin-bottom: 36px;
+}
+.glos-category-title {
+  font-family: var(--fm); font-size: 8.5px;
+  letter-spacing: .25em; text-transform: uppercase;
+  color: var(--gold2); border-bottom: 1px solid var(--bdr);
+  padding-bottom: 6px; margin-bottom: 18px;
+}
+.glos-item {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 16px 24px;
+  padding: 12px 0;
+  border-bottom: 1px solid #171717;
+}
+.glos-item:last-child { border-bottom: none; }
+.glos-term {
+  font-family: var(--fm); font-size: .82rem;
+  font-weight: 500; color: var(--txt);
+  letter-spacing: .04em; padding-top: 2px;
+}
+.glos-def {
+  font-family: var(--fb); font-size: .9rem;
+  color: var(--txt2); line-height: 1.78;
+}
+.glos-def em { color: var(--gold2); font-style: normal; font-family: var(--fm); font-size: .78rem; }
+@media (max-width: 768px) {
+  .glosario { padding: 30px 20px; }
+  .glos-item { grid-template-columns: 1fr; gap: 4px; }
+  .site-nav { padding: 8px 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- SITE NAV -->
+<div class="site-nav">
+  <a href="/boletines/">← Boletines</a>
+  <span class="sep">/</span>
+  <a href="/">antropos.app</a>
+  <span class="sep">/</span>
+  <a href="/analisis-add/">Análisis ADD</a>
+</div>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <span class="ticker-track">
+    ANCA-ADD · BOLETÍN SEMANAL N.° 007 · 18–25 MAYO 2026 &nbsp;///&nbsp;
+    IRÁN–EEUU: NEGOCIACIONES EN "FASE FINAL" SIN ACUERDO FORMAL &nbsp;///&nbsp;
+    ÉBOLA BUNDIBUGYO: 204 MUERTES, RIESGO "MUY ALTO" EN AFRICA &nbsp;///&nbsp;
+    EL NIÑO 2026: IMN CONFIRMA ADVERTENCIA — Costa RICA ENFRENTA DÉFICIT HÍDRICO Y ENERGÉTICO &nbsp;///&nbsp;
+    LEY DE ARMONIZACIÓN ELÉCTRICA 23.414 — PLENARIO LEGISLATIVO HOY &nbsp;///&nbsp;
+    MÉXICO–UE CONSOLIDAN TLC AMPLIADO EN CONTRAPESO A TRUMPISMO ARANCELARIO &nbsp;///&nbsp;
+    PLN BAJO PRESIÓN INTERNA PARA RECHAZAR SU PROPIO TEXTO SUSTITUTIVO &nbsp;///&nbsp;
+    ECOSEN: NUEVO ENTE COORDINADOR DEL SISTEMA ELÉCTRICO &nbsp;///&nbsp;
+    ANCA-ADD · ANÁLISIS EPISTÉMICO · MEEE-G · ADD · GOLDMAN · PRIGOGINE · MATURANA &nbsp;///&nbsp;
+  </span>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-brand">ANCA-ADD</div>
+    <a href="#geopolitica">Geopolítica</a>
+    <a href="#economia">Economía</a>
+    <a href="#salud">Salud Global</a>
+    <a href="#especial">⚡ Especial Eléctrico</a>
+    <a href="#elnino">El Niño CR</a>
+    <a href="#sintesis">Síntesis</a>
+    <a href="#glosario">Glosario</a>
+    <a href="#referencias">Fuentes</a>
+  </div>
+</nav>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="masthead-inner">
+    <div>
+      <div class="masthead-title">
+        Agente<br>Noticioso<br><span>Crítico</span>
+      </div>
+      <p class="masthead-sub">
+        Análisis epistémico y dinámico de la actualidad · MEEE-G · ADD ·
+        Integración Costa Rica
+      </p>
+    </div>
+    <div class="masthead-meta">
+      <div class="issue-badge">N.° 007</div><br>
+      <strong>Boletín Semanal</strong><br>
+      18 – 25 · Mayo · 2026<br>
+      Cierre editorial: 25 · V · 2026<br>
+      07:14 · San José, C.R.<br><br>
+      ANCA-ADD<br>
+      antropos-amf.github.io<br>
+      /anca-ade.github.io
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+<!-- EDITORIAL -->
+<div class="editorial">
+  <div class="editorial-title">Presentación Editorial</div>
+  <p>La semana del 18 al 25 de mayo de 2026 concentra una densidad analítica excepcional: la guerra EEUU-Israel-Irán llega a su momento más ambiguo —con anuncios de acuerdo desde Washington que Teherán matiza en tiempo real—; el ébola de variante Bundibugyo, para el que no existe vacuna disponible, escala a 204 muertes probables y activa la primera ESPII declarada unilateralmente por el Director General de la OMS sin comité previo; y el mundo comercial observa cómo el eje México-UE consolida un tratado ampliado que redefine la geometría del contrapeso al unilateralismo arancelario de Trump.</p>
+  <p>Para Costa Rica, la semana trae dos urgencias estructurales convergentes: el IMN confirma la advertencia formal de El Niño 2026-2027 —con déficits de lluvia de hasta el 50% en el Pacífico Norte y una probabilidad del 96% de extensión hasta febrero próximo— y el Plenario Legislativo debate <em>hoy</em>, lunes 25 de mayo, el expediente 23.414, conocido como Ley de Armonización del Sistema Eléctrico Nacional. La coincidencia temporal no es trivial: la crisis hídrica que se avecina hace que las decisiones sobre arquitectura energética adoptadas hoy tengan efectos estructurales en el horizonte más corto de lo habitual.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     ÍTEM 01 — GEOPOLÍTICA
+════════════════════════════════════════════════ -->
+<div id="geopolitica" class="section-label lbl-geo">01 · Política y Geopolítica</div>
+
+<article class="article article-geo">
+  <div class="art-num">ÍTEM 01 · GEOPOLÍTICA</div>
+  <h2 class="art-title">La guerra EEUU-Israel-Irán entra en su momento más ambiguo: acuerdo "casi negociado" según Trump, control de Ormuz intocable según Teherán</h2>
+  <p class="art-deck">Las negociaciones del memorando de entendimiento avanzan pero los mensajes de ambas capitales son estructuralmente incompatibles en al menos dos puntos centrales.</p>
+
+  <div class="art-section">
+    <h4>Resumen factual</h4>
+    <p>El sábado 24 de mayo, el presidente Donald Trump publicó en redes sociales que el acuerdo con Irán estaba "en gran medida negociado" e incluyó la reapertura del estrecho de Ormuz como elemento del memorando. Horas antes, el portavoz del Ministerio de Relaciones Exteriores iraní, Esmaeil Baghaei, había declarado que Washington y Teherán estaban en "fase final" de redacción del memorando, pero puntualizó que los detalles del programa nuclear no forman parte de la discusión en esta etapa, que no hay garantía de que EEUU cumpla sus compromisos, y que Irán condicionaba cualquier avance al cese formal de la guerra en todos los frentes, incluido el Líbano. Los medios estatales iraníes cercanos a la Guardia Revolucionaria Islámica rechazaron la versión de Trump sobre Ormuz, afirmando que el estrecho permanecería bajo supervisión iraní —aunque se permitiría un retorno gradual del tráfico durante 30 días. El secretario de Estado Marco Rubio reconoció "avances significativos". El 25 de mayo, el gobierno chino llamó a mantener abierta la "puerta del diálogo".</p>
+  </div>
+
+  <div class="art-section">
+    <h4>Contexto</h4>
+    <p>La guerra, iniciada el 28 de febrero de 2026 con la Operación Furia Épica, lleva casi tres meses. El estrecho de Ormuz fue cerrado efectivamente por Teherán tras los primeros ataques, generando la mayor disrupción del mercado energético global desde 2003. El programa nuclear iraní enriquecía uranio al 60% antes del conflicto —umbral técnicamente próximo al grado armamentístico— y representa la línea roja estratégica de EEUU e Israel. El abandono del JCPOA por Trump en 2018 durante su primer mandato opera como antecedente de desconfianza institucional desde Teherán.</p>
+  </div>
+
+  <div class="art-section">
+    <h4>Evaluación epistémica — MEEE-G</h4>
+    <table class="meee-table">
+      <tr><th>Afirmación</th><th>Código</th><th>Fundamento</th></tr>
+      <tr><td>Trump anunció acuerdo "casi negociado"</td><td><span class="tag-dc">[DC]</span></td><td>Publicación verificada en redes sociales del presidente.</td></tr>
+      <tr><td>Irán condiciona acuerdo al cese total de la guerra</td><td><span class="tag-dc">[DC]</span></td><td>Declaración pública del portavoz Baghaei, citada por CNN y Infobae.</td></tr>
+      <tr><td>Ormuz bajo supervisión iraní, no reabierto incondicionalmente</td><td><span class="tag-dc">[DC]</span></td><td>Medios estatales iraníes y IRGC-cercanos, citados por CNN.</td></tr>
+      <tr><td>Las versiones de EEUU e Irán son estructuralmente incompatibles</td><td><span class="tag-int">[Int]</span></td><td>Análisis comparativo de los comunicados: el marco de Trump incluye nuclearización en el acuerdo; Irán la excluye explícitamente.</td></tr>
+      <tr><td>El acuerdo se firmará en los próximos días</td><td><span class="tag-h">[H]</span></td><td>Ambas partes señalan proximidad, pero las brechas declaradas siguen siendo sustantivas.</td></tr>
+    </table>
+  </div>
+
+  <div class="add-block">
+    <h4>Lectura dinámica — ADD</h4>
+    <div class="add-item"><span class="add-item-label">Régimen</span><span class="add-item-val">Turbulento con señales de posible bifurcación. El sistema lleva 87 días en estado turbulento con ciclos de escalada/desescalada. La semana registra la primera señal sostenida de reducción de fluctuaciones.</span></div>
+    <div class="add-item"><span class="add-item-label">Atractores</span><span class="add-item-val">Dos atractores en tensión: (1) estabilización táctica por agotamiento de recursos y presión de los mercados energéticos; (2) maximización de condiciones de salida —cada parte busca que el acuerdo formalice una victoria doméstica.</span></div>
+    <div class="add-item"><span class="add-item-label">Parámetro crítico</span><span class="add-item-val">El programa nuclear iraní como parámetro de control: si EEUU exige su desmantelamiento formal antes del cese de fuego, el sistema no alcanza bifurcación hacia la paz; si lo posterga, el acuerdo es frágil pero posible.</span></div>
+    <div class="add-item"><span class="add-item-label">Acoplamiento</span><span class="add-item-val">China como acoplamiento estructural externo: su llamado a mantener el diálogo señala interés en la estabilización (flujos de Ormuz críticos para su cadena de suministro) sin participación directa.</span></div>
+    <span class="regime-tag reg-tur">Régimen turbulento / bifurcación posible</span>
+  </div>
+
+  <div class="cr-block">
+    <h4>Relevancia para Costa Rica</h4>
+    <p>Costa Rica importa el 100% de sus hidrocarburos. El cierre de Ormuz desde febrero ha mantenido el precio del petróleo en niveles elevados, encareciendo la generación térmica de respaldo del ICE —ya bajo presión por El Niño. Un acuerdo que reactive el tráfico por Ormuz tendría efecto deflacionario sobre combustibles con rezago de 4-6 semanas. RECOPE y la ARESEP deben monitorearlo como variable de corto plazo en la revisión tarifaria eléctrica.</p>
+  </div>
+</article>
+
+<!-- ═══════════════════════════════════════════════
+     ÍTEM 02 — ECONOMÍA
+════════════════════════════════════════════════ -->
+<div id="economia" class="section-label lbl-eco">02 · Economía y Negocios</div>
+
+<article class="article article-eco">
+  <div class="art-num">ÍTEM 02 · ECONOMÍA INTERNACIONAL</div>
+  <h2 class="art-title">México y la UE firman TLC ampliado: el contrapeso atlántico al unilateralismo arancelario de Trump toma forma institucional</h2>
+  <p class="art-deck">El acuerdo consolida un mercado alternativo para exportaciones mexicanas y europeas en un momento de máxima incertidumbre sobre el acceso al mercado estadounidense.</p>
+
+  <div class="art-section">
+    <h4>Resumen factual</h4>
+    <p>El viernes 22 de mayo, las presidentas Claudia Sheinbaum y Ursula von der Leyen firmaron en Ciudad de México un acuerdo que amplía el tratado de libre comercio México-UE vigente desde hace dos décadas. El pacto reduce aranceles, abre nuevos sectores y establece garantías de inversión. El jefe del Consejo Europeo, António Costa, también estuvo presente. El acuerdo se enmarca explícitamente como respuesta a la política arancelaria de la administración Trump, que ha elevado aranceles sobre exportaciones europeas al 15% y presionado a México dentro del marco del TMEC. Un tribunal federal estadounidense falló el 7 de mayo contra los aranceles globales de Trump —el segundo revés judicial en pocas semanas— aunque la administración continúa operando bajo otras autoridades legales.</p>
+  </div>
+
+  <div class="art-section">
+    <h4>Contexto</h4>
+    <p>La OMC proyectó a finales de 2025 un crecimiento del comercio mundial de apenas 0.5% para 2026, frente al 2.4% del año anterior. América del Norte es una de las regiones más afectadas, con exportaciones que se estiman en caída del 1%. La política arancelaria de Trump ha funcionado como perturbación sistémica de gran escala que está reorganizando los flujos globales de comercio hacia arquitecturas bilaterales y plurilaterales alternativas.</p>
+  </div>
+
+  <div class="art-section">
+    <h4>Evaluación epistémica — MEEE-G</h4>
+    <table class="meee-table">
+      <tr><th>Afirmación</th><th>Código</th><th>Fundamento</th></tr>
+      <tr><td>Firma del TLC México-UE ampliado el 22 de mayo</td><td><span class="tag-dc">[DC]</span></td><td>AP, citado por Proceso.</td></tr>
+      <tr><td>El acuerdo busca diversificar mercados ante presión arancelaria de EEUU</td><td><span class="tag-dc">[DC]</span></td><td>Declaraciones explícitas de ambas partes.</td></tr>
+      <tr><td>El TLC ampliado redefine la arquitectura geoeconómica del atlántico norte</td><td><span class="tag-int">[Int]</span></td><td>Interpretación estructural de los flujos comerciales: la señal es de decoupling parcial respecto al mercado norteamericano bajo liderazgo de EEUU.</td></tr>
+      <tr><td>El impacto real sobre las exportaciones mexicanas será positivo a corto plazo</td><td><span class="tag-ip">[IP]</span></td><td>Plausible dada la reducción de aranceles, pero la implementación del TLC ampliado tomará meses.</td></tr>
+    </table>
+  </div>
+
+  <div class="add-block">
+    <h4>Lectura dinámica — ADD</h4>
+    <div class="add-item"><span class="add-item-label">Flujos disipativos</span><span class="add-item-val">Los aranceles de Trump operan como perturbación sistémica que altera los flujos de capital comercial globales. La respuesta México-UE es adaptación disipativa: el sistema comercial busca nuevos canales para exportar entropía (costos arancelarios) y mantener su organización.</span></div>
+    <div class="add-item"><span class="add-item-label">Bifurcación</span><span class="add-item-val">El sistema del comercio internacional está en zona de bifurcación: la arquitectura multilateral del siglo XX (OMC) se debilita; emergen redes bilaterales alternativas. El acuerdo México-UE es una señal de reorganización hacia el nuevo régimen.</span></div>
+    <div class="add-item"><span class="add-item-label">Colonización</span><span class="add-item-val">(Habermas) Los aranceles de Trump como instrumento de poder sistémico que penetra en los mundos de vida de las comunidades exportadoras (agricultores, industriales) sin consenso comunicativo, alterando sus condiciones de reproducción.</span></div>
+    <span class="regime-tag reg-bif">Zona de bifurcación — reconfiguración estructural</span>
+  </div>
+
+  <div class="cr-block">
+    <h4>Relevancia para Costa Rica</h4>
+    <p>Costa Rica exporta hacia EEUU aproximadamente el 40% de sus bienes (dispositivos médicos, piñas, café). La reconfiguración del orden comercial global tiene implicaciones para la negociación del CAFTA-DR en su próxima revisión y para la atracción de IED. Las empresas de zonas francas orientadas al mercado europeo podrían ganar relevancia relativa. PROCOMER y COMEX deben monitorearlo como escenario de mediano plazo. La señal política de que los TLC bilaterales son el nuevo instrumento de contrapeso sugiere que Costa Rica debería acelerar su agenda de tratados con la UE y la región del Indo-Pacífico.</p>
+  </div>
+</article>
+
+<!-- ═══════════════════════════════════════════════
+     ÍTEM 03 — SALUD / CIENCIA
+════════════════════════════════════════════════ -->
+<div id="salud" class="section-label lbl-sci">03 · Ciencia — Salud Global</div>
+
+<article class="article article-sci">
+  <div class="art-num">ÍTEM 03 · CIENCIA — EPIDEMIOLOGÍA</div>
+  <h2 class="art-title">Ébola Bundibugyo: 204 muertes probables, ESPII declarada sin comité — y la vacuna no existe para esta cepa</h2>
+  <p class="art-deck">El brote en Ituri (RDC) y Uganda representa el primer uso del nuevo mecanismo de declaración de emergencia del Reglamento Sanitario Internacional revisado, y enfrenta al sistema de salud global ante una variante sin tratamiento específico.</p>
+
+  <div class="art-section">
+    <h4>Resumen factual</h4>
+    <p>El 5 de mayo de 2026, la OMS fue alertada de un brote con alta mortalidad en Mongbwalu, provincia de Ituri (RDC). El 15 de mayo, Africa CDC confirmó ébola variante Bundibugyo. Para el 16 de mayo: 246 casos sospechosos y 80 muertes sospechosas, más 8 casos confirmados por laboratorio. Dos casos confirmados se detectaron en Kampala, Uganda. El 17 de mayo, el Director General Tedros Adhanom declaró emergencia de salud pública de importancia internacional (ESPII) sin convocar previamente un comité de emergencias —primera vez que se usa este mecanismo bajo el RSI revisado. Al 23 de mayo: 204 muertes probables y 867 casos sospechosos. La OMS elevó el riesgo a "muy alto" en la región. Diez países limítrofes están en "alto riesgo". La variante Bundibugyo tiene una mortalidad del ~40% y carece de vacuna o tratamiento aprobado —a diferencia de la variante Zaire, que sí cuenta con la vacuna rVSV-ZEBOV.</p>
+  </div>
+
+  <div class="art-section">
+    <h4>Contexto</h4>
+    <p>La provincia de Ituri en el noreste de la RDC enfrenta inseguridad crónica que obstaculiza la respuesta sanitaria. Los recortes de financiamiento de EEUU a organismos multilaterales de salud en 2025 han debilitado la infraestructura de respuesta de la OMS en África. Los brotes de Bundibugyo solo se habían registrado en Uganda occidental en 2007 y en la RDC en 2012 —su reemergencia implica una nueva transmisión zoonótica o un reservorio no identificado.</p>
+  </div>
+
+  <div class="art-section">
+    <h4>Evaluación epistémica — MEEE-G</h4>
+    <table class="meee-table">
+      <tr><th>Afirmación</th><th>Código</th><th>Fundamento</th></tr>
+      <tr><td>204 muertes probables al 23 de mayo</td><td><span class="tag-dc">[DC]</span></td><td>OMS y gobierno congoleño, citados por El Financiero MX.</td></tr>
+      <tr><td>No existe vacuna para la variante Bundibugyo</td><td><span class="tag-dc">[DC]</span></td><td>OMS. Los tratamientos y vacunas disponibles son específicos para la variante Zaire.</td></tr>
+      <tr><td>La ESPII fue declarada sin comité de emergencias previo</td><td><span class="tag-dc">[DC]</span></td><td>Declaración explícita del DG Tedros, 20 de mayo de 2026, OMS.</td></tr>
+      <tr><td>El brote es nuevo derrame zoonótico (spillover), no continuación del 2012</td><td><span class="tag-ip">[IP]</span></td><td>Análisis preliminar de genomas (Mbala P., Virologival.org, 18 mayo 2026) sugiere nuevo evento de transmisión.</td></tr>
+      <tr><td>El brote podría convertirse en pandemia</td><td><span class="tag-h">[H]</span></td><td>La OMS explícitamente descartó la clasificación de emergencia pandémica por ahora; transmisión sostenida fuera de África aún no registrada.</td></tr>
+    </table>
+  </div>
+
+  <div class="add-block">
+    <h4>Lectura dinámica — ADD</h4>
+    <div class="add-item"><span class="add-item-label">Régimen</span><span class="add-item-val">Turbulento con riesgo de bifurcación. El parámetro de control crítico es la capacidad de respuesta sanitaria en zona de conflicto: la inseguridad en Ituri funciona como amplificador de las fluctuaciones epidemiológicas.</span></div>
+    <div class="add-item"><span class="add-item-label">Flujos disipativos</span><span class="add-item-val">La reducción del financiamiento de EEUU a la OMS opera como interrupción disipativa: el sistema de vigilancia epidemiológica global ha perdido capital económico (recursos) y simbólico (legitimidad institucional) que sostenían su clausura organizacional.</span></div>
+    <div class="add-item"><span class="add-item-label">Acoplamiento</span><span class="add-item-val">El nexo entre inseguridad armada y epidemia es un acoplamiento estructural clásico: los mismos actores que impiden la respuesta sanitaria (grupos armados en Ituri) son vectores de movilidad del virus. Dos sistemas perturbados en el mismo espacio se amplifican mutuamente.</span></div>
+    <span class="regime-tag reg-tur">Régimen turbulento</span>
+  </div>
+
+  <div class="cr-block">
+    <h4>Relevancia para Costa Rica</h4>
+    <p>No hay transmisión en el continente americano y el ébola no se transmite por vía aérea en condiciones normales. El riesgo directo de importación es bajo. Sin embargo, el caso tiene relevancia sistémica: ilustra exactamente el escenario de un patógeno emergente frente al que el sistema de vacunas existente no ofrece cobertura —el mismo punto de vulnerabilidad que bloqueó el Anexo PABS en la WHA79 (boletín N.° 006). La CNE y el MINSA deben mantener protocolos de vigilancia epidemiológica activos. La señal más importante es institucional: la OMS usó por primera vez el mecanismo de declaración directa del RSI revisado, lo que abre preguntas sobre la gobernanza multilateral de salud que Costa Rica sigue de cerca.</p>
+  </div>
+</article>
+
+<!-- ═══════════════════════════════════════════════
+     SECCIÓN ESPECIAL — LEY ARMONIZACIÓN ELÉCTRICA
+════════════════════════════════════════════════ -->
+<div class="divider-gold"></div>
+<div id="especial">
+<div class="special-header">
+  <span class="esp-tag">⚡ Análisis Especial · Política Nacional · Energía</span>
+  <h2>Expediente 23.414<br>La Ley de Armonización<br>Eléctrica va al Plenario</h2>
+  <p class="esp-sub">Un texto que transformaría el modelo energético costarricense desde sus fundamentos llega hoy a primer debate legislativo en medio de una crisis hídrica que hace que sus consecuencias sean inmediatas, no solo prospectivas.</p>
+</div>
+</div>
+
+<article class="article article-esp">
+  <div class="art-num">ANÁLISIS ESPECIAL · POLÍTICA ENERGÉTICA NACIONAL</div>
+  <h2 class="art-title">El modelo solidario frente al mercado: qué propone el 23.414, quién lo apoya, quién lo frena — y por qué importa hoy más que ayer</h2>
+  <p class="art-deck">El proyecto convocado por la administración Fernández en sesiones extraordinarias llega al Plenario en el peor momento climático posible: con El Niño confirmado, Panamá negando venta de energía y los embalses del ICE bajo presión. El PLN enfrenta la paradoja de votar contra su propio texto sustitutivo.</p>
+
+  <div class="art-section">
+    <h4>Resumen factual</h4>
+    <p>El expediente legislativo 23.414, denominado <em>Ley de Armonización del Sistema Eléctrico Nacional</em>, fue presentado originalmente por el Ejecutivo de Rodrigo Chaves Robles y convocado ahora en sesiones extraordinarias por la administración de Laura Fernández Delgado. El texto fue analizado por la Comisión Permanente de Gobierno y Administración y se encuentra en etapa avanzada de tramitación. La votación en primer debate podría iniciarse este lunes 25 de mayo, una vez agotado el trámite de mociones al cumplirse el plazo de consulta institucional el mismo día.</p>
+    <p>El proyecto propone: (1) apertura del mercado para que actores privados, cooperativas y otras entidades generen y vendan electricidad bajo un esquema regulado; (2) creación de un nuevo Mercado Eléctrico Nacional (MEN) donde distintos agentes compren y vendan energía; (3) creación del <strong>Ente Coordinador del Sistema Eléctrico Nacional (ECOSEN)</strong>, institución autónoma que asumiría funciones de operación, planificación y administración del sistema y del MEN —funciones que hoy ejerce el ICE.</p>
+    <p>Los críticos, incluido el propio ICE en un criterio técnico de enero de 2024, señalan que el proyecto no constituye una mera armonización regulatoria sino la creación de un mercado mayorista de electricidad, con implicaciones sobre el rol histórico del ICE como garante del servicio universal. Sectores sindicales, ecologistas y el Frente Amplio utilizan el término <strong>"Ley Apagón"</strong>. El Partido Liberación Nacional —cuya bancada presentó el texto sustitutivo actualmente en discusión— enfrenta presión de su secretario general Miguel Guillén y la Juventud Liberacionista para que sus diputados rechacen ese mismo texto. La CEDET y la Cámara de Empresas de Distribución respaldan el proyecto. El CFIA lo apoya con reservas técnicas.</p>
+  </div>
+
+  <div class="art-section">
+    <h4>Contexto estructural</h4>
+    <p>El sistema eléctrico costarricense reposa sobre un modelo consolidado a lo largo de siete décadas: el ICE como operador integrado verticalmente, con principios de universalidad, solidaridad y planificación pública. Costa Rica alcanzó el 98% de cobertura eléctrica nacional bajo ese modelo, y genera más del 98% de su electricidad con fuentes renovables —un atractor sistémico de alta estabilidad. La demanda energética crece impulsada por la electrificación del transporte y la expansión industrial de zonas francas. La pregunta estructural es si ese crecimiento puede ser absorbido por el modelo existente o si requiere una reorganización de los incentivos de inversión privada en generación.</p>
+    <p>El contexto inmediato es adverso para la reforma: el jueves 21 de mayo, el presidente panameño Mulino anunció que Panamá no venderá energía a Costa Rica, tras activarse un plan de racionamiento eléctrico que no se veía desde hacía 17 años en ese país —causado por El Niño y fallas de plantas térmicas contratadas. El IMN confirmó esta semana que El Niño se instalará formalmente en junio y se extenderá hasta febrero de 2027, con déficits de lluvia del 35-50% en gran parte del territorio.</p>
+  </div>
+
+  <div class="art-section">
+    <h4>Mapa de actores e incentivos</h4>
+    <table class="meee-table">
+      <tr><th>Actor</th><th>Posición</th><th>Incentivo declarado</th></tr>
+      <tr><td>Gobierno Fernández (Ejecutivo)</td><td>Impulsa el proyecto</td><td>Modernización del sistema, mayor competitividad y diversificación de inversión en generación.</td></tr>
+      <tr><td>CEDET</td><td>Apoyo pleno</td><td>El texto preserva los principios de solidaridad y mejora la posición competitiva de cooperativas y distribuidoras.</td></tr>
+      <tr><td>CFIA</td><td>Apoyo con reservas</td><td>Modernización necesaria, pero señala vacíos técnicos sobre operación del ECOSEN y transición regulatoria.</td></tr>
+      <tr><td>ICE (criterio 2024)</td><td>Crítico estructural</td><td>El proyecto crea un mercado mayorista con riesgos para la planificación integrada y la solidaridad tarifaria.</td></tr>
+      <tr><td>Sindicatos / Frente Amplio</td><td>Rechazo</td><td>Riesgo de privatización progresiva, pérdida de universalidad, alza de tarifas en zonas no rentables.</td></tr>
+      <tr><td>PLN (bancada)</td><td>Dividida — presión interna para rechazar</td><td>Paradoja: el texto sustitutivo es de autoría PLN, pero la dirección del partido pide rechazarlo.</td></tr>
+      <tr><td>Generadores privados</td><td>Apoyo</td><td>Apertura del mercado les permite contratos directos y nuevas oportunidades de negocio.</td></tr>
+    </table>
+  </div>
+
+  <div class="art-section">
+    <h4>Evaluación epistémica — MEEE-G</h4>
+    <table class="meee-table">
+      <tr><th>Afirmación</th><th>Código</th><th>Fundamento</th></tr>
+      <tr><td>El expediente 23.414 va a primer debate el 25 de mayo</td><td><span class="tag-dc">[DC]</span></td><td>Múltiples medios verificados: El Mundo CR, Delfino.cr, CRHoy.</td></tr>
+      <tr><td>El proyecto crea el ECOSEN como ente autónomo sustituyendo funciones del ICE</td><td><span class="tag-dc">[DC]</span></td><td>Texto del proyecto y texto sustitutivo, disponibles en la Asamblea Legislativa.</td></tr>
+      <tr><td>El texto sustitutivo fue presentado por el PLN</td><td><span class="tag-dc">[DC]</span></td><td>El Mundo CR, 24 de mayo de 2026.</td></tr>
+      <tr><td>El proyecto constituye una apertura de mercado mayorista, no solo armonización</td><td><span class="tag-dc">[DC]</span></td><td>Criterio técnico del ICE (enero 2024) y análisis de Delfino.cr.</td></tr>
+      <tr><td>La apertura reducirá tarifas eléctricas para los consumidores</td><td><span class="tag-h">[H]</span></td><td>Argumento del Ejecutivo y CEDET; evidencia internacional es mixta. Experiencias de liberalización en Chile, California y Europa ofrecen resultados heterogéneos.</td></tr>
+      <tr><td>El ECOSEN tendrá la capacidad técnica para operar el sistema con eficacia desde su creación</td><td><span class="tag-h">[H]</span></td><td>El CFIA señala vacíos técnicos en la gobernanza de transición; no hay evidencia verificada sobre el diseño operativo.</td></tr>
+      <tr><td>La apertura del mercado pondrá en riesgo la cobertura en zonas rurales no rentables</td><td><span class="tag-ip">[IP]</span></td><td>Inferencia plausible basada en experiencias comparadas; el texto incluye principios de solidaridad, pero la efectividad depende del diseño regulatorio del ECOSEN.</td></tr>
+    </table>
+  </div>
+
+  <div class="add-block">
+    <h4>Lectura dinámica — ADD · Análisis profundo</h4>
+    <p><strong>Paso 0 — Nivel:</strong> El análisis opera simultáneamente en el nivel comunicativo-institucional (Habermas: tensión sistema/mundo de vida) y en el nivel práctico-disposicional (Bourdieu: habitus, capital simbólico del ICE, campo político-energético).</p>
+    <div class="add-item"><span class="add-item-label">Organización simbólica</span><span class="add-item-val">La clausura organizacional del modelo eléctrico costarricense se estructuró en torno a tres principios normativos históricamente consolidados: universalidad (acceso para todos sin importar la rentabilidad de la zona), solidaridad (tarifas cruzadas entre sectores) y planificación pública integrada (el ICE como operador que absorbe el riesgo de largo plazo). Este patrón forma el <em>habitus</em> institucional del sistema energético costarricense.</span></div>
+    <div class="add-item"><span class="add-item-label">Flujos disipativos</span><span class="add-item-val">El capital simbólico del ICE —su legitimidad como garante del desarrollo eléctrico nacional— ha sido erosionado sostenidamente por narrativas de ineficiencia y burocracia. El capital económico del sistema (inversión en nueva generación) enfrenta restricciones fiscales del gobierno central. El proyecto 23.414 busca redistribuir estos flujos hacia actores privados.</span></div>
+    <div class="add-item"><span class="add-item-label">Colonización</span><span class="add-item-val">(Habermas) La lógica del mercado eléctrico —coordinación por precio y competencia— penetra en un dominio de acción que históricamente operó por lógica de planificación pública. Esta es colonización sistémica en sentido habermasiano: el sistema mercantil (con sus medios de dinero y poder) desplaza la coordinación comunicativa-institucional del modelo solidario. El término "armonización" en el nombre del proyecto es precisamente el mecanismo de suavización retórica de esa colonización.</span></div>
+    <div class="add-item"><span class="add-item-label">Perturbación crítica</span><span class="add-item-val">El Niño 2026-2027 como perturbación disipativa sincrónica: el sistema energético enfrenta una reorganización estructural exactamente cuando su vulnerabilidad hídrica es máxima. La lógica del ECOSEN requiere actores privados que confíen en contratos de largo plazo; pero en contexto de incertidumbre climática, los generadores privados podrían tender a contratos cortos o retirarse del mercado en épocas de riesgo —exactamente el comportamiento que el sistema público absorbía al tomar el riesgo de planificación.</span></div>
+    <div class="add-item"><span class="add-item-label">Paradoja PLN</span><span class="add-item-val">La presión interna del PLN para rechazar su propio texto sustitutivo es una señal de bifurcación intrapartidaria: el campo político-energético costarricense opera con dos habitus en conflicto dentro del mismo partido —uno orientado al mercado (elaboró el texto) y otro orientado al modelo solidario (presiona para rechazarlo). El resultado de la votación declarará cuál habitus controla el capital simbólico del PLN en este período.</span></div>
+    <div class="add-item"><span class="add-item-label">Régimen</span><span class="add-item-val">El sistema eléctrico-institucional costarricense está en zona de bifurcación: el parámetro de control es el capital político disponible para la aprobación del texto. Si hay votos suficientes hoy, el sistema entra en una transición estructural de largo alcance. Si el texto es derrotado, retorna a un régimen laminar con reformas incrementales posibles.</span></div>
+    <span class="regime-tag reg-bif">Zona de bifurcación — decisión estructural hoy</span>
+  </div>
+
+  <div class="art-section">
+    <h4>Escenarios plausibles</h4>
+    <table class="meee-table">
+      <tr><th>Escenario</th><th>Condición</th><th>Implicaciones ADD</th></tr>
+      <tr><td><strong>A — Aprobación en primer debate</strong></td><td>Gobierno consigue votos pese a presión del PLN interno y sindicatos.</td><td>Bifurcación hacia nuevo régimen. El ECOSEN comenzaría un período de construcción institucional de 1-2 años. Riesgo de conflictividad social sostenida. Fragilidad en contexto de El Niño.</td></tr>
+      <tr><td><strong>B — Postergación / mociones de obstrucción</strong></td><td>El PLN frena la votación; el texto vuelve a comisión.</td><td>Régimen turbulento sostenido. El debate energético se prolonga hasta nueva coyuntura política. El gobierno pierde capital político.</td></tr>
+      <tr><td><strong>C — Derrota en primer debate</strong></td><td>Coalición anti-proyecto logra mayoría.</td><td>Retorno a régimen laminar. Posible negociación de reformas incrementales al marco ICE. Señal de debilidad del nuevo gobierno en su primera prueba legislativa mayor.</td></tr>
+    </table>
+  </div>
+
+  <div class="cr-block">
+    <h4>Incertidumbres abiertas — Costa Rica</h4>
+    <p>¿Tiene el ECOSEN diseño técnico y humano para operar el sistema eléctrico desde el día uno? ¿Cómo se garantiza la solidaridad tarifaria en zonas rurales no rentables bajo lógica de mercado? ¿Qué ocurre con los contratos de generación privada existentes durante la transición? ¿Está el sistema preparado para gestionar la nueva arquitectura en pleno El Niño 2026-2027? ¿Cuál es el mecanismo de resolución de conflictos cuando los intereses del MEN contradigan la planificación pública del MINAE?</p>
+  </div>
+</article>
+
+<!-- ═══════════════════════════════════════════════
+     ÍTEM 04 — EL NIÑO COSTA RICA (CIENCIA + AMBIENTE)
+════════════════════════════════════════════════ -->
+<div id="elnino" class="section-label lbl-sci">04 · Ciencia — Climatología / Ambiente</div>
+
+<article class="article article-sci">
+  <div class="art-num">ÍTEM 04 · CIENCIA CLIMÁTICA — COSTA RICA</div>
+  <h2 class="art-title">El Niño 2026-2027: IMN confirma advertencia formal — déficit de lluvia del 50% en el Pacífico Norte, temperaturas +2°C, embalses bajo presión</h2>
+  <p class="art-deck">Con 96% de probabilidad de extensión hasta febrero de 2027 según la NOAA, el fenómeno supone el escenario hídrico-energético más adverso desde 2023-2024, ahora sobre un sistema eléctrico en proceso de reforma estructural.</p>
+
+  <div class="art-section">
+    <h4>Resumen factual</h4>
+    <p>El Instituto Meteorológico Nacional (IMN) elevó el 19 de mayo el Sistema de Alerta Temprana del ENOS de "vigilancia" a <strong>"advertencia"</strong> —lo que implica certeza alta sobre el desarrollo del fenómeno. Karina Hernández, directora de la Coenos, declaró: "La incertidumbre respecto a si se iba a dar o no El Niño desapareció." El IMN proyecta: déficits de lluvia de hasta el 50% en el Pacífico Norte durante junio-agosto-noviembre; reducción del 35-40% en el resto del Pacífico, Valle Central y Zona Norte occidental; incremento de temperatura de 1.5-2°C sobre lo normal en el Pacífico Norte. La NOAA estima un 96% de probabilidad de que el fenómeno se mantenga entre diciembre 2026 y febrero 2027. El martes 21 de mayo, el presidente panameño Mulino anunció la suspensión de venta de energía a Costa Rica —el ICE había activado un plan de racionamiento eléctrico que no se veía desde hacía 17 años, causado por el propio El Niño que reduce caudales en toda Centroamérica. La CNE activó planes de contingencia y pidió reducir consumo de agua y electricidad. El Banco Central proyecta un choque inflacionario a inicios de 2027 vinculado al fenómeno.</p>
+  </div>
+
+  <div class="art-section">
+    <h4>Contexto</h4>
+    <p>En 2023-2024, El Niño obligó al ICE a elevar la generación térmica en un 17.5% durante el primer trimestre de 2024, con costos adicionales en combustibles y presión sobre las tarifas reguladas por la ARESEP. El embalse Arenal —con capacidad de 1,477 millones de m³ y eje del complejo ARDESA— se recuperó bien durante 2025 gracias a La Niña; pero la nueva fase El Niño llegará precisamente cuando ese capital hídrico esté siendo consumido. Costa Rica genera más del 70% de su electricidad a partir de fuentes hidroeléctricas: la vulnerabilidad estructural es directa.</p>
+  </div>
+
+  <div class="art-section">
+    <h4>Evaluación epistémica — MEEE-G</h4>
+    <table class="meee-table">
+      <tr><th>Afirmación</th><th>Código</th><th>Fundamento</th></tr>
+      <tr><td>El IMN elevó la alerta ENOS a "advertencia"</td><td><span class="tag-dc">[DC]</span></td><td>Declaración directa del IMN, reportada por El Observador CR y CRHoy.</td></tr>
+      <tr><td>Déficit de lluvia de hasta 50% en Pacífico Norte</td><td><span class="tag-dc">[DC]</span></td><td>IMN, proyecciones para trimestres JJA y SON 2026.</td></tr>
+      <tr><td>96% de probabilidad de extensión hasta feb. 2027</td><td><span class="tag-dc">[DC]</span></td><td>NOAA, citada por CRHoy y El Observador.</td></tr>
+      <tr><td>Panamá suspendió venta de energía a Costa Rica</td><td><span class="tag-dc">[DC]</span></td><td>Declaración del presidente Mulino, 21 de mayo, citada por El Financiero CR.</td></tr>
+      <tr><td>El choque inflacionario de inicios de 2027 está vinculado al fenómeno</td><td><span class="tag-ip">[IP]</span></td><td>Proyección del BCCR, reportada por La Nación; plausible dado el mecanismo hídrico-tarifario, pero el monto depende de la intensidad final del fenómeno.</td></tr>
+      <tr><td>El Niño 2026-27 será de magnitud comparable al 2014-2015</td><td><span class="tag-h">[H]</span></td><td>IMN cita esa comparación como referencia; el NYT advierte que el clima base ya no permite extrapolar directamente eventos pasados sobre el planeta más caliente actual.</td></tr>
+    </table>
+  </div>
+
+  <div class="add-block">
+    <h4>Lectura dinámica — ADD</h4>
+    <div class="add-item"><span class="add-item-label">Acoplamiento</span><span class="add-item-val">El Niño opera como perturbación de nivel 1 (energético-material en el esquema Landauer-Vedral-Prigogine): afecta directamente los flujos disipativos —agua— que sostienen la clausura organizacional del sistema eléctrico. No es metáfora: el déficit hídrico es literalmente interrupción disipativa.</span></div>
+    <div class="add-item"><span class="add-item-label">Violencia estructural</span><span class="add-item-val">(Galtung) El impacto de El Niño no es neutral: las comunidades rurales con menor acceso a infraestructura hídrica alternativa y mayor dependencia de la agricultura llevarán una carga desproporcionada del déficit. La vulnerabilidad diferencial es estructural, no natural.</span></div>
+    <div class="add-item"><span class="add-item-label">Paradoja temporal</span><span class="add-item-val">El sistema energético costarricense enfrenta simultáneamente: (1) el mayor estrés hídrico en 3 años; (2) una reforma estructural que redistribuye los mecanismos de gestión del riesgo. La bifurcación institucional del 23.414 y la bifurcación climática de El Niño se superponen en el mismo horizonte temporal: junio 2026-febrero 2027.</span></div>
+    <span class="regime-tag reg-tur">Régimen turbulento — perturbación disipativa mayor</span>
+  </div>
+
+  <div class="cr-block">
+    <h4>Implicaciones sectoriales</h4>
+    <p><strong>Energía:</strong> ICE deberá activar generación térmica y revisar contratos de emergencia con generadores privados. ARESEP enfrenta presión para ajustes tarifarios en 2027. <strong>Agua potable:</strong> SENARA y AyA deben acelerar planes de gestión hídrica. <strong>Agricultura:</strong> MAG debe activar programas de apoyo para el sector agropecuario del Pacífico y Norte, con riesgo sobre café de altura, caña y melón de exportación. <strong>Salud:</strong> Incremento esperado de enfermedades transmitidas por vectores (dengue, leptospirosis) en el contexto de calor. <strong>Fiscal:</strong> Mayor gasto en importación de combustibles para generación térmica elevará el déficit en cuenta corriente.</p>
+  </div>
+</article>
+
+</div><!-- /container -->
+
+<!-- ═══════════════════════════════════════════════
+     SÍNTESIS GENERAL
+════════════════════════════════════════════════ -->
+<div id="sintesis" style="background:#101010; padding: 50px 0; margin-top: 40px;">
+<div class="container">
+  <div class="section-label lbl-geo" style="margin-bottom:30px;">Síntesis y Tabla de Situación — Semana 18–25 Mayo 2026</div>
+  <table class="synth-table">
+    <tr>
+      <th>Ítem</th>
+      <th>Tema</th>
+      <th>Estado epistémico dominante</th>
+      <th>Régimen ADD</th>
+      <th>Impacto CR</th>
+    </tr>
+    <tr>
+      <td><span style="font-family:var(--fm);font-size:.85rem;">01</span></td>
+      <td>Negociaciones EEUU-Irán / Ormuz</td>
+      <td><span class="tag-int">[Int]</span> incompatibilidad estructural de versiones</td>
+      <td><span class="regime-tag reg-tur" style="font-size:8px;">Turbulento</span></td>
+      <td>Alto — precios combustibles / RECOPE</td>
+    </tr>
+    <tr>
+      <td><span style="font-family:var(--fm);font-size:.85rem;">02</span></td>
+      <td>TLC México-UE ampliado</td>
+      <td><span class="tag-dc">[DC]</span> acuerdo firmado</td>
+      <td><span class="regime-tag reg-bif" style="font-size:8px;">Bifurcación</span></td>
+      <td>Medio — reconfiguración comercial global</td>
+    </tr>
+    <tr>
+      <td><span style="font-family:var(--fm);font-size:.85rem;">03</span></td>
+      <td>Ébola Bundibugyo — ESPII</td>
+      <td><span class="tag-dc">[DC]</span> 204 muertes, sin vacuna disponible</td>
+      <td><span class="regime-tag reg-tur" style="font-size:8px;">Turbulento</span></td>
+      <td>Bajo directo / Alto sistémico (gobernanza salud global)</td>
+    </tr>
+    <tr>
+      <td><span style="font-family:var(--fm);font-size:.85rem;">ESP</span></td>
+      <td>Ley Armonización Eléctrica 23.414</td>
+      <td><span class="tag-dc">[DC]</span> debate en plenario hoy</td>
+      <td><span class="regime-tag reg-bif" style="font-size:8px;">Bifurcación</span></td>
+      <td>Crítico — reforma estructural del modelo energético</td>
+    </tr>
+    <tr>
+      <td><span style="font-family:var(--fm);font-size:.85rem;">04</span></td>
+      <td>El Niño 2026-2027</td>
+      <td><span class="tag-dc">[DC]</span> advertencia IMN confirmada</td>
+      <td><span class="regime-tag reg-tur" style="font-size:8px;">Turbulento</span></td>
+      <td>Crítico — agua, energía, agricultura, inflación</td>
+    </tr>
+  </table>
+</div>
+</div>
+
+<div class="container">
+
+<!-- INCERTIDUMBRES -->
+<div class="uncertainties">
+  <h3>Incertidumbres Abiertas</h3>
+  <div class="unc-item"><span class="unc-n">01</span><span class="unc-text">¿Se firmará un acuerdo EEUU-Irán formal esta semana o el anuncio de Trump fue un movimiento táctico sin base en texto negociado? El comportamiento histórico de Trump con el JCPOA en 2018 eleva la probabilidad de que cualquier acuerdo sea frágil.</span></div>
+  <div class="unc-item"><span class="unc-n">02</span><span class="unc-text">¿Tiene el gobierno Fernández los votos para aprobar el 23.414 en primer debate hoy? La fractura interna del PLN es la variable más inestable: si diputados verdiblancas votan contra el texto sustitutivo de su propio partido, el escenario más probable es derrota o postergación.</span></div>
+  <div class="unc-item"><span class="unc-n">03</span><span class="unc-text">¿Qué tan rápido puede escalar el brote de ébola Bundibugyo fuera de Ituri? La inseguridad armada que obstaculiza la respuesta y la ausencia de vacuna para esta cepa son los dos factores que determinan si el brote queda contenido o avanza a la siguiente fase.</span></div>
+  <div class="unc-item"><span class="unc-n">04</span><span class="unc-text">¿Cuánto capital político consume el gobierno Fernández en la disputa eléctrica, y cómo afecta esto su agenda legislativa en las semanas siguientes (tren eléctrico, Ciudad Gobierno, Crucitas)?</span></div>
+  <div class="unc-item"><span class="unc-n">05</span><span class="unc-text">El Niño sobre un planeta más caliente: el IMN y el BCCR proyectan a partir de eventos históricos, pero el NYT señala que el clima base ya cambió. La intensidad final del fenómeno 2026-27 podría superar los modelos de planificación existentes.</span></div>
+</div>
+
+<!-- REFERENCES -->
+<div id="referencias" class="references">
+  <h3>Referencias — APA 7</h3>
+
+  <p class="ref-item">Baghaei, E. [Portavoz MRAEI de Irán]. (2026, 24 de mayo). <em>Declaración sobre negociaciones EEUU-Irán</em> [conferencia de prensa]. Teherán. Citado en CNN en Español (2026, 24 de mayo). <a href="https://cnnespanol.cnn.com/2026/05/24/mundo/live-news/guerra-iran-ee-uu-e-israel-acuerdo-paz-trax">https://cnnespanol.cnn.com</a></p>
+
+  <p class="ref-item">CNN en Español. (2026, 24 de mayo). <em>Trump e Irán: ¿qué incluye el posible acuerdo que podría poner fin al conflicto?</em> <a href="https://cnnespanol.cnn.com/2026/05/24/eeuu/trump-iran-acuerdo-fin-guerra-trax">https://cnnespanol.cnn.com</a></p>
+
+  <p class="ref-item">El Español. (2026, 25 de mayo). <em>Guerra de Irán, en directo: Irán afirma haber llegado a "conclusiones sobre muchos temas".</em> <a href="https://www.elespanol.com/mundo/20260525/guerra-iran-directo">https://www.elespanol.com</a></p>
+
+  <p class="ref-item">Infobae / The New York Times. (2026, 25 de mayo). <em>Todo lo que se sabe sobre las negociaciones entre EEUU e Irán para alcanzar un acuerdo de paz.</em> <a href="https://www.infobae.com/america/the-new-york-times/2026/05/25/todo-lo-que-se-sabe-sobre-las-negociaciones-entre-eeuu-e-iran">https://www.infobae.com</a></p>
+
+  <p class="ref-item">AP / Proceso. (2026, 22 de mayo). <em>Tras presión de Trump, México y UE consolidan alianza con baja de aranceles y apertura de mercados.</em> <a href="https://www.proceso.com.mx/economia/2026/5/22">https://www.proceso.com.mx</a></p>
+
+  <p class="ref-item">Organización Mundial de la Salud [OMS]. (2026, 17 de mayo). <em>Epidemic of Ebola disease in the Democratic Republic of the Congo and Uganda determined a public health emergency of international concern.</em> <a href="https://www.who.int/es/news/item/17-05-2026">https://www.who.int</a></p>
+
+  <p class="ref-item">Organización Mundial de la Salud [OMS]. (2026, 20 de mayo). <em>Alocución de apertura del Director General de la OMS en la rueda de prensa sobre el brote de ébola en la RDC y Uganda.</em> <a href="https://www.who.int/es/news-room/speeches/item/who-director-general-s-opening-remarks-20-may-2026">https://www.who.int</a></p>
+
+  <p class="ref-item">Noticias ONU. (2026, 17-19 de mayo). <em>La OMS declara la emergencia sanitaria internacional por el brote de ébola en África central; La OMS envía 12 toneladas de suministros.</em> <a href="https://news.un.org/es/story/2026/05/1541462">https://news.un.org</a></p>
+
+  <p class="ref-item">El Financiero MX. (2026, 23 de mayo). <em>Congo eleva a 204 las muertes por el brote de ébola en 2026; OMS sube el riesgo de propagación a "muy alto".</em> <a href="https://www.elfinanciero.com.mx/mundo/2026/05/23">https://www.elfinanciero.com.mx</a></p>
+
+  <p class="ref-item">Delfino.cr / Delfino, D. (2026, 24 de mayo). <em>Reforma eléctrica vuelve a la agenda: ¿qué propone el expediente 23.414 y por qué sus críticos hablan de "Ley Apagón"?</em> <a href="https://delfino.cr/2026/05/reforma-electrica-vuelve-a-la-agenda">https://delfino.cr</a></p>
+
+  <p class="ref-item">El Mundo CR. (2026, 24 de mayo). <em>PLN enfrentará votación de texto sustitutivo suyo sobre apertura eléctrica en medio de presión interna para rechazarlo.</em> <a href="https://elmundo.cr/costa-rica/pln-enfrentara-votacion-de-texto-sustitutivo-suyo">https://elmundo.cr</a></p>
+
+  <p class="ref-item">El Mundo CR. (2026, 23 de mayo). <em>CEDET respalda aprobación de proyecto de Ley de Armonización Eléctrica.</em> <a href="https://elmundo.cr/costa-rica/cedet-respalda-aprobacion">https://elmundo.cr</a></p>
+
+  <p class="ref-item">El Mundo CR. (2026, 24 de mayo). <em>CFIA respalda modernización eléctrica, pero advierte vacíos en proyecto de ley.</em> <a href="https://elmundo.cr/costa-rica/cfia-respalda-modernizacion-electrica">https://elmundo.cr</a></p>
+
+  <p class="ref-item">CRHoy. (2026, 24 de mayo). <em>Empresarios respaldan proyecto de armonización eléctrica.</em> <a href="https://www.crhoy.com/nacionales/empresarios-respaldan-proyecto-de-armonizacion-electrica/">https://www.crhoy.com</a></p>
+
+  <p class="ref-item">Delfino.cr. (2026, mayo). <em>El debate sobre la apertura eléctrica en Costa Rica: ¿modernización o debilitamiento del modelo solidario?</em> <a href="https://delfino.cr/2026/05/el-debate-sobre-la-apertura-electrica-en-costa-rica">https://delfino.cr</a></p>
+
+  <p class="ref-item">El Observador CR. (2026, 19 de mayo). <em>Costa Rica refuerza preparación ante posible impacto de El Niño en agua, incendios y agricultura.</em> <a href="https://observador.cr/costa-rica-refuerza-preparacion-ante-posible-impacto-de-el-nino">https://observador.cr</a></p>
+
+  <p class="ref-item">CRHoy. (2026, 23 de mayo). <em>Fenómeno El Niño 2026: científicos advierten sobre impactos globales.</em> <a href="https://www.crhoy.com/nacionales/fenomeno-el-nino-2026">https://www.crhoy.com</a></p>
+
+  <p class="ref-item">La Nación. (2026, 24 de mayo). <em>Este es el plan de contingencia de la CNE ante sequía y calor por fenómeno del Niño en Costa Rica.</em> <a href="https://www.nacion.com/el-pais/este-es-el-plan-de-contingencia-de-la-cne-ante">https://www.nacion.com</a></p>
+
+  <p class="ref-item">El Financiero CR. (2026, 22 de mayo). <em>¿Costa Rica necesita comprar electricidad a Panamá? ¿Por qué?</em> <a href="https://www.elfinancierocr.com/economia-y-politica/costa-rica-necesita-comprar-electricidad-a-panama">https://www.elfinancierocr.com</a></p>
+
+  <p class="ref-item">Banco Central de Costa Rica [BCCR]. (2026, abril). <em>Declaraciones del presidente Madrigal López sobre choque inflacionario proyectado por El Niño.</em> Citado en La Nación (2026, 15 de abril). <a href="https://www.nacion.com/economia/banco-central-preve-efectos-inflacionarios">https://www.nacion.com</a></p>
+
+  <p class="ref-item">Comité Regional de Recursos Hidráulicos [CRRH-SICA]. (2026, mayo). <em>Alerta: Centroamérica afrontará sequía severa y alza de temperaturas por El Niño en mayo y julio de 2026.</em> Citado en Infobae (2026, 8 de mayo). <a href="https://www.infobae.com/el-salvador/2026/05/08/sequia-olas-de-calor-y-estres-hidrico">https://www.infobae.com</a></p>
+
+  <p class="ref-item">Asamblea Legislativa de Costa Rica. (2023). <em>Expediente 23.414 — Ley de Armonización del Sistema Eléctrico Nacional.</em> <a href="https://delfino.cr/asamblea/proyecto/23414">https://delfino.cr/asamblea/proyecto/23414</a></p>
+
+  <p class="ref-item">Instituto Costarricense de Electricidad [ICE]. (2024, enero). <em>Criterio técnico-jurídico sobre el expediente 23.414.</em> División Jurídica, firmado por L. Arguijo Vargas. Citado en Delfino.cr (2026, 24 de mayo).</p>
+</div>
+
+<!-- GLOSARIO -->
+<div id="glosario" class="glosario">
+  <h3>Glosario de Conceptos Clave</h3>
+  <p class="glos-sub">Marco analítico · MEEE-G · ADD · Conceptos técnicos del boletín</p>
+
+  <!-- METODOLOGÍA EPISTÉMICA -->
+  <div class="glos-category">
+    <div class="glos-category-title">Metodología epistémica — MEEE-G</div>
+
+    <div class="glos-item">
+      <div class="glos-term">MEEE-G</div>
+      <div class="glos-def">Metodología de Evaluación Epistémica Explicacionista-Goldman. Sistema desarrollado por ANCA-ADD para clasificar afirmaciones según su solidez epistémica. Se basa en el fiabilismo procesual de Alvin I. Goldman —que evalúa la confiabilidad del proceso cognitivo que genera una creencia— y en el explicacionismo comparativo, que valora la capacidad de una hipótesis para explicar los hechos mejor que sus alternativas.</div>
+    </div>
+    <div class="glos-item">
+      <div class="glos-term"><em>[DC]</em> Dato confirmado</div>
+      <div class="glos-def">Información verificada por fuentes primarias (declaraciones oficiales, documentos originales) o por múltiples fuentes independientes confiables. El nivel de certeza epistémica más alto en el sistema MEEE-G.</div>
+    </div>
+    <div class="glos-item">
+      <div class="glos-term"><em>[IP]</em> Inferencia plausible</div>
+      <div class="glos-def">Conclusión razonablemente probable a partir de evidencia disponible, pero que no ha sido directamente confirmada. El analista puede defenderla como la mejor explicación de los hechos conocidos, aunque admite incertidumbre.</div>
+    </div>
+    <div class="glos-item">
+      <div class="glos-term"><em>[H]</em> Hipótesis</div>
+      <div class="glos-def">Proposición que merece atención analítica pero cuya evidencia disponible es insuficiente para confirmarla o refutarla con solidez. Se señala para transparencia y seguimiento, no como afirmación.</div>
+    </div>
+    <div class="glos-item">
+      <div class="glos-term"><em>[Int]</em> Interpretación</div>
+      <div class="glos-def">Lectura analítica que requiere juicio experto y que va más allá de lo que los hechos establecen por sí mismos. Refleja la perspectiva teórica del análisis; otras lecturas son posibles desde marcos distintos.</div>
+    </div>
+    <div class="glos-item">
+      <div class="glos-term"><em>[C]</em> Conjetura</div>
+      <div class="glos-def">Suposición con base empírica débil, señalada únicamente para agotar el espectro de posibilidades relevantes. No debe ser tratada como afirmación fundamentada.</div>
+    </div>
+  </div>
+
+  <!-- ADD Y SISTEMAS DINÁMICOS -->
+  <div class="glos-category">
+    <div class="glos-category-title">Análisis Dinámico del Devenir — ADD</div>
+
+    <div class="glos-item">
+      <div class="glos-term">ADD</div>
+      <div class="glos-def">Análisis Dinámico del Devenir. Marco analítico desarrollado por Alfredo Montero Fonseca (ANCA-ADD) que integra herramientas de la teoría de sistemas complejos, la fenomenología social y la antropología crítica. Concibe los procesos sociales, históricos y geopolíticos como sistemas dinámicos que evolucionan a través de regímenes, perturbaciones y bifurcaciones.</div>
+    </div>
+    <div class="glos-item">
+      <div class="glos-term">Régimen laminar</div>
+      <div class="glos-def">Estado de un sistema donde sus procesos siguen trayectorias predecibles y estables, con cambios incrementales. En términos sociales: períodos de rutina institucional, normas claras y baja conflictividad sistémica.</div>
+    </div>
+    <div class="glos-item">
+      <div class="glos-term">Régimen turbulento</div>
+      <div class="glos-def">Estado donde el sistema exhibe alta inestabilidad, sensibilidad extrema a condiciones iniciales y comportamiento difícil de predecir. Las fluctuaciones se amplifican en lugar de amortiguarse. Puede anteceder una bifurcación.</div>
+    </div>
+    <div class="glos-item">
+      <div class="glos-term">Bifurcación (punto de)</div>
+      <div class="glos-def">Momento crítico en la dinámica de un sistema donde pequeñas variaciones en las condiciones —el "parámetro de control"— pueden conducir a trayectorias cualitativamente distintas e irreversibles. Una "encrucijada" estructural donde el sistema debe reorganizarse hacia uno de varios estados posibles.</div>
+    </div>
+    <div class="glos-item">
+      <div class="glos-term">Atractor</div>
+      <div class="glos-def">Conjunto de estados hacia los que tiende la dinámica de un sistema a lo largo del tiempo. En sistemas sociales: los patrones, equilibrios o normas que el sistema tiende a reproducir. Un sistema puede tener múltiples atractores en tensión.</div>
+    </div>
+    <div class="glos-item">
+      <div class="glos-term">Parámetro de control</div>
+      <div class="glos-def">Variable cuyo valor determina en qué régimen opera el sistema y si puede ocurrir una bifurcación. En el análisis de la Ley Eléctrica, el parámetro de control es el número de votos disponibles para la aprobación.</div>
+    </div>
+    <div class="glos-item">
+      <div class="glos-term">Estructuras disipativas (Prigogine)</div>
+      <div class="glos-def">Concepto del físico-químico belga Ilya Prigogine (Premio Nobel 1977). Sistemas abiertos que mantienen su organización mediante el intercambio continuo de energía y materia con su entorno, "disipando" entropía hacia fuera. En la ADD, sirve como modelo para sistemas sociales que se sostienen mediante flujos de recursos, información y legitimidad.</div>
+    </div>
+    <div class="glos-item">
+      <div class="glos-term">Flujos disipativos</div>
+      <div class="glos-def">Los intercambios de energía, materia o información que sostienen la organización de un sistema. En contextos sociales: recursos económicos, información, legitimidad institucional, capital simbólico. Su interrupción desestabiliza el sistema.</div>
+    </div>
+  </div>
+
+  <!-- TEORÍA SOCIAL -->
+  <div class="glos-category">
+    <div class="glos-category-title">Teoría social aplicada</div>
+
+    <div class="glos-item">
+      <div class="glos-term">Clausura organizacional (Maturana/Varela)</div>
+      <div class="glos-def">Concepto de la teoría de sistemas autopoiéticos de los biólogos chilenos Humberto Maturana y Francisco Varela. Describe cómo los sistemas vivos se mantienen como unidades definidas en su organización, aunque sean abiertos al intercambio con el entorno. En contextos sociales: la lógica interna que define la identidad de una institución y su modo de reproducirse.</div>
+    </div>
+    <div class="glos-item">
+      <div class="glos-term">Acoplamiento estructural (Maturana/Varela)</div>
+      <div class="glos-def">Relación entre dos sistemas donde las perturbaciones de uno desencadenan reorganizaciones en el otro, sin que ninguno controle directamente al otro. Los sistemas se "acoplan" en un dominio de interacciones recurrentes que moldea la evolución de ambos.</div>
+    </div>
+    <div class="glos-item">
+      <div class="glos-term">Colonización del mundo de la vida (Habermas)</div>
+      <div class="glos-def">Proceso descrito por el filósofo alemán Jürgen Habermas por el cual la lógica de los subsistemas funcionales —el mercado (coordinado por dinero) y el Estado (coordinado por poder)— invade y desplaza dominios de la vida social que históricamente se coordinaban mediante el entendimiento comunicativo y las normas compartidas.</div>
+    </div>
+    <div class="glos-item">
+      <div class="glos-term">Habitus (Bourdieu)</div>
+      <div class="glos-def">Sistema de disposiciones duraderas y transponibles desarrollado por el sociólogo francés Pierre Bourdieu. El habitus es la "gramática incorporada" de la acción social: genera prácticas, percepciones y actitudes de manera automática, sin necesidad de cálculo consciente. Es el resultado de la historia individual y colectiva inscrita en el cuerpo.</div>
+    </div>
+    <div class="glos-item">
+      <div class="glos-term">Campo (Bourdieu)</div>
+      <div class="glos-def">Espacio social estructurado de posiciones donde actores compiten por formas específicas de capital. Cada campo tiene sus propias reglas, sus propias formas de capital relevante y sus propias apuestas. Ejemplos: el campo político, el campo científico, el campo energético.</div>
+    </div>
+    <div class="glos-item">
+      <div class="glos-term">Capital simbólico (Bourdieu)</div>
+      <div class="glos-def">Recurso que otorga reconocimiento, prestigio y autoridad en un campo determinado. Es diferente del capital económico (dinero), cultural (conocimiento) o social (redes). El capital simbólico del ICE, por ejemplo, es su legitimidad histórica como garante del desarrollo eléctrico costarricense.</div>
+    </div>
+    <div class="glos-item">
+      <div class="glos-term">Violencia estructural (Galtung)</div>
+      <div class="glos-def">Concepto del sociólogo noruego Johan Galtung. Describe situaciones donde las instituciones y estructuras sociales generan daño al impedir a las personas satisfacer sus necesidades básicas, sin que ningún actor individual sea directamente responsable. Es "violencia" en la medida en que produce un diferencial entre lo potencialmente posible y lo realmente alcanzable.</div>
+    </div>
+  </div>
+
+  <!-- CONCEPTOS INSTITUCIONALES Y TÉCNICOS -->
+  <div class="glos-category">
+    <div class="glos-category-title">Conceptos institucionales y técnicos — Costa Rica y global</div>
+
+    <div class="glos-item">
+      <div class="glos-term">ESPII</div>
+      <div class="glos-def">Emergencia de Salud Pública de Importancia Internacional. La categoría de alerta sanitaria más alta del sistema de la OMS, definida en el Reglamento Sanitario Internacional. Se declara cuando un evento es inusual, grave, potencialmente contagioso a nivel internacional y requiere una respuesta internacional coordinada.</div>
+    </div>
+    <div class="glos-item">
+      <div class="glos-term">RSI — Reglamento Sanitario Internacional</div>
+      <div class="glos-def">Marco jurídico vinculante de la Organización Mundial de la Salud que regula cómo los países deben prepararse, detectar y notificar eventos de salud pública con potencial de propagación internacional. Su versión revisada (2024) introdujo nuevos mecanismos de declaración de emergencia.</div>
+    </div>
+    <div class="glos-item">
+      <div class="glos-term">Ébola variante Bundibugyo</div>
+      <div class="glos-def">Una de las seis especies conocidas del virus del Ébola (Orthoebolavirus bundibugyoense). Tiene una tasa de mortalidad de aproximadamente el 40%. A diferencia de la variante Zaire —para la que existe la vacuna rVSV-ZEBOV— no cuenta con vacuna ni tratamiento aprobado. Fue identificada por primera vez en Uganda occidental en 2007.</div>
+    </div>
+    <div class="glos-item">
+      <div class="glos-term">ECOSEN</div>
+      <div class="glos-def">Ente Coordinador del Sistema Eléctrico Nacional. Institución autónoma propuesta en el expediente legislativo 23.414 que asumiría las funciones de operación, planificación y administración del sistema eléctrico nacional y del Mercado Eléctrico Nacional —funciones que actualmente ejerce el ICE. Su creación es el elemento más controvertido del proyecto.</div>
+    </div>
+    <div class="glos-item">
+      <div class="glos-term">MEN — Mercado Eléctrico Nacional</div>
+      <div class="glos-def">Mecanismo propuesto en el expediente 23.414 donde distintos agentes —públicos, privados, cooperativas— comprarían y venderían electricidad bajo un esquema regulado. Su creación implicaría el tránsito del modelo de planificación pública integrada hacia un modelo de mercado mayorista.</div>
+    </div>
+    <div class="glos-item">
+      <div class="glos-term">ENOS — El Niño Oscilación del Sur</div>
+      <div class="glos-def">Ciclo climático que alterna entre fases de calentamiento anómalo de las aguas superficiales del Pacífico ecuatorial central y oriental (El Niño) y fases de enfriamiento (La Niña). Tiene efectos sistémicos sobre los patrones de lluvia y temperatura en todo el planeta. Para Costa Rica, El Niño implica déficits de lluvia en el Pacífico y reducción de caudales, lo que afecta directamente la generación hidroeléctrica.</div>
+    </div>
+    <div class="glos-item">
+      <div class="glos-term">IMN — Instituto Meteorológico Nacional</div>
+      <div class="glos-def">Entidad estatal costarricense adscrita al MINAE, responsable de monitorear y pronosticar las condiciones meteorológicas y climáticas del país. Emite las alertas tempranas sobre fenómenos como El Niño y publica las proyecciones climáticas estacionales que orientan la planificación energética e hídrica.</div>
+    </div>
+    <div class="glos-item">
+      <div class="glos-term">Estrecho de Ormuz</div>
+      <div class="glos-def">Vía marítima de 54 km de ancho en su punto más estrecho, ubicada entre Irán al norte y Omán/Emiratos Árabes Unidos al sur. Conecta el Golfo Pérsico con el Mar de Arabia. Por él transita aproximadamente el 20% del petróleo mundial y una parte significativa del gas natural licuado. Su cierre o restricción genera perturbaciones inmediatas en los mercados energéticos globales.</div>
+    </div>
+    <div class="glos-item">
+      <div class="glos-term">Modelo solidario eléctrico</div>
+      <div class="glos-def">Principio que rige históricamente el sistema eléctrico costarricense desde la creación del ICE en 1949: universalidad del servicio (acceso para todos sin importar la rentabilidad de la zona), tarifas cruzadas entre sectores (los grandes consumidores subsidian parcialmente las tarifas rurales) y planificación pública integrada (el ICE absorbe el riesgo de inversión de largo plazo).</div>
+    </div>
+  </div>
+
+  <!-- ANCA-ADD -->
+  <div class="glos-category">
+    <div class="glos-category-title">Sobre ANCA-ADD</div>
+    <div class="glos-item">
+      <div class="glos-term">ANCA-ADD</div>
+      <div class="glos-def">Agente Noticioso Crítico-Analítico · Análisis Dinámico del Devenir. Plataforma de análisis epistémico de Alfredo Montero Fonseca, Universidad de Costa Rica. Produce boletines, análisis de coyuntura e investigaciones que articulan el rigor metodológico de las ciencias sociales con la urgencia de la comprensión ciudadana informada.</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+  <p>El presente análisis integra evaluación epistémica explicacionista (MEEE-G, basada en el fiabilismo procesual de Alvin I. Goldman y el explicacionismo comparativo) y análisis dinámico según la Antropología Dinámica del Devenir (ADD, Alfredo Montero Fonseca), articulando los marcos de Prigogine (estructuras disipativas), Maturana/Varela (clausura organizacional y acoplamiento estructural), Habermas (colonización del mundo de la vida), Bourdieu (habitus, campo, capital) y el pluralismo jurídico-político (Moore, von Benda-Beckmann). Las clasificaciones epistémicas <strong>[DC] dato confirmado</strong>, <strong>[IP] inferencia plausible</strong>, <strong>[H] hipótesis</strong>, <strong>[Int] interpretación</strong> y <strong>[C] conjetura</strong> reflejan el estado de la evidencia disponible al cierre de edición (25 de mayo de 2026, 07:14 horas) y están sujetas a revisión ante nueva información. El análisis no constituye predicción determinista ni recomendación de política pública. Las lecturas ADD identifican dinámicas y trayectorias plausibles; no determinan resultados.</p>
+</div>
+
+</div><!-- /container -->
+
+<footer>
+  <div class="ft-brand">ANCA-ADD</div>
+  <div class="ft-info">
+    Boletín Semanal N.° 007<br>
+    Semana 18–25 · Mayo · 2026<br>
+    Cierre editorial: 25 · V · 2026 · 07:14 h<br>
+    antropos-amf.github.io/anca-ade.github.io
+  </div>
+</footer>
+
+<script data-goatcounter="https://antropos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

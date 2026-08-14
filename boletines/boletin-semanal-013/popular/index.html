@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANCA-ADD para Todos · Boletín Semanal N.° 013 · Edición Popular</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Caveat:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f4ecd9; --paper2:#ede1c8; --card:#fbf6ea;
+    --ink:#3a2e22; --ink2:#5b4a38; --muted:#8c7a64;
+    --terra:#bb5630; --terra-dim:#8f3f22; --terra-bg:rgba(187,86,48,.09);
+    --olive:#5c7a3f; --olive-bg:rgba(92,122,63,.10);
+    --sun:#d99a2b; --sun-bg:rgba(217,154,43,.12);
+    --teal:#3d8a82; --teal-bg:rgba(61,138,130,.10);
+    --line:#d8c7a4; --line-dark:#c2ad84;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:'Lora',Georgia,serif;font-size:19px;line-height:1.62;
+    background-image:
+      radial-gradient(circle at 15% 8%, rgba(217,154,43,.05), transparent 40%),
+      radial-gradient(circle at 90% 70%, rgba(92,122,63,.05), transparent 45%);
+  }
+  ::selection{background:var(--sun-bg);color:var(--ink)}
+
+  .ribbon{background:var(--terra);color:var(--paper);text-align:center;padding:9px 14px;
+    font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.04em}
+  .ribbon b{text-decoration:underline}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(244,236,217,.94);
+    backdrop-filter:blur(6px);border-bottom:2px solid var(--line-dark);
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.04em}
+  nav .wrap{max-width:760px;margin:0 auto;padding:10px 22px;display:flex;flex-wrap:wrap;gap:5px 16px;align-items:center}
+  nav a{color:var(--ink2);text-decoration:none;text-transform:uppercase;transition:color .2s}
+  nav a:hover{color:var(--terra)}
+  nav .brand{color:var(--ink);font-weight:600;margin-right:auto;text-transform:none;font-size:12px}
+
+  main{max-width:760px;margin:0 auto;padding:0 22px 90px}
+
+  header.mast{padding:46px 0 26px;text-align:center;border-bottom:3px double var(--line-dark);margin-bottom:10px}
+  .stamp{display:inline-block;font-family:'Caveat',cursive;font-size:22px;color:var(--terra);
+    transform:rotate(-2deg);margin-bottom:6px}
+  h1.title{font-family:'Fraunces',serif;font-weight:800;font-size:clamp(38px,8vw,62px);
+    line-height:1.05;margin:6px 0 8px;color:var(--ink)}
+  .subtitle{font-family:'Lora',serif;font-style:italic;font-size:clamp(17px,2.6vw,21px);
+    color:var(--ink2);margin:0 auto;max-width:520px}
+  .mast-meta{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--muted);
+    margin-top:18px;display:flex;flex-wrap:wrap;justify-content:center;gap:5px 20px}
+
+  .letter{background:var(--card);border:1px solid var(--line);border-radius:4px;
+    padding:26px 28px;margin:26px 0 8px;position:relative}
+  .letter:before{content:"";position:absolute;top:0;left:24px;right:24px;height:3px;
+    background:repeating-linear-gradient(90deg,var(--sun) 0 8px, transparent 8px 16px)}
+  .letter p{margin:0 0 13px;font-size:18.5px;color:var(--ink2)}
+  .letter p:last-child{margin-bottom:0}
+  .letter .firma{font-family:'Caveat',cursive;font-size:24px;color:var(--terra-dim);margin-top:4px}
+
+  .toc{margin:30px 0 6px}
+  .toc h2{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--muted);text-align:center;margin:0 0 16px}
+  .toc-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+  .toc-item{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:12px 14px;
+    font-family:'Lora',serif;font-size:15px;color:var(--ink2);text-decoration:none;display:flex;gap:10px;align-items:flex-start}
+  .toc-item:hover{border-color:var(--terra)}
+  .toc-num{font-family:'Fraunces',serif;font-weight:700;font-size:22px;color:var(--terra);line-height:1}
+  @media(max-width:560px){.toc-grid{grid-template-columns:1fr}}
+
+  article{padding:50px 0 8px;border-bottom:2px dashed var(--line-dark)}
+  .icon-wrap{width:58px;height:58px;margin:0 auto 14px;color:var(--terra)}
+  .icon-wrap svg{width:100%;height:100%}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--olive);text-align:center;margin-bottom:8px}
+  h2.question{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(25px,4.4vw,34px);
+    line-height:1.15;text-align:center;margin:0 0 6px;color:var(--ink)}
+  .question-tag{font-family:'Caveat',cursive;font-size:19px;color:var(--terra);
+    text-align:center;display:block;margin-bottom:24px}
+
+  h3.subh{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--muted);margin:26px 0 9px;
+    padding-bottom:5px;border-bottom:1px solid var(--line)}
+  article p{margin:0 0 14px}
+  article p.lead{font-size:20.5px;color:var(--ink)}
+  em.term{font-style:italic;color:var(--terra-dim);font-weight:600}
+
+  .therm{background:var(--card);border:1px solid var(--line);border-radius:4px;
+    padding:16px 20px;margin:18px 0}
+  .therm .t-title{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  .t-row{display:flex;gap:10px;align-items:flex-start;padding:7px 0;font-size:16.5px;color:var(--ink2)}
+  .t-row .dot{flex:0 0 22px;font-size:18px;line-height:1.4}
+  .t-row b{color:var(--ink);font-weight:600}
+
+  .dyn{background:var(--teal-bg);border:1px solid var(--teal);border-left:4px solid var(--teal);
+    padding:18px 22px;margin:18px 0;border-radius:4px}
+  .dyn .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--teal);margin-bottom:8px}
+  .dyn p{margin:0 0 8px;font-size:18.5px;color:var(--ink)}
+  .dyn p:last-child{margin-bottom:0}
+
+  .cr{background:var(--olive-bg);border:1px solid var(--olive);border-radius:4px;padding:18px 22px;margin:18px 0}
+  .cr .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--olive);margin-bottom:8px;display:flex;align-items:center;gap:7px}
+  .cr p{margin:0 0 8px;font-size:18.5px;color:var(--ink)} .cr p:last-child{margin-bottom:0}
+
+  .roads{margin:20px 0 4px}
+  .roads .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  .road{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid var(--line)}
+  .road:last-child{border-bottom:none}
+  .road .arrow{font-family:'Fraunces',serif;font-weight:700;color:var(--terra);font-size:18px;flex:0 0 22px}
+  .road p{margin:0;font-size:17.5px;color:var(--ink2)}
+
+  section.curio{padding:46px 0;text-align:center}
+  .curio h2{font-family:'Fraunces',serif;font-weight:800;font-size:34px;color:var(--ink);margin:0 0 6px}
+  .curio .sub{font-family:'Caveat',cursive;font-size:20px;color:var(--terra);margin-bottom:26px;display:block}
+  .curio-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;text-align:left}
+  .curio-card{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:16px 18px}
+  .curio-card .q{font-family:'Fraunces',serif;font-weight:700;font-size:17px;color:var(--terra-dim);margin:0 0 6px}
+  .curio-card p{margin:0;font-size:16px;color:var(--ink2)}
+  @media(max-width:560px){.curio-grid{grid-template-columns:1fr}}
+
+  section.open{padding:10px 0 46px}
+  section.open h2{font-family:'Fraunces',serif;font-weight:800;font-size:30px;color:var(--ink);
+    text-align:center;margin:0 0 8px}
+  section.open .sub{display:block;text-align:center;font-family:'Lora',serif;font-style:italic;
+    color:var(--ink2);margin-bottom:24px;font-size:17px}
+  .open-list{list-style:none;padding:0;margin:0}
+  .open-list li{padding:13px 0 13px 32px;border-bottom:1px solid var(--line);position:relative;
+    color:var(--ink2);font-size:18.5px}
+  .open-list li:before{content:"❓";position:absolute;left:0;top:12px;font-size:15px}
+
+  .closing{background:var(--card);border:1px solid var(--line);border-radius:4px;
+    padding:24px 26px;margin:14px 0 30px}
+  .closing p{font-size:16.5px;line-height:1.7;color:var(--ink2);margin:0 0 10px}
+  .closing p:last-child{margin-bottom:0}
+  .closing b{color:var(--terra-dim)}
+
+  footer{border-top:3px double var(--line-dark);padding:26px 22px;max-width:760px;margin:0 auto;
+    text-align:center;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted)}
+  footer a{color:var(--terra-dim);text-decoration:none}
+  footer .ft-stamp{font-family:'Caveat',cursive;font-size:18px;color:var(--terra);display:block;margin-bottom:8px}
+
+  @media(max-width:600px){
+    body{font-size:18px}
+    .t-row{font-size:15.5px}
+  }
+
+  figure.fig{margin:20px 0 24px}
+  figure.fig img{width:100%;display:block;border-radius:5px;border:1px solid var(--line)}
+  figure.fig figcaption{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.02em;
+    color:var(--muted);margin-top:7px;line-height:1.5;text-align:center}
+  figure.fig.cover img{border-radius:3px}
+
+  .switch{background:var(--ink);color:var(--paper);text-align:center;padding:11px 16px;
+    font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.03em}
+  .switch a{color:var(--sun);text-decoration:underline}
+</style>
+</head>
+<body>
+
+<div class="ribbon">Edición para todo público · misma profundidad, otras palabras · semana del 8 al 15 de julio de 2026</div>
+<div class="switch">¿Prefiere el análisis técnico completo? <a href="../">Lea la versión técnica del Boletín N.° 013 →</a></div>
+
+<nav><div class="wrap">
+  <span class="brand">ANCA-ADD para Todos</span>
+  <a href="https://antropos.app/">Inicio</a>
+  <a href="https://antropos.app/boletines/">Boletines</a>
+  <a href="#n1">Ormuz</a>
+  <a href="#n2">Dólar</a>
+  <a href="#n3">Agua</a>
+  <a href="#n4">Diáspora</a>
+  <a href="#n5">Océano</a>
+  <a href="#curio">Curiosidades</a>
+</div></nav>
+
+<main id="top">
+
+<header class="mast">
+  <span class="stamp">— para entender el mundo —</span>
+  <h1 class="title">BOLETÍN<br>PARA TODOS</h1>
+  <p class="subtitle">Seis historias, tres profundidades, explicadas con calma para quien quiera entender el mundo.</p>
+  <div class="mast-meta">
+    <span>Edición N.° 013 · Popular</span>
+    <span>·</span>
+    <span>Semana del 8 al 15 de julio de 2026</span>
+    <span>·</span>
+    <span>San José, Costa Rica</span>
+  </div>
+</header>
+
+<figure class="fig cover">
+  <img src="../img/portada.jpg" alt="Un barco de carga cruzando un estrecho de mar, metáfora de las rutas del mundo que esta semana volvieron a interrumpirse: Boletín ANCA-ADD N.° 013, edición popular." loading="lazy">
+  <figcaption>Boletín Semanal N.° 013 · Edición para todo público · San José, Costa Rica.</figcaption>
+</figure>
+
+<div class="letter">
+  <p>Estimado lector, estimada lectora:</p>
+  <p>Esta semana el hilo conductor fue, sin que nadie lo planeara, el agua. En el estrecho de Ormuz, el agua es la ruta por donde viaja el petróleo del mundo, y esa ruta volvió a cerrarse. En Sarapiquí, el agua de un manantial cambió de dueño cuando una cervecera holandesa compró una marca costarricense de agua embotellada. Y en el fondo del mar, un estudio nuevo terminó de explicar por qué el océano dejó de "respirar" hace 252 millones de años —con una advertencia que suena incómodamente actual.</p>
+  <p>Le sumamos dos historias más: por qué cada vez más costarricenses son deportados desde Estados Unidos, y qué tan lejos está el reinado del dólar de terminar de verdad. Se lo contamos como se lo contaríamos a un vecino, sentados en el corredor: sin perder seriedad, pero sin las palabras que solo entienden los especialistas.</p>
+  <p class="firma">— El equipo de ANCA-ADD</p>
+</div>
+
+<div class="toc">
+  <h2>Esta semana, en este boletín</h2>
+  <div class="toc-grid">
+    <a class="toc-item" href="#n1"><span class="toc-num">1</span><span>¿Por qué el estrecho de Ormuz se volvió a cerrar, otra vez?</span></a>
+    <a class="toc-item" href="#n2"><span class="toc-num">2</span><span>¿De verdad se está acabando el reinado del dólar?</span></a>
+    <a class="toc-item" href="#n3"><span class="toc-num">3</span><span>Una cervecera compró el agua de un manantial tico. ¿Puede hacer eso?</span></a>
+    <a class="toc-item" href="#n4"><span class="toc-num">4</span><span>¿Por qué cada vez deportan a más costarricenses de Estados Unidos?</span></a>
+    <a class="toc-item" href="#n5"><span class="toc-num">5</span><span>¿Por qué murió casi toda la vida del mar hace 252 millones de años?</span></a>
+    <a class="toc-item" href="#n6"><span class="toc-num">6</span><span>Una inteligencia artificial descifró un misterio del agua. ¿Cómo?</span></a>
+  </div>
+</div>
+
+
+<!-- ============ 1. ORMUZ ============ -->
+<article id="n1">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M8 40c6 5 10 5 16 0s10-5 16 0 10 5 16 0" stroke-width="2.6"/>
+    <path d="M8 48c6 5 10 5 16 0s10-5 16 0 10 5 16 0" stroke-width="2.6"/>
+    <path d="M32 34V14M24 22l8-8 8 8" stroke-width="2.2"/>
+  </svg></div>
+  <div class="eyebrow">Mundo · Energía</div>
+  <h2 class="question">¿Por qué el estrecho de Ormuz se volvió a cerrar, otra vez?</h2>
+  <span class="question-tag">la tregua que parecía sostenerse colapsó, y el precio del petróleo lo sintió de inmediato</span>
+
+  <figure class="fig">
+    <img src="../img/ormuz.jpg" alt="Mapa del estrecho de Ormuz con ondas que representan la turbulencia del conflicto." loading="lazy">
+    <figcaption>El estrecho de Ormuz: apenas 33 kilómetros de ancho, y por ahí pasa una quinta parte del petróleo del mundo.</figcaption>
+  </figure>
+
+  <h3 class="subh">Qué pasó de verdad</h3>
+  <p class="lead">A mediados de junio, Estados Unidos e Irán firmaron una tregua frágil, pensada para abrir dos meses de negociación. Esta semana esa tregua se rompió: tres barcos comerciales fueron atacados al cruzar el estrecho de Hormuz, y Estados Unidos y sus aliados le echaron la culpa a Irán. El 9 de julio, el ejército estadounidense respondió con su operación más grande desde que empezó la tregua: cerca de 90 blancos militares golpeados, incluyendo por primera vez el único puerto de Irán con salida directa al océano. Irán contraatacó con misiles y drones contra bases de Estados Unidos en la región.</p>
+  <p>El 14 de julio, Washington volvió a bloquear la venta de petróleo iraní y el presidente Trump declaró la tregua "terminada". La respuesta del mercado fue inmediata: el precio del petróleo (el Brent) subió de menos de 72 dólares el barril a más de 85, aunque todavía queda lejos de los 120 dólares que llegó a tocar en los peores momentos de la guerra, en marzo.</p>
+
+  <h3 class="subh">Qué tan seguros estamos</h3>
+  <div class="therm">
+    <div class="t-title">Termómetro de certeza</div>
+    <div class="t-row"><span class="dot">✅</span><span><b>Esto lo sabemos seguro:</b> la tregua colapsó, Estados Unidos restableció el bloqueo y el precio del petróleo subió — todo está confirmado por varias fuentes independientes.</span></div>
+    <div class="t-row"><span class="dot">🤔</span><span><b>Esto creemos, pero no es seguro:</b> que haya sido Irán quien atacó los tres barcos. Es lo que dicen Estados Unidos y sus aliados, pero nadie ajeno al conflicto lo ha confirmado todavía.</span></div>
+    <div class="t-row"><span class="dot">💭</span><span><b>Esto es solo una posibilidad:</b> que el conflicto se convierta en una guerra regional más grande. Por ahora, los ataques se describen como "focalizados", no como una escalada total.</span></div>
+  </div>
+
+  <div class="dyn">
+    <div class="lbl">Por qué importa, en cristiano</div>
+    <p>Imagínese una llave de agua que alguien cierra y abre según su humor, y que de esa llave depende media cocina del mundo. Cada vez que la cierran, sube el "susto" (lo que los economistas llaman prima de riesgo); cada vez que la abren un poco, el susto baja, pero nunca del todo. Lo que muestra esta semana es que esa llave lleva meses cerrándose y abriéndose sin que nadie logre dejarla fija en una posición. Eso ya es, en sí mismo, el problema: no la crisis puntual, sino que se volvió normal vivir así.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">🌱 ¿Y en Costa Rica, qué tiene que ver?</div>
+    <p>Costa Rica no produce ni una gota de petróleo: importamos el 100% de lo que consumimos. Cuando el precio sube en Ormuz, a las pocas semanas se siente en la bomba de gasolina, en el pasaje del bus y en la factura eléctrica de respaldo. La única palanca real que tiene el país no es controlar ese precio —eso no está en nuestras manos—, sino depender menos de él: más carros eléctricos, más proveedores distintos, más reservas propias.</p>
+  </div>
+
+  <div class="roads">
+    <div class="lbl">¿Hacia dónde puede ir esto?</div>
+    <div class="road"><span class="arrow">→</span><p><b>Nueva tregua:</b> la presión de los mercados y de los países vecinos logra otro cese frágil, y el precio baja parcialmente.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Se vuelve la nueva normalidad:</b> el vaivén de cierres y aperturas se convierte en algo permanente, con el precio de la energía siempre un poco más alto por las dudas.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Escalada mayor:</b> un golpe a infraestructura energética o civil rompe el límite actual y arrastra a más países de la región.</p></div>
+  </div>
+</article>
+
+
+<!-- ============ 2. DÓLAR / BRICS ============ -->
+<article id="n2">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="32" cy="32" r="20"/>
+    <path d="M32 22v20M27 27c0-3 2-5 5-5s5 2 5 4-2 3-5 4-5 2-5 4 2 4 5 4 5-2 5-5" stroke-width="2"/>
+  </svg></div>
+  <div class="eyebrow">Mundo · Economía</div>
+  <h2 class="question">¿De verdad se está acabando el reinado del dólar?</h2>
+  <span class="question-tag">India preside este año un bloque de países que quiere depender menos del dólar — pero archivó la idea de reemplazarlo</span>
+
+  <figure class="fig">
+    <img src="../img/brics-dolar.jpg" alt="Billete de dólar con símbolos de Estados Unidos, China, India y Rusia en las esquinas, representando el mapa de actores." loading="lazy">
+    <figcaption>Cada actor del tablero tiene su propia razón para empujar —o frenar— la desdolarización.</figcaption>
+  </figure>
+
+  <h3 class="subh">Qué pasó de verdad</h3>
+  <p class="lead">Cada cierto tiempo aparece un titular anunciando "el fin del dólar". Y sin embargo, el dólar sigue usándose en el 90% del comercio mundial y representa cerca del 58% de las reservas de los bancos centrales, según el Fondo Monetario Internacional. Este año, India preside un bloque de países emergentes —los BRICS+, que ya incluye a Irán, Egipto, Emiratos y otros— que representa más del 40% de la población mundial. Ese bloque avanzó en construir sistemas de pago alternativos al que usa Estados Unidos, pero dejó clarísimo un punto: la idea de crear una moneda común para reemplazar al dólar quedó archivada. El propio canciller de India lo dijo sin rodeos: "no hay política de nuestra parte para reemplazar el dólar".</p>
+  <p>Estados Unidos, mientras tanto, respondió con amenazas: aranceles del 100% a cualquier país que respalde una moneda alternativa. Analistas serios coinciden en que el dólar está "seguro" por ahora, pero que el bloque BRICS+ sigue demasiado dividido internamente —India no quiere depender de China, por ejemplo— para actuar como un bloque unido.</p>
+
+  <h3 class="subh">Qué tan seguros estamos</h3>
+  <div class="therm">
+    <div class="t-title">Termómetro de certeza</div>
+    <div class="t-row"><span class="dot">✅</span><span><b>Esto lo sabemos seguro:</b> el dólar sigue dominando el comercio mundial, y el plan de una moneda común BRICS fue oficialmente descartado.</span></div>
+    <div class="t-row"><span class="dot">🤔</span><span><b>Esto creemos, pero no es seguro:</b> que el dólar esté perdiendo terreno de forma lenta pero sostenida a largo plazo. La tendencia existe, pero es modesta.</span></div>
+    <div class="t-row"><span class="dot">💭</span><span><b>Esto es solo una posibilidad:</b> que este reajuste termine ampliando el margen de maniobra de países pequeños como Costa Rica. Depende de si el país sabe aprovecharlo.</span></div>
+  </div>
+
+  <div class="dyn">
+    <div class="lbl">Por qué importa, en cristiano</div>
+    <p>Piense en el dólar como el idioma que casi todo el mundo usa para hacer negocios, aunque no sea el idioma materno de nadie fuera de Estados Unidos. Algunos países están construyendo, poco a poco, "traductores" alternativos —sistemas de pago que no necesitan pasar por ese idioma—. Eso no significa que vayan a dejar de hablarlo mañana: significa que, con el tiempo, van a depender un poco menos de que Washington sea el único que entienda todas las conversaciones.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">🌱 ¿Y en Costa Rica, qué tiene que ver?</div>
+    <p>La economía tica está enchufada al dólar: buena parte de nuestra deuda, nuestro comercio y nuestras zonas francas dependen de él. Un mundo con varios sistemas de pago compitiendo entre sí es, a corto plazo, más complicado para un país pequeño —encarece hacer negocios entre esferas distintas—. Pero Costa Rica también tiene un tratado de libre comercio con China desde 2011, así que ya está, sin buscarlo, parada entre los dos mundos.</p>
+  </div>
+
+  <div class="roads">
+    <div class="lbl">¿Hacia dónde puede ir esto?</div>
+    <div class="road"><span class="arrow">→</span><p><b>Coexistencia tranquila:</b> los sistemas alternativos crecen sin que el dólar pierda terreno real; conviven.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>El mundo se divide en bloques:</b> las amenazas arancelarias endurecen las líneas y el comercio se reorganiza por esferas de influencia.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Se queda en nada:</b> las divisiones internas entre India y China frenan el proyecto, y los BRICS+ quedan más como foro simbólico que como bloque real.</p></div>
+  </div>
+</article>
+
+
+<!-- ============ 3. HEINEKEN / AGUA ============ -->
+<article id="n3">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M32 8c8 14 16 22 16 32a16 16 0 0 1-32 0c0-10 8-18 16-32z"/>
+  </svg></div>
+  <div class="eyebrow">Costa Rica · Economía</div>
+  <h2 class="question">Una cervecera compró el agua de un manantial tico. ¿Puede hacer eso?</h2>
+  <span class="question-tag">no exactamente — en Costa Rica el agua nunca se vende, aunque la marca sí cambie de dueño</span>
+
+  <figure class="fig">
+    <img src="../img/heineken.jpg" alt="Botella de agua RainForest junto a un manantial en la selva, ilustrando la compra de la marca." loading="lazy">
+    <figcaption>RainForest Water: nacida en Sarapiquí en 2015, hoy con nuevo dueño internacional.</figcaption>
+  </figure>
+
+  <h3 class="subh">Qué pasó de verdad</h3>
+  <p class="lead">El 13 de julio, la autoridad costarricense de competencia (Coprocom) confirmó que Heineken Costa Rica va a comprar RainForest Water, una marca tica de agua embotellada fundada en 2015 en Sarapiquí, conocida por sus envases de aluminio reciclable y su modelo sostenible. El fundador de la empresa lo llamó "un reconocimiento internacional a una marca país". La compra excluye, ojo, los terrenos: Heineken se queda con la marca y la operación, no con la propiedad donde está el manantial.</p>
+  <p>Y aquí está el punto clave que muchos no saben: en Costa Rica, el agua —toda el agua, de todos los ríos y manantiales— es un bien público. No se compra ni se vende. Lo que una empresa puede tener es una concesión: un permiso para usar cierta cantidad de agua, que el Estado le puede quitar si no se cumplen las reglas. Como esa concesión está atada al terreno, y el terreno quedó fuera de la venta, la pregunta legal sigue abierta: ¿qué pasa exactamente con el agua?</p>
+
+  <h3 class="subh">Qué tan seguros estamos</h3>
+  <div class="therm">
+    <div class="t-title">Termómetro de certeza</div>
+    <div class="t-row"><span class="dot">✅</span><span><b>Esto lo sabemos seguro:</b> la compra fue notificada oficialmente, y la ley dice con claridad que el agua es de dominio público, no de quien la embotella.</span></div>
+    <div class="t-row"><span class="dot">🤔</span><span><b>Esto creemos, pero no es seguro:</b> que la concesión de agua no se transfiera automáticamente con la marca. Se sigue de la lógica legal, pero falta confirmar el detalle exacto en el registro.</span></div>
+    <div class="t-row"><span class="dot">💭</span><span><b>Esto es solo una posibilidad:</b> que en el futuro surja algún conflicto sobre quién controla realmente el acceso al manantial.</span></div>
+  </div>
+
+  <div class="dyn">
+    <div class="lbl">Por qué importa, en cristiano</div>
+    <p>Es como si alguien le vendiera a otra persona el nombre y la receta de su restaurante, pero no el terreno donde está la cocina. El nuevo dueño puede usar el nombre en todo el mundo, pero quien tiene la llave de la cocina sigue siendo, en teoría, el mismo de antes —a menos que se negocie algo distinto por su cuenta—. El problema es que la oficina que revisa esta compra (la de competencia comercial) no es la misma que vigila el agua (la del ambiente), así que nadie está obligado a conectar las dos piezas del rompecabezas.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">🌱 ¿Y en Costa Rica, qué tiene que ver?</div>
+    <p>Esta es, literalmente, la historia tica de esta edición. El país se vende al mundo con la imagen de "agua pura" y naturaleza intacta. Lo que este caso pone sobre la mesa no es que se haya hecho algo ilegal —no lo fue—, sino si el país tiene las reglas necesarias para asegurarse de que, cuando una marca de agua se vuelve global, el control real del recurso no se le escape de las manos sin que nadie se dé cuenta.</p>
+  </div>
+
+  <div class="roads">
+    <div class="lbl">¿Hacia dónde puede ir esto?</div>
+    <div class="road"><span class="arrow">→</span><p><b>Todo en orden:</b> Heineken formaliza una concesión propia y clara ante las autoridades del agua, sin ambigüedades.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Se resuelve por contrato, sin que nadie lo note:</b> el control del agua migra a través de un acuerdo de suministro que la autoridad hídrica nunca revisa directamente.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Roce por la fuente:</b> surge algún conflicto sobre el acceso o el cuidado del manantial que quedó fuera de la venta.</p></div>
+  </div>
+</article>
+
+
+<!-- ============ 4. DIÁSPORA / DEPORTACIONES ============ -->
+<article id="n4">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="22" cy="22" r="7"/>
+    <circle cx="44" cy="22" r="7"/>
+    <path d="M10 50c0-9 6-15 12-15s12 6 12 15M30 50c0-9 6-15 12-15s12 6 12 15"/>
+  </svg></div>
+  <div class="eyebrow">Costa Rica · Migración</div>
+  <h2 class="question">¿Por qué cada vez deportan a más costarricenses de Estados Unidos?</h2>
+  <span class="question-tag">en solo siete meses de 2026 ya se superaron las deportaciones de todo el segundo semestre anterior</span>
+
+  <figure class="fig">
+    <img src="../img/octava-provincia.jpg" alt="Mapa que conecta Costa Rica con el noreste de Estados Unidos, ilustrando la diáspora costarricense." loading="lazy">
+    <figcaption>Más de 43.000 costarricenses están inscritos como electores en Estados Unidos — la «octava provincia».</figcaption>
+  </figure>
+
+  <h3 class="subh">Qué pasó de verdad</h3>
+  <p class="lead">Según Migración, en los primeros siete meses de 2026 el número de costarricenses deportados desde Estados Unidos ya superó todo lo registrado en el segundo semestre del año pasado. Un nuevo sistema, llamado ENV, permite verificar la nacionalidad de una persona de forma electrónica en segundos, en vez del trámite documental que tomaba más tiempo antes. El director de Migración fue claro: ese sistema no aumenta las deportaciones, solo las hace más rápidas.</p>
+  <p>Detrás de la cifra hay una comunidad entera: el Tribunal Supremo de Elecciones registra más de 43.000 costarricenses viviendo en Estados Unidos, la mayoría en Nueva York y Nueva Jersey —lo que un editorial reciente llamó la "octava provincia"—. Esa migración empezó hace tres décadas, en buena parte desde zonas como Pérez Zeledón, cuando el modelo agrícola de esas regiones entró en crisis. Hoy esa comunidad organiza rifas para pagar el regreso de personas detenidas y usa grupos de WhatsApp para avisarse entre sí sobre operativos migratorios.</p>
+
+  <h3 class="subh">Qué tan seguros estamos</h3>
+  <div class="therm">
+    <div class="t-title">Termómetro de certeza</div>
+    <div class="t-row"><span class="dot">✅</span><span><b>Esto lo sabemos seguro:</b> las cifras oficiales de deportaciones y de costarricenses registrados en Estados Unidos están documentadas.</span></div>
+    <div class="t-row"><span class="dot">🤔</span><span><b>Esto creemos, pero no es seguro:</b> que el aumento se deba principalmente al endurecimiento de la política migratoria estadounidense, y no solo a la mayor rapidez del nuevo sistema.</span></div>
+    <div class="t-row"><span class="dot">💭</span><span><b>Esto es solo una posibilidad:</b> que Costa Rica convierta este momento en una política real de apoyo a su diáspora, en vez de dejarlo en manos de la solidaridad comunitaria.</span></div>
+  </div>
+
+  <div class="dyn">
+    <div class="lbl">Por qué importa, en cristiano</div>
+    <p>Imagínese una comunidad entera que, durante años, se reunía para celebrar fiestas patrias y ahora se reúne para juntar dinero y pagar el pasaje de alguien que están a punto de deportar. Es el mismo grupo de personas, pero el motivo del encuentro cambió por completo: de celebrar a sobrevivir. Eso es lo que está pasando con la comunidad tica en el noreste de Estados Unidos, y sostener esa red de apoyo, mes tras mes, tiene un costo real que empieza a notarse.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">🌱 ¿Y en Costa Rica, qué tiene que ver?</div>
+    <p>Esta es la historia de Costa Rica vista desde afuera. El país envió mano de obra hace tres décadas cuando el modelo agrícola de ciertas zonas colapsó, y esa misma gente ahora vuelve, muchas veces de forma forzada. El reto no es solo recibirlos: es tratar a esa diáspora como parte real del país —con apoyo consular, económico y de reinserción— y no solo como un número de votantes lejanos que se recuerda cada cuatro años.</p>
+  </div>
+
+  <div class="roads">
+    <div class="lbl">¿Hacia dónde puede ir esto?</div>
+    <div class="road"><span class="arrow">→</span><p><b>Política de diáspora:</b> el país arma un plan real de apoyo consular y reinserción para quienes regresan.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Se sigue gestionando caso por caso:</b> el Estado responde sin un plan integral, y la comunidad sigue supliendo con redes informales.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>La presión sigue subiendo:</b> aumentan los retornos y bajan las remesas, con impacto directo en las zonas rurales de origen.</p></div>
+  </div>
+</article>
+
+
+<!-- ============ 5. GRAN MORTANDAD ============ -->
+<article id="n5">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M8 34c8-8 16-8 24 0s16 8 24 0" stroke-width="2.4"/>
+    <circle cx="22" cy="30" r="1.8" fill="currentColor" stroke="none"/>
+    <path d="M14 44c8-6 16-6 24 0s16 6 24 0" stroke-width="1.6" opacity=".5"/>
+  </svg></div>
+  <div class="eyebrow">Ciencia · Planeta</div>
+  <h2 class="question">¿Por qué murió casi toda la vida del mar hace 252 millones de años?</h2>
+  <span class="question-tag">un estudio de Stanford cerró el misterio — y encontró un parecido incómodo con lo que vivimos hoy</span>
+
+  <figure class="fig">
+    <img src="../img/gran-mortandad.jpg" alt="Ilustración de un arrecife próspero a la izquierda y un fondo marino devastado a la derecha, representando la Gran Mortandad." loading="lazy">
+    <figcaption>De un lado, el mar próspero de antes; del otro, lo que quedó tras la mayor extinción de la historia.</figcaption>
+  </figure>
+
+  <h3 class="subh">Qué pasó de verdad</h3>
+  <p class="lead">Hace 252 millones de años, una serie de erupciones volcánicas gigantes en lo que hoy es Siberia inundó la atmósfera de gases de efecto invernadero y calentó el planeta. Eso ya se sabía. Lo que no se entendía del todo era por qué unos animales marinos murieron casi todos —el 96% de las especies— mientras otros sobrevivieron. Un estudio de Stanford, publicado el 6 de julio, por fin lo explicó: al calentarse, el mar retiene menos oxígeno, y los animales de metabolismo lento no pudieron respirar lo suficiente para sobrevivir al calor. Los de metabolismo más rápido —parecidos a las almejas y caracoles actuales— sí lograron aguantar el doble golpe.</p>
+  <p>El dato que preocupa a los científicos es la velocidad: en esa extinción, la temperatura subió entre 8 y 12 grados en miles de años. Hoy se proyecta una subida de 1,5 a 4 grados en apenas 100 a 200 años —mucho más rápido—. El propio autor del estudio fue claro: "vamos camino a niveles de calentamiento parecidos, en los peores escenarios, pero todavía estamos a tiempo de hacer algo".</p>
+
+  <h3 class="subh">Qué tan seguros estamos</h3>
+  <div class="therm">
+    <div class="t-title">Termómetro de certeza</div>
+    <div class="t-row"><span class="dot">✅</span><span><b>Esto lo sabemos seguro:</b> el estudio fue revisado por otros científicos y confirma que el calor combinado con la falta de oxígeno explica quién sobrevivió y quién no.</span></div>
+    <div class="t-row"><span class="dot">🤔</span><span><b>Esto creemos, pero no es seguro:</b> que el presente vaya a "repetir la historia" exactamente igual. La comparación es válida biológicamente, pero las escalas de tiempo son muy distintas.</span></div>
+    <div class="t-row"><span class="dot">💭</span><span><b>Esto es solo una posibilidad:</b> que futuras investigaciones matricen esta comparación al profundizar en las diferencias entre ambos momentos.</span></div>
+  </div>
+
+  <div class="dyn">
+    <div class="lbl">Por qué importa, en cristiano</div>
+    <p>Piense en un animal marino como alguien corriendo una carrera: mientras más calor hace, más oxígeno necesita para seguir corriendo. Algunos corredores (los de metabolismo rápido) se adaptan y aceleran su respiración; otros (los de metabolismo lento) simplemente no pueden respirar lo suficiente y se quedan atrás. Hace 252 millones de años, casi todos los corredores lentos se quedaron atrás para siempre. El estudio no es solo historia antigua: es un manual de quién está en más riesgo si el mar sigue calentándose.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">🌱 ¿Y en Costa Rica, qué tiene que ver?</div>
+    <p>Costa Rica tiene dos océanos y una economía que depende de ellos: pesca, turismo, biodiversidad marina. Este estudio no es solo una curiosidad de museo: ayuda a predecir qué especies de nuestras costas son más vulnerables al calentamiento del mar. Y la capacidad de vigilar eso de cerca depende de que el país siga invirtiendo en su propia ciencia —la UCR, el CIMAR— en vez de depender solo de lo que investigan otros países.</p>
+  </div>
+
+  <div class="roads">
+    <div class="lbl">¿Hacia dónde puede ir esto?</div>
+    <div class="road"><span class="arrow">→</span><p><b>Se usa para actuar:</b> el hallazgo refuerza la urgencia de cuidar arrecifes y manglares según qué tan vulnerables son.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Queda como referencia técnica:</b> cierra el debate académico, pero tarda en traducirse en política pública.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Se matiza con el tiempo:</b> nuevas investigaciones ajustan qué tan parecidos son realmente ambos momentos.</p></div>
+  </div>
+</article>
+
+
+<!-- ============ 6. IA Y EL AGUA ============ -->
+<article id="n6">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M32 10c8 12 14 20 14 28a14 14 0 0 1-28 0c0-8 6-16 14-28z"/>
+    <circle cx="26" cy="34" r="1.6" fill="currentColor" stroke="none"/>
+    <circle cx="36" cy="40" r="1.6" fill="currentColor" stroke="none"/>
+    <circle cx="30" cy="44" r="1.6" fill="currentColor" stroke="none"/>
+  </svg></div>
+  <div class="eyebrow">Ciencia · Tecnología</div>
+  <h2 class="question">Una inteligencia artificial descifró un misterio del agua. ¿Cómo?</h2>
+  <span class="question-tag">no descubrió nada nuevo bajo el agua — ordenó 30 años de teorías rivales que nadie había logrado comparar del todo</span>
+
+  <figure class="fig">
+    <img src="../img/ia-agua.jpg" alt="Gota de agua con una red neuronal digital superpuesta, representando el estudio de la Universidad de Osaka." loading="lazy">
+    <figcaption>El agua supercongelada esconde dos «personalidades» líquidas distintas — y una IA ayudó a distinguirlas mejor.</figcaption>
+  </figure>
+
+  <h3 class="subh">Qué pasó de verdad</h3>
+  <p class="lead">El agua es rara: es de las pocas sustancias que se expande al congelarse, y alcanza su mayor densidad no en el punto de congelación, sino a 4 grados. Los científicos sospechan que esas rarezas se explican porque el agua, en ciertas condiciones extremas (como cuando sigue líquida por debajo de su punto normal de congelación), puede existir en dos "personalidades" distintas. El problema es que, en tres décadas, distintos equipos de investigación crearon 16 formas matemáticas diferentes de medir esas personalidades, sin ponerse de acuerdo en cuál era la mejor.</p>
+  <p>Un equipo de la Universidad de Osaka entrenó una inteligencia artificial para comparar esas 16 formas entre sí y decir cuáles funcionan mejor. El resultado, publicado el 6 de julio, no es un descubrimiento nuevo sobre el agua en sí: es un ordenamiento del conocimiento que ya existía, hecho por una máquina en mucho menos tiempo del que hubiera tomado a un grupo de personas comparándolo a mano.</p>
+
+  <h3 class="subh">Qué tan seguros estamos</h3>
+  <div class="therm">
+    <div class="t-title">Termómetro de certeza</div>
+    <div class="t-row"><span class="dot">✅</span><span><b>Esto lo sabemos seguro:</b> el estudio fue revisado por otros científicos y la IA sí logró jerarquizar los 16 métodos de medición.</span></div>
+    <div class="t-row"><span class="dot">🤔</span><span><b>Esto creemos, pero no es seguro:</b> que el agua realmente alterne entre esas dos "personalidades" líquidas de forma tan clara. La evidencia crece, pero el debate sigue abierto.</span></div>
+    <div class="t-row"><span class="dot">💭</span><span><b>Esto es solo una posibilidad:</b> que este método se convierta en el estándar que use todo el campo científico de aquí en adelante.</span></div>
+  </div>
+
+  <div class="dyn">
+    <div class="lbl">Por qué importa, en cristiano</div>
+    <p>Imagínese 16 personas que llevan treinta años describiendo el mismo animal, cada una a su manera, sin ponerse de acuerdo en cuál descripción es la más precisa. La inteligencia artificial no fue a ver al animal de nuevo: leyó las 16 descripciones y dijo cuáles se parecían más a la realidad. No inventó nada; ordenó lo que ya estaba disperso. Y eso, aunque suene menos espectacular que "descubrir" algo, ahorra años de trabajo humano.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">🌱 ¿Y en Costa Rica, qué tiene que ver?</div>
+    <p>El agua no es un tema cualquiera para el país que ya vimos en la historia de RainForest Water. Entender mejor su comportamiento tiene aplicaciones prácticas en conservación y en el cuidado de fuentes hídricas. Costa Rica no va a competir fabricando estas inteligencias artificiales de punta —eso requiere capacidad de cómputo que no tenemos—, pero sí puede aprovechar ese conocimiento aplicado a sus propios recursos naturales.</p>
+  </div>
+
+  <div class="roads">
+    <div class="lbl">¿Hacia dónde puede ir esto?</div>
+    <div class="road"><span class="arrow">→</span><p><b>Se vuelve el método estándar:</b> otros laboratorios lo adoptan y acelera el estudio de otros líquidos raros.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Queda como herramienta de nicho:</b> útil para especialistas, pero de adopción lenta.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Se confirma con más fuerza:</b> nuevos experimentos terminan de comprobar la existencia de esas dos "personalidades" del agua.</p></div>
+  </div>
+</article>
+
+
+<!-- ============ CURIOSIDADES ============ -->
+<section class="curio" id="curio">
+  <h2>Rincón de curiosidades</h2>
+  <span class="sub">cositas para sorprender a la familia en la sobremesa</span>
+  <div class="curio-grid">
+    <div class="curio-card">
+      <p class="q">¿Sabía que...?</p>
+      <p>El estrecho de Ormuz mide apenas 33 kilómetros de ancho en su punto más angosto —menos que la distancia entre San José y Cartago— y por ahí pasa una quinta parte del petróleo del mundo.</p>
+    </div>
+    <div class="curio-card">
+      <p class="q">¿Sabía que...?</p>
+      <p>La plataforma "mBridge", uno de los sistemas de pago alternativos al dólar, ya había procesado más de 55 mil millones de dólares hacia finales de 2025 — y sigue sin ser noticia de primera plana.</p>
+    </div>
+    <div class="curio-card">
+      <p class="q">¿Sabía que...?</p>
+      <p>Cada concha de almeja que se encuentra en la playa es, en cierto sentido, un sobreviviente genético de la extinción de hace 252 millones de años: sus ancestros fueron parte de la "fauna moderna" que sí toleró el calor y la falta de oxígeno.</p>
+    </div>
+    <div class="curio-card">
+      <p class="q">¿Sabía que...?</p>
+      <p>Más de 43.000 costarricenses están registrados como electores en Estados Unidos —casi como si existiera una "octava provincia" de Costa Rica del otro lado del continente.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ PREGUNTAS ABIERTAS ============ -->
+<section class="open">
+  <h2>Lo que todavía queda en el aire</h2>
+  <span class="sub">preguntas honestas, que nadie puede responder todavía con certeza</span>
+  <ul class="open-list">
+    <li>¿Se calmará la oscilación en Ormuz, o cada cierre y apertura será más intenso que el anterior hasta que algo se rompa del todo?</li>
+    <li>¿Lograrán los sistemas de pago alternativos al dólar ganar terreno real, o se quedarán frenados por las divisiones internas del bloque que los impulsa?</li>
+    <li>¿Qué pasará finalmente con la gobernanza del manantial de Sarapiquí, que quedó fuera de la venta de la marca de agua?</li>
+    <li>¿Convertirá Costa Rica el aumento de deportaciones en una política real de apoyo a su diáspora, o seguirá dependiendo de la solidaridad comunitaria?</li>
+    <li>¿Aguantará la comparación entre la extinción de hace 252 millones de años y el presente, dado lo distinto de la velocidad con la que ocurre cada una?</li>
+  </ul>
+</section>
+
+<div class="closing">
+  <p><b>Una palabra sobre cómo trabajamos.</b> Detrás de cada una de estas historias hay un análisis técnico bastante más detallado: revisamos qué tan confiable es cada dato, estudiamos cómo se conectan los hechos entre sí, y miramos el lugar de Costa Rica en el mundo grande. Esa versión completa, con todos los códigos epistémicos y la lectura dinámica, también está disponible para quien quiera ir más al fondo.</p>
+  <p>Esta edición nace de una convicción sencilla: entender el mundo no debería ser un privilegio de unos pocos. Por eso le contamos las cosas con calma y sin palabras complicadas, pero sin recortarle la verdad —porque tratar a alguien como capaz de comprender es la forma más honesta de respetarlo.</p>
+  <p>Como siempre: lo que aquí se cuenta es análisis, no una bola de cristal ni un consejo de qué hacer. El futuro nadie lo tiene asegurado, ni nosotros tampoco.</p>
+</div>
+
+</main>
+
+<footer>
+  <span class="ft-stamp">Hasta la próxima semana</span>
+  <div>ANCA-ADD © 2026 · <a href="https://antropos.app">antropos.app</a></div>
+  <div style="margin-top:6px">Boletín Semanal N.° 013 · Edición Popular · 16 jul 2026</div>
+</footer>
+
+<script data-goatcounter="https://antropos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

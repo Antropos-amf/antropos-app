@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANCA-ADD para Todos · Operación Némesis · alias «Diablo» · Edición Popular</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Caveat:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f4ecd9; --paper2:#ede1c8; --card:#fbf6ea;
+    --ink:#3a2e22; --ink2:#5b4a38; --muted:#8c7a64;
+    --terra:#bb5630; --terra-dim:#8f3f22; --terra-bg:rgba(187,86,48,.09);
+    --olive:#5c7a3f; --olive-bg:rgba(92,122,63,.10);
+    --sun:#d99a2b; --sun-bg:rgba(217,154,43,.12);
+    --teal:#3d8a82; --teal-bg:rgba(61,138,130,.10);
+    --line:#d8c7a4; --line-dark:#c2ad84;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:'Lora',Georgia,serif;font-size:19px;line-height:1.62;
+    background-image:
+      radial-gradient(circle at 15% 8%, rgba(217,154,43,.05), transparent 40%),
+      radial-gradient(circle at 90% 70%, rgba(92,122,63,.05), transparent 45%);
+  }
+  ::selection{background:var(--sun-bg);color:var(--ink)}
+
+  .ribbon{background:var(--terra);color:var(--paper);text-align:center;padding:9px 14px;
+    font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.04em}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(244,236,217,.94);
+    backdrop-filter:blur(6px);border-bottom:2px solid var(--line-dark);
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.04em}
+  nav .wrap{max-width:760px;margin:0 auto;padding:10px 22px;display:flex;flex-wrap:wrap;gap:5px 16px;align-items:center}
+  nav a{color:var(--ink2);text-decoration:none;text-transform:uppercase;transition:color .2s}
+  nav a:hover{color:var(--terra)}
+  nav .brand{color:var(--ink);font-weight:600;margin-right:auto;text-transform:none;font-size:12px}
+
+  main{max-width:760px;margin:0 auto;padding:0 22px 90px}
+
+  header.mast{padding:46px 0 26px;text-align:center;border-bottom:3px double var(--line-dark);margin-bottom:10px}
+  .stamp{display:inline-block;font-family:'Caveat',cursive;font-size:21px;color:var(--terra);transform:rotate(-2deg);margin-bottom:6px}
+  h1.title{font-family:'Fraunces',serif;font-weight:800;font-size:clamp(36px,7.6vw,58px);line-height:1.04;margin:6px 0 8px;color:var(--ink)}
+  h1.title span{color:var(--terra)}
+  .subtitle{font-family:'Lora',serif;font-style:italic;font-size:clamp(17px,2.6vw,21px);color:var(--ink2);margin:0 auto;max-width:540px}
+  .mast-meta{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--muted);margin-top:18px;display:flex;flex-wrap:wrap;justify-content:center;gap:5px 20px}
+
+  .letter{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:26px 28px;margin:26px 0 8px;position:relative}
+  .letter:before{content:"";position:absolute;top:0;left:24px;right:24px;height:3px;background:repeating-linear-gradient(90deg,var(--sun) 0 8px, transparent 8px 16px)}
+  .letter p{margin:0 0 13px;font-size:18.5px;color:var(--ink2)}
+  .letter p:last-child{margin-bottom:0}
+  .letter .big-q{font-family:'Fraunces',serif;font-weight:700;font-style:italic;font-size:22px;color:var(--terra-dim);
+    border-left:3px solid var(--sun);padding-left:16px;margin:16px 0}
+  .letter .firma{font-family:'Caveat',cursive;font-size:24px;color:var(--terra-dim);margin-top:4px}
+
+  .toc{margin:30px 0 6px}
+  .toc h2{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);text-align:center;margin:0 0 16px}
+  .toc-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+  .toc-item{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:12px 14px;font-family:'Lora',serif;font-size:15px;color:var(--ink2);text-decoration:none;display:flex;gap:10px;align-items:flex-start}
+  .toc-item:hover{border-color:var(--terra)}
+  .toc-num{font-family:'Fraunces',serif;font-weight:700;font-size:22px;color:var(--terra);line-height:1}
+  @media(max-width:560px){.toc-grid{grid-template-columns:1fr}}
+
+  section.block{padding:48px 0 8px;border-bottom:2px dashed var(--line-dark)}
+  .icon-wrap{width:56px;height:56px;margin:0 auto 14px;color:var(--terra)}
+  .icon-wrap svg{width:100%;height:100%}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--olive);text-align:center;margin-bottom:8px}
+  h2.q{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(24px,4.4vw,33px);line-height:1.15;text-align:center;margin:0 0 6px;color:var(--ink)}
+  .q-tag{font-family:'Caveat',cursive;font-size:19px;color:var(--terra);text-align:center;display:block;margin-bottom:24px}
+
+  h3.subh{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:26px 0 9px;padding-bottom:5px;border-bottom:1px solid var(--line)}
+  p{margin:0 0 14px}
+  p.lead{font-size:20.5px;color:var(--ink)}
+  em.term{font-style:italic;color:var(--terra-dim);font-weight:600}
+  strong.k{color:var(--ink);font-weight:600}
+
+  ul.clean{list-style:none;padding:0;margin:6px 0 14px}
+  ul.clean li{padding:10px 0 10px 28px;position:relative;color:var(--ink2);border-bottom:1px solid var(--line)}
+  ul.clean li:last-child{border-bottom:none}
+  ul.clean li:before{content:"▸";position:absolute;left:0;top:10px;color:var(--olive)}
+
+  .therm{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:16px 20px;margin:18px 0}
+  .therm .t-title{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  .t-row{display:flex;gap:10px;align-items:flex-start;padding:7px 0;font-size:16.5px;color:var(--ink2)}
+  .t-row .dot{flex:0 0 22px;font-size:18px;line-height:1.4}
+  .t-row b{color:var(--ink);font-weight:600}
+
+  .dyn{background:var(--teal-bg);border:1px solid var(--teal);border-left:4px solid var(--teal);padding:18px 22px;margin:18px 0;border-radius:4px}
+  .dyn .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:8px}
+  .dyn p{margin:0 0 8px;font-size:18.5px;color:var(--ink)} .dyn p:last-child{margin-bottom:0}
+
+  .world{background:var(--sun-bg);border:1px solid var(--sun);border-left:4px solid var(--sun);padding:18px 22px;margin:18px 0;border-radius:4px}
+  .world .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#9c6f1c;margin-bottom:8px}
+  .world p{margin:0 0 8px;font-size:18.5px;color:var(--ink)} .world p:last-child{margin-bottom:0}
+
+  .cr{background:var(--olive-bg);border:1px solid var(--olive);border-radius:4px;padding:18px 22px;margin:18px 0}
+  .cr .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--olive);margin-bottom:8px}
+  .cr p{margin:0 0 8px;font-size:18.5px;color:var(--ink)} .cr p:last-child{margin-bottom:0}
+
+  .warn{background:var(--terra-bg);border:1px solid var(--terra);border-radius:4px;padding:18px 22px;margin:18px 0}
+  .warn .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--terra-dim);margin-bottom:8px}
+  .warn p{margin:0 0 8px;font-size:18px;color:var(--ink)} .warn p:last-child{margin-bottom:0}
+
+  /* versus */
+  .versus{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0}
+  .vcol{border-radius:4px;padding:16px 18px;border:1px solid var(--line)}
+  .vcol.gold{background:var(--sun-bg);border-color:var(--sun)}
+  .vcol.net{background:var(--olive-bg);border-color:var(--olive)}
+  .vcol h4{font-family:'Fraunces',serif;font-weight:800;font-size:18px;margin:0 0 10px;display:flex;align-items:center;gap:8px}
+  .vcol.gold h4{color:#9c6f1c} .vcol.net h4{color:var(--olive)}
+  .vcol ul{list-style:none;padding:0;margin:0}
+  .vcol li{padding:7px 0;font-size:16px;color:var(--ink2);border-bottom:1px dotted var(--line-dark)}
+  .vcol li:last-child{border-bottom:none}
+  .vcol li b{color:var(--ink)}
+  @media(max-width:560px){.versus{grid-template-columns:1fr}}
+
+  .keypoint{background:#fff;border:2px solid var(--terra);border-radius:4px;padding:18px 22px;margin:20px 0;text-align:center}
+  .keypoint p{margin:0;font-family:'Fraunces',serif;font-weight:600;font-size:20px;color:var(--terra-dim);line-height:1.4}
+
+  .roads{margin:20px 0 4px}
+  .roads .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  .road{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid var(--line)}
+  .road:last-child{border-bottom:none}
+  .road .arrow{font-family:'Fraunces',serif;font-weight:700;color:var(--terra);font-size:18px;flex:0 0 22px}
+  .road p{margin:0;font-size:17.5px;color:var(--ink2)}
+
+  .gloss{display:inline-block;background:var(--sun-bg);border:1px solid var(--sun);border-radius:3px;padding:1px 7px;font-size:.92em}
+
+  section.open{padding:36px 0 10px}
+  section.open h2{font-family:'Fraunces',serif;font-weight:800;font-size:30px;color:var(--ink);text-align:center;margin:0 0 8px}
+  section.open .sub{display:block;text-align:center;font-family:'Lora',serif;font-style:italic;color:var(--ink2);margin-bottom:24px;font-size:17px}
+  .open-list{list-style:none;padding:0;margin:0}
+  .open-list li{padding:13px 0 13px 32px;border-bottom:1px solid var(--line);position:relative;color:var(--ink2);font-size:18.5px}
+  .open-list li:before{content:"❓";position:absolute;left:0;top:12px;font-size:15px}
+
+  .closing{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:24px 26px;margin:14px 0 30px}
+  .closing p{font-size:16.5px;line-height:1.7;color:var(--ink2);margin:0 0 10px}
+  .closing p:last-child{margin-bottom:0}
+  .closing b{color:var(--terra-dim)}
+
+  footer{border-top:3px double var(--line-dark);padding:26px 22px;max-width:760px;margin:0 auto;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted)}
+  footer a{color:var(--terra-dim);text-decoration:none}
+  footer .ft-stamp{font-family:'Caveat',cursive;font-size:18px;color:var(--terra);display:block;margin-bottom:8px}
+
+  @media(max-width:600px){ body{font-size:18px} .t-row{font-size:15.5px} }
+
+  figure.fig{margin:20px 0 24px}
+  figure.fig img{width:100%;display:block;border-radius:5px;border:1px solid var(--line)}
+  figure.fig figcaption{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.02em;color:var(--muted);margin-top:7px;line-height:1.5;text-align:center}
+  figure.fig.cover img{border-radius:3px}
+
+  .switch{background:var(--ink);color:var(--paper);text-align:center;padding:11px 16px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.03em}
+  .switch a{color:var(--sun);text-decoration:underline}
+
+  .audio-embed{border:1px solid var(--line);background:var(--card);border-radius:4px;padding:18px 20px;margin:8px 0 28px}
+  .audio-embed .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--terra-dim);margin-bottom:10px}
+  .audio-embed iframe{width:100%;height:120px;border:none;border-radius:4px}
+  .audio-embed .bak{display:inline-block;margin-top:9px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--olive);text-decoration:underline}
+</style>
+</head>
+<body>
+
+<div class="ribbon">Edición para todo público · Sección Especial del Boletín N.° 014 · 2 de agosto de 2026</div>
+<div class="switch">¿Prefiere el informe técnico completo? <a href="../">Lea la versión técnica de Operación Némesis →</a></div>
+
+<nav><div class="wrap">
+  <span class="brand">ANCA-ADD para Todos · Especial</span>
+  <a href="https://antropos.app/">Inicio</a>
+  <a href="https://antropos.app/boletines/">Boletines</a>
+  <a href="#i">Empecemos</a>
+  <a href="#ii">Quién es</a>
+  <a href="#iii">La captura</a>
+  <a href="#iv">La pelea</a>
+  <a href="#v">La red</a>
+  <a href="#vi">El mapa</a>
+  <a href="#vii">Qué sigue</a>
+  <a href="../../boletin-semanal-014/popular/">← Boletín N.° 014 completo</a>
+</div></nav>
+
+<main id="top">
+
+<header class="mast">
+  <span class="stamp">— para entender el mundo —</span>
+  <h1 class="title">OPERACIÓN<br><span>NÉMESIS</span></h1>
+  <p class="subtitle">Cómo la mayor victoria policial en una década terminó siendo la peor pelea entre poderes del Estado en años</p>
+  <div class="mast-meta">
+    <span>Sección Especial N.° 014 · Popular</span>
+    <span>·</span>
+    <span>San José, Costa Rica</span>
+  </div>
+</header>
+
+<figure class="fig cover">
+  <img src="../img/portada.jpg" alt="Selva en niebla junto a un muro de concreto, representando la Operación Némesis y la fractura institucional que le siguió." loading="lazy">
+  <figcaption>Autopsia sistémica de cómo un éxito policial histórico desató una crisis institucional sin precedentes.</figcaption>
+</figure>
+
+<div class="audio-embed">
+  <div class="lbl">Escuche el resumen en audio</div>
+  <iframe src="https://drive.google.com/file/d/1d8rksgyHi5ueUeTci6r7GXBjjjBI9t3T/preview" allow="autoplay"></iframe>
+  <a class="bak" href="https://drive.google.com/file/d/1d8rksgyHi5ueUeTci6r7GXBjjjBI9t3T/view?usp=drive_link" target="_blank">Escuchar en Drive ↗</a>
+</div>
+
+<div class="letter">
+  <p>Estimado lector, estimada lectora:</p>
+  <p>El 24 de julio, la policía capturó al fugitivo más buscado de Costa Rica, un hombre conocido como alias «Diablo». Todos los actores políticos lo celebraron. Y sin embargo, siete días después, ese mismo éxito había desatado la pelea más dura entre poderes del Estado en años, con la presidenta acusando de «golpistas» a magistrados de la Sala Constitucional. Un lector nos hizo, sobre esto, la pregunta que le da título a este informe:</p>
+  <p class="big-q">¿Cómo es posible que atrapar al criminal más buscado del país haya terminado fracturando al Estado que lo atrapó?</p>
+  <p>No es una pregunta policial. Es una pregunta sobre cómo funcionan por dentro las instituciones. Antes de responderla, una aclaración necesaria: nada de lo que sigue es un juicio de culpabilidad. Hay un imputado en prisión preventiva, no una persona condenada. Vamos por partes.</p>
+  <p class="firma">— El equipo de ANCA-ADD</p>
+</div>
+
+<div class="toc">
+  <h2>En este especial</h2>
+  <div class="toc-grid">
+    <a class="toc-item" href="#i"><span class="toc-num">1</span><span>¿Qué es lo que realmente vamos a contar aquí?</span></a>
+    <a class="toc-item" href="#ii"><span class="toc-num">2</span><span>¿Quién es alias «Diablo» y cómo llegó hasta acá?</span></a>
+    <a class="toc-item" href="#iii"><span class="toc-num">3</span><span>¿Qué pasó la madrugada de la captura?</span></a>
+    <a class="toc-item" href="#iv"><span class="toc-num">4</span><span>¿Por qué un éxito que todos festejaron terminó en pelea?</span></a>
+    <a class="toc-item" href="#v"><span class="toc-num">5</span><span>¿Qué pasa con la organización ahora?</span></a>
+    <a class="toc-item" href="#vi"><span class="toc-num">6</span><span>¿Por qué Costa Rica se volvió una ruta clave de la droga?</span></a>
+    <a class="toc-item" href="#vii"><span class="toc-num">7</span><span>¿Y ahora qué?</span></a>
+  </div>
+</div>
+
+
+<!-- I -->
+<section class="block" id="i">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="27" cy="27" r="15"/><path d="M38 38l16 16"/>
+  </svg></div>
+  <div class="eyebrow">Parte 1 · Antes de empezar</div>
+  <h2 class="q">¿Qué es lo que realmente vamos a contar aquí?</h2>
+  <span class="q-tag">no es la historia de un hombre: es la historia de por qué un éxito se convirtió en crisis</span>
+
+  <p class="lead">La crónica policial de la Operación Némesis ya está ampliamente cubierta por la prensa nacional: quién es el detenido, cómo fue el operativo, qué le espera en el proceso penal. Repetir eso no le agregaría nada. Lo que este informe hace distinto es correr el foco: en vez de preguntar «¿qué hizo este hombre?», pregunta «¿por qué un resultado que todos los poderes del Estado declararon deseable produjo, en menos de siete días, ruptura en lugar de celebración compartida?». Esa pregunta no es sobre un criminal: es sobre cómo procesan la realidad las instituciones.</p>
+
+  <div class="warn">
+    <div class="lbl">Un aviso importante</div>
+    <p>Alejandro Arias Monge, el hombre conocido como «Diablo», es un <em class="term">imputado en prisión preventiva</em>. No existe condena en firme en ninguna causa. Todo lo que en este texto se le atribuye es una imputación de las autoridades o una línea de investigación, nunca un hecho probado en juicio. Rige plenamente la presunción de inocencia — y esa distinción no es un formalismo: es lo que separa a un Estado de derecho de su simulación.</p>
+  </div>
+</section>
+
+
+<!-- II -->
+<section class="block" id="ii">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M10 50h44M18 50V30h8v20M30 50V20h8v30M42 50V34h8v16" stroke-width="2"/>
+  </svg></div>
+  <div class="eyebrow">Parte 2 · Dieciséis años</div>
+  <h2 class="q">¿Quién es alias «Diablo» y cómo llegó hasta acá?</h2>
+  <span class="q-tag">no llegó de golpe: fue una acumulación lenta, paso a paso, durante más de una década</span>
+
+  <p class="lead">Alejandro Arias Monge nació en 1984 en Pococí, Limón, y empezó su vida laboral en compañías bananeras. Su historial con las autoridades no arrancó con narcotráfico a gran escala: creció por etapas, y esa forma de crecer importa para entender lo que viene más adelante en este informe.</p>
+  <ul class="clean">
+    <li><strong class="k">Desde 2010:</strong> empieza a ser vinculado con asaltos y robos de camiones, agroquímicos y ganado.</li>
+    <li><strong class="k">2015:</strong> es señalado como sospechoso de un homicidio. Los hechos por los que hoy está en prisión preventiva —dos homicidios y una tentativa, bajo la modalidad de sicariato— son de este año.</li>
+    <li><strong class="k">2016:</strong> pasa un año detenido, y al salir se le vincula a una guerra armada contra otra organización de la zona.</li>
+    <li><strong class="k">2019 en adelante:</strong> queda prófugo. El OIJ intenta capturarlo varias veces sin éxito, incluyendo un operativo en 2023 en el que estuvo a pocos metros de lograrlo.</li>
+    <li><strong class="k">2020:</strong> se difunden audios atribuidos a su organización ofreciendo dinero por matar policías. Empieza también a mostrar armamento pesado en redes sociales.</li>
+    <li><strong class="k">2023:</strong> se le vincula con el control de la lotería clandestina en Limón y con financiar minería ilegal de oro.</li>
+    <li><strong class="k">Mayo de 2025:</strong> Costa Rica reforma su Constitución para permitir, por primera vez, extraditar costarricenses por narcotráfico. Días después, Estados Unidos ofrece 500.000 dólares por su captura.</li>
+    <li><strong class="k">24 de julio de 2026:</strong> Operación Némesis. Es capturado.</li>
+  </ul>
+
+  <div class="dyn">
+    <div class="lbl">Para entenderlo con una imagen</div>
+    <p>Esta no es la trayectoria de alguien que llegó de otro país con una organización ya armada. Es más parecida a una bola de nieve que empieza pequeña en la parte alta de una loma y va creciendo a medida que baja: primero robos menores, después violencia, después dinero, después una red que combina varios negocios distintos. Entender esa forma de crecimiento —lenta, diversificada, local— es clave para lo que se explica en la Parte 5: por qué quitarle la cabeza a esa bola de nieve no la detiene de inmediato.</p>
+  </div>
+</section>
+
+
+<!-- III -->
+<section class="block" id="iii">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="24" cy="34" r="9"/><circle cx="40" cy="34" r="9"/>
+    <path d="M24 25v-6a4 4 0 0 1 8 0" stroke-width="2"/>
+  </svg></div>
+  <div class="eyebrow">Parte 3 · La madrugada del 24 de julio</div>
+  <h2 class="q">¿Qué pasó la madrugada de la captura?</h2>
+  <span class="q-tag">cincuenta minutos de tiroteo, y siete días que cambiaron la conversación nacional</span>
+
+  <p class="lead">A las 5:00 a.m. del viernes 24 de julio, tres unidades especializadas del OIJ (el equipo táctico SERT, la unidad de vigilancia UVISE y la oficina contra el crimen organizado OECDO) irrumpieron en una propiedad de Río Frío de Sarapiquí, cerca de la frontera con Nicaragua. Según el OIJ, el enfrentamiento duró cerca de 50 minutos y se intercambiaron más de 2.500 disparos. Ocho agentes resultaron heridos, un presunto integrante de la organización murió, y fueron detenidos Arias Monge y un supuesto lugarteniente conocido como «Tan».</p>
+
+  <div class="therm">
+    <div class="t-title">Termómetro de certeza</div>
+    <div class="t-row"><span class="dot">✅</span><span><b>Esto lo sabemos seguro:</b> la fecha, el lugar, las unidades participantes y el resultado del operativo —capturados, heridos, fallecido— están confirmados por comunicados oficiales y coinciden entre medios de distinta línea editorial.</span></div>
+    <div class="t-row"><span class="dot">🤔</span><span><b>Esto creemos, pero no es seguro:</b> la cifra exacta de disparos (más de 2.500). Viene de una sola fuente, el propio OIJ, sin verificación independiente —aunque es plausible dado el nivel de despliegue.</span></div>
+    <div class="t-row"><span class="dot">💭</span><span><b>Esto es solo una opinión, no un hecho:</b> que la captura haya sido un «chiripazo», como dijo un diputado oficialista sin aportar evidencia. La escala del operativo —tres unidades, apoyo judicial, un allanamiento previo en cinco cárceles— apunta más bien a años de trabajo de inteligencia.</span></div>
+  </div>
+
+  <h3 class="subh">Siete días que lo cambiaron todo</h3>
+  <p>Lo que siguió a la captura es, en realidad, el corazón de este informe. Se lo presentamos como línea de tiempo, porque el orden en que ocurrió cada cosa es justo lo que explica cómo se llegó de la felicitación al «golpe de Estado».</p>
+  <ul class="clean">
+    <li><strong class="k">24 jul:</strong> la presidenta felicita al OIJ («honor a quien honor merece»), pero en la misma comparecencia dice que el recorte de presupuesto al Poder Judicial es «pequeño». El mismo día, el director del OIJ es informado de un recorte adicional y lo reclama públicamente.</li>
+    <li><strong class="k">24-25 jul:</strong> el ministro de Hacienda responde: «no me da lástima», y llama al reclamo «oportunista» y «convenienciero».</li>
+    <li><strong class="k">25 jul:</strong> la hija del detenido es ubicada armada cerca de la cárcel; se aclara luego que tenía permiso de portación y fue liberada.</li>
+    <li><strong class="k">27 jul:</strong> Arias Monge es trasladado de madrugada para una audiencia; el fiscal general explica después que fue por una reunión con agentes de la DEA. Un tribunal ordena prisión preventiva.</li>
+    <li><strong class="k">27-28 jul:</strong> la presidenta cuestiona el manejo judicial del traslado y dice que un plazo corto «sería jugar con la vida de los costarricenses».</li>
+    <li><strong class="k">29 jul:</strong> un diputado oficialista llama a la captura «chiripazo» y advierte que la Asamblea no aprobará más presupuesto al Poder Judicial si siguen las decisiones que el Gobierno cuestiona.</li>
+    <li><strong class="k">30-31 jul:</strong> la Sala Constitucional dicta una sentencia sobre magistrados suplentes; la presidenta llama «golpistas» a cuatro magistrados; la Asamblea anuncia querella penal contra ellos.</li>
+  </ul>
+
+  <div class="warn">
+    <div class="lbl">Un aviso sobre causa y efecto</div>
+    <p>Que la crisis constitucional haya venido justo después de la captura <em class="term">no prueba</em> que una causó la otra. El pleito por el presupuesto judicial y el bloqueo de los magistrados venían de meses atrás, con su propia lógica. Lo que sí puede decirse es que la captura funcionó como <em class="term">acelerador</em>: metió, en medio de un conflicto que ya existía, un ingrediente nuevo que reorganizó los incentivos de todos los que participaban en él. Eso se explica en la siguiente parte.</p>
+  </div>
+</section>
+
+
+<!-- IV -->
+<section class="block" id="iv">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20 12v40M44 12v40M20 32h24" stroke-width="2"/>
+    <path d="M14 12h12M38 12h12M14 52h12M38 52h12" stroke-width="2"/>
+  </svg></div>
+  <div class="eyebrow">Parte 4 · El corazón del enredo</div>
+  <h2 class="q">¿Por qué un éxito que todos festejaron terminó en pelea?</h2>
+  <span class="q-tag">la pregunta que le da título a este informe — y tiene una respuesta precisa</span>
+
+  <p class="lead">Aquí está la clave de todo. Dos instituciones —el Poder Judicial y el Poder Ejecutivo— vivieron exactamente el mismo hecho, la captura, pero cada una lo procesó según su propio problema del momento. Y por eso terminaron hablando de cosas distintas sin darse cuenta.</p>
+
+  <div class="versus">
+    <div class="vcol net">
+      <h4>⚖️ Para el Poder Judicial</h4>
+      <ul>
+        <li><b>Su problema del momento:</b> escasez de recursos frente a organizaciones criminales cada vez mejor armadas.</li>
+        <li><b>Cómo lee la captura:</b> «esto prueba que funcionamos, y que necesitamos más apoyo» —de ahí el reclamo del casco faltante.</li>
+      </ul>
+    </div>
+    <div class="vcol gold">
+      <h4>🏛️ Para el Poder Ejecutivo</h4>
+      <ul>
+        <li><b>Su problema del momento:</b> demostrar que el ajuste fiscal no compromete la seguridad, y que la conducción de la lucha contra el crimen es suya.</li>
+        <li><b>Cómo lee la captura:</b> «un actor con quien peleamos por presupuesto acaba de ganar un argumento a su favor» —de ahí la secuencia de felicitación, luego relativización, luego cuestionamiento.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="dyn">
+    <div class="lbl">Para entenderlo con una imagen</div>
+    <p>Imagínese dos personas mirando la misma fotografía a través de anteojos de colores distintos: una la ve roja, la otra la ve azul. Ninguna miente sobre lo que ve —de verdad ve ese color—, pero ninguna está reaccionando a la foto en sí: está reaccionando a lo que sus propios anteojos le muestran. Eso es lo que pasó entre estos dos poderes. Ninguno respondió al otro: cada uno respondió a lo que su propia lógica interna necesitaba en ese momento. Por eso subir el tono no resuelve nada: no es un problema de que no se estén escuchando, es que están viendo colores distintos.</p>
+  </div>
+
+  <div class="world">
+    <div class="lbl">El actor que nadie invitó a la conversación</div>
+    <p>Hay un dato que casi no aparece en la discusión pública: las comunidades de Pococí, Guácimo, Cariari, Río Frío y Sarapiquí, que convivieron dieciséis años con esta organización y pusieron la mayoría de las víctimas, no tienen voz en ninguna de las coberturas de este caso. Aparecen como escenario —«los vecinos escucharon el tiroteo»— y como beneficiarias, nunca como alguien a quien se le pregunta algo. Ese silencio no es casualidad: es parte de cómo se cuenta habitualmente la seguridad en Costa Rica.</p>
+  </div>
+</section>
+
+
+<!-- V -->
+<section class="block" id="v">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="32" cy="20" r="7"/><circle cx="16" cy="46" r="6"/><circle cx="48" cy="46" r="6"/>
+    <path d="M32 27v10M32 37L16 40M32 37l16 3" stroke-width="2"/>
+  </svg></div>
+  <div class="eyebrow">Parte 5 · Lo que queda de la red</div>
+  <h2 class="q">¿Qué pasa con la organización ahora que su líder está preso?</h2>
+  <span class="q-tag">quitarle la cabeza a una red descentralizada no la destruye: le quita quien resolvía los pleitos internos</span>
+
+  <p class="lead">La organización atribuida a «Diablo» no funcionaba como una pirámide con un solo jefe dando órdenes de arriba hacia abajo. Era una red repartida en varios negocios —narcotráfico, robo de ganado, lotería clandestina, minería ilegal— construida durante dieciséis años. Y eso cambia por completo lo que se puede esperar tras la captura.</p>
+
+  <div class="warn">
+    <div class="lbl">Un dato contraintuitivo</div>
+    <p>Quitarle el nodo más visible a una red <em class="term">descentralizada</em> no la desarma: le quita el mecanismo que resolvía las disputas internas. Es distinto a decapitar una empresa con un solo dueño. Aquí, varios subordinados que antes obedecían a una misma cabeza pueden empezar, de un día para otro, a competir entre ellos por el mismo territorio y las mismas rentas.</p>
+  </div>
+
+  <p>Hay además un dato curioso y preocupante: está documentado que otros delincuentes, sin pertenecer siquiera a la organización, usaban el nombre «Diablo» para extorsionar comerciantes, solo por el miedo que generaba ese apodo. Eso significa que el nombre, como marca de terror, ya funcionaba por su cuenta, casi independiente de la persona. La captura no borra ese miedo de un día para otro: abre una disputa por quién puede seguir usándolo.</p>
+
+  <div class="cr">
+    <div class="lbl">🌱 Por qué esto le importa a las comunidades del Caribe</div>
+    <p>Limón y el norte de Heredia son quienes primero sentirían cualquier reorganización violenta. La tendencia nacional de homicidios venía bajando, pero eso esconde que la violencia se concentra fuerte en ciertas zonas. Hay además un dato que preocupa más a futuro que el crimen mismo: el OIJ anunció que investiga a funcionarios policiales presuntamente vinculados a la organización. Si se confirma, el golpe a la confianza en esas comunidades sería más duradero que el causado por la propia organización criminal.</p>
+  </div>
+
+  <div class="roads">
+    <div class="lbl">¿Hacia dónde puede ir la red criminal?</div>
+    <div class="road"><span class="arrow">→</span><p><b>Se fragmenta con violencia:</b> distintos grupos pelean por el territorio que quedó libre. Es lo más frecuente quando se remueve un liderazgo en redes de este tipo.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Sigue funcionando a control remoto:</b> la organización se sostiene con segundos al mando o con instrucciones desde la cárcel.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Otra red la absorbe:</b> una estructura distinta, local o vinculada a redes de otros países, ocupa el espacio sin pelea prolongada.</p></div>
+  </div>
+</section>
+
+
+<!-- VI -->
+<section class="block" id="vi">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="32" cy="32" r="22"/><path d="M10 32h44M32 10c6 8 9 15 9 22s-3 14-9 22c-6-8-9-15-9-22s3-14 9-22z" stroke-width="1.6"/>
+  </svg></div>
+  <div class="eyebrow">Parte 6 · El mapa grande</div>
+  <h2 class="q">¿Por qué Costa Rica se volvió una ruta clave de la droga?</h2>
+  <span class="q-tag">el país superó a México como principal punto de trasbordo hacia el norte — y no es casualidad geográfica</span>
+
+  <p class="lead">Costa Rica funciona, en la ruta de la cocaína, como punto de trasbordo entre la producción sudamericana y el consumo en Estados Unidos y Europa. Según datos citados en este informe, el país superó a México desde 2020 como principal punto de tránsito hacia esos destinos. Los decomisos se cuadruplicaron en el primer trimestre de 2026, de 3 a 12 toneladas.</p>
+
+  <div class="keypoint">
+    <p>El valor de la droga se realiza donde se vende, no donde pasa. Lo que se queda en el país que sirve de ruta es el costo: los homicidios, la corrupción, el gasto en seguridad.</p>
+  </div>
+
+  <p>Ese es el punto que un análisis puramente policial no suele mostrar. La ganancia real del negocio se hace en el mercado final, en Estados Unidos o Europa. Lo que Costa Rica carga, en cambio, es el costo de que la mercancía pase por acá: el gasto en seguridad del país pasó de 425 millones de dólares en 2020 a un presupuesto proyectado de 720 millones para 2026.</p>
+
+  <div class="world">
+    <div class="lbl">La paradoja de la recompensa</div>
+    <p>Estados Unidos ofreció 500.000 dólares por la captura de «Diablo». Suena generoso, pero funciona también como un mecanismo que traslada el costo y el riesgo de atraparlo a la policía costarricense, mientras el beneficio principal —cortar una ruta hacia el mercado estadounidense— se cosecha fuera del país. Ocho agentes heridos y un tiroteo de 50 minutos son el costo real de una operación cuyo mayor beneficiario está afuera.</p>
+  </div>
+
+  <p>Hay algo más: en mayo de 2025, Costa Rica reformó su Constitución para permitir, por primera vez en su historia, extraditar a sus propios ciudadanos —antes prohibido por más de un siglo—, y solo por narcotráfico o terrorismo. Es, literalmente, ceder una parte de la soberanía —el derecho de juzgar a los propios— como condición para cooperar en esta cadena internacional.</p>
+</section>
+
+
+<!-- VII -->
+<section class="block" id="vii">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M32 10v44M18 22l14-12 14 12M18 42l14 12 14-12" stroke-width="2"/>
+  </svg></div>
+  <div class="eyebrow">Parte 7 · Qué sigue</div>
+  <h2 class="q">¿Y ahora qué?</h2>
+  <span class="q-tag">los caminos posibles del conflicto entre poderes, y las preguntas que todavía no tienen respuesta</span>
+
+  <p class="lead">Además de lo que pueda pasar con la red criminal (Parte 5), queda abierto el otro eje de esta historia: el pleito entre poderes del Estado.</p>
+
+  <div class="roads">
+    <div class="lbl">¿Hacia dónde puede ir el conflicto institucional?</div>
+    <div class="road"><span class="arrow">→</span><p><b>Se destraba:</b> se giran los recursos retenidos, la Asamblea elige a los magistrados suplentes, y la querella pierde fuerza.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Se judicializa a fondo:</b> el conflicto migra por completo a instancias formales —recursos, querellas— y se congela sin resolverse políticamente.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Se cruza una línea:</b> algún poder declara abiertamente que no va a reconocer una decisión del otro, o el OIJ suspende funciones por falta de presupuesto.</p></div>
+  </div>
+
+  <div class="warn">
+    <div class="lbl">La combinación de mayor riesgo</div>
+    <p>No es la más dramática de cada lista por separado: es que la red criminal se fragmente con violencia <em class="term">justo cuando</em> el conflicto presupuestario deja a la policía con menos capacidad para investigar. Ese cruce —crimen reorganizándose mientras la respuesta del Estado está congelada por un pleito interno— es el escenario que más debería preocupar.</p>
+  </div>
+</section>
+
+
+<!-- OPEN -->
+<section class="open">
+  <h2>Lo que todavía queda en el aire</h2>
+  <span class="sub">preguntas honestas, que nadie puede responder aún con certeza</span>
+  <ul class="open-list">
+    <li>¿Se reorganizará violentamente la estructura, o seguirá funcionando bajo dirección delegada?</li>
+    <li>¿Cuántos policías están bajo investigación por presunta colaboración con la organización?</li>
+    <li>¿Pedirá Estados Unidos la extradición? El obstáculo es que los hechos que sostienen las causas son de 2015, antes de que existiera esa posibilidad legal.</li>
+    <li>¿Se girarán los recursos presupuestarios retenidos al Poder Judicial?</li>
+    <li>¿Prosperará la querella por prevaricato contra los cuatro magistrados?</li>
+    <li>¿Qué pasó exactamente durante el enfrentamiento armado, incluida la muerte del tercer detenido?</li>
+  </ul>
+</section>
+
+<div class="closing">
+  <p><b>Una palabra sobre cómo trabajamos.</b> Detrás de este resumen en palabras sencillas hay un informe técnico bastante más detallado, donde clasificamos qué tan confiable es cada dato, analizamos cómo se conectan los hechos entre sí y ubicamos a Costa Rica en el mapa mundial del narcotráfico. Esa versión completa también está disponible para quien quiera ir más al fondo.</p>
+  <p>Esta edición nace de una convicción sencilla: entender el mundo no debería ser un privilegio de unos pocos. Por eso contamos hasta los temas más delicados con calma y sin palabras complicadas, pero sin recortarle la verdad a nadie —porque tratar a alguien como capaz de comprender es la forma más honesta de respetarlo.</p>
+  <p>Y, como siempre: rige la presunción de inocencia. Esto es análisis para ayudarle a pensar, no un veredicto ni una bola de cristal.</p>
+</div>
+
+</main>
+
+<footer>
+  <span class="ft-stamp">Para pensar con calma</span>
+  <div>ANCA-ADD © 2026 · <a href="https://antropos.app">antropos.app</a></div>
+  <div style="margin-top:6px">Sección Especial · Boletín N.° 014 · Edición Popular · 2 ago 2026</div>
+</footer>
+
+<script data-goatcounter="https://antropos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

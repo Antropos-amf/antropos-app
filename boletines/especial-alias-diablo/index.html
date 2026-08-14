@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANCA-ADD · Informe Especial — Operación Némesis: la captura de alias «Diablo» y la fractura institucional costarricense</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0e10;
+  --bg2:#111619;
+  --panel:#151b1f;
+  --ink:#e9e7e2;
+  --dim:#93a0a5;
+  --steel:#6f96b0;
+  --teal:#3fb8ac;
+  --teal-d:#1d6b64;
+  --amber:#c98a3c;
+  --copper:#a9682e;
+  --gold:#d8b45a;
+  --red:#bf3f36;
+  --red-d:#7d2a24;
+  --line:#212c31;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:19px;line-height:1.68;-webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:880px;margin:0 auto;padding:0 24px}
+
+/* TICKER */
+.ticker{
+  background:var(--red-d);color:#f3e6e4;overflow:hidden;white-space:nowrap;
+  font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;
+  padding:9px 0;border-bottom:1px solid #57201b;
+}
+.ticker span{display:inline-block;padding-left:100%;animation:tick 48s linear infinite}
+@keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
+
+/* MASTHEAD */
+header.mast{
+  border-bottom:3px double var(--line);padding:44px 0 30px;
+  background:linear-gradient(180deg,#141a1d,var(--bg));
+}
+.kicker{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.22em;
+  color:var(--red);text-transform:uppercase;margin-bottom:12px;
+}
+.doctype{
+  display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:10px;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--dim);
+  border:1px solid var(--line);padding:5px 12px;margin-bottom:18px;
+}
+h1.title{
+  font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,7.2vw,76px);
+  line-height:.94;letter-spacing:.01em;margin-bottom:8px;
+}
+.subtitle{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:clamp(19px,3.2vw,28px);color:var(--gold);line-height:1.28;margin-bottom:24px;
+}
+.meta{
+  font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--dim);
+  line-height:2;border-top:1px solid var(--line);padding-top:16px;
+}
+.meta b{color:var(--steel);font-weight:500}
+
+figure.fig{margin:22px 0 26px}
+figure.fig img{width:100%;display:block;border-radius:3px;border:1px solid var(--line)}
+figure.fig figcaption{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.03em;
+  color:var(--dim);margin-top:8px;line-height:1.5;text-align:center}
+figure.fig.cover img{border-radius:2px}
+
+.audio-embed{
+  border:1px solid var(--line);background:#0e1416;padding:20px 22px;margin:0 0 34px;
+}
+.audio-embed .blk-h{
+  font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--red);margin-bottom:12px;
+}
+.audio-embed iframe{width:100%;height:120px;border:none;border-radius:3px}
+.audio-embed .bak{
+  display:inline-block;margin-top:10px;font-family:'IBM Plex Mono',monospace;font-size:11px;
+  color:var(--steel);text-decoration:none;border-bottom:1px solid var(--steel);
+}
+
+.pop-switch{background:var(--panel);border-bottom:1px solid var(--line);text-align:center;padding:10px 16px;
+  font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--dim);letter-spacing:.02em}
+.pop-switch a{color:var(--steel);text-decoration:underline}
+.sitenav{background:var(--bg2);border-bottom:1px solid var(--line);padding:0 20px;
+  display:flex;align-items:center;gap:16px;height:34px;font-family:'IBM Plex Mono',monospace;
+  font-size:11px;letter-spacing:.06em;overflow-x:auto;white-space:nowrap}
+.sitenav a{color:var(--dim);text-decoration:none}
+.sitenav a:hover{color:var(--steel)}
+.sitenav .sep{color:var(--line)}
+.sitenav .rel{color:var(--gold)}
+
+/* NAV */
+nav.sticky{
+  position:sticky;top:0;z-index:50;background:rgba(11,14,16,.96);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line);
+  font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;
+}
+nav.sticky .wrap{display:flex;gap:16px;overflow-x:auto;padding-top:12px;padding-bottom:12px}
+nav.sticky a{color:var(--dim);text-decoration:none;white-space:nowrap;border-bottom:1px solid transparent}
+nav.sticky a:hover{color:var(--red);border-bottom-color:var(--red)}
+
+section{padding:48px 0;border-bottom:1px solid var(--line)}
+.secnum{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;
+  color:var(--red);margin-bottom:6px;
+}
+h2.sec{
+  font-family:'Barlow Condensed',sans-serif;font-weight:700;
+  font-size:clamp(30px,5vw,44px);line-height:1.05;letter-spacing:.01em;
+  color:var(--ink);margin-bottom:8px;text-transform:uppercase;
+}
+.secq{
+  font-family:'Playfair Display',serif;font-style:italic;font-size:19px;
+  color:var(--steel);margin-bottom:24px;border-left:2px solid var(--steel);padding-left:16px;
+}
+h3{
+  font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:25px;
+  letter-spacing:.02em;color:var(--gold);margin:30px 0 10px;
+}
+h4{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--teal);margin:26px 0 10px;
+}
+p{margin-bottom:14px}
+ul,ol{margin:0 0 16px 22px}
+li{margin-bottom:8px}
+strong{color:#fff}
+
+code.ep{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;
+  padding:1px 5px;border-radius:2px;background:#1a2529;color:var(--teal);
+}
+code.ep.ip{color:var(--gold)}
+code.ep.h{color:var(--amber)}
+code.ep.int{color:var(--steel)}
+code.ep.c{color:var(--red)}
+
+/* BLOQUES */
+.meee{border-left:3px solid var(--teal);background:#0f1719;padding:18px 22px;margin:22px 0}
+.add{border-left:3px solid var(--teal-d);background:#0e1817;padding:18px 22px;margin:22px 0}
+.sm{border-left:3px solid var(--copper);background:#18130e;padding:18px 22px;margin:22px 0}
+.cr{border-left:3px solid var(--amber);background:#171208;padding:18px 22px;margin:22px 0}
+.warn{border-left:3px solid var(--red);background:#180f0e;padding:18px 22px;margin:22px 0}
+.blk-h{
+  font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;
+  text-transform:uppercase;margin-bottom:10px;
+}
+.meee .blk-h{color:var(--teal)}
+.add .blk-h{color:#5fd0c4}
+.sm .blk-h{color:var(--copper)}
+.cr .blk-h{color:var(--amber)}
+.warn .blk-h{color:var(--red)}
+
+table{width:100%;border-collapse:collapse;font-size:16px;margin:14px 0}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{
+  font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--dim);font-weight:500;
+}
+
+/* CRONOLOGIA */
+.tl{border-left:2px solid var(--line);margin:22px 0 22px 8px;padding-left:24px}
+.tl-item{position:relative;margin-bottom:22px}
+.tl-item::before{
+  content:'';position:absolute;left:-31px;top:9px;width:9px;height:9px;
+  border-radius:50%;background:var(--red);border:2px solid var(--bg);
+}
+.tl-date{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;
+  color:var(--steel);text-transform:uppercase;
+}
+.tl-item p{margin-bottom:0;margin-top:3px;font-size:18px}
+
+/* ACTORES */
+.actors{display:flex;flex-wrap:wrap;gap:12px;margin:20px 0}
+.actor{
+  flex:1 1 260px;border:1px solid var(--line);background:#12181b;padding:15px 17px;font-size:16px;
+}
+.actor b{
+  display:block;font-family:'Barlow Condensed',sans-serif;font-weight:600;
+  font-size:19px;letter-spacing:.02em;margin-bottom:3px;
+}
+.actor .inc{
+  font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;
+  color:var(--dim);text-transform:uppercase;margin-bottom:8px;display:block;
+}
+.a1 b{color:var(--red)}.a2 b{color:var(--teal)}.a3 b{color:var(--gold)}
+.a4 b{color:var(--steel)}.a5 b{color:var(--copper)}.a6 b{color:var(--amber)}
+
+.pills{display:flex;flex-wrap:wrap;gap:12px;margin:22px 0 6px}
+.pill{
+  flex:1 1 250px;border:1px solid var(--line);border-radius:3px;
+  padding:15px 17px;background:#101619;font-size:16px;
+}
+.pill b{
+  display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;margin-bottom:7px;
+}
+.pill.a b{color:var(--teal)}
+.pill.b b{color:var(--gold)}
+.pill.c b{color:var(--red)}
+.pill .sig{
+  display:block;margin-top:10px;font-family:'IBM Plex Mono',monospace;
+  font-size:11px;color:var(--dim);line-height:1.6;
+}
+
+.lead{
+  font-family:'Playfair Display',serif;font-size:22px;line-height:1.5;
+  color:var(--gold);font-style:italic;border-left:3px solid var(--gold);
+  padding-left:20px;margin:0 0 26px;
+}
+.stat{display:flex;flex-wrap:wrap;gap:12px;margin:22px 0}
+.stat div{
+  flex:1 1 150px;border:1px solid var(--line);background:#12181b;padding:14px;text-align:center;
+}
+.stat b{
+  display:block;font-family:'Bebas Neue',sans-serif;font-size:34px;
+  color:var(--red);line-height:1.1;
+}
+.stat span{
+  font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;
+  color:var(--dim);text-transform:uppercase;line-height:1.5;display:block;margin-top:4px;
+}
+.method{
+  background:#0e1416;border:1px solid var(--line);padding:22px;margin:34px 0;
+  font-size:16px;color:var(--dim);
+}
+.method b{color:var(--teal)}
+.tools dt{
+  font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--teal);
+  margin-top:14px;letter-spacing:.06em;
+}
+.tools dd{margin:4px 0 0;font-size:17px;color:var(--dim)}
+.refs{font-size:15px;color:var(--dim)}
+.refs li{margin-bottom:9px;line-height:1.5}
+footer{
+  padding:34px 0 60px;font-family:'IBM Plex Mono',monospace;font-size:11px;
+  color:var(--dim);letter-spacing:.06em;line-height:2;
+}
+footer a{color:var(--teal);text-decoration:none}
+@media(max-width:640px){body{font-size:18px}.pills,.actors{flex-direction:column}}
+</style>
+</head>
+<body>
+
+<div class="sitenav">
+  <a href="https://antropos.app/">← antropos.app</a>
+  <span class="sep">|</span>
+  <a href="https://antropos.app/boletines/">Boletines</a>
+  <span class="sep">|</span>
+  <a class="rel" href="../boletin-semanal-014/">Este informe es la sección especial del Boletín Semanal N.° 014 →</a>
+</div>
+
+<div class="pop-switch">¿Prefiere una lectura más sencilla? <a href="popular/">Lea la edición para todo público de Operación Némesis →</a></div>
+
+<div class="ticker"><span>
+■ OPERACIÓN NÉMESIS · 24 DE JULIO DE 2026, 5:00 A.M., SAN BERNARDINO DE HORQUETAS, RÍO FRÍO DE SARAPIQUÍ ■ MÁS DE 2.500 DISPAROS EN ~50 MINUTOS ■ UN FALLECIDO, OCHO AGENTES HERIDOS ■ PRISIÓN PREVENTIVA HASTA EL 16 DE NOVIEMBRE DE 2026 · EXPEDIENTE DECLARADO DELINCUENCIA ORGANIZADA ■ LA DEA NO HA SOLICITADO FORMALMENTE LA EXTRADICIÓN ■ EN SIETE DÍAS EL ÉXITO OPERATIVO SE CONVIRTIÓ EN LA PEOR CRISIS ENTRE PODERES DE LA DÉCADA ■ TODOS LOS SEÑALAMIENTOS SON IMPUTACIONES: RIGE LA PRESUNCIÓN DE INOCENCIA ■
+</span></div>
+
+<header class="mast">
+  <div class="wrap">
+    <div class="kicker">ANCA-ADD · Agente Noticioso Crítico de Actualidad</div>
+    <div class="doctype">Informe Especial · Llamada C — Análisis en profundidad de un tema concreto</div>
+    <h1 class="title">Operación Némesis</h1>
+    <div class="subtitle">La captura de alias «Diablo» y la paradoja de un éxito que fracturó al Estado</div>
+    <div class="meta">
+      <b>Fenómeno analizado:</b> la captura de Alejandro Arias Monge y sus efectos institucionales<br>
+      <b>Ventana documental:</b> 2010 – 2 de agosto de 2026<br>
+      <b>Cierre editorial:</b> domingo 2 de agosto de 2026, 17:00, hora de San José (UTC−6)<br>
+      <b>Registros analíticos:</b> MEEE-G · ADD · Sistemas-Mundo<br>
+      <b>Estatus procesal:</b> imputado en prisión preventiva. No hay condena. Rige la presunción de inocencia
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <figure class="fig cover">
+    <img src="img/portada.jpg" alt="Operación Némesis: la paradoja de un éxito que fracturó al Estado — Boletín Semanal N.° 014, sección especial." loading="lazy">
+    <figcaption>Autopsia sistémica de cómo la mayor victoria policial en una década desató una crisis institucional sin precedentes.</figcaption>
+  </figure>
+
+  <div class="audio-embed">
+    <div class="blk-h">Escuche el resumen en audio</div>
+    <iframe src="https://drive.google.com/file/d/1d8rksgyHi5ueUeTci6r7GXBjjjBI9t3T/preview" allow="autoplay"></iframe>
+    <a class="bak" href="https://drive.google.com/file/d/1d8rksgyHi5ueUeTci6r7GXBjjjBI9t3T/view?usp=drive_link" target="_blank">Escuchar en Drive ↗</a>
+  </div>
+</div>
+
+<nav class="sticky">
+  <div class="wrap">
+    <a href="#s1">1 · Delimitación</a>
+    <a href="#s2">2 · Información</a>
+    <a href="#s3">3 · Cronología</a>
+    <a href="#s4">4 · Operativo</a>
+    <a href="#s5">5 · Actores</a>
+    <a href="#s6">6 · MEEE-G</a>
+    <a href="#s7">7 · ADD</a>
+    <a href="#s8">8 · Sistemas-Mundo</a>
+    <a href="#s9">9 · Escenarios</a>
+    <a href="#s10">10 · Costa Rica</a>
+    <a href="#s11">Incertidumbres</a>
+    <a href="#caja">Caja de herramientas</a>
+    <a href="#fuentes">Fuentes</a>
+  </div>
+</nav>
+
+<!-- 1 -->
+<section id="s1">
+  <div class="wrap">
+    <div class="secnum">Sección 01</div>
+    <h2 class="sec">Delimitación del fenómeno</h2>
+    <div class="secq">¿Qué es exactamente lo que se analiza y qué queda fuera?</div>
+
+    <p class="lead">El objeto de este informe no es un hombre. Es el proceso por el cual la captura del fugitivo más buscado de Costa Rica —el mayor éxito operativo contra el crimen organizado en una década— se convirtió, en menos de siete días, en el detonante de la peor crisis entre poderes del Estado en la historia reciente del país.</p>
+
+    <p>Ese desplazamiento del objeto es deliberado y es la contribución analítica de este documento. La crónica policial de la Operación Némesis está ampliamente cubierta por la prensa nacional; repetirla no agregaría valor. Lo que no está analizado es <strong>por qué un resultado que todos los actores declararon deseable produjo, en lugar de convergencia, la ruptura</strong>. Esa pregunta es de naturaleza sistémica, no policial, y es la que el marco ADD está en condiciones de responder.</p>
+
+    <p>El informe cubre, en consecuencia, cuatro planos articulados:</p>
+    <ol>
+      <li><strong>La trayectoria de la estructura criminal</strong> atribuida a Alejandro Arias Monge, desde 2010 hasta su captura, en tanto proceso de acumulación territorial, económica y simbólica en el Caribe costarricense.</li>
+      <li><strong>La Operación Némesis</strong> como acontecimiento: su ejecución, sus resultados verificables y las discrepancias entre versiones.</li>
+      <li><strong>La disputa institucional</strong> desencadenada por la captura: atribución de mérito, conflicto presupuestario, cuestionamiento del manejo judicial y su desembocadura en la crisis constitucional de finales de julio.</li>
+      <li><strong>Las trayectorias abiertas</strong>: el proceso penal, la cuestión de la extradición y la reorganización de la estructura criminal tras la remoción de su nodo central.</li>
+    </ol>
+
+    <figure class="fig">
+      <img src="img/delimitacion.jpg" alt="El objeto de análisis no es un hombre, es un proceso: el evento visible de la captura frente a la fractura oculta entre los poderes del Estado." loading="lazy">
+      <figcaption>¿Por qué un resultado que todos buscaban produjo ruptura en lugar de convergencia? Esa pregunta es de naturaleza sistémica, no policial.</figcaption>
+    </figure>
+
+    <div class="warn">
+      <div class="blk-h">Delimitación negativa · Qué queda fuera y por qué</div>
+      <p><strong>No se emiten juicios de culpabilidad.</strong> Alejandro Arias Monge es un imputado en prisión preventiva. No existe condena en firme en ninguna de las causas activas. Toda referencia a hechos delictivos se formula como imputación o como línea investigativa de las autoridades, y así se etiqueta epistémicamente. Esta no es una cautela formularia: en un caso de tan alta carga pública, la confusión entre imputación y condena es el mecanismo por el cual el discurso mediático erosiona la garantía procesal.</p>
+      <p style="margin-bottom:0"><strong>No se analiza la política criminal como tal.</strong> El informe no evalúa si el encarcelamiento, la extradición o el aumento de penas son estrategias eficaces. Esa es una discusión de política pública legítima pero distinta, que exigiría evidencia comparada que este documento no reúne.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 2 -->
+<section id="s2">
+  <div class="wrap">
+    <div class="secnum">Sección 02</div>
+    <h2 class="sec">Estado de la información disponible</h2>
+    <div class="secq">¿Qué se sabe, con qué calidad, y qué se ignora?</div>
+
+    <p>La base documental de este informe es exclusivamente <strong>periodística e institucional-pública</strong>. No hay acceso a los expedientes judiciales (23-000010-601-PE y caso «Colorado»), a los partes policiales completos ni a los documentos de la DEA. Esto impone un techo a lo que puede afirmarse y obliga a un tratamiento diferenciado de las fuentes.</p>
+
+    <figure class="fig">
+      <img src="img/metodo-informacion.jpg" alt="Síntesis: información con método frente al ruido digital — comparación entre la lógica de las redes sociales y la del análisis ANCA-ADD." loading="lazy">
+      <figcaption>No tenemos ideologías que defender. Tenemos un método que defender.</figcaption>
+    </figure>
+
+    <h4>Estratificación de fuentes utilizadas</h4>
+    <table>
+      <tr><th>Tipo</th><th>Ejemplos en este caso</th><th>Fiabilidad y límite</th></tr>
+      <tr><td><strong>Institucional primaria</strong></td><td>Comunicados del OIJ y del Poder Judicial; ficha del Departamento de Estado de EE. UU. sobre Arias-Monge; resoluciones judiciales con número de expediente</td><td>Alta para hechos administrativos y procesales. Interesada respecto de la valoración del propio desempeño</td></tr>
+      <tr><td><strong>Declaración de actor</strong></td><td>Conferencias de Michael Soto (OIJ) y Carlo Díaz (Ministerio Público); declaraciones de Laura Fernández, Rodrigo Chaves, Yara Jiménez, Nogui Acosta, Fernando Obaldía; declaraciones de la defensa</td><td>Confiable en cuanto a <em>qué se dijo</em>. No confiable, sin corroboración, en cuanto a <em>lo afirmado</em>. Se registran como posición, nunca como hecho</td></tr>
+      <tr><td><strong>Prensa nacional con estándar editorial</strong></td><td>La Nación, El Observador, Delfino.cr, Teletica, CRHoy, Monumental, Amelia Rueda, Diario Extra</td><td>Alta para hechos observables y verificables. Se privilegian los datos coincidentes entre medios de línea editorial distinta</td></tr>
+      <tr><td><strong>Prensa internacional</strong></td><td>Infobae, BBC Mundo, EFE, Reuters</td><td>Útil para contraste. Suele agregar contexto regional y perder precisión procesal local</td></tr>
+      <tr><td><strong>Enciclopédica colaborativa</strong></td><td>Wikipedia (artículos en construcción activa sobre el sujeto y sobre la captura)</td><td>Fuente terciaria de referencia cruzada. No se usa como base de ninguna afirmación <code class="ep">[DC]</code></td></tr>
+    </table>
+
+    <div class="warn">
+      <div class="blk-h">Discrepancias documentadas entre fuentes fiables</div>
+      <p>La existencia de estas divergencias no invalida la cobertura; es información sobre cómo se produce el dato en tiempo real y debe declararse.</p>
+      <ul style="margin-bottom:0">
+        <li><strong>Agentes heridos:</strong> las cifras publicadas el 24 de julio evolucionaron de «al menos dos» (CRHoy, 6:34 a.m.) a «cuatro» (Teletica, El Observador, 6:30–6:57 a.m.) a «cinco» (Infobae, Diario Extra) y a «ocho» (La Nación, Monumental, cobertura posterior). La cifra de ocho es la que se consolidó y la que aquí se usa, declarando que corresponde al recuento final y no a los reportes iniciales.</li>
+        <li><strong>Lugar de nacimiento:</strong> Guápiles, cantón de Pococí (Infobae, Wikipedia, ficha del Departamento de Estado) frente a Santa Rosa de Ticabán, Limón (Diario Extra, BBC Mundo). Ambas localidades están en la misma zona; la discrepancia es menor pero real.</li>
+        <li><strong>Duración de la fuga:</strong> se reporta indistintamente «casi una década», «diez años» y «desde 2019». La cronología documentada sitúa la detención de 2016 y una condición de prófugo consolidada hacia 2019, lo que hace de «diez años» una redondez retórica más que un dato.</li>
+        <li><strong>Situación de la hija:</strong> parte de la prensa reportó una <em>detención</em>; el Ministerio de Seguridad Pública precisó luego que fue «identificada y retirada del sitio» por contar con permiso de portación. Este caso es especialmente instructivo y se analiza en la sección 6.</li>
+        <li><strong>Duración del enfrentamiento:</strong> «aproximadamente una hora» (OIJ, Soto) frente a «45 minutos» y «cerca de 50 minutos» en distintas coberturas.</li>
+      </ul>
+    </div>
+
+    <h4>Vacíos declarados</h4>
+    <ul>
+      <li>No se conoce el contenido de las imputaciones concretas en la causa por delincuencia organizada más allá de su calificación genérica.</li>
+      <li>No hay información pública sobre la estructura interna, el volumen económico ni las conexiones internacionales verificadas de la organización, salvo lo afirmado por las autoridades.</li>
+      <li>No se conoce el número ni la identidad de los funcionarios policiales bajo investigación por presunta colaboración, anunciados por el OIJ pero no detallados.</li>
+      <li>No hay evidencia pública sobre quién ejercería el liderazgo de la estructura tras la captura, ni sobre si la estructura persiste como tal.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 3 -->
+<section id="s3">
+  <div class="wrap">
+    <div class="secnum">Sección 03</div>
+    <h2 class="sec">Cronología: la construcción de un nodo</h2>
+    <div class="secq">¿De dónde viene esto? Antecedentes de dieciséis años</div>
+
+    <p>La trayectoria documentada no es la de un narcotraficante que llega desde afuera, sino la de una acumulación local y progresiva: del robo rural al control territorial, y de ahí a la inserción en cadenas transnacionales. Esa secuencia importa analíticamente, y se desarrolla en la sección 7.</p>
+
+    <div class="tl">
+      <div class="tl-item">
+        <div class="tl-date">19 de septiembre de 1984</div>
+        <p>Nace Alejandro Arias Monge en el cantón de Pococí, provincia de Limón. Inicia su vida laboral en compañías bananeras <code class="ep">[DC]</code>.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Desde 2010</div>
+        <p>Comienza a ser vinculado por las autoridades con asaltos a personas y robos a viviendas. Posteriormente, con robo de camiones de carga, de agroquímicos en fincas piñeras y bananeras, y de ganado <code class="ep">[DC]</code>.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">2015</div>
+        <p>Es señalado como sospechoso en el asesinato de Ademar Jiménez Gómez, hallado acribillado y quemado en una finca bananera <code class="ep">[DC]</code>. Los hechos de la causa por la que hoy está en prisión preventiva —dos homicidios y una tentativa bajo modalidad de sicariato— corresponden a este año <code class="ep">[DC]</code>.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">2016</div>
+        <p>Es detenido y permanece un año en prisión preventiva. Tras su liberación, se le vincula a una disputa armada contra la organización de Michael Alfredo Moreno Borbón, alias «Pechuga», en la zona de Limón <code class="ep">[DC]</code>.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">2018–2019</div>
+        <p>Nueva investigación por múltiples robos de ganado. Desde 2019 permanece en condición de prófugo; el OIJ ejecuta varios operativos sin lograr la captura <code class="ep">[DC]</code>.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">2020</div>
+        <p>Se difunden audios atribuidos a su organización que ofrecen ₡2,5 millones por la muerte de cada policía y ₡5 millones por cada investigador del OIJ asesinado en Guápiles, Cariari y Puerto Viejo de Sarapiquí <code class="ep">[DC]</code> (como <em>difusión de audios atribuidos</em>; su autoría es materia del caso «Colorado»). Comienza además a usar redes sociales para publicar imágenes de armamento pesado y videos de agresiones <code class="ep">[DC]</code>.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Enero de 2023</div>
+        <p>Más de cincuenta agentes judiciales estuvieron a pocos metros de capturarlo durante una actividad familiar en Cariari de Pococí. Logró escapar <code class="ep">[DC]</code>.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Noviembre de 2023</div>
+        <p>La policía judicial lo vincula con la explotación de la lotería clandestina conocida como «tiempos» en Limón, presuntamente apoderándose de los puntos de venta mediante coacción. Se le identifica también el uso de recursos del narcotráfico para financiar minería ilegal de oro a cielo abierto en zonas fronterizas <code class="ep">[DC]</code>.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Febrero de 2025</div>
+        <p>Geiner Zamora, alto mando del OIJ en Guápiles, es asesinado por sicarios <code class="ep">[DC]</code>. La conexión causal con los audios de 2020 es una línea investigativa, no un hecho establecido <code class="ep ip">[IP]</code>.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Mayo de 2025</div>
+        <p>Mediante la Ley N.° 10730 se reforma el artículo 32 de la Constitución Política, habilitando por primera vez la extradición de costarricenses, exclusivamente por narcotráfico y terrorismo <code class="ep">[DC]</code>. El 13 de mayo de 2025 la embajada estadounidense publica la recompensa de hasta USD 500.000 por información que condujera a la captura de Arias Monge <code class="ep">[DC]</code>.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">23 de junio de 2025</div>
+        <p>Detención del exmagistrado y exministro Celso Gamboa y de Edwin Danney López Vega, alias «Pecho de Rata», a solicitud de Estados Unidos <code class="ep">[DC]</code>.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">20 de marzo de 2026</div>
+        <p>Gamboa y López Vega son extraditados a Estados Unidos: los primeros costarricenses extraditados en la historia del país, con garantía diplomática de pena no superior a 50 años <code class="ep">[DC]</code>.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">Junio–julio de 2026</div>
+        <p>El Ministerio de Hacienda aplica un recorte de ₡3.053 millones al presupuesto del Poder Judicial para 2026. El 20 de julio el Poder Judicial califica el recorte de «crítico» y advierte que podría perjudicar los allanamientos del OIJ <code class="ep">[DC]</code>. En paralelo, un operativo en cinco centros penitenciarios desarticula una estructura vinculada a Arias Monge dedicada al ingreso de drogas y celulares a las cárceles, con dos oficiales de Policía Penitenciaria investigados <code class="ep">[DC]</code>.</p>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">24 de julio de 2026 · 5:00 a.m.</div>
+        <p><strong>Operación Némesis.</strong> Captura en San Bernardino de Horquetas, Río Frío de Sarapiquí <code class="ep">[DC]</code>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 -->
+<section id="s4">
+  <div class="wrap">
+    <div class="secnum">Sección 04</div>
+    <h2 class="sec">La Operación Némesis y sus siete días</h2>
+    <div class="secq">¿Qué ocurrió el 24 de julio y qué ocurrió después?</div>
+
+    <h3>El operativo</h3>
+    <p>A las 5:00 a.m. del viernes 24 de julio de 2026, el Grupo Táctico SERT (Servicio Especial de Respuesta Táctica) del OIJ, con apoyo de la Unidad de Vigilancia y Seguimiento (UVISE), la Oficina Contra el Crimen Organizado (OECDO) y el Ministerio Público, ingresó a una propiedad en San Bernardino de Horquetas, Río Frío de Sarapiquí, provincia de Heredia, cerca de la frontera con Nicaragua <code class="ep">[DC]</code>.</p>
+
+    <figure class="fig">
+      <img src="img/evento-detonante.jpg" alt="El evento detonante: la magnitud de la Operación Némesis — viernes 24 de julio de 2026, 5:00 a.m., San Bernardino de Horquetas." loading="lazy">
+      <figcaption>Un despliegue de esta escala es incompatible con la narrativa de un hallazgo fortuito.</figcaption>
+    </figure>
+
+    <div class="stat">
+      <div><b>~50</b><span>minutos de enfrentamiento armado</span></div>
+      <div><b>+2.500</b><span>disparos intercambiados</span></div>
+      <div><b>8</b><span>agentes del OIJ heridos</span></div>
+      <div><b>1</b><span>presunto integrante fallecido</span></div>
+      <div><b>3</b><span>detenidos principales</span></div>
+    </div>
+
+    <p>Fueron capturados Alejandro Arias Monge y Jonathan Pérez Méndez, alias «Tan», señalado como su lugarteniente. Un tercer hombre, de apellido Ríos Oconitrillo, conocido como «Coco Guácimo», murió abatido por oficiales tácticos <code class="ep">[DC]</code>. Se decomisaron fusiles de asalto, pistolas, abundante munición, chalecos balísticos, equipo táctico y drones empleados para vigilar los alrededores <code class="ep">[DC]</code>.</p>
+
+    <p>El director interino del OIJ, Michael Soto, calificó la intervención de «operación policial compleja» y señaló que parte del personal desplegado en la retaguardia carecía de casco protector <code class="ep">[DC]</code>. Ese detalle, mencionado en la misma conferencia de prensa, conecta el operativo con la disputa presupuestaria y es el punto de origen de la cadena de siete días que sigue.</p>
+
+    <h3>La cadena de siete días</h3>
+    <p>La secuencia que va del 24 al 31 de julio es el núcleo del fenómeno analizado. Se presenta ordenada porque su <em>orden</em> es analíticamente relevante.</p>
+
+    <figure class="fig">
+      <img src="img/cronologia-siete-dias.jpg" alt="La fractura institucional: siete días de escalada, del 24 al 31 de julio de 2026, desde el choque inicial hasta la judicialización." loading="lazy">
+      <figcaption>El presupuesto dejó de ser un instrumento contable y se convirtió en un arma de disciplina interinstitucional.</figcaption>
+    </figure>
+
+    <table>
+      <tr><th>Fecha</th><th>Acontecimiento</th></tr>
+      <tr><td><strong>24 jul</strong></td><td>Captura. La presidenta Laura Fernández declara «Honor a quien honor merece» y felicita al OIJ, pero en la misma comparecencia sostiene que el esfuerzo presupuestario solicitado al Poder Judicial es «pequeño» y no afecta labores sustantivas <code class="ep">[DC]</code>.</td></tr>
+      <tr><td><strong>24 jul</strong></td><td>Durante las labores posteriores al operativo, Soto es informado de un recorte adicional de ₡5.731 millones correspondientes a la norma 10 del artículo 7 de la Ley de Presupuesto 2026 (ley 10836), que destinaba al OIJ y al Ministerio de Seguridad los recursos de plazas vacantes no ocupadas entre enero y junio. Soto los solicita públicamente <code class="ep">[DC]</code>.</td></tr>
+      <tr><td><strong>24–25 jul</strong></td><td>El ministro de Hacienda, Rodrigo Chaves Robles, responde: «Don Michael, ¿sabe qué?, no me da lástima», y califica el momento de la captura de «oportunista, convenienciero, hipócrita, aprovechado» <code class="ep">[DC]</code>.</td></tr>
+      <tr><td><strong>25 jul</strong></td><td>Una mujer de apellidos Arias Fonseca, hija del detenido, es ubicada cerca del acceso principal a La Reforma en un vehículo blindado y portando un arma. Es identificada y retirada del sitio; contaba con permiso de portación <code class="ep">[DC]</code>. En el acto oficial del 25 de julio, diputados de Pueblo Soberano no aplauden el reconocimiento al OIJ <code class="ep">[DC]</code> (observación reportada por el diputado Ariel Robles; no hay registro audiovisual independiente citado).</td></tr>
+      <tr><td><strong>27 jul</strong></td><td>Arias Monge es trasladado desde La Reforma antes de las 6:00 a.m. para una audiencia fijada a la 1:30 p.m., en caravana con dos vehículos «La Bestia». El Tribunal Penal del II Circuito Judicial de Limón, sesionando en San José por razones de seguridad, dicta prisión preventiva. El expediente es declarado de delincuencia organizada <code class="ep">[DC]</code>.</td></tr>
+      <tr><td><strong>27–28 jul</strong></td><td>La presidenta cuestiona el manejo judicial: critica que la audiencia fuera presencial pese a la solicitud de virtualidad del Ministerio de Justicia, cuestiona el traslado matutino y afirma que un plazo corto de prisión preventiva «sería el ridículo nacional más grande que haga el Poder Judicial». Declara: «Esto ya no son pifias, esto es jugar con la vida de los costarricenses» <code class="ep">[DC]</code>.</td></tr>
+      <tr><td><strong>28 jul</strong></td><td>El fiscal general Carlo Díaz explica que el traslado matutino obedeció a una reunión del detenido con dos agentes de la DEA, y advierte que las declaraciones del Ejecutivo pudieron poner en riesgo la integridad de esos agentes. Señala que traslados equivalentes se realizaron con Gilberth Bell, «Macho Coca», Celso Gamboa y «Pecho de Rata» <code class="ep">[DC]</code>. El Ministerio Público emite un pronunciamiento oficial de «profunda preocupación» <code class="ep">[DC]</code>.</td></tr>
+      <tr><td><strong>29 jul</strong></td><td>El diputado oficialista Fernando Obaldía califica el operativo de «chiripazo», habla de «historia incompleta» y «escenografía preparada», y advierte que la Asamblea no aprobará más recursos al Poder Judicial si continúan las decisiones que el Gobierno cuestiona <code class="ep">[DC]</code>. El Gobierno califica la captura de «chiripa»; el Poder Judicial responde que se sabía «en un 95%» dónde estaba el detenido <code class="ep">[DC]</code>.</td></tr>
+      <tr><td><strong>30 jul</strong></td><td>La Sala Constitucional dicta la sentencia 2026-13498, que prorroga los nombramientos vencidos de magistraturas suplentes y obliga a la Asamblea a retomar la elección <code class="ep">[DC]</code>.</td></tr>
+      <tr><td><strong>31 jul</strong></td><td>La presidenta califica a cuatro magistrados de «golpistas» y la decisión de «golpe de Estado de un sector del poder judicial contra la Asamblea Legislativa». La Asamblea anuncia querella por prevaricato. La Corte Suprema presenta recurso de revocatoria ante Hacienda alegando desviación de poder <code class="ep">[DC]</code>.</td></tr>
+    </table>
+
+    <div class="warn">
+      <div class="blk-h">Advertencia de causalidad</div>
+      <p style="margin-bottom:0">La proximidad temporal entre la captura y la crisis constitucional <strong>no establece causalidad</strong>. La disputa presupuestaria y el bloqueo de las magistraturas suplentes son procesos previos y con lógica propia, documentados desde octubre de 2025. Lo que sí puede afirmarse con base en la secuencia es que la captura operó como <em>acelerador</em>: introdujo en un conflicto latente un elemento nuevo —un éxito público e inequívoco del actor más débil en la disputa presupuestaria— que reorganizó los incentivos de todos los participantes. Esa es una afirmación de dinámica de sistema, no de causa eficiente, y se desarrolla en la sección 7.</p>
+    </div>
+
+    <h3>Situación procesal al cierre de este informe</h3>
+    <ul>
+      <li><strong>Prisión preventiva:</strong> tres meses y veintidós días para Arias Monge, del 24 de julio al 16 de noviembre de 2026. Para Pérez Méndez, cinco meses y veintiséis días, hasta el 27 de diciembre de 2026 <code class="ep">[DC]</code>.</li>
+      <li><strong>Causa principal:</strong> expediente 23-000010-601-PE, dos homicidios, una tentativa de homicidio y asociación ilícita por hechos de 2015 bajo modalidad de sicariato. Declarado delincuencia organizada, lo que permite plazos futuros de prisión preventiva de hasta dieciocho meses <code class="ep">[DC]</code>.</li>
+      <li><strong>Causa adicional:</strong> indagatoria en el caso «Colorado», relativo a amenazas contra funcionarios del OIJ y la Fuerza Pública, en jurisdicción de Siquirres <code class="ep">[DC]</code>.</li>
+      <li><strong>Régimen penitenciario:</strong> celdas de máxima seguridad en La Reforma, con quince medidas restrictivas dispuestas por el Ministerio de Justicia. La defensa, a cargo de Cristian Rodríguez, presentó incidente de queja por restricción de acceso al sol, a llamadas y a contacto con el abogado <code class="ep">[DC]</code>.</li>
+      <li><strong>Disposición procesal:</strong> la defensa manifestó que su representado estaría anuente a someterse a procedimientos abreviados en las causas por sicariato <code class="ep">[DC]</code> (como <em>declaración del defensor</em>, no como acto procesal consumado).</li>
+      <li><strong>Extradición:</strong> el director del OIJ afirmó que la DEA no ha presentado solicitud formal. «Diablo no está requerido para ser extraditado», declaró <code class="ep">[DC]</code>.</li>
+      <li><strong>Investigaciones derivadas:</strong> el OIJ informó haber identificado a funcionarios de cuerpos policiales que presuntamente colaboraban con la organización, cuyas detenciones estarían pendientes <code class="ep">[DC]</code>. Sin número ni cuerpo policial especificado.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 5 -->
+<section id="s5">
+  <div class="wrap">
+    <div class="secnum">Sección 05</div>
+    <h2 class="sec">Mapa de actores e incentivos</h2>
+    <div class="secq">¿Quiénes intervienen y qué busca cada cual?</div>
+
+    <p>Este mapa no atribuye intenciones ocultas. Describe las <strong>posiciones estructurales</strong> de cada actor y lo que su posición hace racional. Un actor puede tener motivaciones sinceras y aun así ocupar una posición cuyos incentivos son los descritos.</p>
+
+    <figure class="fig">
+      <img src="img/mapa-actores.jpg" alt="Mapa de actores: el choque estructural de incentivos entre Poder Ejecutivo y Poder Judicial, con las comunidades del Caribe como actor ausente." loading="lazy">
+      <figcaption>El actor ausente: las comunidades de Pococí, Guácimo y Sarapiquí nunca fueron consultadas en el debate público.</figcaption>
+    </figure>
+
+    <div class="actors">
+      <div class="actor a1">
+        <b>Poder Ejecutivo</b>
+        <span class="inc">Presidencia · Hacienda · Justicia · Seguridad</span>
+        Gobierna con mayoría legislativa propia (31 de 57 escaños del PPSO) y con la seguridad como eje central de su mandato. <strong>Incentivo:</strong> demostrar que la reducción del gasto judicial no compromete la seguridad, y que la conducción de la lucha contra el crimen corresponde al Ejecutivo. Una captura ejecutada exclusivamente por el Poder Judicial, en la misma semana del recorte, contradice ambos extremos simultáneamente.
+      </div>
+      <div class="actor a2">
+        <b>Poder Judicial · OIJ y Ministerio Público</b>
+        <span class="inc">Michael Soto · Carlo Díaz · Corte Plena</span>
+        Enfrenta un recorte de ₡3.053 millones más ₡5.731 millones retenidos y ₡8.688 millones no girados para 176 plazas en el OIJ y 99 en el Ministerio Público. <strong>Incentivo:</strong> convertir el éxito operativo en argumento presupuestario. La mención del casco faltante en la conferencia de prensa es la ejecución explícita de ese incentivo.
+      </div>
+      <div class="actor a3">
+        <b>Asamblea Legislativa · Oficialismo</b>
+        <span class="inc">Yara Jiménez · Nogui Acosta · Fernando Obaldía</span>
+        Controla la aprobación presupuestaria y el nombramiento de magistraturas. <strong>Incentivo:</strong> sostener la línea del Ejecutivo y preservar la potestad de nombramiento. La amenaza explícita de condicionar recursos a decisiones judiciales convierte el presupuesto en instrumento de disciplina interinstitucional.
+      </div>
+      <div class="actor a4">
+        <b>Oposición legislativa</b>
+        <span class="inc">Frente Amplio · PLN · fracciones minoritarias</span>
+        <strong>Incentivo:</strong> usar el éxito judicial como evidencia del costo de la política presupuestaria del Gobierno. Ariel Robles y José María Villalta han sido las voces más activas. Su posición estructural los coloca como aliados coyunturales del Poder Judicial, con independencia de coincidencias sustantivas de fondo.
+      </div>
+      <div class="actor a5">
+        <b>Estados Unidos · DEA y Departamento de Estado</b>
+        <span class="inc">Recompensa de USD 500.000 · agentes en el proceso</span>
+        <strong>Incentivo:</strong> interrumpir una ruta de cocaína hacia su territorio al menor costo operativo y político. La recompensa externaliza el costo de localización; la reunión de agentes con el detenido y la posibilidad de extradición mantienen abierta la opción de jurisdicción propia. No ha ejercido esa opción.
+      </div>
+      <div class="actor a6">
+        <b>La estructura criminal</b>
+        <span class="inc">Nodo removido · red presuntamente descentralizada</span>
+        <strong>Incentivo:</strong> preservar rentas y territorio. Con el liderazgo detenido, los incentivos internos se invierten: quienes eran subordinados pasan a competir. Esta es la fuente principal de riesgo de violencia en el corto plazo, y se analiza en la sección 7.
+      </div>
+    </div>
+
+    <div class="warn">
+      <div class="blk-h">Actor ausente del debate público</div>
+      <p style="margin-bottom:0">Las comunidades de Pococí, Guácimo, Cariari, Río Frío y Sarapiquí —que convivieron dieciséis años con la estructura, que aportaron la mayoría de las víctimas y que sufrirán primero cualquier reorganización violenta— no figuran como actor con voz en ninguna de las coberturas revisadas. Aparecen como escenario («los vecinos escucharon el intercambio de disparos») y como beneficiarias declaradas, nunca como sujeto consultado. Este silencio no es un descuido periodístico aislado: es un rasgo estructural de cómo se narra la seguridad en Costa Rica, y tiene consecuencias analíticas que la sección 7 desarrolla.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6 -->
+<section id="s6">
+  <div class="wrap">
+    <div class="secnum">Sección 06</div>
+    <h2 class="sec">Evaluación epistémica · MEEE-G</h2>
+    <div class="secq">¿Qué afirmaciones resisten escrutinio y cuáles no?</div>
+
+    <figure class="fig">
+      <img src="img/filtro-epistemico.jpg" alt="El filtro epistémico: separando los hechos del ruido político — tabla de afirmaciones clasificadas como dato confirmado, opinión de actor o conjetura." loading="lazy">
+      <figcaption>Dato confirmado, opinión de actor o conjetura: no todas las afirmaciones sobre este caso pesan lo mismo.</figcaption>
+    </figure>
+
+    <div class="meee">
+      <div class="blk-h">Tabla de evaluación</div>
+      <table>
+        <tr><th>Afirmación</th><th>Estatus</th><th>Proceso que la genera y su fiabilidad</th></tr>
+        <tr><td>Fecha, hora, lugar y unidades participantes en la Operación Némesis</td><td><code class="ep">[DC]</code></td><td>Comunicado institucional del OIJ, conferencia de prensa del director, cobertura coincidente de medios con líneas editoriales opuestas. Proceso altamente fiable</td></tr>
+        <tr><td>Ocho agentes heridos y un fallecido</td><td><code class="ep">[DC]</code></td><td>Cifra consolidada tras evolución de reportes. La convergencia posterior de fuentes independientes hacia el mismo número es el indicador de fiabilidad, no la rapidez del primer reporte</td></tr>
+        <tr><td>Más de 2.500 disparos intercambiados</td><td><code class="ep ip">[IP]</code></td><td>Fuente única institucional (OIJ), sin verificación independiente. El dato es plausible por el número de casquillos recolectables, pero es un recuento de la parte interesada en subrayar la intensidad del operativo</td></tr>
+        <tr><td>Términos y plazos de la prisión preventiva y calificación de delincuencia organizada</td><td><code class="ep">[DC]</code></td><td>Resoluciones judiciales identificadas por expediente y tribunal, comunicadas oficialmente por el Poder Judicial</td></tr>
+        <tr><td>Arias Monge es el líder de una organización criminal transnacional</td><td><code class="ep h">[H]</code></td><td>Es la <em>imputación</em> del Ministerio Público y la <em>caracterización</em> del Departamento de Estado y la DEA. No hay condena. La convergencia entre dos sistemas judiciales independientes eleva la plausibilidad, pero no convierte una acusación en dato confirmado</td></tr>
+        <tr><td>La captura fue producto de trabajo de inteligencia, no de azar</td><td><code class="ep ip">[IP]</code></td><td>El Poder Judicial afirma certeza del 95% sobre la ubicación. La escala del despliegue —SERT, UVISE, OECDO, Ministerio Público, coordinación previa con jueces— es evidencia estructural difícilmente compatible con una acción fortuita. La hipótesis rival («chiripa») no explica el despliegue previo</td></tr>
+        <tr><td>La captura fue un «chiripazo» y hubo «escenografía preparada»</td><td><code class="ep c">[Opinión de actor]</code></td><td>Afirmación de actores políticos sin evidencia aportada. El propio diputado que la formuló no presentó sustento. Se registra como posición, no como hipótesis en evaluación</td></tr>
+        <tr><td>El traslado matutino del 27 de julio se debió a una reunión con dos agentes de la DEA</td><td><code class="ep">[DC]</code></td><td>Afirmación del fiscal general en conferencia pública, verificable por su cargo y no desmentida por el Ejecutivo ni por la agencia estadounidense. Aporta además una explicación alternativa que el cuestionamiento gubernamental no consideró</td></tr>
+        <tr><td>Los recortes presupuestarios al Poder Judicial (₡3.053 M, ₡5.731 M, ₡8.688 M no girados)</td><td><code class="ep">[DC]</code></td><td>Cifras coincidentes en La Nación, El Observador, Amelia Rueda, CRHoy y en declaraciones no desmentidas del propio Ministerio de Hacienda</td></tr>
+        <tr><td>Los recortes tienen como propósito debilitar al Poder Judicial</td><td><code class="ep h">[H]</code></td><td>Hipótesis con hipótesis rival viva: contención fiscal general. Discriminaría entre ellas la comparación del trato presupuestario dado a otros órganos del Estado en el mismo período. La Corte Suprema ha judicializado la cuestión alegando desviación de poder, lo que traslada la contrastación al terreno jurisdiccional</td></tr>
+        <tr><td>La captura causó la crisis constitucional del 30–31 de julio</td><td><code class="ep c">[C]</code></td><td>Conjetura. La secuencia temporal es sugestiva pero ambos procesos tienen orígenes independientes documentados. Sostener causalidad requeriría evidencia de decisiones adoptadas <em>en función</em> de la captura, que no existe públicamente</td></tr>
+        <tr><td>La captura funcionó como acelerador de un conflicto preexistente</td><td><code class="ep int">[Int]</code></td><td>Interpretación sistémica. No es una afirmación causal sino una descripción de cómo un acontecimiento reorganiza incentivos en un campo ya tensionado. Su valor es heurístico y así se declara</td></tr>
+        <tr><td>La organización se reorganizará violentamente tras la captura</td><td><code class="ep h">[H]</code></td><td>Hipótesis con base comparada: la remoción de liderazgos en redes descentralizadas suele producir disputas sucesorias. Contrastable con la evolución de homicidios en Limón y Heredia norte en los próximos 90 días</td></tr>
+        <tr><td>El asesinato de Geiner Zamora en 2025 fue consecuencia de los audios de 2020</td><td><code class="ep ip">[IP]</code></td><td>Inferencia con base en la correspondencia entre la oferta difundida y el perfil de la víctima. No hay imputación pública que establezca el vínculo. Se mantiene deliberadamente por debajo de <code class="ep">[DC]</code></td></tr>
+        <tr><td>La hija del detenido fue «detenida» cerca de La Reforma</td><td><code class="ep c">[C]</code> — <em>desmentida</em></td><td>Caso instructivo: varios medios titularon «detienen», el Ministerio de Seguridad precisó luego «identificada y retirada del sitio» por contar con permiso de portación. La versión inicial se propagó y persiste en titulares no corregidos</td></tr>
+      </table>
+    </div>
+
+    <div class="meee">
+      <div class="blk-h">Nota explicacionista · La disputa sobre el mérito</div>
+      <p>El explicacionismo comparativo exige poner las hipótesis rivales una frente a otra y preguntar cuál explica mejor <em>el conjunto</em> de la evidencia, no cuál es más simpática.</p>
+      <p><strong>Hipótesis A — Captura fortuita.</strong> Predice: ausencia de despliegue previo, improvisación de medios, ausencia de coordinación con el Ministerio Público y con jueces, y ausencia de operaciones preparatorias.</p>
+      <p><strong>Hipótesis B — Captura por inteligencia acumulada.</strong> Predice: despliegue táctico especializado, coordinación interinstitucional previa, operaciones preparatorias sobre la red, y conocimiento aproximado de la ubicación.</p>
+      <p style="margin-bottom:0"><strong>Contraste con la evidencia.</strong> Lo observado incluye tres unidades especializadas del OIJ actuando conjuntamente, participación del Ministerio Público, apoyo de jueces, un operativo previo en cinco centros penitenciarios contra la red asociada, e intentos documentados de captura desde 2023. La hipótesis B explica todos esos elementos; la hipótesis A no explica ninguno. La afirmación de la «chiripa» no constituye una hipótesis rival en sentido epistémico —no genera predicciones ni ofrece evidencia— sino una descalificación. Registrarla como opinión de actor y no como hipótesis en evaluación es una decisión metodológica, no una toma de partido.</p>
+    </div>
+
+    <div class="warn">
+      <div class="blk-h">Sobre la presunción de inocencia y el peso del apodo</div>
+      <p style="margin-bottom:0">El alias «Diablo» funciona en la cobertura como un dispositivo que preconstituye culpabilidad: nombrar así a un imputado equivale a haberlo juzgado antes del juicio. Este informe lo usa porque es el identificador público del caso, pero lo hace declarando su efecto. La distinción entre lo que las autoridades <em>imputan</em> y lo que un tribunal <em>establezca</em> no es un tecnicismo: es la diferencia entre un Estado de derecho y su simulación. Y conviene notar que en la disputa política de estos días, el actor que más enfáticamente denuncia el riesgo de impunidad es el mismo que cuestiona públicamente las decisiones del órgano encargado de garantizar que el proceso se sostenga.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 7 -->
+<section id="s7">
+  <div class="wrap">
+    <div class="secnum">Sección 07</div>
+    <h2 class="sec">Análisis dinámico · ADD</h2>
+    <div class="secq">¿Qué proceso está en juego? Actores, atractores, flujos, acoplamientos y tensiones</div>
+
+    <div class="add">
+      <div class="blk-h">Paso 0 · Diagnóstico de nivel y herramienta</div>
+      <p>El fenómeno opera simultáneamente en tres niveles, que se analizan por separado y no se colapsan:</p>
+      <ul style="margin-bottom:0">
+        <li><strong>Nivel práctico-disposicional</strong> (Bourdieu: habitus, campo, formas de capital) — para la estructura criminal y su reproducción territorial. Analogía: <em>fuerte</em>.</li>
+        <li><strong>Nivel comunicativo-institucional</strong> (Habermas: sistema y mundo de la vida, colonización) — para la disputa entre poderes y para la penetración de la economía criminal en las comunidades. Analogía: <em>fuerte</em>.</li>
+        <li><strong>Nivel energético-material</strong> (Prigogine: flujos disipativos) — para el sostenimiento tanto de la estructura criminal como de la capacidad estatal. Analogía: <em>literal</em> para los flujos financieros y de recursos; <em>fuerte</em> para lo demás.</li>
+      </ul>
+    </div>
+
+    <h3>7.1 · La estructura criminal como sistema disipativo</h3>
+
+    <figure class="fig">
+      <img src="img/red-criminal.jpg" alt="El subsistema criminal: el peligro de decapitar una red descentralizada — red centralizada en torno al nodo Diablo frente al mismo nodo removido, en bifurcación y caos." loading="lazy">
+      <figcaption>Eliminar el nodo principal de una red descentralizada no la destruye: le quita su mecanismo de arbitraje interno.</figcaption>
+    </figure>
+
+    <div class="add">
+      <div class="blk-h">Parámetro de control declarado</div>
+      <p style="margin-bottom:0">Para el subsistema criminal: <strong>la tasa de homicidios por ajuste de cuentas en Limón y en el norte de Heredia durante los noventa días posteriores a la captura</strong>. Es medible, tiene línea de base (61% de los 228 homicidios dolosos de enero a abril de 2026 correspondieron a ajuste de cuentas a nivel nacional), y su cruce al alza indicaría reorganización violenta. Sin declarar este parámetro, hablar de «bifurcación» en la estructura criminal sería metáfora.</p>
+    </div>
+
+    <p><strong>Clausura organizacional.</strong> La organización atribuida a Arias Monge no se describe como una pirámide sino como una <em>red descentralizada que combina narcomenudeo con alianzas violentas</em>, a diferencia de otras organizaciones costarricenses enfocadas en el trasiego internacional con bajo perfil. Esa característica es determinante. Un sistema con clausura organizacional distribuida define internamente qué cuenta como perturbación y cómo responder <em>sin depender de un centro de decisión único</em>. La consecuencia es contraintuitiva y conviene enunciarla sin adorno: <strong>la remoción del nodo más visible de una red descentralizada no la desorganiza; le retira su mecanismo de arbitraje interno.</strong></p>
+
+    <p><strong>Flujos disipativos.</strong> La reproducción de esa organización requería importación continua de recursos, y la diversificación documentada muestra exactamente eso: narcotráfico, narcomenudeo, robo de ganado y agroquímicos, apropiación coactiva de la lotería clandestina de «tiempos», financiamiento de minería ilegal de oro, e introducción de drogas y celulares a centros penitenciarios mediante mujeres reclutadas en situación de vulnerabilidad —a quienes se pagaba cerca de ₡300.000 por entrega de una carga que dentro de la cárcel podía alcanzar los ₡5 millones. Esa diversificación no es codicia: es la condición termodinámica de sostener durante dieciséis años una organización armada en fuga permanente. Un sistema disipativo que deja de importar gradiente, colapsa.</p>
+
+    <p><strong>Capital simbólico y violencia simbólica.</strong> El elemento más analíticamente interesante del caso es que <em>el nombre se autonomizó de la persona</em>. Está documentado que otros delincuentes usaban el alias «Diablo» para extorsionar a comerciantes sin pertenecer a la organización. En términos de Bourdieu, el capital simbólico acumulado —el temor como recurso— alcanzó una eficacia que ya no requería al agente que lo produjo. Los audios de 2020 con la oferta de recompensa por policías asesinados y la publicación de armamento en redes sociales no son exhibicionismo: son <em>inversión</em> en ese capital. Y su rendimiento es medible: un nombre que extorsiona por sí solo ha alcanzado autonomía funcional.</p>
+
+    <div class="add">
+      <div class="blk-h">Implicación operativa de la autonomía del capital simbólico</div>
+      <p style="margin-bottom:0">Si el capital simbólico circula con independencia del agente, entonces la captura <strong>no lo extingue de inmediato</strong>. Lo que la captura hace es abrir una disputa por su apropiación: quién puede seguir invocando el nombre y con qué credibilidad. Esa disputa es, en sí misma, una fuente de violencia. Es también la razón por la cual la efectividad de la captura no puede evaluarse por la captura misma, sino por lo que ocurra con el capital que queda vacante.</p>
+    </div>
+
+    <p><strong>Colonización del mundo de la vida.</strong> El concepto habermasiano aplica aquí en su sentido estricto, no metafórico. La apropiación coactiva de los puntos de venta de «tiempos» —una práctica comunitaria de larga data en el Caribe costarricense, con lógica de reciprocidad y confianza local— por una lógica sistémica que opera por dinero y por poder es el mecanismo exacto que Habermas describe. Lo mismo vale para el reclutamiento de mujeres en situación de vulnerabilidad: la lógica del mercado penetra un dominio —la necesidad económica de subsistencia— y lo reorganiza según sus propios términos, sin que las afectadas hayan determinado internamente las condiciones de ese cambio.</p>
+
+    <p><strong>Violencia estructural (Galtung).</strong> La trayectoria documentada —trabajador de compañías bananeras hasta cerca de 2010, luego robo rural, luego control territorial— transcurre íntegramente dentro de la economía de enclave del Caribe costarricense. Señalar esto <strong>no explica ni excusa</strong> las decisiones individuales, y la ADD es explícita en que el acoplamiento estructural no implica determinismo del entorno: la perturbación se procesa según la organización interna del sistema, y otras personas en condiciones idénticas produjeron trayectorias distintas. Lo que sí puede afirmarse es más modesto y más verificable: la provincia de Limón concentra sistemáticamente los indicadores más altos de violencia homicida del país junto a Puntarenas, y ambas son las provincias donde convergen la ruta del narcotráfico y la economía de enclave. La violencia estructural no produce criminales; produce el terreno donde ciertas trayectorias son disponibles y otras no.</p>
+
+    <h3>7.2 · El Estado: dos subsistemas procesando el mismo hecho como perturbaciones opuestas</h3>
+
+    <figure class="fig">
+      <img src="img/dos-subsistemas.jpg" alt="Análisis ADD: el problema de la clausura organizacional — lógica judicial y lógica ejecutiva procesando el mismo evento, la captura, con filtros e interpretaciones opuestas." loading="lazy">
+      <figcaption>No fue un simple problema de comunicación. Fue la colisión de dos sistemas cerrados que no pueden procesar el idioma del otro.</figcaption>
+    </figure>
+
+    <p>Aquí está el núcleo del fenómeno. La pregunta formulada en la sección 1 —por qué un éxito compartido produjo ruptura— tiene una respuesta precisa en términos de clausura organizacional.</p>
+
+    <div class="add">
+      <div class="blk-h">El mecanismo</div>
+      <p>Un sistema con clausura operacional no responde a lo que ocurre; responde a <em>lo que su propia organización define como perturbación</em>. Poder Judicial y Poder Ejecutivo procesaron el mismo acontecimiento —la captura— a través de organizaciones internas distintas, y por eso produjeron respuestas incomparables:</p>
+      <ul>
+        <li><strong>Para el Poder Judicial</strong>, la captura entra en una organización cuyo problema definido es la escasez de recursos frente a organizaciones criminales cada vez más armadas. Procesada por esa organización, la captura significa: <em>evidencia de que funcionamos y de que necesitamos más</em>. De ahí la mención del casco faltante.</li>
+        <li><strong>Para el Poder Ejecutivo</strong>, la captura entra en una organización cuyo problema definido es demostrar que el ajuste fiscal no compromete la seguridad y que la conducción del combate al crimen le corresponde. Procesada por esa organización, la misma captura significa: <em>un actor en disputa presupuestaria acaba de obtener un argumento</em>. De ahí la secuencia felicitación → relativización → cuestionamiento.</li>
+      </ul>
+      <p style="margin-bottom:0">Ninguna de las dos respuestas es reacción a la otra. Cada una es determinada por la organización que la produce. Por eso el intercambio no converge aunque los hechos sean compartidos, y por eso subir el volumen no lo resuelve: no es un problema de comunicación, es un problema de clausura.</p>
+    </div>
+
+    <p><strong>Colonización en la otra dirección.</strong> Si en el nivel comunitario la lógica sistémica del mercado criminal coloniza mundos de vida locales, en el nivel institucional se observa un movimiento estructuralmente análogo: <strong>la lógica sistémica del cálculo político-presupuestario penetrando el campo de la justicia penal</strong>. Cuando un diputado advierte públicamente que la Asamblea no aprobará más recursos «si continúan las decisiones que el Gobierno cuestiona», el medio sistémico —el dinero, el poder— está operando sobre un dominio que se reproduce por otra lógica: la de la legalidad y el debido proceso. El concepto de colonización se usa aquí conforme a la regla ADD: la lógica intrusora es sistémica, opera por dinero y poder, y no por comprensión comunicativa.</p>
+
+    <p><strong>Violencia simbólica institucional.</strong> Las operaciones de reclasificación desplegadas en estos días —«chiripazo», «escenografía preparada», «pifias», «golpistas»— tienen una función precisa en el campo: desplazar la disputa desde el terreno donde el Poder Judicial tiene ventaja (la ejecución técnica verificable) hacia el terreno donde la tiene el Ejecutivo (la apelación pública directa). No se discute el resultado; se discute su significado. Es exactamente la operación que Bourdieu describe: el poder de imponer las categorías de percepción con que se lee la realidad.</p>
+
+    <div class="add">
+      <div class="blk-h">Declaración de régimen</div>
+      <p><strong>Subsistema criminal:</strong> zona de bifurcación. La remoción del nodo de arbitraje en una red descentralizada cruza el umbral por definición: la organización no puede reproducir su patrón anterior. Lo que no está determinado es hacia qué configuración se reorganiza —fragmentación con disputa violenta, absorción por otra estructura, o continuidad bajo dirección delegada.</p>
+      <p><strong>Subsistema institucional:</strong> turbulento con bifurcación latente, no consumada. El criterio para no declarar bifurcación es el mismo que se aplicó en el Boletín N.° 013: mientras la respuesta a una sentencia sea una querella y la respuesta a un recorte sea un recurso de revocatoria, el conflicto se procesa por vías institucionales. El umbral sería el desacato explícito.</p>
+      <p style="margin-bottom:0"><strong>Nota de rigor.</strong> Estos dos regímenes están acoplados por un canal concreto: la capacidad operativa del OIJ. Un debilitamiento presupuestario sostenido reduce la capacidad de procesar la reorganización criminal, lo que a su vez alimenta la percepción de inseguridad que sostiene el conflicto institucional. Es un lazo de retroalimentación positiva —en el sentido cibernético de amplificador, no de deseable— y es la razón por la cual los dos procesos no pueden analizarse por separado.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 8 -->
+<section id="s8">
+  <div class="wrap">
+    <div class="secnum">Sección 08</div>
+    <h2 class="sec">Capa Sistemas-Mundo</h2>
+    <div class="secq">¿Qué posición ocupa Costa Rica en la cadena, y quién paga los costos de reproducirla?</div>
+
+    <figure class="fig">
+      <img src="img/nodo-trasbordo.jpg" alt="La escala macro: Costa Rica como nodo de trasbordo mundial entre Suramérica y Norteamérica/Europa, con la paradoja de la recompensa estadounidense." loading="lazy">
+      <figcaption>El valor se exporta hacia el mercado final; el costo disipativo —homicidios, corrupción, presupuestos de seguridad— se queda en el corredor.</figcaption>
+    </figure>
+
+    <div class="sm">
+      <div class="blk-h">Posición estructural · Wallerstein</div>
+      <p><strong>El nodo de trasbordo.</strong> Costa Rica funciona en la cadena mercantil de la cocaína como punto de trasbordo entre la producción sudamericana y el consumo en Norteamérica y Europa. Según el informe de Expediente Abierto sobre gasto en seguridad en Centroamérica, el país superó a México desde 2020 como principal punto de trasbordo de cocaína hacia esos destinos. Los decomisos del primer trimestre de 2026 se cuadruplicaron, de 3 a 12 toneladas, y hacia mayo acumulaban cerca de 20 toneladas.</p>
+      <p><strong>La transferencia asimétrica.</strong> Aquí está el punto que el marco de sistemas-mundo aporta y que el análisis policial convencional no formula. En una cadena mercantil, el valor se realiza en el extremo del consumo; los costos de producción y tránsito se externalizan hacia los eslabones periféricos. La cocaína que atraviesa el Caribe costarricense <em>no se queda</em>: su renta se realiza en el mercado final. Lo que sí se queda es el costo disipativo de su tránsito: los homicidios, la corrupción de cuerpos policiales, la erosión institucional y el gasto en seguridad —que en Costa Rica pasó de USD 425 millones en 2020 a un presupuesto proyectado de USD 720 millones para 2026, equivalente al 2,79% del presupuesto nacional y al 0,66% del PIB.</p>
+      <p style="margin-bottom:0"><strong>Formulado sin eufemismo:</strong> el país no tiene un problema de narcotráfico porque produzca ni porque consuma de forma significativa en términos comparados. Lo tiene porque ocupa una posición geográfica en una cadena cuyas rentas se realizan en el centro y cuyos costos se disipan en el corredor. Reencuadrar la factura de seguridad como <em>costo de reproducción del sistema-mundo</em> y no como fracaso de política doméstica no exime de responsabilidad a ninguna administración; sitúa correctamente la escala del fenómeno.</p>
+    </div>
+
+    <div class="sm">
+      <div class="blk-h">La externalización de la coerción</div>
+      <p><strong>La recompensa como mecanismo.</strong> Los USD 500.000 ofrecidos por el Departamento de Estado son un instrumento eficiente desde la posición del centro: transfieren el costo y el riesgo de la localización y captura al aparato policial del nodo semiperiférico, reservando el pago para el resultado. Ocho agentes costarricenses heridos y más de 2.500 disparos son el costo real de una operación cuyo beneficio principal —la interrupción de una ruta hacia el mercado estadounidense— se realiza fuera del territorio que lo pagó.</p>
+      <p style="margin-bottom:0"><strong>La extradición como cesión jurisdiccional.</strong> La reforma del artículo 32 mediante la Ley N.° 10730 de mayo de 2025 es, en términos de sistemas-mundo, un dato de primer orden: la semiperiferia cede una prerrogativa soberana histórica —la de juzgar a sus nacionales— como condición de la cooperación. Que la garantía negociada haya sido un techo de 50 años de pena revela la asimetría del intercambio: no se negocia si se cede, sino en qué términos. Y el caso de Jonathan Álvarez, alias «Gato», cuya extradición fue denegada por irretroactividad de la reforma, muestra que el instrumento tiene límites internos que los tribunales costarricenses están dispuestos a hacer valer.</p>
+    </div>
+
+    <div class="sm">
+      <div class="blk-h">Límite temporal declarado</div>
+      <p style="margin-bottom:0">El marco de Wallerstein y Arrighi opera en escalas de décadas. No predice el desenlace del proceso penal de Arias Monge ni la evolución del conflicto entre poderes en los próximos meses. Su aporte es explicar por qué la posición de Costa Rica en la cadena persiste con independencia de qué administración gobierne y de cuántos liderazgos criminales sean capturados. Confundir ese registro con una predicción coyuntural sería precisamente el uso metafórico que este programa se compromete a evitar.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 9 -->
+<section id="s9">
+  <div class="wrap">
+    <div class="secnum">Sección 09</div>
+    <h2 class="sec">Escenarios plausibles</h2>
+    <div class="secq">¿Qué trayectorias son posibles y qué señales permitirían discriminar entre ellas?</div>
+
+    <p>Los escenarios se presentan en dos ejes independientes —el criminal y el institucional— porque no covarían necesariamente. Ninguno es una predicción. Cada uno incluye la señal observable que permitiría reconocerlo tempranamente.</p>
+
+    <figure class="fig">
+      <img src="img/escenarios.jpg" alt="Escenarios plausibles: hacia dónde se dirige el sistema, en el eje criminal (fragmentación violenta o continuidad delegada) y el eje institucional (normalización o estrangulamiento operativo)." loading="lazy">
+      <figcaption>El escenario más crítico: reorganización criminal violenta coincidiendo con la capacidad investigativa congelada por falta de presupuesto.</figcaption>
+    </figure>
+
+    <h3>Eje criminal · Qué ocurre con la estructura</h3>
+    <div class="pills">
+      <div class="pill a">
+        <b>A · Fragmentación violenta</b>
+        La red se descompone en facciones que disputan territorio y rentas. Es el escenario con mayor respaldo comparado en casos de remoción de liderazgo en redes descentralizadas.
+        <span class="sig">Señal: repunte de homicidios por ajuste de cuentas en Pococí, Guácimo, Cariari y Sarapiquí en los 90 días posteriores a la captura, por encima de la tendencia nacional a la baja.</span>
+      </div>
+      <div class="pill b">
+        <b>B · Continuidad delegada</b>
+        La estructura sostiene su operación bajo dirección de segundos o mediante instrucciones desde prisión. El régimen de aislamiento de La Reforma está diseñado precisamente para impedirlo.
+        <span class="sig">Señal: ausencia de repunte homicida sumada a la detección de nuevos intentos de introducción de comunicaciones al centro penal, o a la aparición de un liderazgo identificable.</span>
+      </div>
+      <div class="pill c">
+        <b>C · Absorción externa</b>
+        Otra estructura —local o vinculada a redes colombianas o mexicanas— ocupa el espacio de renta y ruta que queda vacante, sin disputa prolongada.
+        <span class="sig">Señal: decomisos que revelen cambio de operador en la misma ruta, o aparición de patrones de violencia con firma distinta a la de la organización removida.</span>
+      </div>
+    </div>
+
+    <h3>Eje institucional · Qué ocurre con el conflicto entre poderes</h3>
+    <div class="pills">
+      <div class="pill a">
+        <b>A · Descompresión negociada</b>
+        Se giran total o parcialmente los recursos retenidos, la Asamblea retoma la elección de magistraturas suplentes y la querella por prevaricato languidece. La captura queda como argumento que funcionó.
+        <span class="sig">Señal: giro efectivo de los ₡5.731 millones de la norma 10, o convocatoria a votación de la nómina en el Plenario durante agosto.</span>
+      </div>
+      <div class="pill b">
+        <b>B · Judicialización prolongada</b>
+        El conflicto migra íntegramente a instancias formales: recurso de revocatoria de la Corte, querella de la Asamblea, eventuales acciones de inconstitucionalidad. Se congela sin resolverse políticamente.
+        <span class="sig">Señal: admisión para trámite de la querella por prevaricato, o resolución del recurso de revocatoria por desviación de poder sin acuerdo político paralelo.</span>
+      </div>
+      <div class="pill c">
+        <b>C · Cruce de umbral</b>
+        Algún poder declara no reconocer los efectos de una resolución del otro, o el estrangulamiento presupuestario alcanza un punto en que el OIJ suspende funciones sustantivas de forma verificable.
+        <span class="sig">Señal: acto administrativo o acuerdo legislativo con desacato explícito, o comunicación oficial del Poder Judicial suspendiendo allanamientos o pericias por falta de recursos.</span>
+      </div>
+    </div>
+
+    <h3>Eje procesal · Qué ocurre con el caso</h3>
+    <div class="pills">
+      <div class="pill a">
+        <b>A · Proceso abreviado nacional</b>
+        La disposición manifestada por la defensa se concreta en procedimientos abreviados en las causas por sicariato, con condena más rápida y pena reducida por la vía del acuerdo.
+        <span class="sig">Señal: solicitud formal de procedimiento abreviado presentada ante el tribunal antes de la audiencia de noviembre.</span>
+      </div>
+      <div class="pill b">
+        <b>B · Juicio ordinario prolongado</b>
+        Las causas avanzan por la vía de delincuencia organizada, con prisión preventiva extendida hasta dieciocho meses y juicio en 2027 o después.
+        <span class="sig">Señal: prórroga de la prisión preventiva en la audiencia de la primera quincena de noviembre sin acuerdo de abreviado.</span>
+      </div>
+      <div class="pill c">
+        <b>C · Solicitud de extradición</b>
+        La DEA formaliza el pedido. El obstáculo central sería la irretroactividad: los hechos imputados que sostienen las causas activas son de 2015, muy anteriores a la reforma de mayo de 2025, y ya existe precedente judicial de denegatoria por ese motivo.
+        <span class="sig">Señal: presentación formal de la solicitud por vía diplomática, con imputación estadounidense referida a hechos posteriores a mayo de 2025.</span>
+      </div>
+    </div>
+
+    <div class="warn">
+      <div class="blk-h">Sobre la combinación de ejes</div>
+      <p style="margin-bottom:0">La combinación de mayor riesgo agregado no es la más dramática en ninguno de los ejes por separado: es <strong>fragmentación violenta (criminal A) coincidiendo con judicialización prolongada del conflicto presupuestario (institucional B)</strong>. Ese cruce produce una reorganización criminal violenta en el momento exacto en que la capacidad investigativa está congelada por un litigio interinstitucional sin resolver. No es el escenario más llamativo; es el que combina alta probabilidad en ambos ejes con el peor acoplamiento entre ellos.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 10 -->
+<section id="s10">
+  <div class="wrap">
+    <div class="secnum">Sección 10</div>
+    <h2 class="sec">Repercusiones para Costa Rica</h2>
+    <div class="secq">Dimensiones política, económica, social, científico-cultural y simbólica</div>
+
+    <div class="cr">
+      <div class="blk-h">Política</div>
+      <p>La captura reconfiguró el equilibrio de la disputa presupuestaria al dotar al actor más débil —el Poder Judicial— de un argumento público difícil de refutar. La respuesta del oficialismo, que pasó de la felicitación a la descalificación en cinco días, sugiere que ese efecto fue percibido con precisión.</p>
+      <p style="margin-bottom:0">Hay un elemento estructural que conviene subrayar sin dramatismo: esta administración gobierna con mayoría legislativa propia por primera vez desde 1990 para un solo partido. En esa configuración, el único contrapeso efectivo con capacidad de anular actos es el Poder Judicial. Que el conflicto se concentre allí no es contingente; es lo que la configuración institucional hace previsible.</p>
+    </div>
+
+    <div class="cr">
+      <div class="blk-h">Económica y presupuestaria</div>
+      <p>Las cifras en disputa son modestas en términos macrofiscales y decisivas en términos operativos: ₡3.053 millones de recorte, ₡5.731 millones retenidos de la norma 10, y ₡8.688 millones no girados para 176 plazas en el OIJ y 99 en el Ministerio Público. El ministro de Hacienda ha argumentado que el presupuesto del Poder Judicial asciende a ₡550.000 millones, de los cuales ₡57.000 millones estarían por encima de lo que a su juicio debería recibir.</p>
+      <p style="margin-bottom:0">La discusión de fondo es legítima y no la resuelve este informe: cuánto debe recibir el Poder Judicial es una decisión política que corresponde a los órganos electos. Lo que sí puede señalarse es un problema de <em>secuencia</em>: aplicar la reducción sobre gasto operativo —viáticos, combustible, chalecos, munición, insumos científicos— produce efectos inmediatos sobre capacidad de campo, mientras que la discusión estructural sobre el tamaño relativo del presupuesto judicial es de largo plazo. Se está resolviendo un problema estructural con un instrumento coyuntural.</p>
+    </div>
+
+    <div class="cr">
+      <div class="blk-h">Social y territorial</div>
+      <p>Las comunidades del Caribe y del norte de Heredia son las que asumirán primero cualquier reorganización violenta. Limón y Puntarenas concentran sistemáticamente los indicadores más altos de violencia homicida del país por su vinculación con las rutas del narcotráfico. La tendencia nacional es favorable —de 905 homicidios en 2023 a una proyección de menos de 800 para 2026, con el promedio diario bajando de 2,5 a 1,9— pero la agregación nacional oculta la concentración territorial.</p>
+      <p style="margin-bottom:0">Hay además un efecto de segundo orden poco discutido: la investigación sobre funcionarios policiales presuntamente vinculados a la estructura. Si se confirma, el daño a la confianza institucional en esas comunidades será mayor y más duradero que el causado por la organización misma. La captura de un líder criminal es reversible en sus efectos; la constatación de que la policía estaba comprada, no.</p>
+    </div>
+
+    <div class="cr">
+      <div class="blk-h">Científico-cultural y de política pública</div>
+      <p>El caso ofrece un objeto de estudio de valor excepcional para la criminología, la antropología y la ciencia política costarricenses: una trayectoria de dieciséis años documentada, una estructura descentralizada con diversificación económica registrada, y un experimento natural sobre los efectos de la remoción de liderazgo. La producción académica nacional sobre crimen organizado sigue siendo escasa frente a la magnitud del fenómeno.</p>
+      <p style="margin-bottom:0">Hay también una lección metodológica para la política pública: la Operación Némesis fue posible por <em>acumulación de inteligencia durante años</em>, no por despliegue masivo de fuerza. Ese es un dato relevante para el diseño de estrategias de seguridad, y es precisamente el tipo de capacidad —paciente, técnica, poco visible— que un recorte sobre gasto operativo erosiona antes que ninguna otra.</p>
+    </div>
+
+    <div class="cr">
+      <div class="blk-h">Simbólica</div>
+      <p>Costa Rica ha sostenido durante décadas un relato de excepcionalidad institucional en la región centroamericana: sin ejército desde 1948, con una Sala Constitucional creada en 1989 y con niveles de violencia históricamente bajos. Los tres pilares de ese relato están siendo tensionados simultáneamente en este caso: la violencia alcanzó en 2023 su nivel más alto de la historia reciente, el tribunal constitucional es acusado de golpismo por la jefa de Estado, y la prohibición constitucional de extraditar nacionales —vigente por más de un siglo— fue removida en 2025.</p>
+      <p style="margin-bottom:0">La observación no es catastrofista y merece formularse con precisión: los relatos de excepcionalidad nacional cumplen funciones reales, y su erosión no equivale al colapso de lo que describían. Pero sí obliga a una pregunta que el país no ha respondido de forma explícita: qué sustituye a la excepcionalidad como fundamento de la identidad institucional costarricense, ahora que sus tres pilares están en revisión simultánea.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 11 -->
+<section id="s11">
+  <div class="wrap">
+    <div class="secnum">Sección 11</div>
+    <h2 class="sec">Incertidumbres abiertas</h2>
+    <div class="secq">¿Qué queda sin respuesta y qué evidencia haría falta?</div>
+    <ul>
+      <li><strong>¿Se reorganizará violentamente la estructura?</strong> Evidencia necesaria: series de homicidios desagregadas por cantón para Pococí, Guácimo, Cariari y Sarapiquí en el trimestre agosto–octubre de 2026, comparadas con el mismo período de 2025.</li>
+      <li><strong>¿Cuántos y cuáles funcionarios policiales están bajo investigación por presunta colaboración?</strong> El OIJ lo anunció sin detallar. La respuesta determina la magnitud real del problema de infiltración institucional.</li>
+      <li><strong>¿Solicitará la DEA la extradición, y sobre qué hechos?</strong> El obstáculo de irretroactividad es sustantivo: los hechos que sostienen las causas activas son de 2015 y la reforma constitucional es de mayo de 2025.</li>
+      <li><strong>¿Se girarán los recursos retenidos?</strong> Es la variable que determina si el eje institucional se descomprime o escala, y la única con efecto directo y medible sobre capacidad operativa.</li>
+      <li><strong>¿Qué resolverá el recurso de revocatoria por desviación de poder presentado por la Corte Suprema?</strong> Trasladaría la disputa presupuestaria de la política a la juridicidad, con consecuencias que exceden este caso.</li>
+      <li><strong>¿Prosperará la querella por prevaricato contra los cuatro magistrados?</strong> El prevaricato exige dolo en el dictado de resolución contraria a la ley; el desacuerdo interpretativo entre poderes no lo configura por sí solo.</li>
+      <li><strong>¿Cuál es el volumen económico real de la estructura?</strong> No hay estimación pública. Sin ella, no puede evaluarse si la remoción del liderazgo afecta la capacidad de la red o solo su visibilidad.</li>
+      <li><strong>¿Qué ocurrió exactamente en el enfrentamiento?</strong> La muerte de Ríos Oconitrillo durante la acción y el intercambio de palabras entre agentes del OIJ y del SERT registrado en video ameritan el examen que corresponde a toda acción policial con resultado letal. No hay información pública sobre si ese examen está en curso.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- CAJA -->
+<section id="caja">
+  <div class="wrap">
+    <div class="secnum">Anexo</div>
+    <h2 class="sec">Caja de herramientas</h2>
+    <figure class="fig">
+      <img src="img/caja-herramientas.jpg" alt="Caja de herramientas conceptuales: ADD, MEEE-G, Clausura Organizacional y Nodo de Trasbordo." loading="lazy">
+      <figcaption>Los cuatro conceptos que sostienen el análisis de este informe.</figcaption>
+    </figure>
+    <dl class="tools">
+      <dt>Clausura organizacional</dt>
+      <dd>Un sistema determina internamente qué cuenta como perturbación y cómo responder. El entorno dispara cambios de estado, no los dicta. Explica por qué dos poderes del Estado enfrentados a un mismo hecho producen respuestas que no dialogan entre sí.</dd>
+      <dt>Flujos disipativos</dt>
+      <dd>Los recursos que un sistema debe importar continuamente para mantener su organización. Aplica tanto a una estructura criminal —que necesita diversificar ingresos para sostenerse— como a un cuerpo policial, que necesita combustible, chalecos y viáticos.</dd>
+      <dt>Parámetro de control</dt>
+      <dd>La variable cuyo cruce de umbral puede reorganizar el sistema. En el análisis social debe ser declarada por quien investiga. En este informe: la tasa de homicidios por ajuste de cuentas en la zona, para el eje criminal; el presupuesto efectivamente girado, para el institucional.</dd>
+      <dt>Bifurcación</dt>
+      <dd>Momento en que un sistema puede tomar trayectorias cualitativamente distintas. No implica catástrofe: implica que el estado siguiente ya no está determinado por el anterior.</dd>
+      <dt>Capital simbólico</dt>
+      <dd>Concepto de Bourdieu: el reconocimiento y la legitimidad como recurso. En este caso, el temor asociado a un alias alcanzó tal eficacia que terceros podían usarlo para extorsionar sin pertenecer a la organización.</dd>
+      <dt>Violencia simbólica</dt>
+      <dd>Mecanismo por el cual se imponen las categorías con que se percibe la realidad, de modo que la dominación se naturaliza. Reclasificar una operación policial como «chiripazo» es una operación de este tipo.</dd>
+      <dt>Colonización del mundo de la vida</dt>
+      <dd>Concepto de Habermas: ocurre cuando lógicas sistémicas —dinero, poder burocrático— penetran ámbitos que solo se reproducen mediante entendimiento mutuo. Se observa aquí en dos direcciones: la economía criminal sobre las comunidades, y el cálculo presupuestario sobre la justicia penal.</dd>
+      <dt>Violencia estructural</dt>
+      <dd>Concepto de Galtung: privación sistémica sin actor directamente identificable. No produce criminales; produce el terreno donde ciertas trayectorias están disponibles y otras no.</dd>
+      <dt>Nodo de trasbordo</dt>
+      <dd>En términos de sistemas-mundo, punto de una cadena mercantil donde la mercancía transita sin que su renta se realice. Los costos se disipan localmente; el valor se realiza en el extremo del consumo.</dd>
+      <dt>Códigos epistémicos MEEE-G</dt>
+      <dd><code class="ep">[DC]</code> dato confirmado por fuentes fiables independientes · <code class="ep ip">[IP]</code> inferencia plausible desde datos confirmados · <code class="ep h">[H]</code> hipótesis de trabajo, con vías de contrastación · <code class="ep int">[Int]</code> interpretación sistémica · <code class="ep c">[C]</code> conjetura, con evidencia insuficiente.</dd>
+    </dl>
+  </div>
+</section>
+
+<!-- FUENTES -->
+<section id="fuentes">
+  <div class="wrap">
+    <div class="secnum">Anexo</div>
+    <h2 class="sec">Fuentes (APA 7)</h2>
+    <p style="font-size:16px;color:var(--dim);margin-bottom:20px">Todas las fuentes periodísticas fueron consultadas el 2 de agosto de 2026.</p>
+    <figure class="fig">
+      <img src="img/fuentes.jpg" alt="Fuentes y referencias APA 7 de este informe especial." loading="lazy">
+      <figcaption>Archivo completo de boletines disponible para consulta ciudadana.</figcaption>
+    </figure>
+    <ol class="refs">
+      <li>Acontecer.co.cr. (2026, 25 de julio). <em>Ariel Robles Barrantes acusa a Gobierno de adjudicarse captura de alias «El Diablo»</em>. https://acontecer.co.cr/nacionales/ariel-robles-critica-laura-fernandez-captura-diablo</li>
+      <li>Alonso, J. F. (2026, 28 de julio). <em>Quién es el «Diablo», el criminal «más buscado» de Costa Rica capturado tras una compleja operación policial</em>. BBC News Mundo. https://www.bbc.com/mundo</li>
+      <li>Amelia Rueda. (2026, 24 de julio). <em>Tras captura de alias «Diablo», Michael Soto alerta por nuevo recorte de ¢5.731 millones al OIJ y pide ayuda al Gobierno</em>. https://ameliarueda.com/noticia/</li>
+      <li>Centroamérica360. (2026, 19 de mayo). <em>EE. UU. destaca golpes al narcotráfico en Costa Rica a lo largo de 2026</em>. https://www.centroamerica360.com/region/</li>
+      <li>CRHoy. (2026, 24 de julio). <em>OIJ logra captura de alias Diablo</em>. https://crhoy.com/nacionales/oij-logra-captura-de-alias-diablo/</li>
+      <li>CRHoy. (2026, 25 de julio). <em>Dejan en libertad a hija de alias «Diablo» tras ser ubicada cerca de La Reforma</em>. https://crhoy.com/nacionales/</li>
+      <li>CRHoy. (2026, 29 de julio). <em>Diputado oficialista cuestiona captura de «Diablo» y lanza advertencia presupuestaria al Poder Judicial</em>. https://crhoy.com/nacionales/</li>
+      <li>Departamento de Estado de los Estados Unidos. (2026). <em>Alejandro Arias-Monge (Captured)</em>. Narcotics Rewards Program. https://www.state.gov/alejandro-arias-monge</li>
+      <li>Diario Extra. (2026, 24 de julio). <em>Día histórico: Capturan a alias «Diablo»</em>. https://www.diarioextra.com/noticia/dia-historico-capturan-a-alias-diablo/</li>
+      <li>Diario Extra. (2026, 25 de julio). <em>Dejan libre a hija de alias «Diablo» tras ubicarla con un arma cerca de La Reforma</em>. https://www.diarioextra.com/noticia/</li>
+      <li>Diario Extra. (2026, 27 de julio). <em>Justicia impone medidas cautelares contra alias «Diablo»</em>. https://www.diarioextra.com/noticia/</li>
+      <li>Diario Extra. (2026, 28 de julio). <em>Por esta razón sacaron a «Diablo» de La Reforma varias horas antes de su audiencia</em>. https://www.diarioextra.com/noticia/</li>
+      <li>Diario Extra. (2026, 29 de julio). <em>«Diablo» pasó de ser ladrón a el fugitivo más buscado del país</em>. https://www.diarioextra.com/noticia/</li>
+      <li>Divergentes. (2026, 27 de febrero). <em>Sicariato y homicidios marcan el reto del nuevo Gobierno de Laura Fernández</em>. https://www.divergentes.com/</li>
+      <li>El Mundo CR. (2026, 25 de julio). <em>Detienen a hija de alias «Diablo» armada en las cercanías de La Reforma</em>. https://elmundo.cr/costa-rica/</li>
+      <li>El Observador CR. (2026, 24 de julio). <em>Capturan a alias «Diablo» en operativo de OIJ que dejó 4 agentes heridos</em>. https://observador.cr/</li>
+      <li>El Observador CR. (2026, 24 de julio). <em>Fotografías revelan el lugar donde se escondía alias «Diablo» y las armas que tenía al ser detenido en Sarapiquí</em>. https://observador.cr/</li>
+      <li>El Observador CR. (2026, 25 de julio). <em>Video | «Don Michael, ¿sabe qué?, no me da lástima», responde Chaves a solicitud de OIJ para no recortar presupuesto</em>. https://observador.cr/</li>
+      <li>El Observador CR. (2026, 27 de julio). <em>Alias «Diablo» estaría anuente a un procedimiento rápido y aceptar los cargos, afirmó su abogado</em>. https://observador.cr/</li>
+      <li>El Observador CR. (2026, 27 de julio). <em>Abogado pide que a alias «Diablo» le restituyan derechos como tomar el sol, ropa y acceso a llamadas en cárcel</em>. https://observador.cr/</li>
+      <li>El Observador CR. (2026, 20 de marzo). <em>Costa Rica ejecuta su primera extradición de nacionales: Celso Gamboa y «Pecho de Rata» parten hacia EE. UU.</em> https://observador.cr/extradicion-costa-rica-gamboa-pecho-rata-eeuu-texas/</li>
+      <li>Guananoticias. (2026, 26 de julio). <em>Ariel Robles acusa a Gobierno y a diputados de Pueblo Soberano de «saboteo» al Poder Judicial tras captura de alias «Diablo»</em>. https://guananoticias.com/nacionales/</li>
+      <li>Infobae. (2026, 24 de julio). <em>Capturan a alias «Diablo»: el delincuente más buscado de Costa Rica, cinco agentes heridos en el operativo</em>. https://www.infobae.com/costa-rica/2026/07/24/</li>
+      <li>Infobae. (2026, 24 de julio). <em>¿Quién es el Diablo? El criminal más buscado de Costa Rica y capturado hoy tras una cacería internacional</em>. https://www.infobae.com/costa-rica/2026/07/24/</li>
+      <li>Infobae. (2026, 24 de julio). <em>«Honor a quien honor merece»: Laura Fernández reconoce al Poder Judicial por la captura de alias «Diablo» en Costa Rica</em>. https://www.infobae.com/costa-rica/2026/07/24/</li>
+      <li>Infobae. (2026, 25 de julio). <em>Costa Rica: Ubican a hija de alias «Diablo» en las cercanías del centro penitenciario La Reforma</em>. https://www.infobae.com/costa-rica/2026/07/25/</li>
+      <li>Infobae. (2026, 26 de julio). <em>Costa Rica: ¿Será extraditado alias «Diablo» a Estados Unidos?</em> https://www.infobae.com/costa-rica/2026/07/26/</li>
+      <li>Infobae. (2026, 28 de julio). <em>Lo que no se vio de la captura de alias «Diablo»: el video del tenso intercambio entre las fuerzas policiales</em>. https://www.infobae.com/costa-rica/2026/07/28/</li>
+      <li>Infobae. (2026, 28 de julio). <em>Ministerio Público de Costa Rica responde al Gobierno y rechaza críticas por el caso de alias «Diablo»</em>. https://www.infobae.com/costa-rica/2026/07/28/</li>
+      <li>Infobae. (2026, 30 de julio). <em>Gobierno de Laura Fernández endurece el aislamiento de alias «Diablo» y acusa al Poder Judicial de debilitar el operativo de máxima seguridad</em>. https://www.infobae.com/costa-rica/2026/07/30/</li>
+      <li>Infobae. (2026, 15 de julio). <em>El ajuste de cuentas concentra la mayoría de los homicidios dolosos registrados en Costa Rica entre enero y abril de 2026</em>. https://www.infobae.com/costa-rica/2026/07/15/</li>
+      <li>Infobae. (2026, 13 de julio). <em>Costa Rica elevó 30,01% el gasto en seguridad entre 2020 y 2024, en medio del alza de los homicidios</em>. https://www.infobae.com/costa-rica/2026/07/13/</li>
+      <li>Infobae. (2026, 24 de marzo). <em>OIJ proyecta que Costa Rica cerrará el 2026 con menos de 800 homicidios tras caída en la violencia</em>. https://www.infobae.com/costa-rica/2026/03/24/</li>
+      <li>Infobae. (2026, 20 de marzo). <em>Costa Rica activa la extradición por primera vez en su historia y entrega a dos sospechosos de narcotráfico a Estados Unidos</em>. https://www.infobae.com/costa-rica/2026/03/20/</li>
+      <li>La Nación. (2025, 8 de junio). <em>El expediente poco conocido de Diablo: de presunto ladrón de ganado al narco más buscado</em>. https://www.nacion.com/sucesos/narcotrafico/</li>
+      <li>La Nación. (2026, 24 de julio). <em>«Honor a quien honor merece»: Laura Fernández felicita al OIJ tras captura de alias Diablo</em>. https://www.nacion.com/sucesos/</li>
+      <li>La Nación. (2026, 24 de julio). <em>Director del OIJ revela que, tras balacera contra Diablo, le comunicaron nueva rebaja presupuestaria</em>. https://www.nacion.com/sucesos/</li>
+      <li>La Nación. (2026, 25 de julio). <em>Encuentran a la hija de Diablo con un arma cerca de La Reforma</em>. https://www.nacion.com/sucesos/</li>
+      <li>La Nación. (2026, 26 de julio). <em>Editorial: Cayó Diablo; ahora corresponde fortalecer al OIJ para perseguir a los demás</em>. https://www.nacion.com/opinion/editorial/</li>
+      <li>La Nación. (2026, 27 de julio). <em>Tribunal envía a prisión preventiva a alias Diablo y Tan: estos serán los plazos</em>. https://www.nacion.com/sucesos/</li>
+      <li>La Nación. (2026, 29 de julio). <em>Laura Fernández ordena al PPSO convocar a la cúpula del Poder Judicial a comisión legislativa</em>. https://www.nacion.com/politica/</li>
+      <li>La Nación. (2026, 31 de julio). <em>Corte Suprema presenta recurso de revocatoria ante Hacienda por recortes: denuncia desviación de poder y falta de competencia del Ministerio</em>. https://www.nacion.com/politica/</li>
+      <li>La Teja. (2026, 24 de julio). <em>¿Quién es Alejandro Arias Monge, alias Diablo, y por qué era el hombre más buscado de Costa Rica?</em> https://www.lateja.cr/sucesos/</li>
+      <li>Mora Salguero, K. (2026, 3 de junio). <em>La gran duda sobre la extradición de costarricenses que aún divide a los tribunales</em>. La Nación. https://www.nacion.com/opinion/foros/</li>
+      <li>Monumental. (2026, 25 de julio). <em>Hija de alias «Diablo» fue detenida cerca de La Reforma portando un arma de fuego</em>. https://www.monumental.co.cr/2026/07/25/</li>
+      <li>Monumental. (2026, 27 de julio). <em>Audiencia de medidas cautelares de «Diablo» será presencial este lunes: OIJ aboga por virtualidad para el futuro</em>. https://www.monumental.co.cr/2026/07/27/</li>
+      <li>Monumental. (2026, 28 de julio). <em>¿Qué sigue en el proceso penal contra «Diablo» luego de su envío a prisión preventiva?</em> https://www.monumental.co.cr/2026/07/28/</li>
+      <li>Teletica. (2026, 24 de julio). <em>Detienen a alias «Diablo», confirma OIJ</em>. https://www.teletica.com/sucesos/</li>
+      <li>Teletica. (2026, 24 de julio). <em>«Estamos comprometidos, aún con recorte de presupuesto», dice OIJ tras detener a «Diablo»</em>. https://www.teletica.com/sucesos/</li>
+      <li>Teletica. (2026, 24 de julio). <em>Presidenta agradece captura de «Diablo», pero insiste en recorte al Poder Judicial</em>. https://www.teletica.com/politica/</li>
+      <li>Teletica. (2026, 27 de julio). <em>«Diablo» sale de La Reforma para audiencia de medidas cautelares: así fue el traslado</em>. https://www.teletica.com/nacional/</li>
+      <li>Teletica. (2026, 21 de julio). <em>Cinco cárceles son allanadas por red criminal vinculada con alias «Diablo»</em>. https://www.teletica.com/nacional/</li>
+      <li>TVN Canal 14. (2026, 27 de julio). <em>Fiscalía solicitará prisión preventiva para Diablo y Tan en audiencia de medidas cautelares</em>. https://www.tvn14.com/</li>
+      <li>Wikipedia. (2026, actualización continua). <em>Alejandro Arias Monge</em>. https://es.wikipedia.org/wiki/Alejandro_Arias_Monge [Fuente terciaria de referencia cruzada]</li>
+      <li>Wikipedia. (2026, actualización continua). <em>Captura de Alejandro Arias Monge</em>. https://es.wikipedia.org/wiki/Captura_de_Alejandro_Arias_Monge [Fuente terciaria de referencia cruzada]</li>
+      <li>Arrighi, G. (1994). <em>The long twentieth century: Money, power and the origins of our times</em>. Verso.</li>
+      <li>Bourdieu, P. (1977). <em>Outline of a theory of practice</em>. Cambridge University Press.</li>
+      <li>Bourdieu, P., y Wacquant, L. (1992). <em>An invitation to reflexive sociology</em>. University of Chicago Press.</li>
+      <li>Galtung, J. (1969). Violence, peace, and peace research. <em>Journal of Peace Research, 6</em>(3), 167–191.</li>
+      <li>Galtung, J. (1990). Cultural violence. <em>Journal of Peace Research, 27</em>(3), 291–305.</li>
+      <li>Goldman, A. I. (1979). What is justified belief? En G. Pappas (Ed.), <em>Justification and knowledge</em> (pp. 1–23). D. Reidel.</li>
+      <li>Habermas, J. (1987). <em>The theory of communicative action, Vol. 2: Lifeworld and system</em>. Beacon Press. (Original publicado en 1981)</li>
+      <li>Maturana, H. R., y Varela, F. J. (1984). <em>El árbol del conocimiento</em>. Editorial Universitaria.</li>
+      <li>Montero Fonseca, A. (2026). <em>Antropología Dinámica del Devenir (ADD): bases para un programa teórico-metodológico relacional ante la complejidad sociocultural</em>. Universidad de Costa Rica.</li>
+      <li>Moore, S. F. (1973). Law and social change: The semi-autonomous social field as an appropriate subject of study. <em>Law &amp; Society Review, 7</em>(4), 719–746.</li>
+      <li>Prigogine, I. (1996). <em>El fin de las certidumbres</em>. Andrés Bello.</li>
+      <li>Reynoso, C. (2006). <em>Complejidad y caos: una exploración antropológica</em>. Editorial Biblos.</li>
+      <li>Wallerstein, I. (2004). <em>World-systems analysis: An introduction</em>. Duke University Press.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- METODO -->
+<section>
+  <div class="wrap">
+    <div class="method">
+      <p><b>Nota metodológica.</b> Este informe corresponde a la LLAMADA C del protocolo ANCA-ADD —análisis en profundidad de un tema concreto— e integra tres registros analíticos distintos y no colapsables: la evaluación epistémica explicacionista (MEEE-G, inspirada en la epistemología de Alvin I. Goldman), el análisis dinámico antropológico (ADD, según el marco de Alfredo Montero Fonseca) y la capa de sistemas-mundo (Wallerstein / Arrighi). Los códigos epistémicos —<b>[DC]</b> dato confirmado, <b>[IP]</b> inferencia plausible, <b>[H]</b> hipótesis, <b>[Int]</b> interpretación, <b>[C]</b> conjetura— caracterizan el estatus justificatorio de cada afirmación según el proceso que la genera.</p>
+      <p style="margin-top:12px">Se declaran los siguientes controles de rigor aplicados en este documento. <b>Primero</b>, el parámetro de control fue declarado por separado para cada uno de los dos subsistemas analizados antes de emplear el concepto de bifurcación, conforme a la Advertencia 1 del protocolo ADD. <b>Segundo</b>, el tipo de analogía se declaró por nivel: literal para los flujos financieros y de recursos, fuerte para la organización simbólica y para el nivel comunicativo-institucional. <b>Tercero</b>, se declaró explícitamente que el análisis de violencia estructural no implica determinismo del entorno, conforme a la Advertencia 2. <b>Cuarto</b>, se registró como opinión de actor —y no como hipótesis en evaluación— toda afirmación política sin evidencia aportada, en ambas direcciones del conflicto.</p>
+      <p style="margin-top:12px"><b>Sobre el estatus procesal.</b> Alejandro Arias Monge y Jonathan Pérez Méndez son imputados en prisión preventiva. No existe condena en firme. Toda referencia a hechos delictivos en este documento constituye imputación de las autoridades o línea investigativa en curso, no determinación de culpabilidad. Rige plenamente la presunción de inocencia.</p>
+      <p style="margin-top:12px">Este análisis combina evaluación epistémica explicacionista (MEEE-G) y análisis dinámico antropológico (ADD). <b>No constituye predicción determinista ni recomendación política. Toda conclusión es revisable ante nueva evidencia.</b></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>ANCA-ADD · Agente Noticioso Crítico de Actualidad — Antropología Dinámica del Devenir</div>
+    <div>Informe Especial · Llamada C · Operación Némesis · cierre editorial domingo 2 de agosto de 2026, 17:00 (San José, UTC−6)</div>
+    <div>Ventana documental: 2010 – 2 de agosto de 2026 · MEEE-G + ADD + Sistemas-Mundo</div>
+    <div>Alfredo Montero Fonseca · <a href="https://antropos.app">antropos.app</a> · @antropos</div>
+  </div>
+</footer>
+
+</body>
+</html>

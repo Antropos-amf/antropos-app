@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La biblioteca que nadie quemó — Alfredo Montero Fonseca</title>
+<meta name="description" content="El FEES 2027, las universidades públicas de Costa Rica y el costo de destruir lo que tarda décadas en construirse.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pergamino:   #F5ECD9;
+    --pergamino-oscuro: #E8D0A8;
+    --granate:     #6B1528;
+    --granate-claro: #8B2035;
+    --cafe:        #7A4F2D;
+    --cafe-claro:  #A67C52;
+    --negro:       #150A04;
+    --negro-suave: #2C1810;
+    --cuero:       #1C0A04;
+    --texto-muted: #5C3D28;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { font-size: 18px; scroll-behavior: smooth; }
+
+  body {
+    background: var(--pergamino);
+    color: var(--negro);
+    font-family: 'Source Serif 4', Georgia, serif;
+    line-height: 1.75;
+  }
+
+  /* ── CUBIERTA ── */
+  .cubierta {
+    background: var(--cuero);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Lomo del libro */
+  .cubierta::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 10px;
+    background: var(--granate);
+  }
+
+  .cubierta-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 72px 64px 72px 80px;
+    position: relative;
+  }
+
+  .nav-cubierta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 64px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .nav-cubierta a {
+    color: var(--cafe-claro);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .nav-cubierta a:hover { color: var(--pergamino); }
+
+  .nav-cubierta .logo {
+    color: var(--pergamino);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+  }
+
+  .etiqueta-seccion {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--granate-claro);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .etiqueta-seccion::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--granate);
+  }
+
+  .cubierta h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 900;
+    line-height: 1.05;
+    color: var(--pergamino);
+    margin-bottom: 24px;
+    letter-spacing: -0.01em;
+  }
+
+  .cubierta .subtitulo {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(17px, 2.2vw, 22px);
+    color: var(--cafe-claro);
+    line-height: 1.45;
+    max-width: 620px;
+    margin-bottom: 48px;
+  }
+
+  .cubierta-meta {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cafe-claro);
+    border-top: 1px solid #3a1a0a;
+    padding-top: 24px;
+    flex-wrap: wrap;
+  }
+
+  .cubierta-meta span { color: var(--pergamino-oscuro); }
+
+  /* Ornamento tipográfico en cubierta */
+  .cubierta-ornamento {
+    position: absolute;
+    right: 64px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Playfair Display', serif;
+    font-size: 220px;
+    line-height: 1;
+    color: var(--granate);
+    opacity: 0.06;
+    font-style: italic;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  /* ── BANDA DE APERTURA ── */
+  .banda-apertura {
+    background: var(--granate);
+    padding: 20px 0;
+  }
+
+  .banda-apertura .inner {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 64px 0 80px;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(245, 236, 217, 0.7);
+    display: flex;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+
+  /* ── CUERPO ── */
+  .cuerpo {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 72px 64px 96px 80px;
+  }
+
+  /* Texto de apertura (sin título de sección) */
+  .apertura {
+    margin-bottom: 64px;
+    padding-bottom: 64px;
+    border-bottom: 1px solid var(--pergamino-oscuro);
+  }
+
+  .apertura p {
+    font-size: 1.05rem;
+    margin-bottom: 1.3rem;
+    color: var(--negro);
+  }
+
+  .apertura p:first-child {
+    font-size: 1.15rem;
+    font-weight: 600;
+  }
+
+  /* Secciones */
+  .seccion {
+    margin-bottom: 64px;
+    padding-bottom: 64px;
+    border-bottom: 1px solid var(--pergamino-oscuro);
+  }
+
+  .seccion:last-of-type {
+    border-bottom: none;
+  }
+
+  .num-seccion {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--granate);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .num-seccion::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--pergamino-oscuro);
+    max-width: 120px;
+  }
+
+  .seccion h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 700;
+    color: var(--granate);
+    line-height: 1.2;
+    margin-bottom: 28px;
+  }
+
+  .seccion p {
+    margin-bottom: 1.2rem;
+    color: var(--negro);
+  }
+
+  /* Bloque de datos */
+  .bloque-datos {
+    background: var(--pergamino-oscuro);
+    border-left: 4px solid var(--granate);
+    padding: 28px 32px;
+    margin: 36px 0;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .bloque-datos-titulo {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--granate);
+    margin-bottom: 16px;
+  }
+
+  .bloque-datos p {
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+    color: var(--negro-suave);
+  }
+
+  .bloque-datos p:last-child { margin-bottom: 0; }
+
+  /* Tabla de distribución */
+  .tabla-wrapper {
+    overflow-x: auto;
+    margin: 36px 0;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.88rem;
+  }
+
+  thead tr {
+    background: var(--granate);
+    color: var(--pergamino);
+  }
+
+  thead th {
+    padding: 10px 16px;
+    text-align: left;
+    font-family: 'Space Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  tbody tr {
+    border-bottom: 1px solid var(--pergamino-oscuro);
+  }
+
+  tbody tr:nth-child(even) {
+    background: rgba(232, 208, 168, 0.35);
+  }
+
+  tbody td {
+    padding: 10px 16px;
+    color: var(--negro);
+    vertical-align: top;
+  }
+
+  tbody td:first-child {
+    font-weight: 600;
+    color: var(--negro-suave);
+  }
+
+  .cifra {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--granate);
+  }
+
+  /* Callout especial (cita/dato central) */
+  .callout {
+    border: 1px solid var(--cafe);
+    border-left: 5px solid var(--cafe);
+    background: #F0E4CE;
+    padding: 24px 28px;
+    margin: 36px 0;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .callout p {
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--negro-suave);
+    margin-bottom: 0.5rem;
+  }
+
+  .callout .callout-fuente {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--cafe);
+    font-style: normal;
+    letter-spacing: 0.05em;
+  }
+
+  /* Programas lista */
+  .programa-item {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--pergamino-oscuro);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+
+  .programa-item:last-child { border-bottom: none; }
+
+  .programa-icono {
+    width: 8px;
+    height: 8px;
+    background: var(--granate);
+    border-radius: 50%;
+    margin-top: 9px;
+    flex-shrink: 0;
+  }
+
+  .programa-nombre {
+    font-weight: 600;
+    color: var(--negro-suave);
+    margin-bottom: 4px;
+  }
+
+  .programa-desc {
+    font-size: 0.93rem;
+    color: var(--texto-muted);
+    margin-bottom: 0;
+  }
+
+  /* Escenarios */
+  .escenario {
+    background: var(--cuero);
+    color: var(--pergamino);
+    padding: 36px 40px;
+    margin: 36px 0;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .escenario::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 6px;
+    background: var(--granate);
+  }
+
+  .escenario-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--granate-claro);
+    margin-bottom: 12px;
+  }
+
+  .escenario h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--pergamino);
+    margin-bottom: 20px;
+  }
+
+  .escenario p {
+    font-size: 0.95rem;
+    color: rgba(245, 236, 217, 0.85);
+    margin-bottom: 0.9rem;
+  }
+
+  .escenario p:last-child { margin-bottom: 0; }
+
+  .escenario ul {
+    margin: 12px 0 12px 20px;
+    color: rgba(245, 236, 217, 0.85);
+    font-size: 0.93rem;
+  }
+
+  .escenario li { margin-bottom: 6px; }
+
+  /* Cierre / colofón */
+  .colofon {
+    margin-top: 72px;
+    padding-top: 48px;
+    border-top: 2px solid var(--granate);
+  }
+
+  .colofon h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--granate);
+    margin-bottom: 24px;
+    font-style: italic;
+  }
+
+  .colofon p {
+    margin-bottom: 1.2rem;
+    color: var(--negro);
+  }
+
+  /* Fuentes */
+  .fuentes {
+    margin-top: 64px;
+    padding-top: 40px;
+    border-top: 1px solid var(--pergamino-oscuro);
+  }
+
+  .fuentes-titulo {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--cafe);
+    margin-bottom: 24px;
+  }
+
+  .fuentes-lista {
+    list-style: none;
+  }
+
+  .fuentes-lista li {
+    font-size: 0.82rem;
+    color: var(--texto-muted);
+    padding: 8px 0;
+    border-bottom: 1px solid var(--pergamino-oscuro);
+    line-height: 1.55;
+  }
+
+  .fuentes-lista li:last-child { border-bottom: none; }
+
+  .fuentes-lista a { color: var(--cafe); text-decoration: underline; }
+
+  /* Nota metodológica */
+  .nota-metodologica {
+    background: rgba(122, 79, 45, 0.08);
+    border: 1px solid var(--cafe-claro);
+    padding: 24px 28px;
+    margin-top: 40px;
+    border-radius: 4px;
+    font-size: 0.83rem;
+    color: var(--texto-muted);
+    line-height: 1.6;
+  }
+
+  .nota-metodologica strong { color: var(--cafe); }
+
+  /* Enlace informes */
+  .enlace-informes {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 36px;
+  }
+
+  .enlace-informes a {
+    font-family: 'Space Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--pergamino);
+    background: var(--granate);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: background 0.15s;
+  }
+
+  .enlace-informes a:hover { background: var(--granate-claro); }
+
+  .enlace-informes a.secundario {
+    background: transparent;
+    color: var(--granate);
+    border: 1px solid var(--granate);
+  }
+
+  .enlace-informes a.secundario:hover { background: rgba(107, 21, 40, 0.08); }
+
+  /* Footer */
+  footer {
+    background: var(--cuero);
+    border-top: 4px solid var(--granate);
+    padding: 32px 0;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--cafe-claro);
+    text-align: center;
+  }
+
+  footer a { color: var(--cafe-claro); text-decoration: none; }
+  footer a:hover { color: var(--pergamino); }
+
+  /* Responsive */
+  @media (max-width: 680px) {
+    .cubierta-inner { padding: 48px 24px 48px 36px; }
+    .cuerpo { padding: 48px 24px 64px 36px; }
+    .banda-apertura .inner { padding: 0 24px 0 36px; }
+    .cubierta-ornamento { display: none; }
+    .nav-cubierta { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .escenario { padding: 28px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── CUBIERTA ── -->
+<div class="cubierta">
+  <div class="cubierta-inner">
+
+    <div class="nav-cubierta">
+      <a class="logo" href="/">antropos.app</a>
+      <nav style="display:flex; gap:28px;">
+        <a href="/">Inicio</a>
+        <a href="/analisis-add/">Análisis ADD</a>
+        <a href="/informes-estrategicos/fees-2027/">Informes FEES</a>
+      </nav>
+    </div>
+
+    <div class="etiqueta-seccion">Artículo · Política universitaria · 23 de abril de 2026</div>
+
+    <h1>La biblioteca<br>que nadie quemó</h1>
+
+    <p class="subtitulo">El FEES 2027, las universidades públicas de Costa Rica y el costo de destruir lo que tarda décadas en construirse</p>
+
+    <div class="cubierta-meta">
+      <span>Alfredo Montero Fonseca</span>
+      <span>·</span>
+      <span>Día Internacional del Libro</span>
+      <span>·</span>
+      <span>UCR · ANCA-ADE</span>
+    </div>
+
+    <div class="cubierta-ornamento">&ldquo;</div>
+  </div>
+</div>
+
+<!-- ── BANDA ── -->
+<div class="banda-apertura">
+  <div class="inner">
+    <span>Análisis MEEE-G + ADD</span>
+    <span>·</span>
+    <span>Datos confirmados y clasificados epistemológicamente</span>
+    <span>·</span>
+    <span>Ver informes de base →</span>
+  </div>
+</div>
+
+<!-- ── CUERPO ── -->
+<main class="cuerpo">
+
+  <!-- APERTURA -->
+  <div class="apertura">
+    <p>Hoy es el Día Internacional del Libro y del Derecho de Autor. La fecha conmemora, entre otras coincidencias históricas, el aniversario de la muerte de Cervantes, de Shakespeare y del Inca Garcilaso de la Vega. Es también un día para pensar en lo que el conocimiento hace posible, y en lo que puede perderse.</p>
+
+    <p>Circula desde hace siglos la imagen de la Biblioteca de Alejandría destruida en un gran incendio. Es una imagen poderosa: el fuego, la caída dramática, la pérdida irreparable en un instante. Pero esa imagen es, en lo fundamental, un mito. La Biblioteca de Alejandría no fue destruida por un solo incendio catastrófico. Fue degradada gradualmente a lo largo de siglos por una combinación de conflictos políticos, cambios en las prioridades del Estado y el descuido acumulado de quienes debían sostenerla. Cuando Roma sustituyó a Alejandría como centro del mundo mediterráneo, la biblioteca dejó de ser una prioridad para los sucesivos poderes que la administraban. Cuando dejó de ser una prioridad, los recursos escasearon. Cuando los recursos escasearon, el conocimiento acumulado durante siglos se fue fragmentando, dispersando y perdiendo. No hubo un momento único de destrucción. Hubo muchos años de presupuesto insuficiente.</p>
+
+    <p>Traigo esta historia a colación porque el día de ayer, el 21 de abril de 2026, el gobierno de Costa Rica dio por cerradas las negociaciones del FEES 2027. No fue un incendio, pero sí una peligrosa declaración.</p>
+  </div>
+
+  <!-- I -->
+  <div class="seccion">
+    <div class="num-seccion">I</div>
+    <h2>El Fondo Especial, las cinco universidades y una negociación rota</h2>
+
+    <p>El FEES —Fondo Especial para la Educación Superior— es el principal mecanismo de financiamiento de las cinco universidades públicas costarricenses, regulado por el artículo 85 de la Constitución Política. Para 2026 alcanza <span class="cifra">₡593.484 millones</span>, distribuidos entre la UCR, la UNA, el TEC, la UNED y la UTN.</p>
+
+    <div class="tabla-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Universidad</th>
+            <th>% del FEES</th>
+            <th>Monto 2026 (millones ₡)</th>
+            <th>Producción científica nacional</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>UCR (fundada 1940)</td>
+            <td class="cifra">49,96 %</td>
+            <td class="cifra">296.511</td>
+            <td>70 %</td>
+          </tr>
+          <tr>
+            <td>UNA (fundada 1973)</td>
+            <td class="cifra">20,79 %</td>
+            <td class="cifra">123.456</td>
+            <td>~20 %</td>
+          </tr>
+          <tr>
+            <td>TEC (fundada 1971)</td>
+            <td class="cifra">11,22 %</td>
+            <td class="cifra">66.581</td>
+            <td>~8 %</td>
+          </tr>
+          <tr>
+            <td>UNED (fundada 1977)</td>
+            <td class="cifra">9,47 %</td>
+            <td class="cifra">56.183</td>
+            <td>~1,5 %</td>
+          </tr>
+          <tr>
+            <td>UTN (fundada 2008)</td>
+            <td class="cifra">6,80 %</td>
+            <td class="cifra">40.325</td>
+            <td>~0,5 %</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>La distribución no es arbitraria: refleja el desarrollo acumulado de cada institución, su tamaño, su matrícula, su producción académica y la escala de los servicios que brinda al país. La UCR, fundada en 1940, es la institución más antigua y la más grande (un detalle: la Escuela de Física, que alberga el Programa de Investigación Astronómica y Planetaria, cumplió en 2024, 50 años); la UTN, creada en 2008, es la más joven.</p>
+
+    <p>El 21 de abril de 2026, el presidente Rodrigo Chaves declaró cerradas las negociaciones del FEES 2027 tras calificar de «irracional y abusiva» la propuesta universitaria de un aumento del 2,94% —₡17.448 millones adicionales sobre una base de ₡593.484 millones, a los que se sumaban compromisos previos de unos ₡11.000 millones—. El presidente estableció una condición explícita: el FEES se queda en 0% a menos que la UCR y la UNA cedan participación presupuestaria en favor de la UNED, la UTN y el TEC. La presidenta electa Laura Fernández confirmó que mantendrá esa posición desde el 8 de mayo. La decisión final quedó en manos de la Asamblea Legislativa.</p>
+
+    <div class="callout">
+      <p>«El FEES se queda en 0% si no hay una reducción significativa de la UNA y de la Universidad de Costa Rica para la UNED, para la UTN y para el TEC.»</p>
+      <span class="callout-fuente">— Rodrigo Chaves, sesión de la Comisión de Enlace, 21 de abril de 2026</span>
+    </div>
+
+    <p>Hay dos propuestas sobre la mesa. La primera es un <strong>congelamiento del fondo</strong>: el FEES 2027 permanecería en ₡593.484 millones, lo que equivale a una reducción real por efecto de la inflación, estimada en más de un 2% anual. La segunda, impulsada desde marzo de 2026 por parte del CONARE y rechazada por la UCR mediante un veto razonado, es una <strong>redistribución homogénea</strong>: repartir el fondo en partes iguales, asignando el 20% a cada universidad independientemente de su tamaño institucional, matrícula o producción académica.</p>
+
+    <p>El veto de la UCR se sustenta en el Convenio de Coordinación de la Educación Superior Universitaria Estatal de 1974, que exige consenso unánime de todas las universidades para modificar la distribución de recursos, y en un precedente de la Sala Constitucional sobre el principio de igualdad. El conflicto no es solo presupuestario: es también constitucional.</p>
+  </div>
+
+  <!-- II -->
+  <div class="seccion">
+    <div class="num-seccion">II</div>
+    <h2>Lo que las universidades sostienen sin que nadie lo vea</h2>
+
+    <p>Hay una percepción que se instala con facilidad cuando se habla del FEES: que el debate es sobre presupuestos universitarios, sobre salarios académicos, sobre disputas entre instituciones. Pero esa es una percepción incompleta.</p>
+
+    <p>Las universidades públicas de Costa Rica no son solo centros de formación profesional. Son, también, infraestructura del Estado. Sostenida por el FEES, pero distinta de él.</p>
+
+    <div class="bloque-datos">
+      <div class="bloque-datos-titulo">Programas estratégicos — muestra documentada</div>
+
+      <div class="programa-item">
+        <div class="programa-icono"></div>
+        <div>
+          <div class="programa-nombre">Instituto Clodomiro Picado (UCR)</div>
+          <p class="programa-desc">Produce 100.000 frascos de sueros antiofídicos al año para Costa Rica y para exportación a países de América Latina, África y Asia. Desarrolló suero anti-SARS-CoV-2 durante la pandemia. No existe en el país una alternativa privada para este servicio.</p>
+        </div>
+      </div>
+
+      <div class="programa-item">
+        <div class="programa-icono"></div>
+        <div>
+          <div class="programa-nombre">Ciclotrón PET/CT — CeNAT-CICANUM (UCR)</div>
+          <p class="programa-desc">Contrato vigente con la CCSS por 3.850 estudios diagnósticos de imagen al año, valorado en USD 4,1 millones. Diagnóstico oncológico, cardiovascular y neurológico. Sin este convenio, estos estudios son inaccesibles en la red hospitalaria pública.</p>
+        </div>
+      </div>
+
+      <div class="programa-item">
+        <div class="programa-icono"></div>
+        <div>
+          <div class="programa-nombre">Centro de Investigación en Estructuras Microscópicas — CIEMic (UCR)</div>
+          <p class="programa-desc">Opera el único microscopio confocal de fluorescencia en Costa Rica. Sin este equipo, ciertas líneas de investigación en microbiología, biología molecular y ciencias de materiales no se pueden realizar en el país.</p>
+        </div>
+      </div>
+
+      <div class="programa-item">
+        <div class="programa-icono"></div>
+        <div>
+          <div class="programa-nombre">CICAP, CINA, CITA, INIE, Repositorio Kérwá (UCR)</div>
+          <p class="programa-desc">Formación de funcionarios públicos, asesoría técnica agropecuaria, inocuidad alimentaria, investigación educativa para el MEP, y acceso abierto a producción académica nacional desde 2010.</p>
+        </div>
+      </div>
+
+      <div class="programa-item">
+        <div class="programa-icono"></div>
+        <div>
+          <div class="programa-nombre">IDESPO (UNA)</div>
+          <p class="programa-desc">Produce encuestas de opinión pública y datos sociodemográficos que informan decisiones del Ejecutivo, la Asamblea Legislativa, la CCSS y los gobiernos locales.</p>
+        </div>
+      </div>
+
+      <div class="programa-item">
+        <div class="programa-icono"></div>
+        <div>
+          <div class="programa-nombre">OVSICORI (UNA) — Red Sismológica Nacional / Escuela Centroamericana de Geología (UCR)</div>
+          <p class="programa-desc">El Observatorio Vulcanológico y Sismológico de Costa Rica (OVSICORI), adscrito a la UNA, es el principal sistema de monitoreo en tiempo real de la actividad sísmica y volcánica del país. Emite alertas tempranas a la CNE y al Sistema Nacional de Gestión del Riesgo. Costa Rica tiene cinco volcanes activos y alta sismicidad: sin OVSICORI, el país pierde su capacidad de alerta ante erupciones y terremotos. La UCR, por su parte, opera junto con el ICE la Red Sismológica Nacional (RSN) y alberga la única Escuela Centroamericana de Geología del país; su LANAMME evalúa anualmente el estado de la red vial nacional, con implicaciones directas para la seguridad de la infraestructura pública.</p>
+        </div>
+      </div>
+
+      <div class="programa-item">
+        <div class="programa-icono"></div>
+        <div>
+          <div class="programa-nombre">Lenguas indígenas e investigación arqueológica — Escuelas de Lingüística y de Antropología (UCR)</div>
+          <p class="programa-desc">La UCR desarrolla programas de documentación, revitalización y fortalecimiento de las ocho lenguas indígenas de Costa Rica (bribri, cabécar, maleku, boruca/brünca, ngäbere/guaymí, teribe/térraba, chorotega y huétar), varias de ellas en riesgo crítico de desaparición. Trabaja directamente con comunidades en la producción de materiales pedagógicos y en el fortalecimiento cultural de los pueblos originarios. Al mismo tiempo, sus investigaciones arqueológicas —entre ellas las que rodean las esferas de piedra de los Diquís, declaradas Patrimonio de la Humanidad por la UNESCO en 2014— sostienen la identidad histórica del país y son la base científica del turismo cultural en regiones como el sur de Costa Rica. Este conocimiento, una vez perdido, no se reconstruye.</p>
+        </div>
+      </div>
+
+      <div class="programa-item">
+        <div class="programa-icono"></div>
+        <div>
+          <div class="programa-nombre">CIPA, CTTM, CETIA, CEQIATEC (TEC)</div>
+          <p class="programa-desc">Gestión ambiental y tratamiento de aguas para el MINAE y el AyA; reciclaje y economía circular; agricultura de precisión con tecnologías de inteligencia artificial; análisis de inocuidad para exportación.</p>
+        </div>
+      </div>
+
+      <div class="programa-item">
+        <div class="programa-icono"></div>
+        <div>
+          <div class="programa-nombre">Laboratorio de agua y suelos (UNED) — UTN: consultoría y asesoría territorial</div>
+          <p class="programa-desc">La UNED inauguró en setiembre de 2025 un laboratorio de análisis físico-químicos para comunidades rurales con acceso limitado a monitoreo de calidad del agua. La UTN brinda asesoría técnica a PYMES, cooperativas y municipalidades en todo el territorio nacional.</p>
+        </div>
+      </div>
+    </div>
+
+    <p>El 95,9% del presupuesto de la UCR proviene del FEES. Un recorte al FEES es un recorte a muchos de estos servicios. Y esto no es una metáfora.</p>
+  </div>
+
+  <!-- III -->
+  <div class="seccion">
+    <div class="num-seccion">III</div>
+    <h2>Dos escenarios, un solo resultado</h2>
+
+    <div class="escenario">
+      <div class="escenario-label">Escenario A · Probabilidad media-alta</div>
+      <h3>Congelamiento: 0% de aumento al FEES</h3>
+      <p>Un congelamiento nominal equivale a una reducción real. Con una inflación superior al 2%, el poder adquisitivo del fondo disminuye año a año. En términos prácticos:</p>
+      <ul>
+        <li>Reducción de la cobertura de becas en aproximadamente un 6%; en poblaciones vulnerables, eso se traduce directamente en mayor deserción estudiantil.</li>
+        <li>Pérdida real de entre 2 y 3 puntos porcentuales anuales en capacidad de investigación. Las líneas emergentes —las más sensibles a la disponibilidad de fondos— serían las primeras en cerrarse.</li>
+        <li>Deterioro del equipamiento en hospitales públicos y centros laboratorio que dependen de la UCR.</li>
+        <li>Congelamiento de la inversión en sedes regionales; acentuación de la desigualdad territorial.</li>
+        <li>Fuga de talento hacia el sector privado o el exterior.</li>
+      </ul>
+      <p>El efecto es gradual, difícil de atribuir a un solo presupuesto, y acumulativo.</p>
+    </div>
+
+    <div class="escenario">
+      <div class="escenario-label">Escenario B · Probabilidad baja en corto plazo, creciente en mediano plazo</div>
+      <h3>Redistribución homogénea: 20% para cada universidad</h3>
+      <p>La UCR perdería aproximadamente <span style="color:var(--pergamino-oscuro); font-family:'Space Mono',monospace;">₡177.000 millones</span> de su presupuesto actual, una reducción del 29,96%.</p>
+      <ul>
+        <li>Colapso de la capacidad de investigación: la UCR concentra el 70% de la producción científica de Centroamérica y el Caribe. Una reducción de casi el 30% de su presupuesto implicaría el cierre de decenas de centros e institutos.</li>
+        <li>Desarticulación del sistema de salud pública: los convenios con la CCSS (campos clínicos, Ciclotrón, ICP) quedarían sin respaldo financiero adecuado.</li>
+        <li>Pérdida masiva de investigadores altamente calificados y de redes científicas internacionales.</li>
+        <li>Desacreditación internacional del sistema universitario costarricense.</li>
+      </ul>
+      <p>Las universidades que recibirían recursos adicionales —TEC, UNED, UTN— necesitarían entre 5 y 8 años para absorber y gestionar efectivamente esos fondos: construir laboratorios, contratar y formar investigadores, desarrollar programas, acreditar carreras. El dinero puede llegar en un año. La capacidad institucional no.</p>
+    </div>
+
+    <div class="bloque-datos">
+      <div class="bloque-datos-titulo">Efecto sistémico crítico (Escenario B)</div>
+      <p>La redistribución homogénea constituiría una reconfiguración violenta del paisaje universitario nacional en un tiempo económicamente inviable. La concentración de la producción científica regional —el 70% de la investigación de Centroamérica y el Caribe— se perdería de forma irreversible, impactando la capacidad del país para responder a desafíos en salud, ambiente, agricultura y tecnología. Lo que perdería la UCR en un año presupuestario no podría reconstruirse en una década.</p>
+    </div>
+  </div>
+
+  <!-- IV -->
+  <div class="seccion">
+    <div class="num-seccion">IV</div>
+    <h2>El tiempo que tarda construir lo que se destruye en un presupuesto</h2>
+
+    <p>Este punto merece ser dicho con claridad, porque es el que con más frecuencia se pasa por alto en los debates presupuestarios.</p>
+
+    <p>La UCR lleva 86 años construyendo una red de instituciones, convenios, investigadores y servicios que el Estado costarricense no podría replicar por su cuenta ni en el corto ni en el mediano plazo. No es un proveedor intercambiable: es una institución que acumuló décadas de conocimiento especializado, relaciones internacionales, acreditaciones, equipamiento de alta tecnología y personal altamente calificado.</p>
+
+    <p>El Instituto Clodomiro Picado no se reconstruye en un ciclo presupuestario. La metodología para producir sueros antiofídicos, los protocolos de investigación, las redes de colaboración con instituciones de otros continentes, el personal formado para esa tarea específica: todo eso es el resultado de décadas de inversión continua. Destruir esa capacidad —sea mediante recorte gradual o mediante redistribución abrupta— no produce un vacío que otra institución pueda llenar de inmediato.</p>
+
+    <p>Lo mismo aplica para el CIEMic, para el Ciclotrón, para los centros de investigación educativa, para los programas de extensión en comunidades rurales. Cada uno de estos programas representa no solo equipamiento e infraestructura, sino conocimiento acumulado, redes de trabajo, procedimientos validados y personal especializado que tardó años en formarse.</p>
+
+    <div class="callout">
+      <p>Los análisis de escenario indican que las universidades beneficiadas por una redistribución homogénea necesitarían entre 5 y 8 años para absorber y gestionar adecuadamente los recursos incrementales. En ese lapso, la UCR ya habría colapsado programas que no se pueden reactivar con un decreto ni con fondos devueltos.</p>
+      <span class="callout-fuente">(Esta es una inferencia plausible basada en los documentos de análisis de base, abril 2026)</span>
+    </div>
+
+    <p>La comunidad científica nacional que hoy produce el 70% de la investigación de toda la región no se reconstruye en un presupuesto. Los investigadores no esperan. Los laboratorios no se mantienen solos. Las acreditaciones internacionales no se preservan sin inversión activa. Las redes de colaboración científica no permanecen abiertas para instituciones que desaparecen de los congresos, de las publicaciones y de los proyectos conjuntos.</p>
+
+    <p>Costa Rica ha tardado más de ochenta años en construir un sistema universitario que produce conocimiento, siendo el más productivo de la región. Eso no es irrelevante: precisamente, es el activo que está en discusión.</p>
+  </div>
+
+  <!-- CIERRE -->
+  <div class="colofon">
+    <h2>La biblioteca y la fecha</h2>
+
+    <p>Hoy, 23 de abril de 2026, es el Día Internacional del Libro y del Derecho de Autor. Las fechas no siempre coinciden con los eventos que deberían iluminarlos, pero esta lo hace con precisión notable.</p>
+
+    <p>La Biblioteca de Alejandría no fue destruida en un incendio. Hubo, al menos, dos incendios previos de los que se recuperó (48 a.C. y 391 d.C.). Fueron los saqueos, el abandono y los conflictos políticos durante el dominio romano los que acabaron con ella: fue abandonada. Primero por los gobernantes que dejaron de financiarla. Luego por los sabios que encontraron mejores condiciones en otros lugares. Y finalmente por quienes ya no recordaban exactamente qué había allí ni para qué servía (641 d.C. y años anteriores).</p>
+
+    <p>Lo que Costa Rica tiene en sus cinco universidades públicas es también esa biblioteca y mucho, muchísimo más. Una institución que tarda décadas en construirse y que puede perderse en pocos años de decisiones equivocadas. El FEES no es una transferencia de recursos hacia instituciones que los acumulan: es el soporte financiero de servicios, investigación y conocimiento que el país necesita para funcionar, para resolver sus problemas, para no depender de otros para diagnosticar sus enfermedades, analizar sus suelos, evaluar sus alimentos o formar sus docentes.</p>
+
+    <p>El debate sobre el FEES 2027 no es un debate sobre eficiencia administrativa. Es un debate sobre qué clase de país quiere ser Costa Rica en las próximas décadas: uno que invierte en conocimiento, en salud, en ciencia y en el desarrollo territorial de sus regiones; o uno que decide, presupuesto a presupuesto, que esas cosas pueden esperar.</p>
+
+    <p>Ciertamente queda mucho por mejorar en gestión y en la corrección de abusos que existieron. Pero buena parte de ese trabajo ya está en marcha: la Ley de Fortalecimiento de las Finanzas Públicas (N.° 9635) redujo la anualidad docente del 3,75% al 1,94% sobre el salario base, vigente desde 2020; la dedicación exclusiva bajó del 30% al 25% en 2023; y la Ley Marco de Empleo Público (N.° 10159) establece el salario global y topes uniformes para el sector público. Sus efectos plenos todavía están implementándose — los números tardarán al menos un año más en reflejarse con claridad. Eso es real. Lo que también es real es que desmantelar lo construido en ocho décadas no tiene el mismo tiempo de recuperación: reconstruirlo requeriría, como mínimo, otro tanto.</p>
+
+    <p>La historia enseña que lo que no se valora y atesora, desaparece.</p>
+
+    <div class="enlace-informes">
+      <a href="/informes-estrategicos/fees-2027/">Ver informes de base</a>
+      <a href="/informes-estrategicos/fees-2027/" class="secundario">UCR: Articulación institucional</a>
+      <a href="/informes-estrategicos/fees-2027/contribuciones.html" class="secundario">UCR: Contribuciones al país</a>
+      <a href="/informes-estrategicos/fees-2027/anexo.html" class="secundario">Anexo: Programas estratégicos</a>
+      <a href="/informes-estrategicos/fees-2027/FEES_2027_PuntodeQuiebre.pdf" target="_blank" rel="noopener" class="secundario">Presentación: Punto de Quiebre ↗</a>
+    </div>
+  </div>
+
+  <!-- FUENTES -->
+  <div class="fuentes">
+    <div class="fuentes-titulo">Fuentes y base documental</div>
+    <ul class="fuentes-lista">
+      <li>Chaves, R., & Fernández, L. (2026, 21 de abril). <em>Declaraciones en la sesión de la Comisión de Enlace del FEES 2027</em>. Semanario Universidad. <a href="https://semanariouniversidad.com/universitarias/fees-queda-en-manos-de-una-asamblea-legislativa-mayoritariamente-oficialista/" target="_blank" rel="noopener">→ Semanario Universidad</a></li>
+      <li>CONARE. (2026, 14 de abril). <em>CONARE Ampliado aprueba principios orientadores para la distribución del FEES 2027 y reducción de brechas entre universidades públicas</em>. <a href="https://www.conare.ac.cr/conare-ampliado-aprueba-principios-orientadores-para-la-distribucion-del-fees-2027-y-reduccion-de-brechas-entre-universidades-publicas/" target="_blank" rel="noopener">→ CONARE</a></li>
+      <li>CONARE. (2025, 1 de setiembre). <em>CONARE avala distribución del FEES 2026</em>. CRHoy. <a href="https://www.crhoy.com/nacionales/conare-avala-distribucion-del-fees-2026-para-universidades-publicas/" target="_blank" rel="noopener">→ CRHoy</a></li>
+      <li>Consejo Universitario UCR. (2026, 16 de abril). <em>UCR vetó acuerdo del CONARE que cambia la redistribución del FEES</em>. Semanario Universidad. <a href="https://semanariouniversidad.com/universitarias/ucr-aprobo-veto-al-acuerdo-del-conare-que-cambia-la-redistribucion-del-fees-porque-requiere-del-consenso-de-todas-las-universidades/" target="_blank" rel="noopener">→ Semanario Universidad</a></li>
+      <li>Infobae. (2026, 22 de abril). <em>Gobierno de Costa Rica rompe negociación del FEES y traslada decisión al Congreso</em>. <a href="https://www.infobae.com/costa-rica/2026/04/22/gobierno-de-costa-rica-rompe-negociacion-del-fees-y-traslada-decision-al-congreso-tras-choque-con-rectores-por-aumento-de-casi-30000-millones/" target="_blank" rel="noopener">→ Infobae</a></li>
+      <li>La Nación. (2025, 5 de setiembre). <em>Así quedó la distribución del FEES 2026</em>. <a href="https://www.nacion.com/el-pais/asi-quedo-la-distribucion-del-fees-2026-luego-de/O46GRVQHTBHDHFYCFDMJPFGXEQ/story/" target="_blank" rel="noopener">→ La Nación</a></li>
+      <li>La Nación. (2021). <em>UCR pagará campos clínicos en hospitales públicos con proyectos de investigación y acción social</em>. <a href="https://www.nacion.com/el-pais/salud/ucr-pagara-campos-clinicos-en-hospitales-publicos/RKYDDBOPXBDRZMH4AQVGTL6FGA/story/" target="_blank" rel="noopener">→ La Nación</a></li>
+      <li>Diario Extra. (2025, 30 de setiembre). <em>₡373 mil millones: UCR aprueba presupuesto 2026</em>. Diario Extra.</li>
+      <li>Vive UCR. (2026, 8 de abril). <em>Inversión social y regional de la UCR alcanza cifras históricas en 2026</em>. Vive UCR.</li>
+      <li>Obando, J. (2026, 22 de abril). <em>Gobierno rompe negociación con rectores sobre el FEES</em>. El Observador CR. <a href="https://observador.cr/gobierno-y-rectores-rompen-negociacion-sobre-el-fees-universidades-solicitan-casi-17-000-millones-para-el-2027/" target="_blank" rel="noopener">→ El Observador</a></li>
+    </ul>
+
+    <div class="nota-metodologica">
+      <strong>Nota metodológica:</strong> Este artículo se basa en tres documentos de análisis elaborados con la metodología MEEE-G (Marco de Evaluación Epistémica Explicacionista con Gradación) y ADD (Análisis Dinámico del Devenir). Las afirmaciones están clasificadas según su estatus epistémico: <em>dato confirmado</em> (presupuestos, montos, porcentajes, declaraciones directas), <em>inferencia plausible</em> (efectos en cascada, tiempos de recuperación institucional), <em>hipótesis</em> (relaciones causales entre redistribución y productividad científica) o <em>interpretación</em>. No constituye predicción determinista ni recomendación política. Los informes de base están disponibles en la sección <a href="/informes-estrategicos/fees-2027/">Informes Estratégicos</a> de este sitio.
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <a href="/">antropos.app</a> &nbsp;·&nbsp; &copy; 2026 Alfredo Montero Fonseca &nbsp;·&nbsp; <a href="mailto:antropos.amf@proton.me">antropos.amf@proton.me</a>
+</footer>
+
+<script data-goatcounter="https://antropos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

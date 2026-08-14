@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La misión Artemis II llega a la órbita de la Luna — Alfredo Montero Fonseca</title>
+<meta name="description" content="Reflexión antropológica sobre el día central de la misión Artemis II: el sobrevuelo lunar, la cara oculta y lo profundamente humano del siguiente paso.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Mono:wght@0,400;0,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --negro: #0a0a0a;
+    --azul: #1a3a5c;
+    --azul-claro: #2c5282;
+    --crema: #f5f0e8;
+    --crema-oscuro: #ede4d0;
+    --gris-texto: #2c2c2c;
+    --gris-medio: #666;
+    --oro: #b8942a;
+    --ancho-max: 860px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--crema);
+    color: var(--gris-texto);
+    font-family: 'Source Serif 4', serif;
+    font-size: 17px;
+    line-height: 1.75;
+  }
+
+  a { color: var(--azul-claro); }
+
+  /* ── Header ── */
+  .cabecera {
+    background: var(--negro);
+    color: var(--crema);
+    padding: 0;
+  }
+
+  .cab-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 48px;
+    border-bottom: 1px solid #333;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .cab-top a { color: var(--crema); text-decoration: none; }
+  .cab-top a:hover { color: var(--oro); }
+
+  .cab-main {
+    max-width: var(--ancho-max);
+    margin: 0 auto;
+    padding: 56px 32px 48px;
+    text-align: center;
+  }
+
+  .etiqueta-especial {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--oro);
+    margin-bottom: 24px;
+  }
+
+  .cab-main h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 20px;
+    color: var(--crema);
+  }
+
+  .cab-main h1 em {
+    font-style: italic;
+    color: var(--oro);
+  }
+
+  .metadatos {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #777;
+    border-top: 1px solid #333;
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  /* ── Contenido ── */
+  .contenido {
+    max-width: var(--ancho-max);
+    margin: 0 auto;
+    padding: 56px 32px 80px;
+  }
+
+  .contenido p {
+    margin-bottom: 1.4rem;
+  }
+
+  .cita-bloque {
+    background: var(--crema-oscuro);
+    border-left: 4px solid var(--oro);
+    padding: 20px 28px;
+    margin: 32px 0;
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--azul);
+  }
+
+  /* ── Video embed ── */
+  .video-wrap {
+    margin: 40px 0;
+  }
+
+  .video-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gris-medio);
+    margin-bottom: 10px;
+  }
+
+  .video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    background: #000;
+  }
+
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .video-caption {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--gris-medio);
+    margin-top: 10px;
+    line-height: 1.5;
+  }
+
+  /* ── Datos ── */
+  .datos-mision {
+    background: var(--negro);
+    color: var(--crema);
+    padding: 28px 32px;
+    margin: 40px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+  }
+
+  .dato {
+    text-align: center;
+  }
+
+  .dato .valor {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--oro);
+    display: block;
+  }
+
+  .dato .label {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-top: 4px;
+    display: block;
+  }
+
+  /* ── Separador ── */
+  .separador {
+    text-align: center;
+    color: var(--oro);
+    font-size: 1.2rem;
+    margin: 40px 0;
+    letter-spacing: 0.4em;
+  }
+
+  /* ── Footer ── */
+  footer {
+    background: var(--negro);
+    color: #777;
+    padding: 32px;
+    text-align: center;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+  }
+  footer a { color: var(--oro); text-decoration: none; }
+  footer p + p { margin-top: 8px; }
+</style>
+</head>
+<body>
+
+<header class="cabecera">
+  <div class="cab-top">
+    <a href="/">antropos.app</a>
+    <span>Misión Artemis II · Cobertura en vivo</span>
+    <span>6 de abril, 2026</span>
+  </div>
+  <div class="cab-main">
+    <div class="etiqueta-especial">Ciencia &amp; Humanidad · 2026</div>
+    <h1>La misión Artemis II<br><em>llega a la órbita de la Luna</em></h1>
+    <div class="metadatos">
+      <span>Alfredo Montero Fonseca</span>
+      <span>Universidad de Costa Rica</span>
+      <span>6 de abril, 2026</span>
+    </div>
+  </div>
+</header>
+
+<main class="contenido">
+
+  <p>Hay algo profundamente humano en lo que está pasando ahora mismo ahí arriba.</p>
+
+  <p>Como dice Jorge Drexler: somos una especie en movimiento, que nunca se queda quieta. Desde que salimos de África hace decenas de miles de años, cruzamos mares sin mapas, subimos montañas sin razón práctica aparente y nos adentramos en desiertos que nadie había atravesado. No lo hacemos solo por recursos o supervivencia. Hay algo más en nuestra biología y en nuestra cultura profunda que nos empuja hacia el horizonte siguiente. Artemis II es, en el fondo, la misma historia de siempre: cuatro personas yendo más lejos de donde nadie ha llegado antes.</p>
+
+  <div class="cita-bloque">
+    «Somos una especie migrante. Siempre lo hemos sido. Y esto es solo el siguiente paso.»
+  </div>
+
+  <p>Esa tripulación no es homogénea, nunca lo hemos sido, la evolución requiere diversidad: una mujer, un hombre negro, un canadiense y un comandante; llevan el peso simbólico de representar una generación nueva de exploradores. Así son los grandes proyectos de la humanidad —los que realmente importan— no pueden ser patrimonio de unos pocos. La exploración espacial, si ha de tener sentido a largo plazo, tiene que ser una empresa colectiva y diversa, o no será sostenible.</p>
+
+  <div class="separador">· · ·</div>
+
+  <div class="video-wrap">
+    <div class="video-label">Cobertura en vivo · en español</div>
+    <div class="video-container">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/BXrIuIT4H4k"
+        title="Artemis II · Cobertura en vivo — El Robot de Platón (Aldo Bartra)"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <p class="video-caption">El Robot de Platón (Aldo Bartra) hace cobertura en vivo, en español, del sobrevuelo lunar de Artemis II.</p>
+  </div>
+
+  <div class="video-wrap">
+    <div class="video-label">Transmisión oficial · NASA</div>
+    <div class="video-container">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/jv2wALXA3C4"
+        title="Artemis II · Transmisión oficial NASA"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <p class="video-caption">Transmisión oficial de la NASA del sobrevuelo lunar de Artemis II.</p>
+  </div>
+
+  <p>Hoy es el día central de la misión. Alrededor del mediodía hora de Costa Rica, la tripulación superará el récord de distancia humana establecido por el Apolo 13, y comenzará una ventana de observación de unas siete horas en la que fotografiarán y estudiarán directamente la superficie lunar. Hay zonas que verán que ningún ser humano ha visto antes a simple vista.</p>
+
+  <div class="datos-mision">
+    <div class="dato">
+      <span class="valor">~40 min</span>
+      <span class="label">Sin comunicación con la Tierra al cruzar la cara oculta</span>
+    </div>
+    <div class="dato">
+      <span class="valor">7 h</span>
+      <span class="label">Ventana de observación de la superficie lunar</span>
+    </div>
+    <div class="dato">
+      <span class="valor">30</span>
+      <span class="label">Objetivos científicos asignados por la NASA</span>
+    </div>
+    <div class="dato">
+      <span class="valor">1972</span>
+      <span class="label">Última vez que una tripulación cruzó la cara oculta (Apolo 17)</span>
+    </div>
+  </div>
+
+  <p>La NASA les envió una lista de 30 objetivos. Entre los más importantes están la cuenca Orientale —casi 965 km de diámetro, uno de los cráteres de impacto mejor conservados del Sistema Solar— y la cuenca Hertzsprung, en la cara oculta, mucho más erosionada. Compararlos es como leer dos capítulos distintos de la misma historia geológica. También estudiarán los cráteres Ohm y Pierazzo, formaciones más pequeñas pero con detalles que las sondas automáticas no logran capturar con la misma riqueza que el ojo humano entrenado.</p>
+
+  <p>Al final del sobrevuelo presenciarán algo incomparable: un eclipse solar visto desde el espacio. El Sol se ocultará detrás de la Luna, lo que les permitirá observar la corona solar, buscar destellos de impactos de meteoroides en la superficie, y fotografiar planetas —Mercurio, Venus, Marte, Saturno— visibles en ese momento único.</p>
+
+  <p>Y habrá unos 40 minutos en que la nave quedará completamente incomunicada con la Tierra mientras cruza la cara oculta. Primera vez que eso le ocurre a una tripulación humana desde el Apolo 17, en 1972.</p>
+
+  <div class="separador">🌕</div>
+
+  <p>Somos una especie migrante. Siempre lo hemos sido. Y esto es solo el siguiente paso.</p>
+
+</main>
+
+<footer>
+  <p>Alfredo Montero Fonseca · <a href="https://orcid.org/0009-0009-9696-4106">ORCID</a> · Universidad de Costa Rica</p>
+  <p><a href="/analisis-add/artemis/">Leer el análisis geopolítico completo de Artemis II →</a></p>
+  <p style="margin-top:16px;"><a href="/">← antropos.app</a></p>
+</footer>
+
+<script>/* No JS needed */</script>
+<script data-goatcounter="https://antropos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

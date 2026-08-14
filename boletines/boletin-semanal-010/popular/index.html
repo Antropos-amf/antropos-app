@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANCA-ADD para Todos · Boletín Semanal N.° 010 · Edición Popular</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Caveat:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f4ecd9; --paper2:#ede1c8; --card:#fbf6ea;
+    --ink:#3a2e22; --ink2:#5b4a38; --muted:#8c7a64;
+    --terra:#bb5630; --terra-dim:#8f3f22; --terra-bg:rgba(187,86,48,.09);
+    --olive:#5c7a3f; --olive-bg:rgba(92,122,63,.10);
+    --sun:#d99a2b; --sun-bg:rgba(217,154,43,.12);
+    --teal:#3d8a82; --teal-bg:rgba(61,138,130,.10);
+    --line:#d8c7a4; --line-dark:#c2ad84;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:'Lora',Georgia,serif;font-size:19px;line-height:1.62;
+    background-image:
+      radial-gradient(circle at 15% 8%, rgba(217,154,43,.05), transparent 40%),
+      radial-gradient(circle at 90% 70%, rgba(92,122,63,.05), transparent 45%);
+  }
+  ::selection{background:var(--sun-bg);color:var(--ink)}
+
+  /* TOP RIBBON */
+  .ribbon{background:var(--terra);color:var(--paper);text-align:center;padding:9px 14px;
+    font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.04em}
+  .ribbon b{text-decoration:underline}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(244,236,217,.94);
+    backdrop-filter:blur(6px);border-bottom:2px solid var(--line-dark);
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.04em}
+  nav .wrap{max-width:760px;margin:0 auto;padding:10px 22px;display:flex;flex-wrap:wrap;gap:5px 16px;align-items:center}
+  nav a{color:var(--ink2);text-decoration:none;text-transform:uppercase;transition:color .2s}
+  nav a:hover{color:var(--terra)}
+  nav .brand{color:var(--ink);font-weight:600;margin-right:auto;text-transform:none;font-size:12px}
+
+  main{max-width:760px;margin:0 auto;padding:0 22px 90px}
+
+  /* MASTHEAD */
+  header.mast{padding:46px 0 26px;text-align:center;border-bottom:3px double var(--line-dark);margin-bottom:10px}
+  .stamp{display:inline-block;font-family:'Caveat',cursive;font-size:22px;color:var(--terra);
+    transform:rotate(-2deg);margin-bottom:6px}
+  h1.title{font-family:'Fraunces',serif;font-weight:800;font-size:clamp(38px,8vw,62px);
+    line-height:1.05;margin:6px 0 8px;color:var(--ink)}
+  .subtitle{font-family:'Lora',serif;font-style:italic;font-size:clamp(17px,2.6vw,21px);
+    color:var(--ink2);margin:0 auto;max-width:520px}
+  .mast-meta{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--muted);
+    margin-top:18px;display:flex;flex-wrap:wrap;justify-content:center;gap:5px 20px}
+
+  /* INTRO LETTER */
+  .letter{background:var(--card);border:1px solid var(--line);border-radius:4px;
+    padding:26px 28px;margin:26px 0 8px;position:relative}
+  .letter:before{content:"";position:absolute;top:0;left:24px;right:24px;height:3px;
+    background:repeating-linear-gradient(90deg,var(--sun) 0 8px, transparent 8px 16px)}
+  .letter p{margin:0 0 13px;font-size:18.5px;color:var(--ink2)}
+  .letter p:last-child{margin-bottom:0}
+  .letter .firma{font-family:'Caveat',cursive;font-size:24px;color:var(--terra-dim);margin-top:4px}
+
+  /* TOC */
+  .toc{margin:30px 0 6px}
+  .toc h2{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--muted);text-align:center;margin:0 0 16px}
+  .toc-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+  .toc-item{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:12px 14px;
+    font-family:'Lora',serif;font-size:15px;color:var(--ink2);text-decoration:none;display:flex;gap:10px;align-items:flex-start}
+  .toc-item:hover{border-color:var(--terra)}
+  .toc-num{font-family:'Fraunces',serif;font-weight:700;font-size:22px;color:var(--terra);line-height:1}
+  @media(max-width:560px){.toc-grid{grid-template-columns:1fr}}
+
+  /* STORY SECTIONS */
+  article{padding:50px 0 8px;border-bottom:2px dashed var(--line-dark)}
+  .icon-wrap{width:58px;height:58px;margin:0 auto 14px;color:var(--terra)}
+  .icon-wrap svg{width:100%;height:100%}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--olive);text-align:center;margin-bottom:8px}
+  h2.question{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(25px,4.4vw,34px);
+    line-height:1.15;text-align:center;margin:0 0 6px;color:var(--ink)}
+  .question-tag{font-family:'Caveat',cursive;font-size:19px;color:var(--terra);
+    text-align:center;display:block;margin-bottom:24px}
+
+  h3.subh{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--muted);margin:26px 0 9px;
+    padding-bottom:5px;border-bottom:1px solid var(--line)}
+  article p{margin:0 0 14px}
+  article p.lead{font-size:20.5px;color:var(--ink)}
+  em.term{font-style:italic;color:var(--terra-dim);font-weight:600}
+
+  /* CERTAINTY THERMOMETER (simplified MEEE-G) */
+  .therm{background:var(--card);border:1px solid var(--line);border-radius:4px;
+    padding:16px 20px;margin:18px 0}
+  .therm .t-title{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  .t-row{display:flex;gap:10px;align-items:flex-start;padding:7px 0;font-size:16.5px;color:var(--ink2)}
+  .t-row .dot{flex:0 0 22px;font-size:18px;line-height:1.4}
+  .t-row b{color:var(--ink);font-weight:600}
+
+  /* ADD-style "dynamics" box, plain language */
+  .dyn{background:var(--teal-bg);border:1px solid var(--teal);border-left:4px solid var(--teal);
+    padding:18px 22px;margin:18px 0;border-radius:4px}
+  .dyn .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--teal);margin-bottom:8px}
+  .dyn p{margin:0 0 8px;font-size:18.5px;color:var(--ink)}
+  .dyn p:last-child{margin-bottom:0}
+
+  /* world stage box, plain language */
+  .world{background:var(--sun-bg);border:1px solid var(--sun);border-left:4px solid var(--sun);
+    padding:18px 22px;margin:18px 0;border-radius:4px}
+  .world .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:#9c6f1c;margin-bottom:8px}
+  .world p{margin:0 0 8px;font-size:18.5px;color:var(--ink)} .world p:last-child{margin-bottom:0}
+
+  /* CR box */
+  .cr{background:var(--olive-bg);border:1px solid var(--olive);border-radius:4px;padding:18px 22px;margin:18px 0}
+  .cr .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--olive);margin-bottom:8px;display:flex;align-items:center;gap:7px}
+  .cr p{margin:0 0 8px;font-size:18.5px;color:var(--ink)} .cr p:last-child{margin-bottom:0}
+
+  /* connection callout (e.g. Crucitas) */
+  .conn{border:1.5px solid var(--terra);background:var(--terra-bg);border-radius:4px;
+    padding:16px 20px;margin:18px 0}
+  .conn .lbl{font-family:'Caveat',cursive;font-size:19px;color:var(--terra-dim);margin-bottom:4px}
+  .conn p{margin:0;font-size:17.5px;color:var(--ink2)}
+
+  /* roads ahead (scenarios) */
+  .roads{margin:20px 0 4px}
+  .roads .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  .road{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid var(--line)}
+  .road:last-child{border-bottom:none}
+  .road .arrow{font-family:'Fraunces',serif;font-weight:700;color:var(--terra);font-size:18px;flex:0 0 22px}
+  .road p{margin:0;font-size:17.5px;color:var(--ink2)}
+
+  /* glossary chip */
+  .gloss{display:inline-block;background:var(--sun-bg);border:1px solid var(--sun);border-radius:3px;
+    padding:1px 7px;font-size:.92em;color:inherit;text-decoration:none;cursor:pointer}
+  .gloss:hover{text-decoration:underline}
+
+  /* CURIOSITIES SECTION */
+  section.curio{padding:46px 0;text-align:center}
+  .curio h2{font-family:'Fraunces',serif;font-weight:800;font-size:34px;color:var(--ink);margin:0 0 6px}
+  .curio .sub{font-family:'Caveat',cursive;font-size:20px;color:var(--terra);margin-bottom:26px;display:block}
+  .curio-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;text-align:left}
+  .curio-card{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:16px 18px}
+  .curio-card .q{font-family:'Fraunces',serif;font-weight:700;font-size:17px;color:var(--terra-dim);margin:0 0 6px}
+  .curio-card p{margin:0;font-size:16px;color:var(--ink2)}
+  @media(max-width:560px){.curio-grid{grid-template-columns:1fr}}
+
+  /* OPEN QUESTIONS */
+  section.open{padding:10px 0 46px}
+  section.open h2{font-family:'Fraunces',serif;font-weight:800;font-size:30px;color:var(--ink);
+    text-align:center;margin:0 0 8px}
+  section.open .sub{display:block;text-align:center;font-family:'Lora',serif;font-style:italic;
+    color:var(--ink2);margin-bottom:24px;font-size:17px}
+  .open-list{list-style:none;padding:0;margin:0}
+  .open-list li{padding:13px 0 13px 32px;border-bottom:1px solid var(--line);position:relative;
+    color:var(--ink2);font-size:18.5px}
+  .open-list li:before{content:"❓";position:absolute;left:0;top:12px;font-size:15px}
+
+  /* CLOSING NOTE */
+  .closing{background:var(--card);border:1px solid var(--line);border-radius:4px;
+    padding:24px 26px;margin:14px 0 30px}
+  .closing p{font-size:16.5px;line-height:1.7;color:var(--ink2);margin:0 0 10px}
+  .closing p:last-child{margin-bottom:0}
+  .closing b{color:var(--terra-dim)}
+
+  footer{border-top:3px double var(--line-dark);padding:26px 22px;max-width:760px;margin:0 auto;
+    text-align:center;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted)}
+  footer a{color:var(--terra-dim);text-decoration:none}
+  footer .ft-stamp{font-family:'Caveat',cursive;font-size:18px;color:var(--terra);display:block;margin-bottom:8px}
+
+  @media(max-width:600px){
+    body{font-size:18px}
+    .t-row{font-size:15.5px}
+  }
+
+  /* FIGURES */
+  figure.fig{margin:20px 0 24px}
+  figure.fig img{width:100%;display:block;border-radius:5px;border:1px solid var(--line)}
+  figure.fig figcaption{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.02em;
+    color:var(--muted);margin-top:8px;line-height:1.5;text-align:center}
+
+  /* SWITCH BANNER */
+  .switch{background:var(--ink);color:var(--paper);text-align:center;padding:11px 16px;
+    font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.03em}
+  .switch a{color:var(--sun);text-decoration:underline}
+</style>
+</head>
+<body>
+
+<div class="ribbon">Edición para todo público · misma profundidad, otras palabras · semana del 13 al 19 de junio de 2026</div>
+<div class="switch">¿Prefiere el análisis técnico completo? <a href="../">Lea la versión técnica del Boletín N.° 010 →</a></div>
+
+<nav><div class="wrap">
+  <span class="brand">ANCA-ADD para Todos</span>
+  <a href="https://antropos.app/">Inicio</a>
+  <a href="https://antropos.app/boletines/">Boletines</a>
+  <a href="#n1">Irán</a>
+  <a href="#n2">Colombia</a>
+  <a href="#n3">Neutrinos</a>
+  <a href="#n4">Hongos</a>
+  <a href="#n5">IA</a>
+  <a href="#n6">CR-Nicaragua</a>
+  <a href="#curio">Curiosidades</a>
+</div></nav>
+
+<main id="top">
+
+<header class="mast">
+  <span class="stamp">— para entender el mundo —</span>
+  <h1 class="title">BOLETÍN<br>PARA TODOS</h1>
+  <p class="subtitle">Las seis preguntas de la semana, explicadas con calma, para quien quiera entender el mundo.</p>
+  <div class="mast-meta">
+    <span>Edición N.° 010 · Popular</span>
+    <span>·</span>
+    <span>Semana del 13 al 19 de junio de 2026</span>
+    <span>·</span>
+    <span>San José, Costa Rica</span>
+  </div>
+</header>
+
+<figure class="fig cover">
+  <img src="img/portada.jpg" alt="Portada del Boletín para Todos N.° 010: las seis preguntas de la semana, explicadas con calma, para quien quiera entender el mundo." loading="lazy">
+</figure>
+
+<div class="letter">
+  <p>Estimado lector, estimada lectora:</p>
+  <p>Cada semana pasan en el mundo cosas que después comentamos en la fila de la pulpería, en el bus, en la sobremesa: que si terminó una guerra, que si descubrieron algo raro bajo la tierra, que si la presidenta dijo tal cosa. Pero casi nunca alguien se sienta a explicarlas con calma, sin apuro y sin dar por sentado que uno ya sabe de qué se trata.</p>
+  <p>Eso es lo que intentamos aquí: contarle las seis noticias más importantes de esta semana de la misma forma en que se las contaríamos a un vecino, sentados en el corredor de la casa. Sin perder ni un poquito de seriedad —porque usted se merece la verdad completa, no una versión recortada—, pero sin las palabras complicadas que a veces usan los noticieros para sonar importantes.</p>
+  <p>Para cada noticia le decimos tres cosas: qué pasó de verdad, qué tan seguros estamos de eso, y qué tiene que ver con nosotros, aquí en Costa Rica. Al final, le dejamos algunas curiosidades y las preguntas que todavía nadie puede responder con certeza.</p>
+  <p class="firma">— El equipo de ANCA-ADD</p>
+</div>
+
+<figure class="fig">
+  <img src="img/proposito.jpg" alt="El propósito y la promesa de esta edición: inspirado en el espíritu del Almanaque Escuela para Todos." loading="lazy">
+</figure>
+
+<div class="toc">
+  <h2>Esta semana, en este boletín</h2>
+  <div class="toc-grid">
+    <a class="toc-item" href="#n1"><span class="toc-num">1</span><span>¿De verdad se acabó la guerra entre Estados Unidos e Irán?</span></a>
+    <a class="toc-item" href="#n2"><span class="toc-num">2</span><span>¿Quién va a gobernar Colombia los próximos cuatro años?</span></a>
+    <a class="toc-item" href="#n3"><span class="toc-num">3</span><span>¿Para qué sirve estudiar partículas que nadie puede ver?</span></a>
+    <a class="toc-item" href="#n4"><span class="toc-num">4</span><span>¿Sabía que bajo sus pies hay una red más larga que mil veces la distancia al Sol?</span></a>
+    <a class="toc-item" href="#n5"><span class="toc-num">5</span><span>¿Quién va a poner las reglas a la inteligencia artificial?</span></a>
+    <a class="toc-item" href="#n6"><span class="toc-num">6</span><span>¿Por qué se enojó tanta gente con lo que dijo la presidenta sobre Nicaragua?</span></a>
+  </div>
+</div>
+
+<!-- ============ 1. IRAN ============ -->
+<article id="n1">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M32 10c-9 6-9 16-9 16s-9 2-9 12c0 8 7 14 18 14s18-6 18-14c0-10-9-12-9-12s0-10-9-16z"/>
+    <path d="M22 36c4 3 8 3 10 3s6 0 10-3"/>
+    <circle cx="32" cy="22" r="3"/>
+  </svg></div>
+  <div class="eyebrow">Política internacional</div>
+  <h2 class="question">¿De verdad se acabó la guerra entre Estados Unidos e Irán?</h2>
+  <span class="question-tag">por ahora, sí — pero con un candado que cualquiera puede volver a abrir</span>
+
+  <figure class="fig">
+    <img src="img/iran-1.jpg" alt="El acuerdo lado seguro: firma en Francia, estrecho de Ormuz abierto, petróleo a la baja. El candado lado inestable: programa nuclear postergado." loading="lazy">
+  </figure>
+
+  <h3 class="subh">Qué pasó de verdad</h3>
+  <p class="lead">El martes pasado, en una cena en Francia, el presidente de Estados Unidos firmó con su propia mano un documento de paz con el presidente de Irán. Fue una sorpresa: se suponía que la firma oficial iba a ser en Suiza, con toda la ceremonia, pero terminó pasando de improviso, en medio de una cena.</p>
+  <p>El documento tiene catorce puntos. Lo más importante: el estrecho de Ormuz —un paso de mar angosto por donde circula una quinta parte del petróleo de todo el mundo— vuelve a abrirse al tráfico comercial, sin cobro, por sesenta días. También se levantan poco a poco algunas sanciones contra Irán, y se habla de reconstruir el país con al menos 300 mil millones de dólares.</p>
+  <p>Lo que <em class="term">no</em> se resolvió es lo más espinoso: qué va a pasar con el programa nuclear de Irán. Eso quedó para más adelante, con un plazo de sesenta días que se puede alargar.</p>
+
+  <h3 class="subh">Qué tan seguros estamos</h3>
+  <div class="therm">
+    <div class="t-title">Termómetro de certeza</div>
+    <div class="t-row"><span class="dot">✅</span><span><b>Esto lo sabemos seguro:</b> la firma ocurrió, el documento existe y se leyó en público. El precio del petróleo bajó de inmediato.</span></div>
+    <div class="t-row"><span class="dot">🤔</span><span><b>Esto creemos que pasará, pero no es seguro:</b> que el estrecho se mantenga realmente abierto. Algunos analistas dicen que, al inicio, va a abrirse solo a medias.</span></div>
+    <div class="t-row"><span class="dot">💭</span><span><b>Esto es solo una posibilidad:</b> que dentro de sesenta días se firme un acuerdo nuclear definitivo. El propio presidente de Estados Unidos dejó dicho que puede salirse del pacto si así lo decide.</span></div>
+  </div>
+
+  <div class="dyn">
+    <div class="lbl">Por qué esto no está cerrado del todo</div>
+    <p>Imagínese una cuerda floja: la guerra terminó en los papeles, pero el equilibrio todavía es delicado. La firma abre una puerta hacia la paz, pero la puerta también se puede volver a cerrar, porque la parte más difícil —el tema nuclear— se dejó para después, y porque uno de los dos firmantes se reservó el derecho de echarse para atrás.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">🌱 ¿Y en Costa Rica, qué tiene que ver?</div>
+    <p>Costa Rica no produce petróleo: lo compramos todo afuera. Cuando el petróleo sube de precio, nos sube la gasolina, el transporte y, con el tiempo, hasta la comida. La guerra entre Irán y Estados Unidos había disparado el precio del barril a más de 113 dólares en marzo; con esta tregua, bajó a menos de 84. Si la calma se mantiene, eso debería sentirse —con el tiempo— en lo que pagamos por llenar el tanque.</p>
+  </div>
+
+  <figure class="fig">
+    <img src="img/iran-2.jpg" alt="El impacto y los caminos: ancla local sobre el precio del combustible en Costa Rica, y los tres caminos posibles del acuerdo." loading="lazy">
+  </figure>
+
+  <div class="roads">
+    <div class="lbl">¿Hacia dónde puede ir esto?</div>
+    <div class="road"><span class="arrow">→</span><p><b>Camino tranquilo:</b> el estrecho se abre de verdad, el petróleo se mantiene barato, y en sesenta días se firma algo más sólido sobre lo nuclear.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Camino a medias:</b> la apertura es parcial, el acuerdo sobrevive pero sin avanzar, y los precios quedan inestables.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Camino de vuelta atrás:</b> el tema nuclear se traba, alguien se sale del pacto, y el conflicto puede reaparecer.</p></div>
+  </div>
+</article>
+
+<!-- ============ 2. COLOMBIA ============ -->
+<article id="n2">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M32 8v48M16 16h32M16 16l-6 14h12l-6-14zM48 16l-6 14h12l-6-14zM10 30c0 6 5 8 6 8s6-2 6-8M42 30c0 6 5 8 6 8s6-2 6-8"/>
+  </svg></div>
+  <div class="eyebrow">Política internacional</div>
+  <h2 class="question">¿Quién va a gobernar Colombia los próximos cuatro años?</h2>
+  <span class="question-tag">eso se decide este domingo, y nadie sabe todavía cómo va a salir</span>
+
+  <figure class="fig">
+    <img src="img/colombia.jpg" alt="Balanza entre Iván Cepeda (40.9%) y Abelardo de la Espriella (43.7%) en primera vuelta; 15.4% de votantes de centro deciden el balotaje." loading="lazy">
+  </figure>
+
+  <h3 class="subh">Qué pasó de verdad</h3>
+  <p class="lead">El domingo 21 de junio, Colombia elige presidente entre dos personas que piensan de forma casi opuesta. Abelardo de la Espriella es un abogado de derecha dura, que en la primera vuelta sacó 43,7 % de los votos. Iván Cepeda es el candidato de la izquierda que hoy gobierna el país, y sacó 40,9 %. Ninguno de los dos alcanzó a ganar de una vez, así que van a una segunda vuelta.</p>
+  <p>Cepeda quiere seguir con el camino que viene llevando el actual gobierno: acuerdos de paz, programas sociales. De la Espriella quiere un giro fuerte hacia la mano dura en seguridad y cerrar esa puerta de los acuerdos de paz. El presidente de Estados Unidos dijo en público que apoya a De la Espriella, lo cual metió más presión todavía a una elección ya de por sí muy tensa, sobre todo después de que en 2025 asesinaran a un precandidato.</p>
+
+  <h3 class="subh">Qué tan seguros estamos</h3>
+  <div class="therm">
+    <div class="t-title">Termómetro de certeza</div>
+    <div class="t-row"><span class="dot">✅</span><span><b>Esto lo sabemos seguro:</b> la elección es este domingo y esos son los dos candidatos, con esas cifras de primera vuelta.</span></div>
+    <div class="t-row"><span class="dot">🤔</span><span><b>Esto creemos, pero no es seguro:</b> que el resultado va a estar muy reñido. Con apenas tres puntos de diferencia, cualquiera de los dos puede ganar.</span></div>
+    <div class="t-row"><span class="dot">💭</span><span><b>Esto es solo una posibilidad:</b> que el respaldo público de Estados Unidos a uno de los candidatos termine ayudándolo o, al contrario, terminé jugándole en contra.</span></div>
+  </div>
+
+  <div class="dyn">
+    <div class="lbl">Por qué se dice que es un cruce de caminos</div>
+    <p>Esta elección es de esas que de verdad cambian el rumbo de un país por años: no es un ajuste pequeño, sino una decisión entre dos formas completamente distintas de gobernar. Quien termine ganando lo va a hacer, probablemente, gracias a un grupo de votantes de centro que hoy no está convencido de ninguno de los dos extremos.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">🌱 ¿Y en Costa Rica, qué tiene que ver?</div>
+    <p>Colombia y Costa Rica se parecen en algo importante: los dos somos países que dependemos de mantener buena relación con Estados Unidos, y los dos lidiamos con el narcotráfico y la migración como temas de todos los días. Lo que pase en Colombia es una especie de termómetro de qué tanto margen tienen los gobiernos de la región para tomar sus propias decisiones sin chocar con la potencia del norte.</p>
+  </div>
+
+  <div class="roads">
+    <div class="lbl">¿Hacia dónde puede ir esto?</div>
+    <div class="road"><span class="arrow">→</span><p><b>Gana Cepeda:</b> Colombia sigue con la agenda de paz, aunque más moderada que antes.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Gana De la Espriella:</b> Colombia da un giro hacia la mano dura y se acerca más a Washington.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Resultado muy parejo:</b> hay reclamos, demoras, y el país entra en un periodo de tensión política mientras se resuelve.</p></div>
+  </div>
+</article>
+
+<!-- ============ 3. JUNO ============ -->
+<article id="n3">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="32" cy="32" r="22"/>
+    <ellipse cx="32" cy="32" rx="22" ry="8"/>
+    <ellipse cx="32" cy="32" rx="8" ry="22"/>
+    <circle cx="32" cy="32" r="3" fill="currentColor" stroke="none"/>
+  </svg></div>
+  <div class="eyebrow">Ciencia</div>
+  <h2 class="question">¿Para qué sirve estudiar partículas que nadie puede ver ni tocar?</h2>
+  <span class="question-tag">porque ayudan a explicar por qué el universo —y nosotros— existimos</span>
+
+  <figure class="fig">
+    <img src="img/juno.jpg" alt="El detector JUNO a 700 metros bajo tierra en China: billones de neutrinos atraviesan su cuerpo ahora mismo." loading="lazy">
+  </figure>
+
+  <h3 class="subh">Qué pasó de verdad</h3>
+  <p class="lead">En China, a 700 metros bajo tierra, hay un detector gigante lleno de un líquido especial, rodeado de sensores carísimos. Se llama JUNO y su trabajo es atrapar neutrinos: partículas tan pequeñas y tan «fantasma» que billones de ellas atraviesan su cuerpo ahora mismo sin que usted lo note. Vienen del Sol, de reactores nucleares, de las estrellas.</p>
+  <p>Esta semana, JUNO entregó su primer resultado, y fue noticia mundial: con apenas dos meses de mediciones, logró una precisión mejor que la de todos los experimentos anteriores juntos, sumando décadas de trabajo. El objetivo de fondo es resolver un misterio que lleva años abierto: en qué orden están organizados, según su peso, los tres tipos de neutrino que existen.</p>
+
+  <h3 class="subh">Qué tan seguros estamos</h3>
+  <div class="therm">
+    <div class="t-title">Termómetro de certeza</div>
+    <div class="t-row"><span class="dot">✅</span><span><b>Esto lo sabemos seguro:</b> el experimento funcionó mejor de lo esperado, y eso ya quedó publicado y revisado por otros científicos.</span></div>
+    <div class="t-row"><span class="dot">🤔</span><span><b>Esto creemos, pero no es seguro:</b> que con algunos años más de mediciones, JUNO va a poder resolver el orden de pesos de los neutrinos.</span></div>
+    <div class="t-row"><span class="dot">💭</span><span><b>Esto es solo una posibilidad:</b> que una pequeña diferencia que se sigue viendo entre dos formas de medir los neutrinos sea, en realidad, una pista hacia física que todavía no conocemos.</span></div>
+  </div>
+
+  <div class="dyn">
+    <div class="lbl">Por qué importa, en cristiano</div>
+    <p>Una de las grandes preguntas sin responder es por qué el universo está hecho casi todo de materia, y casi nada de antimateria —su «gemela opuesta», que se destruye al tocarse con la materia. Si al principio del universo había las mismas cantidades de ambas, ¿por qué sobrevivió más una que la otra? Hay una teoría que dice que los neutrinos tuvieron algo que ver en ese desbalance. Por eso entender mejor a los neutrinos no es un capricho de laboratorio: es, en buena parte, la búsqueda de una explicación de por qué existimos.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">🌱 ¿Y en Costa Rica, qué tiene que ver?</div>
+    <p>No tenemos un detector así, y probablemente nunca lo tengamos: cuesta muchísimo dinero y muchísimos años de trabajo. Pero el país sí participa, en menor escala, en proyectos internacionales de astrofísica, y tiene una tradición científica que puede crecer en esa dirección. La lección útil de JUNO no es que debamos competir con China en física de partículas, sino que la inversión sostenida durante años —sin resultados inmediatos— termina dando frutos enormes. Esa paciencia es un valor que también aplica a la ciencia que hacemos en casa.</p>
+  </div>
+</article>
+
+<!-- ============ 4. HONGOS ============ -->
+<article id="n4">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M32 30c-10 0-18-6-18-12 0-7 8-12 18-12s18 5 18 12c0 6-8 12-18 12z"/>
+    <path d="M32 30v22M26 52h12"/>
+    <path d="M20 40c-3 3-3 7 0 9M44 40c3 3 3 7 0 9"/>
+  </svg></div>
+  <div class="eyebrow">Ciencia · Nuestra tierra</div>
+  <h2 class="question">¿Sabía que bajo sus pies hay una red más larga que mil veces la distancia hasta el Sol?</h2>
+  <span class="question-tag">los hongos del suelo, esos que nunca vemos, sostienen buena parte de la vida en la superficie</span>
+
+  <figure class="fig">
+    <img src="img/hongos-1.jpg" alt="El trueque biológico bajo tierra: la planta dona azúcar, el hongo dona agua y nutrientes. Red de 110 billones de km que captura el 11% de las emisiones humanas." loading="lazy">
+  </figure>
+
+  <h3 class="subh">Qué pasó de verdad</h3>
+  <p class="lead">Bajo casi cualquier potrero, cafetal o bosque hay hongos finísimos, invisibles a simple vista, que se enredan con las raíces de las plantas. La planta les regala azúcar; el hongo le devuelve agua y nutrientes que la raíz sola jamás alcanzaría. Es un trueque que lleva millones de años funcionando.</p>
+  <p>Esta semana, un grupo de científicos publicó el primer mapa del mundo entero de esta red. Las cifras marean: si se estiraran todos esos hilos juntos, alcanzarían unos 110 billones de kilómetros —casi mil veces la distancia de la Tierra al Sol—. Y cada año, esta red ayuda a meter bajo tierra una cantidad de carbono equivalente a cerca del 11 % de todo lo que la humanidad emite al aire. También encontraron algo preocupante: en los suelos de agricultura intensiva, esta red está hasta un 50 % más débil que en los pastizales silvestres.</p>
+
+  <h3 class="subh">Qué tan seguros estamos</h3>
+  <div class="therm">
+    <div class="t-title">Termómetro de certeza</div>
+    <div class="t-row"><span class="dot">✅</span><span><b>Esto lo sabemos seguro:</b> el mapa existe, fue publicado en una revista científica seria, y muestra que esa red está más débil donde la agricultura es más intensiva.</span></div>
+    <div class="t-row"><span class="dot">🤔</span><span><b>Esto creemos, pero no es seguro:</b> las cifras exactas —los billones de kilómetros, las toneladas de carbono— son cálculos hechos con modelos, no una medición directa de cada metro del planeta.</span></div>
+    <div class="t-row"><span class="dot">💭</span><span><b>Esto es solo una posibilidad:</b> que cuidar esta red ayude de forma importante a frenar el cambio climático. Es razonable pensarlo, pero todavía falta saber cuánto de ese carbono se queda guardado y por cuánto tiempo.</span></div>
+  </div>
+
+  <div class="dyn">
+    <div class="lbl">Por qué importa, en cristiano</div>
+    <p>El oro de un terreno se puede sacar una sola vez: se agota y no vuelve. Esta red, en cambio, sigue dando frutos año tras año, mientras se la cuide —es como una vaca lechera frente a un tesoro enterrado: uno se acaba al sacarlo, la otra sigue produciendo si se la alimenta bien. El problema es que, como no se ve, es muy fácil tratarla como si no valiera nada y destruirla sin darse cuenta de lo que se pierde.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">🌱 ¿Y en Costa Rica, qué tiene que ver?</div>
+    <p>Costa Rica ha construido buena parte de su imagen en el mundo sobre la conservación: el pago por servicios ambientales, el ecoturismo, el café y el cacao de calidad. Estos hongos son, literalmente, una parte invisible de esa fortaleza: ayudan a que el café y el cacao produzcan mejor, a que el suelo aguante mejor la sequía, y a que el bosque siga absorbiendo carbono. Cuidarlos no es solo un gesto ambiental: es cuidar la base de varios de nuestros negocios más importantes.</p>
+  </div>
+
+  <figure class="fig">
+    <img src="img/hongos-2-crucitas.jpg" alt="El dilema del valor: el modelo extractivo de Crucitas se agota para siempre; el modelo renovable de los hongos sigue dando frutos año tras año." loading="lazy">
+  </figure>
+
+  <div class="conn">
+    <div class="lbl">Una conexión que vale la pena pensar</div>
+    <p>Justo esta semana, la presidenta visitó Crucitas para empujar un proyecto de ley que reactivaría la minería de oro a cielo abierto en esa zona —algo prohibido en el país desde 2010. La minería de ese tipo remueve precisamente la capa de tierra donde vive esta red de hongos. No se trata de decir que un valor sea automáticamente mejor que el otro, sino de notar algo simple: el oro se saca una sola vez y no vuelve; la red de hongos, si se mantiene viva, sigue dando frutos cada año. Esa diferencia —entre algo que se agota y algo que se renueva— es, en el fondo, el corazón de la discusión sobre Crucitas. <a class="gloss" href="https://antropos.app/informes-estrategicos/crucitas-subsuelo-vivo/popular/">Si quiere profundizar en este tema, el equipo de ANCA-ADD preparó un anexo especial completo sobre Crucitas y esta misma red de hongos →</a></p>
+  </div>
+</article>
+
+<!-- ============ 5. IA G7 ============ -->
+<article id="n5">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="18" y="18" width="28" height="28" rx="4"/>
+    <circle cx="32" cy="32" r="6"/>
+    <path d="M32 10v8M32 46v8M10 32h8M46 32h8M16 16l6 6M48 16l-6 6M16 48l6-6M48 48l-6-6"/>
+  </svg></div>
+  <div class="eyebrow">Tecnología</div>
+  <h2 class="question">¿Quién va a poner las reglas a la inteligencia artificial?</h2>
+  <span class="question-tag">los mismos que la construyen le pidieron a los gobiernos que los vigilen</span>
+
+  <figure class="fig">
+    <img src="img/ia-g7.jpg" alt="La paradoja del semáforo: las mismas empresas que construyen la inteligencia artificial piden a los gobiernos que la regulen." loading="lazy">
+  </figure>
+
+  <h3 class="subh">Qué pasó de verdad</h3>
+  <p class="lead">En una cumbre de los países más ricos del mundo, en Francia, los dueños de las empresas más importantes de inteligencia artificial se sentaron a almorzar con los presidentes y les pidieron, en público y en privado, que se creen reglas internacionales para controlar esta tecnología. Uno de ellos pidió un espacio internacional donde se pongan a prueba los sistemas antes de soltarlos al mundo; otros propusieron una alianza liderada por Estados Unidos.</p>
+  <p>Lo curioso —y lo incómodo— es que esto pasó pocos días después de que el propio gobierno de Estados Unidos obligara a una de esas mismas empresas a sacar de circulación algunos de sus programas más avanzados, por reglas de exportación. Es decir: el mismo país que se ofrece a liderar la regulación, también está usando esa tecnología como herramienta de poder.</p>
+
+  <h3 class="subh">Qué tan seguros estamos</h3>
+  <div class="therm">
+    <div class="t-title">Termómetro de certeza</div>
+    <div class="t-row"><span class="dot">✅</span><span><b>Esto lo sabemos seguro:</b> la reunión ocurrió y uno de los empresarios lo pidió en público, frente a las cámaras.</span></div>
+    <div class="t-row"><span class="dot">🤔</span><span><b>Esto creemos, pero no es seguro:</b> los detalles de lo que se habló a puerta cerrada, porque solo los conocemos por fuentes que pidieron no dar su nombre.</span></div>
+    <div class="t-row"><span class="dot">💭</span><span><b>Esto es solo una posibilidad:</b> que de esta reunión salga, de verdad, una regla internacional que se cumpla. De momento no hubo ningún compromiso firmado.</span></div>
+  </div>
+
+  <div class="dyn">
+    <div class="lbl">Por qué importa, en cristiano</div>
+    <p>Es como si los fabricantes de un carro nuevo, y muy potente, le pidieran al gobierno que ponga semáforos y límites de velocidad antes de que alguien se mate. Suena responsable. Pero también pasa que esos mismos fabricantes son los que más saben de cómo funciona el carro por dentro, así que corren el riesgo de terminar escribiendo ellos mismos las reglas que les conviene tener.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">🌱 ¿Y en Costa Rica, qué tiene que ver?</div>
+    <p>Nosotros usamos esta tecnología, pero no la construimos. Eso significa que las reglas se van a decidir en otra parte, lejos de aquí, y nosotros las vamos a recibir ya hechas. Lo más sensato para el país es no depender de un solo proveedor, prepararse para entender y evaluar estas herramientas con criterio propio, y buscar espacios internacionales donde nuestra voz también cuente —aunque sea pequeña frente a las grandes potencias.</p>
+  </div>
+</article>
+
+<!-- ============ 6. CR NICARAGUA ============ -->
+<article id="n6">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 50V18l20-8 20 8v32"/>
+    <path d="M12 50h40M22 50V30h20v20"/>
+    <path d="M28 38h8"/>
+  </svg></div>
+  <div class="eyebrow">Costa Rica</div>
+  <h2 class="question">¿Por qué se enojó tanta gente con lo que dijo la presidenta sobre Nicaragua?</h2>
+  <span class="question-tag">una frase sobre «el gobierno que ellos eligieron» chocó con años de denuncias documentadas</span>
+
+  <figure class="fig">
+    <img src="img/nicaragua.jpg" alt="El choque entre la frontera y los principios: pragmatismo migratorio y comercial frente a los principios de derechos humanos documentados." loading="lazy">
+  </figure>
+
+  <h3 class="subh">Qué pasó de verdad</h3>
+  <p class="lead">En una entrevista de televisión, la presidenta Laura Fernández dijo que los nicaragüenses tienen «la forma de gobierno que han elegido tener», y defendió mantener una relación «cordial» con Daniel Ortega y Rosario Murillo, centrada en el comercio y la migración entre los dos países.</p>
+  <p>La frase generó indignación, sobre todo entre nicaragüenses exiliados y entre varios expresidentes costarricenses. Laura Chinchilla pidió disculpas públicas y calificó las palabras de «atroces»; Luis Guillermo Solís las llamó «desafortunadas» y «muy graves». La razón: organismos como la ONU y la OEA han documentado, durante años, que las elecciones en Nicaragua no son limpias, y que existen violaciones serias a los derechos humanos. La presidenta luego respondió que no puede «despotricar» contra el régimen, porque su prioridad es mantener una relación que funcione en la frontera.</p>
+
+  <h3 class="subh">Qué tan seguros estamos</h3>
+  <div class="therm">
+    <div class="t-title">Termómetro de certeza</div>
+    <div class="t-row"><span class="dot">✅</span><span><b>Esto lo sabemos seguro:</b> la presidenta dijo esa frase, está grabada, y existen informes internacionales que documentan fraude electoral y violaciones de derechos humanos en Nicaragua.</span></div>
+    <div class="t-row"><span class="dot">🤔</span><span><b>Esto creemos, pero no es seguro:</b> que la postura de la presidenta responda, sobre todo, a proteger el comercio y la convivencia en la zona fronteriza.</span></div>
+    <div class="t-row"><span class="dot">💭</span><span><b>Esto es solo una posibilidad:</b> que esta diferencia de criterio termine afectando, de forma duradera, la relación de Costa Rica con Estados Unidos —que sí trata al régimen nicaragüense como una dictadura.</span></div>
+  </div>
+
+  <div class="dyn">
+    <div class="lbl">Por qué importa, en cristiano</div>
+    <p>Costa Rica ha construido buena parte de su identidad en el mundo sobre defender los derechos humanos y la democracia, casi sin ejército y con una tradición de hablar claro. Esta frase chocó justamente con esa identidad. No es solo un comentario incómodo: toca la pregunta de qué tipo de país queremos seguir siendo cuando los intereses prácticos —el comercio, la frontera tranquila— empujan en una dirección distinta a nuestros principios declarados.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">🌱 ¿Y en Costa Rica, qué tiene que ver?</div>
+    <p>Esta sí es, de las seis noticias de hoy, la más directamente nuestra. El costo no es tanto económico como de reputación: la fama de Costa Rica como país coherente con los derechos humanos es, en sí misma, un activo —nos abre puertas en el mundo. Frases como esta pueden desgastar esa fama, justo cuando el país necesita mantener buenas relaciones tanto con su vecino del norte fronterizo como con su principal aliado, Estados Unidos.</p>
+  </div>
+</article>
+
+<!-- ============ CURIOSITIES ============ -->
+<section class="curio" id="curio">
+  <h2>Rincón de curiosidades</h2>
+  <span class="sub">cositas para sorprender a la familia en la sobremesa</span>
+
+  <figure class="fig">
+    <img src="img/curiosidades.jpg" alt="Rincón de curiosidades para la sobremesa: el viaje fantasma del neutrino, el hilo infinito de los hongos, la fiebre dorada y el cuello de botella de Ormuz." loading="lazy">
+  </figure>
+
+  <div class="curio-grid">
+    <div class="curio-card">
+      <p class="q">¿Sabía que...?</p>
+      <p>Un neutrino podría atravesar un año luz completo de plomo macizo —algo imposible de imaginar— sin chocar ni una sola vez contra un átomo. Por eso son tan difíciles de atrapar.</p>
+    </div>
+    <div class="curio-card">
+      <p class="q">¿Sabía que...?</p>
+      <p>Si se estirara toda la red de hongos del planeta en una sola hebra, llegaría hasta el Sol y volvería casi mil veces. Y la mayoría está justo bajo los primeros 15 centímetros de tierra.</p>
+    </div>
+    <div class="curio-card">
+      <p class="q">¿Sabía que...?</p>
+      <p>El oro alcanzó esta semana precios cercanos a los 4.150 dólares la onza —un récord histórico—, casi un 25 % más caro que hace apenas un año.</p>
+    </div>
+    <div class="curio-card">
+      <p class="q">¿Sabía que...?</p>
+      <p>El estrecho de Ormuz, el que se reabrió esta semana, es tan angosto que en su punto más estrecho mide apenas unos 33 kilómetros: más o menos la distancia entre San José y Cartago.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OPEN QUESTIONS ============ -->
+<section class="open">
+  <h2>Lo que todavía queda en el aire</h2>
+  <span class="sub">preguntas honestas, que nadie puede responder todavía con certeza</span>
+
+  <figure class="fig">
+    <img src="img/preguntas-abiertas.jpg" alt="Lo que todavía queda en el aire: preguntas inminentes, de corto plazo y de misterio a largo plazo sobre Ormuz, Colombia, JUNO, hongos, IA y Nicaragua." loading="lazy">
+  </figure>
+
+  <ul class="open-list">
+    <li>¿Se va a abrir de verdad el estrecho de Ormuz, o solo a medias? De eso depende si el precio del petróleo sigue bajando.</li>
+    <li>¿Quién va a ganar el domingo en Colombia? La diferencia es tan chica que cualquier cosa puede pasar.</li>
+    <li>¿Lograrán los científicos de JUNO resolver, en los próximos años, el orden de los neutrinos?</li>
+    <li>¿Servirá el mapa de los hongos para cambiar leyes y costumbres agrícolas, o quedará solo como un dato curioso?</li>
+    <li>¿Llegarán los países a ponerse de acuerdo sobre cómo regular la inteligencia artificial, o cada quien hará lo suyo por su lado?</li>
+    <li>¿Cambiará el gobierno costarricense su forma de hablar sobre Nicaragua, o mantendrá esta misma línea?</li>
+  </ul>
+</section>
+
+<figure class="fig">
+  <img src="img/filosofia-invisible.jpg" alt="La filosofía de lo invisible: la inversión subterránea de la ciencia (JUNO, 700m) y la fundación subterránea de la naturaleza (hongos, 15cm) comparten la misma lección de paciencia." loading="lazy">
+</figure>
+
+<div class="closing">
+  <p><b>Una palabra sobre cómo trabajamos.</b> Detrás de este boletín, en lenguaje sencillo, hay un análisis bastante más técnico: revisamos qué tan confiable es cada dato, estudiamos cómo se mueven y se conectan los hechos entre sí, y miramos también el lugar de Costa Rica dentro del mundo grande. Esa versión completa, con todo el detalle técnico, también está disponible para quien quiera ir más profundo.</p>
+  <p>Esta edición nace de una convicción sencilla: que entender el mundo no debería ser un privilegio de unos pocos. Por eso le contamos las cosas con calma y sin palabras complicadas, pero sin recortarle la verdad —porque tratar a alguien como capaz de comprender es la forma más honesta de respetarlo.</p>
+  <p>Como siempre: lo que aquí se cuenta es análisis, no una bola de cristal ni un consejo de qué hacer. El futuro nadie lo tiene asegurado, ni nosotros tampoco.</p>
+</div>
+
+<figure class="fig">
+  <img src="img/cierre.jpg" alt="Como siempre: lo que aquí se cuenta es análisis, no una bola de cristal. Detrás de este boletín hay un anexo técnico para quienes buscan ir más al fondo." loading="lazy">
+</figure>
+
+</main>
+
+<footer>
+  <span class="ft-stamp">Hasta la próxima semana</span>
+  <div>ANCA-ADD © 2026 · <a href="https://antropos.app">antropos.app</a></div>
+  <div style="margin-top:6px">Boletín Semanal N.° 010 · Edición Popular · 19 jun 2026</div>
+</footer>
+
+<script data-goatcounter="https://antropos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

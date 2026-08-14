@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>El Dragón bajo el Yugo Extranjero · Parte II — Historia de China | ANCA-ADD</title>
+  <meta name="description" content="De la conquista mongola a las vísperas de las Guerras del Opio. Yuan, Ming, Qing y el preludio del siglo de las humillaciones." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:        #0a0a0f;
+      --bg2:       #11111a;
+      --bg3:       #181824;
+      --red:       #c0392b;
+      --gold:      #d4a017;
+      --gold-light:#f0c040;
+      --text:      #e8e4d8;
+      --muted:     #9a9589;
+      --border:    #2a2a3a;
+      --green:     #27ae60;
+      --blue:      #7ab8f5;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'Source Serif 4', Georgia, serif; line-height: 1.8; font-size: 18px; }
+
+    /* TICKER */
+    .ticker-wrap { background: var(--red); overflow: hidden; white-space: nowrap; padding: 6px 0; position: sticky; top: 0; z-index: 100; }
+    .ticker-content { display: inline-block; animation: ticker 80s linear infinite; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #fff; padding-left: 100%; }
+    @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+
+    /* MASTHEAD */
+    .masthead { background: var(--bg2); border-bottom: 2px solid var(--gold); padding: 20px 40px; display: flex; align-items: center; gap: 24px; }
+    .masthead-logo { font-family: 'Bebas Neue', sans-serif; font-size: 44px; color: var(--gold); letter-spacing: 0.04em; line-height: 1; }
+    .masthead-logo span { color: var(--red); }
+    .masthead-meta { border-left: 2px solid var(--border); padding-left: 20px; }
+    .masthead-meta .label { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 4px; }
+    .masthead-meta h1 { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 900; color: var(--text); }
+    .masthead-meta .sub { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--gold); margin-top: 4px; }
+    .masthead-nav { margin-left: auto; display: flex; gap: 16px; }
+    .masthead-nav a { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; }
+    .masthead-nav a:hover { color: var(--gold); }
+
+    /* PARTES NAV */
+    .partes-nav { background: var(--bg3); border-bottom: 1px solid var(--border); padding: 10px 40px; display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+    .partes-nav .nav-label { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
+    .partes-nav a { font-family: 'Space Mono', monospace; font-size: 11px; text-decoration: none; padding: 4px 12px; border-radius: 2px; }
+    .partes-nav a.active { background: var(--gold); color: var(--bg); }
+    .partes-nav a.inactive { color: var(--muted); border: 1px solid var(--border); }
+    .partes-nav a.inactive:hover { color: var(--gold); border-color: var(--gold); }
+
+    /* HERO */
+    .hero { background: linear-gradient(180deg, rgba(10,10,15,0) 0%, rgba(10,10,15,0.92) 100%), linear-gradient(135deg, #0a0a0f 0%, #150a0a 50%, #0a100f 100%); border-bottom: 1px solid var(--border); padding: 72px 40px 56px; position: relative; overflow: hidden; }
+    .hero::before { content: '龙'; position: absolute; right: 60px; top: -20px; font-size: 320px; color: rgba(192,57,43,0.05); pointer-events: none; line-height: 1; }
+    .hero-kicker { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 20px; }
+    .hero h2 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 58px); font-weight: 900; line-height: 1.05; color: var(--text); max-width: 800px; margin-bottom: 24px; }
+    .hero h2 em { color: var(--gold); font-style: italic; }
+    .hero .hero-lead { max-width: 640px; font-size: 19px; color: var(--muted); line-height: 1.7; margin-bottom: 32px; font-style: italic; }
+    .hero-meta { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
+
+    /* LAYOUT */
+    .container { max-width: 760px; margin: 0 auto; padding: 0 40px; }
+    .container-wide { max-width: 1000px; margin: 0 auto; padding: 0 40px; }
+
+    /* AUDIO */
+    .audio-strip { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 16px 40px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .audio-strip .audio-label { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--gold); letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; }
+    .audio-strip audio { flex: 1; min-width: 240px; }
+
+    /* NARRATIVE BODY */
+    .narrative { padding: 56px 0; }
+
+    .period { margin-bottom: 72px; }
+    .period-header { margin-bottom: 28px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+    .period-dates { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--gold); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 8px; }
+    .period h2 { font-family: 'Playfair Display', serif; font-size: clamp(22px, 3vw, 30px); font-weight: 900; color: var(--text); line-height: 1.2; }
+    .period h2 em { color: var(--gold); }
+
+    /* RESUMEN FACTUAL */
+    .resumen { margin-bottom: 28px; }
+    .resumen p { margin-bottom: 1.3rem; color: var(--text); }
+    .resumen p:last-child { margin-bottom: 0; }
+    .resumen strong { color: var(--gold-light); }
+    .resumen em { font-style: italic; }
+
+    /* EPISTEMIC TAGS */
+    .ep { display: inline-block; font-family: 'Space Mono', monospace; font-size: 9px; font-weight: 700; padding: 1px 5px; border-radius: 2px; margin: 0 2px; vertical-align: middle; }
+    .ep-DC  { background: #1a4a2e; color: #7fdbac; }
+    .ep-IP  { background: #1a3a5c; color: #7ab8f5; }
+    .ep-H   { background: #5c3a1a; color: #f5c07a; }
+    .ep-Int { background: #4a1a5c; color: #d07af5; }
+
+    /* SUBSECCIÓN LABEL */
+    .subsec-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+    }
+
+    /* ANÁLISIS CRÍTICO (MEEE-G) */
+    .meeg-block {
+      background: rgba(26,58,92,0.2);
+      border: 1px solid rgba(122,184,245,0.2);
+      border-left: 3px solid var(--blue);
+      padding: 22px 26px;
+      margin: 24px 0;
+    }
+    .meeg-block .subsec-label { color: var(--blue); border-bottom: 1px solid rgba(122,184,245,0.15); }
+    .meeg-block ul { list-style: none; padding: 0; }
+    .meeg-block li { font-size: 15px; color: var(--muted); margin-bottom: 1rem; padding-left: 1rem; position: relative; }
+    .meeg-block li::before { content: '·'; position: absolute; left: 0; color: var(--blue); }
+    .meeg-block li:last-child { margin-bottom: 0; }
+    .meeg-block strong { color: var(--text); }
+    .meeg-block em { color: #c0d8f0; font-style: italic; }
+
+    /* LECTURA DINÁMICA (ADD) */
+    .add-block {
+      background: rgba(212,160,23,0.06);
+      border: 1px solid rgba(212,160,23,0.18);
+      border-left: 3px solid var(--gold);
+      padding: 22px 26px;
+      margin: 24px 0;
+    }
+    .add-block .subsec-label { color: var(--gold); border-bottom: 1px solid rgba(212,160,23,0.18); }
+    .add-block ul { list-style: none; padding: 0; }
+    .add-block li { font-size: 15px; color: var(--muted); margin-bottom: 1rem; padding-left: 1rem; position: relative; }
+    .add-block li::before { content: '·'; position: absolute; left: 0; color: var(--gold); }
+    .add-block li:last-child { margin-bottom: 0; }
+    .add-block strong { color: var(--text); }
+    .add-block em { color: var(--gold-light); font-style: italic; }
+
+    /* RELEVANCIA COSTA RICA */
+    .cr-block {
+      background: rgba(39,174,96,0.08);
+      border: 1px solid rgba(39,174,96,0.25);
+      border-left: 3px solid var(--green);
+      padding: 22px 26px;
+      margin: 24px 0;
+    }
+    .cr-block .subsec-label { color: var(--green); border-bottom: 1px solid rgba(39,174,96,0.2); }
+    .cr-block ul { list-style: none; padding: 0; }
+    .cr-block li { font-size: 15px; color: var(--muted); margin-bottom: 1rem; padding-left: 1rem; position: relative; }
+    .cr-block li::before { content: '·'; position: absolute; left: 0; color: var(--green); }
+    .cr-block li:last-child { margin-bottom: 0; }
+    .cr-block p { font-size: 15px; color: var(--muted); margin-bottom: 0.8rem; }
+    .cr-block p:last-child { margin-bottom: 0; }
+    .cr-block strong { color: var(--text); }
+
+    /* INFOGRAFÍA */
+    .infografia-wrap { margin: 48px -40px; background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 0; }
+    .infografia-wrap img { width: 100%; display: block; }
+    .infografia-caption { padding: 12px 40px; font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.08em; text-align: center; }
+
+    /* DIVIDER */
+    .divider { border: none; border-top: 1px solid var(--border); margin: 56px 0; }
+
+    /* PLACEHOLDER DE IMAGEN */
+    .img-placeholder { border: 2px dashed var(--border); background: var(--bg2); padding: 32px 24px; margin: 28px 0; text-align: center; position: relative; }
+    .img-placeholder::before { content: '＋'; font-size: 32px; color: var(--border); display: block; margin-bottom: 12px; }
+    .img-placeholder .ph-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+    .img-placeholder .ph-desc { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--muted); line-height: 1.5; }
+    .img-placeholder .ph-size { font-family: 'Space Mono', monospace; font-size: 9px; color: #444; margin-top: 8px; }
+
+    /* SECCIÓN INTRODUCTORIA */
+    .intro-section { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 48px 0; }
+    .intro-section .intro-title { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--gold); letter-spacing: 0.06em; margin-bottom: 12px; }
+    .intro-section .intro-lead { font-size: 16px; color: var(--muted); margin-bottom: 36px; font-style: italic; }
+    .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px; }
+    @media (max-width: 700px) { .intro-grid { grid-template-columns: 1fr; } }
+    .intro-card { background: var(--bg3); border: 1px solid var(--border); padding: 24px; }
+    .intro-card h3 { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+    .intro-card dl { }
+    .intro-card dt { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--text); margin-top: 12px; margin-bottom: 3px; }
+    .intro-card dd { font-size: 14px; color: var(--muted); margin-left: 0; line-height: 1.5; }
+    .tags-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; align-items: center; }
+    .tag-demo { font-family: 'Space Mono', monospace; font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 2px; }
+    .tag-label { font-size: 13px; color: var(--muted); }
+    .abrev-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 8px; }
+    .abrev-table td { padding: 6px 0; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .abrev-table td:first-child { font-family: 'Space Mono', monospace; color: var(--gold); width: 80px; padding-right: 12px; }
+    .abrev-table tr:last-child td { border-bottom: none; }
+
+    /* SYNTHESIS */
+    .synthesis { background: var(--bg2); border: 1px solid var(--border); border-top: 2px solid var(--gold); padding: 36px 40px; margin: 48px 0; }
+    .synthesis h3 { font-family: 'Bebas Neue', sans-serif; font-size: 24px; color: var(--gold); letter-spacing: 0.06em; margin-bottom: 20px; }
+    .synthesis p { font-size: 16px; color: var(--muted); margin-bottom: 1rem; }
+    .synthesis ol { padding-left: 1.4rem; }
+    .synthesis li { font-size: 15px; color: var(--muted); margin-bottom: 0.8rem; }
+    .synthesis strong { color: var(--text); }
+    .synthesis em { color: var(--gold-light); }
+
+    /* INCERTIDUMBRES */
+    .incertidumbres { background: var(--bg3); border: 1px solid var(--border); border-left: 3px solid var(--red); padding: 28px 32px; margin: 32px 0; }
+    .incertidumbres h3 { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid rgba(192,57,43,0.2); }
+    .incertidumbres ul { list-style: none; padding: 0; }
+    .incertidumbres li { font-size: 15px; color: var(--muted); margin-bottom: 0.9rem; padding-left: 1rem; position: relative; }
+    .incertidumbres li::before { content: '·'; position: absolute; left: 0; color: var(--red); }
+    .incertidumbres strong { color: var(--text); }
+
+    /* FUENTES */
+    .fuentes { border-top: 1px solid var(--border); padding-top: 32px; margin-top: 48px; }
+    .fuentes h3 { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+    .fuentes h4 { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-top: 16px; margin-bottom: 8px; }
+    .fuentes ul { list-style: none; padding: 0; }
+    .fuentes li { font-size: 14px; color: var(--muted); margin-bottom: 0.5rem; padding-left: 1rem; position: relative; }
+    .fuentes li::before { content: '—'; position: absolute; left: 0; color: var(--border); }
+    .nota-metodologica { font-size: 13px; color: var(--muted); font-style: italic; margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border); }
+
+    /* FOOTER */
+    footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 28px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    footer .footer-left { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); line-height: 1.8; letter-spacing: 0.06em; }
+    footer .footer-nav { display: flex; gap: 20px; }
+    footer .footer-nav a { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); text-decoration: none; }
+    footer .footer-nav a:hover { color: var(--gold); }
+
+    @media (max-width: 640px) {
+      .masthead { padding: 16px 20px; }
+      .partes-nav { padding: 10px 20px; }
+      .hero { padding: 48px 20px 40px; }
+      .container { padding: 0 20px; }
+      .audio-strip { padding: 14px 20px; }
+      .infografia-wrap { margin: 32px -20px; }
+      .infografia-caption { padding: 10px 20px; }
+      footer { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="ticker-wrap">
+  <span class="ticker-content">
+    ANCA-ADD · La Senda del Dragón · Historia General de China · Parte II · De la Conquista Mongola a las Vísperas de las Guerras del Opio &nbsp;·&nbsp; Yuan · Ming · Qing &nbsp;·&nbsp; Análisis Dinámico del Devenir &nbsp;·&nbsp; Metodología MEEE-G &nbsp;·&nbsp; Alfredo Montero Fonseca · UCR &nbsp;·&nbsp; Abril 2026 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>
+</div>
+
+<div class="masthead">
+  <div class="masthead-logo">ANCA<span>·</span>ADD</div>
+  <div class="masthead-meta">
+    <div class="label">Sección Especial · Historia de China</div>
+    <h1>La Senda del Dragón</h1>
+    <div class="sub">El Dragón bajo el Yugo Extranjero — Parte II · Abril 2026</div>
+  </div>
+  <nav class="masthead-nav">
+    <a href="/divulgacion/">← Cosas que no sé</a>
+    <a href="/divulgacion/china/">Índice China</a>
+  </nav>
+</div>
+
+<div class="partes-nav">
+  <span class="nav-label">Entregas:</span>
+  <a href="../parte-1/" class="inactive">Parte I · Orígenes – 1211</a>
+  <a href="." class="active">Parte II · Mongoles – 1839</a>
+  <a href="../parte-3/" class="inactive">Parte III · 1839 – 2026</a>
+</div>
+
+<section class="hero">
+  <div class="container-wide">
+    <div class="hero-kicker">Especial 04 · Historia de China · Parte II de III</div>
+    <h2>El Dragón bajo el <em>Yugo Extranjero</em></h2>
+    <p class="hero-lead">De la capital de Kublai Khan a la destrucción del opio en Cantón: cómo China fue conquistada dos veces, asimiló a sus conquistadores, y llegó desarmada al umbral del mundo moderno.</p>
+    <div class="hero-meta">1271 – 1839 d.C. &nbsp;·&nbsp; 6 períodos &nbsp;·&nbsp; Alfredo Montero Fonseca · UCR</div>
+  </div>
+</section>
+
+<div class="audio-strip">
+  <span class="audio-label">Audio · Parte II</span>
+  <audio controls>
+    <source src="../audio/parte-2.m4a" type="audio/mp4">
+  </audio>
+</div>
+
+<!-- SECCIÓN INTRODUCTORIA -->
+<div class="intro-section">
+<div class="container">
+  <div class="intro-title">Marco Analítico</div>
+  <p class="intro-lead">Este análisis combina dos marcos complementarios: la Matriz Explicacionista de Evaluación Epistémica (MEEE-G) para clasificar el estatus de cada afirmación, y la Antropología Dinámica del Devenir (ADD) para interpretar los procesos históricos como sistemas complejos.</p>
+
+  <div class="intro-grid">
+    <div class="intro-card">
+      <h3>Matriz MEEE-G · Estatus epistémico de las afirmaciones</h3>
+      <p style="font-size:14px; color:var(--muted); margin-bottom:16px;">Cada afirmación en el texto lleva una etiqueta que indica qué tan sólida es la evidencia que la sostiene.</p>
+      <div class="tags-row">
+        <span class="tag-demo ep-DC" style="background:#1a4a2e;color:#7fdbac;">DC</span>
+        <span class="tag-label"><strong style="color:var(--text)">Dato Confirmado</strong> — verificado por fuentes independientes</span>
+      </div>
+      <div class="tags-row">
+        <span class="tag-demo ep-IP" style="background:#1a3a5c;color:#7ab8f5;">IP</span>
+        <span class="tag-label"><strong style="color:var(--text)">Inferencia Plausible</strong> — derivado lógicamente de DC con alta probabilidad</span>
+      </div>
+      <div class="tags-row">
+        <span class="tag-demo ep-H" style="background:#5c3a1a;color:#f5c07a;">H</span>
+        <span class="tag-label"><strong style="color:var(--text)">Hipótesis</strong> — explicación posible, no confirmada, requiere más evidencia</span>
+      </div>
+      <div class="tags-row">
+        <span class="tag-demo ep-Int" style="background:#4a1a5c;color:#d07af5;">Int</span>
+        <span class="tag-label"><strong style="color:var(--text)">Interpretación</strong> — lectura analítica del autor bajo el marco ADD</span>
+      </div>
+      <div class="tags-row">
+        <span class="tag-demo" style="background:#3a3a3a;color:#aaa;">C</span>
+        <span class="tag-label"><strong style="color:var(--text)">Conjetura</strong> — especulación razonada sin base empírica sólida actual</span>
+      </div>
+    </div>
+
+    <div class="intro-card">
+      <h3>ADD · Categorías de análisis dinámico</h3>
+      <p style="font-size:14px; color:var(--muted); margin-bottom:12px;">La ADD trata los fenómenos históricos como sistemas complejos no lineales, usando categorías de la termodinámica de sistemas alejados del equilibrio.</p>
+      <dl>
+        <dt>Atractor</dt>
+        <dd>Estado o configuración hacia el que tiende un sistema: una ciudad, una ideología, un modo de producción.</dd>
+        <dt>Clausura organizacional</dt>
+        <dd>La lógica interna que define la identidad del sistema. Lo que hace que "China" sea China.</dd>
+        <dt>Flujos disipativos</dt>
+        <dd>Intercambio de materia, energía e información con el entorno: comercio, migración, tecnología, ideas.</dd>
+        <dt>Perturbación</dt>
+        <dd>Choque externo o interno que obliga al sistema a responder.</dd>
+        <dt>Punto de inflexión / Bifurcación</dt>
+        <dd>Momento crítico donde el sistema se reorganiza o colapsa hacia un nuevo régimen.</dd>
+        <dt>Acoplamiento</dt>
+        <dd>Interdependencia entre dos sistemas que se influyen mutuamente.</dd>
+        <dt>Régimen de turbulencia</dt>
+        <dd>Estado de alta inestabilidad antes de una bifurcación.</dd>
+      </dl>
+    </div>
+  </div>
+
+  <div class="intro-card" style="margin-bottom:0;">
+    <h3>Abreviaturas frecuentes</h3>
+    <table class="abrev-table">
+      <tr><td>ADD</td><td>Antropología Dinámica del Devenir — marco teórico principal</td></tr>
+      <tr><td>MEEE-G</td><td>Matriz Explicacionista de Evaluación Epistémica de Goldman</td></tr>
+      <tr><td>ANCA-ADD</td><td>Agente Noticioso Crítico de Actualidad — Análisis Dinámico del Devenir</td></tr>
+      <tr><td>a.C. / d.C.</td><td>Antes de Cristo / Después de Cristo</td></tr>
+      <tr><td>UCR</td><td>Universidad de Costa Rica</td></tr>
+    </table>
+  </div>
+</div>
+</div>
+<!-- FIN INTRODUCTORIA -->
+
+<div class="narrative">
+<div class="container">
+</div>
+
+<div class="infografia-wrap">
+  <img src="../img/infografia-parte-2.jpg" alt="El Dragón bajo el Yugo Extranjero: Termodinámica de la China Imperial — infografía ANCA-ADD">
+  <div class="infografia-caption">Mapa sistémico de la Parte II · El Dragón bajo el Yugo Extranjero: Termodinámica de la China Imperial (Perspectiva ANCA-ADD)</div>
+</div>
+
+<div class="container">
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- PERÍODO 1: YUAN                            -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="period" id="yuan">
+  <div class="period-header">
+    <div class="period-dates">1271 – 1368 d.C.</div>
+    <h2>3.1 · Dinastía Yuan: <em>El Imperio Mongol sobre China</em></h2>
+  </div>
+
+  <div class="resumen">
+    <p>La historia comienza donde terminó la Parte I: en la estepa. <span class="ep ep-DC">DC</span> La dinastía Yuan fue fundada por <strong>Kublai Khan</strong> (1215-1294), nieto de Gengis Khan, quien completó la conquista de China iniciada por su abuelo. En 1271, Kublai proclamó oficialmente el nombre dinástico "Gran Yuan" y, en 1279, tras la decisiva batalla naval de Yamen —donde los últimos leales de la Song del Sur se arrojaron al mar junto con los archivos de la corte antes que rendirse—, China quedó unificada por primera vez bajo dominio extranjero.</p>
+
+    <p>Kublai trasladó la capital a <strong>Khanbaliq</strong> (la actual Pekín) y adoptó el título de emperador chino, aunque mantuvo también su posición de Gran Khan del Imperio Mongol: era al mismo tiempo Hijo del Cielo y gobernante de la estepa, dos mundos que ningún hombre antes había intentado gobernar simultáneamente.</p>
+
+    <p><span class="ep ep-DC">DC</span> La administración Yuan implementó un sistema de segregación étnica en cuatro clases: mongoles en la cima (la élite gobernante), semu —asiáticos centrales y occidentales, incluyendo persas y turcos— en el segundo escalón y a cargo de las finanzas, han del norte en el tercero, y nan —los chinos del sur, los más numerosos— en la base, como los más discriminados. Aunque los mongoles ocupaban los puestos superiores, la burocracia operaba con estructuras chinas: la Secretaría Imperial y la Censoría se mantuvieron porque sin ellas el imperio era simplemente ingobernable. El budismo tibetano fue elevado a religión oficial, aunque se toleraron el confucianismo, el taoísmo, el islam y hasta el cristianismo nestoriano. Marco Polo era, en esta jerarquía, un semu privilegiado.</p>
+
+    <div class="img-placeholder">
+      <div class="ph-label">Imagen sugerida · Dynastía Yuan</div>
+      <div class="ph-desc">Retrato de Kublai Khan (Museo Nacional del Palacio, Taipéi)<br>o mapa del Imperio Mongol en 1279 tras la batalla naval de Yamen</div>
+      <div class="ph-size">Formato recomendado: horizontal · JPG/PNG · mín. 1200px</div>
+    </div>
+
+    <p>El período Yuan fue testigo de la <em>Pax Mongolica</em>: la paz impuesta por el dominio mongol desde Pekín hasta Persia que permitió un intercambio comercial sin precedentes. <span class="ep ep-DC">DC</span> La Ruta de la Seda terrestre se reabrió completamente; viajeros como Marco Polo podían recorrer el continente con relativa seguridad. Avanzaron las matemáticas, la astronomía y la imprenta. Pero esa misma red de caminos que facilitaba el comercio facilitaba también la enfermedad: <span class="ep ep-IP">IP</span> la Muerte Negra que devastó Europa a partir de 1347 probablemente inició su recorrido en las estepas centroasiáticas bajo control mongol.</p>
+
+    <p>Sin embargo, el régimen enfrentó crecientes dificultades. <span class="ep ep-DC">DC</span> La emisión masiva de papel moneda sin respaldo metálico provocó inflación crónica. Las élites mongolas, en lugar de mantenerse austeras, adoptaron los lujos de la corte china y se endeudaron. Los impuestos excesivos sobre el campesinado han acumularon un descontento que necesitaba solo una chispa. Las inundaciones catastróficas del río Amarillo en la década de 1340 —que cambiaron su curso y anegaron millones de hectáreas— fueron esa chispa. El trabajo forzado para construir las defensas y desviar las aguas agotó lo que quedaba de la paciencia popular.</p>
+  </div>
+
+  <div class="meeg-block">
+    <div class="subsec-label">Análisis Crítico · MEEE-G</div>
+    <ul>
+      <li><strong>Clasificación:</strong> La fundación de la dinastía en 1271 y su caída en 1368 son <em>datos confirmados</em>. El sistema de cuatro clases es un <em>dato confirmado</em> por registros administrativos Yuan. La caracterización del gobierno Yuan como "tolerante en lo religioso pero discriminatorio en lo étnico" es una <em>interpretación</em> apoyada en evidencia textual.</li>
+      <li><strong>Evaluación Explicacionista:</strong> El fracaso del sistema de papel moneda Yuan es un caso de <em>inflación inducida por exceso de emisión</em>, similar a fenómenos observados en otras economías premodernas. La incapacidad de la dinastía para gestionar las crisis ecológicas (inundaciones del río Amarillo) y fiscales condujo a una pérdida de legitimidad que el confucianismo no podía restaurar.</li>
+    </ul>
+  </div>
+
+  <div class="add-block">
+    <div class="subsec-label">Lectura Dinámica · ADD</div>
+    <ul>
+      <li><strong>Atractores:</strong> Kublai Khan actuó como un <em>atractor personalista</em> que centralizó el poder mongol y lo orientó hacia la conquista y administración de China. La corte de Khanbaliq se convirtió en un <em>atractor cultural y comercial global</em> bajo la Pax Mongolica.</li>
+      <li><strong>Tensiones:</strong> La tensión fundamental del régimen Yuan era étnica: la élite mongola intentaba preservar su identidad separada mientras gobernaba una población Han masivamente mayoritaria, que la veía como extranjera ilegítima.</li>
+      <li><strong>Punto de Inflexión:</strong> Las catastróficas inundaciones del río Amarillo en la década de 1340, combinadas con la imposición de trabajo forzado para su control, catalizaron el descontento campesino y crearon las condiciones para la rebelión.</li>
+    </ul>
+  </div>
+
+  <div class="cr-block">
+    <div class="subsec-label">Relevancia para Costa Rica</div>
+    <p>El experimento Yuan de administración multiétnica con jerarquías rígidas ilustra los límites de la legitimidad sostenida solo por la coerción. Costa Rica, como país multiétnico —mestizos, afrodescendientes, indígenas, inmigrantes—, enfrenta el desafío contrario: construir instituciones que integren en lugar de jerarquizar. La experiencia Yuan sugiere que la legitimidad de largo plazo depende de la percepción de justicia distributiva.</p>
+    <p>La inflación del papel moneda Yuan también habla: la emisión monetaria sin respaldo institucional sólido genera espirales de desconfianza. El caso es relevante para cualquier economía que experimenta presión inflacionaria sostenida sin reforma fiscal estructural.</p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- PERÍODO 2: TURBANTES ROJOS                 -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="period" id="turbantes-rojos">
+  <div class="period-header">
+    <div class="period-dates">1351 – 1368 d.C.</div>
+    <h2>3.2 · La Revuelta de los Turbantes Rojos: <em>El Campesino que Venció al Yugo</em></h2>
+  </div>
+
+  <div class="resumen">
+    <p>China ardía desde varios frentes. <span class="ep ep-DC">DC</span> La <strong>Revuelta de los Turbantes Rojos</strong> (红巾起义) estalló en 1351 en las provincias de Hebei y Anhui, encabezada por Han Shantong y Liu Futong. Sus seguidores se envolvían la cabeza con tela roja como señal de identidad mesiánica: eran devotos de la secta del Loto Blanco, una fusión sincrética de budismo, maniqueísmo y creencias populares que prometía la venida de Maitreya —el Buda del futuro— para restaurar el orden. El hambre, los impuestos y la indignación ante el dominio mongol convirtieron esa promesa religiosa en combustible político de la más alta temperatura.</p>
+
+    <p>La revuelta era en realidad un archipiélago de rebeliones regionales que competían entre sí tanto como contra los Yuan. Entre todos los líderes que emergieron de ese caos, uno sobresalió: <strong>Zhu Yuanzhang</strong> (1328-1398), un campesino huérfano que había sido monje budista y más tarde mendigo antes de unirse a los rebeldes. Combinaba la dureza de quien ha sobrevivido al límite con una inteligencia política poco común. <span class="ep ep-DC">DC</span> Tras años de lucha tanto contra los mongoles como contra sus propios rivales rebeldes, Zhu emergió victorioso. En 1368, sus fuerzas tomaron Dadu —la capital Yuan— y Zhu se proclamó <strong>Hongwu</strong>, primer emperador de la nueva dinastía <strong>Ming</strong>, que significa "Brillante".</p>
+
+    <p>Los mongoles no fueron destruidos militarmente: se retiraron al norte, a las estepas donde seguían siendo invencibles, y continuarían siendo una amenaza durante generaciones. Lo que colapsó fue su legitimidad moral. Las inundaciones del Amarillo fueron interpretadas, en el marco confuciano, como la señal de que el Cielo había retirado su mandato a una dinastía que no había podido gestionar la catástrofe.</p>
+
+    <div class="img-placeholder">
+      <div class="ph-label">Imagen sugerida · Turbantes Rojos / Fundación Ming</div>
+      <div class="ph-desc">Retrato oficial del emperador Hongwu (Zhu Yuanzhang)<br>o mapa de los territorios rebeldes durante la Revuelta de los Turbantes Rojos (1351-1368)</div>
+      <div class="ph-size">Formato recomendado: horizontal · JPG/PNG</div>
+    </div>
+  </div>
+
+  <div class="meeg-block">
+    <div class="subsec-label">Análisis Crítico · MEEE-G</div>
+    <ul>
+      <li><strong>Clasificación:</strong> La cronología de la revuelta, sus líderes y su resultado final son <em>datos confirmados</em> por crónicas Ming y Yuan. La influencia del Loto Blanco es un <em>dato confirmado</em>, aunque la naturaleza precisa de sus doctrinas es objeto de debate académico.</li>
+      <li><strong>Evaluación Explicacionista:</strong> La revuelta ilustra el patrón recurrente de la historia china: la combinación de desastres naturales, mala gestión fiscal y discriminación étnica genera condiciones para movimientos mesiánicos que reclaman la restauración del Mandato del Cielo. Este patrón se había dado antes —con los Turbantes Amarillos al final del Han— y se repetiría en el siglo XIX con los Taiping.</li>
+    </ul>
+  </div>
+
+  <div class="add-block">
+    <div class="subsec-label">Lectura Dinámica · ADD</div>
+    <ul>
+      <li><strong>Régimen de turbulencia:</strong> La dinastía Yuan pasó de la estabilidad a la turbulencia irreversible en menos de dos décadas, a medida que las crisis ecológicas, fiscales, étnicas y militares se sincronizaron.</li>
+      <li><strong>Bifurcación:</strong> El triunfo de Zhu Yuanzhang representó una bifurcación histórica: la restauración del gobierno Han nativo tras casi un siglo de dominio extranjero y la fundación de una nueva clausura organizacional centrada en el confucianismo como ideología de Estado.</li>
+    </ul>
+  </div>
+
+  <div class="cr-block">
+    <div class="subsec-label">Relevancia para Costa Rica</div>
+    <p>La Revuelta de los Turbantes Rojos demuestra cómo los movimientos mesiánicos pueden canalizar el descontento agrario en contextos de crisis ecológica y fiscal. Costa Rica, aunque sin esa escala de conflicto, ha experimentado tensiones entre desarrollo agrícola y conservación ambiental, así como movimientos sociales que reclaman una distribución más equitativa de los recursos. La lección es que la resiliencia institucional depende de la capacidad del Estado para gestionar la crisis <em>antes</em> de que la legitimidad se agote.</p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- PERÍODO 3: MING                            -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="period" id="ming">
+  <div class="period-header">
+    <div class="period-dates">1368 – 1644 d.C.</div>
+    <h2>3.3 · Dynastía Ming: <em>El Resurgimiento Han</em></h2>
+  </div>
+
+  <div class="resumen">
+    <p>Hongwu —el ex-campesino, ex-monje, ex-mendigo convertido en Hijo del Cielo— gobernó con la desconfianza profunda de quien sabe que el poder puede quitarse. <span class="ep ep-DC">DC</span> Abolió el cargo de primer ministro, concentrando toda la decisión en sus propias manos. Creó los <em>Jinyi Wei</em>, la guardia de seda bordada: una red de espionaje interno para vigilar a sus propios funcionarios. Estableció la capital en Nankín, redistribuyó tierras entre los campesinos que le dieron la victoria, y restauró los exámenes imperiales como única vía de ascenso burocrático, devolviendo a los letrados confucianos su centralidad.</p>
+
+    <p>Su nieto <strong>Yongle</strong> (r. 1402-1424) fue el polo opuesto en carácter —aunque no en autoritarismo. Usurpó el trono en una guerra civil, trasladó la capital a Pekín —señal de que el norte seguía siendo el centro simbólico del poder— y construyó la <strong>Ciudad Prohibida</strong>, el complejo palaciego más grande de la historia, en el corazón de la ciudad. <span class="ep ep-DC">DC</span> Yongle patrocinó los siete grandes viajes del almirante eunuco <strong>Zheng He</strong> (1371-1433): flotas de hasta trescientos barcos y veintiocho mil hombres que recorrieron el Sudeste Asiático, la India, el Golfo Pérsico y la costa oriental de África entre 1405 y 1433. No eran misiones de conquista ni de colonización, sino de demostración de poderío y de reconocimiento del orden sinocéntrico del mundo. Donde los europeos iban con cañones a imponer tratados, los chinos iban con seda y porcelana a recibir tributo.</p>
+
+    <div class="img-placeholder">
+      <div class="ph-label">Imagen sugerida · Los Viajes de Zheng He</div>
+      <div class="ph-desc">Mapa de las rutas de las siete expediciones de Zheng He (1405-1433)<br>o representación de los grandes barcos del tesoro Ming en comparación con las carabelas europeas</div>
+      <div class="ph-size">Formato recomendado: horizontal ancho · JPG/PNG</div>
+    </div>
+
+    <p>Después de Yongle, algo extraño ocurrió: China se cerró sobre sí misma. <span class="ep ep-DC">DC</span> Los sucesores cancelaron las expediciones navales, destruyeron los astilleros y prohibieron la construcción de barcos oceánicos de más de dos mástiles. <span class="ep ep-H">H</span> Las causas exactas siguen debatiéndose: ¿victoria de los burócratas confucianos que veían el comercio marítimo como disruptivo del orden social? ¿Un cálculo de costos-beneficios que consideraba las flotas demasiado costosas? ¿La amenaza de los piratas japoneses (<em>wakō</em>) en las costas? Probablemente todas a la vez. Lo que sí es claro es que esta decisión fue un punto de inflexión que dejaría a China sin capacidad naval cuando los europeos llegaran con barcos de guerra siglos después.</p>
+
+    <p>La economía Ming, mientras tanto, se transformó radicalmente por un flujo que nadie había diseñado: la plata americana. <span class="ep ep-DC">DC</span> El comercio con los portugueses en Macao (desde 1557) y con los galeones españoles a través de Manila conectaron la plata de Potosí y de México con los mercados chinos. China exportaba seda, porcelana y té —productos de altísimo valor— e importaba plata en cantidades astronómicas. Se estima que entre el 30% y el 50% de toda la plata producida en América entre 1500 y 1800 terminó en China. Paradójicamente, la China que se cerró al mundo por el norte se convirtió en el principal nodo de la primera economía verdaderamente global.</p>
+
+    <p>A lo largo del siglo XVI, los Ming enfrentaron la presión de los piratas japoneses en las costas y de los mongoles en el norte, lo que llevó a la reconstrucción y fortificación de la Gran Muralla en su forma actual —más imponente pero también más síntoma de fragilidad que de fortaleza. A finales del siglo XVI, la llegada de misioneros jesuitas europeos, como el matemático y astrónomo <strong>Matteo Ricci</strong>, introdujo conocimientos occidentales en la corte, aunque su influencia nunca trascendió más allá de un círculo pequeño de letrados fascinados.</p>
+  </div>
+
+  <div class="meeg-block">
+    <div class="subsec-label">Análisis Crítico · MEEE-G</div>
+    <ul>
+      <li><strong>Clasificación:</strong> La fundación de la dinastía, la construcción de la Ciudad Prohibida y los viajes de Zheng He son <em>datos confirmados</em> por evidencia textual y arqueológica. El giro hacia el aislamiento marítimo es un <em>dato confirmado</em>, aunque sus causas son objeto de <em>interpretaciones</em> divergentes.</li>
+      <li><strong>Evaluación Explicacionista:</strong> El contraste entre la ambición marítima de Yongle y el aislamiento de sus sucesores es un ejemplo de cómo los cambios en el liderazgo personalista pueden alterar drásticamente la trayectoria de un imperio. La cancelación de las expediciones navales y el desmantelamiento de los astilleros es un <em>punto de inflexión</em> que dejó a China vulnerable siglos después, cuando las potencias europeas llegaron con barcos de guerra.</li>
+    </ul>
+  </div>
+
+  <div class="add-block">
+    <div class="subsec-label">Lectura Dinámica · ADD</div>
+    <ul>
+      <li><strong>Atractores:</strong> Pekín y la Ciudad Prohibida se convirtieron en el <em>atractor político y simbólico</em> del imperio, centralizando la administración, la cultura y el ritual. La Gran Muralla, en su forma Ming, fue un intento de crear una barrera física contra los flujos de invasión nómada desde el norte.</li>
+      <li><strong>Flujos:</strong> El flujo masivo de plata americana —extraída en Potosí y México, transportada a través de Manila y el Galeón de Acapulco— integró a China en la primera economía global. China era el mayor exportador mundial de manufacturas; la plata era la moneda de cambio universal.</li>
+      <li><strong>Punto de Inflexión:</strong> La decisión de cancelar las expediciones de Zheng He y desmantelar la armada oceánica es un punto de inflexión que dejó a China estratégicamente vulnerable frente a las potencias marítimas emergentes de Europa.</li>
+    </ul>
+  </div>
+
+  <div class="cr-block">
+    <div class="subsec-label">Relevancia para Costa Rica</div>
+    <ul>
+      <li><strong>Económica:</strong> El flujo de plata americana hacia China estableció el primer circuito comercial global, del cual Centroamérica era parte como proveedora de productos tropicales. Esta integración temprana anticipa la inserción de Costa Rica en la economía global contemporánea.</li>
+      <li><strong>Política:</strong> El giro al aislamiento Ming es una advertencia: las políticas de autarquía pueden generar estancamiento y vulnerabilidad. Costa Rica, que ha apostado por la apertura comercial, debe mantener un equilibrio entre protección nacional y participación en los flujos globales.</li>
+      <li><strong>Científica y cultural:</strong> La llegada de los jesuitas a la corte Ming representa un acoplamiento científico entre civilizaciones. Como país que recibe misiones técnicas internacionales, Costa Rica puede aprender de cómo la apertura selectiva al conocimiento externo puede impulsar el desarrollo sin comprometer la soberanía cultural.</li>
+    </ul>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- PERÍODO 4: CAÍDA MING                      -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="period" id="caida-ming">
+  <div class="period-header">
+    <div class="period-dates">1644 d.C.</div>
+    <h2>3.4 · La Caída Ming y la Conquista Manchú: <em>El Colapso Sistémico</em></h2>
+  </div>
+
+  <div class="resumen">
+    <p>La caída de los Ming no fue el resultado de un único golpe: fue la sincronización fatal de varios factores simultáneos. <span class="ep ep-DC">DC</span> A mediados del siglo XVII, la dinastía enfrentaba rebeliones campesinas masivas alimentadas por el hambre y los impuestos, una crisis fiscal crónica, corrupción endémica en la burocracia, y la presión militar de los manchúes en el noreste. La "Pequeña Edad de Hielo" —un enfriamiento global documentado por historiadores climáticos— había reducido las cosechas durante décadas, multiplicando el hambre y la inestabilidad social.</p>
+
+    <p>El líder rebelde <strong>Li Zicheng</strong> (1606-1645), un antiguo cartero convertido en comandante, fue quien asestó el golpe visible. En abril de 1644, sus fuerzas tomaron Pekín. El último emperador Ming, <strong>Chongzhen</strong>, se colgó de un árbol en el Jardín Imperial antes de que los rebeldes entraran al palacio —la muerte de un hombre que sabía que había perdido el Mandato del Cielo. Su nota de suicidio, según las crónicas, culpaba a sus ministros, no a sus políticas.</p>
+
+    <p>Li Zicheng no pudo consolidar su victoria. El general Ming <strong>Wu Sangui</strong>, que comandaba las tropas en el paso de Shanhaiguan —donde la Gran Muralla llega al mar—, tomó la decisión que cambiaría el curso de la historia: en lugar de someterse al rebelde campesino, abrió las puertas de la Muralla al príncipe manchú <strong>Dorgon</strong>. <span class="ep ep-DC">DC</span> El 6 de junio de 1644, las fuerzas manchúes entraron en Pekín y establecieron la dinastía <strong>Qing</strong> —"Pura" en chino— que gobernaría China hasta 1912. La resistencia Ming del sur, liderada por figuras como <strong>Koxinga</strong> (Zheng Chenggong), quien estableció un reino en Taiwán, continuó durante décadas pero terminó cayendo en 1683.</p>
+
+    <div class="img-placeholder">
+      <div class="ph-label">Imagen sugerida · Caída Ming / Conquista Manchú</div>
+      <div class="ph-desc">Representación pictórica de la entrada manchú en Pekín (1644)<br>o mapa del paso de Shanhaiguan — el punto donde la Gran Muralla llega al mar de Bohai</div>
+      <div class="ph-size">Formato recomendado: horizontal · JPG/PNG</div>
+    </div>
+
+    <p><span class="ep ep-DC">DC</span> Los manchúes impusieron marcadores físicos de sumisión: la <em>queue</em> o coleta, que los varones Han estaban obligados a usar bajo pena de muerte, y la prohibición de matrimonios mixtos. Pero al mismo tiempo adoptaron las instituciones confucianas, los exámenes imperiales, la burocracia Han. <span class="ep ep-IP">IP</span> El patrón era idéntico al Yuan: el conquistador necesita al conquistado para gobernar, y en ese proceso cultural de asimilación, el conquistador termina siendo absorbido.</p>
+  </div>
+
+  <div class="meeg-block">
+    <div class="subsec-label">Análisis Crítico · MEEE-G</div>
+    <ul>
+      <li><strong>Clasificación:</strong> La secuencia de eventos —caída de Pekín, alianza Wu Sangui-Dorgon, entrada manchú— es un <em>dato confirmado</em> por fuentes Ming, Qing y europeas. La interpretación de Li Zicheng como "el emperador de un día" es una <em>interpretación</em> que subraya la brevedad de su reinado.</li>
+      <li><strong>Evaluación Explicacionista:</strong> La caída Ming es un ejemplo de <em>colapso sistémico</em>: ningún factor aislado —rebelión campesina, invasión extranjera, crisis fiscal, cambio climático— fue suficiente por sí solo, pero su combinación y sincronización resultaron letales. La "Pequeña Edad de Hielo" es el factor ambiental más frecuentemente subestimado por las narrativas tradicionales.</li>
+    </ul>
+  </div>
+
+  <div class="add-block">
+    <div class="subsec-label">Lectura Dinámica · ADD</div>
+    <ul>
+      <li><strong>Atractores:</strong> Los manchúes, pueblo de cazadores-agricultores originario de Manchuria, construyeron un <em>atractor militar</em> altamente eficaz, combinando la disciplina de la caballería nómada con la artillería china capturada.</li>
+      <li><strong>Acoplamientos:</strong> La conquista Qing fue un <em>acoplamiento asimétrico</em>: los manchúes eran aproximadamente 2 millones que gobernaron una mayoría Han de más de 100 millones. Su éxito dependió de cooptar a la élite confuciana, preservar las instituciones Ming y mantener su propia identidad étnica separada.</li>
+      <li><strong>Tensiones:</strong> La tensión étnica manchú-Han fue una constante del período Qing. Los manchúes impusieron el código de vestimenta —la coleta— como símbolo físico de sumisión. Sin embargo, la paradoja es que la imposición cultural fue seguida de la absorción cultural: los Qing tardíos eran manchúes que apenas hablaban manchú.</li>
+    </ul>
+  </div>
+
+  <div class="cr-block">
+    <div class="subsec-label">Relevancia para Costa Rica</div>
+    <p>La conquista manchú es un ejemplo de cómo un grupo minoritario puede gobernar una mayoría mediante la cooptación de élites y la preservación de instituciones existentes. Costa Rica, como país multiétnico, enfrenta el desafío contrario: construir una identidad nacional inclusiva que respete la diversidad cultural sin fragmentación política. La experiencia Qing sugiere que la legitimidad de un gobierno depende de su capacidad para ofrecer estabilidad y prosperidad, no solo coerción.</p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- PERÍODO 5: ALTA QING                       -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="period" id="alta-qing">
+  <div class="period-header">
+    <div class="period-dates">1644 – 1757 d.C.</div>
+    <h2>3.5 · Dynastía Qing: <em>El Imperio de la Gran Pureza</em></h2>
+  </div>
+
+  <div class="resumen">
+    <p>La <strong>Alta Qing</strong> —el período desde la conquista hasta las Guerras del Opio— es uno de los momentos de mayor prosperidad y expansión en la historia china. Tres emperadores la definieron. <span class="ep ep-DC">DC</span> <strong>Kangxi</strong> (r. 1661-1722) sofocó la rebelión de los Tres Feudos —señores de guerra que habían recibido Yunnan, Guangdong y Fujian a cambio de su colaboración en la conquista—, anexó Taiwán en 1683, y derrotó a los mongoles Zungaros en el oeste expandiendo el dominio imperial hacia el Tibet y Xinjiang. <strong>Yongzheng</strong> (r. 1722-1735) consolidó la burocracia y redujo la corrupción mediante reformas administrativas notables. <strong>Qianlong</strong> (r. 1735-1796) completó las conquistas territoriales, creando el imperio más extenso jamás gobernado desde Pekín: más de 14.7 millones de km².</p>
+
+    <p>La población china se disparó de forma sin precedentes. <span class="ep ep-DC">DC</span> De unos 100 millones a principios del siglo XVIII pasó a más de 300 millones a finales del mismo siglo. El motor invisible fue la introducción de cultivos americanos: el maíz, la batata, el maní y el tabaco, llegados de las Américas vía las rutas comerciales del Pacífico, podían cultivarse en tierras marginales donde el arroz y el mijo no prosperaban. Esas laderas estériles se convirtieron en campos alimentando millones de bocas nuevas.</p>
+
+    <div class="img-placeholder">
+      <div class="ph-label">Imagen sugerida · Alta Qing</div>
+      <div class="ph-desc">Retrato oficial del emperador Kangxi o Qianlong (Museo del Palacio, Pekín)<br>o mapa del Imperio Qing en su máxima extensión territorial (c. 1790)</div>
+      <div class="ph-size">Formato recomendado: horizontal o cuadrado · JPG/PNG</div>
+    </div>
+
+    <p>El comercio exterior, aunque oficialmente restringido al puerto de Cantón desde 1757 mediante el llamado <strong>Sistema de Cantón</strong>, florecía. <span class="ep ep-DC">DC</span> China exportaba té, seda y porcelana —productos de alto valor— e importaba plata a cambio. El arte Qing alcanzó niveles de refinamiento notable; la <em>chinería</em> se extendió por Europa, donde la aristocracia coleccionaba porcelana de Jingdezhen. China era el mayor exportador mundial de manufacturas; la plata era su moneda universal.</p>
+
+    <p>Pero bajo la superficie de prosperidad se gestaban problemas estructurales. <span class="ep ep-DC">DC</span> La corrupción burocrática era rampante, especialmente bajo el anciano Qianlong, cuyo favorito, el eunuco <strong>Heshen</strong>, acumuló una fortuna personal equivalente a varios años de ingresos totales del Estado. La presión demográfica sobre la tierra generaba masas de campesinos sin tierras y desigualdad creciente. <span class="ep ep-IP">IP</span> Y el poder militar Qing, formidable en el siglo XVIII, se estancó tecnológicamente mientras las potencias europeas desarrollaban armas de fuego avanzadas y barcos propulsados a vapor. La brecha se abría en silencio, sin que nadie en la corte de Pekín lo advirtiera.</p>
+  </div>
+
+  <div class="meeg-block">
+    <div class="subsec-label">Análisis Crítico · MEEE-G</div>
+    <ul>
+      <li><strong>Clasificación:</strong> Los emperadores, las conquistas territoriales y el crecimiento demográfico son <em>datos confirmados</em>. La caracterización del siglo XVIII Qing como una "edad de oro" es una <em>interpretación</em> apoyada en indicadores económicos y culturales, aunque matizada por los problemas estructurales subyacentes.</li>
+      <li><strong>Evaluación Explicacionista:</strong> La introducción de cultivos americanos (maíz, batata) es un ejemplo de <em>transferencia tecnológica biológica</em> que transformó la agricultura china y permitió el crecimiento poblacional, análoga al impacto de la papa en Europa. La economía circular Qing del siglo XVIII —donde los residuos se reutilizaban y los recursos se gestionaban eficientemente— ofrece lecciones para el desarrollo sostenible.</li>
+    </ul>
+  </div>
+
+  <div class="add-block">
+    <div class="subsec-label">Lectura Dinámica · ADD</div>
+    <ul>
+      <li><strong>Atractores:</strong> Pekín se consolidó como el <em>atractor político</em> del imperio más grande del mundo. Cantón se convirtió en un <em>atractor comercial</em> donde confluyeron los flujos de té, seda, porcelana y plata.</li>
+      <li><strong>Flujos:</strong> El flujo de plata americana hacia China fue el mayor movimiento de metales preciosos en la historia hasta ese momento. China era el "sumidero" de la plata mundial. Cuando las guerras napoleónicas interrumpieron el comercio y las minas americanas se agotaron, la economía Qing sufrió una crisis de liquidez que abriría la puerta al contrabando de opio.</li>
+      <li><strong>Acoplamientos:</strong> El acoplamiento entre la economía china y la global era asimétrico: China exportaba bienes de alto valor (manufacturas) e importaba metal (plata). Este desequilibrio estructuralmente favorable a China sería la causa subyacente del contrabando británico de opio.</li>
+      <li><strong>Tensiones:</strong> La tensión entre el ideal confuciano de autarquía —el imperio como universo autosuficiente— y la realidad de la integración comercial global fue una contradicción central del Qing tardío.</li>
+    </ul>
+  </div>
+
+  <div class="cr-block">
+    <div class="subsec-label">Relevancia para Costa Rica</div>
+    <ul>
+      <li><strong>Económica:</strong> La experiencia Qing ilustra los peligros de la dependencia de pocos productos de exportación (té, seda) y la fragilidad de las finanzas públicas frente a shocks externos. Costa Rica, cuya economía ha dependido del banano, el café y ahora los servicios tecnológicos, debe diversificar sus exportaciones y fortalecer sus reservas fiscales.</li>
+      <li><strong>Demográfica:</strong> La introducción de cultivos americanos que permitió el boom demográfico Qing tiene un paralelo en la "revolución verde" del siglo XX. Costa Rica debe gestionar las tensiones entre crecimiento poblacional, sostenibilidad ambiental y distribución de la tierra.</li>
+      <li><strong>Ambiental:</strong> La expansión agrícola Qing hacia tierras marginales causó deforestación y erosión severas. Costa Rica, líder en reforestación y conservación, enfrenta el desafío de equilibrar la producción agrícola con la protección de la biodiversidad.</li>
+    </ul>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- PERÍODO 6: PRELUDIO DEL OPIO               -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="period" id="preludio-opio">
+  <div class="period-header">
+    <div class="period-dates">1757 – 1839 d.C.</div>
+    <h2>3.6 · El Preludio de las Guerras del Opio: <em>El Sistema de Cantón y el Contrabando</em></h2>
+  </div>
+
+  <div class="resumen">
+    <p>Desde 1757, el comercio europeo en China quedó legalmente confinado a un solo punto: el puerto de <strong>Cantón</strong> (Guangzhou). <span class="ep ep-DC">DC</span> Los comerciantes extranjeros solo podían operar durante la temporada comercial (octubre-marzo), residir en factorías designadas a orillas del río Perla y tratar exclusivamente con el gremio de mercaderes chinos conocido como el <strong>Co-hong</strong> (o <em>gonghang</em>), que actuaba como intermediario y garante de los impuestos aduaneros. El sistema funcionaba razonablemente bien para ambas partes: China mantenía control estricto sobre el comercio; los europeos tenían acceso a los codiciados productos chinos.</p>
+
+    <p>El problema era el déficit comercial crónico de Gran Bretaña. Los ingleses bebían té sin parar —desde principios del siglo XVIII el consumo popular de té se había disparado en toda la sociedad, no solo entre la aristocracia— pero China no quería nada de lo que Gran Bretaña producía: lana, metales, manufacturas industriales. La célebre misión del Lord Macartney en 1793, que llegó a Pekín cargada de las mejores muestras de la industria británica, recibió del emperador Qianlong una respuesta memorable: "El Celeste Imperio posee todo en abundancia. No valoramos las cosas extrañas o ingeniosamente hechas, y no tenemos uso para los productos de vuestra manufactura." Los ingleses tenían que pagar el té con plata, y la plata fluía sin retorno hacia China.</p>
+
+    <div class="img-placeholder">
+      <div class="ph-label">Imagen sugerida · El Sistema de Cantón</div>
+      <div class="ph-desc">Pintura de las factorías europeas en Cantón (siglo XVIII-XIX) — la "fachada" del comercio chino<br>Alternativa: mapa del puerto de Cantón y las rutas comerciales del té y la plata</div>
+      <div class="ph-size">Formato recomendado: horizontal · JPG/PNG</div>
+    </div>
+
+    <p>La solución británica fue tan brillante en su cinismo como devastadora en sus consecuencias. La Compañía Británica de las Indias Orientales tenía el monopolio del opio cultivado en Bengala (India). <span class="ep ep-DC">DC</span> Los comerciantes británicos comenzaron a contrabandear esa sustancia en los puertos chinos a pesar de que el opio estaba prohibido por la legislación china desde 1729. El contrabando creció exponencialmente: de unas pocas toneladas anuales a principios del siglo XIX a más de 1,400 toneladas por año hacia 1838. El flujo de plata se invirtió: ahora China la pagaba para comprar opio.</p>
+
+    <p>El costo social era catastrófico. <span class="ep ep-DC">DC</span> La adicción al opio se extendía por todas las capas de la sociedad china —del ejército a la burocracia, de los puertos al campo—, debilitando la productividad y la cohesión social. La fuga de plata provocaba deflación y crisis de liquidez en una economía donde el metal era la base del sistema fiscal. La corrupción de los funcionarios encargados de interceptar el contrabando erosionaba la burocracia desde adentro. El problema se retroalimentaba: cuantos más funcionarios sobornaban los traficantes, más opio entraba; cuanto más opio entraba, más plata salía; cuanta más plata salía, más difícil era recaudar impuestos para pagar a los funcionarios.</p>
+
+    <p>El emperador <strong>Daoguang</strong>, alarmado, nombró al comisionado imperial <strong>Lin Zexu</strong> (1785-1850) para erradicar el tráfico con poderes extraordinarios. <span class="ep ep-DC">DC</span> En 1839, Lin llegó a Cantón, confiscó más de 20,000 cofres de opio (unas 1,200 toneladas) y los destruyó públicamente mezclándolos con sal y cal antes de arrojarlos al mar durante 23 días. Exigió a los comerciantes británicos una garantía escrita de que no volverían a traficar. El gobierno británico, bajo el primer ministro Lord Melbourne, consideró la destrucción de propiedad privada sin compensación como un acto de guerra. La Royal Navy fue enviada a las costas chinas, y en 1840 comenzó la <strong>Primera Guerra del Opio</strong> (1839-1842), que marcaría el inicio del "siglo de las humillaciones".</p>
+  </div>
+
+  <div class="meeg-block">
+    <div class="subsec-label">Análisis Crítico · MEEE-G</div>
+    <ul>
+      <li><strong>Clasificación:</strong> La existencia del Sistema de Cantón, el contrabando de opio, la misión de Lin Zexu y la destrucción del opio son <em>datos confirmados</em> por fuentes chinas, británicas y otras europeas. La interpretación de las motivaciones británicas (¿comercio libre o imperialismo?) es una <em>interpretación</em> que admite matices: ambas lecturas son parcialmente correctas.</li>
+      <li><strong>Evaluación Explicacionista:</strong> El desencadenante de la guerra fue un <em>choque de sistemas legales</em>: China consideraba que el opio era ilegal y actuó en consecuencia; Gran Bretaña consideraba que la destrucción de propiedad privada sin compensación era un acto de guerra. La asimetría de poder militar (barcos de vapor británicos contra juncos chinos) determinó el resultado antes de que comenzaran los combates.</li>
+    </ul>
+  </div>
+
+  <div class="add-block">
+    <div class="subsec-label">Lectura Dinámica · ADD</div>
+    <ul>
+      <li><strong>Atractores:</strong> El opio se convirtió en un <em>atractor económico ilegal</em> que redirigió los flujos de plata (de China hacia la India y Gran Bretaña) y creó una economía paralela de contrabando y corrupción que el Estado Qing no podía controlar sin destruirlo.</li>
+      <li><strong>Flujos:</strong> El flujo de opio desplazó al flujo de plata como movimiento comercial dominante entre China y Occidente. China pasó de ser el "sumidero" mundial de plata a una economía con fuga de capitales estructural.</li>
+      <li><strong>Acoplamientos:</strong> El acoplamiento entre la demanda británica de té, el monopolio de la Compañía de las Indias Orientales sobre el opio indio, y la debilidad militar china generó una <em>trayectoria de conflicto</em> que ninguna de las partes deseaba inicialmente, pero que ninguna pudo evitar dado el diseño estructural del sistema.</li>
+      <li><strong>Punto de Inflexión:</strong> La destrucción del opio por Lin Zexu en 1839 fue el punto de inflexión que llevó a la guerra. La derrota china en 1842 y el Tratado de Nankín abrirán la bifurcación que definirá la Parte III.</li>
+    </ul>
+  </div>
+
+  <div class="cr-block">
+    <div class="subsec-label">Relevancia para Costa Rica</div>
+    <ul>
+      <li><strong>Política y geopolítica:</strong> El conflicto Qing-británico ilustra cómo las asimetrías de poder militar pueden forzar a un país a aceptar condiciones comerciales desfavorables. Costa Rica, que abolió el ejército en 1949, depende de la diplomacia multilateral y de los tratados internacionales para su seguridad. La lección es que la capacidad de negociación comercial no puede separarse completamente del contexto geopolítico.</li>
+      <li><strong>Económica:</strong> El contrabando de opio es un ejemplo temprano de cómo las economías ilegales pueden distorsionar el desarrollo nacional. Costa Rica, que enfrenta desafíos como país de tránsito del narcotráfico, debe estar alerta a cómo los flujos ilegales erosionan instituciones y desvían capitales.</li>
+      <li><strong>Social:</strong> La crisis de adicción al opio en China del siglo XIX es comparable a las crisis de opioides en sociedades contemporáneas. Costa Rica debe mantener políticas preventivas frente a las drogas, evitando tanto la criminalización excesiva como la normalización de sustancias adictivas.</li>
+    </ul>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- SÍNTESIS -->
+<div class="synthesis">
+  <h3>4 · Síntesis Dinámica: China bajo Dominio Extranjero y Resurgimiento Nativo</h3>
+  <p>Desde la perspectiva de la ADD, el período 1271-1839 puede interpretarse como un ciclo de <em>dominación extranjera, resurgimiento nativo, nueva dominación extranjera y declive autoinfligido</em>:</p>
+  <ol>
+    <li><strong>El ciclo de asimilación:</strong> Los mongoles (Yuan) y los manchúes (Qing) conquistaron China desde el norte, pero ambos terminaron adoptando las instituciones confucianas y la cultura china. La "sinización de los conquistadores" fue un patrón recurrente: la clausura organizacional china demostró ser más resistente que los ejércitos nómadas.</li>
+    <li><strong>La paradoja del aislamiento:</strong> La dinastía Ming, después de un comienzo ambicioso (los viajes de Zheng He), viró hacia el aislamiento marítimo, lo que la dejó vulnerable a las potencias europeas. El Qing inicialmente mantuvo ese aislamiento; la presión comercial británica lo rompió por la fuerza.</li>
+    <li><strong>La economía global antes de la globalización:</strong> China fue un actor central en la primera economía global (siglos XVI-XVIII), exportando manufacturas e importando plata. Su declive relativo no se debió a su aislamiento, sino a su incapacidad para industrializarse mientras Europa lo hacía.</li>
+    <li><strong>El opio como arma:</strong> El contrabando de opio fue una forma de "guerra económica" que Gran Bretaña libró para revertir su déficit comercial con China. La adicción masiva debilitó la cohesión social china; la fuga de plata agotó las reservas del Estado.</li>
+    <li><strong>La humillación como bifurcación:</strong> La derrota en la Primera Guerra del Opio (1842) y el Tratado de Nankín abrieron una bifurcación: modernización forzada o colapso total. Esa es la historia de la Parte III.</li>
+  </ol>
+</div>
+
+<!-- INCERTIDUMBRES -->
+<div class="incertidumbres">
+  <h3>6 · Incertidumbres Abiertas</h3>
+  <ul>
+    <li><strong>La magnitud de la despoblación durante la conquista mongola</strong> sigue debatiéndose. Algunas fuentes sugieren caídas de más de 40 millones de personas; otras consideran estas cifras amplificadas por la propaganda Ming posterior.</li>
+    <li><strong>Las causas exactas del giro al aislamiento Ming</strong> no están completamente claras. Fue probablemente una combinación de conservadurismo confuciano, cálculo racional de costos y amenaza de los piratas japoneses.</li>
+    <li><strong>El "siglo de las humillaciones"</strong>, aunque bien documentado, está cargado de interpretaciones nacionalistas tanto en China como en Occidente. Si China podría haber evitado la guerra con una modernización temprana sigue siendo un debate contrafactual abierto.</li>
+    <li><strong>Las cifras de adicción al opio</strong> son estimaciones, no datos censales. Los relatos contemporáneos exageraban a menudo la magnitud del problema para justificar intervenciones drásticas, como la de Lin Zexu.</li>
+  </ul>
+</div>
+
+<!-- FUENTES -->
+<div class="fuentes">
+  <h3>7 · Fuentes</h3>
+  <h4>Fuentes primarias (en traducción):</h4>
+  <ul>
+    <li>Rashid al-Din. <em>Compendio de Crónicas (Jami' al-tawarikh)</em>. Relato persa del Imperio Mongol.</li>
+    <li><em>Crónicas de la dynastía Yuan (元史)</em>. Compiladas bajo la dynastía Ming.</li>
+    <li><em>Crónicas de la dynastía Ming (明史)</em>. Compiladas bajo la dynastía Qing.</li>
+    <li><em>Diarios de la corte Qing</em>. Archivos del Primer Archivo Histórico de China.</li>
+    <li>Lin Zexu. <em>Cartas y memoriales al emperador Daoguang</em> (1838-1840).</li>
+  </ul>
+  <h4>Fuentes secundarias:</h4>
+  <ul>
+    <li>Dynastía Yuan · Kublai Khan · Dynastía Ming · Yongle Emperor · Zheng He — Wikipedia, la enciclopedia libre.</li>
+    <li>Transición de Ming a Qing · Dynastía Qing · Guerras del Opio — Wikipedia, la enciclopedia libre.</li>
+    <li>The Kangxi and Qianlong Emperors. <em>Asia for Educators</em>. Columbia University.</li>
+    <li>Frankopan, Peter. <em>La Ruta de la Seda: Una nueva historia</em>. Para el análisis de los flujos comerciales.</li>
+    <li>Fairbank, John King. <em>China: Una nueva historia</em>. Para el período Qing y las Guerras del Opio.</li>
+  </ul>
+  <p class="nota-metodologica">Nota metodológica: El análisis combina evaluación epistémica explicacionista (MEEE-G) y análisis dinámico antropológico (ADD); no constituye predicción determinista ni recomendación política. La selección de períodos y eventos busca reflejar los puntos de inflexión y los acoplamientos sistémicos más relevantes para comprender la evolución de China como civilización y sus implicaciones para un nodo periférico como Costa Rica.</p>
+</div>
+
+</div><!-- /container -->
+</div><!-- /narrative -->
+
+<footer>
+  <div class="footer-left">
+    ALFREDO MONTERO FONSECA · UNIVERSIDAD DE COSTA RICA<br>
+    ANCA-ADD · ABRIL 2026
+  </div>
+  <nav class="footer-nav">
+    <a href="../parte-1/">← Parte I</a>
+    <a href="/divulgacion/china/">Índice China</a>
+    <a href="../parte-3/">Parte III →</a>
+    <a href="/">antropos.app</a>
+  </nav>
+</footer>
+
+<script data-goatcounter="https://antropos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

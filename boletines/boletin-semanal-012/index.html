@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANCA-ADD · Boletín Semanal N.° 012 · 29 jun – 6 jul 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0c0e11;--bg2:#13161a;--panel:#171b20;--panel2:#1c2127;
+    --ink:#e9e6df;--ink2:#b7b2a8;--muted:#7f7a70;
+    --teal:#37b1a2;--teal-dim:#1f5c55;--teal-bg:rgba(55,177,162,.08);
+    --amber:#c98a3c;--copper:#b5672e;--amber-bg:rgba(201,138,60,.08);
+    --gold:#d8b25a;--red:#d65a4e;--violet:#b78bd0;--line:#2a2f36;
+    --dc:#37b1a2;--ip:#7fb8d8;--h:#d8b25a;--int:#c98a3c;--c:#b78bd0;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:Georgia,'Times New Roman',serif;font-size:20px;line-height:1.55;}
+  ::selection{background:var(--teal-dim);color:#fff}
+
+  .ticker{position:sticky;top:0;z-index:60;background:#08090b;border-bottom:1px solid var(--line);
+    overflow:hidden;white-space:nowrap;font-family:'IBM Plex Mono',monospace;font-size:12.5px;
+    letter-spacing:.04em;color:var(--ink2);padding:7px 0}
+  .ticker .track{display:inline-block;padding-left:100%;animation:scroll 54s linear infinite}
+  .ticker b{color:var(--teal)}
+  .ticker .sep{color:var(--red);margin:0 .8em}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+  @media(prefers-reduced-motion:reduce){.ticker .track{animation:none;padding-left:1em}}
+
+  nav{position:sticky;top:31px;z-index:55;background:rgba(12,14,17,.92);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--line);
+    font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.05em}
+  nav .wrap{max-width:920px;margin:0 auto;padding:9px 22px;display:flex;flex-wrap:wrap;gap:4px 18px;align-items:center}
+  nav a{color:var(--muted);text-decoration:none;text-transform:uppercase;transition:color .2s}
+  nav a:hover,nav a:focus{color:var(--teal)}
+  nav .brand{color:var(--ink);font-weight:600;margin-right:auto}
+
+  main{max-width:920px;margin:0 auto;padding:0 22px 80px}
+
+  header.mast{padding:54px 0 30px;border-bottom:2px solid var(--ink);margin-bottom:6px}
+  .kicker{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.32em;
+    text-transform:uppercase;color:var(--teal);margin-bottom:18px}
+  h1.title{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:clamp(54px,11vw,108px);
+    line-height:.92;letter-spacing:.005em;margin:0;color:var(--ink)}
+  h1.title span{color:var(--teal)}
+  .subtitle{font-family:Georgia,serif;font-style:italic;font-size:clamp(20px,3vw,27px);
+    color:var(--ink2);margin:12px 0 0;font-weight:400}
+  .mast-meta{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--muted);
+    margin-top:22px;display:flex;flex-wrap:wrap;gap:6px 26px;letter-spacing:.03em}
+  .mast-meta b{color:var(--ink2);font-weight:500}
+
+  .panorama{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--teal);
+    padding:24px 28px;margin:30px 0 8px;border-radius:2px}
+  .panorama h2{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--teal);margin:0 0 12px}
+  .panorama p{margin:0 0 10px;font-size:19px;color:var(--ink2)}
+
+  .flash{background:#f1ecdc;border:1px solid #cabf9d;border-left:4px solid #a5342a;
+    color:#1c2b45;padding:18px 22px;margin:18px 0 0;border-radius:2px}
+  .flash-tag{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;
+    text-transform:uppercase;color:#a5342a;font-weight:600;margin:0 0 10px;
+    display:flex;align-items:center;flex-wrap:wrap;gap:10px}
+  .flash-tag span{background:#1c2b45;color:#f1ecdc;padding:3px 9px;border-radius:2px;
+    font-size:10.5px;letter-spacing:.08em}
+  .flash p{margin:0;font-size:19px;color:#1c2b45}
+  .flash strong,.flash b{color:#a5342a}
+  .panorama p:last-child{margin-bottom:0}
+
+  article{padding:46px 0 8px;border-bottom:1px solid var(--line)}
+  .art-head{display:flex;align-items:baseline;gap:16px;margin-bottom:6px;flex-wrap:wrap}
+  .art-num{font-family:'Bebas Neue',sans-serif;font-size:46px;color:var(--teal-dim);line-height:1}
+  .cat{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;
+    text-transform:uppercase;padding:4px 10px;border-radius:2px;border:1px solid;white-space:nowrap}
+  .cat.geo{color:var(--red);border-color:rgba(214,90,78,.4);background:rgba(214,90,78,.07)}
+  .cat.sci{color:var(--teal);border-color:rgba(55,177,162,.4);background:var(--teal-bg)}
+  .cat.eco{color:var(--violet);border-color:rgba(183,139,208,.4);background:rgba(183,139,208,.07)}
+  .cat.nac{color:var(--gold);border-color:rgba(216,178,90,.4);background:rgba(216,178,90,.07)}
+  h3.head{font-family:Georgia,serif;font-weight:700;font-size:clamp(28px,4.5vw,40px);
+    line-height:1.08;margin:10px 0 4px;color:var(--ink)}
+  .dek{font-family:Georgia,serif;font-style:italic;font-size:21px;color:var(--ink2);margin:0 0 22px}
+
+  .sub{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--muted);margin:26px 0 9px;
+    padding-bottom:5px;border-bottom:1px solid var(--line)}
+  article p{margin:0 0 14px}
+  article p.lead{font-size:21px}
+  em.term{font-style:italic;color:var(--teal)}
+  ul.facts{margin:0 0 14px;padding-left:20px}
+  ul.facts li{margin-bottom:8px;color:var(--ink2)}
+
+  .meee{width:100%;border-collapse:collapse;font-family:'IBM Plex Mono',monospace;
+    font-size:13px;margin:6px 0 8px}
+  .meee th{text-align:left;color:var(--muted);font-weight:500;letter-spacing:.05em;
+    padding:7px 10px;border-bottom:1px solid var(--line);font-size:10.5px;text-transform:uppercase}
+  .meee td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink2);line-height:1.45}
+  .meee tr:last-child td{border-bottom:none}
+  .code{font-weight:600;white-space:nowrap}
+  .code.dc{color:var(--dc)}.code.ip{color:var(--ip)}.code.h{color:var(--h)}
+  .code.int{color:var(--int)}.code.c{color:var(--c)}
+
+  .add{background:var(--teal-bg);border:1px solid var(--teal-dim);border-left:3px solid var(--teal);
+    padding:20px 24px;margin:18px 0;border-radius:2px}
+  .add .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--teal);margin-bottom:6px}
+  .add .regime{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink2);
+    margin-bottom:12px;display:flex;flex-wrap:wrap;gap:6px 18px}
+  .add .regime b{color:var(--teal);font-weight:500}
+  .add p{margin:0 0 10px;font-size:19px}
+  .add p:last-child{margin-bottom:0}
+
+  .ws{background:var(--amber-bg);border:1px solid var(--copper);border-left:3px solid var(--amber);
+    padding:20px 24px;margin:18px 0;border-radius:2px}
+  .ws .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--amber);margin-bottom:10px}
+  .ws p{margin:0 0 10px;font-size:19px}.ws p:last-child{margin-bottom:0}
+
+  .cr{border:1px solid var(--line);border-top:2px solid var(--gold);padding:18px 24px;
+    margin:18px 0;border-radius:2px;background:var(--bg2)}
+  .cr .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+  .cr p{margin:0 0 10px;font-size:19px;color:var(--ink2)}.cr p:last-child{margin-bottom:0}
+
+  .scen{margin:20px 0 4px}
+  .scen .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  .pill{display:block;padding:13px 18px;margin:8px 0;border-radius:2px;border:1px solid var(--line);
+    background:var(--panel);font-size:18px;color:var(--ink2)}
+  .pill b{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;
+    text-transform:uppercase;display:inline-block;margin-right:8px;padding:2px 8px;border-radius:2px}
+  .pill.a b{color:var(--teal);background:var(--teal-bg)}
+  .pill.b b{color:var(--gold);background:rgba(216,178,90,.07)}
+  .pill.c b{color:var(--red);background:rgba(214,90,78,.07)}
+
+  section.synth{padding:46px 0}
+  .synth h2,.uncert h2,.refs h2{font-family:'Bebas Neue',sans-serif;font-size:34px;
+    letter-spacing:.02em;color:var(--ink);margin:0 0 18px}
+  .synth table{width:100%;border-collapse:collapse;font-family:'IBM Plex Mono',monospace;font-size:12.5px}
+  .synth th{text-align:left;padding:8px 10px;border-bottom:1px solid var(--ink);color:var(--teal);
+    font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+  .synth td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink2);line-height:1.45}
+  .synth td:first-child{color:var(--ink);font-weight:500}
+
+  .uncert{padding:20px 0 46px}
+  .uncert ul{list-style:none;padding:0;margin:0}
+  .uncert li{padding:13px 0 13px 30px;border-bottom:1px solid var(--line);position:relative;color:var(--ink2);font-size:19px}
+  .uncert li:before{content:"?";position:absolute;left:0;top:13px;font-family:'IBM Plex Mono',monospace;
+    color:var(--red);font-weight:600}
+
+  .refs{padding:30px 0}
+  .refs ol{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);
+    line-height:1.6;padding-left:22px}
+  .refs li{margin-bottom:9px}
+  .refs em{color:var(--ink2);font-style:italic}
+
+  .method{background:var(--panel);border:1px solid var(--line);padding:22px 26px;
+    border-radius:2px;margin:14px 0}
+  .method p{font-family:'IBM Plex Mono',monospace;font-size:12.5px;line-height:1.7;color:var(--ink2);margin:0}
+  .method b{color:var(--teal)}
+
+  .listen{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--teal);
+    padding:22px 26px;margin:22px 0;border-radius:2px}
+  .listen .lbl{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--teal);margin:0 0 10px}
+  .listen h3{font-family:Georgia,serif;font-weight:700;font-size:21px;margin:0 0 8px;color:var(--ink)}
+  .listen p{margin:0 0 16px;font-size:16.5px;color:var(--ink2)}
+  .listen audio{width:100%}
+
+  .pull{font-family:Georgia,serif;font-style:italic;font-size:clamp(21px,3.2vw,28px);
+    line-height:1.3;color:var(--ink);border-left:3px solid var(--teal);padding:6px 0 6px 22px;margin:26px 0}
+
+  footer{border-top:2px solid var(--ink);padding:28px 22px;max-width:920px;margin:0 auto;
+    font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--muted);
+    display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+
+  @media(max-width:640px){
+    body{font-size:18px}
+    .meee{font-size:11.5px}.meee th,.meee td{padding:7px 6px}
+    .synth table{font-size:11px}.synth td,.synth th{padding:7px 5px}
+    nav .wrap{font-size:10.5px;gap:3px 12px}
+    .art-num{font-size:36px}
+  }
+
+  /* SWITCH BANNER */
+  .switch{background:var(--panel);border-bottom:1px solid var(--line);text-align:center;
+    padding:10px 16px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink2);letter-spacing:.02em}
+  .switch a{color:var(--teal);text-decoration:underline}
+</style>
+</head>
+<body>
+
+<div class="switch">¿Prefiere una versión en lenguaje sencillo? <a href="popular/">Lea el Boletín N.° 012 para Todo Público →</a></div>
+
+<!-- TICKER -->
+<div class="ticker"><div class="track">
+  <b>ÚLTIMA HORA · 7 JUL</b> Irán ataca tres buques en Ormuz (metanero catarí en llamas); EE.UU. revoca licencia petrolera iraní y lanza represalias; el memorando, en riesgo de colapso; Brent salta a ~US$76<span class="sep">///</span>
+  <b>GEOPOLÍTICA</b> El orden unipolar se repliega: EE.UU. declara el fin de su rol de «Atlas»; la tregua con Irán se fractura y el nivel de amenaza en Ormuz sube a «severo»<span class="sep">///</span>
+  <b>ASAMBLEA CR</b> Escala el pulso entre poderes: la Contraloría advierte «cierre técnico»; se rompe el acuerdo sobre Crucitas; la oposición cuestiona nombramientos en el BCCR<span class="sep">///</span>
+  <b>CIENCIA</b> Balance global: recortes históricos a la ciencia de EE.UU., fuga de cerebros y disputa por los datos públicos<span class="sep">///</span>
+  <b>BIOLOGÍA</b> Equipo de Adamala (Minnesota) construye «SpudCell», célula sintética que se alimenta, crece y se divide; preprint sin revisión por pares<span class="sep">///</span>
+  <b>ECONOMÍA</b> El respiro del crudo se interrumpe: los ataques del 7 jul devuelven la prima de riesgo geopolítico al precio<span class="sep">///</span>
+</div></div>
+
+<!-- NAV -->
+<nav><div class="wrap">
+  <a class="brand" href="#top">ANCA-ADD · N.°012</a>
+  <a href="#n1">Geopolítica</a>
+  <a href="#n2">Asamblea</a>
+  <a href="#n3">Ciencia</a>
+  <a href="#n4">Célula</a>
+  <a href="#n5">Economía</a>
+  <a href="#sintesis">Síntesis</a>
+</div></nav>
+
+<main id="top">
+
+<!-- MASTHEAD -->
+<header class="mast">
+  <div class="kicker">Agente Noticioso Crítico de Actualidad — Antropología Dinámica del Devenir</div>
+  <h1 class="title">BOLETÍN <span>SEMANAL</span></h1>
+  <p class="subtitle">Tres balances y dos hallazgos: el mundo, la Asamblea y el estado de la ciencia</p>
+  <div class="mast-meta">
+    <span><b>Edición:</b> N.° 012 · <span style="color:var(--red)">actualizada</span></span>
+    <span><b>Semana:</b> 29 de junio – 7 de julio de 2026</span>
+    <span><b>Actualización:</b> martes 7 jul, 18:02 (San José) · <b>Revisión editorial:</b> miércoles 8 jul</span>
+    <span><b>Registros:</b> MEEE-G · ADD · Sistemas-Mundo</span>
+  </div>
+</header>
+
+<!-- PANORAMA -->
+<div class="panorama">
+  <h2>Panorama de la semana</h2>
+  <p>Esta edición responde a tres balances pedidos —el geopolítico, el legislativo nacional y el del estado de la ciencia— y los acompaña con dos hallazgos que iluminan el resto. La semana no trae un solo acontecimiento dominante, sino un patrón: sistemas que estaban en régimen estable entran en turbulencia y sistemas que estaban en crisis buscan nuevos atractores. En lo global, el rasgo de fondo es un <em class="term">interregno</em>: la potencia hegemónica declara explícitamente el fin de su papel de sostén del orden mundial, mientras las guerras activas se encaminan hacia treguas frágiles de final indefinido.</p>
+  <p>En Costa Rica, el pulso presupuestario entre el Ejecutivo y los demás poderes del Estado revela una tensión estructural sobre la separación de poderes bajo una mayoría oficialista inédita. Y en ciencia, dos caras del mismo proceso: por un lado, el balance muestra una infraestructura de conocimiento del núcleo —la estadounidense— sometida a la mayor perturbación en ochenta años; por otro, un laboratorio de ese mismo núcleo construye desde cero una célula que se alimenta, crece y se divide, tocando la pregunta más antigua de la biología. El hilo conductor, una vez más, es el parámetro que este boletín viene rastreando: quién sostiene —y quién controla— las capacidades que definen el futuro.</p>
+</div>
+
+<div class="flash">
+  <div class="flash-tag">Actualización al cierre <span>7 jul · 18:02</span></div>
+  <p>Dos hilos de esta edición se movieron con fuerza en las 31 horas posteriores al cierre. En Ormuz, Irán atacó tres buques —incluido un metanero de Catar, país mediador—; Estados Unidos revocó la licencia de venta de crudo iraní y lanzó ataques de represalia, y el memorando de junio quedó en riesgo de colapso. El «respiro del crudo» que describía la nota 5 se interrumpió: el Brent saltó hacia los US$76 y el nivel de amenaza del estrecho subió a «severo». En el plano nacional, el pulso entre poderes escaló: la Contraloría advirtió que un recorte del 5% implicaría su «cierre técnico» y el acuerdo sobre Crucitas se resquebrajó. (En paralelo, el ministro de Hacienda perdió el voto que tenía en el Banco Central, pero por la activación automática de una reforma de 2019 vinculada a la OCDE, no como parte del conflicto: la nota 2 lo aclara para evitar una lectura causal indebida.) Las notas 1, 2 y 5 incorporan estos desarrollos con la marca <strong>[Act. 7 jul]</strong>.</p>
+</div>
+
+<div class="flash">
+  <div class="flash-tag">Revisión editorial <span>8 jul</span></div>
+  <p>El autor revisó esta edición e incorporó anotaciones propias, marcadas donde aplica con su código MEEE-G. La más relevante matiza el «repliegue» de Estados Unidos (notas 1 y 5): no es un retiro general del tablero geopolítico, sino de su rol de garante multilateral —corroborado por su propia represalia militar y sanción unilateral del 7 de julio [IP]. Se corrigió además una imprecisión factual (el INBio no opera desde 2015; nota 4) y se añadió una extensión reflexiva que aplica el par apertura disipativa / clausura operacional al propio modelo de desarrollo costarricense [Int], registrada también en incertidumbres abiertas.</p>
+</div>
+
+<div class="listen">
+  <div class="lbl">Escuche este boletín</div>
+  <h3>La célula zombi que explica la política</h3>
+  <p>Conversación en audio que conecta la nota 4 (SpudCell, una célula que se alimenta y se divide pero aún no está viva) con el eje analítico de esta edición: sistemas que exhiben apertura disipativa sin haber cerrado su clausura operacional —de la célula sintética al propio modelo de desarrollo costarricense (ver extensión reflexiva, nota 4).</p>
+  <audio controls preload="none">
+    <source src="La_célula_zombi_que_explica_la_política.m4a" type="audio/mp4">
+    Tu navegador no soporta el elemento de audio. <a href="La_célula_zombi_que_explica_la_política.m4a">Descargue el audio aquí</a>.
+  </audio>
+</div>
+
+<!-- 1. BALANCE GEOPOLÍTICO -->
+<article id="n1">
+  <div class="art-head">
+    <span class="art-num">01</span>
+    <span class="cat geo">Política y geopolítica · Balance</span>
+  </div>
+  <h3 class="head">Balance geopolítico: el interregno se vuelve la norma</h3>
+  <p class="dek">Un orden mundial que se fragmenta sin que otro lo reemplace: treguas frágiles, hegemonía en repliegue y la disputa por los minerales del futuro.</p>
+
+  <div class="sub">Estado del tablero</div>
+  <p class="lead">A inicios de julio de 2026, el rasgo estructural del sistema internacional no es una guerra concreta, sino la ausencia de un sistema ordenador. La Estrategia de Seguridad Nacional de Estados Unidos formalizó el repliegue de su primacía con una frase que sintetiza el momento: los días en que Estados Unidos sostenía el orden mundial «como Atlas» se terminaron. El resultado, según los principales centros de análisis, es un <em class="term">interregno prolongado</em>: un orden neoliberal basado en reglas que se descompone, poder que se filtra y permea de forma menos previsible, y un mundo que busca nuevas formas de gestión de crisis. <strong>Una matización necesaria:</strong> este repliegue no equivale a que Estados Unidos se retire como actor del tablero geopolítico —la actualización de esta misma nota lo desmiente—. Lo que se repliega es su papel de garante financiero y coercitivo de la infraestructura multilateral que ayudó a construir; esa retirada institucional le deja, en cambio, más margen para desplegar sus capacidades propias —militares, financieras— al servicio de una agenda unilateral [IP].</p>
+  <ul class="facts">
+    <li><strong>Guerra de Irán, hacia un cierre inestable.</strong> Tras el memorando Trump-Pezeshkian del 17 de junio, la semana cerró con la ruta ampliada por el estrecho de Ormuz que el centro naval del Golfo (JMIC) anunció el 27 de junio, desafiando el control iraní de la vía. Pero el cierre es frágil: hubo ataques estadounidenses el 27 de junio y el acuerdo marco, ya público, es descrito por analistas como «desequilibrado» a favor de Irán y con el punto nuclear sin resolver.</li>
+    <li><strong>Ucrania.</strong> Tras más de tres años, Rusia mantiene la iniciativa militar y la diplomacia de lanzadera no ha producido un alto el fuego estable; Europa acelera su rearme ante la reducción del paraguas de seguridad estadounidense.</li>
+    <li><strong>Gaza.</strong> El alto el fuego dejó el territorio de facto partido, con Israel controlando más de la mitad y bloqueando la reconstrucción.</li>
+    <li><strong>La nueva frontera: minerales críticos.</strong> En la cumbre del G7 de junio, la coordinación sobre minerales críticos fue tema central; el acuerdo con Irán abrió incluso la posibilidad de inversión en su cobre. El eje de la competencia se desplaza del petróleo a los insumos de la transición energética y la IA.</li>
+    <li><strong style="color:var(--red)">[Act. 7 jul] La tregua se fractura.</strong> El 7 de julio Irán atacó tres buques en el estrecho —un metanero de Catar (país mediador), un tanquero saudí y un tercero—; Estados Unidos revocó la licencia que permitía a Irán vender crudo y el CENTCOM lanzó «una serie de poderosos ataques» de represalia, calificando la acción iraní de «clara violación del alto el fuego». Un analista describió la revocación de la licencia como «una destrucción completa del memorando». Irán advirtió que no reanudará negociaciones si continúan las amenazas de Trump. El nivel de amenaza del estrecho subió a «severo», por primera vez desde el 15 de junio. Este episodio es, de hecho, el caso de prueba de la matización del panorama: frente a una violación del cese, Estados Unidos no se abstuvo —respondió con represalia militar directa y una sanción económica unilateral—, exactamente el patrón de repliegue institucional combinado con ejercicio de poder duro que describíamos arriba.</li>
+  </ul>
+
+  <div class="sub">Análisis epistémico · MEEE-G</div>
+  <table class="meee">
+    <tr><th>Afirmación</th><th>Código</th><th>Justificación procesual</th></tr>
+    <tr><td>EE.UU. formalizó el repliegue de su rol de garante del orden mundial en su Estrategia de Seguridad Nacional.</td><td class="code dc">[DC]</td><td>Documento citado por Stimson Center y análisis concordantes; cita textual verificada.</td></tr>
+    <tr><td>La guerra de Irán se encamina a un cierre negociado.</td><td class="code h">[H] debilitada [Act. 7 jul]</td><td>La inferencia de desescalada se deterioró: los ataques a buques del 7 jul, la represalia estadounidense y la revocación de la licencia petrolera ponen el memorando en riesgo de colapso. La trayectoria hacia el cierre pasó de plausible a hipótesis en disputa.</td></tr>
+    <tr><td>El sistema internacional atraviesa un «interregno» sin potencia ordenadora.</td><td class="code int">[Int]</td><td>Interpretación estructural compartida por Stimson, Crisis Group y Wellington; es lectura analítica, no hecho puntual.</td></tr>
+    <tr><td>El repliegue de EE.UU. es institucional/multilateral, no un repliegue general de su poder o involucramiento geopolítico.</td><td class="code ip">[IP]</td><td>La represalia militar y la revocación de la licencia petrolera del 7 jul son ejercicio directo de poder duro unilateral, no abstención; el patrón se sostiene, aunque un solo episodio no basta para darlo por ley general.</td></tr>
+    <tr><td>La competencia por minerales críticos reemplaza al petróleo como eje del conflicto sistémico.</td><td class="code h">[H]</td><td>Hipótesis respaldada por la agenda del G7 y el interés en el cobre iraní; requiere ver si se consolida como patrón.</td></tr>
+    <tr><td>Las treguas actuales (Irán, Gaza, Ucrania) son estables.</td><td class="code c">[C] contraria a la evidencia</td><td>La evidencia apunta a lo opuesto: son ceses incrementales de «final indefinido», según Crisis Group.</td></tr>
+  </table>
+
+  <div class="add">
+    <div class="lbl">Lectura dinámica · ADD</div>
+    <div class="regime"><span>Régimen: <b>turbulencia sistémica sin bifurcación resuelta</b></span><span>Analogía: <b>fuerte (nivel geopolítico-institucional)</b></span><span>Parámetro de control: <b>existencia o ausencia de una potencia capaz de imponer un orden</b></span></div>
+    <p>El sistema internacional está en lo que la ADD describe como un régimen turbulento prolongado: las estructuras del viejo orden (instituciones multilaterales, primacía estadounidense) ya no organizan el flujo, pero ningún atractor nuevo ha capturado la trayectoria —y Estados Unidos mismo pasa de operador del sistema a un actor más dentro de esa turbulencia, aunque siga siendo el de mayor capacidad relativa. No es caos —hay coordinación regional emergente, treguas, mecanismos ad hoc— pero tampoco es un orden. En términos de Arrighi, es la fase de <em class="term">caos sistémico</em> que caracteriza las transiciones entre ciclos hegemónicos: la vieja hegemonía pierde capacidad de organización sin que una nueva la sustituya.</p>
+    <p>El rasgo distintivo que el análisis dinámico ilumina es que las treguas actuales no son puntos de estabilidad sino <em class="term">amortiguamientos temporales</em>: ceses de fuego que dejan «los detalles para después», en un entorno donde ningún beligerante hace concesiones duraderas porque todos esperan que el viento cambie. Esa es la firma de un sistema sin ordenador: la paz se vuelve incremental y reversible.</p>
+  </div>
+
+  <div class="ws">
+    <div class="lbl">◆ Sistemas-Mundo · Wallerstein / Arrighi</div>
+    <p>El repliegue estadounidense es el dato de sistemas-mundo de la década: la potencia que organizó el orden desde 1945 declara que ya no lo sostendrá. El desplazamiento del eje de conflicto del petróleo a los minerales críticos —cobre, litio, tierras raras— redefine qué es la cuasi-mercancía estratégica del nuevo ciclo. Para las semiperiferias y periferias productoras de esos minerales, esto abre una ventana y un riesgo simétricos: la posibilidad de renta y la amenaza de convertirse en el nuevo teatro de la disputa entre núcleos (EE.UU., China, la UE) por asegurar esos insumos.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">★ Relevancia para Costa Rica</div>
+    <p>Un mundo sin un sistema ordenador es un mundo más riesgoso para las semiperiferias pequeñas que dependían de reglas estables: menos previsibilidad comercial, más presión para «elegir bloque». La tradición costarricense de multilateralismo y derecho internacional —su principal activo de política exterior— pierde eficacia cuando el marco que la sostenía se descompone. La oportunidad, en cambio, está en la diversificación de acoplamientos: los vínculos con Asia, la relación con la UE y, en un plano todavía incierto, el tratado de libre comercio que Costa Rica e Israel firmaron el 8 de diciembre de 2025 —firmado, pero aún pendiente de ratificación por la Asamblea Legislativa al momento de esta edición, por lo que no puede contarse todavía como un acoplamiento consolidado [IP]— para no depender de un solo núcleo en repliegue. La resiliencia costarricense dependerá de su capacidad de leer el interregno sin ingenuidad ni alineamiento automático.</p>
+  </div>
+
+  <div class="scen">
+    <div class="lbl">Escenarios plausibles</div>
+    <span class="pill a"><b>Multipolaridad negociada</b> Emergen mecanismos regionales de gestión de crisis que estabilizan el interregno sin una potencia única; el mundo aprende a operar sin Atlas.</span>
+    <span class="pill b"><b>Interregno prolongado</b> El sistema permanece en turbulencia: treguas reversibles, conflictos congelados y competencia por minerales sin marco global. El escenario más probable a corto plazo.</span>
+    <span class="pill c"><b>Escalada por vacío</b> La ausencia de ordenador permite que un conflicto (Ucrania, Hormuz, Taiwán) escale sin contención, arrastrando a otros actores.</span>
+  </div>
+</article>
+
+<!-- 2. ASAMBLEA -->
+<article id="n2">
+  <div class="art-head">
+    <span class="art-num">02</span>
+    <span class="cat nac">Nacional · Política · Balance</span>
+  </div>
+  <h3 class="head">La Asamblea y el pulso entre poderes: el presupuesto como campo de batalla</h3>
+  <p class="dek">El recorte del 5% a todos los poderes del Estado enfrenta al Ejecutivo con el Poder Judicial, el TSE y la Defensoría —y expone la tensión de una mayoría oficialista inédita.</p>
+
+  <div class="sub">Hechos verificados</div>
+  <p class="lead">El debate legislativo dominante de la semana no es un proyecto de ley, sino un pulso presupuestario entre poderes. El 24 de junio, el ministro de Hacienda, Rodrigo Chaves, anunció un presupuesto extraordinario que propone recortar cerca del 5% a los demás poderes e instituciones autónomas del Estado para lo que resta de 2026: aproximadamente ₡27.000 millones al Poder Judicial, ₡6.825 millones al TSE, ₡311 millones a la Defensoría y ₡1.000 millones a la Contraloría. «Vienen recortes para todos. Aquí no hay poderes con corona», declaró Chaves. El ajuste debe ser aprobado por la Asamblea, donde la fracción oficialista de Pueblo Soberano (PPSO) tiene mayoría.</p>
+  <p>Las reacciones marcaron la semana. El Poder Judicial aceptó recortar ₡13.242 millones —la mitad de lo pedido— y el OIJ advirtió que un recorte mayor desaceleraría investigaciones, allanamientos y operativos contra el crimen organizado. El TSE devolvió ₡6.825 millones (un 10%, más de lo solicitado) pero advirtió que compromete la logística de las elecciones municipales de 2028. La Defensoría alertó de un posible «cierre técnico». El Directorio de la Asamblea, controlado por el PPSO, recortó ₡2.500 millones de su propio presupuesto. La presidenta Laura Fernández respaldó los ajustes con una frase tajante: «No les estamos pidiendo permiso al Poder Judicial para hacerles el recorte».</p>
+  <p>En paralelo, y como contrapunto paradójico y revelador, el oficialismo aprobó en la misma discusión presupuestaria una moción que <em>aumenta</em> el gasto en comunicación de Casa Presidencial: trasladó ₡65 millones de prestaciones legales y ₡5 millones de salario escolar hacia subpartidas operativas, entre ellas ₡20 millones para equipos de comunicación. Diputadas de oposición —Diana Murillo (PLN) y el frenteamplista Antonio Trejos— calificaron la medida de «prioridades equivocadas» frente al discurso de austeridad. Todo ocurre además bajo la presión de la presidenta a los diputados por Crucitas: «No queremos más excusas, queremos soluciones de manera inmediata».</p>
+  <p style="border-left:3px solid var(--red);padding-left:16px"><strong style="color:var(--red)">[Act. 7 jul] La tensión escala —con una precisión importante.</strong> En los días siguientes al cierre, el pulso entre poderes se intensificó en dos frentes reales. Primero, la <strong>Contraloría General de la República</strong> advirtió que un recorte del 5% implicaría su «cierre técnico» y pondría en riesgo su independencia para fiscalizar el uso de los recursos públicos: solo identificó ₡100,3 millones recortables sin afectar su operación, frente a los ₡1.055 millones pedidos. Segundo, el <strong>acuerdo sobre Crucitas se resquebrajó</strong>: oficialismo y oposición se acusaron mutuamente de incumplir los términos pactados en la mesa técnica, y la presidenta pidió a la oposición «respetar la democracia y no bloquear» el proyecto. En paralelo, el ministro Chaves escaló el tono personal —llamó «princeso» al fiscal general Carlo Díaz— y abrió un frente fiscal nuevo al proponer eliminar la exención del IVA de la canasta básica «para los ricos», con devolución focalizada a los hogares de menores ingresos.</p>
+  <p><strong>Una aclaración que evita una falacia narrativa.</strong> Esta misma semana, la Asamblea ratificó a los dos directores que completan la Junta del Banco Central y, con ello, el ministro de Hacienda perdió el voto que conservaba en ese órgano. Sería tentador —pero incorrecto— leerlo como un «contraataque» legislativo contra el Ejecutivo: no lo es. Se trata de la <em>activación automática</em> de una reforma de 2019 (Ley N.° 9670), parte de los compromisos de gobernanza de la OCDE, que dispuso que el ministro dejara de votar en el banco central una vez integrado un sexto director. Ese puesto llevaba casi siete años vacante, manteniendo vivo un transitorio que conservaba el voto del ministro. El gatillo lo jaló el <em>propio Poder Ejecutivo</em>, al proponer (Consejo de Gobierno, 4 de junio) a Rudolf Lücke y a Max Soto para llenar las plazas; el oficialismo los ratificó. La fricción real no fue Asamblea contra Ejecutivo, sino <em>oposición contra oficialismo</em>: la ratificación de Lücke fue cuestionada por una condena reciente de la Sala Constitucional (por el no giro del 2% del FEES 2025) y pasó solo con los 30 votos oficialistas. En clave MEEE-G, agrupar la pérdida del voto con el conflicto presupuestario habría sido una inferencia [C] de causalidad sin respaldo: son procesos distintos que coinciden en el tiempo.</p>
+
+  <div class="sub">Análisis epistémico · MEEE-G</div>
+  <table class="meee">
+    <tr><th>Afirmación</th><th>Código</th><th>Justificación procesual</th></tr>
+    <tr><td>El Ejecutivo propone un recorte cercano al 5% a los demás poderes vía presupuesto extraordinario que debe aprobar la Asamblea.</td><td class="code dc">[DC]</td><td>Anuncio del 24 jun y cobertura concordante de El Financiero, El Observador y La Nación.</td></tr>
+    <tr><td>El oficialismo aumentó el gasto en comunicación de Presidencia mientras exige austeridad a otros poderes.</td><td class="code dc">[DC]</td><td>Moción documentada por La Nación con cifras específicas de las subpartidas.</td></tr>
+    <tr><td>El recorte comprometería servicios de justicia, logística electoral y funciones de la Defensoría.</td><td class="code ip">[IP]</td><td>Inferencia respaldada por las advertencias institucionales del OIJ, el TSE y la Defensoría; es su valoración, sujeta al monto final.</td></tr>
+    <tr><td>El recorte responde a una estrategia fiscal integral (recaudación, antievasión, reducción de gasto).</td><td class="code int">[Int]</td><td>Interpretación basada en las tres líneas de acción declaradas por Hacienda; su eficacia es objeto de debate.</td></tr>
+    <tr><td>La mayoría oficialista garantiza la aprobación de los ajustes.</td><td class="code ip">[IP]</td><td>El PPSO controla el Directorio y tiene mayoría; pero requiere negociación con instituciones con autonomía constitucional.</td></tr>
+  </table>
+
+  <div class="add">
+    <div class="lbl">Lectura dinámica · ADD</div>
+    <div class="regime"><span>Régimen: <b>turbulento — tensión en la clausura institucional de la separación de poderes</b></span><span>Analogía: <b>fuerte (nivel comunicativo-institucional)</b></span><span>Parámetro de control: <b>grado de autonomía efectiva de los poderes no ejecutivos frente a una mayoría cohesionada</b></span></div>
+    <p>El sistema político costarricense se organiza históricamente en un régimen laminar de separación de poderes con autonomías presupuestarias constitucionalmente protegidas. La novedad dinámica de esta semana es que una misma fuerza política (Pueblo Soberano) controla el Ejecutivo y el Directorio legislativo, lo que reduce la independencia entre dos de los tres poderes y coloca el parámetro de control —la autonomía efectiva del Judicial, el TSE y la Defensoría— bajo presión directa.</p>
+    <p>En clave de <em class="term">colonización</em> (Habermas), el mecanismo sistémico del presupuesto —la lógica del dinero y la disciplina fiscal— penetra en dominios cuya reproducción depende de otra lógica: la independencia judicial, la imparcialidad electoral, la defensa de derechos. La frase «no hay poderes con corona» expresa esa penetración: subordina la autonomía institucional a la razón fiscal. La tensión no es si el ajuste es necesario —la deuda ronda el 60% del PIB—, sino si el procedimiento respeta la clausura organizacional que hace que cada poder sea ese poder y no un apéndice del Ejecutivo. El contrapunto del gasto en comunicación de Presidencia es, en este marco, un dato revelador: muestra que el parámetro declarado (austeridad) no se aplica de manera uniforme, lo que sugiere que el control opera selectivamente.</p>
+  </div>
+
+  <div class="ws">
+    <div class="lbl">◆ Sistemas-Mundo · Wallerstein / Arrighi</div>
+    <p>La disciplina fiscal que enmarca el recorte no es solo una decisión doméstica: responde a la posición de Costa Rica como semiperiferia acoplada a las condiciones del FMI y los mercados de deuda, que premian la «regla fiscal» y la reducción del gasto. La austeridad sobre las instituciones de conocimiento y control (Poder Judicial, universidades, órganos de fiscalización) reproduce un patrón que este boletín ya observó en el balance de la ciencia: en la semiperiferia, como en el núcleo, el ajuste tiende a recaer sobre las capacidades institucionales de largo plazo. La pregunta de sistemas-mundo es si un Estado semiperiférico puede recortar sus órganos de control sin debilitar precisamente lo que lo distingue en la región.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">★ Relevancia para Costa Rica</div>
+    <p>Esta es la nota nacional y su relevancia es directa: se juega el equilibrio de poderes que ha caracterizado la excepcionalidad institucional costarricense. La capacidad de resiliencia del país reside justamente en la fortaleza de sus contrapesos —un Poder Judicial independiente, un TSE robusto que garantiza elecciones limpias, una Defensoría activa—. El riesgo no es el ajuste en sí, sino que se ejecute de un modo que erosione esas autonomías. La oportunidad, en cambio, está en que el debate se procese con transparencia sobre las partidas concretas (que hasta el cierre no se habían detallado) y con criterio técnico verificable, no solo con la lógica de la mayoría.</p>
+  </div>
+
+  <div class="scen">
+    <div class="lbl">Escenarios plausibles</div>
+    <span class="pill a"><b>Ajuste negociado</b> Los poderes acuerdan recortes diferenciados y técnicamente sustentados; se preserva la autonomía mientras se atiende la disciplina fiscal.</span>
+    <span class="pill b"><b>Imposición por mayoría</b> El oficialismo aprueba los recortes en los montos que fijó el Ejecutivo; se tensa la relación entre poderes y escalan los recursos ante la Sala Constitucional.</span>
+    <span class="pill c"><b>Parálisis y judicialización</b> Las instituciones afectadas recurren a la vía constitucional; el conflicto presupuestario se traslada a los tribunales y se prolonga.</span>
+  </div>
+</article>
+
+<!-- 3. ESTADO DE LA CIENCIA -->
+<article id="n3">
+  <div class="art-head">
+    <span class="art-num">03</span>
+    <span class="cat sci">Ciencia · Ciencias sociales · Balance</span>
+  </div>
+  <h3 class="head">El estado de la ciencia: amenazas, retos y posibilidades</h3>
+  <p class="dek">La mayor perturbación en ochenta años sacude la infraestructura científica del núcleo estadounidense —y redibuja el mapa mundial del conocimiento.</p>
+
+  <div class="sub">El diagnóstico</div>
+  <p class="lead">El balance del estado de la ciencia en 2026 está dominado por una perturbación de escala histórica: la reorganización del sistema científico estadounidense, que desde la Segunda Guerra Mundial ha sido el principal productor de conocimiento del mundo. Analistas la describen como el mayor trastorno del enfoque gubernamental hacia la ciencia en ochenta años. No es un recorte más: es una tensión sobre el modelo mismo de ciencia pública.</p>
+
+  <div class="sub">Amenazas</div>
+  <ul class="facts">
+    <li><strong>Recortes y cancelaciones sin precedente.</strong> Durante 2025 se cancelaron o suspendieron más de 7.800 subvenciones (5.843 en los NIH, 1.996 en la NSF), muchas dirigidas a temas que la administración considera desfavorables: desinformación, enfermedades infecciosas, vacunas, y estudios sobre grupos subrepresentados.</li>
+    <li><strong>Politización de la agenda.</strong> Se documentó la búsqueda de subvenciones para eliminar por palabras clave —el prefijo «trans-» llegó a marcar proyectos sobre «material transgénico» o «transducción de señales»—. La NSF cerró en abril de 2026 su Dirección de Ciencias Sociales, del Comportamiento y Económicas. El filtrado por palabra clave es, en sí mismo, un caso de manual de cómo se introduce un sesgo sistemático en un proceso que se presume neutral —y de las consecuencias no previstas que arrastra: proyectos legítimos de biología molecular o ingeniería quedan marcados por compartir prefijo con un tema políticamente incómodo [Int].</li>
+    <li><strong>El «truco contable».</strong> Aun cuando el Congreso rechazó los recortes más drásticos para 2026 (los NIH incluso recibieron un aumento), las agencias otorgan menos subvenciones con más dinero a más años: los NIH emitieron un 66% menos de nuevas subvenciones en los primeros meses de 2026. Menos científicos reciben apoyo.</li>
+    <li><strong>Fuga de cerebros y disputa por los datos.</strong> En una encuesta de <em>Nature</em>, el 75% de los científicos consultados consideró irse del país. Y la disputa por el acceso a datos públicos —el caso de climate.gov relanzado por exempleados como sitio independiente— muestra que la infraestructura de conocimiento se ha vuelto un territorio en disputa.</li>
+  </ul>
+
+  <div class="sub">Retos y posibilidades</div>
+  <p>El balance no es unidireccional. El Congreso, por la vía de las asignaciones y con apoyo bipartidista, rechazó los recortes más extremos; los tribunales fallaron en marzo de 2026 que el congelamiento masivo de fondos era «arbitrario y caprichoso». La resistencia institucional funcionó como amortiguador. Y en el plano del descubrimiento, la ciencia sigue produciendo —en buena medida por el efecto inercial de presupuestos e investigaciones que ya estaban en marcha antes del recorte, no porque el ajuste no tenga efecto [IP]—: esta misma semana, un avance mayor en biología sintética (nota 4). La posibilidad que se abre es una <em class="term">redistribución del conocimiento</em>: si el núcleo estadounidense se repliega, otros nodos —la UE, China, y potencialmente redes de la semiperiferia— pueden captar talento y capacidad.</p>
+
+  <div class="pull">La reproducción del conocimiento tiene un costo material real: cuando el flujo de recursos se interrumpe, la organización que lo sostiene se ve amenazada. No es metáfora; es termodinámica.</div>
+
+  <div class="sub">Análisis epistémico · MEEE-G</div>
+  <table class="meee">
+    <tr><th>Afirmación</th><th>Código</th><th>Justificación procesual</th></tr>
+    <tr><td>En 2025 se cancelaron o suspendieron más de 7.800 subvenciones federales de investigación en EE.UU.</td><td class="code dc">[DC]</td><td>Datos de NIH RePORTER y NSF Award Search, sistematizados por Nature y el Brennan Center.</td></tr>
+    <tr><td>El Congreso y los tribunales frenaron los recortes más drásticos para 2026.</td><td class="code dc">[DC]</td><td>Ley de asignaciones de enero 2026 y fallo de apelaciones de marzo 2026; múltiples fuentes concordantes.</td></tr>
+    <tr><td>Se produce una fuga de cerebros desde EE.UU.</td><td class="code ip">[IP]</td><td>Inferencia respaldada por la encuesta de Nature (75% consideró irse); la magnitud efectiva de la salida aún se está midiendo.</td></tr>
+    <tr><td>El repliegue estadounidense redistribuirá el liderazgo científico hacia otros polos.</td><td class="code h">[H]</td><td>Hipótesis plausible dada la captación de talento por la UE y China; su concreción depende de decisiones aún abiertas.</td></tr>
+    <tr><td>La ciencia estadounidense está «colapsando».</td><td class="code c">[C] exagerada</td><td>La evidencia muestra perturbación grave y resistencia institucional efectiva, no colapso. El término no se sostiene.</td></tr>
+  </table>
+
+  <div class="add">
+    <div class="lbl">Lectura dinámica · ADD</div>
+    <div class="regime"><span>Régimen: <b>turbulento con bifurcación abierta</b></span><span>Analogía: <b>literal (nivel disipativo) / fuerte (nivel institucional)</b></span><span>Parámetro de control: <b>continuidad del flujo de recursos que sostiene la reproducción del conocimiento</b></span></div>
+    <p>El sistema científico es, en términos ADD, un sistema disipativo por excelencia: mantiene su organización —laboratorios, revistas, formación de nuevos investigadores— mediante un flujo continuo de recursos materiales. El principio de Landauer y la termodinámica de Prigogine no son aquí metáfora: la reproducción del conocimiento consume energía y recursos reales, y cuando ese flujo se interrumpe, la clausura organizacional del sistema —su capacidad de seguir siendo ciencia— se ve amenazada. El «truco contable» de los NIH es precisamente una reducción del flujo que no aparece en el presupuesto nominal pero sí en el número de científicos sostenidos.</p>
+    <p>El parámetro de control es la continuidad de ese flujo. El sistema está en bifurcación: un atractor lo lleva hacia la contracción y la pérdida de una generación de investigadores; otro, hacia una redistribución multipolar donde el talento y la capacidad se reorganizan en nuevos nodos. Lo que la ADD subraya es que la bifurcación es <em class="term">contingente, no determinada</em>: la resistencia del Congreso y los tribunales actuó como mecanismo de amortiguamiento, mostrando que el sistema conserva capacidad de auto-regulación.</p>
+  </div>
+
+  <div class="ws">
+    <div class="lbl">◆ Sistemas-Mundo · Wallerstein / Arrighi</div>
+    <p>La ciencia ha sido, desde 1945, uno de los pilares de la hegemonía estadounidense: el monopolio relativo sobre la producción de conocimiento del núcleo. Su perturbación es, en clave de sistemas-mundo, un síntoma del mismo repliegue hegemónico que atraviesa el balance geopolítico (nota 1). La disputa por los datos públicos y la fuga de cerebros son movimientos de reorganización de la infraestructura cognitiva del sistema-mundo. Si el conocimiento se redistribuye hacia la UE y China, se acelera la transición hacia un orden científico multipolar —con consecuencias directas para quién fija las agendas de investigación, quién patenta y quién captura la renta del conocimiento.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">★ Relevancia para Costa Rica</div>
+    <p>El balance importa a Costa Rica en dos planos. Primero, de dependencia: el país usa infraestructura científica del núcleo —datos de la NOAA para pronóstico y gestión de riesgo, financiamiento internacional de investigación, acceso a revistas— y esa infraestructura se ha vuelto frágil. Segundo, de oportunidad: en una redistribución global del talento, un país con institucionalidad científica estable (UCR, TEC, CONARE) y calidad de vida podría captar investigadores. Pero esto choca con la nota 2: si Costa Rica recorta sus propias instituciones de conocimiento por «disciplina fiscal» —o, en una lectura menos benigna, por mayor control sobre esos órganos [Int]—, renuncia a esa ventana. El balance de la ciencia global y el pulso presupuestario nacional son, vistos juntos, el mismo dilema a dos escalas: cuánto está dispuesta una sociedad a invertir en sostener el flujo que reproduce su conocimiento.</p>
+  </div>
+
+  <div class="scen">
+    <div class="lbl">Escenarios plausibles</div>
+    <span class="pill a"><b>Redistribución multipolar</b> Otros polos captan talento y capacidad; el conocimiento se descentraliza y emergen nuevos nodos de producción científica.</span>
+    <span class="pill b"><b>Contracción con recuperación parcial</b> La resistencia institucional limita el daño, pero se pierde una cohorte de investigadores y proyectos; el sistema se recupera con años de rezago.</span>
+    <span class="pill c"><b>Erosión prolongada</b> La incertidumbre presupuestaria se vuelve crónica; la planificación de largo plazo se hace imposible y el liderazgo científico del núcleo se degrada de forma sostenida.</span>
+  </div>
+</article>
+
+<!-- 4. CÉLULA SINTÉTICA -->
+<article id="n4">
+  <div class="art-head">
+    <span class="art-num">04</span>
+    <span class="cat sci">Ciencia · Biología sintética</span>
+  </div>
+  <h3 class="head">SpudCell: una célula construida desde cero que se alimenta, crece y se divide</h3>
+  <p class="dek">El equipo de Kate Adamala reconstruye en química el ciclo completo de una célula. Un hito —con un asterisco epistémico importante.</p>
+
+  <div class="sub">Hechos verificados</div>
+  <p class="lead">Un equipo dirigido por la bióloga sintética Kate Adamala, de la Universidad de Minnesota, anunció haber construido desde cero —a partir de componentes químicos no vivos— una célula sintética capaz de alimentarse, crecer, replicar su ADN y dividirse: el ciclo celular completo. La llaman «SpudCell». El trabajo se publicó como <em>preprint</em> en el servidor bioRxiv el 2 de julio de 2026 y, dato epistémico central, <strong>aún no ha sido revisado por pares</strong>.</p>
+  <p>El sistema, con un genoma de unos 90.000 pares de bases, integra un mecanismo de expresión de proteínas que traduce las instrucciones del ADN, lo que le permite convertir nutrientes del medio en materiales útiles y dividirse. Según los autores, exhibe «selección, replicación del genoma, crecimiento, adquisición de recursos mediante alimentación y división codificada genéticamente». Adamala lo resumió así: «Hemos replicado en química lo que antes solo era posible en biología… demuestra que las funciones más fundamentales de la vida no necesitan una chispa mágica misteriosa».</p>
+  <p>Las cautelas de los propios expertos son parte del hecho. La célula <strong>no está viva por ninguna definición</strong>: no puede sobrevivir sin entregas constantes de alimento y de ribosomas (la maquinaria para fabricar proteínas), no fabrica toda su propia maquinaria y no se divide por muchas generaciones. Jack Szostak (Chicago) la llamó «un paso impresionante»; Tom Ellis (Imperial College) «probablemente el mayor avance reciente en el campo». Drew Endy (Stanford) la comparó con el primer vuelo de los hermanos Wright en 1903: «que el aparato volara 12 segundos no te da un Boeing 737; esto es apenas el comienzo». Un experto chino (Chenli Liu, Shenzhen) recordó que no cabe una evaluación definitiva antes de la revisión por pares.</p>
+
+  <div class="sub">Análisis epistémico · MEEE-G</div>
+  <table class="meee">
+    <tr><th>Afirmación</th><th>Código</th><th>Justificación procesual</th></tr>
+    <tr><td>El equipo de Adamala publicó un preprint reportando una célula sintética que completa un ciclo celular.</td><td class="code dc">[DC]</td><td>Preprint en bioRxiv (2 jul 2026); cobertura concordante de CNN, Quanta, Smithsonian, ScienceAlert.</td></tr>
+    <tr><td>La célula se alimenta, replica su ADN, crece y se divide.</td><td class="code ip">[IP]</td><td>Reportado y respaldado por expertos externos (Szostak, Ellis), pero sin revisión por pares aún: inferencia fuerte, no dato cerrado.</td></tr>
+    <tr><td>La SpudCell «está viva».</td><td class="code c">[C] rechazada</td><td>Los propios autores y expertos lo niegan: no fabrica toda su maquinaria ni sobrevive sin insumos externos. No es un ser vivo.</td></tr>
+    <tr><td>La técnica permitirá fábricas biológicas para medicinas o captura de carbono.</td><td class="code h">[H]</td><td>Hipótesis de aplicación futura declarada por los autores; a años de distancia, como reconoce la analogía del vuelo de 1903.</td></tr>
+    <tr><td>El hallazgo demuestra que la vida no requiere una «chispa» inmaterial.</td><td class="code int">[Int]</td><td>Interpretación filosófica de la autora; razonable a la luz del resultado, pero es lectura, no dato experimental.</td></tr>
+  </table>
+
+  <div class="add">
+    <div class="lbl">Lectura dinámica · ADD</div>
+    <div class="regime"><span>Régimen: <b>umbral — el límite mismo entre lo no-vivo y lo vivo</b></span><span>Analogía: <b>literal (autopoiesis y estructura disipativa)</b></span><span>Parámetro de control: <b>capacidad de producir los propios componentes (clausura operacional)</b></span></div>
+    <p>Esta nota es, para la ADD, excepcional: no requiere analogía, porque el objeto de estudio <em>es</em> literalmente el fenómeno que el marco teoriza. La articulación Prigogine/Maturana —central en el programa ADD— distingue dos dimensiones de un sistema vivo: la <em class="term">apertura disipativa</em> (importa energía y materia del entorno para sostener su orden) y la <em class="term">clausura operacional</em> (produce internamente sus propios componentes: la autopoiesis de Maturana y Varela). La SpudCell permite ver ese umbral con precisión inédita.</p>
+    <p>Lo que la SpudCell <strong>sí</strong> tiene es apertura disipativa: se alimenta, importa recursos, exporta entropía, mantiene orden lejos del equilibrio. Lo que <strong>no</strong> tiene todavía es clausura operacional plena: no fabrica su propia maquinaria (depende de ribosomas entregados desde afuera). En términos estrictos de Maturana/Varela, <em>no es autopoiética</em>. Y ahí reside su valor para la ADD: es el caso límite que muestra que la disipación es necesaria pero no suficiente para la vida —hace falta que el sistema produzca sus propios componentes—. La SpudCell es una estructura disipativa que se asoma al umbral de la autopoiesis sin cruzarlo. El parámetro de control que decidiría el cruce es exactamente ese: la capacidad de cerrar operacionalmente el ciclo produciendo su propia maquinaria. El experimento no resuelve la pregunta «¿qué es la vida?»; la vuelve, por primera vez, manipulable en el laboratorio.</p>
+    <p><strong>Extensión reflexiva.</strong> El mismo par de conceptos —apertura disipativa / clausura operacional— rinde un ejercicio incómodo aplicado al propio sistema Costa Rica. El modelo de desarrollo del país, sostenido de forma bipartidista durante las últimas administraciones, ha privilegiado la apertura disipativa: atracción agresiva de inversión extranjera directa, que sitúa a Costa Rica entre las economías más abiertas de la región centroamericana por su alto acoplamiento estructural con capital externo. Ese mismo período no ha fortalecido de forma simétrica la clausura operacional —la capacidad del sistema de reproducir internamente sus propias condiciones de conocimiento, tecnología e institucionalidad—; instituciones que cumplían esa función, como el propio INBio (nota anterior), se desmantelaron por falta de sostén presupuestario. Leído así, el país exhibe un patrón análogo al de la SpudCell: se alimenta con eficacia del entorno, pero depende de que ese entorno externo le siga entregando los «ribosomas» —capital, tecnología, mercado— en vez de fabricar los propios. La hipótesis, en clave ADD, es que esa asimetría entre apertura y clausura es lo que empuja al sistema hacia una lógica cada vez más extractivista de sus propios recursos (incluida la biodiversidad de esta misma nota) en vez de hacia una acumulación de capacidades internas [Int] — es una interpretación estructural, no un diagnóstico cerrado, y merece su propio balance en una edición futura.</p>
+  </div>
+
+  <div class="ws">
+    <div class="lbl">◆ Sistemas-Mundo · Wallerstein / Arrighi</div>
+    <p>El hallazgo emerge en un laboratorio del núcleo (Minnesota, con vínculos a Stanford), y la fundación de la organización sin fines de lucro «Biotic» para desarrollarlo señala el modelo de captura de valor: la biología sintética como frontera de la próxima acumulación —fábricas celulares para fármacos, biomateriales, captura de carbono—. Existe ya una carrera geográfica: iniciativas de célula sintética en Europa (European Synthetic Cell Initiative), EE.UU. (Build-a-Cell) y Asia (SynCell Asia, con fuerte inversión china en Shenzhen). Quién llegue primero a la célula sintética funcional definirá la propiedad intelectual de una industria entera. La biodiversidad y el conocimiento de la periferia tropical —como en las notas de hongos y mariposas de ediciones previas— alimentarán ese proceso; la pregunta de siempre es quién capturará la renta.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">★ Relevancia para Costa Rica</div>
+    <p>La biología sintética es un campo donde Costa Rica tiene activos reales: biodiversidad, tradición en biología tropical (el legado documental y las colecciones del extinto INBio —insolvente desde 2013 y con sus colecciones traspasadas al Museo Nacional en 2015 [DC], hoy sin operación propia—, además de la UCR, la UNA, otras universidades y el CATIE) y una marca país asociada a la vida. La oportunidad no es competir en la construcción de células sintéticas —eso es capacidad de núcleo—, sino en articularse con esas cadenas desde una posición de conocimiento, no solo de provisión de sustrato. El riesgo es el de siempre: que el país aporte biodiversidad y datos mientras la renta del conocimiento derivado se captura afuera. La conversación sobre bioprospección y acceso a recursos genéticos, que Costa Rica lideró en los años noventa, vuelve a ser pertinente ante esta frontera.</p>
+  </div>
+
+  <div class="scen">
+    <div class="lbl">Escenarios plausibles</div>
+    <span class="pill a"><b>Validación y avance</b> La revisión por pares confirma el resultado; el campo acelera hacia células sintéticas funcionales y aplicaciones biotecnológicas en la próxima década.</span>
+    <span class="pill b"><b>Hito parcial</b> El resultado se confirma como avance importante pero la distancia hacia una célula autopoiética plena resulta mayor de lo esperado; el «Boeing 737» tarda.</span>
+    <span class="pill c"><b>Controversia</b> La revisión por pares matiza o disputa alcances del preprint; el hito se redimensiona y el debate sobre qué cuenta como «vida sintética» se intensifica.</span>
+  </div>
+</article>
+
+<!-- 5. ECONOMÍA -->
+<article id="n5">
+  <div class="art-head">
+    <span class="art-num">05</span>
+    <span class="cat eco">Economía y negocios</span>
+  </div>
+  <h3 class="head">El respiro del crudo: la reapertura de Ormuz y la factura energética costarricense</h3>
+  <p class="dek">Con la vía marítima más transitable, el petróleo cede desde los máximos de la guerra —y para un país que importa todo su combustible, eso se siente con el tiempo.</p>
+
+  <div class="sub">Hechos verificados</div>
+  <p class="lead">La desescalada de la guerra de Irán tuvo su traducción económica más directa en el mercado del crudo. Tras el memorando del 17 de junio y la apertura de una ruta ampliada por el estrecho de Ormuz anunciada el 27 de junio, la presión sobre el precio del petróleo cedió respecto de los máximos de la guerra, cuando el crudo de Dubái llegó a tocar US$166 por barril en marzo y el estrecho —por donde pasa cerca del 20% del petróleo mundial— estuvo intermitentemente bloqueado. El conflicto había producido, según la Agencia Internacional de Energía, «la mayor disrupción de suministro en la historia del mercado petrolero mundial», con crisis de combustible en partes de Asia y un segundo shock energético en Europa.</p>
+  <p>La reapertura no es total ni definitiva: Irán volvió a restringir el paso en varias ocasiones alegando violaciones del alto el fuego, y la ruta ampliada del 27 de junio es un desafío al control iraní más que un acuerdo consolidado. Pero la dirección del precio, a la baja desde los picos, era la señal que llegaba a las economías importadoras… hasta el 7 de julio.</p>
+  <p style="border-left:3px solid var(--red);padding-left:16px"><strong style="color:var(--red)">[Act. 7 jul] El respiro se interrumpe.</strong> El 7 de julio, el escenario de reversión que este boletín señalaba como riesgo empezó a materializarse. Irán atacó tres buques en el estrecho —un metanero de Catar que quedó en llamas y un tanquero saudí entre ellos—; Estados Unidos revocó la licencia que permitía la venta de crudo iraní, considerada por los analistas la única concesión de fondo que Irán había obtenido a cambio de levantar el bloqueo. El Brent, que el 6 de julio rondaba mínimos desde febrero (por debajo de US$72, ayudado también por el aumento de cuotas de la OPEP+), saltó cerca de un 3% hacia los US$74 y superó los US$76 en operaciones posteriores a la revocación de la licencia. El nivel de amenaza para transitar el estrecho subió a «severo». La prima de riesgo geopolítico volvió al precio: la tesis del respiro no se cancela, pero queda condicionada a un alto el fuego que hoy se muestra frágil.</p>
+
+  <div class="sub">Análisis epistémico · MEEE-G</div>
+  <table class="meee">
+    <tr><th>Afirmación</th><th>Código</th><th>Justificación procesual</th></tr>
+    <tr><td>La guerra provocó la mayor disrupción del mercado petrolero mundial registrada, con el crudo en máximos históricos.</td><td class="code dc">[DC]</td><td>Caracterización de la AIE; precio de Dubái a US$166 (19 mar) documentado.</td></tr>
+    <tr><td>La reapertura de Ormuz alivia la presión sobre el precio del crudo.</td><td class="code ip">[IP] revertida en parte [Act. 7 jul]</td><td>El alivio, real hasta el 6 jul (Brent bajo US$72), se interrumpió el 7 jul: los ataques a buques y la revocación de la licencia petrolera devolvieron la prima de riesgo y llevaron el Brent hacia US$76. La reversibilidad que se advertía se materializó.</td></tr>
+    <tr><td>El alivio del crudo se trasladará a los precios internos de los combustibles en Costa Rica.</td><td class="code ip">[IP]</td><td>Inferencia razonable por el mecanismo de fijación de RECOPE/ARESEP, con rezago; el traslado no es inmediato ni automático.</td></tr>
+    <tr><td>El precio del petróleo se estabilizará de forma duradera en niveles bajos.</td><td class="code h">[H]</td><td>Hipótesis condicionada a que la tregua se sostenga; la evidencia de reversiones la mantiene abierta.</td></tr>
+  </table>
+
+  <div class="add">
+    <div class="lbl">Lectura dinámica · ADD</div>
+    <div class="regime"><span>Régimen: <b>de turbulento hacia laminar, con reversibilidad alta</b></span><span>Analogía: <b>fuerte (nivel de mercados acoplados)</b></span><span>Parámetro de control: <b>transitabilidad efectiva del estrecho de Ormuz</b></span></div>
+    <p>El precio del crudo es un atractor global que acopla el conflicto geopolítico (nota 1) con la economía doméstica de cada país importador. Durante la guerra, el sistema estuvo en régimen turbulento: precios en máximos, alta volatilidad, disrupciones de suministro. La reapertura de Ormuz empuja hacia un régimen más laminar, pero el parámetro de control —la transitabilidad efectiva del estrecho— sigue siendo frágil y reversible, como muestran los cierres intermitentes. El sistema no ha alcanzado un nuevo punto de estabilidad; está en transición.</p>
+  </div>
+
+  <div class="ws">
+    <div class="lbl">◆ Sistemas-Mundo · Wallerstein / Arrighi</div>
+    <p>La factura energética es el canal por el cual un conflicto del núcleo se transmite a la periferia y semiperiferia importadoras. Costa Rica, que no produce petróleo, es tomadora de precios: absorbe la volatilidad de un chokepoint geográfico al otro lado del planeta sin capacidad de influir en él. Esa es la vulnerabilidad estructural de la semiperiferia energética: su estabilidad macroeconómica depende de variables que se deciden en Ormuz, en el G7 o en la sala de un mercado de futuros. El alivio actual es bienvenido pero no reduce la dependencia estructural. La represalia estadounidense del 7 de julio confirma, además, el patrón que discute la nota 1: el repliegue institucional de EE.UU. no le resta capacidad de mover unilateralmente el precio que paga Costa Rica en el surtidor —vía sanciones, licencias o fuerza militar— cuando decide que le conviene a su propia agenda.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">★ Relevancia para Costa Rica</div>
+    <p>La relevancia es tangible y cotidiana. Un crudo más barato alivia, con rezago, el precio de los combustibles, el costo del transporte y la presión inflacionaria —y, de paso, la factura de importación que pesa sobre las cuentas fiscales, justo cuando el gobierno debate el ajuste presupuestario (nota 2). El acoplamiento entre las cinco notas de este boletín se cierra aquí: la geopolítica del crudo (nota 1) llega a la mesa costarricense a través del precio, y ese precio incide en el margen fiscal que enmarca el pulso entre poderes (nota 2). La cautela es la misma que en marzo: el alivio depende de que la tregua se sostenga; una reversión en Ormuz devolvería la presión a los combustibles.</p>
+  </div>
+
+  <div class="scen">
+    <div class="lbl">Escenarios plausibles</div>
+    <span class="pill a"><b>Normalización</b> La tregua se sostiene, Ormuz se estabiliza y el crudo se consolida en niveles moderados; alivio duradero para la factura energética.</span>
+    <span class="pill b"><b>Volatilidad persistente</b> Los cierres intermitentes del estrecho mantienen el precio oscilando; el alivio es parcial e incierto.</span>
+    <span class="pill c"><b>Reversión</b> Una ruptura del alto el fuego vuelve a bloquear Ormuz y dispara el precio, devolviendo la presión inflacionaria y fiscal.</span>
+  </div>
+</article>
+
+<!-- SÍNTESIS -->
+<section class="synth" id="sintesis">
+  <h2>Síntesis tricolumnar de la semana</h2>
+  <table>
+    <tr><th>Tema</th><th>Epistémico (MEEE-G)</th><th>Dinámica (ADD)</th><th>Sistemas-Mundo</th></tr>
+    <tr><td>Balance geopolítico</td><td>Repliegue de EE.UU. [DC]; interregno [Int]; cierre negociado de la guerra [H] debilitada tras el 7 jul</td><td>Turbulencia sistémica sin bifurcación resuelta; la tregua se fractura</td><td>Fin del ordenador de 1945; memorando EE.UU.–Irán en riesgo de colapso</td></tr>
+    <tr><td>Asamblea / presupuesto</td><td>Recorte del 5% [DC]; Contraloría advierte «cierre técnico» [DC]; ruptura del acuerdo sobre Crucitas [DC]</td><td>Escala la tensión en la clausura de la separación de poderes; colonización fiscal</td><td>Austeridad semiperiférica sobre las instituciones de control y conocimiento</td></tr>
+    <tr><td>Estado de la ciencia</td><td>+7.800 subvenciones canceladas [DC]; freno del Congreso/tribunales [DC]; fuga de cerebros [IP]</td><td>Sistema disipativo con flujo interrumpido; bifurcación contingente</td><td>Perturbación de la hegemonía científica del núcleo; redistribución posible</td></tr>
+    <tr><td>Célula SpudCell</td><td>Preprint [DC]; funciones celulares [IP]; «está viva» [C] rechazada</td><td>Umbral entre disipación (sí) y autopoiesis (aún no); analogía literal</td><td>Frontera de la próxima acumulación; carrera EE.UU.–Europa–China</td></tr>
+    <tr><td>Economía del crudo</td><td>Mayor disrupción histórica [DC]; alivio revertido el 7 jul [IP]; Brent salta a ~US$76 [DC]</td><td>El regreso a régimen turbulento: la reversibilidad advertida se materializó</td><td>Semiperiferia energética tomadora de precios; dependencia del chokepoint</td></tr>
+  </table>
+</section>
+
+<!-- INCERTIDUMBRES -->
+<section class="uncert">
+  <h2>Incertidumbres abiertas</h2>
+  <ul>
+    <li>¿Estabilizará el interregno mecanismos regionales de gestión de crisis, o el vacío de ordenador permitirá que un conflicto escale sin contención?</li>
+    <li>¿Se procesará el ajuste presupuestario costarricense preservando la autonomía de los poderes no ejecutivos, o se impondrá por mayoría y se judicializará?</li>
+    <li>¿Redistribuirá la crisis científica estadounidense el liderazgo hacia otros polos, o se traducirá en una pérdida neta de capacidad global de investigación?</li>
+    <li>¿Confirmará la revisión por pares las funciones de la SpudCell, y cuánto falta realmente para una célula sintética con clausura operacional plena?</li>
+    <li><strong style="color:var(--red)">[Act. 7 jul]</strong> Tras los ataques a buques y la revocación de la licencia petrolera iraní, ¿colapsará el memorando EE.UU.–Irán y se recerrará Ormuz, o se recompondrá una tregua frágil? De la respuesta dependen el precio del crudo y la factura energética costarricense.</li>
+    <li>¿Puede una semiperiferia como Costa Rica convertir el repliegue del núcleo —científico y geopolítico— en oportunidad, o solo absorberá sus costos?</li>
+    <li>¿Es la asimetría entre apertura disipativa (inversión extranjera) y clausura operacional (capacidades propias de conocimiento e institucionalidad) un rasgo estructural del modelo de desarrollo costarricense —como sugiere la extensión reflexiva de la nota 4—, o una lectura demasiado esquemática de un caso más matizado? Ameritaría un balance propio en una futura edición.</li>
+  </ul>
+</section>
+
+<!-- FUENTES -->
+<section class="refs">
+  <h2>Fuentes · APA 7</h2>
+  <ol>
+    <li>Wikipedia. (2026, 6 de julio). <em>2026 Iran war</em>. https://en.wikipedia.org/wiki/2026_Iran_war</li>
+    <li>Wikipedia. (2026, 1 de julio). <em>2026 Strait of Hormuz crisis</em>. https://en.wikipedia.org/wiki/2026_Strait_of_Hormuz_crisis</li>
+    <li>Center for Strategic and International Studies. (2026, 26 de junio). <em>Latest analysis: War with Iran</em>. https://www.csis.org/programs/latest-analysis-war-iran</li>
+    <li>Stimson Center. (2026, 4 de febrero). <em>Top ten global risks for 2026</em>. https://www.stimson.org/2026/top-ten-global-risks-for-2026/</li>
+    <li>International Crisis Group. (2026, 22 de enero). <em>10 conflicts to watch in 2026</em>. https://www.crisisgroup.org/cmt/global/10-conflicts-watch-2026</li>
+    <li>Wikipedia. (2026, 2 de julio). <em>Economic impact of the 2026 Iran war</em>. https://en.wikipedia.org/wiki/Economic_impact_of_the_2026_Iran_war</li>
+    <li>El Financiero. (2026, 24 de junio). <em>Gobierno propone recorte del 5% al presupuesto extraordinario de este año para Poderes de la República e instituciones</em>. https://www.elfinancierocr.com/finanzas/</li>
+    <li>El Observador CR. (2026, 3 de julio). <em>Directorio legislativo aprueba rebaja de más de ¢2.500 millones en el presupuesto 2026 de la Asamblea</em>. https://observador.cr/</li>
+    <li>La Nación. (2026, 5 de julio). <em>Oficialismo aprueba más recursos para comunicación de Casa Presidencial mientras Rodrigo Chaves critica ese rubro en el Poder Judicial</em>. https://www.nacion.com/politica/</li>
+    <li>El Observador CR. (2026, 4 de julio). <em>OIJ advierte desaceleración en investigaciones y operativos si Gobierno insiste en más recorte presupuestario</em>. https://observador.cr/</li>
+    <li>Brennan Center for Justice. (2026, 14 de mayo). <em>The cost of the Trump administration's attacks on research funding</em>. https://www.brennancenter.org/</li>
+    <li>Nature. (2026, 20 de enero). <em>US science after a year of Trump: what has been lost and what remains</em>. https://www.nature.com/immersive/d41586-026-00088-9/</li>
+    <li>Science / AAAS. (2026, 3 de abril). <em>Trump's proposed budget would mean 'disastrous' cuts to science</em>. https://www.science.org/</li>
+    <li>NPR. (2026, 21 de mayo). <em>Researchers say the Trump administration is finding new ways to punish science</em>. https://www.npr.org/2026/05/21/</li>
+    <li>Wikipedia. (2026, junio). <em>Science policy of the second Trump administration</em>. https://en.wikipedia.org/wiki/Science_policy_of_the_second_Trump_administration</li>
+    <li>Quanta Magazine. (2026, 1 de julio). <em>For the first time, a cell built from scratch grows and divides</em>. https://www.quantamagazine.org/</li>
+    <li>CNN. (2026, 1 de julio). <em>Scientists say they have built a basic component of life from scratch</em>. https://www.cnn.com/2026/07/01/science/synthetic-cell-research</li>
+    <li>Smithsonian Magazine. (2026, 3 de julio). <em>Scientists say they've made cells that feed, grow and reproduce</em>. https://www.smithsonianmag.com/smart-news/</li>
+    <li>Gaut, N. J., et al. / Adamala Lab. (2026, 2 de julio). <em>SpudCell: a synthetic cell system completing a full cell cycle</em> [Preprint]. bioRxiv / Biotic. https://www.biorxiv.org/</li>
+    <li>Wikipedia. (2026, 2 de julio). <em>2026 in science</em>. https://en.wikipedia.org/wiki/2026_in_science</li>
+    <li>CNBC. (2026, 7 de julio). <em>Oil prices rise after attacks on tankers in Strait of Hormuz, U.S. revokes Iran sale authorization</em>. https://www.cnbc.com/2026/07/07/oil-prices-iran-strait-hormuz.html</li>
+    <li>Al Jazeera. (2026, 7 de julio). <em>Saudi, Qatari tankers hit as Strait of Hormuz risks worsen</em>. https://www.aljazeera.com/news/2026/7/7/</li>
+    <li>CBS News. (2026, 7 de julio). <em>U.S. launches retaliatory strikes on Iran after commercial ship attacks in Strait of Hormuz</em>. https://www.cbsnews.com/live-updates/iran-us-war-strait-of-hormuz-trump-nato/</li>
+    <li>Infobae. (2026, 6 de julio). <em>Órganos clave del Estado costarricense ejecutan millonarios recortes presupuestarios tras directriz del Ministerio de Hacienda</em>. https://www.infobae.com/costa-rica/2026/07/06/</li>
+    <li>Delfino.cr. (2026, 3 de julio). <em>¿Qué hizo el congreso esta semana? Del 29 de junio al 2 de julio de 2026</em>. https://delfino.cr/2026/07/</li>
+    <li>El Observador CR. (2026, 3 de julio). <em>¿Cómo se cobraría el IVA de la canasta básica a «los ricos»?: así lo explica Nogui Acosta</em>. https://observador.cr/</li>
+  </ol>
+</section>
+
+<!-- MÉTODO -->
+<div class="method">
+  <p><b>Nota metodológica.</b> Este boletín integra tres registros analíticos distintos y no colapsables: la evaluación epistémica explicacionista (MEEE-G, inspirada en Goldman), el análisis dinámico antropológico (ADD, según Montero Fonseca) y la capa de sistemas-mundo (Wallerstein/Arrighi). Los códigos epistémicos —<b>[DC]</b> dato confirmado, <b>[IP]</b> inferencia plausible, <b>[H]</b> hipótesis, <b>[Int]</b> interpretación, <b>[C]</b> conjetura— caracterizan el estatus justificatorio de cada afirmación según los procesos que la generan. Las declaraciones de analogía (literal / fuerte / débil) y de parámetro de control siguen el criterio de rigor de la ADD frente al uso metafórico de los conceptos de complejidad. La nota 4 (SpudCell) es el caso excepcional donde los conceptos ADD de apertura disipativa (Prigogine) y clausura operacional/autopoiesis (Maturana y Varela) aplican de forma literal, no analógica. <b>El análisis combina evaluación epistémica explicacionista y análisis dinámico antropológico; no constituye predicción determinista ni recomendación política.</b></p>
+</div>
+
+</main>
+
+<footer>
+  <div>ANCA-ADD © 2026 · <a href="https://antropos-amf.github.io/anca-ade.github.io/" style="color:var(--teal);text-decoration:none;">antropos.app</a></div>
+  <div>Boletín Semanal N.° 012 · actualizado 7 jul 2026, 18:02 · MEEE-G + ADD + Sistemas-Mundo</div>
+</footer>
+
+</body>
+</html>

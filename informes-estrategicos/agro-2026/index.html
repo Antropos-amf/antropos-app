@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANCA-ADE · Informe Estratégico · Sector Agropecuario · Abril 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:          #080b0e;
+  --bg-card:     #0e1318;
+  --bg-section:  #131a21;
+  --bg-accent:   #0a1520;
+  --red:         #c0392b;
+  --red-bright:  #e74c3c;
+  --amber:       #d4850a;
+  --amber-light: #f0a030;
+  --green-cr:    #1e6e34;
+  --green-light: #27ae60;
+  --teal:        #0d8a7e;
+  --teal-light:  #1ab8aa;
+  --text:        #dfe6ec;
+  --text-muted:  #8a9ba8;
+  --text-dim:    #546070;
+  --border:      #1e2e3a;
+  --border-light:#2a3f50;
+  --warning:     #e67e22;
+  --critical:    #c0392b;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* ── TICKER ── */
+.ticker-outer {
+  background: var(--red);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  overflow: hidden;
+  height: 32px;
+  display: flex;
+  align-items: center;
+}
+.ticker-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #fff;
+  padding: 0 14px;
+  white-space: nowrap;
+  background: rgba(0,0,0,0.3);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.ticker-track {
+  display: flex;
+  animation: ticker 40s linear infinite;
+  white-space: nowrap;
+}
+.ticker-track span {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: rgba(255,255,255,0.92);
+  padding: 0 32px;
+  letter-spacing: 0.06em;
+}
+.ticker-track span::before {
+  content: '▸ ';
+  color: rgba(255,255,255,0.5);
+}
+@keyframes ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ── MASTHEAD ── */
+.masthead {
+  background: linear-gradient(180deg, #000d18 0%, var(--bg) 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 48px 40px 36px;
+  position: relative;
+  overflow: hidden;
+}
+.masthead::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--red) 0%, var(--amber) 50%, var(--green-light) 100%);
+}
+.masthead::after {
+  content: 'AGRO';
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 180px;
+  color: rgba(255,255,255,0.02);
+  line-height: 1;
+  pointer-events: none;
+}
+.pub-line {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 12px;
+}
+.masthead-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(36px, 6vw, 68px);
+  line-height: 0.92;
+  color: #fff;
+  letter-spacing: 0.01em;
+  margin-bottom: 16px;
+}
+.masthead-title span {
+  color: var(--amber-light);
+}
+.masthead-sub {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 16px;
+  font-style: italic;
+  color: var(--text-muted);
+  max-width: 680px;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+.meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: center;
+}
+.meta-badge {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+  border: 1px solid var(--border-light);
+  padding: 4px 10px;
+  border-radius: 2px;
+}
+.meta-badge.alert {
+  border-color: var(--red);
+  color: var(--red-bright);
+  background: rgba(192,57,43,0.08);
+}
+.meta-badge.warn {
+  border-color: var(--amber);
+  color: var(--amber-light);
+  background: rgba(212,133,10,0.08);
+}
+
+/* ── NAV ── */
+.sticky-nav {
+  position: sticky;
+  top: 32px;
+  z-index: 80;
+  background: rgba(8,11,14,0.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 40px;
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+}
+.sticky-nav a {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  text-decoration: none;
+  padding: 12px 16px;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+.sticky-nav a:hover {
+  color: var(--amber-light);
+  border-bottom-color: var(--amber);
+}
+
+/* ── LAYOUT ── */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* ── EXECUTIVE SUMMARY ── */
+.exec-summary {
+  background: linear-gradient(135deg, var(--bg-accent) 0%, rgba(10,21,32,0.9) 100%);
+  border: 1px solid var(--border-light);
+  border-left: 4px solid var(--amber);
+  padding: 36px 40px;
+  margin: 40px 0;
+  position: relative;
+}
+.exec-summary::before {
+  content: 'RESUMEN EJECUTIVO';
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  font-family: 'Space Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  color: var(--amber);
+  background: var(--bg);
+  padding: 0 8px;
+}
+.exec-summary p {
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+.exec-summary p:last-child { margin-bottom: 0; }
+
+/* ── SECTION HEADERS ── */
+.section {
+  padding: 48px 0 32px;
+  border-top: 1px solid var(--border);
+}
+.section-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 8px;
+}
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(28px, 4vw, 44px);
+  letter-spacing: 0.02em;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.section-title .accent { color: var(--amber-light); }
+.section-title .green { color: var(--teal-light); }
+.section-intro {
+  font-size: 14px;
+  color: var(--text-muted);
+  font-style: italic;
+  max-width: 700px;
+  margin-bottom: 28px;
+  font-family: 'Playfair Display', serif;
+}
+
+/* ── PERTURBATION CARDS ── */
+.pert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin: 28px 0;
+}
+.pert-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+}
+.pert-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px; height: 100%;
+}
+.pert-card.ormuz::after  { background: var(--red); }
+.pert-card.clima::after  { background: var(--teal); }
+.pert-card.energia::after{ background: var(--amber); }
+.pert-card.arancel::after{ background: #8e44ad; }
+
+.pert-icon {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+.pert-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.pert-card.ormuz .pert-label  { color: var(--red-bright); }
+.pert-card.clima .pert-label  { color: var(--teal-light); }
+.pert-card.energia .pert-label{ color: var(--amber-light); }
+.pert-card.arancel .pert-label{ color: #9b59b6; }
+
+.pert-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.pert-body {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* ── MEEE-G TABLE ── */
+.meee-table-wrap {
+  overflow-x: auto;
+  margin: 24px 0;
+}
+.meee-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.meee-table thead tr {
+  background: rgba(212,133,10,0.12);
+  border-bottom: 1px solid var(--amber);
+}
+.meee-table th {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--amber-light);
+  padding: 10px 14px;
+  text-align: left;
+  white-space: nowrap;
+}
+.meee-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  vertical-align: top;
+  line-height: 1.6;
+}
+.meee-table tr:hover td {
+  background: rgba(255,255,255,0.02);
+}
+.tag {
+  display: inline-block;
+  font-family: 'Space Mono', monospace;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 2px 6px;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+.tag-dc  { background: rgba(39,174,96,0.2);  color: #2ecc71; border: 1px solid rgba(39,174,96,0.4); }
+.tag-ip  { background: rgba(52,152,219,0.2); color: #5dade2; border: 1px solid rgba(52,152,219,0.4); }
+.tag-h   { background: rgba(241,196,15,0.15);color: #f4d03f; border: 1px solid rgba(241,196,15,0.3); }
+.tag-int { background: rgba(155,89,182,0.2); color: #a569bd; border: 1px solid rgba(155,89,182,0.4); }
+.tag-c   { background: rgba(230,126,34,0.2); color: #e59866; border: 1px solid rgba(230,126,34,0.4); }
+
+/* ── TRANSMISSION CHANNELS ── */
+.channel-list {
+  counter-reset: channel;
+  margin: 24px 0;
+}
+.channel-item {
+  counter-increment: channel;
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 0;
+  border-bottom: 1px solid var(--border);
+  padding: 20px 0;
+}
+.channel-item:last-child { border-bottom: none; }
+.channel-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 42px;
+  color: rgba(212,133,10,0.2);
+  line-height: 1;
+  padding-top: 4px;
+}
+.channel-content h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--amber-light);
+  margin-bottom: 6px;
+}
+.channel-content p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.75;
+}
+
+/* ── ADE BLOCK ── */
+.ade-block {
+  background: var(--bg-section);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--teal);
+  padding: 32px;
+  margin: 28px 0;
+}
+.ade-header {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: var(--teal-light);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+.ade-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+.ade-item h5 {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--teal-light);
+  margin-bottom: 8px;
+}
+.ade-item p, .ade-item ul {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+.ade-item ul { padding-left: 16px; }
+.ade-item li { margin-bottom: 4px; }
+
+/* ── SCENARIOS ── */
+.scenario-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin: 24px 0;
+}
+.scenario-card {
+  border: 1px solid var(--border);
+  padding: 24px;
+  background: var(--bg-card);
+}
+.scenario-card h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.scenario-card.optimista h4  { color: var(--green-light); border-left: 3px solid var(--green-light); padding-left: 12px; }
+.scenario-card.base h4       { color: var(--amber-light);  border-left: 3px solid var(--amber); padding-left: 12px; }
+.scenario-card.adverso h4    { color: var(--red-bright);   border-left: 3px solid var(--red); padding-left: 12px; }
+.scenario-card p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+.prob-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+}
+
+/* ── RECOMENDACIONES ── */
+.recom-section { margin: 28px 0; }
+.recom-item {
+  display: flex;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: flex-start;
+}
+.recom-item:last-child { border-bottom: none; }
+.recom-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-size: 18px;
+  flex-shrink: 0;
+  background: rgba(30,110,52,0.15);
+  border: 1px solid rgba(39,174,96,0.25);
+}
+.recom-content h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--green-light);
+  margin-bottom: 6px;
+}
+.recom-content p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+.horizon-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  color: var(--text-dim);
+  border: 1px solid var(--border-light);
+  padding: 2px 7px;
+  display: inline-block;
+  margin-bottom: 6px;
+}
+
+/* ── SYNTHESIS TABLE ── */
+.synth-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin: 24px 0;
+}
+.synth-table thead tr {
+  background: rgba(13,138,126,0.1);
+  border-bottom: 1px solid var(--teal);
+}
+.synth-table th {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal-light);
+  padding: 10px 14px;
+  text-align: left;
+}
+.synth-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  line-height: 1.6;
+  color: var(--text);
+}
+.synth-table tr:hover td { background: rgba(255,255,255,0.02); }
+.risk-high   { color: var(--red-bright); font-weight: 600; }
+.risk-med    { color: var(--amber-light); }
+.risk-low    { color: var(--green-light); }
+
+/* ── CR ANNEX ── */
+.cr-annex {
+  background: linear-gradient(135deg, rgba(30,110,52,0.08) 0%, var(--bg-card) 100%);
+  border: 1px solid rgba(39,174,96,0.2);
+  border-left: 4px solid var(--green-cr);
+  padding: 28px 32px;
+  margin: 24px 0;
+}
+.cr-annex-header {
+  font-family: 'Space Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  color: var(--green-light);
+  margin-bottom: 12px;
+}
+.cr-annex h4 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  color: var(--green-light);
+  margin-bottom: 12px;
+}
+.cr-annex p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin-bottom: 10px;
+}
+.cr-annex p:last-child { margin-bottom: 0; }
+
+/* ── ALERT BOX ── */
+.alert-box {
+  background: rgba(192,57,43,0.07);
+  border: 1px solid rgba(192,57,43,0.3);
+  border-left: 4px solid var(--red);
+  padding: 20px 24px;
+  margin: 20px 0;
+}
+.alert-box .alert-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  color: var(--red-bright);
+  margin-bottom: 8px;
+}
+.alert-box p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* ── INERTIA BOX (clave ADD) ── */
+.inertia-box {
+  background: rgba(212,133,10,0.06);
+  border: 1px solid rgba(212,133,10,0.25);
+  border-left: 4px solid var(--amber);
+  padding: 20px 24px;
+  margin: 20px 0;
+}
+.inertia-box .inertia-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  color: var(--amber-light);
+  margin-bottom: 8px;
+}
+.inertia-box p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.75;
+}
+
+/* ── INCERTIDUMBRES ── */
+.uncert-list {
+  list-style: none;
+  margin: 16px 0;
+}
+.uncert-list li {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  padding: 10px 0 10px 22px;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  line-height: 1.7;
+}
+.uncert-list li::before {
+  content: '?';
+  position: absolute;
+  left: 0;
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--text-dim);
+  font-weight: 700;
+}
+.uncert-list li:last-child { border-bottom: none; }
+
+/* ── REFERENCES ── */
+.refs-block {
+  margin: 32px 0;
+  padding: 28px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+}
+.refs-block h4 {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 18px;
+}
+.refs-block ol {
+  padding-left: 22px;
+}
+.refs-block li {
+  font-size: 12px;
+  color: var(--text-dim);
+  line-height: 1.6;
+  margin-bottom: 10px;
+  font-family: 'Source Serif 4', serif;
+  font-weight: 300;
+}
+.refs-block li a {
+  color: var(--teal-light);
+  text-decoration: none;
+}
+.refs-block li a:hover { text-decoration: underline; }
+
+/* ── DISCLAIMER ── */
+.disclaimer {
+  background: rgba(255,255,255,0.02);
+  border-top: 1px solid var(--border);
+  padding: 28px 40px;
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+  line-height: 1.8;
+  text-align: center;
+}
+
+/* ── DIVIDERS ── */
+.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 40px 0;
+}
+
+/* ── TYPOGRAPHY ── */
+h2 { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 14px; }
+h3 { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: var(--amber-light); margin: 20px 0 10px; }
+p  { margin-bottom: 14px; font-size: 14.5px; line-height: 1.82; }
+p:last-child { margin-bottom: 0; }
+strong { font-weight: 600; color: #d0dae3; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  .masthead { padding: 36px 20px 28px; }
+  .container { padding: 0 20px; }
+  .sticky-nav { padding: 0 12px; }
+  .pert-grid, .ade-grid, .scenario-grid { grid-template-columns: 1fr; }
+  .channel-item { grid-template-columns: 40px 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- SITE NAV -->
+<div style="background:#04090d; border-bottom:1px solid #1e2e3a; padding:0 40px; display:flex; align-items:center; gap:24px; height:36px;">
+  <a href="/" style="font-family:'Space Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:#8a9ba8; text-decoration:none;">← antropos.app</a>
+  <span style="color:#1e2e3a;">|</span>
+  <a href="/informes-estrategicos/" style="font-family:'Space Mono',monospace; font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:#8a9ba8; text-decoration:none;">Informes Estratégicos</a>
+</div>
+
+<!-- TICKER -->
+<div class="ticker-outer">
+  <div class="ticker-label">ANCA·ADE</div>
+  <div class="ticker-track">
+    <span>Urea +50% en semanas · CNAA alerta escasez de insumos</span>
+    <span>Ormuz bloqueado: 35% del petróleo global, 30% fertilizantes (FAO 14 abr 2026)</span>
+    <span>El Niño proyectado segundo semestre 2026 · anomalía +2,5°C Pacífico</span>
+    <span>RECOPE anticipa ajuste de combustibles mayo 2026</span>
+    <span>Granos básicos estables hasta julio · presión sobre costos desde agosto</span>
+    <span>ICE: generación térmica creció de 2% a 14% en episodio El Niño previo</span>
+    <span>Fertilizante Banco Mundial Pink Sheet +26,2% · Urea $725 USD/ton</span>
+    <span>Aranceles Trump +10% base sobre CR · impacto logístico y financiero en curso</span>
+    <span>Urea +50% en semanas · CNAA alerta escasez de insumos</span>
+    <span>Ormuz bloqueado: 35% del petróleo global, 30% fertilizantes (FAO 14 abr 2026)</span>
+    <span>El Niño proyectado segundo semestre 2026 · anomalía +2,5°C Pacífico</span>
+    <span>RECOPE anticipa ajuste de combustibles mayo 2026</span>
+    <span>Granos básicos estables hasta julio · presión sobre costos desde agosto</span>
+    <span>ICE: generación térmica creció de 2% a 14% en episodio El Niño previo</span>
+    <span>Fertilizante Banco Mundial Pink Sheet +26,2% · Urea $725 USD/ton</span>
+    <span>Aranceles Trump +10% base sobre CR · impacto logístico y financiero en curso</span>
+  </div>
+</div>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="container">
+    <p class="pub-line">ANCA-ADE · Agente Noticioso Crítico de Actualidad · Análisis Dinámico del Devenir · Informe Estratégico Sectorial</p>
+    <h1 class="masthead-title">Tormenta<br>Perfecta<br><span>en el Agro</span></h1>
+    <p class="masthead-sub">Confluencia de tres perturbaciones simultáneas: bloqueo del Estrecho de Ormuz y alza de insumos, El Niño proyectado para el segundo semestre, y tensión energética. Análisis de impacto y horizontes estratégicos para el sector agropecuario costarricense.</p>
+    <div class="meta-row">
+      <span class="meta-badge alert">NIVEL DE ALERTA: ALTO</span>
+      <span class="meta-badge warn">HORIZONTE: II SEM. 2026</span>
+      <span class="meta-badge">16 DE ABRIL · 2026</span>
+      <span class="meta-badge">LLAMADA C · ANÁLISIS SECTORIAL</span>
+      <span class="meta-badge">DESTINATARIO: SECTOR AGROPECUARIO CR</span>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="sticky-nav">
+  <a href="/informes-estrategicos/" style="opacity:0.55; border-right:1px solid #1e2e3a; margin-right:4px; padding-right:20px;">← Informes</a>
+  <a href="#resumen">Resumen</a>
+  <a href="#perturbaciones">Perturbaciones</a>
+  <a href="#canales">Canales</a>
+  <a href="#epistemia">Epistemia MEEE-G</a>
+  <a href="#dinamica">Dinámica ADD</a>
+  <a href="#inercia">Inercia</a>
+  <a href="#escenarios">Escenarios</a>
+  <a href="#recomendaciones">Recomendaciones</a>
+  <a href="#incertidumbres">Incertidumbres</a>
+  <a href="#referencias">Referencias</a>
+</nav>
+
+<!-- CUERPO -->
+<div class="container">
+
+  <!-- RESUMEN EJECUTIVO -->
+  <div id="resumen" class="exec-summary" style="margin-top:40px">
+    <p>El sector agropecuario costarricense enfrenta en 2026 una convergencia inédita de tres perturbaciones simultáneas que, tomadas individualmente, serían manejables; combinadas, generan una zona de bifurcación sistémica. El bloqueo del Estrecho de Ormuz, derivado del conflicto Israel-Irán activo desde finales de 2025, interrumpe aproximadamente el 35% del comercio global de petróleo y el 30% del comercio mundial de fertilizantes (FAO, 14 de abril de 2026). La urea —insumo crítico altamente dependiente del gas natural que fluye por Ormuz— ya registra alzas superiores al 50% en las últimas semanas, según alerta de la Cámara Nacional de Agricultura y Agroindustria (CNAA). Sobre este choque de costos opera un segundo factor: El Niño proyectado para el segundo semestre de 2026, con anomalías de temperatura oceánica de hasta 2,5°C en el Pacífico adyacente, amenaza los caudales que alimentan el sistema hidroeléctrico nacional y el agua para riego. Una tercera perturbación de fondo —los aranceles estadounidenses del 10% base vigentes desde abril de 2026— contrae márgenes de exportación y encarece el crédito externo al que acceden los importadores de insumos.</p>
+    <p>Un dato estructural que emerge del análisis dinámico (ADD) es especialmente relevante para la planificación: <strong>incluso si el bloqueo de Ormuz se levantara hoy, los efectos económicos y logísticos de la turbulencia actual se trasladarán al segundo semestre de 2026</strong>. Los contratos de flete se renegocian con rezago; los inventarios de fertilizantes ya contratados protegen hasta julio pero no más allá; los cultivos de maíz y soya del hemisferio norte —cuya cosecha determina los precios del tercer trimestre— se siembran ahora bajo costos de insumos elevados. La irreversibilidad del proceso disipativo es un hecho consumado: el sistema agroalimentario costarricense navega hacia el segundo semestre con una ventana de estabilidad cada vez más estrecha.</p>
+  </div>
+
+  <!-- PERTURBACIONES -->
+  <section id="perturbaciones" class="section">
+    <p class="section-label">Sección I · Marco de Perturbaciones</p>
+    <h2 class="section-title">Las Cuatro<br>Perturbaciones <span class="accent">Activas</span></h2>
+    <p class="section-intro">El análisis ADD distingue perturbaciones por su naturaleza lógica: sistémicas (operan por dinero o poder), ecológicas (alteran flujos energético-materiales) y normativas (implican órdenes en conflicto). Las tres activas sobre el agro costarricense son heterogéneas en origen pero convergentes en efecto.</p>
+
+    <div class="pert-grid">
+      <div class="pert-card ormuz">
+        <div class="pert-icon">⛽</div>
+        <div class="pert-label">Perturbación I · Geopolítica-Energética</div>
+        <div class="pert-title">Bloqueo del Estrecho de Ormuz</div>
+        <div class="pert-body">Desde principios de 2026, el conflicto Israel-Irán mantiene interrumpido o severamente restringido el paso por Ormuz. La FAO documenta que esta vía concentra el 35% del petróleo global, el 20% del gas natural y el 30% de los fertilizantes comercializados internacionalmente. El índice de energía del Banco Mundial registró +41,6% en marzo; el Brent acumuló +45,8%. La urea —principal fertilizante nitrogenado, cuya síntesis depende directamente del gas natural— alcanzó USD 725,6 por tonelada, con alzas de hasta 56,5% acumulado en lo que va de 2026 según el Índice de Fertilizantes del Banco Mundial.</div>
+      </div>
+
+      <div class="pert-card clima">
+        <div class="pert-icon">🌡️</div>
+        <div class="pert-label">Perturbación II · Climática</div>
+        <div class="pert-title">El Niño proyectado — II semestre 2026</div>
+        <div class="pert-body">Expertos en meteorología proyectan un evento El Niño fuerte o intenso para el segundo semestre de 2026, con anomalías de temperatura oceánica en el Pacífico Ecuatorial adyacente a Costa Rica de hasta 2,5°C. El episodio de 2023-2024 redujo la generación hidroeléctrica del ICE de 97,88% a 79,46% de fuentes limpias solo en enero, obligó a racionamientos eléctricos y produjo déficits de lluvia de hasta 70% en la cuenca del Caribe norte. Los cultivos de arroz, maíz y frijoles son los más vulnerables al estrés hídrico. La ganadería resentirá calor y escasez de agua.</div>
+      </div>
+
+      <div class="pert-card energia">
+        <div class="pert-icon">⚡</div>
+        <div class="pert-label">Perturbación III · Energética Nacional</div>
+        <div class="pert-title">Combustibles y electricidad al alza</div>
+        <div class="pert-body">RECOPE anticipó desde marzo de 2026 que el conflicto en Medio Oriente se reflejaría en los precios internos de combustibles. La ARESEP abrió consulta pública para un ajuste extraordinario de tarifas. Los precios de gasolina, diesel y bunker para mayo de 2026 anticipan aumentos significativos. El diesel es insumo directo en maquinaria agrícola, transporte de cosecha y sistemas de bombeo de riego. Adicionalmente, la presión sobre la generación hidroeléctrica por El Niño obliga a recurrir a térmica (diésel y búnker), lo que encarece las tarifas eléctricas para agroindustria.</div>
+      </div>
+
+      <div class="pert-card arancel">
+        <div class="pert-icon">📋</div>
+        <div class="pert-label">Perturbación IV · Comercial</div>
+        <div class="pert-title">Aranceles Trump y reconfiguración logística</div>
+        <div class="pert-body">Los aranceles estadounidenses del 10% base aplicados desde abril de 2026 afectan las exportaciones agropecuarias costarricenses hacia el principal mercado de destino. La contracción de márgenes en piña, banano, melón y vegetales de exportación reducirá la capacidad del sector para absorber alzas de costos. Paralelamente, el encarecimiento del transporte marítimo global —impulsado por el desvío de rutas que evitan Ormuz— incrementa los fletes de importación de insumos. Los contratos de flete firmados previamente protegen hasta cierto punto, pero serán renegociados a partir de mayo-junio.</div>
+      </div>
+    </div>
+
+    <div class="alert-box">
+      <div class="alert-label">⚠ Señal de Bifurcación del Sistema</div>
+      <p>La concurrencia de cuatro perturbaciones activas sobre un sector que ya opera con márgenes históricamente estrechos configura lo que la ADD denomina una <strong>zona de bifurcación</strong>: el sistema puede estabilizarse en un nuevo régimen de costos elevados y ajuste sectorial, o puede atravesar una reorganización más profunda si una de las perturbaciones se intensifica (escalada en Ormuz, El Niño por encima del percentil 90 proyectado) mientras el resto permanecen activas. La capacidad del sector para absorber perturbaciones simultáneas —su <em>resiliencia disipativa</em>— depende de sus flujos de capital disponibles: económico, social, simbólico e informacional.</p>
+    </div>
+  </section>
+
+  <!-- CANALES DE TRANSMISIÓN -->
+  <section id="canales" class="section">
+    <p class="section-label">Sección II · Canales de Transmisión</p>
+    <h2 class="section-title">Cómo Llega<br>la <span class="accent">Tormenta</span> al Campo</h2>
+    <p class="section-intro">El análisis del MAG, el UNED-ECA y la CNAA identifica al menos cinco canales de transmisión directa de las perturbaciones globales al sistema agropecuario nacional.</p>
+
+    <div class="channel-list">
+      <div class="channel-item">
+        <div class="channel-num">1</div>
+        <div class="channel-content">
+          <h4>Canal de insumos: fertilizantes y agroquímicos</h4>
+          <p>Costa Rica es uno de los países más expuestos de América Latina al alza internacional de fertilizantes por su alta dependencia importadora y uso intensivo por hectárea, señalado consistentemente por CEPAL. La urea importada ya acumula alzas superiores al 50% en semanas recientes (CNAA). El DAP (Fosfato Diamónico) alcanzó USD 685 por tonelada. Para productores de café, piña, banano, palma aceitera y granos básicos, el fertilizante representa entre el 25% y el 45% del costo de producción. El canal de transmisión es directo: costo de insumo → margen operativo → decisiones de siembra y densidad de aplicación.</p>
+        </div>
+      </div>
+
+      <div class="channel-item">
+        <div class="channel-num">2</div>
+        <div class="channel-content">
+          <h4>Canal energético: combustibles para maquinaria y transporte</h4>
+          <p>El diesel es la columna vertebral energética del agro: maquinaria de preparación de suelo, cosecha, bombeo de riego, generadores en fincas remotas, refrigeración de productos perecederos y transporte interno de cosecha. El aumento proyectado para mayo en los precios de combustibles RECOPE se traducirá directamente en mayores costos operativos por hectárea trabajada y por tonelada transportada. La intensidad del impacto es no lineal: afecta más a productores de escala pequeña y mediana que no tienen economías de flota ni poder de negociación en contratos de transporte.</p>
+        </div>
+      </div>
+
+      <div class="channel-item">
+        <div class="channel-num">3</div>
+        <div class="channel-content">
+          <h4>Canal eléctrico: tarifa agroindustrial y sistemas de riego</h4>
+          <p>La presión sobre la generación hidroeléctrica ante El Niño obliga al ICE a recurrir en mayor proporción a generación térmica, encareciendo las tarifas. La agroindustria —empacadoras, plantas procesadoras, sistemas de irrigación tecnificada, cuartos fríos— es intensiva en electricidad. El precedente del episodio 2023-2024 (generación térmica creció de 5,7% a 14% del total nacional según ARESEP) indica que la vulnerabilidad es real y recurrente. Un escenario El Niño fuerte en el segundo semestre podría replicar o superar ese episodio, empujando aún más el componente térmico en la matriz.</p>
+        </div>
+      </div>
+
+      <div class="channel-item">
+        <div class="channel-num">4</div>
+        <div class="channel-content">
+          <h4>Canal hídrico-productivo: rendimientos, riego y ganadería</h4>
+          <p>El Niño reduce los caudales de los ríos que alimentan tanto el sistema de generación eléctrica como los sistemas de riego en las cuencas del Pacífico. La reducción de agua disponible impacta rendimientos de arroz, maíz y frijoles —base de la seguridad alimentaria nacional— y estresa la actividad ganadera por reducción de pasturas y disponibilidad de agua en abrevaderos. Los cultivos sembrados entre junio y agosto de 2026 son los más expuestos. La convergencia con costos de insumos elevados crea una doble presión: mayor costo de producción + menor rendimiento esperado por hectárea.</p>
+        </div>
+      </div>
+
+      <div class="channel-item">
+        <div class="channel-num">5</div>
+        <div class="channel-content">
+          <h4>Canal comercial-logístico: exportaciones y fletes</h4>
+          <p>Los aranceles estadounidenses del 10% base sobre productos costarricenses comprimirán márgenes en los principales rubros de exportación agropecuaria: piña, banano, melón, plantas ornamentales, yuca, chayote. El encarecimiento del transporte marítimo —derivado del desvío de rutas por el conflicto en Ormuz— aumenta el costo de importar insumos y, simétricamente, el de exportar productos. Los contratos previamente firmados absorben el impacto en el corto plazo (hasta junio-julio según importadores), pero la renegociación abrirá en el segundo semestre, justo cuando confluyan El Niño y la presión de costos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVALUACIÓN EPISTÉMICA MEEE-G -->
+  <section id="epistemia" class="section">
+    <p class="section-label">Sección III · Evaluación Epistémica MEEE-G</p>
+    <h2 class="section-title">Estado del <span class="accent">Conocimiento</span><br>Disponible</h2>
+    <p class="section-intro">Clasificación de las afirmaciones centrales de este informe según la Matriz Explicacionista de Evaluación Epistémica: [DC] dato confirmado · [IP] inferencia plausible · [H] hipótesis · [Int] interpretación · [C] conjetura.</p>
+
+    <div class="meee-table-wrap">
+      <table class="meee-table">
+        <thead>
+          <tr>
+            <th>Afirmación</th>
+            <th>Clasificación</th>
+            <th>Fundamento / Fuente</th>
+            <th>Grado de incertidumbre</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>El bloqueo de Ormuz interrumpe ~35% del petróleo global y ~30% de fertilizantes</td>
+            <td><span class="tag tag-dc">DC</span></td>
+            <td>FAO comunicado 14 abr 2026; Banco Mundial Pink Sheet</td>
+            <td>Bajo. Cifras de organismos multilaterales con metodología verificada.</td>
+          </tr>
+          <tr>
+            <td>La urea registra alzas superiores al 50% en semanas recientes en CR</td>
+            <td><span class="tag tag-dc">DC</span></td>
+            <td>Cámara Nacional de Agricultura y Agroindustria (CNAA), abril 2026</td>
+            <td>Bajo. Declaración de gremio con contacto directo con importadores.</td>
+          </tr>
+          <tr>
+            <td>Los contratos previos de granos básicos sostienen precios hasta julio 2026</td>
+            <td><span class="tag tag-dc">DC</span></td>
+            <td>La Maquila Lama, importador nacional, declaración pública (Infobae CR, abr 2026)</td>
+            <td>Bajo para el período afirmado; alto para lo que ocurra después de julio.</td>
+          </tr>
+          <tr>
+            <td>El Niño fuerte/intenso es probable para el segundo semestre 2026</td>
+            <td><span class="tag tag-ip">IP</span></td>
+            <td>Expertos en meteorología citados por Delfino.cr; patrón térmico del Pacífico ecuatorial</td>
+            <td>Medio. Las proyecciones de El Niño tienen un horizonte confiable de ~3 meses; el II semestre completo agrega incertidumbre.</td>
+          </tr>
+          <tr>
+            <td>El impacto hídrico y sobre generación eléctrica replicará el episodio 2023-2024</td>
+            <td><span class="tag tag-h">H</span></td>
+            <td>Analogía con episodio previo (ICE, ARESEP); intensidad del fenómeno proyectada</td>
+            <td>Medio-alto. La analogía es razonable pero los El Niño varían en distribución espacial.</td>
+          </tr>
+          <tr>
+            <td>Levantado el bloqueo hoy, los efectos se trasladan de todas formas al II semestre</td>
+            <td><span class="tag tag-ip">IP</span></td>
+            <td>Lógica de contratos de flete (renegociación con rezago 2-4 meses); ciclos agrícolas del hemisferio norte; estructura de inventarios de CR</td>
+            <td>Medio. Plausible por la estructura del mercado; no totalmente verificable a priori.</td>
+          </tr>
+          <tr>
+            <td>Los aranceles Trump comprimirán márgenes de exportación agropecuaria costarricense</td>
+            <td><span class="tag tag-ip">IP</span></td>
+            <td>Arancel de 10% base confirmado; estructura de destinos de exportación agro CR (PROCOMER)</td>
+            <td>Medio. Depende de elasticidad de demanda del mercado estadounidense y posibilidad de absorción por exportadores.</td>
+          </tr>
+          <tr>
+            <td>La confluencia de las tres perturbaciones crea zona de bifurcación sistémica</td>
+            <td><span class="tag tag-int">Int</span></td>
+            <td>Marco ADD (Montero Fonseca); protocolo de cinco pasos; análisis de régimen dinámico</td>
+            <td>Inherente a la categoría interpretativa. Depende de la validez del marco ADD como herramienta analítica.</td>
+          </tr>
+          <tr>
+            <td>Sin intervención sectorial, podría producirse abandono de siembras de granos en el II semestre</td>
+            <td><span class="tag tag-c">C</span></td>
+            <td>Analogía con comportamiento de productores de maíz en México (UNTA, abril 2026); estructura de márgenes en granos básicos CR</td>
+            <td>Alto. La conjetura es analíticamente coherente pero depende de variables de comportamiento micro no observadas.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- DINÁMICA ADD -->
+  <section id="dinamica" class="section">
+    <p class="section-label">Sección IV · Análisis Dinámico ADD</p>
+    <h2 class="section-title">Lectura <span class="green">Dinámica</span><br>del Sistema</h2>
+    <p class="section-intro">Aplicación del protocolo de cinco pasos de la ADD (Montero Fonseca, 2026) al sector agropecuario costarricense como sistema autopoiético-disipativo sometido a perturbación múltiple.</p>
+
+    <div class="ade-block">
+      <div class="ade-header">ADD · Protocolo de Análisis · Sector Agropecuario CR · Abril 2026</div>
+      <div class="ade-grid">
+        <div class="ade-item">
+          <h5>Paso 0 · Diagnóstico de nivel</h5>
+          <p>El análisis opera simultáneamente en tres niveles: <strong>disipativo-material</strong> (flujos de energía e insumos), <strong>práctico-disposicional</strong> (habitus del productor agropecuario y sus estrategias de respuesta), y <strong>comunicativo-institucional</strong> (tensión entre lógica de mercado internacional, burocracia regulatoria nacional, y mundos de vida del productor). No colapsar los tres niveles en una única lectura.</p>
+        </div>
+        <div class="ade-item">
+          <h5>Paso 1 · Organización simbólica (clausura)</h5>
+          <p>El sector agropecuario costarricense mantiene una clausura organizacional basada en el modelo exportador-intensivo, cultivada desde los años 1980: orientación a mercados externos, uso intensivo de insumos importados, acceso al crédito del sistema financiero formal, y dependencia del mercado estadounidense como destino principal. Esta organización define qué cuenta como perturbación (alza de costos, pérdida de acceso a mercados) y qué no (variabilidad climática moderada, fluctuaciones menores de precios).</p>
+        </div>
+        <div class="ade-item">
+          <h5>Paso 2 · Flujos disipativos (capital)</h5>
+          <ul>
+            <li><strong>Capital económico:</strong> márgenes estrechos en granos básicos; mejores en exportación. Ambos bajo presión simultánea.</li>
+            <li><strong>Capital cultural:</strong> conocimiento técnico intensivo en insumos importados; limitada diversificación hacia sistemas con menor dependencia externa.</li>
+            <li><strong>Capital social:</strong> redes gremiales activas (CNAA, Cámara Cafetalera, CORBANA). Capacidad de presión institucional disponible.</li>
+            <li><strong>Capital simbólico:</strong> legitimidad histórica del sector como proveedor de seguridad alimentaria y empleo rural; activo relevante en negociación política.</li>
+          </ul>
+        </div>
+        <div class="ade-item">
+          <h5>Paso 3 · Perturbaciones y su procesamiento</h5>
+          <ul>
+            <li><strong>Ormuz/insumos:</strong> perturbación sistémica (opera por precio, escasez de mercado). El sistema la procesa inicialmente via absorción de costos y reducción de márgenes; en el límite, vía reducción de insumos aplicados y abandono de siembras.</li>
+            <li><strong>El Niño:</strong> perturbación ecológica directa sobre el sustrato material. El sistema la procesará mediante reducción de rendimientos y aumento del consumo hídrico competitivo.</li>
+            <li><strong>Aranceles:</strong> perturbación normativa-comercial. El sistema la procesa vía renegociación de precios, búsqueda de mercados alternativos (UE, Asia) o compresión de márgenes.</li>
+          </ul>
+        </div>
+        <div class="ade-item">
+          <h5>Atractores del sistema</h5>
+          <ul>
+            <li>Modelo exportador-intensivo como atractor dominante (inercia institucional, crédito orientado, infraestructura de frío)</li>
+            <li>Seguridad alimentaria como atractor de reserva activado en crisis (capacidad latente de redirigir producción)</li>
+            <li>Informalización productiva como atractor de escape (reducción de insumos sin declaración formal)</li>
+          </ul>
+        </div>
+        <div class="ade-item">
+          <h5>Paso 4 · Régimen dinámico actual</h5>
+          <p>El sistema transita de <strong>régimen laminar</strong> (reproducción estable del modelo exportador, I semestre 2026) hacia <strong>zona de turbulencia activa</strong> (II semestre 2026). Las señales de bifurcación son: aumento de fluctuaciones en precios de insumos, declaraciones gremiales de alerta no habituales (CNAA), apertura de consultas regulatorias extraordinarias (ARESEP), y proyecciones climáticas adversas confirmadas. No se ha alcanzado aún el umbral de bifurcación sistémica profunda, pero la ventana de intervención preventiva es el período mayo-julio de 2026.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3>Colonización del mundo de vida del productor (Habermas)</h3>
+    <p>Las tres perturbaciones operan simultáneamente como vectores de colonización del mundo de vida del productor agropecuario costarricense. La lógica del mercado internacional de commodities (petróleo, fertilizantes), la burocracia regulatoria de tarifas (ARESEP, RECOPE), y las políticas arancelarias de Washington penetran en las decisiones cotidianas de siembra, densidad de insumos y destino de la cosecha, determinando sus términos sin que el productor haya participado en su configuración. Esta asimetría es la condición estructural que explica por qué el capital simbólico del sector —su legitimidad histórica como proveedor de alimentos— se convierte en el principal recurso de negociación política disponible.</p>
+
+    <div class="cr-annex">
+      <div class="cr-annex-header">▸ Nodo Periférico Acoplado · Costa Rica en el Sistema Global</div>
+      <h4>Vulnerabilidad Estructural Específica</h4>
+      <p>Costa Rica ocupa una posición estructuralmente más vulnerable que la mayoría de países latinoamericanos ante las perturbaciones actuales por tres razones simultáneas: (1) es el país con mayor dependencia relativa a insumos agrícolas importados en la región según CEPAL, lo que amplifica el canal de transmisión de fertilizantes; (2) su matriz de generación eléctrica, aunque renovable en más del 88%, tiene el 66% concentrado en hidroeléctrica, haciendo que El Niño sea una perturbación directa al sistema productivo vía electricidad y no solo vía clima; y (3) el mercado estadounidense absorbe la mayor parte de sus exportaciones agropecuarias, haciendo que los aranceles Trump sean directamente disruptivos sin la amortiguación que ofrecen mercados más diversificados.</p>
+      <p>Paradójicamente, la misma dependencia que crea vulnerabilidad genera una ventaja: el sector agropecuario costarricense tiene alta capacidad de señalización de costos ante el Estado (gremios consolidados, datos de precios de insumos publicados periódicamente por el MAG), lo que acorta el ciclo entre perturbación y respuesta institucional si la voluntad política lo acompaña.</p>
+    </div>
+  </section>
+
+  <!-- INERCIA POST-ORMUZ -->
+  <section id="inercia" class="section">
+    <p class="section-label">Sección V · Análisis de Inercia</p>
+    <h2 class="section-title">El Bloqueo<br>Ya <span class="accent">Ocurrió</span></h2>
+    <p class="section-intro">Un elemento central del análisis ADD que debe orientar la toma de decisiones es la irreversibilidad de los procesos disipativos ya desencadenados.</p>
+
+    <div class="inertia-box">
+      <div class="inertia-label">⊛ Dato Estratégico Clave — Inercia Sistémica Post-Bloqueo</div>
+      <p><strong>Incluso si el Estrecho de Ormuz se reabriera completamente hoy, los efectos económicos y logísticos de la turbulencia actual se trasladarán inevitablemente al segundo semestre de 2026.</strong> La lógica de este traslado opera en tres niveles paralelos e independientes:</p>
+    </div>
+
+    <p>El primer nivel es <strong>contractual-logístico</strong>: los contratos de flete marítimo que rigen el transporte de insumos hacia América Latina se renegocian con un rezago típico de 60 a 120 días. Los importadores que no lograron asegurar contratos antes del alza —y son muchos, dado que la escalada fue rápida— tomarán posesión de sus insumos a precios de mercado spot durante el segundo trimestre, y esos costos se reflejarán en los precios al productor precisamente cuando la demanda de insumos para la siembra del segundo semestre sea más alta.</p>
+
+    <p>El segundo nivel es <strong>agrícola-hemisférico</strong>: los productores de maíz y soya del hemisferio norte (Estados Unidos, Brasil, Argentina) están sembrando ahora mismo bajo costos de insumos elevados. Sus cosechas llegarán al mercado entre agosto y septiembre de 2026. Los contratos de forwards ya implican los precios actuales de los insumos. Costa Rica, que importa granos básicos, recibirá esa cosecha a precios que reflejan los costos de producción actuales, no los que regirían en un mundo sin bloqueo.</p>
+
+    <p>El tercer nivel es <strong>financiero-crediticio</strong>: los importadores costarricenses de insumos que operan con líneas de crédito atadas a commodity prices o a tasas internacionales de crédito comercial ya están absorbiendo mayor costo financiero. La trasmisión al precio al productor ocurre con un rezago de uno a dos ciclos comerciales, que en agro equivale a uno o dos trimestres.</p>
+
+    <p>La implicación para la gestión de política sectorial es directa: <strong>actuar bajo el supuesto de que la resolución del conflicto en Ormuz elimina el problema es un error analítico de primer orden.</strong> La ventana de intervención preventiva es ahora, en mayo y junio, no en agosto cuando las presiones sean visibles. Los sistemas que no identifican la inercia disipativa hasta que el impacto es observable han perdido ya la mayor parte de su capacidad de respuesta adaptativa.</p>
+  </section>
+
+  <!-- ESCENARIOS -->
+  <section id="escenarios" class="section">
+    <p class="section-label">Sección VI · Escenarios Plausibles</p>
+    <h2 class="section-title">Tres <span class="accent">Horizontes</span><br>para el Agro</h2>
+    <p class="section-intro">Los escenarios no son predicciones. Son trayectorias plausibles derivadas de la interacción entre las perturbaciones activas y la capacidad de respuesta institucional. Su función es orientar la decisión bajo incertidumbre, no definir el futuro.</p>
+
+    <div class="scenario-grid">
+      <div class="scenario-card optimista">
+        <div class="prob-tag">PROBABILIDAD ESTIMADA · BAJA-MEDIA</div>
+        <h4>Escenario A — Gestión Oportuna</h4>
+        <p>El Estado activa mecanismos de compensación o subsidio de insumos durante mayo-junio; el BNCR y el sistema bancario estatal diseñan líneas de crédito especiales para siembra del II semestre con tasas preferenciales; El Niño resulta moderado (anomalía efectiva &lt;1,5°C); el conflicto en Ormuz se desescala parcialmente antes de julio. El sector absorbe el choque con contracción de márgenes pero sin reducción significativa de áreas sembradas ni de exportaciones. Costo fiscal moderado pero acotado.</p>
+      </div>
+
+      <div class="scenario-card base">
+        <div class="prob-tag">PROBABILIDAD ESTIMADA · MEDIA-ALTA</div>
+        <h4>Escenario B — Ajuste con Turbulencia</h4>
+        <p>El Estado reacciona con retraso (medidas en agosto-septiembre cuando el impacto ya es visible). Los productores de granos básicos reducen áreas sembradas entre 15-25% en el II semestre por costos insostenibles. La agroindustria de exportación absorbe alzas comprimiendo empleo y salarios. El Niño produce déficits hídricos moderados-severos en el Pacífico. La inflación de alimentos repunta entre el 8-12% anual hacia el IV trimestre. El sector se estabiliza en un nuevo régimen de mayor vulnerabilidad estructural.</p>
+      </div>
+
+      <div class="scenario-card adverso">
+        <div class="prob-tag">PROBABILIDAD ESTIMADA · BAJA — RIESGO COLA</div>
+        <h4>Escenario C — Reorganización Sistémica</h4>
+        <p>El conflicto en Ormuz se intensifica (clausura total confirmada por más de 90 días adicionales); El Niño resulta severo (anomalía &gt;2,5°C, déficit hídrico &gt;50% en cuencas del Pacífico); los aranceles estadounidenses se mantienen o aumentan. El sistema hidroeléctrico entra en racionamiento. El sector agropecuario costarricense experimenta abandono masivo de siembras en granos básicos, pérdida de 30-40% de exportaciones de frutas y vegetales, y presión inflacionaria de doble dígito en alimentos. Este escenario activa el atractor de seguridad alimentaria de reserva y fuerza una reorientación estructural del sector hacia mercados y modelos productivos alternativos.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECOMENDACIONES -->
+  <section id="recomendaciones" class="section">
+    <p class="section-label">Sección VII · Orientaciones Estratégicas</p>
+    <h2 class="section-title">Ventana de <span class="green">Acción</span><br>Mayo — Julio 2026</h2>
+    <p class="section-intro">Las siguientes orientaciones no constituyen recomendaciones de política deterministas. Son hipótesis de intervención derivadas del análisis dinámico, cuya viabilidad debe ser evaluada por los actores sectoriales e institucionales con la información específica de campo disponible para ellos.</p>
+
+    <div class="recom-section">
+      <div class="recom-item">
+        <div class="recom-icon">📦</div>
+        <div class="recom-content">
+          <div class="horizon-tag">HORIZONTE INMEDIATO · MAY-JUN 2026</div>
+          <h4>Gestión anticipada de inventarios de insumos</h4>
+          <p>Dada la inercia sistémica descrita, la adquisición o aseguramiento de contratos de fertilizantes y agroquímicos para el ciclo de siembra del segundo semestre debe realizarse en mayo-junio a más tardar. Los inventarios que protegen los precios actuales de granos básicos se agotan en julio. El sector debe activar mecanismos de compra colectiva a través de gremios (CNAA, cooperativas) para obtener poder de negociación ante importadores. El MAG debería facilitar información actualizada de precios y proveedores alternativos con periodicidad quincenal.</p>
+        </div>
+      </div>
+
+      <div class="recom-item">
+        <div class="recom-icon">💧</div>
+        <div class="recom-content">
+          <div class="horizon-tag">HORIZONTE INMEDIATO · MAY-JUL 2026</div>
+          <h4>Preparación hídrica preventiva</h4>
+          <p>La preparación ante El Niño no puede esperar al segundo semestre. Los productores en cuencas del Pacífico y el centro-norte del país deben iniciar ahora la evaluación de sus sistemas de riego, capacidades de almacenamiento de agua y planificación de cultivos con menor demanda hídrica. Las instituciones (SENARA, AyA, CNE) deberían activar protocolos de alerta temprana con información georreferenciada por microcuenca y priorizar el apoyo técnico a productores de granos básicos en zonas de alto riesgo de déficit hídrico.</p>
+        </div>
+      </div>
+
+      <div class="recom-item">
+        <div class="recom-icon">💰</div>
+        <div class="recom-content">
+          <div class="horizon-tag">HORIZONTE ESTRATÉGICO · II SEM. 2026</div>
+          <h4>Líneas de crédito especiales para la siembra del II semestre</h4>
+          <p>El sistema bancario estatal (BNCR, INFOCOOP, FCD) debería diseñar instrumentos de crédito con tasas preferenciales y plazos ajustados para el ciclo de siembra que inicia entre julio y agosto. La justificación técnica es clara: los productores de granos básicos operarán con costos de insumos entre 40-56% mayores que en el ciclo anterior, sin aumento correlativo en los precios al productor en el corto plazo. Sin acceso a crédito adecuado, el ajuste se hará vía reducción de insumos o abandono de siembra, ambas opciones con efectos sobre la seguridad alimentaria nacional.</p>
+        </div>
+      </div>
+
+      <div class="recom-item">
+        <div class="recom-icon">🌿</div>
+        <div class="recom-content">
+          <div class="horizon-tag">HORIZONTE ESTRATÉGICO MEDIANO PLAZO</div>
+          <h4>Reducción estructural de la dependencia de insumos importados</h4>
+          <p>La crisis actual es también una señal de sistema sobre la vulnerabilidad estructural del modelo agrícola intensivo en insumos importados. El análisis ADD indica que la clausura organizacional del sector —su identidad como productor de exportación intensivo— se paga con una alta dependencia a flujos disipativos externos que escapan al control nacional. Una política sectorial de mediano plazo debería incentivarmétodos de fertilización orgánica, agricultura de precisión que reduce volumen de insumos, y diversificación de proveedores de insumos hacia fuentes no expuestas a cuellos de botella geopolíticos. Esto no requiere abandonar el modelo exportador; requiere hacer su sustrato disipativo más resiliente.</p>
+        </div>
+      </div>
+
+      <div class="recom-item">
+        <div class="recom-icon">📡</div>
+        <div class="recom-content">
+          <div class="horizon-tag">HORIZONTE INMEDIATO · SISTEMA DE INFORMACIÓN</div>
+          <h4>Capitalizar la sede del Centro Regional de Pronóstico de Eventos Severos (OMM)</h4>
+          <p>La reciente designación de Costa Rica como sede del Centro Regional de Pronóstico de Eventos Severos de la OMM para Centroamérica representa una oportunidad estratégica directa para el sector agropecuario. Este centro debe articularse funcionalmente con el MAG, el SENARA y el sistema de alerta temprana agroclimática para que los pronósticos de eventos severos —incluyendo la evolución de El Niño— se traduzcan en información accionable para decisiones de siembra, riego y cosecha. La información climática es capital cultural en el sentido ADD: su valor como flujo disipativo del sistema productivo depende de que sea procesada oportunamente por los actores que toman decisiones agronómicas.</p>
+        </div>
+      </div>
+
+      <div class="recom-item">
+        <div class="recom-icon">🤝</div>
+        <div class="recom-content">
+          <div class="horizon-tag">HORIZONTE POLÍTICO · INMEDIATO</div>
+          <h4>Activación del capital simbólico sectorial</h4>
+          <p>El sector agropecuario costarricense tiene un capital simbólico históricamente reconocido: fue el ancla de la seguridad alimentaria durante la pandemia y ha sido proveedor de divisas en momentos de crisis de balanza de pagos. En el contexto de tres perturbaciones simultáneas, este capital debe convertirse en moneda de negociación política explícita ante el Ministerio de Hacienda, el COMEX (en la gestión de aranceles y mercados alternativos) y el ICE (para tarifas eléctricas agroindustriales). La violencia simbólica que el sector frecuentemente sufre —tratado como prescindible frente a la lógica de exportación de servicios y tecnología— puede ser contrarrestada activando su legitimidad histórica en el momento político correcto, que es ahora.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INCERTIDUMBRES ABIERTAS -->
+  <section id="incertidumbres" class="section">
+    <p class="section-label">Sección VIII · Incertidumbres Abiertas</p>
+    <h2 class="section-title">Lo que Aún<br>No Sabemos</h2>
+
+    <ul class="uncert-list">
+      <li>La evolución efectiva del conflicto en Ormuz: si la desescalada ocurre antes de julio, la presión sobre fertilizantes e insumos podría moderarse más rápido de lo proyectado. Si se intensifica (bloqueo total confirmado por 90+ días), el escenario adverso gana probabilidad.</li>
+      <li>La intensidad y distribución espacial del evento El Niño proyectado: los modelos indican tendencia, no certeza. La distribución regional del déficit hídrico —si afecta más el Pacífico Norte y Centro o se extiende al Pacífico Sur y Valle Central— determina qué cultivos y cuántos productores enfrentan el mayor impacto.</li>
+      <li>La respuesta del gobierno costarricense: si el Ejecutivo activa instrumentos de apoyo sectorial en mayo-junio (crédito, subsidio focalizado a fertilizantes para pequeños productores, compra anticipada de inventarios estratégicos), la trayectoria del sector cambia significativamente.</li>
+      <li>El comportamiento de los mercados alternativos de exportación: si la UE, el mercado asiático o los mercados regionales centroamericanos absorben parte del volumen redirigido desde EEUU, el impacto de los aranceles Trump se distribuye. La capacidad logística de PROCOMER y los gremios exportadores para desarrollar esos canales en el corto plazo es una incertidumbre operativa relevante.</li>
+      <li>La solvencia financiera de los pequeños y medianos productores ante el ciclo de costos: si la mayoría logra acceder a crédito formal a tasas aceptables, el ajuste se distribuye en el tiempo. Si no, la respuesta de comportamiento (reducción de siembra, informalización de costos) determinará la magnitud del impacto sobre la seguridad alimentaria.</li>
+      <li>La evolución del precio internacional del petróleo: si los grandes productores ajenos a la región del Golfo (EE.UU., Canadá, Venezuela) aumentan producción para compensar el cierre de Ormuz, el precio del barril podría estabilizarse o incluso descender. Esto aliviaría el canal energético y parcialmente el de fertilizantes nitrogenados.</li>
+    </ul>
+  </section>
+
+  <!-- TABLA DE SÍNTESIS -->
+  <section class="section">
+    <p class="section-label">Síntesis Final</p>
+    <h2 class="section-title">Cuadro de <span class="accent">Situación</span></h2>
+
+    <div class="meee-table-wrap">
+      <table class="synth-table">
+        <thead>
+          <tr>
+            <th>Factor</th>
+            <th>Nivel de riesgo actual</th>
+            <th>Horizonte crítico</th>
+            <th>Ventana de intervención</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Insumos agrícolas (fertilizantes, agroquímicos)</td>
+            <td><span class="risk-high">ALTO</span></td>
+            <td>Jul–Sep 2026</td>
+            <td>Mayo–Jun (adquisición anticipada)</td>
+          </tr>
+          <tr>
+            <td>Combustibles (diesel, transporte agro)</td>
+            <td><span class="risk-med">MEDIO-ALTO</span></td>
+            <td>May–Dic 2026</td>
+            <td>Inmediata (gestión de flota)</td>
+          </tr>
+          <tr>
+            <td>Generación eléctrica y tarifa agroindustrial</td>
+            <td><span class="risk-med">MEDIO</span></td>
+            <td>Jul–Oct 2026 (si El Niño)</td>
+            <td>Jun–Jul (preparación contingente)</td>
+          </tr>
+          <tr>
+            <td>Disponibilidad hídrica para riego</td>
+            <td><span class="risk-med">MEDIO-ALTO</span></td>
+            <td>Jul–Nov 2026</td>
+            <td>Mayo–Jun (planificación hídrica)</td>
+          </tr>
+          <tr>
+            <td>Rendimientos granos básicos</td>
+            <td><span class="risk-high">ALTO</span></td>
+            <td>Sep–Dic 2026</td>
+            <td>Jun (decisiones de siembra)</td>
+          </tr>
+          <tr>
+            <td>Exportaciones agropecuarias (piña, banano, melón)</td>
+            <td><span class="risk-med">MEDIO</span></td>
+            <td>Permanente mientras rijan aranceles</td>
+            <td>Diversificación de mercados (mediano plazo)</td>
+          </tr>
+          <tr>
+            <td>Precios al consumidor (canasta básica alimentaria)</td>
+            <td><span class="risk-med">MEDIO</span></td>
+            <td>Oct–Dic 2026</td>
+            <td>Depende de respuesta de oferta interna</td>
+          </tr>
+          <tr>
+            <td>Empleo rural</td>
+            <td><span class="risk-med">MEDIO</span></td>
+            <td>II semestre 2026</td>
+            <td>Vinculada a acceso a crédito</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- REFERENCIAS -->
+  <section id="referencias" class="section">
+    <p class="section-label">Referencias</p>
+    <h2 class="section-title">Fuentes <span class="accent">APA 7</span></h2>
+
+    <div class="refs-block">
+      <h4>Referencias Citadas</h4>
+      <ol>
+        <li>Cámara Nacional de Agricultura y Agroindustria (CNAA). (2026, abril). Alerta por alza de fertilizantes: urea registra incrementos superiores al 50%. Declaración institucional. San José: CNAA.</li>
+        <li>Delfino.cr. (2026, 11 de abril). <em>En la próxima crisis, Costa Rica volverá a depender de sus agricultores.</em> <a href="https://delfino.cr/2026/04/en-la-proxima-crisis-costa-rica-volvera-a-depender-de-sus-agricultores" target="_blank">https://delfino.cr</a></li>
+        <li>Organización de las Naciones Unidas para la Alimentación y la Agricultura (FAO). (2026, 14 de abril). <em>Comunicado: impacto económico y alimentario por la interrupción del Estrecho de Ormuz.</em> Roma: FAO.</li>
+        <li>Infobae Costa Rica. (2026, 3 de abril). <em>Precios de los granos básicos se mantendrán estables en Costa Rica en los próximos meses, pese a presiones internacionales.</em> <a href="https://www.infobae.com/costa-rica/" target="_blank">https://www.infobae.com/costa-rica/</a></li>
+        <li>Infobae Costa Rica. (2026, 9 de abril). <em>Costa Rica: nuevos precios de los combustibles anticipan aumento para mayo tras repunte internacional.</em> <a href="https://www.infobae.com/costa-rica/" target="_blank">https://www.infobae.com/costa-rica/</a></li>
+        <li>ABC Color (Paraguay). (2026, 14 de abril). <em>Aumento de precios de fertilizantes redefiniría la rentabilidad del agro.</em> <a href="https://www.abc.com.py/economia/" target="_blank">https://www.abc.com.py</a></li>
+        <li>Diario Libre. (2026, 15 de abril). <em>Más allá del petróleo: otros insumos que han subido en 2026.</em> <a href="https://www.diariolibre.com" target="_blank">https://www.diariolibre.com</a></li>
+        <li>El Financiero (México). (2026, 7 de abril). <em>Precios de alimentos y fertilizantes escalan a nivel mundial.</em> <a href="https://www.elfinanciero.com.mx" target="_blank">https://www.elfinanciero.com.mx</a></li>
+        <li>Autoridad Reguladora de los Servicios Públicos (ARESEP). (2025). <em>Nota metodológica sobre generación térmica y tarifas eléctricas.</em> San José: ARESEP. Citada en NCR Noticias, 2025.</li>
+        <li>Instituto Costarricense de Electricidad (ICE). (2024, enero). <em>Comunicado sobre activación de protocolo de racionamientos por efecto El Niño.</em> San José: ICE.</li>
+        <li>Ministerio de Agricultura y Ganadería (MAG). (2024). <em>Primer sondeo de precios de insumos agropecuarios 2024.</em> San José: Presidencia de la República de Costa Rica.</li>
+        <li>Comisión Económica para América Latina y el Caribe (CEPAL). (2022). <em>Hacia una seguridad alimentaria y nutricional sostenible en América Latina y el Caribe en respuesta a la crisis alimentaria mundial.</em> Santiago: CEPAL.</li>
+        <li>Semanario Universidad. (2023, 3 de enero). <em>CEPAL: alta dependencia de Costa Rica a la importación mantendrá alto el precio de alimentos en el 2023.</em> <a href="https://semanariouniversidad.com" target="_blank">https://semanariouniversidad.com</a></li>
+        <li>Banco Mundial. (2026, marzo). <em>Pink Sheet — Commodity Price Data: Fertilizers Index, Urea, DAP.</em> Washington D.C.: World Bank Group.</li>
+        <li>Montero Fonseca, A. (2026). <em>Antropología Dinámica del Devenir (ADD): bases para un programa teórico-metodológico relacional ante la complejidad sociocultural.</em> Universidad de Costa Rica [manuscrito].</li>
+        <li>Goldman, A. I. (1986). <em>Epistemology and cognition.</em> Harvard University Press.</li>
+        <li>Prigogine, I. (1996). <em>El fin de las certidumbres.</em> Andrés Bello.</li>
+        <li>Maturana, H., & Varela, F. (1984). <em>El árbol del conocimiento.</em> Editorial Universitaria.</li>
+        <li>Habermas, J. (1987). <em>The Theory of Communicative Action, Vol. 2: Lifeworld and System.</em> Beacon Press.</li>
+        <li>Bourdieu, P. (1977). <em>Outline of a Theory of Practice.</em> Cambridge University Press.</li>
+      </ol>
+    </div>
+  </section>
+
+</div><!-- /container -->
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+  <strong>Nota metodológica:</strong> Este análisis combina evaluación epistémica explicacionista (MEEE-G, inspirada en el fiabilismo procesual de Alvin I. Goldman) y análisis dinámico antropológico (ADD, Alfredo Montero Fonseca). Las afirmaciones han sido clasificadas por su estatus epistémico explícito. El análisis no constituye predicción determinista ni recomendación de política. Las orientaciones estratégicas son hipótesis de intervención sujetas a evaluación por los actores institucionales y sectoriales con acceso a información de campo específica. · ANCA-ADE · Agente Noticioso Crítico de Actualidad — Análisis Dinámico del Devenir · © 2026
+</div>
+
+<script data-goatcounter="https://antropos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

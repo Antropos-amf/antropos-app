@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ANCA-ADE | Especial-04 | Historia de China III</title>
+  <title>Del Siglo de la Humillación al Año del Caballo de Fuego · Parte III — Historia de China | ANCA-ADD</title>
+  <meta name="description" content="De las Guerras del Opio a 2026: cómo China pasó del colapso imperial a convertirse en la segunda potencia del mundo. Análisis narrativo ADD / MEEE-G." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -13,1448 +14,810 @@
       --bg2:       #11111a;
       --bg3:       #181824;
       --red:       #c0392b;
-      --red-light: #e74c3c;
       --gold:      #d4a017;
       --gold-light:#f0c040;
       --text:      #e8e4d8;
       --muted:     #9a9589;
       --border:    #2a2a3a;
-      --accent:    #4a90d9;
-      --dynasty:   #8b5cf6;
+      --green:     #27ae60;
+      --blue:      #7ab8f5;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'Source Serif 4', Georgia, serif; line-height: 1.8; font-size: 18px; }
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Source Serif 4', Georgia, serif;
-      line-height: 1.75;
-      font-size: 17px;
-    }
+    /* TICKER */
+    .ticker-wrap { background: var(--red); overflow: hidden; white-space: nowrap; padding: 6px 0; position: sticky; top: 0; z-index: 100; }
+    .ticker-content { display: inline-block; animation: ticker 80s linear infinite; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #fff; padding-left: 100%; }
+    @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
 
-    /* ── TICKER ── */
-    .ticker-wrap {
-      background: var(--red);
-      overflow: hidden;
-      white-space: nowrap;
-      padding: 6px 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    .ticker-content {
-      display: inline-block;
-      animation: ticker 70s linear infinite;
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      color: #fff;
-      padding-left: 100%;
-    }
-    @keyframes ticker {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-100%); }
-    }
-
-    /* ── MASTHEAD ── */
-    .masthead {
-      background: var(--bg2);
-      border-bottom: 2px solid var(--gold);
-      padding: 28px 40px 20px;
-      display: flex;
-      align-items: center;
-      gap: 24px;
-    }
-    .masthead-logo {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 54px;
-      color: var(--gold);
-      letter-spacing: 0.04em;
-      line-height: 1;
-    }
+    /* MASTHEAD */
+    .masthead { background: var(--bg2); border-bottom: 2px solid var(--gold); padding: 20px 40px; display: flex; align-items: center; gap: 24px; }
+    .masthead-logo { font-family: 'Bebas Neue', sans-serif; font-size: 44px; color: var(--gold); letter-spacing: 0.04em; line-height: 1; }
     .masthead-logo span { color: var(--red); }
-    .masthead-meta {
-      border-left: 2px solid var(--border);
-      padding-left: 24px;
-    }
-    .masthead-meta .label {
-      font-family: 'Space Mono', monospace;
-      font-size: 10px;
-      color: var(--muted);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-    .masthead-meta h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 22px;
-      font-weight: 900;
-      color: var(--text);
-      line-height: 1.2;
-    }
-    .masthead-meta .sub {
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      color: var(--gold);
-      margin-top: 6px;
-    }
+    .masthead-meta { border-left: 2px solid var(--border); padding-left: 20px; }
+    .masthead-meta .label { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 4px; }
+    .masthead-meta h1 { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 900; color: var(--text); }
+    .masthead-meta .sub { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--gold); margin-top: 4px; }
+    .masthead-nav { margin-left: auto; display: flex; gap: 16px; }
+    .masthead-nav a { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; }
+    .masthead-nav a:hover { color: var(--gold); }
 
-    /* ── HERO ── */
-    .hero {
-      background:
-        linear-gradient(180deg, rgba(10,10,15,0) 0%, rgba(10,10,15,0.85) 100%),
-        linear-gradient(135deg, #0a0a0f 0%, #1a0a14 40%, #0a1020 100%);
-      border-bottom: 1px solid var(--border);
-      padding: 64px 40px 48px;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '中';
-      position: absolute;
-      right: 40px;
-      top: 10px;
-      font-size: 280px;
-      color: rgba(192,57,43,0.07);
-      font-family: 'Playfair Display', serif;
-      pointer-events: none;
-      line-height: 1;
-    }
-    .hero-kicker {
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.16em;
-      color: var(--red);
-      text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-    .hero h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(30px, 4vw, 52px);
-      font-weight: 900;
-      line-height: 1.1;
-      color: var(--text);
-      max-width: 820px;
-      margin-bottom: 20px;
-    }
-    .hero h2 em { color: var(--gold); font-style: normal; }
-    .hero .hero-lead {
-      max-width: 700px;
-      font-size: 18px;
-      color: var(--muted);
-      line-height: 1.7;
-      margin-bottom: 28px;
-    }
-    .hero-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    .badge {
-      font-family: 'Space Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.08em;
-      padding: 5px 12px;
-      border-radius: 2px;
-      text-transform: uppercase;
-    }
-    .badge-red    { background: var(--red); color: #fff; }
-    .badge-gold   { background: transparent; border: 1px solid var(--gold); color: var(--gold); }
-    .badge-muted  { background: transparent; border: 1px solid var(--border); color: var(--muted); }
+    /* PARTES NAV */
+    .partes-nav { background: var(--bg3); border-bottom: 1px solid var(--border); padding: 10px 40px; display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+    .partes-nav .nav-label { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
+    .partes-nav a { font-family: 'Space Mono', monospace; font-size: 11px; text-decoration: none; padding: 4px 12px; border-radius: 2px; }
+    .partes-nav a.active { background: var(--gold); color: var(--bg); }
+    .partes-nav a.inactive { color: var(--muted); border: 1px solid var(--border); }
+    .partes-nav a.inactive:hover { color: var(--gold); border-color: var(--gold); }
 
-    /* ── LAYOUT ── */
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+    /* HERO */
+    .hero { background: linear-gradient(180deg, rgba(10,10,15,0) 0%, rgba(10,10,15,0.92) 100%), linear-gradient(135deg, #0a0a0f 0%, #1a0808 50%, #0a0a15 100%); border-bottom: 1px solid var(--border); padding: 72px 40px 56px; position: relative; overflow: hidden; }
+    .hero::before { content: '龙'; position: absolute; right: 60px; top: -20px; font-size: 320px; color: rgba(192,57,43,0.06); pointer-events: none; line-height: 1; }
+    .hero-kicker { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 20px; }
+    .hero h2 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 58px); font-weight: 900; line-height: 1.05; color: var(--text); max-width: 800px; margin-bottom: 24px; }
+    .hero h2 em { color: var(--red); font-style: italic; }
+    .hero .hero-lead { max-width: 640px; font-size: 19px; color: var(--muted); line-height: 1.7; margin-bottom: 32px; font-style: italic; }
+    .hero-meta { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
 
-    /* ── TOC ── */
-    .toc-block {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--gold);
-      padding: 28px 32px;
-      margin: 40px 0;
-    }
-    .toc-block h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 20px;
-      color: var(--gold);
-      letter-spacing: 0.06em;
-      margin-bottom: 16px;
-    }
-    .toc-list {
-      list-style: none;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 6px 24px;
-    }
-    .toc-list li a {
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      color: var(--muted);
-      text-decoration: none;
-      letter-spacing: 0.05em;
-      transition: color 0.2s;
-    }
-    .toc-list li a:hover { color: var(--gold); }
-    .toc-list li::before {
-      content: '▸ ';
-      color: var(--red);
-      font-size: 10px;
-    }
+    /* LAYOUT */
+    .container { max-width: 760px; margin: 0 auto; padding: 0 40px; }
+    .container-wide { max-width: 1000px; margin: 0 auto; padding: 0 40px; }
 
-    /* ── SECTION ── */
-    .epoch {
-      margin: 60px 0;
-      border-top: 1px solid var(--border);
-      padding-top: 48px;
-    }
-    .epoch-header {
-      margin-bottom: 32px;
-    }
-    .epoch-number {
-      font-family: 'Space Mono', monospace;
-      font-size: 10px;
-      color: var(--red);
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-    .epoch h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(22px, 3vw, 38px);
-      font-weight: 900;
-      color: var(--text);
-      line-height: 1.15;
-      margin-bottom: 8px;
-    }
-    .epoch-years {
-      font-family: 'Space Mono', monospace;
-      font-size: 12px;
-      color: var(--gold);
-      letter-spacing: 0.08em;
-    }
-    .epoch-lead {
-      font-size: 18px;
-      font-style: italic;
-      color: var(--muted);
-      border-left: 3px solid var(--red);
-      padding-left: 20px;
-      margin: 24px 0 32px;
-      max-width: 750px;
-    }
+    /* AUDIO */
+    .audio-strip { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 16px 40px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .audio-strip .audio-label { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--gold); letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; }
+    .audio-strip audio { flex: 1; min-width: 240px; }
 
-    /* ── SUBSECTIONS ── */
-    .sub-section { margin: 32px 0; }
-    .sub-section h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--gold);
-      margin-bottom: 14px;
-    }
-    .sub-section h4 {
-      font-family: 'Playfair Display', serif;
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--text);
-      margin: 22px 0 10px;
-    }
-    p { margin-bottom: 16px; }
+    /* NARRATIVE BODY */
+    .narrative { padding: 56px 0; }
 
-    /* ── EPISTEMIC TAGS ── */
-    .ep {
-      display: inline-block;
-      font-family: 'Space Mono', monospace;
-      font-size: 9px;
-      font-weight: 700;
-      padding: 2px 6px;
-      border-radius: 2px;
-      letter-spacing: 0.06em;
-      vertical-align: middle;
-      margin: 0 2px;
-    }
-    .dc  { background: #1a3a1a; color: #5acc5a; border: 1px solid #2d5c2d; }
-    .ip  { background: #1a2d3a; color: #5ab0d4; border: 1px solid #2a4a5a; }
-    .h   { background: #2a2a1a; color: #d4c45a; border: 1px solid #4a4a2a; }
-    .int { background: #2a1a2a; color: #c45ad4; border: 1px solid #4a2a4a; }
-    .c   { background: #2a1a1a; color: #d4755a; border: 1px solid #4a2a2a; }
+    .period { margin-bottom: 72px; }
+    .period-header { margin-bottom: 28px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+    .period-dates { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--gold); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 8px; }
+    .period h2 { font-family: 'Playfair Display', serif; font-size: clamp(22px, 3vw, 30px); font-weight: 900; color: var(--text); line-height: 1.2; }
+    .period h2 em { color: var(--gold); }
 
-    /* ── MEEE-G TABLE ── */
-    .meeg-block {
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      border-top: 2px solid var(--accent);
-      margin: 32px 0;
-      overflow-x: auto;
-    }
-    .meeg-block .meeg-title {
-      font-family: 'Space Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.12em;
-      color: var(--accent);
-      text-transform: uppercase;
-      padding: 12px 20px 8px;
-      border-bottom: 1px solid var(--border);
-    }
-    .meeg-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 14px;
-    }
-    .meeg-table th {
-      font-family: 'Space Mono', monospace;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--muted);
-      text-align: left;
-      padding: 10px 16px;
-      border-bottom: 1px solid var(--border);
-    }
-    .meeg-table td {
-      padding: 10px 16px;
-      border-bottom: 1px solid rgba(255,255,255,0.04);
-      vertical-align: top;
-      line-height: 1.5;
-    }
-    .meeg-table tr:last-child td { border-bottom: none; }
-    .meeg-table td:first-child {
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      color: var(--gold);
-      white-space: nowrap;
-      width: 22%;
-    }
-    .meeg-table td:nth-child(2) { color: var(--muted); width: 35%; }
-    .meeg-table td:nth-child(3) { color: var(--text); width: 43%; }
+    /* RESUMEN FACTUAL */
+    .resumen { margin-bottom: 28px; }
+    .resumen p { margin-bottom: 1.3rem; color: var(--text); }
+    .resumen p:last-child { margin-bottom: 0; }
+    .resumen strong { color: var(--gold-light); }
+    .resumen em { font-style: italic; }
 
-    /* ── ADE DYNAMIC BLOCK ── */
-    .ade-block {
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      border-top: 2px solid var(--dynasty);
-      margin: 32px 0;
-    }
-    .ade-title {
-      font-family: 'Space Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.12em;
-      color: var(--dynasty);
-      text-transform: uppercase;
-      padding: 12px 20px 8px;
-      border-bottom: 1px solid var(--border);
-    }
-    .ade-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 0;
-    }
-    .ade-cell {
-      padding: 16px 20px;
-      border-right: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-    .ade-cell:nth-child(4n) { border-right: none; }
-    .ade-cell-label {
-      font-family: 'Space Mono', monospace;
-      font-size: 10px;
-      color: var(--dynasty);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 8px;
-    }
-    .ade-cell p {
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.5;
-      margin-bottom: 0;
-    }
+    /* EPISTEMIC TAGS */
+    .ep { display: inline-block; font-family: 'Space Mono', monospace; font-size: 9px; font-weight: 700; padding: 1px 5px; border-radius: 2px; margin: 0 2px; vertical-align: middle; }
+    .ep-DC  { background: #1a4a2e; color: #7fdbac; }
+    .ep-IP  { background: #1a3a5c; color: #7ab8f5; }
+    .ep-H   { background: #5c3a1a; color: #f5c07a; }
+    .ep-Int { background: #4a1a5c; color: #d07af5; }
+    .ep-C   { background: #3a3a3a; color: #aaa; }
 
-    /* ── CR BLOCK ── */
-    .cr-block {
-      background: linear-gradient(135deg, rgba(10,10,15,0.9), rgba(192,57,43,0.07));
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--red);
-      padding: 20px 24px;
-      margin: 28px 0;
-    }
-    .cr-label {
-      font-family: 'Space Mono', monospace;
-      font-size: 10px;
-      color: var(--red);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      margin-bottom: 10px;
-    }
-    .cr-block p {
-      font-size: 14px;
-      color: var(--muted);
-      margin-bottom: 8px;
-    }
+    /* SUBSECCION LABEL */
+    .subsec-label { font-family: 'Space Mono', monospace; font-size: 9px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 14px; padding-bottom: 8px; }
+
+    /* ANALISIS CRITICO (MEEE-G) */
+    .meeg-block { background: rgba(26,58,92,0.2); border: 1px solid rgba(122,184,245,0.2); border-left: 3px solid var(--blue); padding: 22px 26px; margin: 24px 0; }
+    .meeg-block .subsec-label { color: var(--blue); border-bottom: 1px solid rgba(122,184,245,0.15); }
+    .meeg-block ul { list-style: none; padding: 0; }
+    .meeg-block li { font-size: 15px; color: var(--muted); margin-bottom: 1rem; padding-left: 1rem; position: relative; }
+    .meeg-block li::before { content: '·'; position: absolute; left: 0; color: var(--blue); }
+    .meeg-block li:last-child { margin-bottom: 0; }
+    .meeg-block strong { color: var(--text); }
+    .meeg-block em { color: #c0d8f0; font-style: italic; }
+
+    /* LECTURA DINAMICA (ADD) */
+    .add-block { background: rgba(212,160,23,0.06); border: 1px solid rgba(212,160,23,0.18); border-left: 3px solid var(--gold); padding: 22px 26px; margin: 24px 0; }
+    .add-block .subsec-label { color: var(--gold); border-bottom: 1px solid rgba(212,160,23,0.18); }
+    .add-block ul { list-style: none; padding: 0; }
+    .add-block li { font-size: 15px; color: var(--muted); margin-bottom: 1rem; padding-left: 1rem; position: relative; }
+    .add-block li::before { content: '·'; position: absolute; left: 0; color: var(--gold); }
+    .add-block li:last-child { margin-bottom: 0; }
+    .add-block strong { color: var(--text); }
+    .add-block em { color: var(--gold-light); font-style: italic; }
+
+    /* RELEVANCIA COSTA RICA */
+    .cr-block { background: rgba(39,174,96,0.08); border: 1px solid rgba(39,174,96,0.25); border-left: 3px solid var(--green); padding: 22px 26px; margin: 24px 0; }
+    .cr-block .subsec-label { color: var(--green); border-bottom: 1px solid rgba(39,174,96,0.2); }
+    .cr-block ul { list-style: none; padding: 0; }
+    .cr-block li { font-size: 15px; color: var(--muted); margin-bottom: 1rem; padding-left: 1rem; position: relative; }
+    .cr-block li::before { content: '·'; position: absolute; left: 0; color: var(--green); }
+    .cr-block li:last-child { margin-bottom: 0; }
+    .cr-block p { font-size: 15px; color: var(--muted); margin-bottom: 0.8rem; }
     .cr-block p:last-child { margin-bottom: 0; }
+    .cr-block strong { color: var(--text); }
 
-    /* ── PULL QUOTE ── */
-    .pull-quote {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(18px, 2.5vw, 26px);
-      font-style: italic;
-      color: var(--gold);
-      border-top: 2px solid var(--gold);
-      border-bottom: 2px solid var(--gold);
-      padding: 20px 0;
-      margin: 36px 0;
-      line-height: 1.4;
-    }
-    .pull-source {
-      font-family: 'Space Mono', monospace;
-      font-size: 10px;
-      color: var(--muted);
-      font-style: normal;
-      display: block;
-      margin-top: 10px;
-      letter-spacing: 0.06em;
-    }
+    /* SLIDE INLINE */
+    .slide-inline { margin: 32px 0; background: var(--bg2); border: 1px solid var(--border); }
+    .slide-inline img { width: 100%; display: block; }
+    .slide-inline figcaption { padding: 10px 16px; font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.06em; }
 
-    /* ── TIMELINE STRIP ── */
-    .timeline {
-      margin: 40px 0;
-      border-left: 2px solid var(--border);
-      padding-left: 24px;
-    }
-    .timeline-item {
-      position: relative;
-      margin-bottom: 24px;
-    }
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -30px;
-      top: 6px;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--red);
-      border: 2px solid var(--bg);
-    }
-    .timeline-year {
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      color: var(--gold);
-      letter-spacing: 0.06em;
-      margin-bottom: 4px;
-    }
-    .timeline-item p {
-      font-size: 14px;
-      color: var(--muted);
-      margin-bottom: 0;
-    }
+    /* DIVIDER */
+    .divider { border: none; border-top: 1px solid var(--border); margin: 56px 0; }
 
-    /* ── DIVIDER ── */
-    .divider {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 48px 0;
-    }
-    .divider-gold {
-      border: none;
-      border-top: 1px solid var(--gold);
-      margin: 48px 0;
-      opacity: 0.4;
-    }
+    /* PLACEHOLDER */
+    .img-placeholder { border: 2px dashed var(--border); background: var(--bg2); padding: 32px 24px; margin: 28px 0; text-align: center; position: relative; }
+    .img-placeholder::before { content: '+'; font-size: 32px; color: var(--border); display: block; margin-bottom: 12px; }
+    .img-placeholder .ph-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+    .img-placeholder .ph-desc { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--muted); line-height: 1.5; }
 
-    /* ── SOURCES ── */
-    .sources-block {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-top: 2px solid var(--muted);
-      padding: 28px 32px;
-      margin: 48px 0 0;
-    }
-    .sources-block h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 18px;
-      letter-spacing: 0.06em;
-      color: var(--muted);
-      margin-bottom: 20px;
-    }
-    .sources-block ol {
-      padding-left: 20px;
-    }
-    .sources-block li {
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      color: var(--muted);
-      line-height: 1.7;
-      margin-bottom: 8px;
-    }
+    /* SECCION INTRODUCTORIA */
+    .intro-section { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 48px 0; }
+    .intro-section .intro-title { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--gold); letter-spacing: 0.06em; margin-bottom: 12px; }
+    .intro-section .intro-lead { font-size: 16px; color: var(--muted); margin-bottom: 36px; font-style: italic; }
+    .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px; }
+    @media (max-width: 700px) { .intro-grid { grid-template-columns: 1fr; } }
+    .intro-card { background: var(--bg3); border: 1px solid var(--border); padding: 24px; }
+    .intro-card h3 { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+    .intro-card dt { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--text); margin-top: 12px; margin-bottom: 3px; }
+    .intro-card dd { font-size: 14px; color: var(--muted); margin-left: 0; line-height: 1.5; }
+    .tags-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; align-items: center; }
+    .tag-demo { font-family: 'Space Mono', monospace; font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 2px; }
+    .tag-label { font-size: 13px; color: var(--muted); }
+    .abrev-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 8px; }
+    .abrev-table td { padding: 6px 0; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .abrev-table td:first-child { font-family: 'Space Mono', monospace; color: var(--gold); width: 80px; padding-right: 12px; }
+    .abrev-table tr:last-child td { border-bottom: none; }
+    .intro-slide { margin-top: 24px; }
+    .intro-slide img { width: 100%; display: block; border: 1px solid var(--border); }
+    .intro-slide figcaption { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); padding: 8px 0; }
 
-    /* ── DISCLAIMER ── */
-    .disclaimer {
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      padding: 20px 28px;
-      margin: 32px 0 64px;
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      color: var(--muted);
-      line-height: 1.6;
-      letter-spacing: 0.03em;
-    }
-    .disclaimer strong { color: var(--text); }
+    /* SYNTHESIS */
+    .synthesis { background: var(--bg2); border: 1px solid var(--border); border-top: 2px solid var(--gold); padding: 36px 40px; margin: 48px 0; }
+    .synthesis h3 { font-family: 'Bebas Neue', sans-serif; font-size: 24px; color: var(--gold); letter-spacing: 0.06em; margin-bottom: 20px; }
+    .synthesis p { font-size: 16px; color: var(--muted); margin-bottom: 1rem; }
+    .synthesis ol { padding-left: 1.4rem; }
+    .synthesis li { font-size: 15px; color: var(--muted); margin-bottom: 0.8rem; }
+    .synthesis strong { color: var(--text); }
+    .synthesis em { color: var(--gold-light); }
 
-    /* ── NAV ── */
-    .back-nav {
-      padding: 16px 40px;
-      border-bottom: 1px solid var(--border);
-      background: var(--bg2);
-    }
-    .back-nav a {
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      color: var(--muted);
-      text-decoration: none;
-      letter-spacing: 0.08em;
-    }
-    .back-nav a:hover { color: var(--gold); }
+    /* INCERTIDUMBRES */
+    .incertidumbres { background: var(--bg3); border: 1px solid var(--border); border-left: 3px solid var(--red); padding: 28px 32px; margin: 32px 0; }
+    .incertidumbres h3 { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid rgba(192,57,43,0.2); }
+    .incertidumbres ul { list-style: none; padding: 0; }
+    .incertidumbres li { font-size: 15px; color: var(--muted); margin-bottom: 0.9rem; padding-left: 1rem; position: relative; }
+    .incertidumbres li::before { content: '·'; position: absolute; left: 0; color: var(--red); }
+    .incertidumbres strong { color: var(--text); }
 
-    /* ── FOOTER ── */
-    footer {
-      background: var(--bg2);
-      border-top: 1px solid var(--border);
-      padding: 24px 40px;
-      font-family: 'Space Mono', monospace;
-      font-size: 10px;
-      color: var(--muted);
-      letter-spacing: 0.06em;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
+    /* FUENTES */
+    .fuentes { border-top: 1px solid var(--border); padding-top: 32px; margin-top: 48px; }
+    .fuentes h3 { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+    .fuentes h4 { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-top: 16px; margin-bottom: 8px; }
+    .fuentes ul { list-style: none; padding: 0; }
+    .fuentes li { font-size: 14px; color: var(--muted); margin-bottom: 0.5rem; padding-left: 1rem; position: relative; }
+    .fuentes li::before { content: '-'; position: absolute; left: 0; color: var(--border); }
+    .nota-metodologica { font-size: 13px; color: var(--muted); font-style: italic; margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border); }
 
-    @media (max-width: 700px) {
-      .masthead { flex-direction: column; align-items: flex-start; gap: 12px; }
-      .masthead-meta { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 12px; }
+    /* FOOTER */
+    footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 28px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    footer .footer-left { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); line-height: 1.8; letter-spacing: 0.06em; }
+    footer .footer-nav { display: flex; gap: 20px; }
+    footer .footer-nav a { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); text-decoration: none; }
+    footer .footer-nav a:hover { color: var(--gold); }
+
+    @media (max-width: 640px) {
+      .masthead { padding: 16px 20px; }
+      .partes-nav { padding: 10px 20px; }
+      .hero { padding: 48px 20px 40px; }
       .container { padding: 0 20px; }
-      .hero { padding: 40px 20px 32px; }
-      .back-nav { padding: 12px 20px; }
-      footer { padding: 20px; }
-      .ade-grid { grid-template-columns: 1fr 1fr; }
-      .ade-cell:nth-child(2n) { border-right: none; }
+      .audio-strip { padding: 14px 20px; }
+      footer { padding: 24px 20px; }
     }
   </style>
 </head>
 <body>
 
-<!-- TICKER -->
-<div class="ticker-wrap" role="marquee" aria-label="Boletín especial en curso">
+<div class="ticker-wrap">
   <span class="ticker-content">
-    ESPECIAL-04 ✦ HISTORIA GENERAL DE CHINA ✦ PARTE III: DE LAS GUERRAS DEL OPIO AL AÑO DEL CABALLO DE FUEGO ✦ ANCA-ADE ✦ AGENTE NOTICIOSO CRÍTICO DE ACTUALIDAD ✦ MARCO MEEE-G + ADE ✦ EDICIÓN ESPECIAL HISTÓRICA ✦ ABRIL 2026 ✦
-    GUERRAS DEL OPIO 1839-1860 ✦ REBELIÓN TAIPING ✦ SIGLO DE HUMILLACIÓN ✦ REVOLUCIÓN DE 1911 ✦ ERA DE LOS SEÑORES DE LA GUERRA ✦ MOVIMIENTO DEL 4 DE MAYO ✦ GUERRA CIVIL CHINA ✦ REPÚBLICA POPULAR 1949 ✦ GRAN SALTO ADELANTE ✦ REVOLUCIÓN CULTURAL ✦ REFORMAS DE DENG XIAOPING ✦ TIANANMEN 1989 ✦ ERA XI JINPING ✦ AÑO DEL CABALLO DE FUEGO 2026 ✦
+    ANCA-ADD &middot; La Senda del Dragon &middot; Historia General de China &middot; Parte III &middot; Del Siglo de la Humillacion al Ano del Caballo de Fuego &nbsp;&middot;&nbsp; Guerras del Opio &middot; Republica &middot; Mao &middot; Deng &middot; Xi &nbsp;&middot;&nbsp; Analisis Dinamico del Devenir &nbsp;&middot;&nbsp; Metodologia MEEE-G &nbsp;&middot;&nbsp; Alfredo Montero Fonseca &middot; UCR &nbsp;&middot;&nbsp; Abril 2026 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   </span>
 </div>
 
-<!-- MASTHEAD -->
-<header class="masthead">
-  <div class="masthead-logo">ANCA<span>-</span>ADE</div>
+<div class="masthead">
+  <div class="masthead-logo">ANCA<span>&middot;</span>ADD</div>
   <div class="masthead-meta">
-    <div class="label">Agente Noticioso Crítico de Actualidad · Análisis Dinámico del Devenir</div>
-    <h1>Historia General de China — Parte III</h1>
-    <div class="sub">ESPECIAL-04 &nbsp;·&nbsp; Publicado: Abril 2026 &nbsp;·&nbsp; Costa Rica · <a href="https://antropos-amf.github.io/anca-ade.github.io/" style="color:var(--gold);text-decoration:none;">antropos-amf.github.io</a></div>
+    <div class="label">Sección Especial &middot; Historia de China</div>
+    <h1>La Senda del Dragón</h1>
+    <div class="sub">Del Siglo de la Humillación al Caballo de Fuego — Parte III &middot; Abril 2026</div>
   </div>
-</header>
+  <nav class="masthead-nav">
+    <a href="/divulgacion/">← Cosas que no sé</a>
+    <a href="/divulgacion/china/">Índice China</a>
+  </nav>
+</div>
 
-<!-- BACK NAV -->
-<nav class="back-nav">
-  <a href="https://antropos-amf.github.io/anca-ade.github.io/">← Volver al índice ANCA-ADE</a>
-</nav>
+<div class="partes-nav">
+  <span class="nav-label">Entregas:</span>
+  <a href="../parte-1/" class="inactive">Parte I &middot; Orígenes – 1211</a>
+  <a href="../parte-2/" class="inactive">Parte II &middot; Mongoles – 1839</a>
+  <a href="." class="active">Parte III &middot; 1839 – 2026</a>
+</div>
 
-<!-- HERO -->
 <section class="hero">
-  <div class="hero-kicker">Boletín Especial Histórico · N.° 04 · Tercera Entrega</div>
-  <h2>Del Siglo de la <em>Humillación</em> al Año del Caballo de Fuego:<br>China Moderna, 1839–2026</h2>
-  <p class="hero-lead">
-    Desde la primera Guerra del Opio hasta la Velada del Año Nuevo Chino del 17 de febrero de 2026, este especial recorre las etapas constitutivas de la China contemporánea: el colapso de la dinastía Qing bajo el imperialismo, el surgimiento de la República, las catástrofes maoístas, la apertura de Deng Xiaoping, el trauma de Tiananmén y la consolidación del poder bajo Xi Jinping.
-  </p>
-  <div class="hero-badges">
-    <span class="badge badge-red">Especial-04</span>
-    <span class="badge badge-gold">Historia · Política</span>
-    <span class="badge badge-muted">MEEE-G + ADE</span>
-    <span class="badge badge-muted">1839–2026</span>
-    <span class="badge badge-muted">Historia Moderna de China</span>
+  <div class="container-wide">
+    <div class="hero-kicker">Especial 04 &middot; Historia de China &middot; Parte III de III</div>
+    <h2>Del Siglo de la <em>Humillación</em> al Año del Caballo de Fuego</h2>
+    <p class="hero-lead">De los cañones británicos en el Puerto de Cantón a los portaviones chinos en el Pacífico: cómo el sistema civilizatorio más antiguo del mundo se desintegró, fue refundado y emergió como potencia global en menos de dos siglos.</p>
+    <div class="hero-meta">1839 – 2026 d.C. &nbsp;&middot;&nbsp; 8 etapas &nbsp;&middot;&nbsp; Alfredo Montero Fonseca &middot; UCR</div>
   </div>
 </section>
 
-<!-- MAIN CONTENT -->
-<main class="container">
+<div class="audio-strip">
+  <span class="audio-label">Audio &middot; Parte III</span>
+  <audio controls>
+    <source src="../audio/parte-3.m4a" type="audio/mp4">
+  </audio>
+</div>
 
-  <!-- INTRO METODOLÓGICO -->
-  <section style="margin-top:40px;">
-    <p>Este tercer fascículo de la Historia General de China producida por ANCA-ADE parte del momento exacto en que el Imperio Qing enfrenta por primera vez la violencia sistemática del imperialismo occidental: la destrucción del opio en Cantón por Lin Zexu en junio de 1839 y la subsiguiente campaña naval británica que inaugura lo que los nacionalistas chinos denominarán el <em>Siglo de Humillación</em> (<em>bǎinián guǐchǐ</em>, 百年屈辱). Concluye con la Velada del Año Nuevo Lunar del 17 de febrero de 2026, que inauguró el Año del Caballo de Fuego —un ciclo que no se repetía desde 1966, el año en que Mao lanzó la Revolución Cultural.</p>
-    <p>El recorrido abarca seis grandes etapas, cada una analizada mediante los marcos MEEE-G (evaluación epistémica) y ADE (lectura dinámica), con especial atención a la relevancia para Costa Rica como nodo periférico acoplado a las dinámicas globales que China proyecta.</p>
-  </section>
+<!-- SECCION INTRODUCTORIA -->
+<div class="intro-section">
+<div class="container">
+  <div class="intro-title">Marco Analítico</div>
+  <p class="intro-lead">Este análisis combina dos marcos complementarios: la Matriz Explicacionista de Evaluación Epistémica (MEEE-G) para clasificar el estatus de cada afirmación, y la Antropología Dinámica del Devenir (ADD) para interpretar los procesos históricos como sistemas complejos.</p>
 
-  <!-- TOC -->
-  <div class="toc-block">
-    <h3>Índice de Etapas</h3>
-    <ul class="toc-list">
-      <li><a href="#guerras-opio">I. Las Guerras del Opio y el Sistema de Tratados (1839–1860)</a></li>
-      <li><a href="#taiping">II. La Gran Ruptura Interior: Rebelión Taiping y Crisis Qing (1850–1895)</a></li>
-      <li><a href="#caida-qing">III. La Caída del Imperio: de los Bóxers a la República (1895–1912)</a></li>
-      <li><a href="#republica">IV. La República en Fragmentos: señores de la guerra, japoneses y guerra civil (1912–1949)</a></li>
-      <li><a href="#prc">V. La República Popular de Mao: revolución, hambre y caos (1949–1976)</a></li>
-      <li><a href="#deng">VI. La China de Deng y Tiananmén: reforma, apertura y represión (1976–1989)</a></li>
-      <li><a href="#ascenso">VII. El Ascenso Global: de Jiang a Hu, de la OMC a los Juegos Olímpicos (1989–2012)</a></li>
-      <li><a href="#xi">VIII. La Era Xi Jinping: el «Sueño Chino» y la nueva Gran Potencia (2012–2026)</a></li>
-      <li><a href="#año-nuevo">IX. Velada del Año del Caballo de Fuego: 17 de febrero de 2026</a></li>
-      <li><a href="#cr">X. Relevancia para Costa Rica: China como actor sistémico</a></li>
-      <li><a href="#fuentes">XI. Fuentes</a></li>
+  <div class="intro-grid">
+    <div class="intro-card">
+      <h3>Matriz MEEE-G &middot; Estatus epistémico de las afirmaciones</h3>
+      <p style="font-size:14px; color:var(--muted); margin-bottom:16px;">Cada afirmación en el texto lleva una etiqueta que indica qué tan sólida es la evidencia que la sostiene. La transparencia epistémica no debilita el análisis: lo hace honesto.</p>
+      <div class="tags-row">
+        <span class="tag-demo ep-DC" style="background:#1a4a2e;color:#7fdbac;">DC</span>
+        <span class="tag-label"><strong style="color:var(--text)">Dato Confirmado</strong> — verificado por fuentes independientes</span>
+      </div>
+      <div class="tags-row">
+        <span class="tag-demo ep-IP" style="background:#1a3a5c;color:#7ab8f5;">IP</span>
+        <span class="tag-label"><strong style="color:var(--text)">Inferencia Plausible</strong> — derivado lógicamente de DC con alta probabilidad</span>
+      </div>
+      <div class="tags-row">
+        <span class="tag-demo ep-H" style="background:#5c3a1a;color:#f5c07a;">H</span>
+        <span class="tag-label"><strong style="color:var(--text)">Hipótesis</strong> — explicación posible, no confirmada, requiere más evidencia</span>
+      </div>
+      <div class="tags-row">
+        <span class="tag-demo ep-Int" style="background:#4a1a5c;color:#d07af5;">Int</span>
+        <span class="tag-label"><strong style="color:var(--text)">Interpretación</strong> — lectura analítica del autor bajo el marco ADD</span>
+      </div>
+      <div class="tags-row">
+        <span class="tag-demo" style="background:#3a3a3a;color:#aaa;">C</span>
+        <span class="tag-label"><strong style="color:var(--text)">Conjetura</strong> — especulación razonada sin base empírica sólida actual</span>
+      </div>
+    </div>
+
+    <div class="intro-card">
+      <h3>ADD &middot; Categorías de análisis dinámico</h3>
+      <p style="font-size:14px; color:var(--muted); margin-bottom:12px;">La Antropología Dinámica del Devenir (ADD) trata los fenómenos históricos como sistemas complejos no lineales. Sus categorías analíticas provienen de la termodinámica de sistemas alejados del equilibrio.</p>
+      <dl>
+        <dt>Atractor</dt>
+        <dd>Estado o configuración hacia el que tiende un sistema. Puede ser una ciudad, una ideología, un modo de producción o una forma política.</dd>
+        <dt>Clausura organizacional</dt>
+        <dd>La lógica interna que define la identidad del sistema y lo distingue de su entorno. Lo que hace que "China" sea China.</dd>
+        <dt>Flujos disipativos</dt>
+        <dd>Intercambio de materia, energía e información con el entorno: comercio, migración, tecnología, ideas.</dd>
+        <dt>Perturbación</dt>
+        <dd>Choque externo o interno que obliga al sistema a responder.</dd>
+        <dt>Punto de inflexión / Bifurcación</dt>
+        <dd>Momento crítico donde el sistema se reorganiza o colapsa hacia un nuevo régimen. Irreversible por definición.</dd>
+        <dt>Acoplamiento</dt>
+        <dd>Relación de interdependencia entre dos sistemas distintos que se influyen mutuamente.</dd>
+        <dt>Régimen de turbulencia</dt>
+        <dd>Estado del sistema caracterizado por alta inestabilidad antes de una bifurcación.</dd>
+      </dl>
+    </div>
+  </div>
+
+  <div class="intro-card" style="margin-bottom:24px;">
+    <h3>Abreviaturas frecuentes</h3>
+    <table class="abrev-table">
+      <tr><td>ADD</td><td>Antropología Dinámica del Devenir — marco teórico principal</td></tr>
+      <tr><td>MEEE-G</td><td>Matriz Explicacionista de Evaluación Epistémica de Goldman — sistema de clasificación epistémica</td></tr>
+      <tr><td>ANCA-ADD</td><td>Agente Noticioso Crítico de Actualidad — Análisis Dinámico del Devenir — publicación de origen</td></tr>
+      <tr><td>PCCh</td><td>Partido Comunista de China</td></tr>
+      <tr><td>RPC</td><td>República Popular China (desde 1949)</td></tr>
+      <tr><td>BRI</td><td>Belt and Road Initiative — Iniciativa de la Franja y la Ruta (Xi Jinping, 2013)</td></tr>
+      <tr><td>UCR</td><td>Universidad de Costa Rica</td></tr>
+    </table>
+  </div>
+
+  <figure class="intro-slide">
+    <img src="../img/slide3-01.jpg" alt="La Senda del Dragon: China Moderna 1839–2026 — portada de presentacion ANCA-ADD">
+    <figcaption>Presentación ANCA-ADD &middot; China Systemic Evolution: Del Siglo de la Humillación al Año del Caballo de Fuego &middot; Abril 2026</figcaption>
+  </figure>
+</div>
+</div>
+
+<div class="narrative">
+<div class="container">
+
+<!-- ============================================ -->
+<!-- ETAPA I: LAS GUERRAS DEL OPIO               -->
+<!-- ============================================ -->
+<div class="period" id="etapa-i">
+  <div class="period-header">
+    <div class="period-dates">1839 – 1860 d.C.</div>
+    <h2>Etapa I &middot; Las Guerras del Opio: <em>El Primer Golpe</em></h2>
+  </div>
+
+  <div class="resumen">
+    <p>En 1839, el comisionado imperial <strong>Lin Zexu</strong> ordenó destruir más de mil toneladas de opio en el puerto de Cantón. <span class="ep ep-DC">DC</span> Era una decisión soberana, justa y fatal. El Imperio Británico —que sostenía el lucrativo triángulo comercial algodón-opio-seda— respondió con sus cañones de vapor, y la Primera Guerra del Opio (1839–1842) demostró con sangre que la clausura organizacional de la Qing ya no podía proteger sus fronteras.</p>
+
+    <p><span class="ep ep-DC">DC</span> El <strong>Tratado de Nankín</strong> (1842) fue el primero de los llamados "tratados desiguales": China cedió <strong>Hong Kong</strong> a Gran Bretaña, abrió cinco puertos al comercio extranjero y pagó una indemnización de <strong>21 millones de dólares de plata</strong>. La soberanía Qing, que durante siglos había dictado los términos de todo intercambio, quedó subordinada a potencias cuya capacidad industrial China apenas comenzaba a comprender.</p>
+
+    <p>La Segunda Guerra del Opio (1856–1860) fue aún más brutal. <span class="ep ep-DC">DC</span> Las tropas franco-británicas marcharon sobre Pekín y quemaron el <strong>Palacio de Verano</strong> (Yuanmingyuan) —uno de los complejos arquitectónicos más extraordinarios del mundo—, una destrucción deliberada concebida como mensaje al emperador. La <strong>Convención de Pekín</strong> (1860) amplió los "puertos de tratado", legalizó el comercio del opio y cedió la península de Kowloon a Gran Bretaña. <span class="ep ep-Int">Int</span> El incendio del Palacio de Verano no fue un exceso de guerra: fue una declaración de jerarquía civilizatoria, una herida que los chinos no olvidarán.</p>
+
+    <figure class="slide-inline">
+      <img src="../img/slide3-02.jpg" alt="Las Guerras del Opio: sistema de impacto y tratados desiguales — ANCA-ADD">
+      <figcaption>Las Guerras del Opio y el primer colapso del sistema imperial &middot; Fuente: presentación ANCA-ADD, abril 2026</figcaption>
+    </figure>
+  </div>
+
+  <div class="meeg-block">
+    <div class="subsec-label">Análisis Crítico &middot; MEEE-G</div>
+    <ul>
+      <li><strong>Clasificación:</strong> Los hechos centrales (tratados, fechas, cifras de indemnización, destrucción del Palacio de Verano) son <span class="ep ep-DC">DC</span> con amplísima documentación primaria. La interpretación del incendio como "declaración de jerarquía" es <span class="ep ep-Int">Int</span>.</li>
+      <li><strong>Evaluación Explicacionista:</strong> La narrativa occidental clásica presenta las guerras como respuesta al "proteccionismo chino"; la narrativa china las presenta como agresión colonial pura. <span class="ep ep-IP">IP</span> Ambas son parciales: existía un conflicto sistémico entre dos lógicas de intercambio incompatibles, y el monopolio militar industrial europeo inclinó definitivamente la balanza.</li>
+      <li><strong>Advertencia epistémica:</strong> Las cifras exactas del opio destruido por Lin Zexu varían según las fuentes. <span class="ep ep-H">H</span> La cantidad más citada (1,200 toneladas) no está libre de imprecisión documental.</li>
     </ul>
   </div>
 
-  <!-- ══════════════════════════════════════════ -->
-  <!-- ETAPA I: GUERRAS DEL OPIO -->
-  <!-- ══════════════════════════════════════════ -->
-  <section class="epoch" id="guerras-opio">
-    <div class="epoch-header">
-      <div class="epoch-number">Etapa I</div>
-      <h2>Las Guerras del Opio y el Sistema de Tratados Desiguales</h2>
-      <div class="epoch-years">1839 – 1860</div>
-    </div>
-    <p class="epoch-lead">
-      El Imperio Qing llega al umbral del siglo XIX como la mayor economía del planeta. En menos de tres décadas, el cañón británico lo convierte en el primer gran objeto de extracción colonial sistemática de la era industrial.
-    </p>
-
-    <div class="sub-section">
-      <h3>Contexto estructural: el desequilibrio comercial y el opio como solución</h3>
-      <p>En el siglo XVIII, China monopolizaba el comercio internacional de porcelana, seda y té. <span class="ep dc">DC</span> Las potencias europeas —en especial Gran Bretaña— se veían obligadas a pagar en plata, lo que generaba una severa sangría de sus reservas monetarias. La solución que la Compañía de las Indias Orientales encontró fue el opio cultivado en la India colonial: una mercancía que China no quería pero que millones de chinos comenzaron a consumir compulsivamente. Para 1839, las ventas de opio a China financiaban la totalidad del comercio británico de té. <span class="ep dc">DC</span> Se calcula que en ese año había varios millones de adictos en territorio chino. <span class="ep dc">DC</span></p>
-
-      <h4>La acción de Lin Zexu y el inicio de la guerra</h4>
-      <p>El Emperador Daoguang, rechazando propuestas de legalización, nombró al erudito confuciano Lin Zexu comisionado especial con poderes para erradicar el comercio de opio. <span class="ep dc">DC</span> En junio de 1839, Lin ordenó la destrucción pública de más de un millón de kilogramos de opio en la playa de Humen. <span class="ep dc">DC</span> Su célebre carta abierta a la Reina Victoria —que nunca llegó a su destinataria— apelaba a la responsabilidad moral británica. El gobierno Whig de Londres, sin fondos para indemnizar a los comerciantes pero con cañoneras disponibles, eligió la guerra. <span class="ep ip">IP</span></p>
-
-      <p>La Primera Guerra del Opio (1839–1842) reveló brutalmente el abismo tecnológico entre la marina de vapor británica y la armada de juncos Qing. Las fuerzas navales reales tomaron posiciones defensivas chinas a lo largo de la costa, remontaron el río Yangtze y amenazaron Nankín. El Tratado de Nankín de 1842 —el primero de los llamados «tratados desiguales»— cedió Hong Kong a Gran Bretaña, abrió cinco puertos al comercio libre (Cantón, Amoy, Fuzhou, Ningbo y Shanghái), fijó aranceles preferenciales unilaterales e impuso una indemnización de 21 millones de dólares de plata. <span class="ep dc">DC</span></p>
-
-      <h4>La Segunda Guerra del Opio (1856–1860)</h4>
-      <p>El conflicto se reanudó por la negativa Qing a renegociar los tratados y por incidentes de bandera (el asunto Arrow). Gran Bretaña y Francia actuaron conjuntamente: saquearon y quemaron el Palacio de Verano en Pekín en 1860. <span class="ep dc">DC</span> La Convención de Pekín legalizó el comercio de opio, abrió más puertos, concedió presencia diplomática permanente extranjera en la capital y cedió la península de Kowloon a Gran Bretaña. Rusia, sin disparar un tiro, obtuvo por mediación enormes territorios al norte del Amur. <span class="ep dc">DC</span></p>
-    </div>
-
-    <div class="meeg-block">
-      <div class="meeg-title">Evaluación Epistémica MEEE-G — Las Guerras del Opio</div>
-      <table class="meeg-table">
-        <thead>
-          <tr><th>Dimensión</th><th>Afirmación evaluada</th><th>Estatus y fundamento</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Causa inmediata</td>
-            <td>La destrucción del opio por Lin Zexu fue el detonante formal del conflicto</td>
-            <td><span class="ep dc">DC</span> Respaldado por registros diplomáticos y parlamentarios británicos. Múltiples fuentes primarias coinciden.</td>
-          </tr>
-          <tr>
-            <td>Causa estructural</td>
-            <td>El desequilibrio comercial y la dependencia del opio son la causa real de la guerra</td>
-            <td><span class="ep ip">IP</span> Historiografía dominante (Fairbank, Platt, Hanes &amp; Sanello), aunque el debate sobre si la libre circulación era igualmente motivo persiste.</td>
-          </tr>
-          <tr>
-            <td>Cifra de adictos</td>
-            <td>Millones de adictos al opio en China para 1839</td>
-            <td><span class="ep dc">DC</span> Estimaciones de fuentes primarias chinas y estadísticas comerciales de la Compañía de las Indias Orientales convergen.</td>
-          </tr>
-          <tr>
-            <td>Asimetría de poder</td>
-            <td>La derrota Qing se explica principalmente por inferioridad tecnológica militar</td>
-            <td><span class="ep ip">IP</span> Factor central, pero la corrupción interna y la falta de centralización también pesaron (interpretación de Waley, 1958).</td>
-          </tr>
-          <tr>
-            <td>Impacto simbólico</td>
-            <td>1839 es el inicio del «Siglo de Humillación»</td>
-            <td><span class="ep int">Int</span> Construcción nacionalista posterior, sistematizada en el s. XX. No fue así percibido contemporáneamente de forma unánime.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="ade-block">
-      <div class="ade-title">Lectura Dinámica ADD — Guerras del Opio</div>
-      <div class="ade-grid">
-        <div class="ade-cell">
-          <div class="ade-cell-label">Régimen previo</div>
-          <p>Sistema-mundo tributario centrado en China (Imperio del Centro). Régimen de comercio restringido (Sistema Cantón). Clausura organizacional simbólica sólida.</p>
-        </div>
-        <div class="ade-cell">
-          <div class="ade-cell-label">Atractores perturbadores</div>
-          <p>Demanda occidental de mercancías chinas. Opio como commodity de inversión. Industrialización naval británica. Déficit fiscal Qing post-decadencia.</p>
-        </div>
-        <div class="ade-cell">
-          <div class="ade-cell-label">Bifurcación</div>
-          <p>1839–1842: el sistema enfrenta la alternativa legalizar/prohibir el opio. La prohibición desencadena la guerra. El régimen no puede volver al estado previo.</p>
-        </div>
-        <div class="ade-cell">
-          <div class="ade-cell-label">Colonización del mundo de vida (Habermas)</div>
-          <p>Los tratados desiguales no son solo instrumentos comerciales: imponen lógicas sistémicas externas (mercado occidental, derecho internacional europeo) sobre el orden normativo Qing.</p>
-        </div>
-        <div class="ade-cell">
-          <div class="ade-cell-label">Flujos disipativos</div>
-          <p>Plata hacia Occidente. Opio hacia China. Pérdida de capital simbólico imperial. Erosión de la legitimidad Qing frente a las élites Han.</p>
-        </div>
-        <div class="ade-cell">
-          <div class="ade-cell-label">Nuevo régimen</div>
-          <p>Modo semi-colonial: China formalmente soberana pero sometida a un sistema de tratados desiguales con extraterritorialidad, puertos abiertos y aranceles fijados externamente.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════ -->
-  <!-- ETAPA II: TAIPING Y CRISIS QING -->
-  <!-- ══════════════════════════════════════════ -->
-  <section class="epoch" id="taiping">
-    <div class="epoch-header">
-      <div class="epoch-number">Etapa II</div>
-      <h2>La Gran Ruptura Interior: Rebelión Taiping y Crisis de la Dinastía Qing</h2>
-      <div class="epoch-years">1850 – 1895</div>
-    </div>
-    <p class="epoch-lead">
-      La mayor guerra civil del siglo XIX —y quizás de toda la historia humana en número de víctimas— estalla en el sur de China. Veinte a treinta millones de muertos después, la dinastía sobrevive pero nunca recupera el control efectivo del territorio.
-    </p>
-
-    <div class="sub-section">
-      <h3>La Rebelión Taiping (1850–1864)</h3>
-      <p>Hong Xiuquan, maestro hakka que fracasó repetidamente en los exámenes imperiales, sufre una visión en 1837 que lo convence de ser el hermano menor de Jesucristo con la misión divina de derrocar a la dinastía manchú Qing. <span class="ep dc">DC</span> Funda la Sociedad de los Adoradores de Dios, que capitaliza el descontento campesino generado por los impuestos de guerra, las hambrunas de 1849–1850 y la expansión de la adicción al opio. <span class="ep dc">DC</span></p>
-
-      <p>En enero de 1851, Hong proclama el Reino Celestial de la Gran Paz (<em>Taiping Tianguo</em>) y se declara Rey Celestial. Para 1853, un ejército que algunos estiman en más de un millón de soldados —incluyendo divisiones de mujeres— ha conquistado Nankín, que rebautiza como Tianjing («capital celestial»). <span class="ep dc">DC</span> El movimiento incorpora elementos programáticos radicales: redistribución de la tierra, igualdad de género, comunismo de los bienes, prohibición del opio y el alcohol. <span class="ep dc">DC</span></p>
-
-      <p>La contraofensiva Qing tardó una década. El general Han Zeng Guofan organizó el Ejército Xiang, milicias provinciales financiadas localmente que demostraron mayor eficacia que el ejército imperial regular. El «Ejército Siempre Victorioso», comandado por el británico Charles Gordon, contribuyó a la derrota final. Nankín cayó en julio de 1864, y Hong Xiuquan había muerto semanas antes —posiblemente envenenado o por inanición, durante el asedio. <span class="ep dc">DC</span></p>
-
-      <h4>El Movimiento de Autofortalecimiento (1861–1895)</h4>
-      <p>La humillante derrota frente a Occidente y la devastación de la Rebelión Taiping empujaron a una facción reformista de la corte —liderada por el príncipe Gong y el funcionario Li Hongzhang— a promover la adopción selectiva de tecnología occidental manteniendo los valores confucianos. <span class="ep dc">DC</span> Se funda el Ministerio de Asuntos Exteriores (Zongli Yamen), arsenales modernos en Fuzhou y Shanghái, y las primeras líneas de vapor y telegrafía. <span class="ep dc">DC</span> El movimiento fracasó al no reformar las estructuras políticas y educativas. La derrota en la Primera Guerra Sino-Japonesa (1894–1895) —que reveló que incluso el vecino Japón, modernizado en tres décadas, podía humillar a China— cerró definitivamente el capítulo del autofortalecimiento. <span class="ep dc">DC</span></p>
-    </div>
-
-    <div class="pull-quote">
-      «La Rebelión Taiping asoló 17 provincias, se cobró entre 20 y 30 millones de vidas y dejó a la dinastía Qing sin capacidad real de mantener el control del país.»
-      <span class="pull-source">— Britannica Encyclopedia, «Taiping Rebellion», 2026</span>
-    </div>
-
-    <div class="meeg-block">
-      <div class="meeg-title">Evaluación Epistémica MEEE-G — Taiping y Autofortalecimiento</div>
-      <table class="meeg-table">
-        <thead>
-          <tr><th>Dimensión</th><th>Afirmación evaluada</th><th>Estatus y fundamento</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Alcance de la guerra</td>
-            <td>20–30 millones de muertos en la Rebelión Taiping</td>
-            <td><span class="ep dc">DC</span> Rango ampliamente aceptado por la historiografía, con incertidumbre en los extremos por falta de censos confiables del período.</td>
-          </tr>
-          <tr>
-            <td>Causas del fracaso Taiping</td>
-            <td>El movimiento fracasó por disensiones internas y apoyo occidental a los Qing</td>
-            <td><span class="ep ip">IP</span> Ambos factores están documentados; la ponderación relativa es objeto de debate historiográfico (Platt, 2012; Meyer-Fong, 2013).</td>
-          </tr>
-          <tr>
-            <td>Autofortalecimiento</td>
-            <td>El movimiento fracasó por no reformar las estructuras políticas</td>
-            <td><span class="ep int">Int</span> Tesis dominante, pero algunos historiadores señalan que las reformas técnicas sí produjeron avances reales en industria naval.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="ade-block">
-      <div class="ade-title">Lectura Dinámica ADD — Taiping y Crisis Qing</div>
-      <div class="ade-grid">
-        <div class="ade-cell">
-          <div class="ade-cell-label">Zona de turbulencia</div>
-          <p>China 1850–1895: el sistema sociopolítico opera en régimen turbulento. Tres perturbaciones simultáneas: presión imperialista exterior, guerra civil devastadora, deslegitimación dinástica interna.</p>
-        </div>
-        <div class="ade-cell">
-          <div class="ade-cell-label">Atractores en competencia</div>
-          <p>Restauración dinástica (atractor Qing-confuciano). Reino celestial cristiano-utópico (Taiping). Modernización tecnocrática sin cambio político (autofortalecimiento).</p>
-        </div>
-        <div class="ade-cell">
-          <div class="ade-cell-label">Violencia simbólica (Bourdieu)</div>
-          <p>El fracaso en los exámenes imperiales de Hong Xiuquan como bifurcación biográfica-sistémica: el rechazo del sistema legitimador produce energía disruptiva masiva al articularse con descontento estructural.</p>
-        </div>
-        <div class="ade-cell">
-          <div class="ade-cell-label">Fragmentación del capital</div>
-          <p>El capital político se desplaza de la corte a las milicias provinciales de Zeng Guofan. El capital militar se regionaliza. Precondición de la era de los señores de la guerra que vendría.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════ -->
-  <!-- ETAPA III: CAÍDA QING -->
-  <!-- ══════════════════════════════════════════ -->
-  <section class="epoch" id="caida-qing">
-    <div class="epoch-header">
-      <div class="epoch-number">Etapa III</div>
-      <h2>La Caída del Imperio: de la Rebelión de los Bóxers a la República</h2>
-      <div class="epoch-years">1895 – 1912</div>
-    </div>
-    <p class="epoch-lead">
-      En menos de dos décadas, China pierde la guerra contra Japón, sufre una ocupación multinacional, intenta en vano reformarse desde arriba y termina siendo la primera gran monarquía asiática en derrumbarse por un alzamiento republicano.
-    </p>
-
-    <div class="sub-section">
-      <h3>La Primera Guerra Sino-Japonesa y el Reparto</h3>
-      <p>La derrota de China frente a Japón en 1894–1895 fue un shock civilizatorio. <span class="ep dc">DC</span> El Tratado de Shimonoseki cedió Formosa (Taiwán) y las Islas Pescadores a Japón, reconoció la independencia de Corea (que pasaría a la órbita japonesa) e impuso otra indemnización millonaria. <span class="ep dc">DC</span> La Triple Intervención de Rusia, Francia y Alemania para arrebatar a Japón la península de Liaodong —que luego Rusia tomaría para sí— reveló a las potencias europeas la debilidad estructural del Imperio Qing y desencadenó la carrera por las «esferas de influencia» (esfera rusa en Manchuria, alemana en Shandong, británica en el Yangtzé, francesa en el sur). <span class="ep dc">DC</span></p>
-
-      <h4>Las Reformas de los Cien Días y su Fracaso (1898)</h4>
-      <p>El reformador Kang Youwei convenció al joven Emperador Guangxu de decretar en 1898 una serie de reformas modernizadoras en educación, administración y ejército. <span class="ep dc">DC</span> La Emperatriz Viuda Cixi, que ejercía el poder real, ordenó el arresto del Emperador y la ejecución de los reformadores, clausurando el experimento en cien días. <span class="ep dc">DC</span> Cixi es figura paradigmática de la parálisis del sistema: su único objetivo real era la supervivencia del poder manchú, no la modernización de China. <span class="ep int">Int</span></p>
-
-      <h4>La Rebelión de los Bóxers y la Intervención de las Ocho Naciones (1899–1901)</h4>
-      <p>La Sociedad de los Puños Armoniosos (Yihetuan), conocida como los «Bóxers», era un movimiento campesino anti-extranjero que combinaba práctica marcial con creencias de invulnerabilidad mágica. <span class="ep dc">DC</span> Con el apoyo táctico de Cixi, en 1900 sitió las legaciones extranjeras en Pekín durante 55 días. Una coalición de ocho potencias —Gran Bretaña, Estados Unidos, Japón, Francia, Rusia, Alemania, Italia y Austria-Hungría— envió 20.000 soldados que saquearon la capital. <span class="ep dc">DC</span> El Protocolo Bóxer (1901) impuso la indemnización más grande de la historia hasta entonces, ocupación militar en zonas estratégicas y ejecución de funcionarios responsables. <span class="ep dc">DC</span></p>
-
-      <h4>La Revolución de 1911 y el Fin del Imperio</h4>
-      <p>Sun Yat-sen, médico formado en Occidente, organizó desde el exilio una red de sociedades revolucionarias bajo los «Tres Principios del Pueblo» (nacionalismo, democracia, bienestar popular). <span class="ep dc">DC</span> El alzamiento de Wuchang del 10 de octubre de 1911 —precipitado casi accidentalmente por la explosión de una bomba en casa de conspiradores— se extendió rápidamente por las provincias. <span class="ep dc">DC</span> El 1 de enero de 1912 se proclamó la República de China con Sun Yat-sen como primer presidente provisional. Semanas después, Sun cedió la presidencia al general Yuan Shikai a cambio de que éste forzara la abdicación del último Emperador Qing, el niño Puyi. <span class="ep dc">DC</span> Dos mil años de dominio imperial chino llegaron a su fin.</p>
-    </div>
-
-    <div class="meeg-block">
-      <div class="meeg-title">Evaluación Epistémica MEEE-G — Caída de los Qing</div>
-      <table class="meeg-table">
-        <thead>
-          <tr><th>Dimensión</th><th>Afirmación evaluada</th><th>Estatus y fundamento</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Caída dinástica</td>
-            <td>El Protocolo Bóxer fue el golpe fatal a la legitimidad Qing</td>
-            <td><span class="ep ip">IP</span> Factor necesario pero no suficiente; la regionalización del poder militar desde la era Taiping fue igualmente decisiva.</td>
-          </tr>
-          <tr>
-            <td>Reformas de los Cien Días</td>
-            <td>Si Cixi no las hubiera revertido, la China moderna habría sido diferente</td>
-            <td><span class="ep c">C</span> Contrafáctico especulativo. Historiografía no permite inferencia fuerte.</td>
-          </tr>
-          <tr>
-            <td>Revolución de 1911</td>
-            <td>El alzamiento de Wuchang fue semiplaneado y semi-accidental</td>
-            <td><span class="ep dc">DC</span> La explosión que alertó a las autoridades forzó el levantamiento antes de lo previsto. Documentado en múltiples fuentes primarias.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <hr class="divider-gold">
-
-  <!-- ══════════════════════════════════════════ -->
-  <!-- ETAPA IV: REPÚBLICA -->
-  <!-- ══════════════════════════════════════════ -->
-  <section class="epoch" id="republica">
-    <div class="epoch-header">
-      <div class="epoch-number">Etapa IV</div>
-      <h2>La República en Fragmentos: Señores de la Guerra, Japón y Guerra Civil</h2>
-      <div class="epoch-years">1912 – 1949</div>
-    </div>
-    <p class="epoch-lead">
-      La República nació sin ejército republicano, sin instituciones democráticas consolidadas ni legitimidad territorial efectiva. Lo que siguió fue una de las décadas más violentas y complejas de la historia moderna: señores de la guerra, invasión japonesa, revolución comunista y genocidio.
-    </p>
-
-    <div class="sub-section">
-      <h3>Yuan Shikai y la Era de los Señores de la Guerra (1912–1928)</h3>
-      <p>Yuan Shikai intentó restaurar la monarquía en 1915, nombrándose a sí mismo Emperador, en un movimiento que provocó levantamientos provinciales inmediatos y terminó con su muerte en 1916. <span class="ep dc">DC</span> Con su fallecimiento, el control central se disolvió: China entró en una era de señores de la guerra regionales —militares con ejércitos propios, bases fiscales locales y lealtades personales— que combatían entre sí y con el gobierno de Pekín. <span class="ep dc">DC</span></p>
-
-      <h4>El Movimiento del 4 de Mayo (1919)</h4>
-      <p>El Tratado de Versalles de 1919 —que cedió a Japón los territorios alemanes en China en vez de devolverlos a la República— desencadenó protestas masivas de estudiantes en Pekín el 4 de mayo. <span class="ep dc">DC</span> El Movimiento del 4 de Mayo fue mucho más que una protesta: fue una revolución cultural que repudió al confucianismo tradicional, abrazó la ciencia y la democracia, y abrió el camino al marxismo en China. <span class="ep int">Int</span> Mao Zedong fue uno de sus participantes. En 1921, en Shanghái, se fundó el Partido Comunista de China (PCCh). <span class="ep dc">DC</span></p>
-
-      <h4>Expedición del Norte y la Masacre de Shanghái (1926–1927)</h4>
-      <p>Chiang Kai-shek, heredero político de Sun Yat-sen al frente del Partido Nacionalista (Kuomintang, KMT), lanzó la Expedición del Norte para unificar el país derrotando a los señores de la guerra, en alianza inicial con los comunistas y la URSS. <span class="ep dc">DC</span> En abril de 1927, cuando las fuerzas KMT controlaban el este del país, Chiang ordenó la masacre de Shanghai: miles de miembros y simpatizantes comunistas fueron ejecutados. <span class="ep dc">DC</span> La ruptura entre el KMT y el PCCh marcó el inicio de la guerra civil.</p>
-
-      <h3>La Invasión Japonesa y la Guerra Civil (1931–1949)</h3>
-      <p>Japón invadió Manchuria en 1931 e instaló el Estado títere de Manchukuo con el ex-Emperador Puyi como gobernante nominal. <span class="ep dc">DC</span> La invasión total de China comenzó en 1937 tras el incidente del Puente Marco Polo. La Matanza de Nankín (diciembre de 1937–enero de 1938), en que fuerzas japonesas asesinaron entre 100.000 y 300.000 civiles chinos, sigue siendo un punto neurálgico en las relaciones chino-japonesas. <span class="ep dc">DC</span> Las cifras exactas continúan siendo objeto de disputa historiográfica. <span class="ep ip">IP</span></p>
-
-      <p>La Larga Marcha (1934–1935), en que el ejército comunista recorrió 12.000 kilómetros huyendo del cerco KMT, consolidó el liderazgo de Mao Zedong dentro del PCCh y se convirtió en epopeya fundacional de la posterior República Popular. <span class="ep dc">DC</span> Tras la derrota japonesa en 1945, la guerra civil se reanudó con toda intensidad. La corrupción, la inflación desbocada y la pérdida de legitimidad del gobierno nacionalista —unida a la organización superior y al apoyo rural del PCCh— inclinaron la balanza. <span class="ep dc">DC</span></p>
-
-      <p>El 1 de octubre de 1949, Mao Zedong proclamó la República Popular de China desde la puerta de Tiananmén. Chiang Kai-shek y dos millones de nacionalistas se refugiaron en Taiwán. <span class="ep dc">DC</span></p>
-    </div>
-
-    <div class="meeg-block">
-      <div class="meeg-title">Evaluación Epistémica MEEE-G — Era Republicana</div>
-      <table class="meeg-table">
-        <thead>
-          <tr><th>Dimensión</th><th>Afirmación evaluada</th><th>Estatus y fundamento</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Victoria comunista</td>
-            <td>El PCCh ganó la guerra civil por superior organización y apoyo campesino</td>
-            <td><span class="ep ip">IP</span> Tesis dominante (Fairbank, Eastman). La corrupción KMT fue igualmente decisiva; el debate sobre el peso relativo persiste.</td>
-          </tr>
-          <tr>
-            <td>Larga Marcha</td>
-            <td>La Larga Marcha consolidó el liderazgo de Mao</td>
-            <td><span class="ep dc">DC</span> Documentado en memorias, archivos del PCCh y fuentes occidentales. El relato éptico oficial excede los hechos verificables en detalles concretos.</td>
-          </tr>
-          <tr>
-            <td>Matanza de Nankín</td>
-            <td>Murieron entre 100.000 y 300.000 personas en la Matanza de Nankín</td>
-            <td><span class="ep dc">DC</span> (rango) / <span class="ep ip">IP</span> (extremos). El Tribunal de Crímenes de Guerra de Tokio (1946) estableció 200.000. Cifras disputadas políticamente entre China y Japón.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="ade-block">
-      <div class="ade-title">Lectura Dinámica ADD — República y Fragmentación</div>
-      <div class="ade-grid">
-        <div class="ade-cell">
-          <div class="ade-cell-label">Régimen sistémico</div>
-          <p>China 1912–1949 opera en régimen de bifurcación prolongada: múltiples atractores compiten simultáneamente sin que ninguno logre estabilizar el sistema.</p>
-        </div>
-        <div class="ade-cell">
-          <div class="ade-cell-label">Atractores</div>
-          <p>Republicanismo liberal (Sun/Chiang). Comunismo maoísta. Fragmentación warlordista. Imperialismo japonés. Modelo soviético. Modelo occidental liberal.</p>
-        </div>
-        <div class="ade-cell">
-          <div class="ade-cell-label">Flujos decisivos</div>
-          <p>El campo semi-autónomo campesino (Moore) —400 millones de personas— como variable que define el resultado: quien lo moviliza gana. El PCCh lo movilizó; el KMT lo ignoró.</p>
-        </div>
-        <div class="ade-cell">
-          <div class="ade-cell-label">Acoplamiento externo</div>
-          <p>La derrota japonesa de 1945 como perturbación disipativa de escala regional que reconfiguró el campo de fuerzas y aceleró la victoria comunista al transferir armamento soviético capturado al PCCh.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════ -->
-  <!-- ETAPA V: REPÚBLICA POPULAR MAO -->
-  <!-- ══════════════════════════════════════════ -->
-  <section class="epoch" id="prc">
-    <div class="epoch-header">
-      <div class="epoch-number">Etapa V</div>
-      <h2>La República Popular de Mao: Revolución, Hambre y Caos</h2>
-      <div class="epoch-years">1949 – 1976</div>
-    </div>
-    <p class="epoch-lead">
-      La República Popular nace de la guerra y la humillación centenaria. Mao Zedong proclamó que China «se había puesto de pie». Lo que siguió fue un ciclo de transformación radical, hambrunas masivas y violencia política que dejó entre 40 y 70 millones de muertos.
-    </p>
-
-    <div class="sub-section">
-      <h3>Los Primeros Años: Reforma Agraria y Alineamiento Soviético (1949–1957)</h3>
-      <p>Los primeros años de la RPC combinaron logros reales con represión sistemática. La reforma agraria redistribuyó tierra a 300 millones de campesinos pero ejecutó a entre uno y dos millones de «terratenientes». <span class="ep dc">DC</span> La alianza con la URSS aportó tecnología, ingenieros y modelos de planificación. En 1950, China intervino en la Guerra de Corea, resistió al ejército estadounidense y obligó a un armisticio: señal inequívoca de la nueva capacidad militar china. <span class="ep dc">DC</span></p>
-
-      <p>La Campaña de las Cien Flores (1956–1957) —invitación de Mao a criticar abiertamente al Partido— fue seguida de la Campaña Antiderechista, en que todos los que habían hablado fueron perseguidos. <span class="ep dc">DC</span> Si fue una trampa deliberada o una reacción a críticas más duras de lo esperado sigue siendo debatido. <span class="ep h">H</span></p>
-
-      <h4>El Gran Salto Adelante (1958–1962)</h4>
-      <p>Mao lanzó en 1958 la campaña para acelerar la industrialización y la colectivización agrícola, con el objetivo declarado de superar a Gran Bretaña en producción de acero en quince años. <span class="ep dc">DC</span> Se crearon comunas populares de decenas de miles de familias; se fundieron utensilios domésticos de hierro en hornos de traspatio para cumplir cuotas de acero inútil. <span class="ep dc">DC</span> Mientras, las cosechas se pudían en los campos porque nadie las recogía, y las cuotas de entrega de grano al Estado —infladas por funcionarios que mentían para no parecer ineficaces— se cumplían aunque ello significara dejar a las aldeas sin alimentos.</p>
-
-      <p>La hambruna resultante, la Gran Hambruna China (1959–1961), es la mayor de la historia registrada. <span class="ep dc">DC</span> Las estimaciones de muertos oscilan entre 15 y 55 millones, con las cifras más rigurosas en el rango de 30 a 45 millones. <span class="ep dc">DC</span></p>
-
-      <h4>La Revolución Cultural (1966–1976)</h4>
-      <p>Desplazado políticamente tras el fracaso del Gran Salto, Mao recuperó el poder en 1966 llamando a los jóvenes a «bombardear el cuartel general» y destruir los «cuatro viejos» (ideas, cultura, costumbres y hábitos viejos). <span class="ep dc">DC</span> Las Guardias Rojas aterrorizaron al país: quemaron libros, destruyeron templos y monumentos, atacaron a maestros, médicos e intelectuales —clasificados en la categoría infamante de «noveno hediondo»—, cerraron universidades y enviaron a millones de jóvenes al campo. <span class="ep dc">DC</span></p>
-
-      <p>Entre sus víctimas políticas estuvieron el Presidente Liu Shaoqi, que murió en prisión, y Deng Xiaoping, purgado dos veces pero no ejecutado. La Revolución Cultural causó entre uno y dos millones de muertos directos y persiguió a más de treinta millones. <span class="ep dc">DC</span> El Partido Communist reconoció en 1981 que fue «el período de más severo revés y las más pesadas pérdidas sufridas por el partido, el país y el pueblo desde la fundación de la República Popular». <span class="ep dc">DC</span></p>
-
-      <p>Mao Zedong murió el 9 de septiembre de 1976. La banda de los Cuatro —los más radicales de la izquierda maoísta, incluyendo a la viuda de Mao, Jiang Qing— fue arrestada semanas después. <span class="ep dc">DC</span></p>
-    </div>
-
-    <div class="meeg-block">
-      <div class="meeg-title">Evaluación Epistémica MEEE-G — Era Maoísta</div>
-      <table class="meeg-table">
-        <thead>
-          <tr><th>Dimensión</th><th>Afirmación evaluada</th><th>Estatus y fundamento</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Gran Hambruna</td>
-            <td>Entre 30 y 45 millones de muertos en la Gran Hambruna</td>
-            <td><span class="ep dc">DC</span> Rango establecido por los demógrafos más rigurosos (Dikötter, Becker, Ashton et al., 1984). Cifras oficiales chinas aún subestiman el total.</td>
-          </tr>
-          <tr>
-            <td>Intencionalidad</td>
-            <td>La hambruna fue resultado de política deliberada o negligencia ideológica</td>
-            <td><span class="ep h">H</span>/<span class="ep int">Int</span> Debate entre «crimen» (Dikötter, 2010) y «catástrofe sistémica no deliberada de muerte» (Becker). No hay evidencia de órdenes de exterminio masivo.</td>
-          </tr>
-          <tr>
-            <td>Revolución Cultural</td>
-            <td>Fue un instrumento de reconquista del poder personal de Mao</td>
-            <td><span class="ep ip">IP</span> Tesis ampliamente aceptada. Los objetivos declarados (pureza ideológica) coexistieron con el objetivo práctico de eliminar rivales.</td>
-          </tr>
-          <tr>
-            <td>Balance del maoísmo</td>
-            <td>La esperanza de vida subió de 44 a 65 años bajo Mao (1949–1976)</td>
-            <td><span class="ep dc">DC</span> Dato confirmado por estadísticas demográficas. Coexiste con las cifras de muertos por hambruna y represión.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="ade-block">
-      <div class="ade-title">Lectura Dinámica ADD — Era Maoísta</div>
-      <div class="ade-grid">
-        <div class="ade-cell">
-          <div class="ade-cell-label">Atractor dominante</div>
-          <p>El carisma-hegemonía de Mao como atractor que organiza todo el campo político. Su clausura organizacional subjetiva —voluntarismo revolucionario— define qué cuenta como perturbación y cómo responder.</p>
-        </div>
-        <div class="ade-cell">
-          <div class="ade-cell-label">Violencia estructural (Galtung)</div>
-          <p>El Gran Salto y la Revolución Cultural como estructuras de violencia sistémica: no requieren órdenes explícitas de matar; basta con construir un sistema donde la mentira sobre cuotas sea racionalmente obligatoria para sobrevivir.</p>
-        </div>
-        <div class="ade-cell">
-          <div class="ade-cell-label">Colapso disipativo</div>
-          <p>La hambruna como colapso del sistema disipativo: el flujo energético-material (alimentos) interrumpido por la reconfiguración política. La clausura organizacional se sostiene eliminando físicamente a quienes la cuestionan.</p>
-        </div>
-        <div class="ade-cell">
-          <div class="ade-cell-label">Herencia sistémica</div>
-          <p>El maoísmo destruyó los grupos de interés establecidos (burocracia, intelectuales, empresarios) que en la URSS frenaron las reformas posteriores. Paradójicamente, esto facilitó las reformas de Deng.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════ -->
-  <!-- ETAPA VI: DENG Y TIANANMÉN -->
-  <!-- ══════════════════════════════════════════ -->
-  <section class="epoch" id="deng">
-    <div class="epoch-header">
-      <div class="epoch-number">Etapa VI</div>
-      <h2>La China de Deng Xiaoping: Reforma, Apertura y el Trauma de Tiananmén</h2>
-      <div class="epoch-years">1976 – 1989</div>
-    </div>
-    <p class="epoch-lead">
-      La transición al mundo que China ocupará en el siglo XXI comienza con un hombre de 1,52 metros que fue purgado dos veces y que, a los 74 años, emprendió la mayor transformación económica de la historia humana modena. El experimento termina con tanques en Pekín.
-    </p>
-
-    <div class="sub-section">
-      <h3>El Programa de Reforma y Apertura (1978–1988)</h3>
-      <p>Deng Xiaoping consolidó el poder en diciembre de 1978 en el Tercer Pleno del XI Comité Central, lanzando lo que llamó «reforma y apertura» (<em>gǎigé kāifàng</em>). <span class="ep dc">DC</span> Las reformas comenzaron en la agricultura: se disolvieron las comunas y se introdujo el sistema de responsabilidad familiar, permitiendo a los campesinos vender su producción en el mercado libre una vez cumplidas las cuotas estatales. La producción agrícola se disparó. <span class="ep dc">DC</span></p>
-
-      <p>Las Zonas Económicas Especiales (ZEE) —Shenzhen, Zhuhai, Shantou y Xiamen— fueron laboratorios de capitalismo supervisado que permitieron inversión extranjera, exportaciones manufactureras y funcionamiento del mercado laboral. <span class="ep dc">DC</span> Deng resumió su filosofía pragmática con la fórmula: «No importa si el gato es blanco o negro; lo que importa es que cace ratones». <span class="ep dc">DC</span> En política exterior, siguió la estrategia de «esconder la fuerza y esperar el momento». <span class="ep dc">DC</span></p>
-
-      <h4>Las Protestas de Tiananmén y el 4 de Junio de 1989</h4>
-      <p>La muerte del reformista Hu Yaobang el 15 de abril de 1989 desencadenó movilizaciones estudiantiles en Pekín que se extendieron a decenas de ciudades. <span class="ep dc">DC</span> En el pico del movimiento, más de un millón de personas marcharon en Pekín. <span class="ep dc">DC</span> Los estudiantes exigían mayor libertad política, transparencia y diálogo con el gobierno. Deng Xiaoping y los líderes del PCCh interpretaron el movimiento como amenaza existencial al partido. El 20 de mayo se declaró la ley marcial.</p>
-
-      <p>En la noche del 3 al 4 de junio, el Ejército Popular de Liberación entró en Pekín con tanques. Los muertos, que el gobierno chino ha negado sistemáticamente, se estiman entre varios centenares y miles según fuentes del gobierno británico desclasificadas en 2017. <span class="ep dc">DC</span> La foto del «hombre del tanque» se convirtió en imagen icónica del siglo XX. <span class="ep dc">DC</span></p>
-
-      <p>El impacto fue inmediato: sanciones occidentales, crisis diplomática, paralización de las reformas hasta el «tour del sur» de Deng en 1992. <span class="ep dc">DC</span> El legado de Tiananmén para la política interna china es el límite rojo que el PCCh mantiene hasta hoy: prosperidad económica a cambio de control político total. <span class="ep int">Int</span></p>
-    </div>
-
-    <div class="pull-quote">
-      «Deng Xiaoping fue el arquitecto de las reformas que sacaron a más de 800 millones de personas de la pobreza. También fue quien ordenó los tanques en Tiananmén.»
-      <span class="pull-source">— CFR Education, «China Under Mao and Deng», 2025</span>
-    </div>
-
-    <div class="meeg-block">
-      <div class="meeg-title">Evaluación Epistémica MEEE-G — Era Deng y Tiananmén</div>
-      <table class="meeg-table">
-        <thead>
-          <tr><th>Dimensión</th><th>Afirmación evaluada</th><th>Estatus y fundamento</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Éxito de las ZEE</td>
-            <td>Las Zonas Económicas Especiales fueron el motor del crecimiento chino</td>
-            <td><span class="ep ip">IP</span> Factor central documentado, aunque el rol de la mano de obra barata, la inversión de la diáspora y la reforma agraria previa son igualmente relevantes.</td>
-          </tr>
-          <tr>
-            <td>Muertos en Tiananmén</td>
-            <td>Varios centenares a miles de personas murieron el 4 de junio de 1989</td>
-            <td><span class="ep dc">DC</span> Cables diplomáticos del gobierno chino desclasificados en Hong Kong estiman 10.000; cables británicos apuntan a entre 2.600 y 3.000. El gobierno chino niega cualquier muerte en la propia plaza.</td>
-          </tr>
-          <tr>
-            <td>Decisión de reprimir</td>
-            <td>La decisión fue de Deng Xiaoping con apoyo de los «Ocho Ancianos»</td>
-            <td><span class="ep dc">DC</span> Documentado en los registros internos del PCCh analizados por Perry Link y Andrew Nathan en «The Tiananmen Papers» (2001).</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="cr-block">
-      <div class="cr-label">🇨🇷 Relevancia para Costa Rica — Reformas Deng y Tiananmén</div>
-      <p>La apertura económica china de los años 80 estableció los mecanismos que décadas después harían de China el principal mercado de exportación de Costa Rica. <span class="ep ip">IP</span> El establecimiento de relaciones diplomáticas entre Costa Rica y la República Popular de China en 2007 —con ruptura de vínculos con Taiwán— fue la culminación de una alineación económica estructural que hunde sus raíces en las reformas de Deng.</p>
-      <p>El precedente de Tiananmén también es relevante como referencia en los debates costarricenses sobre derechos humanos, comercio y el balance entre crecimiento económico y libertades civiles en las relaciones bilaterales. <span class="ep int">Int</span></p>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════ -->
-  <!-- ETAPA VII: ASCENSO GLOBAL -->
-  <!-- ══════════════════════════════════════════ -->
-  <section class="epoch" id="ascenso">
-    <div class="epoch-header">
-      <div class="epoch-number">Etapa VII</div>
-      <h2>El Ascenso Global: de Jiang Zemin a los Juegos Olímpicos</h2>
-      <div class="epoch-years">1989 – 2012</div>
-    </div>
-    <p class="epoch-lead">
-      China integra la OMC, acoge los Juegos Olímpicos de 2008 y se convierte en la segunda economía mundial. El modelo: capitalismo de Estado bajo monopolio político de partido único.
-    </p>
-
-    <div class="sub-section">
-      <h3>El Tour del Sur de Deng y el Relanzamiento (1992–1997)</h3>
-      <p>En 1992, Deng Xiaoping —retirado formalmente— realizó una gira por Shenzhen, Zhuhai y Shanghái declarando que «el desarrollo es la verdad absoluta» y reinstalando las reformas paralizadas tras Tiananmén. <span class="ep dc">DC</span> El liderazgo de Jiang Zemin, que había ganado el poder gracias a su gestión en Shanghái, impulsó una economía de mercado bajo dirección del partido que se legitimó con el crecimiento: el PIB chino creció a tasas de entre el 8 y 10% anual durante la siguiente década. <span class="ep dc">DC</span></p>
-
-      <p>En 1997, Deng Xiaoping murió y Hong Kong fue devuelta a China bajo el principio «un país, dos sistemas». Macao siguió en 1999. <span class="ep dc">DC</span></p>
-
-      <h4>La Adhesión a la OMC (2001) y el «Taller del Mundo»</h4>
-      <p>La adhesión de China a la Organización Mundial del Comercio en diciembre de 2001, tras quince años de negociaciones, fue el punto de inflexión que integró plenamente a China en el sistema económico global. <span class="ep dc">DC</span> En menos de una década, China se convirtió en el mayor exportador del mundo y en el principal acreedor de Estados Unidos. <span class="ep dc">DC</span> El crecimiento masivo de la manufactura china, basada en mano de obra barata y subsidios estatales, reconfiguró las cadenas de suministro globales.</p>
-
-      <p>La era de Hu Jintao (2002–2012) fue de consolidación interna y proyección exterior más cautelosa. El eslogan «sociedad armoniosa» intentaba gestionar las crecientes desigualdades entre costa e interior, entre urbano y rural. <span class="ep dc">DC</span> Los Juegos Olímpicos de Pekín en 2008 fueron la declaración simbólica del regreso de China a la primera línea global —la misma narrativa del fin del siglo de humillación. <span class="ep int">Int</span></p>
-    </div>
-
-    <div class="meeg-block">
-      <div class="meeg-title">Evaluación Epistémica MEEE-G — Ascenso 1989–2012</div>
-      <table class="meeg-table">
-        <thead>
-          <tr><th>Dimensión</th><th>Afirmación evaluada</th><th>Estatus y fundamento</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Modelo de desarrollo</td>
-            <td>El «milagro económico chino» es reproducible por otros países</td>
-            <td><span class="ep h">H</span> Debate activo en economía del desarrollo. Las condiciones específicas (tamaño de mercado, cultura confuciana, diáspora, Estado fuerte) dificultan la replicación directa.</td>
-          </tr>
-          <tr>
-            <td>OMC y comercio</td>
-            <td>La adhesión a la OMC fue el principal factor del crecimiento exportador</td>
-            <td><span class="ep ip">IP</span> Factor necesario; los economistas debaten si el «dividendo demográfico» y la inversión extranjera directa fueron igualmente decisivos.</td>
-          </tr>
-          <tr>
-            <td>Juegos Olímpicos 2008</td>
-            <td>Los Juegos fueron una declaración geopolítica, no solo deportiva</td>
-            <td><span class="ep int">Int</span> Consenso amplio entre analistas, pero la intención explícita del gobierno chino en ese sentido es documentable y declarada.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- ══════════════════════════════════════════ -->
-  <!-- ETAPA VIII: ERA XI JINPING -->
-  <!-- ══════════════════════════════════════════ -->
-  <section class="epoch" id="xi">
-    <div class="epoch-header">
-      <div class="epoch-number">Etapa VIII</div>
-      <h2>La Era Xi Jinping: el «Sueño Chino» y la Nueva Gran Potencia</h2>
-      <div class="epoch-years">2012 – 2026</div>
-    </div>
-    <p class="epoch-lead">
-      Xi Jinping asume en 2012 como el líder más poderoso de China desde Mao. La narrativa articuladora es la «gran rejuvenación de la nación china». La herramienta: concentración sin precedentes de poder político, control digital masivo y proyección externa global.
-    </p>
-
-    <div class="sub-section">
-      <h3>Consolidación del Poder (2012–2017)</h3>
-      <p>Al asumir como Secretario General en noviembre de 2012, Xi Jinping realizó su primer acto público relevante en una exposición de historia china que comenzaba con la Primera Guerra del Opio. Declaró su visión: el «Sueño Chino» de la rejuvenación nacional. <span class="ep dc">DC</span> La narrativa era directa: el siglo de humillación terminó; corresponde ahora recuperar el lugar que China siempre tuvo en el mundo.</p>
-
-      <p>La campaña anticorrupción que Xi lanzó en 2013 procesó a más de un millón de funcionarios, incluyendo dos docenas de ministros y varios generales. <span class="ep dc">DC</span> Sus críticos la ven como mecanismo de purgación de rivales tanto como combate real a la corrupción. <span class="ep int">Int</span> En 2017, el «Pensamiento de Xi Jinping sobre el Socialismo con Características Chinas para una Nueva Era» fue incorporado a la Constitución del PCCh —el mismo estatus que el pensamiento de Mao. <span class="ep dc">DC</span></p>
-
-      <h4>La Iniciativa de la Franja y la Ruta (Belt and Road Initiative, 2013–)</h4>
-      <p>Anunciada en 2013, la Iniciativa de la Franja y la Ruta (BRI) es el proyecto de infraestructura y conectividad más ambicioso de la historia contemporánea. <span class="ep dc">DC</span> Abarca más de 150 países y organizaciones internacionales, con inversiones estimadas en más de 1 billón de dólares hasta 2024. <span class="ep dc">DC</span> Combina corredores terrestres de la Ruta de la Seda con una ruta marítima del siglo XXI. Sus críticos señalan el riesgo de «trampa de deuda» para países receptores; sus defensores destacan el cierre de la brecha de infraestructura en países en desarrollo. <span class="ep int">Int</span></p>
-
-      <h4>El Fin de los Límites de Mandato y el Tercer Término (2018–2023)</h4>
-      <p>En marzo de 2018, la Asamblea Popular Nacional eliminó el límite de dos mandatos presidenciales, abriendo el camino para la presidencia indefinida de Xi Jinping. <span class="ep dc">DC</span> En octubre de 2022, el XX Congreso Nacional del PCCh renovó el mandato de Xi por un tercer período sin precedente en la era post-maoísta. <span class="ep dc">DC</span></p>
-
-      <h4>Xinjiang, Hong Kong y la Cuestión de los Derechos Humanos</h4>
-      <p>A partir de 2017, evidencias documentadas —incluyendo documentos internos del PCCh filtrados y declaraciones de testigos— indican la detención de más de un millón de uigures y otras minorías musulmanas en Xinjiang en «campos de reeducación». <span class="ep dc">DC</span> Múltiples gobiernos occidentales y académicos han calificado estas políticas de crímenes contra la humanidad; el gobierno chino las describe como medidas antiterroristas y de formación vocacional. <span class="ep ip">IP</span></p>
-
-      <p>En 2020, en respuesta a las protestas masivas de 2019, Pekín impuso la Ley de Seguridad Nacional en Hong Kong, desmantelando la oposición política y erosionando el marco «un país, dos sistemas». <span class="ep dc">DC</span> Más de 10.000 personas fueron arrestadas. <span class="ep dc">DC</span></p>
-
-      <h4>COVID-19, «Cero COVID» y el Giro Posterior (2020–2023)</h4>
-      <p>China fue el origen del brote de SARS-CoV-2 en Wuhan a finales de 2019. <span class="ep dc">DC</span> El debate sobre si fue de origen natural o fuga de laboratorio permanece abierto y es objeto de investigación activa; ninguna conclusión es definitiva. <span class="ep h">H</span> La política «Cero COVID» permitió a China contener el virus inicialmente mejor que Occidente, pero generó costos económicos y sociales enormes y protestas masivas en 2022. <span class="ep dc">DC</span> El gobierno la abandonó abruptamente en diciembre de 2022.</p>
-
-      <h4>Las Tensiones con Occidente y el Eje China-Rusia (2022–2026)</h4>
-      <p>La declaración de «asociación sin límites» entre Xi Jinping y Vladimir Putin en febrero de 2022 —días antes de la invasión rusa de Ucrania— reconfiguró las relaciones geopolíticas globales. <span class="ep dc">DC</span> China no ha condenado la invasión en foros internacionales y ha mantenido relaciones comerciales con Rusia pese a las sanciones occidentales. <span class="ep dc">DC</span> La guerra comercial tecnológica con Estados Unidos —controles de exportación de semiconductores, restricciones a Huawei, prohibición de TikTok— se intensificó. <span class="ep dc">DC</span></p>
-
-      <p>En Taiwan, China ha aumentado sistemáticamente las incursiones en la zona de identificación de defensa aérea, con más de 900 entradas de aeronaves militares en 2023. <span class="ep dc">DC</span> Xi ha declarado que la reunificación con Taiwan es un objetivo irrenunciable y que no excluye el uso de la fuerza. <span class="ep dc">DC</span></p>
-    </div>
-
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-year">Nov 2012</div>
-        <p>Xi Jinping asume como Secretario General del PCCh. Anuncia el «Sueño Chino» de rejuvenación nacional.</p>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-year">2013</div>
-        <p>Lanzamiento de la Iniciativa de la Franja y la Ruta (BRI). China se convierte en segunda economía mundial.</p>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-year">Mar 2018</div>
-        <p>Eliminación constitucional del límite de mandatos presidenciales.</p>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-year">Jun 2020</div>
-        <p>Ley de Seguridad Nacional en Hong Kong. Fin efectivo del «un país, dos sistemas».</p>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-year">Feb 2022</div>
-        <p>«Asociación sin límites» Rusia-China, días antes de la invasión de Ucrania.</p>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-year">Oct 2022</div>
-        <p>XX Congreso: Xi obtiene tercer mandato. El más poderoso desde Mao.</p>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-year">2024–2025</div>
-        <p>Intensificación de la guerra tecnológica EE.UU.-China. Crisis del sector inmobiliario. Desaceleración económica y deflación.</p>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-year">Feb 2026</div>
-        <p>Año Nuevo Lunar: inicio del Año del Caballo de Fuego (Bǐng Wǔ). El primero desde 1966.</p>
-      </div>
-    </div>
-
-    <div class="meeg-block">
-      <div class="meeg-title">Evaluación Epistémica MEEE-G — Era Xi Jinping</div>
-      <table class="meeg-table">
-        <thead>
-          <tr><th>Dimensión</th><th>Afirmación evaluada</th><th>Estatus y fundamento</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Modelo político</td>
-            <td>Xi es el líder más poderoso de China desde Mao</td>
-            <td><span class="ep dc">DC</span> Consenso entre analistas de CFR, USIP, RAND; comparación sustentada en acumulación de cargos y eliminación de contrapesos institucionales.</td>
-          </tr>
-          <tr>
-            <td>BRI y deuda</td>
-            <td>La BRI es una trampa de deuda deliberada</td>
-            <td><span class="ep h">H</span>/<span class="ep int">Int</span> Evidencias mixtas. Algunos casos (Sri Lanka, Zambia) muestran estrés de deuda; el análisis global de Johns Hopkins (2021) no confirmó trampa sistemática.</td>
-          </tr>
-          <tr>
-            <td>Xinjiang</td>
-            <td>Las políticas en Xinjiang constituyen crímenes contra la humanidad</td>
-            <td><span class="ep ip">IP</span> Clasificación adoptada por EE.UU., Parlamento Europeo y académicos; China lo niega. La ONU (2022) señaló «violaciones graves», sin usar la clasificación de genocidio.</td>
-          </tr>
-          <tr>
-            <td>Crisis económica</td>
-            <td>China enfrenta en 2024–2026 una desaceleración estructural prolongada</td>
-            <td><span class="ep dc">DC</span> Deflación, crisis inmobiliaria (Evergrande), desempleo juvenil récord de 21%+ en 2023. Datos de Bloomberg, IMF, BM. La profundidad y duración son objeto de debate.</td>
-          </tr>
-          <tr>
-            <td>Origen de COVID-19</td>
-            <td>SARS-CoV-2 se originó en Wuhan</td>
-            <td><span class="ep dc">DC</span> (origen geográfico). La hipótesis de origen natural vs. fuga de laboratorio permanece sin resolución definitiva en la comunidad científica. <span class="ep h">H</span> (mecanismo exacto).</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="ade-block">
-      <div class="ade-title">Lectura Dinámica ADD — Era Xi Jinping</div>
-      <div class="ade-grid">
-        <div class="ade-cell">
-          <div class="ade-cell-label">Atractor dominante</div>
-          <p>«Gran rejuvenación de la nación china» como atractor simbólico que organiza todo el campo de política interna y exterior. El siglo de humillación como dispositivo retórico que legitima el control.</p>
-        </div>
-        <div class="ade-cell">
-          <div class="ade-cell-label">Tensión estructural</div>
-          <p>Entre la necesidad de crecimiento económico continuo (legitimidad instrumental) y el control político creciente que inhibe la innovación, la libre circulación de información y el capital extranjero.</p>
-        </div>
-        <div class="ade-cell">
-          <div class="ade-cell-label">Bifurcación en curso</div>
-          <p>China enfrenta decisiones sin retorno en: modelo económico (expansión vs. repliegue), Taiwan (disuasión vs. acción militar), relación con Occidente (confrontación vs. interdependencia).</p>
-        </div>
-        <div class="ade-cell">
-          <div class="ade-cell-label">Colonización inversa (ADD)</div>
-          <p>La BRI como proyección de lógicas sistémicas chinas (capitalismo de Estado, estándares tecnológicos, vigilancia digital) hacia sistemas periféricos. Inversión de la dirección del mecanismo que sufrió China en el siglo XIX.</p>
-        </div>
-        <div class="ade-cell">
-          <div class="ade-cell-label">Habitus e identidad</div>
-          <p>El «Sueño Chino» opera sobre un habitus colectivo de humillación histórica y orgullo civilizatorio. Xi lo activa como capital simbólico para sostener la clausura organizacional del PCCh frente a críticas externas.</p>
-        </div>
-        <div class="ade-cell">
-          <div class="ade-cell-label">Régimen actual</div>
-          <p>Turbulento-estable: el sistema político interno mantiene cohesión autoritaria elevada; el sistema económico externo afronta perturbaciones crecientes (guerra tecnológica, deflación, crisis inmobiliaria). Señales de bifurcación a 5–10 años.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════ -->
-  <!-- ETAPA IX: AÑO NUEVO CHINO 2026 -->
-  <!-- ══════════════════════════════════════════ -->
-  <section class="epoch" id="año-nuevo">
-    <div class="epoch-header">
-      <div class="epoch-number">Etapa IX · Cierre</div>
-      <h2>La Velada del Año del Caballo de Fuego: 17 de Febrero de 2026</h2>
-      <div class="epoch-years">Festival de Primavera 2026</div>
-    </div>
-    <p class="epoch-lead">
-      El 17 de febrero de 2026, la luna nueva sobre el horizonte del Pacífico señaló el inicio del Año del Caballo de Fuego (Bǐng Wǔ 丙午) — una combinación que no se repetía desde 1966, el año exacto en que Mao lanzó la Revolución Cultural. La historia pesa en los símbolos.
-    </p>
-
-    <div class="sub-section">
-      <h3>El Festival de Primavera como fenómeno civilizatorio</h3>
-      <p>El Año Nuevo Lunar —conocido en China como el Festival de Primavera (<em>Chūnjié</em>, 春节)— es la festividad más importante del mundo por número de celebrantes y la mayor migración humana anual registrada. En 2026, las autoridades chinas estimaron cerca de tres mil millones de desplazamientos durante el período de la «gran migración» (<em>chūnyùn</em>). <span class="ep dc">DC</span></p>
-
-      <p>El origen del festival se remonta a la dinastía Shang (c. 1600–1046 a.C.) como ritual de veneración a antepasados y deidades en el cambio de año. <span class="ep dc">DC</span> A través de las sucesivas dinastías, absorbió elementos cosmológicos, festivos y familiares. En 1912, la República adoptó el calendario gregoriano y rebautizó la celebración como «Festival de Primavera», aunque la fecha siguió rigiéndose por el calendario lunisolar. <span class="ep dc">DC</span> En 2024, la UNESCO lo inscribió en la Lista del Patrimonio Cultural Inmaterial de la Humanidad. <span class="ep dc">DC</span></p>
-
-      <h4>El Año del Caballo de Fuego: simbolismo y contexto</h4>
-      <p>El zodíaco chino combina dos ciclos: los doce animales (rata, buey, tigre, conejo, dragón, serpiente, caballo, oveja, mono, gallo, perro, cerdo) y los cinco elementos (madera, fuego, tierra, metal, agua). <span class="ep dc">DC</span> La combinación Caballo-Fuego ocurre una vez cada 60 años. Culturalmente se asocia con energía desbordante, impulsividad, cambios rápidos y transformaciones sociales. <span class="ep dc">DC</span></p>
-
-      <p>Históricamente significativo: el último Año del Caballo de Fuego (1966) coincidió con el inicio de la Revolución Cultural. En 1906 (el anterior), China vivía la crisis final de los Qing y la primera revolución fallida de Sun Yat-sen. <span class="ep int">Int</span> Esta coincidencia histórica no implica causalidad; forma parte del relato cultural que rodea la festividad. <span class="ep int">Int</span></p>
-
-      <p>La Velada Gala del Festival de Primavera 2026 —retransmisión de la televisión central china (CCTV) que reúne a más de mil millones de espectadores— fue seguida de la noche del 16 al 17 de febrero con los elementos rituales habituales: cena familiar de reunión, encendido de fuegos artificiales a la medianoche, distribución de sobres rojos con dinero (<em>hóngbāo</em>), limpiezas rituales del hogar y votos de prosperidad. <span class="ep dc">DC</span></p>
-
-      <h4>China en febrero de 2026: la celebración en contexto</h4>
-      <p>El Año del Caballo de Fuego llegó con China procesando simultáneamente: la continuación de la guerra comercial tecnológica con Estados Unidos, las presiones deflacionarias en la economía interna, las tensiones no resueltas en el estrecho de Taiwan, los efectos de la crisis inmobiliaria y el inicio de su vigésimo quinto año con Xi Jinping como secretario general del PCCh. <span class="ep dc">DC</span></p>
-
-      <p>El año de nacimiento del último Caballo de Fuego —1966— había registrado un descenso inusual en la natalidad china, atribuido en parte a la superstición de que las niñas nacidas en ese año tendrían caracteres ingobernables. <span class="ep dc">DC</span> Investigaciones posteriores vincularon ese descenso a factores concretos de la Revolución Cultural: hambre, separación familiar, incertidumbre. <span class="ep dc">DC</span> En 2026, la combinación de baja tasa de natalidad estructural —heredada de la política del hijo único— y el estigma histórico del Caballo de Fuego generó en redes sociales chinas un debate cultural activo sobre si habría un nuevo descenso de nacimientos. <span class="ep ip">IP</span></p>
-    </div>
-
-    <div class="meeg-block">
-      <div class="meeg-title">Evaluación Epistémica MEEE-G — Año Nuevo 2026 / Año del Caballo de Fuego</div>
-      <table class="meeg-table">
-        <thead>
-          <tr><th>Dimensión</th><th>Afirmación evaluada</th><th>Estatus y fundamento</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Fecha</td>
-            <td>El Año Nuevo Lunar 2026 comenzó el 17 de febrero</td>
-            <td><span class="ep dc">DC</span> Verificado por Smithsonian Institution, EarthSky, TimeAndDate y múltiples fuentes astronómicas. La luna nueva ocurrió a las 12:01 UTC del 17 de febrero.</td>
-          </tr>
-          <tr>
-            <td>Animal del año</td>
-            <td>2026 es el Año del Caballo de Fuego (Bǐng Wǔ)</td>
-            <td><span class="ep dc">DC</span> Combinación que ocurre cada 60 años; última ocurrencia: 1966. Verificado por el ciclo lunisolar.</td>
-          </tr>
-          <tr>
-            <td>Audiencia de la Gala</td>
-            <td>La Gala del Festival reúne más de mil millones de espectadores</td>
-            <td><span class="ep ip">IP</span> Cifra difundida por CCTV y medios estatales. La verificación independiente es difícil; el rango real podría ser menor.</td>
-          </tr>
-          <tr>
-            <td>Simbolismo</td>
-            <td>El Caballo de Fuego presagia un año de cambios tumultuosos</td>
-            <td><span class="ep int">Int</span>/<span class="ep c">C</span> Tradición cultural sin base causal verificable. Es una construcción de significado (<em>habitus</em> simbólico), no predicción.</td>
-          </tr>
-          <tr>
-            <td>Natalidad</td>
-            <td>El año del Caballo de Fuego producirá un descenso en nacimientos</td>
-            <td><span class="ep h">H</span> Observado en 1966 con causas confundidas. Para 2026 es hipótesis no verificada aún.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="ade-block">
-      <div class="ade-title">Lectura Dinámica ADD — Año Nuevo como marcador civilizatorio</div>
-      <div class="ade-grid">
-        <div class="ade-cell">
-          <div class="ade-cell-label">Recursividad temporal</div>
-          <p>El ciclo de 60 años del calendario lunisolar es una estructura recursiva que organiza el tiempo civilizatorio chino. El regreso del Caballo de Fuego es procesado culturalmente en relación a 1966 —lo que activa memorias colectivas de disrupción.</p>
-        </div>
-        <div class="ade-cell">
-          <div class="ade-cell-label">Capital simbólico</div>
-          <p>La Gala del Festival de Primavera es el mayor escenario de producción de capital simbólico estatal del año: el PCCh controla su narrativa para proyectar prosperidad, unidad nacional y legitimidad.</p>
-        </div>
-        <div class="ade-cell">
-          <div class="ade-cell-label">Acoplamiento global</div>
-          <p>El Festival es ya un evento global: celebraciones en 180 países, Chinatowns en los cinco continentes, y la dimensión del <em>hóngbāo</em> digital (Alipay/WeChat) que moviliza miles de millones de dólares en transferencias en horas.</p>
-        </div>
-        <div class="ade-cell">
-          <div class="ade-cell-label">Devenir escalar</div>
-          <p>El mismo evento se procesa simultáneamente en la escala familiar (reunión, comida, regalos), la escala nacional (legitimación del régimen) y la escala global (proyección de la cultura china, diplomacia pública, relaciones diaspóricas).</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════ -->
-  <!-- SECCIÓN X: COSTA RICA -->
-  <!-- ══════════════════════════════════════════ -->
-  <section class="epoch" id="cr">
-    <div class="epoch-header">
-      <div class="epoch-number">Sección X · Relevancia Integrada</div>
-      <h2>China como Actor Sistémico: Relevancia para Costa Rica</h2>
-      <div class="epoch-years">Análisis de nodo periférico acoplado</div>
-    </div>
-    <p class="epoch-lead">
-      Costa Rica no es actor ni testigo pasivo de la historia china: es un nodo periférico cuya economía, instituciones y cultura están estructuralmente acopladas a las dinámicas que este especial ha recorrido.
-    </p>
-
-    <div class="sub-section">
-      <h3>El Reconocimiento Diplomático de 2007 y sus consecuencias</h3>
-      <p>En junio de 2007, Costa Rica rompió relaciones con la República de China (Taiwán) y estableció vínculos diplomáticos con la República Popular China, convirtiéndose en el primer país centroamericano en hacerlo. <span class="ep dc">DC</span> La transición fue negociada en secreto y anunciada de forma sorpresiva. El argumento central fue el peso comercial de la RPC: China era ya entonces el principal destino de las exportaciones de microchips de Intel desde Costa Rica. <span class="ep dc">DC</span></p>
-
-      <p>El acuerdo incluyó la construcción del Estadio Nacional de Costa Rica, inaugurado en 2011, donado por el gobierno chino. <span class="ep dc">DC</span> Las relaciones bilaterales se profundizaron con la adhesión de Costa Rica a la BRI en 2018 y la firma de un Tratado de Libre Comercio en 2011 que entró en vigor en 2013. <span class="ep dc">DC</span></p>
-
-      <h3>Estructura del Intercambio Comercial</h3>
-      <p>China es el principal socio comercial de Costa Rica. El patrón de intercambio refleja la asimetría estructural de un nodo periférico acoplado: Costa Rica exporta principalmente commodities y dispositivos electrónicos de alta tecnología; importa manufacturas diversificadas de alto volumen. <span class="ep dc">DC</span> Esta estructura genera una vulnerabilidad específica: la competencia de manufactura china desplazó empleos en sectores textiles y manufactureros locales durante los años 2000. <span class="ep ip">IP</span></p>
-
-      <h3>Vectores de Influencia en Múltiples Escalas</h3>
-
-      <h4>Político-Institucional</h4>
-      <p>Los debates sobre derechos humanos en China (Xinjiang, Hong Kong) crean tensiones para la diplomacia costarricense, que debe equilibrar su tradición de política exterior basada en derechos humanos y su dependencia económica del mercado chino. <span class="ep ip">IP</span> Costa Rica ha evitado declaraciones críticas directas en foros multilaterales. <span class="ep dc">DC</span></p>
-
-      <h4>Económico</h4>
-      <p>La desaceleración económica china de 2024–2025 redujo la demanda de productos costarricenses. <span class="ep dc">DC</span> La guerra tecnológica EE.UU.-China genera oportunidades para Costa Rica como posible eslabón de relocalización de manufactura tecnológica («nearshoring»), dado que empresas buscan alternativas a China dentro de zonas de libre comercio con Estados Unidos. <span class="ep ip">IP</span></p>
-
-      <h4>Tecnológico-Digital</h4>
-      <p>La competencia entre Huawei (5G chino) y alternativas occidentales tiene implicaciones directas para la infraestructura digital costarricense: la decisión de política tecnológica tiene consecuencias de seguridad y de acceso a mercados. <span class="ep ip">IP</span></p>
-
-      <h4>Cultural y Diaspórico</h4>
-      <p>La comunidad chino-costarricense, establecida desde finales del siglo XIX, es uno de los grupos migratorios más antiguos y económicamente integrados del país. <span class="ep dc">DC</span> El Festival de Primavera es celebrado en San José, en particular en el barrio chino del centro. <span class="ep dc">DC</span> La ampliación de la diáspora reciente por migración económica agrega nuevas capas de acoplamiento cultural. <span class="ep dc">DC</span></p>
-
-      <h4>Geopolítico</h4>
-      <p>La pregunta sobre Taiwán es la más delicada: si China intentara una acción militar sobre Taiwán, Costa Rica —con relaciones formales con la RPC y sin reconocimiento de Taiwán— enfrentaría una crisis de legitimidad diplomática y potenciales disrupciones en cadenas de suministro globales vinculadas a semiconductores taiwaneses. <span class="ep h">H</span></p>
-    </div>
-
-    <div class="cr-block">
-      <div class="cr-label">🇨🇷 Síntesis: Costa Rica y China en el Año del Caballo de Fuego</div>
-      <p>La celebración del Año Nuevo Chino del 17 de febrero de 2026 no fue solo un evento cultural lejano para Costa Rica. Es el marcador simbólico de un año en que la segunda economía mundial enfrenta desafíos estructurales inéditos: deflación, crisis inmobiliaria, guerra tecnológica, presiones demográficas y tensiones geopolíticas elevadas. <span class="ep dc">DC</span></p>
-      <p>Para un nodo periférico acoplado como Costa Rica, estos desafíos se traducen en: volatilidad en los términos de intercambio comercial, oportunidades de nearshoring tecnológico, riesgo de encarecimiento de importaciones si la economía china se contrae y restricciones a las exportaciones costarricenses si el modelo chino de desarrollo se repliega hacia la autosuficiencia. <span class="ep ip">IP</span></p>
-      <p>La historia que recorre este especial —del opio de 1839 al Caballo de Fuego de 2026— revela que China nunca ha sido ajena a Costa Rica: es el sistema del que provienen los abuelos de miles de costarricenses, el país que construyó el estadio donde juega la selección, el socio que compra los microchips que fabricamos y el actor geopolítico cuyas decisiones impactan los precios que pagamos. <span class="ep int">Int</span></p>
-    </div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- FUENTES -->
-  <div class="sources-block" id="fuentes">
-    <h3>Fuentes (Formato APA 7)</h3>
-    <ol>
-      <li>Anthony, D. W. (2007). <em>The horse, the wheel, and language.</em> Princeton University Press.</li>
-      <li>Becker, J. (1996). <em>Hungry ghosts: Mao's secret famine.</em> Free Press.</li>
-      <li>Britannica, The Editors of. (2026). Taiping Rebellion. <em>Encyclopædia Britannica.</em> https://www.britannica.com/event/Taiping-Rebellion</li>
-      <li>CFR Education. (2025). <em>China under Mao Zedong and Deng Xiaoping.</em> Council on Foreign Relations. https://education.cfr.org/learn/reading/china-mao-zedong-deng-xiaoping</li>
-      <li>CFR Education. (2023). <em>China under Xi Jinping.</em> Council on Foreign Relations. https://education.cfr.org/learn/reading/china-xi-jinping</li>
-      <li>Council on Foreign Relations. (2023). <em>China's massive Belt and Road Initiative.</em> https://www.cfr.org/backgrounders/chinas-massive-belt-and-road-initiative</li>
-      <li>Dikötter, F. (2010). <em>Mao's great famine: The history of China's most devastating catastrophe.</em> Walker & Company.</li>
-      <li>Dikötter, F. (2016). <em>The cultural revolution: A people's history, 1962–1976.</em> Bloomsbury.</li>
-      <li>EarthSky. (2026, February 17). Happy Lunar New Year 2026! The Year of the Horse. https://earthsky.org/human-world/chinese-new-year-lunar-new-year/</li>
-      <li>Fairbank, J. K. (1994). <em>China: A new history.</em> Harvard University Press.</li>
-      <li>Hanes, W. T., & Sanello, F. (2002). <em>The opium wars.</em> Sourcebooks.</li>
-      <li>History.com Editors. (2025). Taiping Rebellion: Causes, definition & death toll. <em>HISTORY.</em> https://www.history.com/topics/asian-history/taiping-rebellion</li>
-      <li>National Archives (UK). (2023). <em>Hong Kong and the Opium Wars.</em> https://www.nationalarchives.gov.uk/education/resources/hong-kong-and-the-opium-wars/</li>
-      <li>Nathan, A. J., & Link, P. (2001). <em>The Tiananmen papers.</em> PublicAffairs.</li>
-      <li>Office of the Historian, U.S. Department of State. (2024). The opening to China part I: The First Opium War. https://history.state.gov/milestones/1830-1860/china-1</li>
-      <li>Platt, S. R. (2012). <em>Autumn in the heavenly kingdom: China, the West, and the epic story of the Taiping Civil War.</em> Knopf.</li>
-      <li>Smithsonian Institution. (2026). <em>2026: Year of the Horse.</em> https://www.si.edu/spotlight/lunar-year-horse</li>
-      <li>The Diplomat, & Bloomberg. (2025). China's dual circulation strategy and economic indicators. Múltiples despachos 2024–2025.</li>
-      <li>USIP. (2023). <em>Implications of Xi's power concentration for Chinese foreign policy.</em> U.S. Institute of Peace. https://www.usip.org/publications/2023/12/implications-xis-power-concentration-chinese-foreign-policy</li>
-      <li>Waley, A. (1958). <em>The opium war through Chinese eyes.</em> George Allen & Unwin.</li>
-      <li>Wikipedia contributors. (2026). Chinese Civil War. <em>Wikipedia.</em> https://en.wikipedia.org/wiki/Chinese_Civil_War</li>
-      <li>Wikipedia contributors. (2026). First Opium War. <em>Wikipedia.</em> https://en.wikipedia.org/wiki/First_Opium_War</li>
-      <li>Wikipedia contributors. (2026). History of the People's Republic of China. <em>Wikipedia.</em> https://en.wikipedia.org/wiki/History_of_the_People%27s_Republic_of_China</li>
-      <li>Wikipedia contributors. (2026). Reform and opening up. <em>Wikipedia.</em> https://en.wikipedia.org/wiki/Reform_and_opening_up</li>
-      <li>Wikipedia contributors. (2026). Belt and Road Initiative. <em>Wikipedia.</em> https://en.wikipedia.org/wiki/Belt_and_Road_Initiative</li>
-    </ol>
+  <div class="add-block">
+    <div class="subsec-label">Lectura Dinámica &middot; ADD</div>
+    <ul>
+      <li><strong>Perturbación externa:</strong> Las Guerras del Opio son la perturbación más severa recibida por el sistema chino desde la conquista mongola del siglo XIII. La diferencia es que la brecha no es de número sino de tecnología: cañones de vapor vs. artillería de bronce.</li>
+      <li><strong>Colapso de la clausura organizacional:</strong> El sistema Qing había operado bajo el principio de que China era el centro del orden mundial. Los tratados desiguales destruyen esta clausura: el Estado pierde la capacidad de definir unilateralmente los términos de su relación con el entorno.</li>
+      <li><strong>Nuevo atractor forzado:</strong> <em>Las "concesiones" en los puertos de tratado crean enclaves sistémicos donde la lógica capitalista industrial opera dentro del cuerpo del Imperio, generando tensiones acopladas imposibles de desacoplar.</em></li>
+      <li><strong>Bifurcación pendiente:</strong> El sistema Qing no colapsa aún —su clausura organizacional sobrevive formalmente— pero entra en régimen de turbulencia sostenida que durará hasta 1912.</li>
+    </ul>
   </div>
 
-  <!-- DISCLAIMER METODOLÓGICO -->
-  <div class="disclaimer">
-    <strong>Nota metodológica obligatoria:</strong> El presente análisis combina evaluación epistémica explicacionista (MEEE-G, inspirada en la epistemología de Alvin I. Goldman) y análisis dinámico antropológico (ADE, según el marco de Alfredo Montero Fonseca). Las afirmaciones han sido clasificadas según su estatus epistémico: <strong>[DC]</strong> dato confirmado · <strong>[IP]</strong> inferencia plausible · <strong>[H]</strong> hipótesis · <strong>[Int]</strong> interpretación · <strong>[C]</strong> conjetura. El análisis no constituye predicción determinista ni recomendación de política pública. Las lecturas dinámicas ADD son herramientas heurísticas para la comprensión de procesos, no leyes causales de la historia. ANCA-ADE opera bajo los principios del falibilismo explícito y el explicacionismo comparativo; toda conclusión aquí presentada está sujeta a revisión ante nueva evidencia.
+  <div class="cr-block">
+    <div class="subsec-label">Relevancia para Costa Rica</div>
+    <p>Costa Rica en 1840 era una república de apenas 20 años, exportando café al mercado mundial por primera vez. El mismo ciclo de expansión capitalista europeo que llevó los cañones a Cantón fue el que convirtió el grano costarricense en mercancía de exportación.</p>
+    <p><strong>La lección sistémica:</strong> Ningún Estado, por más soberano que se declare, está inmunizado frente a la asimetría tecnológica cuando el sistema mundial se reconfigura. La diferencia entre Costa Rica y China en este período fue, en parte, el tipo de inserción que cada uno logró negociar —o que le fue impuesto.</p>
+  </div>
+</div>
+<hr class="divider">
+
+<!-- ============================================ -->
+<!-- ETAPA II: TAIPING Y AUTOFORTALECIMIENTO     -->
+<!-- ============================================ -->
+<div class="period" id="etapa-ii">
+  <div class="period-header">
+    <div class="period-dates">1850 – 1895 d.C.</div>
+    <h2>Etapa II &middot; El Caos Interior y el <em>Autofortalecimiento</em></h2>
   </div>
 
-</main>
+  <div class="resumen">
+    <p>Mientras las potencias extranjeras presionaban desde afuera, China ardía desde adentro. <span class="ep ep-DC">DC</span> La <strong>Rebelión Taiping</strong> (1850–1864) fue quizás la guerra civil más mortífera del siglo XIX: <strong>Hong Xiuquan</strong>, un aspirante a examinado que creyó haber recibido una visión divina, fundó el <em>Reino Celestial de la Gran Paz</em> y tomó Nankín —que rebautizó "Tianjing", la capital celestial— en 1853. Las estimaciones de muertos oscilan entre <strong>20 y 30 millones</strong>, una cifra que no se superaría en el mundo occidental hasta la Primera Guerra Mundial.</p>
 
-<!-- FOOTER -->
+    <p>La respuesta del Estado Qing fue reveladora de su debilidad: <span class="ep ep-DC">DC</span> no fue el ejército imperial sino <strong>milicias provinciales privadas</strong> —las de Zeng Guofan y Li Hongzhang— las que aplastaron a los Taiping. El poder real comenzaba a descentralizarse hacia los señores militares regionales, una tendencia que definiría la política china durante el siguiente siglo.</p>
+
+    <p>Del desastre emergió una respuesta modernizadora: el <strong>Movimiento de Autofortalecimiento</strong> (1861–1895). <span class="ep ep-DC">DC</span> Impulsado por Li Hongzhang y Zhang Zhidong, buscaba adoptar la tecnología occidental —arsenales, ferrocarriles, telégrafos, escuelas técnicas— sin alterar los valores confucianos. El lema era "conocimiento chino para el sustrato, saber occidental para la función." <span class="ep ep-IP">IP</span> Era una apuesta racional, pero subestimaba hasta qué punto la tecnología industrial es inseparable de las relaciones sociales que la producen.</p>
+
+    <p>La <strong>Primera Guerra Sino-Japonesa</strong> (1894–1895) liquidó estas esperanzas. <span class="ep ep-DC">DC</span> Japón —que había iniciado su modernización apenas en 1868 con la Restauración Meiji— destruyó en semanas la flota modernizada de Li Hongzhang. El <strong>Tratado de Shimonoseki</strong> (1895) obligó a China a ceder <strong>Taiwán</strong> y las islas Pescadores a Japón y pagar una indemnización de 200 millones de taeles de plata.</p>
+
+    <figure class="slide-inline">
+      <img src="../img/slide3-03.jpg" alt="Taiping y Autofortalecimiento: dinamica de colapso y respuesta sistemica — ANCA-ADD">
+      <figcaption>Rebelión Taiping y Movimiento de Autofortalecimiento &middot; Fuente: presentación ANCA-ADD, abril 2026</figcaption>
+    </figure>
+  </div>
+
+  <div class="meeg-block">
+    <div class="subsec-label">Análisis Crítico &middot; MEEE-G</div>
+    <ul>
+      <li><strong>Cifras de la Taiping:</strong> Los 20–30 millones de muertos son <span class="ep ep-DC">DC</span> en cuanto a rango, pero la imprecisión es grande: algunos historiadores dan cifras de hasta 50 millones incluyendo hambrunas y enfermedades asociadas. <span class="ep ep-H">H</span> La causalidad directa vs. indirecta es difícil de separar.</li>
+      <li><strong>Sobre el Autofortalecimiento:</strong> <span class="ep ep-Int">Int</span> Desde ADD no se trata de "modernización incompleta" sino de que toda tecnología industrial porta su propia clausura organizacional: no se puede importar el vapor sin importar también la lógica del capitalismo industrial.</li>
+      <li><strong>Sobre Japón:</strong> Si un Estado asiático "menor" había logrado modernizarse exitosamente en 27 años, la explicación de la debilidad china no podía ser racial ni geopolítica sino estructural. <span class="ep ep-IP">IP</span></li>
+    </ul>
+  </div>
+
+  <div class="add-block">
+    <div class="subsec-label">Lectura Dinámica &middot; ADD</div>
+    <ul>
+      <li><strong>Régimen de turbulencia sostenida:</strong> La Rebelión Taiping es el resultado de un sistema que no logra disipar la energía acumulada por las perturbaciones externas (guerras del opio) e internas (hambrunas, corrupción, sobrepoblación). El movimiento mesiánico es una bifurcación fallida: intenta crear un nuevo atractor pero carece de la base material para sostenerse.</li>
+      <li><strong>Descentralización como respuesta adaptativa:</strong> <em>El surgimiento de las milicias provinciales como actores de poder es una respuesta disipativa del sistema: delega capacidad de respuesta al entorno cuando el centro ya no puede gestionarla.</em> Esta descentralización resuelve la crisis Taiping pero siembra el problema de los señores de la guerra del siglo XX.</li>
+      <li><strong>El Autofortalecimiento como acoplamiento selectivo fallido:</strong> El fracaso ante Japón demuestra que los sistemas no se pueden acoplar a voluntad: los flujos tecnológicos arrastran sus propias condiciones sistémicas.</li>
+      <li><strong>1895 como bifurcación:</strong> La derrota ante Japón hace evidente incluso para las élites reformadoras dentro del sistema Qing que la clausura organizacional imperial ya no es viable. El sistema entra en su fase terminal.</li>
+    </ul>
+  </div>
+
+  <div class="cr-block">
+    <div class="subsec-label">Relevancia para Costa Rica</div>
+    <p>El Movimiento de Autofortalecimiento plantea una pregunta que Costa Rica sigue debatiendo: ¿es posible adoptar las herramientas del capitalismo global —tecnología, inversión, mercados— sin adoptar también sus lógicas sociales y políticas? La tensión entre "modernización selectiva" y transformación sistémica no es exclusiva de China.</p>
+    <p><strong>La pregunta ADD:</strong> <span class="ep ep-Int">Int</span> Costa Rica ha apostado históricamente por la inserción tecnológica (Intel, zona franca, turismo) manteniendo un tejido social relativamente autónomo. ¿Hasta cuándo esos dos sistemas pueden coexistir sin que el segundo devore al primero?</p>
+  </div>
+</div>
+<hr class="divider">
+
+<!-- ============================================ -->
+<!-- ETAPA III: FIN DEL IMPERIO                  -->
+<!-- ============================================ -->
+<div class="period" id="etapa-iii">
+  <div class="period-header">
+    <div class="period-dates">1895 – 1912 d.C.</div>
+    <h2>Etapa III &middot; El Ocaso Imperial: <em>Reformas, Bóxers y Revolución</em></h2>
+  </div>
+
+  <div class="resumen">
+    <p>La derrota ante Japón desencadenó una crisis de legitimidad sin precedentes. <span class="ep ep-DC">DC</span> En 1898, el joven emperador <strong>Guangxu</strong> apoyó las <strong>Reformas de los Cien Días</strong> —impulsadas por Kang Youwei y Liang Qichao— un programa que incluía modernizar el sistema educativo, crear un ejército moderno y transformar la monarquía en constitucional. Duró 103 días: la emperatriz viuda <strong>Cixi</strong> dio un golpe de Estado, encerró al emperador y ejecutó a seis de los principales reformadores.</p>
+
+    <p>El rechazo a la reforma desde el interior abrió el camino a la violencia desde abajo. <span class="ep ep-DC">DC</span> La <strong>Rebelión de los Bóxers</strong> (1899–1901) canalizó el resentimiento antiextranjero: los "puños de la justicia y la armonía" creían que los rituales marciales los volvían inmunes a las balas. Cuando Cixi declaró la guerra a las ocho potencias invasoras, la coalición internacional aplastó la rebelión. El <strong>Protocolo Bóxer</strong> (1901) impuso a China la indemnización más humillante de su historia: <strong>450 millones de taeles de plata</strong> a pagar en 39 años.</p>
+
+    <p><span class="ep ep-DC">DC</span> El <strong>levantamiento de Wuchang</strong> (10 de octubre de 1911) —iniciado casi por accidente cuando militares republicanos descubrieron que su conspiración había sido delatada y decidieron actuar de inmediato— se extendió por 15 provincias en semanas. El 12 de febrero de 1912, el niño emperador <strong>Puyi</strong> abdicó. Dos mil años de gobierno imperial chino terminaron en un comunicado firmado con el sello del Hijo del Cielo.</p>
+
+    <figure class="slide-inline">
+      <img src="../img/slide3-04.jpg" alt="Fin del Imperio Qing: Reformas de los Cien Dias, Boxers y Revolucion de 1911 — ANCA-ADD">
+      <figcaption>Del intento de reforma al colapso imperial &middot; Fuente: presentación ANCA-ADD, abril 2026</figcaption>
+    </figure>
+  </div>
+
+  <div class="meeg-block">
+    <div class="subsec-label">Análisis Crítico &middot; MEEE-G</div>
+    <ul>
+      <li><strong>Las Reformas de los Cien Días:</strong> Los hechos son <span class="ep ep-DC">DC</span>. La interpretación de Cixi como simple reaccionaria es <span class="ep ep-H">H</span>: algunos historiadores argumentan que actuó también para proteger su base de poder, no meramente por oposición ideológica a la modernización.</li>
+      <li><strong>Los Bóxers:</strong> La complicidad de Cixi con los Bóxers es <span class="ep ep-DC">DC</span> documentalmente. Su cálculo estratégico —usar la rebelión para expulsar a los extranjeros— fue <span class="ep ep-IP">IP</span> un error catastrófico que aceleró la desintegración del sistema que pretendía proteger.</li>
+      <li><strong>La abdicación de Puyi:</strong> <span class="ep ep-IP">IP</span> Decir que el levantamiento de Wuchang fue "accidental" es impreciso: la chispa fue accidental, pero el polvorín —la organización republicana de años— no lo era.</li>
+    </ul>
+  </div>
+
+  <div class="add-block">
+    <div class="subsec-label">Lectura Dinámica &middot; ADD</div>
+    <ul>
+      <li><strong>Colapso de la clausura organizacional imperial:</strong> Las Reformas de los Cien Días demuestran que el sistema Qing ya no puede reformarse desde adentro. <em>Es el momento clásico de irreversibilidad sistémica: el sistema reconoce la perturbación pero no puede integrarla sin disolverse.</em></li>
+      <li><strong>Los Bóxers como disipación fallida:</strong> El movimiento es un intento de disipar la tensión sistémica acumulada mediante la expulsión violenta del elemento extranjero. El fracaso demuestra que el acoplamiento era ya tan profundo que no era posible desacoplarlo sin destruir el propio sistema.</li>
+      <li><strong>La bifurcación republicana:</strong> 1911-1912 es una bifurcación sistémica real. Pero el nuevo atractor republicano no está consolidado —carecía de base social, ejército propio y acuerdo sobre la forma del Estado. China entra en un interregno turbulento de décadas.</li>
+    </ul>
+  </div>
+
+  <div class="cr-block">
+    <div class="subsec-label">Relevancia para Costa Rica</div>
+    <p>El colapso Qing ilustra la "trampa de la reforma": cuando un sistema espera demasiado para reformarse, la única salida posible es la ruptura total. Costa Rica ha evitado históricamente este colapso mediante reformas graduales —1948 fue una guerra civil breve seguida de una transformación institucional profunda— pero la condición del éxito fue siempre la existencia de élites con visión de Estado dispuestas a sacrificar privilegios antes del punto de no retorno.</p>
+  </div>
+</div>
+<hr class="divider">
+
+<!-- ============================================ -->
+<!-- ETAPA IV: REPUBLICA, GUERRA Y REVOLUCION    -->
+<!-- ============================================ -->
+<div class="period" id="etapa-iv">
+  <div class="period-header">
+    <div class="period-dates">1912 – 1949 d.C.</div>
+    <h2>Etapa IV &middot; La República Rota: <em>Señores de la Guerra, Japón y la Guerra Civil</em></h2>
+  </div>
+
+  <div class="resumen">
+    <p>La República de China nació débil. <span class="ep ep-DC">DC</span> <strong>Sun Yat-sen</strong>, el padre fundador republicano, tuvo que ceder la presidencia al general <strong>Yuan Shikai</strong> —que controlaba el único ejército viable— apenas semanas después de proclamada la República. Yuan intentó restaurar la monarquía con él mismo como emperador en 1915, fracasó, y murió en 1916, dejando el país fragmentado entre señores de la guerra regionales.</p>
+
+    <p><span class="ep ep-DC">DC</span> El <strong>Movimiento del 4 de Mayo</strong> (1919) —protesta masiva contra el Tratado de Versalles, que otorgó los territorios alemanes en China no a la República sino a Japón— fue el momento de cristalización de una generación de intelectuales convencidos de que China necesitaba una revolución cultural total. Del fermento surgió el <strong>Partido Comunista de China</strong> (PCCh), fundado en Shanghái en julio de 1921 con 53 miembros.</p>
+
+    <p><span class="ep ep-DC">DC</span> La <strong>Expedición Norte</strong> (1926–1928) avanzó desde Cantón hacia el norte, pero en abril de 1927 <strong>Chiang Kai-shek</strong> ordenó la <strong>Masacre de Shanghái</strong>: miles de comunistas y trabajadores sindicalizados fueron asesinados en una purga que rompió la alianza KMT-PCCh y desencadenó una guerra civil.</p>
+
+    <p>Sobre esta guerra civil cayó la invasión japonesa. <span class="ep ep-DC">DC</span> Japón ocupó Manchuria en 1931 e invadió masivamente China continental en julio de 1937. Entre diciembre de 1937 y enero de 1938, las tropas japonesas perpetraron la <strong>Masacre de Nankín</strong>: entre <strong>100,000 y 300,000 civiles</strong> asesinados en seis semanas. El PCCh sobrevivió gracias a la <strong>Larga Marcha</strong> (1934–1935): de los 370,000 que partieron de Jiangxi, aproximadamente 30,000 llegaron a Yan'an en el norte.</p>
+
+    <p><span class="ep ep-DC">DC</span> El <strong>1 de octubre de 1949</strong>, Mao Zedong proclamó en la Plaza de Tiananmén la fundación de la <strong>República Popular China</strong>. Chiang Kai-shek y los restos del KMT se retiraron a Taiwán.</p>
+
+    <figure class="slide-inline">
+      <img src="../img/slide3-05.jpg" alt="Republica, senores de la guerra, invasion japonesa y Revolucion — ANCA-ADD">
+      <figcaption>De la República fragmentada a la proclamación de la RPC &middot; Fuente: presentación ANCA-ADD, abril 2026</figcaption>
+    </figure>
+  </div>
+
+  <div class="meeg-block">
+    <div class="subsec-label">Análisis Crítico &middot; MEEE-G</div>
+    <ul>
+      <li><strong>La Masacre de Nankín:</strong> La ocurrencia es <span class="ep ep-DC">DC</span> con evidencia abrumadora. Las cifras (100,000–300,000) son debatidas: el rango bajo es el mínimo admitido incluso por las fuentes más conservadoras. <span class="ep ep-Int">Int</span> La negación por parte de figuras políticas japonesas no tiene base evidencial: es ideología, no historiografía.</li>
+      <li><strong>La Larga Marcha como mito fundacional:</strong> Los datos duros (partida, llegada, supervivientes) son <span class="ep ep-DC">DC</span>. La narrativa éptica oficial china es <span class="ep ep-Int">Int</span>: hubo también decisiones brutales, purgas internas y sufrimiento que el relato oficial silencia.</li>
+      <li><strong>Por qué ganó el PCCh:</strong> <span class="ep ep-IP">IP</span> La victoria no se explica solo por el apoyo campesino: también intervino el agotamiento del KMT por la guerra con Japón, la corrupción del aparato nacionalista y la asistencia soviética al PCCh en Manchuria (1945–1946).</li>
+    </ul>
+  </div>
+
+  <div class="add-block">
+    <div class="subsec-label">Lectura Dinámica &middot; ADD</div>
+    <ul>
+      <li><strong>Interregno sistémico:</strong> Entre 1912 y 1949 China no tiene un atractor estable. El régimen de señores de la guerra es la expresión de un sistema que perdió su clausura organizacional central y oscila entre múltiples subatractores regionales, incapaces de consolidarse a escala nacional.</li>
+      <li><strong>La perturbación japonesa como catalizador:</strong> <em>La invasión japonesa paradójicamente aceleró la resolución de la guerra civil: obligó a ambos partidos a definir su capacidad de respuesta y mostró cuál de los dos tenía mayor capacidad para movilizar energía social a escala nacional.</em> El PCCh la tenía.</li>
+      <li><strong>1949 como nueva clausura organizacional:</strong> La proclamación de la RPC es la emergencia de un nuevo atractor con una clausura organizacional completamente distinta a la imperial y a la republicana. El Partido-Estado leninista introduce una lógica sistémica inédita en la historia china.</li>
+      <li><strong>Taiwán como bifurcación persistente:</strong> La retirada del KMT crea una bifurcación sistémica que permanece abierta hasta hoy: dos Estados que reclaman ser China, cada uno con su propia clausura organizacional.</li>
+    </ul>
+  </div>
+
+  <div class="cr-block">
+    <div class="subsec-label">Relevancia para Costa Rica</div>
+    <p>La guerra civil china y la ruta del PCCh —movilización campesina, organización territorial, paciencia estratégica— fue estudiada por movimientos revolucionarios latinoamericanos activos en Centroamérica durante la segunda mitad del siglo XX.</p>
+    <p><strong>La comunidad china en Costa Rica</strong> tiene raíces históricas en esta época: familias llegadas huyendo de la guerra civil o de la invasión japonesa. <span class="ep ep-DC">DC</span> La primera migración china significativa a Costa Rica data de finales del siglo XIX (construcción del ferrocarril al Atlántico), con oleadas posteriores durante los conflictos del siglo XX.</p>
+  </div>
+</div>
+<hr class="divider">
+
+<!-- ============================================ -->
+<!-- ETAPA V: MAO Y EL EXPERIMENTO RADICAL       -->
+<!-- ============================================ -->
+<div class="period" id="etapa-v">
+  <div class="period-header">
+    <div class="period-dates">1949 – 1976 d.C.</div>
+    <h2>Etapa V &middot; La Era de Mao: <em>Ingeniería Social y Catástrofe</em></h2>
+  </div>
+
+  <div class="resumen">
+    <p>La RPC nació con una agenda de transformación total. <span class="ep ep-DC">DC</span> Los primeros años (1949–1957) trajeron logros reales: reforma agraria que distribuyó tierra a 300 millones de campesinos, expansión de la alfabetización y construcción de infraestructura básica. La clausura organizacional del nuevo Estado se consolidó sobre tres pilares: el monopolio del Partido, la economía planificada de estilo soviético y el culto a la personalidad de <strong>Mao Zedong</strong>.</p>
+
+    <p><span class="ep ep-DC">DC</span> En 1956, la campaña de las <strong>Cien Flores</strong> invitó a los intelectuales a criticar abiertamente al Partido. Cuando las críticas resultaron ser más profundas de lo esperado, Mao respondió con la campaña <strong>Antiderechista</strong> (1957): más de 500,000 personas fueron etiquetadas como "derechistas" y enviadas a campos de reeducación o trabajo forzado. Fue el ensayo general de lo que vendría.</p>
+
+    <p><span class="ep ep-DC">DC</span> El <strong>Gran Salto Adelante</strong> (1958–1962) fue el experimento de ingeniería social más catastrófico del siglo XX. Mao ordenó colectivizar toda la producción agrícola en <em>comunas populares</em> y lanzar una campaña para convertir a China en potencia industrial fundiendo acero en hornos caseros. El resultado: <strong>entre 30 y 45 millones de muertos por hambre</strong> en tres años, mientras los cuadros locales, aterrorizados de reportar fracasos, enviaban estadísticas falsamente optimistas y el Estado continuaba exportando grano.</p>
+
+    <p><span class="ep ep-DC">DC</span> La <strong>Revolución Cultural</strong> (1966–1976) fue una purga sistémica de sus enemigos políticos disfrazada de revolución ideológica. Los <em>Guardias Rojos</em> destruyeron templos, quemaron libros y humillaron públicamente a maestros, médicos, científicos y funcionarios del Partido. Las estimaciones de muertos directos oscilan entre <strong>1 y 2 millones</strong>; los afectados por persecuciones superan los <strong>30 millones</strong>. <strong>Mao Zedong murió</strong> el 9 de septiembre de 1976.</p>
+
+    <figure class="slide-inline">
+      <img src="../img/slide3-06.jpg" alt="Era Mao: Gran Salto Adelante y Revolucion Cultural — ANCA-ADD">
+      <figcaption>El experimento radical maoísta: del Gran Salto a la Revolución Cultural &middot; Fuente: presentación ANCA-ADD, abril 2026</figcaption>
+    </figure>
+  </div>
+
+  <div class="meeg-block">
+    <div class="subsec-label">Análisis Crítico &middot; MEEE-G</div>
+    <ul>
+      <li><strong>Cifras del Gran Salto:</strong> El rango 30–45 millones es el consenso académico dominante. <span class="ep ep-DC">DC</span> como rango; la precisión de cualquier cifra individual es <span class="ep ep-H">H</span> dado que los registros fueron sistemáticamente manipulados. La responsabilidad de Mao como arquitecto de la política es <span class="ep ep-DC">DC</span>.</li>
+      <li><strong>Debate sobre la intencionalidad:</strong> ¿Fue el Gran Salto un genocidio deliberado o una catástrofe producida por negación de la realidad? <span class="ep ep-H">H</span> La evidencia disponible sugiere que Mao conocía parcialmente los informes de hambruna pero los descartó; la deliberación total está menos documentada que el rechazo sistemático a enfrentar las consecuencias.</li>
+      <li><strong>Sobre la Revolución Cultural:</strong> El uso político interno como herramienta de purga es <span class="ep ep-DC">DC</span>. <span class="ep ep-Int">Int</span> Los sistemas no producen este tipo de violencia coordinada sin una arquitectura de movilización deliberada desde arriba.</li>
+    </ul>
+  </div>
+
+  <div class="add-block">
+    <div class="subsec-label">Lectura Dinámica &middot; ADD</div>
+    <ul>
+      <li><strong>El Gran Salto como colapso de retroalimentación:</strong> El sistema político maoísta eliminó los mecanismos de retroalimentación negativa (crítica, información honesta, rendición de cuentas) que todo sistema complejo necesita para autocorregirse. <em>Sin retroalimentación, el sistema no puede detectar que se está destruyendo a sí mismo: esto es lo que diferencia al Gran Salto de una mala política ordinaria —es un fallo sistémico estructural.</em></li>
+      <li><strong>La Revolución Cultural como autoperturbación radical:</strong> En términos ADD, es el momento en que Mao utiliza al propio sistema como instrumento de perturbación de sí mismo. El costo sistémico fue la destrucción de una generación entera de capital humano.</li>
+      <li><strong>1976 como bifurcación abierta:</strong> La muerte de Mao deja el sistema en un punto de bifurcación real: el atractor maoísta está agotado, pero no existe todavía un atractor alternativo consolidado.</li>
+    </ul>
+  </div>
+
+  <div class="cr-block">
+    <div class="subsec-label">Relevancia para Costa Rica</div>
+    <p>La era maoísta ofrece la lección más brutal sobre los límites de la ingeniería social: ningún proyecto político sobrevive a la eliminación de los mecanismos de retroalimentación y corrección. Las instituciones democráticas costarricenses —la Contraloría, la Defensoría, la prensa independiente, los partidos de oposición— no son lujos: son los mecanismos de retroalimentación que impiden que el sistema político colapse en su propio error.</p>
+    <p><strong>La pregunta de los 30 millones</strong> no es solo histórica: es estructural. <span class="ep ep-Int">Int</span> Todo sistema que concentra poder sin mecanismos de corrección lleva en sí la semilla del Gran Salto.</p>
+  </div>
+</div>
+<hr class="divider">
+
+<!-- ============================================ -->
+<!-- ETAPA VI: DENG Y LA REFORMA                 -->
+<!-- ============================================ -->
+<div class="period" id="etapa-vi">
+  <div class="period-header">
+    <div class="period-dates">1976 – 1989 d.C.</div>
+    <h2>Etapa VI &middot; Deng Xiaoping: <em>Reforma, Apertura y el Límite del Tanque</em></h2>
+  </div>
+
+  <div class="resumen">
+    <p>Tras la muerte de Mao, China enfrentó una pregunta existencial: ¿cómo enjuiciar al maoísmo sin deslegitimar al Partido que lo había sustentado? <span class="ep ep-DC">DC</span> La respuesta oficial fue la fórmula de que Mao había sido "70% correcto y 30% equivocado" —una ficción política, pero una que permitió al sistema transitar sin ruptura. <strong>Deng Xiaoping</strong>, purgado dos veces durante la Revolución Cultural, emergió como el arquitecto de la nueva China.</p>
+
+    <p><span class="ep ep-DC">DC</span> En diciembre de 1978, la proclamación de la política de <strong>Reforma y Apertura</strong> en el Tercer Pleno del XI Comité Central del PCCh marcó la bifurcación más importante en la historia de la RPC. Deng descolectivizó la agricultura, introdujo mecanismos de mercado y estableció las primeras <strong>Zonas Económicas Especiales</strong> (ZEE) —Shenzhen, Zhuhai, Shantou, Xiamen— donde el capitalismo de mercado operaría como experimento controlado.</p>
+
+    <p><span class="ep ep-DC">DC</span> Entre 1978 y 1989, el PIB chino creció a una tasa promedio superior al 9% anual. Shenzhen pasó de ser una aldea de pescadores a una metrópolis industrial de varios millones de habitantes en menos de una década.</p>
+
+    <p>Pero la apertura económica generó expectativas políticas que el sistema no estaba dispuesto a satisfacer. <span class="ep ep-DC">DC</span> El <strong>4 de junio de 1989</strong>, el ejército chino dispersó por la fuerza las protestas en la <strong>Plaza de Tiananmén</strong> y en otras ciudades. Las estimaciones de muertos varían; fuentes diplomáticas británicas desclasificadas en 2017 mencionan entre 2,600 y 3,000. En China, las imágenes de esa jornada están censuradas.</p>
+
+    <figure class="slide-inline">
+      <img src="../img/slide3-08.jpg" alt="Deng Xiaoping: Reforma y Apertura, ZEE y Tiananmen — ANCA-ADD">
+      <figcaption>La era Deng: reforma económica, apertura y el límite de Tiananmén &middot; Fuente: presentación ANCA-ADD, abril 2026</figcaption>
+    </figure>
+  </div>
+
+  <div class="meeg-block">
+    <div class="subsec-label">Análisis Crítico &middot; MEEE-G</div>
+    <ul>
+      <li><strong>Las cifras de Tiananmén:</strong> <span class="ep ep-DC">DC</span> que hubo una masacre con muertos civiles. Las cifras exactas son <span class="ep ep-H">H</span>: la opacidad del gobierno chino hace imposible una verificación independiente.</li>
+      <li><strong>El "milagro" económico:</strong> El crecimiento es <span class="ep ep-DC">DC</span>. Su sustentabilidad a largo plazo sin reformas institucionales paralelas era <span class="ep ep-H">H</span> en 1989, aunque la historia posterior mostró que duró décadas más de lo que muchos economistas predijeron.</li>
+      <li><strong>La fórmula 70/30:</strong> Es evidentemente <span class="ep ep-Int">Int</span> política, no evaluación histórica: su función no era describir a Mao sino proteger al Partido.</li>
+    </ul>
+  </div>
+
+  <div class="add-block">
+    <div class="subsec-label">Lectura Dinámica &middot; ADD</div>
+    <ul>
+      <li><strong>Deng como arquitecto de un nuevo atractor:</strong> La Reforma y Apertura es la creación deliberada de un nuevo atractor sistémico: "socialismo con características chinas" —economía de mercado con monopolio político del Partido. Es un acoplamiento inédito en la historia de los sistemas políticos modernos.</li>
+      <li><strong>Las ZEE como laboratorios de acoplamiento controlado:</strong> <em>Permiten acoplar el sistema chino a los flujos del capitalismo global sin que esos flujos alteren el atractor político central. Son burbujas de acoplamiento selectivo a escala territorial.</em></li>
+      <li><strong>Tiananmén como definición del límite sistémico:</strong> La represión de 1989 no fue un accidente: fue la definición explícita del límite de la apertura. El sistema puede abrirse en lo económico; no puede hacerlo en lo político sin disolver la clausura organizacional del Partido. Este límite permanece vigente hasta hoy.</li>
+    </ul>
+  </div>
+
+  <div class="cr-block">
+    <div class="subsec-label">Relevancia para Costa Rica</div>
+    <p>El modelo Deng plantea una pregunta incómoda para las democracias liberales: ¿puede una economía de mercado sostenerse a largo plazo sin libertades políticas paralelas? La respuesta china durante 40 años ha sido "sí, al menos hasta cierto punto."</p>
+    <p><strong>Para Costa Rica</strong> el dilema es de política exterior: cómo relacionarse con una potencia que es simultáneamente socio económico indispensable y referente político incompatible con sus valores constitucionales. Esta tensión, latente en 1989, se hará más aguda con cada década.</p>
+  </div>
+</div>
+<hr class="divider">
+
+<!-- ============================================ -->
+<!-- ETAPA VII: LA CHINA QUE CRECE               -->
+<!-- ============================================ -->
+<div class="period" id="etapa-vii">
+  <div class="period-header">
+    <div class="period-dates">1989 – 2012 d.C.</div>
+    <h2>Etapa VII &middot; El Despegue: <em>De Tiananmén a la Segunda Economía del Mundo</em></h2>
+  </div>
+
+  <div class="resumen">
+    <p>En enero de 1992, con 88 años y sin cargo oficial, Deng Xiaoping realizó su célebre <strong>Tour del Sur</strong>: visitó Shenzhen, Zhuhai y Shanghái y pronunció discursos que relanzaron la reforma tras el enfriamiento posterior a 1989. <span class="ep ep-DC">DC</span> El mensaje era inequívoco: el crecimiento económico era la única fuente legítima de legitimidad para el Partido en la era post-Tiananmén.</p>
+
+    <p><span class="ep ep-DC">DC</span> Bajo <strong>Jiang Zemin</strong> (1989–2002), China creció a tasas del 8–10% anual, incorporó a cientos de millones de campesinos al mercado laboral urbano y recuperó <strong>Hong Kong</strong> (1997) y <strong>Macao</strong> (1999) mediante el principio de "un país, dos sistemas." El ingreso a la <strong>Organización Mundial del Comercio</strong> en diciembre de 2001 integró a China definitivamente en las cadenas globales de valor.</p>
+
+    <p><span class="ep ep-DC">DC</span> <strong>Hu Jintao</strong> (2002–2012) intentó templar el crecimiento con la doctrina de la "sociedad armoniosa" —reconocimiento implícito de que las desigualdades generadas por el boom eran políticamente peligrosas. Los <strong>Juegos Olímpicos de Pekín 2008</strong> fueron la presentación simbólica de China como potencia modernizada: la ceremonia inaugural fue el espectáculo más visto en la historia de la televisión hasta esa fecha.</p>
+
+    <p>En 2010, <span class="ep ep-DC">DC</span> China superó a Japón para convertirse en la <strong>segunda economía del mundo</strong>. En menos de tres décadas, había sacado de la pobreza extrema a más de 700 millones de personas —la reducción de pobreza más rápida en la historia documentada de la humanidad.</p>
+
+    <figure class="slide-inline">
+      <img src="../img/slide3-10.jpg" alt="China 1989-2012: despegue economico, OMC y proyeccion global — ANCA-ADD">
+      <figcaption>El despegue de China: de la crisis post-Tiananmén a la segunda economía del mundo &middot; Fuente: presentación ANCA-ADD, abril 2026</figcaption>
+    </figure>
+  </div>
+
+  <div class="meeg-block">
+    <div class="subsec-label">Análisis Crítico &middot; MEEE-G</div>
+    <ul>
+      <li><strong>Los 700 millones sacados de la pobreza:</strong> La cifra es <span class="ep ep-DC">DC</span> según las métricas del Banco Mundial. La definición de "pobreza extrema" es metodológicamente debatida, pero el orden de magnitud del logro es incontestable.</li>
+      <li><strong>"Un país, dos sistemas":</strong> El principio era <span class="ep ep-DC">DC</span> como compromiso para 50 años (hasta 2047 para HK). Su erosión posterior es <span class="ep ep-DC">DC</span> como hecho y <span class="ep ep-Int">Int</span> como traición al acuerdo según los manifestantes hongkoneses.</li>
+      <li><strong>La "sociedad armoniosa" de Hu Jintao:</strong> Como diagnóstico de los problemas del crecimiento acelerado es <span class="ep ep-IP">IP</span> correcto. Como programa de solución fue <span class="ep ep-Int">Int</span> insuficiente: las desigualdades continuaron creciendo durante toda su presidencia.</li>
+    </ul>
+  </div>
+
+  <div class="add-block">
+    <div class="subsec-label">Lectura Dinámica &middot; ADD</div>
+    <ul>
+      <li><strong>El nuevo atractor se consolida:</strong> El período 1992–2012 es la fase de consolidación del atractor "capitalismo de Estado con partido único." La clausura organizacional funciona: el sistema puede absorber perturbaciones (crisis asiática de 1997, SARS 2003, crisis financiera global 2008) sin bifurcarse.</li>
+      <li><strong>Los flujos disipativos globales como motor:</strong> <em>La inserción en la OMC y las cadenas globales de valor convierte a China en el mayor receptor de flujos disipativos de capital e inversión extranjera de la historia. El sistema disipa enormes cantidades de energía social (trabajo) y genera riqueza a velocidades antes desconocidas.</em></li>
+      <li><strong>Tensiones acumuladas:</strong> El crecimiento acelerado genera sus propias perturbaciones internas: desigualdad campo-ciudad, corrupción sistémica, degradación ambiental severa, crecimiento de la deuda. Son los flujos de entropía que el sistema deberá gestionar en la siguiente fase.</li>
+    </ul>
+  </div>
+
+  <div class="cr-block">
+    <div class="subsec-label">Relevancia para Costa Rica</div>
+    <p><span class="ep ep-DC">DC</span> Costa Rica estableció relaciones diplomáticas con la RPC en junio de 2007 —fue el primer país de América Central en hacerlo. La decisión fue económicamente racional: China se había convertido en uno de los principales socios comerciales de Costa Rica. Fue también políticamente costosa: implicó romper relaciones con Taiwán, con quien CR había mantenido vínculos durante décadas.</p>
+    <p><strong>El dilema de la inserción:</strong> La pregunta que Costa Rica enfrenta desde 2007 es la misma que enfrenta cualquier economía pequeña en relación a una potencia en ascenso: cómo aprovechar los flujos económicos sin perder autonomía de decisión política. No hay respuesta fácil, pero sí hay consecuencias claras de no tener estrategia.</p>
+  </div>
+</div>
+<hr class="divider">
+
+<!-- ============================================ -->
+<!-- ETAPA VIII: XI JINPING Y EL NUEVO ORDEN     -->
+<!-- ============================================ -->
+<div class="period" id="etapa-viii">
+  <div class="period-header">
+    <div class="period-dates">2012 – 2026 d.C.</div>
+    <h2>Etapa VIII &middot; Xi Jinping y el <em>Sueño Chino</em></h2>
+  </div>
+
+  <div class="resumen">
+    <p><span class="ep ep-DC">DC</span> <strong>Xi Jinping</strong> asumió como Secretario General del PCCh en noviembre de 2012 y como presidente en marzo de 2013. La campaña <strong>anticorrupción</strong> —que hasta 2023 había investigado a más de <strong>un millón de funcionarios</strong>— fue simultáneamente una operación de saneamiento real, una consolidación de poder personal y una purga de rivales políticos. <span class="ep ep-DC">DC</span> Ningún líder desde Mao había acumulado tanto poder tan rápidamente.</p>
+
+    <p>El proyecto de Xi tiene nombre: el <strong>Sueño Chino</strong> (中国梦). <span class="ep ep-DC">DC</span> En 2013 lanzó la <strong>Iniciativa de la Franja y la Ruta</strong> (BRI): el mayor proyecto de infraestructura global en la historia, que para 2024 había involucrado a más de <strong>150 países</strong> y un valor estimado superior al <strong>billón de dólares</strong> en inversiones. Puertos, ferrocarriles, oleoductos y plantas eléctricas desde África Oriental hasta América Latina llevan el sello del capital chino.</p>
+
+    <p>En 2018, <span class="ep ep-DC">DC</span> el Partido eliminó el límite constitucional de dos mandatos presidenciales, abriendo el camino para que Xi gobernara indefinidamente. <span class="ep ep-DC">DC</span> En Xinjiang, más de <strong>un millón de uigures</strong> y otras minorías musulmanas fueron internados en lo que el gobierno llama "centros de formación profesional" y la ONU denomina detención masiva arbitraria. En 2020, la <strong>Ley de Seguridad Nacional</strong> de Hong Kong puso fin efectivo al "un país, dos sistemas" prometido hasta 2047.</p>
+
+    <p>La pandemia de <strong>COVID-19</strong> —cuyo primer brote <span class="ep ep-DC">DC</span> fue documentado en Wuhan a finales de 2019— probó los límites del modelo. China aplicó la política de "Cero COVID" con rigor extremo durante casi tres años, antes de abandonarla abruptamente en diciembre de 2022 ante protestas sin precedentes. El origen exacto del virus permanece <span class="ep ep-H">H</span> sin resolución científica definitiva.</p>
+
+    <p><span class="ep ep-DC">DC</span> Xi y Putin firmaron en febrero de 2022 —días antes de la invasión rusa de Ucrania— una declaración de "asociación sin límites." China ha mantenido esa asociación sin condenar la invasión. La guerra tecnológica con los Estados Unidos se ha intensificado: restricciones a la exportación de semiconductores avanzados, procesos contra Huawei y ZTE, debates globales sobre TikTok, y una carrera por el dominio de la inteligencia artificial. <span class="ep ep-DC">DC</span> Las incursiones del ejército chino en la zona de identificación de defensa aérea taiwanesa superaron las <strong>900 en 2023</strong>.</p>
+
+    <figure class="slide-inline">
+      <img src="../img/slide3-12.jpg" alt="Xi Jinping: Sueno Chino, BRI, Xinjiang, Hong Kong y guerra tecnologica — ANCA-ADD">
+      <figcaption>Xi Jinping y el nuevo orden: del Sueño Chino a la geopolítica de 2026 &middot; Fuente: presentación ANCA-ADD, abril 2026</figcaption>
+    </figure>
+  </div>
+
+  <div class="meeg-block">
+    <div class="subsec-label">Análisis Crítico &middot; MEEE-G</div>
+    <ul>
+      <li><strong>La campaña anticorrupción:</strong> Los hechos (número de investigados, figuras prominentes caídas) son <span class="ep ep-DC">DC</span>. La doble función —saneamiento real + purga política— es <span class="ep ep-IP">IP</span> ampliamente documentada.</li>
+      <li><strong>Xinjiang:</strong> La existencia de los centros de detención y su escala (1M+) es <span class="ep ep-DC">DC</span> con documentación satelital, testimonios y filtraciones de documentos internos del Partido ("China Cables", "Xinjiang Police Files"). La calificación legal exacta —genocidio cultural, crímenes contra la humanidad— es objeto de debate jurídico: los hechos materiales son claros; la clasificación varía según el marco jurídico aplicado.</li>
+      <li><strong>COVID-19 y su origen:</strong> Primer brote en Wuhan finales 2019 es <span class="ep ep-DC">DC</span>. Origen: <span class="ep ep-H">H</span> genuina. Las investigaciones de la OMS y los servicios de inteligencia de EEUU no han producido evidencia concluyente para ninguna hipótesis.</li>
+      <li><strong>La asociación China-Rusia:</strong> La firma del acuerdo y la abstención en Naciones Unidas son <span class="ep ep-DC">DC</span>. Si implica apoyo material a Rusia en Ucrania es <span class="ep ep-H">H</span> con evidencias parciales. <span class="ep ep-Int">Int</span> La relación es instrumentalmente conveniente para ambos pero estructuralmente asimétrica: China es la parte dominante.</li>
+    </ul>
+  </div>
+
+  <div class="add-block">
+    <div class="subsec-label">Lectura Dinámica &middot; ADD</div>
+    <ul>
+      <li><strong>Xi como rediseño del atractor:</strong> Xi Jinping no está simplemente gobernando dentro del sistema creado por Deng: lo está rediseñando. La eliminación del límite de mandatos y la concentración de poder señalan que el atractor "reforma y apertura" está siendo reemplazado por un nuevo atractor más cerrado y centralizado.</li>
+      <li><strong>El BRI como proyección disipativa global:</strong> <em>La Iniciativa de la Franja y la Ruta es la extensión de los flujos disipativos chinos a escala planetaria: China exporta capital excedente, importa recursos y amplía su campo de influencia sistémica. Es el equivalente del siglo XXI al Silk Road histórico, dirigido por un Estado-Partido con capacidad de planificación de largo plazo.</em></li>
+      <li><strong>Tensiones sistémicas en 2026:</strong> El sistema enfrenta perturbaciones simultáneas: desaceleración demográfica, deuda de los gobiernos locales, burbuja inmobiliaria (Evergrande), guerra tecnológica con EEUU y la pregunta sobre Taiwán. <span class="ep ep-C">C</span> La pregunta ADD pertinente no es "¿cuándo colapsará China?" —el sistema tiene enorme resiliencia demostrada— sino "¿cuál es el nuevo atractor hacia el que se dirige?"</li>
+      <li><strong>Taiwán como bifurcación latente:</strong> El conflicto de Taiwán es la bifurcación más peligrosa del sistema mundial actual: dos clausuras organizacionales incompatibles (RPC y democracia taiwanesa) sostenidas sobre la ambigüedad estratégica de EEUU. Si esa ambigüedad se resuelve —en cualquier dirección— el impacto sistémico será global.</li>
+    </ul>
+  </div>
+
+  <div class="cr-block">
+    <div class="subsec-label">Relevancia para Costa Rica</div>
+    <p><span class="ep ep-DC">DC</span> Costa Rica firmó un <strong>Tratado de Libre Comercio con China</strong> en 2010, el primero de América Latina con la RPC. Para 2026, China es uno de los principales socios comerciales de Costa Rica. La BRI ha generado ofertas de inversión en infraestructura que el gobierno costarricense ha evaluado con cautela creciente.</p>
+    <p><strong>El dilema en 2026:</strong> Cada proyecto de infraestructura china en Costa Rica plantea tres preguntas simultáneas: ¿es económicamente conveniente? ¿crea dependencias estratégicas? ¿qué condiciones de gobernanza implica? La experiencia de otros países con la BRI —Sri Lanka, Ecuador— sugiere que la conveniencia a corto plazo puede comprometer la autonomía a largo plazo.</p>
+    <p><strong>La posición costarricense sobre Xinjiang, Hong Kong y Taiwán</strong> está sujeta a la tensión permanente entre sus valores constitucionales (derechos humanos, democracia) y su dependencia económica creciente de la RPC. <span class="ep ep-Int">Int</span> Esta tensión no desaparecerá: se administra, no se resuelve.</p>
+  </div>
+</div>
+<hr class="divider">
+
+</div><!-- /container -->
+</div><!-- /narrative -->
+
+<!-- SINTESIS -->
+<div class="container">
+
+<div class="synthesis">
+  <h3>Síntesis Dinámica · La Pregunta de Fondo</h3>
+  <p>Las tres partes de "La Senda del Dragón" relatan la misma historia desde ángulos distintos: la trayectoria de un sistema civilizatorio de excepcional resiliencia que ha absorbido, procesado y a menudo asimilado las perturbaciones más extremas —conquistas, hambrunas, guerras civiles, revoluciones, integración forzada al capitalismo global— sin perder su coherencia sistémica fundamental.</p>
+  <p>Desde ADD, la pregunta central sobre China en 2026 no es si el sistema sobrevivirá —cinco milenios de evidencia histórica invitan a la precaución antes de apostar por el colapso— sino hacia qué nuevo atractor se está moviendo bajo el liderazgo de Xi Jinping. Las señales apuntan a:</p>
+  <ol>
+    <li><strong>Mayor clausura política interna:</strong> el experimento de apertura controlada iniciado por Deng parece estar siendo revertido hacia un modelo de partido-Estado más cerrado, vigilante y centralizado.</li>
+    <li><strong>Mayor proyección externa:</strong> la BRI, la modernización militar y la política sobre Taiwán sugieren un sistema que ya no acepta el papel de "potencia regional" y aspira a redefinir el orden mundial.</li>
+    <li><strong>Tensiones demográficas y económicas estructurales:</strong> el déficit de nacimientos, el envejecimiento acelerado y los problemas del sector inmobiliario son perturbaciones que el sistema deberá gestionar sin el motor del crecimiento acelerado que legitimó al Partido durante cuatro décadas.</li>
+    <li><strong>La bifurcación tecnológica:</strong> <em>La guerra por los semiconductores, la IA y las cadenas de suministro críticas es la expresión contemporánea de la pregunta que China se ha hecho desde las Guerras del Opio: ¿cómo mantenerse soberano en un mundo donde el poder pasa por la tecnología?</em></li>
+  </ol>
+</div>
+
+<!-- INCERTIDUMBRES -->
+<div class="incertidumbres">
+  <h3>Principales Incertidumbres Epistémicas · 2026</h3>
+  <ul>
+    <li><strong>Taiwán:</strong> ¿Cuándo, cómo y si habrá una acción militar china? Las señales son inequívocas; el calendario es opaco. <span class="ep ep-C">C</span></li>
+    <li><strong>Sucesión de Xi:</strong> Ningún mecanismo de sucesión institucionalizado visible. Si Xi muere o es incapacitado sin sucesor designado, el sistema entra en régimen de turbulencia máxima. <span class="ep ep-C">C</span></li>
+    <li><strong>La burbuja inmobiliaria:</strong> El colapso de Evergrande y el sector inmobiliario representan el mayor riesgo económico estructural conocido. Las implicaciones sistémicas del desapalancamiento son difíciles de modelar. <span class="ep ep-H">H</span></li>
+    <li><strong>La alianza China-Rusia:</strong> ¿Es táctica o estratégica? ¿Sobreviviría a un cambio de régimen en Rusia o a una derrota rusa en Ucrania? <span class="ep ep-H">H</span></li>
+    <li><strong>Inteligencia artificial y semiconductores:</strong> La carrera tecnológica tiene un horizonte de incertidumbre de 5–10 años que hace cualquier proyección de largo plazo altamente conjetural. <span class="ep ep-C">C</span></li>
+  </ul>
+</div>
+
+<!-- FUENTES -->
+<div class="fuentes">
+  <h3>Fuentes y Nota Metodológica</h3>
+
+  <h4>Fuente primaria de análisis</h4>
+  <ul>
+    <li>Boletín ANCA-ADD. Sección Especial 3a Parte. <em>Por qué China sobrevive a sus colapsos: Historia Sistémica de China Moderna, 1839–2026</em>. Alfredo Montero Fonseca, UCR, abril 2026.</li>
+    <li>Presentación ANCA-ADD: <em>China Systemic Evolution: Del Siglo de la Humillación al Año del Caballo de Fuego</em>. Diapositivas 01–15, abril 2026.</li>
+  </ul>
+
+  <h4>Historia moderna de China</h4>
+  <ul>
+    <li>Fairbank, J.K. &amp; Goldman, M. (2006). <em>China: A New History</em>. Harvard University Press.</li>
+    <li>Dikötter, F. (2010). <em>Mao's Great Famine</em>. Bloomsbury.</li>
+    <li>Dikötter, F. (2016). <em>The Cultural Revolution: A People's History</em>. Bloomsbury.</li>
+    <li>Chang, J. &amp; Halliday, J. (2005). <em>Mao: The Unknown Story</em>. Jonathan Cape.</li>
+    <li>Vogel, E. (2011). <em>Deng Xiaoping and the Transformation of China</em>. Harvard University Press.</li>
+    <li>Economy, E. (2018). <em>The Third Revolution: Xi Jinping and the New Chinese State</em>. Oxford University Press.</li>
+  </ul>
+
+  <h4>Fuentes específicas</h4>
+  <ul>
+    <li>Nanjing Massacre — International Military Tribunal for the Far East (Tokyo Trials), 1946.</li>
+    <li>Xinjiang Police Files (2022), verificados por el Xinjiang Documentation Project (University of Victoria).</li>
+    <li>Documentos diplomáticos británicos desclasificados sobre Tiananmén (National Archives UK, 2017).</li>
+    <li>Belt and Road Initiative — Base de datos AidData, College of William &amp; Mary, 2021.</li>
+  </ul>
+
+  <p class="nota-metodologica">
+    <strong>Nota metodológica:</strong> Este análisis sigue el protocolo de clasificación epistémica MEEE-G. Las etiquetas DC, IP, H, Int y C no son juicios de valor sino indicadores del tipo de evidencia que sostiene cada afirmación. El objetivo es explicitar la textura epistémica del conocimiento histórico, que siempre combina certezas, inferencias e interpretaciones. El análisis ADD no predice el futuro: modela las tendencias dinámicas del presente para identificar los puntos de mayor incertidumbre sistémica.
+  </p>
+</div>
+
+</div><!-- /container -->
+
 <footer>
-  <span>ANCA-ADE · Agente Noticioso Crítico de Actualidad — Análisis Dinámico del Devenir</span>
-  <span>Especial-04 · Abril 2026 · San José, Costa Rica</span>
-  <span><a href="https://antropos-amf.github.io/anca-ade.github.io/" style="color:var(--gold);text-decoration:none;">antropos-amf.github.io/anca-ade.github.io</a></span>
+  <div class="footer-left">
+    ANCA-ADD &middot; La Senda del Dragón &middot; Parte III<br>
+    Alfredo Montero Fonseca &middot; UCR &middot; Abril 2026
+  </div>
+  <nav class="footer-nav">
+    <a href="../parte-2/">← Parte II</a>
+    <a href="/divulgacion/china/">Índice China</a>
+    <a href="/">antropos.app</a>
+  </nav>
 </footer>
 
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+      var target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+<script data-goatcounter="https://antropos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>La Senda del Dragón · Historia de China | ANCA-ADD · antropos.app</title>
+  <meta name="description" content="Historia de China en tres partes: de los orígenes neolíticos a 2026. Análisis narrativo con metodología ADD y MEEE-G. Alfredo Montero Fonseca, UCR." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:        #0a0a0f;
+      --bg2:       #11111a;
+      --bg3:       #181824;
+      --red:       #c0392b;
+      --gold:      #d4a017;
+      --gold-light:#f0c040;
+      --text:      #e8e4d8;
+      --muted:     #9a9589;
+      --border:    #2a2a3a;
+      --green:     #27ae60;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'Source Serif 4', Georgia, serif; line-height: 1.8; font-size: 18px; min-height: 100vh; display: flex; flex-direction: column; }
+
+    /* MASTHEAD */
+    .masthead { background: var(--bg2); border-bottom: 2px solid var(--gold); padding: 20px 40px; display: flex; align-items: center; gap: 24px; }
+    .masthead-logo { font-family: 'Bebas Neue', sans-serif; font-size: 44px; color: var(--gold); letter-spacing: 0.04em; line-height: 1; text-decoration: none; }
+    .masthead-logo span { color: var(--red); }
+    .masthead-meta { border-left: 2px solid var(--border); padding-left: 20px; }
+    .masthead-meta .label { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 4px; }
+    .masthead-meta h1 { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 900; color: var(--text); }
+    .masthead-nav { margin-left: auto; display: flex; gap: 16px; }
+    .masthead-nav a { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; }
+    .masthead-nav a:hover { color: var(--gold); }
+
+    /* HERO */
+    .hero { background: linear-gradient(180deg, rgba(10,10,15,0) 0%, rgba(10,10,15,0.95) 100%), linear-gradient(135deg, #0a0a0f 0%, #150a0a 40%, #0a100a 100%); padding: 80px 40px 64px; position: relative; overflow: hidden; border-bottom: 1px solid var(--border); }
+    .hero::before { content: '龙'; position: absolute; right: 40px; top: -30px; font-size: 400px; color: rgba(192,57,43,0.04); pointer-events: none; line-height: 1; }
+    .hero-kicker { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 20px; }
+    .hero h2 { font-family: 'Playfair Display', serif; font-size: clamp(40px, 6vw, 72px); font-weight: 900; line-height: 1; color: var(--text); max-width: 760px; margin-bottom: 28px; }
+    .hero h2 em { color: var(--gold); font-style: italic; }
+    .hero-lead { max-width: 600px; font-size: 18px; color: var(--muted); line-height: 1.75; margin-bottom: 36px; font-style: italic; }
+    .hero-meta { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; }
+
+    /* LAYOUT */
+    .container { max-width: 900px; margin: 0 auto; padding: 0 40px; }
+
+    /* SERIES */
+    .series-section { padding: 64px 0; flex: 1; }
+    .section-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 40px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+
+    .parte-card { display: grid; grid-template-columns: 80px 1fr; gap: 32px; padding: 40px 0; border-bottom: 1px solid var(--border); align-items: start; text-decoration: none; color: inherit; transition: background 0.15s; }
+    .parte-card:hover { background: rgba(212,160,23,0.03); }
+    .parte-card:last-child { border-bottom: none; }
+
+    .parte-num { font-family: 'Bebas Neue', sans-serif; font-size: 72px; line-height: 1; color: rgba(212,160,23,0.15); padding-top: 4px; }
+    .parte-card:hover .parte-num { color: rgba(212,160,23,0.3); }
+
+    .parte-body {}
+    .parte-kicker { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    .parte-title { font-family: 'Playfair Display', serif; font-size: clamp(20px, 2.5vw, 26px); font-weight: 900; color: var(--text); line-height: 1.2; margin-bottom: 12px; }
+    .parte-title em { color: var(--gold); font-style: italic; }
+    .parte-desc { font-size: 15px; color: var(--muted); line-height: 1.65; margin-bottom: 20px; }
+    .parte-dates { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.1em; margin-bottom: 16px; }
+    .parte-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .parte-tag { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 8px; border: 1px solid var(--border); color: var(--muted); border-radius: 2px; }
+    .parte-arrow { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--gold); margin-top: 16px; display: inline-block; }
+    .parte-card:hover .parte-arrow { letter-spacing: 0.05em; }
+
+    /* MARCO ANALÍTICO */
+    .marco-section { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 48px 0; }
+    .marco-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 28px; }
+    @media (max-width: 640px) { .marco-grid { grid-template-columns: 1fr; } }
+    .marco-card { background: var(--bg3); border: 1px solid var(--border); padding: 24px; }
+    .marco-card h3 { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+    .marco-card p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+    /* FOOTER */
+    footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 28px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    footer .footer-left { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); line-height: 1.8; letter-spacing: 0.06em; }
+    footer .footer-nav { display: flex; gap: 20px; }
+    footer .footer-nav a { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); text-decoration: none; }
+    footer .footer-nav a:hover { color: var(--gold); }
+
+    @media (max-width: 640px) {
+      .masthead { padding: 16px 20px; flex-wrap: wrap; }
+      .hero { padding: 56px 20px 48px; }
+      .container { padding: 0 20px; }
+      .parte-card { grid-template-columns: 1fr; gap: 12px; }
+      .parte-num { font-size: 48px; }
+      footer { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="masthead">
+  <a class="masthead-logo" href="/">ANCA<span>&middot;</span>ADD</a>
+  <div class="masthead-meta">
+    <div class="label">Sección Especial &middot; Cosas que no sé</div>
+    <h1>La Senda del Dragón</h1>
+  </div>
+  <nav class="masthead-nav">
+    <a href="/divulgacion/">← Cosas que no sé</a>
+    <a href="/">antropos.app</a>
+  </nav>
+</div>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-kicker">Especial 04 &middot; Historia General de China &middot; Serie completa</div>
+    <h2>La Senda del <em>Dragón</em></h2>
+    <p class="hero-lead">Tres entregas para entender cinco mil años de historia china: de los primeros agricultores del Río Amarillo a la geopolítica de 2026. Un análisis narrativo desde la Antropología Dinámica del Devenir.</p>
+    <div class="hero-meta">c. 5000 a.C. – 2026 d.C. &nbsp;&middot;&nbsp; 3 partes &nbsp;&middot;&nbsp; Alfredo Montero Fonseca &middot; UCR &middot; Abril 2026</div>
+  </div>
+</section>
+
+<div class="series-section">
+<div class="container">
+
+  <div class="section-label">Las tres entregas</div>
+
+  <!-- PARTE I -->
+  <a class="parte-card" href="parte-1/">
+    <div class="parte-num">I</div>
+    <div class="parte-body">
+      <div class="parte-kicker">Parte I de III</div>
+      <div class="parte-title">La Senda del <em>Dragón</em></div>
+      <div class="parte-dates">c. 5000 a.C. – 1211 d.C. &nbsp;&middot;&nbsp; 9 períodos</div>
+      <p class="parte-desc">De los primeros agricultores del Río Amarillo a la víspera de la tormenta mongola. Yangshao, Shang, Zhou, Qin, Han, Tang, Song: cómo un sistema civilizatorio construyó, fracturó y reconstruyó su atractor durante tres mil años.</p>
+      <div class="parte-tags">
+        <span class="parte-tag">Orígenes neolíticos</span>
+        <span class="parte-tag">Primeras dinastías</span>
+        <span class="parte-tag">Confucianismo</span>
+        <span class="parte-tag">Ascenso mongol</span>
+      </div>
+      <div class="parte-arrow">Leer Parte I →</div>
+    </div>
+  </a>
+
+  <!-- PARTE II -->
+  <a class="parte-card" href="parte-2/">
+    <div class="parte-num">II</div>
+    <div class="parte-body">
+      <div class="parte-kicker">Parte II de III</div>
+      <div class="parte-title">El Dragón bajo el <em>Yugo Extranjero</em></div>
+      <div class="parte-dates">1271 – 1839 d.C. &nbsp;&middot;&nbsp; 6 períodos</div>
+      <p class="parte-desc">De la capital de Kublai Khan a la destrucción del opio en Cantón. Yuan, Ming y Qing: cómo China fue conquistada dos veces, asimiló a sus conquistadores, y llegó desarmada al umbral del mundo moderno.</p>
+      <div class="parte-tags">
+        <span class="parte-tag">Dinastía Yuan</span>
+        <span class="parte-tag">Dinastía Ming</span>
+        <span class="parte-tag">Alta Qing</span>
+        <span class="parte-tag">Preludio del opio</span>
+      </div>
+      <div class="parte-arrow">Leer Parte II →</div>
+    </div>
+  </a>
+
+  <!-- PARTE III -->
+  <a class="parte-card" href="parte-3/">
+    <div class="parte-num">III</div>
+    <div class="parte-body">
+      <div class="parte-kicker">Parte III de III</div>
+      <div class="parte-title">Del Siglo de la <em>Humillación</em> al Año del Caballo de Fuego</div>
+      <div class="parte-dates">1839 – 2026 d.C. &nbsp;&middot;&nbsp; 8 etapas</div>
+      <p class="parte-desc">De los cañones británicos en Cantón a los portaviones chinos en el Pacífico. Guerras del Opio, República, Mao, Deng y Xi: cómo el sistema civilizatorio más antiguo del mundo se desintegró, fue refundado y emergió como potencia global en menos de dos siglos.</p>
+      <div class="parte-tags">
+        <span class="parte-tag">Guerras del Opio</span>
+        <span class="parte-tag">Revolución de 1949</span>
+        <span class="parte-tag">Era Mao</span>
+        <span class="parte-tag">Deng &amp; Xi</span>
+        <span class="parte-tag">Geopolítica 2026</span>
+      </div>
+      <div class="parte-arrow">Leer Parte III →</div>
+    </div>
+  </a>
+
+</div>
+</div>
+
+<!-- MARCO ANALÍTICO -->
+<div class="marco-section">
+  <div class="container">
+    <div class="section-label">Marco analítico de la serie</div>
+    <div class="marco-grid">
+      <div class="marco-card">
+        <h3>ADD · Antropología Dinámica del Devenir</h3>
+        <p>Los procesos históricos se analizan como sistemas complejos no lineales. Categorías clave: atractores, clausura organizacional, flujos disipativos, perturbación, bifurcación y acoplamiento. Cada período muestra cómo el sistema chino respondió a las fuerzas que lo empujaban hacia la transformación o el colapso.</p>
+      </div>
+      <div class="marco-card">
+        <h3>MEEE-G · Evaluación epistémica</h3>
+        <p>Cada afirmación lleva una etiqueta que indica la solidez de su evidencia: DC (Dato Confirmado), IP (Inferencia Plausible), H (Hipótesis), Int (Interpretación) o C (Conjetura). El objetivo es hacer visible la textura epistémica del conocimiento histórico, que siempre combina certezas, inferencias e interpretaciones.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-left">
+    ANCA-ADD &middot; La Senda del Dragón<br>
+    Alfredo Montero Fonseca &middot; UCR &middot; Abril 2026
+  </div>
+  <nav class="footer-nav">
+    <a href="/divulgacion/">← Cosas que no sé</a>
+    <a href="/">antropos.app</a>
+  </nav>
+</footer>
+
+<script data-goatcounter="https://antropos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

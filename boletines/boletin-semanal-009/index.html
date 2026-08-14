@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANCA-ADD · Boletín Semanal N.° 009 · 6–15 jun 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#0e0e0e;--surface:#161616;--surface2:#1f1f1f;--border:#2a2a2a;--text:#e8e2d4;--muted:#7a7060;--accent:#c8002d;--gold:#c9a84c;--gold-dim:#8a6e2a;--amber:#d4791a;--teal:#2a7a72;--mono:'IBM Plex Mono',monospace;--serif:'Cormorant Garamond',Georgia,serif;--display:'Bebas Neue',sans-serif;--playfair:'Playfair Display',Georgia,serif}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:var(--serif);font-size:18px;line-height:1.72;min-height:100vh}
+  a{color:var(--teal)}
+  .ticker-wrap{background:var(--accent);overflow:hidden;white-space:nowrap;height:32px;display:flex;align-items:center;position:sticky;top:0;z-index:100}
+  .ticker-label{background:#000;color:var(--gold);font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.18em;padding:0 14px;height:100%;display:flex;align-items:center;flex-shrink:0}
+  .ticker{display:inline-block;padding-left:100%;animation:tick 72s linear infinite;font-family:var(--mono);font-size:12px;color:#fff;letter-spacing:.04em}
+  .ticker span{margin:0 26px}
+  @keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
+  nav{position:sticky;top:32px;z-index:90;background:rgba(14,14,14,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:9px 24px;display:flex;gap:18px;flex-wrap:wrap;align-items:center;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em}
+  nav .nbrand{color:var(--gold);font-weight:500}
+  nav a{color:var(--muted);text-decoration:none;transition:color .2s}
+  nav a:hover{color:var(--text)}
+  header.masthead{max-width:980px;margin:0 auto;padding:56px 24px 30px;text-align:center;border-bottom:2px solid var(--border)}
+  .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.34em;color:var(--accent);text-transform:uppercase}
+  h1.title{font-family:var(--display);font-size:clamp(54px,9vw,104px);line-height:.9;letter-spacing:.02em;margin:14px 0 6px;color:var(--text)}
+  .subtitle{font-family:var(--playfair);font-style:italic;font-size:21px;color:var(--muted)}
+  .meta-row{margin-top:20px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--muted);display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .meta-row b{color:var(--gold)}
+  main{max-width:840px;margin:0 auto;padding:0 24px 70px}
+  .frameworks{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:22px 26px;margin:38px 0 10px}
+  .frameworks h3{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:14px}
+  .fw-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 28px}
+  .fw-grid .fw{font-size:15px;line-height:1.5}
+  .fw b{color:var(--text)}
+  .code-legend{margin-top:16px;padding-top:14px;border-top:1px solid var(--border);font-family:var(--mono);font-size:11px;color:var(--muted);display:flex;gap:14px;flex-wrap:wrap}
+  .code-legend span b{color:var(--gold)}
+  .panorama{margin:42px 0;padding:26px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+  .panorama h2{font-family:var(--display);font-size:30px;letter-spacing:.04em;color:var(--gold);margin-bottom:10px}
+  .panorama p{font-size:18px;color:var(--text)}
+  .section-break{margin:70px 0 50px;padding:18px 0;border-top:2px solid var(--gold-dim);border-bottom:1px solid var(--border)}
+  .section-break h2{font-family:var(--display);font-size:28px;letter-spacing:.08em;color:var(--gold)}
+  article.story{margin:54px 0;padding-top:8px}
+  .cat-tag{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;padding:3px 9px;border-radius:2px;margin-bottom:14px;margin-right:6px}
+  .cat-geo{background:#3a1218;color:#e88;border:1px solid #5e2230}
+  .cat-cie{background:#10262a;color:#7fd;border:1px solid #1d4046}
+  .cat-tec{background:#241a30;color:#c9a8ff;border:1px solid #3d2e52}
+  .cat-eco{background:#2a2410;color:#e8d27f;border:1px solid #46401d}
+  .cat-soc{background:#2a1810;color:#e8b07f;border:1px solid #46301d}
+  article.story h2.headline{font-family:var(--playfair);font-weight:700;font-size:clamp(27px,4.4vw,38px);line-height:1.12;margin-bottom:6px;color:var(--text)}
+  .dateline{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.05em;margin-bottom:20px}
+  .block-h{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin:24px 0 8px;font-weight:500}
+  article.story p{margin-bottom:13px}
+  .facts{background:var(--surface);border-left:3px solid var(--gold);padding:16px 20px;margin:8px 0 6px;border-radius:0 3px 3px 0}
+  .facts ul{list-style:none}
+  .facts li{padding:4px 0 4px 20px;position:relative;font-size:16.5px}
+  .facts li::before{content:'▸';position:absolute;left:0;color:var(--gold-dim)}
+  table.meee{width:100%;border-collapse:collapse;margin:10px 0 6px;font-size:14.5px}
+  table.meee th{background:var(--surface2);color:var(--gold);font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;text-align:left;padding:8px 10px;border:1px solid var(--border)}
+  table.meee td{padding:9px 10px;border:1px solid var(--border);vertical-align:top}
+  table.meee tr:nth-child(even) td{background:rgba(255,255,255,.015)}
+  .ecode{font-family:var(--mono);font-size:10px;font-weight:500;padding:2px 7px;border-radius:2px;white-space:nowrap}
+  .e-dc{background:#10301a;color:#7fe0a0;border:1px solid #1d4a2c}
+  .e-ip{background:#102a30;color:#7fd0e0;border:1px solid #1d3e46}
+  .e-h{background:#2a2410;color:#e8d27f;border:1px solid #463d1d}
+  .e-int{background:#2a1830;color:#d0a8e8;border:1px solid #3d2546}
+  .e-c{background:#301818;color:#e89090;border:1px solid #4a2424}
+  .add-block{background:linear-gradient(180deg,rgba(42,122,114,.07),rgba(42,122,114,.02));border:1px solid #1d4046;border-left:3px solid var(--teal);border-radius:0 3px 3px 0;padding:18px 22px;margin:14px 0}
+  .add-block .block-h{color:var(--teal)}
+  .ws-block{background:linear-gradient(180deg,rgba(212,121,26,.07),rgba(212,121,26,.02));border:1px solid #5a3a14;border-left:3px solid var(--amber);border-radius:0 3px 3px 0;padding:18px 22px;margin:14px 0}
+  .ws-block .block-h{color:var(--amber)}
+  .cr-block{border:1px dashed var(--gold-dim);border-radius:3px;padding:16px 20px;margin:16px 0;background:rgba(201,168,76,.04)}
+  .cr-block .block-h{color:var(--gold)}
+  .scenarios{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 6px}
+  .pill{flex:1;min-width:200px;background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:12px 14px}
+  .pill .pl{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px}
+  .pill.s1 .pl{color:#7fe0a0}.pill.s2 .pl{color:#e8d27f}.pill.s3 .pl{color:#e89090}
+  .pill p{font-size:14.5px;margin:0;color:var(--text);line-height:1.5}
+  .synth{margin:60px 0 40px}
+  .synth h2,.refs h2,.uncert h2{font-family:var(--display);font-size:34px;letter-spacing:.04em;color:var(--gold);margin-bottom:16px;border-bottom:1px solid var(--border);padding-bottom:8px}
+  table.synth-t{width:100%;border-collapse:collapse;font-size:14px}
+  table.synth-t th{background:var(--surface2);color:var(--teal);font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;text-align:left;padding:9px 10px;border:1px solid var(--border)}
+  table.synth-t td{padding:9px 10px;border:1px solid var(--border);vertical-align:top}
+  table.synth-t tr:nth-child(even) td{background:rgba(255,255,255,.015)}
+  .uncert ul{list-style:none;margin-top:8px}
+  .uncert li{padding:9px 0 9px 26px;position:relative;border-bottom:1px solid var(--border)}
+  .uncert li::before{content:'?';position:absolute;left:0;top:9px;font-family:var(--mono);color:var(--accent);font-weight:500}
+  .refs ol{padding-left:22px;font-size:14.5px;color:var(--muted)}
+  .refs li{margin-bottom:11px;line-height:1.5}
+  .method{margin-top:46px;padding:22px 24px;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-size:15px;color:var(--muted);line-height:1.6}
+  .method b{color:var(--text)}
+  footer{border-top:2px solid var(--border);margin-top:50px;padding:26px 24px;max-width:840px;margin-left:auto;margin-right:auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-family:var(--mono);font-size:10.5px;color:var(--muted);letter-spacing:.05em}
+  @media(max-width:640px){.fw-grid{grid-template-columns:1fr}body{font-size:17px}table.meee{font-size:13px}.scenarios{flex-direction:column}}
+</style>
+</head>
+<body>
+
+<div class="ticker-wrap">
+  <div class="ticker-label">ANCA-ADD · EN VIVO</div>
+  <div class="ticker">
+    <span>◆ Irán: EE.UU. y Teherán pactan marco para extender alto el fuego 60 días y reabrir Ormuz; firma prevista el 19 jun</span>
+    <span>◆ Colombia: fracasa suspensión de Petro; balotaje sigue el 21 jun entre De la Espriella (43,78 %) y Cepeda (40,98 %)</span>
+    <span>◆ Ciencia: pulpos usan espejos para localizar presa oculta — primera evidencia en invertebrados (Current Biology)</span>
+    <span>◆ Ébola Bundibugyo: 782 casos / 181 muertes en RDC; tribunal keniano frena centro de cuarentena de EE.UU.</span>
+    <span>◆ UE: Código de Práctica sobre marcado de contenido generado por IA previsto para junio 2026</span>
+    <span>◆ Costa Rica: Banco Mundial y IICE-UCR recortan crecimiento a 3,5 % y 3,4 %; desempleo sube al 8,1 %</span>
+    <span>◆ Costa Rica: magistrado capturado por corrupción; Asamblea inicia proceso para destituir a Rodrigo Chaves</span>
+    <span>◆ Costa Rica: semisumergible con 3 toneladas de cocaína interceptado a 4 millas de Cabo Matapalo — mayor decomiso en sumergible</span>
+    <span>◆ Costa Rica: doble alerta sanitaria — 195.497 casos de EDA y brote de neumonía atípica (Mycoplasma) en la CCSS</span>
+    <span>◆ Costa Rica: liderazgo en adopción de IA generativa en LATAM (28,5 %); UCR, UNA y TEC mejoran en Scimago 2026</span>
+  </div>
+</div>
+
+<nav>
+  <span class="nbrand">ANCA-ADD N.°009</span>
+  <a href="#iran">Irán</a>
+  <a href="#colombia">Colombia</a>
+  <a href="#pulpos">Pulpos</a>
+  <a href="#ebola">Ébola</a>
+  <a href="#ia">IA·UE</a>
+  <a href="#cr-economia">CR·Economía</a>
+  <a href="#cr-crisis">CR·Crisis</a>
+  <a href="#cr-narco">CR·Narco</a>
+  <a href="#cr-salud">CR·Salud</a>
+  <a href="#cr-ciencia">CR·Ciencia</a>
+  <a href="#sintesis">Síntesis</a>
+  <a href="#fuentes">Fuentes</a>
+</nav>
+
+<header class="masthead">
+  <div class="kicker">Agente Noticioso Crítico de Actualidad</div>
+  <h1 class="title">Boletín Semanal</h1>
+  <div class="subtitle">Antropología Dinámica del Devenir · Evaluación epistémica explicacionista</div>
+  <div class="meta-row">
+    <span>Edición <b>N.° 009</b> · ampliada</span><span>·</span>
+    <span>Cobertura <b>6 al 15 de junio de 2026</b></span><span>·</span>
+    <span>Cierre: <b>lunes 15 jun, 17:19</b> (San José)</span>
+  </div>
+</header>
+
+<main>
+
+  <section class="frameworks">
+    <h3>Marcos analíticos en operación</h3>
+    <div class="fw-grid">
+      <div class="fw"><b>MEEE-G</b> — Matriz Explicacionista de Evaluación Epistémica (Goldman): fiabilismo procesual, explicacionismo comparativo, falibilismo. Clasifica el estatus justificatorio de cada afirmación.</div>
+      <div class="fw"><b>ADD</b> — Antropología Dinámica del Devenir (Montero Fonseca): clausura organizacional con apertura disipativa (Prigogine/Maturana), habitus y campo (Bourdieu), colonización del mundo de la vida (Habermas), pluralismo normativo.</div>
+      <div class="fw"><b>Sistemas-mundo</b> — Wallerstein / Arrighi: posición sistémica, transición hegemónica, ciclos de acumulación, división nuclear/periférica del trabajo. Registro analítico propio, no colapsado en ADD.</div>
+      <div class="fw"><b>Costa Rica</b> — Nodo periférico acoplado: cada nota evalúa los flujos, riesgos y oportunidades que pueden acoplarse al contexto nacional.</div>
+    </div>
+    <div class="code-legend">
+      <span><b>[DC]</b> dato confirmado</span>
+      <span><b>[IP]</b> inferencia plausible</span>
+      <span><b>[H]</b> hipótesis</span>
+      <span><b>[Int]</b> interpretación</span>
+      <span><b>[C]</b> conjetura</span>
+    </div>
+  </section>
+
+  <section class="panorama">
+    <h2>Panorama de la semana</h2>
+    <p>La edición ampliada del N.° 009 integra dos registros complementarios: el internacional y el nacional. En el frente global, la semana pivotó en torno a cuatro tensiones: el alto el fuego EE.UU.–Irán cristalizó el 14 de junio en un <em>marco</em> de extensión de 60 días con reapertura de Ormuz; en Colombia, el intento fallido de suspender a Petro reordenó la recta final del balotaje del 21 de junio; la cognición de cefalópodos amplió el continuum ontológico de la información; y el ébola Bundibugyo aceleró su curva hasta 782 casos mientras la resistencia comunitaria pasó de teoría conspirativa a litigio judicial. La gobernanza de la IA en la UE entra en su fase de marcado obligatorio. En Costa Rica, la semana fue de convergencia de presiones: crisis institucional con la captura de un magistrado y el proceso de destitución de Rodrigo Chaves, un decomiso narco histórico de 3 toneladas frente a Cabo Matapalo, dos alertas sanitarias simultáneas (diarrea aguda y neumonía atípica), y señales económicas mixtas —desaceleración de zonas francas y desempleo en alza al 8,1 %, pero liderazgo regional en adopción de IA y mejora universitaria en los rankings Scimago.</p>
+  </section>
+
+  <!-- ====================== INTERNACIONAL ====================== -->
+  <div class="section-break">
+    <h2>Internacional</h2>
+  </div>
+
+  <!-- 1. IRÁN -->
+  <article class="story" id="iran">
+    <span class="cat-tag cat-geo">Política y geopolítica</span>
+    <h2 class="headline">De la tregua quebradiza al marco de 60 días: EE.UU. e Irán pactan extender el alto el fuego y reabrir el estrecho de Ormuz</h2>
+    <div class="dateline">EE.UU. · Irán · Israel — Golfo Pérsico / Golfo de Omán — actualizado al 14–15 jun 2026</div>
+
+    <div class="block-h">Hechos verificados</div>
+    <div class="facts"><ul>
+      <li>El 14 de junio, EE.UU. e Irán acordaron un marco para extender el alto el fuego por 60 días, tras 107 días de conflicto, según reportes de prensa basados en Axios. <span class="ecode e-dc">[DC]</span></li>
+      <li>El marco contempla la reapertura del estrecho de Ormuz (por donde transitaba cerca del 20 % del petróleo y GNL mundiales) y el levantamiento del bloqueo naval estadounidense. <span class="ecode e-dc">[DC]</span></li>
+      <li>EE.UU. se abstendría de imponer nuevas sanciones durante la negociación de un pacto definitivo; se prevé un alivio gradual de sanciones según un calendario acordado. <span class="ecode e-dc">[DC]</span></li>
+      <li>El acuerdo incluye compromisos nucleares iraníes (suspensión de actividades orientadas a armas y mecanismos de supervisión), con las cuestiones nucleares de fondo aún por negociar en los próximos dos meses. <span class="ecode e-dc">[DC]</span></li>
+      <li>La firma formal del memorando de entendimiento está prevista para el 19 de junio; los precios del petróleo cedieron y las bolsas subieron tras el anuncio. <span class="ecode e-dc">[DC]</span></li>
+    </ul></div>
+
+    <div class="block-h">Contexto</div>
+    <p>El conflicto superó los cien días. La nota previa de este boletín (N.° 008) caracterizó la tregua como «frágil», y la versión del 12 de junio de esta edición la describía sostenida por declaraciones presidenciales que los impactos nocturnos desmentían. El acuerdo del 14 de junio representa el mayor avance diplomático del conflicto: convierte el cese declarativo en un marco con calendario, aunque deja pendientes las cuestiones nucleares de fondo y depende de una firma formal todavía no consumada. Funcionarios iraníes advirtieron que responderán ante cualquier incumplimiento.</p>
+
+    <div class="block-h">Análisis epistémico · MEEE-G</div>
+    <table class="meee">
+      <tr><th>Afirmación</th><th>Código</th><th>Justificación procesual</th></tr>
+      <tr><td>Existe un marco acordado para extender el alto el fuego 60 días con reapertura de Ormuz.</td><td><span class="ecode e-dc">[DC]</span></td><td>Reportes convergentes (Axios, agencias) en ventana de 24 h; respaldo de mercado (caída del crudo, alza bursátil).</td></tr>
+      <tr><td>El marco se consolidará en un memorando firmado el 19 de junio.</td><td><span class="ecode e-ip">[IP]</span></td><td>Inferencia desde el calendario anunciado; la firma aún no se ha producido al cierre de esta actualización.</td></tr>
+      <tr><td>El acuerdo resuelve la cuestión nuclear de fondo.</td><td><span class="ecode e-h">[H]</span></td><td>Las partes lo dejan explícitamente para negociar en dos meses; el compromiso actual es de suspensión y supervisión, no de resolución.</td></tr>
+      <tr><td>La tregua de 60 días se sostendrá sin reescaladas.</td><td><span class="ecode e-c">[C]</span></td><td>Conjetura sobre trayectoria; alta sensibilidad a incidentes y a la advertencia iraní de respuesta ante incumplimientos.</td></tr>
+    </table>
+
+    <div class="add-block">
+      <div class="block-h">Lectura dinámica · ADD</div>
+      <p>El sistema parece transitar de un <b>régimen turbulento</b> hacia una <b>bifurcación estabilizadora</b>, sin haberla consumado. El parámetro de control declarado sigue siendo la <b>credibilidad del compromiso de cese</b>: el marco de 60 días reduce la incertidumbre, pero la firma pendiente y la advertencia iraní de represalia mantienen abierta la posibilidad de reescalada. La reapertura de Ormuz funciona como <b>amortiguador</b>: restituye un flujo material (crudo) cuya interrupción amplificaba la perturbación regional. Cada actor estatal procesa el marco según su clausura organizacional —para Washington es cierre diplomático; para Teherán, una victoria negociada con condiciones; para los actores regionales, un alivio aún no verificado.</p>
+    </div>
+
+    <div class="ws-block">
+      <div class="block-h">Sistemas-mundo</div>
+      <p>La disputa se libra sobre un <b>cuello de botella logístico del núcleo energético</b> (estrechos de Ormuz/golfo de Omán), donde el bloqueo naval funciona como ejercicio de poder cuasi-monopólico sobre el flujo de crudo. En la lectura de Arrighi, la militarización del control de rutas es síntoma de una transición hegemónica turbulenta: la potencia declinante recurre a la coerción territorial directa donde el dominio comercial-financiero ya no basta. La semiperiferia y la periferia importadoras absorben el costo del gradiente energético interrumpido.</p>
+    </div>
+
+    <div class="cr-block">
+      <div class="block-h">Relevancia para Costa Rica</div>
+      <p>El acoplamiento es <b>indirecto pero material</b>: como importador neto de hidrocarburos, Costa Rica recibe el shock vía precios del crudo. El propio Banco Central atribuyó al conflicto de Medio Oriente el recorte de su proyección de crecimiento (ver nota CR-Economía). La distensión y la caída de precios tras el acuerdo del 14 de junio, de sostenerse, aliviarían la factura petrolera de RECOPE y, con rezago, la presión inflacionaria local. <span class="ecode e-ip">[IP]</span></p>
+    </div>
+
+    <div class="scenarios">
+      <div class="pill s1"><div class="pl">Consolidación</div><p>El memorando se firma el 19 jun; la tregua sostiene la reapertura de Ormuz y abre la vía nuclear.</p></div>
+      <div class="pill s2"><div class="pl">Marco condicionado</div><p>Firma con cumplimiento parcial; reapertura de Ormuz con incidentes y precios del crudo aún volátiles.</p></div>
+      <div class="pill s3"><div class="pl">Ruptura del marco</div><p>Un incumplimiento o incidente naval frustra la firma; reescalada y nuevo pico de precios energéticos.</p></div>
+    </div>
+  </article>
+
+  <!-- 2. COLOMBIA -->
+  <article class="story" id="colombia">
+    <span class="cat-tag cat-geo">Política y geopolítica</span>
+    <h2 class="headline">Fracasa la suspensión inédita de Petro: una orden de eficacia nula pero de alto efecto simbólico a una semana del balotaje</h2>
+    <div class="dateline">Colombia — Bogotá — actualizado al 11–15 jun 2026</div>
+
+    <div class="block-h">Hechos verificados</div>
+    <div class="facts"><ul>
+      <li>El 10 de junio, Gloria Arizabaleta, presidenta de la Comisión de Investigación y Acusación de la Cámara, ordenó la «suspensión provisional» de Gustavo Petro hasta el 21 de junio, invocando la Ley 1952 de 2019 por mensajes de la cuenta @petrogustavo entre el 6 y el 9 de junio. <span class="ecode e-dc">[DC]</span></li>
+      <li>El intento fracasó: fue rechazado de forma transversal como inconstitucional. El artículo 194 de la Constitución reserva la suspensión del presidente a la plenaria del Senado, no a la Comisión de la Cámara. <span class="ecode e-dc">[DC]</span></li>
+      <li>El cuestionamiento provino incluso del propio Gobierno: el ministro del Interior, Armando Benedetti, afirmó que la competencia es exclusiva del Senado; juristas y opositores (Duque, Valencia) coincidieron. <span class="ecode e-dc">[DC]</span></li>
+      <li>Petro —que estaba en Nueva York para intervenir en el Consejo de Seguridad de la ONU— negó haber intervenido en política; nunca estuvo en riesgo real de ser apartado. <span class="ecode e-dc">[DC]</span></li>
+      <li>El balotaje del 21 de junio sigue en pie: Abelardo de la Espriella (Defensores de la Patria, 43,78 %) frente a Iván Cepeda (Pacto Histórico, 40,98 %). De la Espriella calificó la maniobra de «autoatentado legislativo». <span class="ecode e-dc">[DC]</span></li>
+    </ul></div>
+
+    <div class="block-h">Contexto</div>
+    <p>La nota previa (N.° 008) registró la primera vuelta del 31 de mayo y la intervención de Trump en la contienda. La versión del 12 de junio de esta edición registró la orden de suspensión como una medida de validez dudosa. La actualización confirma su desenlace: la orden no prosperó —Petro nunca fue apartado— pero su <em>efecto simbólico</em> reordenó la recta final. Que una congresista del propio partido oficialista intentara suspender a su presidente, y que el rechazo viniera incluso del Ejecutivo, ilustra la fractura del campo político a una semana del balotaje.</p>
+
+    <div class="block-h">Análisis epistémico · MEEE-G</div>
+    <table class="meee">
+      <tr><th>Afirmación</th><th>Código</th><th>Justificación procesual</th></tr>
+      <tr><td>Se emitió una orden de suspensión y, en la práctica, no produjo la separación efectiva del cargo.</td><td><span class="ecode e-dc">[DC]</span></td><td>Reportes convergentes (Telemundo, CNN, El Tiempo) sobre el fracaso de la medida; Petro permaneció en funciones.</td></tr>
+      <tr><td>La orden era inválida por carecer la Comisión de potestad para suspender al presidente (art. 194).</td><td><span class="ecode e-ip">[IP]</span></td><td>Inferencia con respaldo constitucional explícito (Univ. de La Sabana) y reconocimiento del propio Ejecutivo (Benedetti).</td></tr>
+      <tr><td>La maniobra buscaba un efecto simbólico («Petro víctima») favorable a Cepeda.</td><td><span class="ecode e-int">[Int]</span></td><td>Hipótesis de actores opositores; interpretación de incentivos, no hecho establecido.</td></tr>
+      <tr><td>El episodio alterará materialmente el resultado del 21 de junio.</td><td><span class="ecode e-c">[C]</span></td><td>Conjetura; el efecto neto sobre el electorado es indeterminado y disputado por ambos bandos.</td></tr>
+    </table>
+
+    <div class="add-block">
+      <div class="block-h">Lectura dinámica · ADD</div>
+      <p>El episodio se lee en el <b>nivel normativo-plural</b> del protocolo ADD: coexisten órdenes con criterios de legitimidad inconmensurables —la potestad disciplinaria de la Comisión, la competencia ratificadora del Senado, la autoridad electoral, el calendario constitucional— y los actores <b>navegan estratégicamente</b> entre ellos. La orden de Arizabaleta es menos un acto jurídico consumado que una <b>perturbación informacional</b> introducida en un campo en zona de bifurcación electoral. La paradoja —una congresista del partido oficialista suspende a su propio presidente— sugiere un <b>campo semi-autónomo</b> (Moore) donde la disciplina interna del Pacto Histórico ya no determina la conducta de sus integrantes. Régimen: <b>turbulento</b>, con polarización y crisis de legitimidad procedimental como señales de proximidad a un umbral.</p>
+    </div>
+
+    <div class="ws-block">
+      <div class="block-h">Sistemas-mundo</div>
+      <p>La contienda entre una candidatura de extrema derecha y otra de izquierda, con injerencia explícita de Washington reportada en la edición previa, expresa la disputa por el alineamiento de un Estado semiperiférico andino dentro de la reorganización hegemónica. El control del aparato judicial-disciplinario como recurso de poder —denunciado por ambos bandos— es típico de regímenes donde la legitimidad del campo político se ha vuelto ella misma el objeto en disputa.</p>
+    </div>
+
+    <div class="cr-block">
+      <div class="block-h">Relevancia para Costa Rica</div>
+      <p>Costa Rica observa como referente regional de estabilidad institucional comparada. Dos acoplamientos: (1) la judicialización de la política electoral es un patrón cuya difusión regional conviene monitorear desde el TSE y la institucionalidad nacional; (2) un eventual giro del Ejecutivo colombiano afectaría la cooperación regional en seguridad y migración, ejes sensibles para el gobierno Fernández. <span class="ecode e-ip">[IP]</span></p>
+    </div>
+
+    <div class="scenarios">
+      <div class="pill s1"><div class="pl">Reabsorción institucional</div><p>La orden se declara inviable, el balotaje transcurre con normalidad y la disputa se traslada al recuento.</p></div>
+      <div class="pill s2"><div class="pl">Deslegitimación cruzada</div><p>El resultado del 21 jun es impugnado por el perdedor, prolongando la crisis de legitimidad más allá de la elección.</p></div>
+      <div class="pill s3"><div class="pl">Escalada de bloqueo</div><p>Choque entre Cámara, Senado y autoridad electoral que tensiona el traspaso de mando previsto para agosto.</p></div>
+    </div>
+  </article>
+
+  <!-- 3. PULPOS -->
+  <article class="story" id="pulpos">
+    <span class="cat-tag cat-cie">Ciencia · cognición</span>
+    <h2 class="headline">Un pulpo frente al espejo: primera evidencia de que un invertebrado infiere la posición de una presa oculta</h2>
+    <div class="dateline">EE.UU. · Suiza — Dartmouth / Fribourg — publicado en línea 3 jun 2026 (Current Biology)</div>
+
+    <div class="block-h">Hechos verificados</div>
+    <div class="facts"><ul>
+      <li>Un estudio de Kieseler y colaboradores (Dartmouth, U. de Fribourg, CephRes), publicado en <em>Current Biology</em>, demuestra que <em>Octopus bimaculoides</em> aprende a usar un espejo para localizar comida fuera de su línea de visión. <span class="ecode e-dc">[DC]</span></li>
+      <li>Tres pulpos entrenados acertaron la ubicación oculta en torno al 73 % de los ensayos. <span class="ecode e-dc">[DC]</span></li>
+      <li>Para descartar pistas químicas o táctiles, los investigadores usaron un cangrejo virtual proyectado, forzando una inferencia estrictamente visual y una maniobra de giro de 180°. <span class="ecode e-dc">[DC]</span></li>
+      <li>Los autores afirman que es la primera demostración de localización mediada por espejo en un invertebrado, capacidad antes documentada solo en algunos mamíferos y aves. <span class="ecode e-dc">[DC]</span></li>
+    </ul></div>
+
+    <div class="block-h">Contexto</div>
+    <p>La localización mediada por espejo es una forma de <em>percepción mediada</em>: vincular un reflejo visible con una posición oculta. Algunos investigadores la consideran un precursor —no equivalente— del autorreconocimiento. El hallazgo se inscribe en una línea reciente sobre cognición de cefalópodos y, de forma más amplia, en el debate sobre los criterios de consciencia en animales no vertebrados.</p>
+
+    <div class="block-h">Análisis epistémico · MEEE-G</div>
+    <table class="meee">
+      <tr><th>Afirmación</th><th>Código</th><th>Justificación procesual</th></tr>
+      <tr><td>Los pulpos usaron el reflejo para localizar la presa con ~73 % de acierto.</td><td><span class="ecode e-dc">[DC]</span></td><td>Resultado experimental controlado, revisado por pares, en revista de alto estándar (Current Biology).</td></tr>
+      <tr><td>El desempeño refleja inferencia espacial y no mero condicionamiento a contingencias visuales.</td><td><span class="ecode e-ip">[IP]</span></td><td>El protocolo de presa virtual controla pistas alternativas; la inferencia es la mejor explicación disponible, con n reducido (3 individuos).</td></tr>
+      <tr><td>La capacidad es un precursor del autorreconocimiento en cefalópodos.</td><td><span class="ecode e-h">[H]</span></td><td>Hipótesis teórica; el estudio no aplica la prueba de marca ni evalúa MSR.</td></tr>
+      <tr><td>Existe una forma de experiencia subjetiva asociada a esta inferencia.</td><td><span class="ecode e-c">[C]</span></td><td>Conjetura no resoluble con datos conductuales; debate abierto sobre criterios de consciencia.</td></tr>
+    </table>
+
+    <div class="add-block">
+      <div class="block-h">Lectura dinámica · ADD</div>
+      <p>El caso ilustra de forma nítida el <b>continuum ontológico relacional</b> de la ADD y su rechazo del excepcionalismo. La inferencia mediada por espejo es <b>procesamiento de información</b> en el sentido del nivel 1 (Vedral/Bateson: una diferencia que hace una diferencia), realizado por un sistema con <b>clausura organizacional</b> radicalmente distinta a la de un vertebrado y, sin embargo, funcionalmente capaz de la misma operación. Es un recordatorio metodológico: la <b>cibernética de segundo orden</b> de la ADD insiste en que la frontera entre «observador» y «sistema observado» es construida; aquí el animal procesa su propio entorno reflejado como dato. Declaración de analogía: el uso de «información» es <b>literal</b> en el nivel físico; el de «inferencia» es <b>analogía fuerte</b> que requiere mediación conceptual, no atribución de significado simbólico humano.</p>
+    </div>
+
+    <div class="cr-block">
+      <div class="block-h">Relevancia para Costa Rica</div>
+      <p>Costa Rica, con su capital simbólico en biodiversidad y conservación marina (Coco, Pacífico, áreas protegidas), tiene una oportunidad de acoplamiento científico: la cognición de cefalópodos conecta con agendas de bienestar animal, ética de pesquerías y ciencia ciudadana marina. El UCR-CIMAR y programas afines pueden capitalizar la atención pública del hallazgo. <span class="ecode e-int">[Int]</span></p>
+    </div>
+
+    <div class="scenarios">
+      <div class="pill s1"><div class="pl">Consolidación</div><p>Réplicas con mayor n confirman la inferencia espacial y abren agenda comparada de cognición de invertebrados.</p></div>
+      <div class="pill s2"><div class="pl">Reinterpretación parsimoniosa</div><p>Estudios posteriores explican el desempeño por mecanismos asociativos más simples, sin inferencia.</p></div>
+      <div class="pill s3"><div class="pl">Expansión normativa</div><p>El hallazgo alimenta marcos regulatorios de bienestar animal que incorporan a los cefalópodos.</p></div>
+    </div>
+  </article>
+
+  <!-- 4. ÉBOLA -->
+  <article class="story" id="ebola">
+    <span class="cat-tag cat-cie">Ciencia · salud</span><span class="cat-tag cat-soc">Sociedad</span>
+    <h2 class="headline">Ébola Bundibugyo escala a 782 casos confirmados: una curva que se acelera, las primeras recuperaciones y un tribunal keniano que frena la cuarentena de EE.UU.</h2>
+    <div class="dateline">RDC · Uganda · Kenia — África central y oriental — actualizado al 13–15 jun 2026</div>
+
+    <div class="block-h">Hechos verificados</div>
+    <div class="facts"><ul>
+      <li>El 14 de junio, el Ministerio de Salud de la RDC reportó 782 casos confirmados, 181 muertes confirmadas y 359 hospitalizados en aislamiento (datos al 13 de junio): 106 casos y 45 muertes nuevos respecto al reporte del 12 de junio. <span class="ecode e-dc">[DC]</span></li>
+      <li>Ituri sigue siendo la provincia más afectada (717 casos en 20 zonas de salud); Kivu Norte acumula 62 casos en 10 zonas y Kivu Sur 3. El brote ya alcanzó un campamento de desplazados de unas 30.000 personas. <span class="ecode e-dc">[DC]</span></li>
+      <li>Se confirmaron las primeras cinco recuperaciones de la cepa Bundibugyo desde el inicio del brote. <span class="ecode e-dc">[DC]</span></li>
+      <li>No existen vacunas ni tratamientos aprobados para el virus Bundibugyo; un <em>preprint</em> sugiere que las vacunas licenciadas (cepa Zaire) podrían generar inmunidad cruzada parcial. <span class="ecode e-dc">[DC]</span></li>
+      <li>El rastreo de contactos opera muy por debajo del umbral de control (~45 % frente al 90 % necesario); EE.UU. ha comprometido más de 220 millones de dólares, con una brecha de financiamiento aún de unos 115 millones. <span class="ecode e-dc">[DC]</span></li>
+      <li>Un tribunal de Kenia bloqueó temporalmente la instalación de un centro de cuarentena financiado por EE.UU.; el 10 de junio, un manifestante murió por disparos de la policía en Nanyuki durante las protestas. <span class="ecode e-dc">[DC]</span></li>
+    </ul></div>
+
+    <div class="block-h">Contexto</div>
+    <p>La nota de N.° 008 registró la declaración del PHEIC; la versión del 12 de junio situaba el brote en 635 casos. En cuatro días, la curva se aceleró por encima de las 780 confirmaciones —el ritmo más rápido de cualquier brote de Bundibugyo registrado—, impulsada en parte por el procesamiento del rezago de muestras de laboratorio. El brote, declarado el 15 de mayo, es el 17.º de la RDC desde 1976 y el tercero por esta especie (tras Uganda 2007–08 y RDC 2012). La novedad de la actualización es la consolidación de un <em>frente social y judicial</em>: la desconfianza hacia la intervención externa pasó de teoría conspirativa (Bunia) a litigio (el bloqueo keniano) y a víctima mortal en protesta (Nanyuki).</p>
+
+    <div class="block-h">Análisis epistémico · MEEE-G</div>
+    <table class="meee">
+      <tr><th>Afirmación</th><th>Código</th><th>Justificación procesual</th></tr>
+      <tr><td>Cifras de casos/muertes y distribución geográfica al 13 jun (782 / 181).</td><td><span class="ecode e-dc">[DC]</span></td><td>Datos oficiales (MinSalud RDC, ECDC) sujetos a revisión; el salto refleja en parte el procesamiento del rezago de laboratorio.</td></tr>
+      <tr><td>El rastreo de contactos por debajo del 90 % impide adelantarse a la transmisión.</td><td><span class="ecode e-ip">[IP]</span></td><td>Inferencia epidemiológica estándar; ~45 % reportado deja cadenas de transmisión sin interrumpir.</td></tr>
+      <tr><td>La desconfianza comunitaria —ahora también judicial— incrementa la transmisión efectiva.</td><td><span class="ecode e-h">[H]</span></td><td>Hipótesis con respaldo de brotes previos; el bloqueo keniano y las protestas son indicios, no medición.</td></tr>
+      <tr><td>El brote se extenderá significativamente fuera de RDC/Uganda.</td><td><span class="ecode e-c">[C]</span></td><td>Conjetura; los organismos sanitarios estiman el riesgo de exportación como bajo, aunque variable.</td></tr>
+    </table>
+
+    <div class="add-block">
+      <div class="block-h">Lectura dinámica · ADD</div>
+      <p>El brote opera en los tres niveles del protocolo simultáneamente. En el <b>nivel energético-material</b>, la respuesta es un proceso disipativo costoso: vigilancia, laboratorio y aislamiento consumen recursos que la inseguridad regional interrumpe. En el <b>nivel comunicativo-institucional</b>, la teoría conspirativa de Bunia, el bloqueo judicial keniano y la muerte de un manifestante en Nanyuki se leen mejor <em>no</em> como irracionalidad, sino como respuesta de un <b>mundo de la vida</b> a lo que percibe como <b>colonización</b>: la intervención sanitaria externa llega con la lógica sistémica (financiamiento estadounidense, protocolos importados, infraestructura de cuarentena) sobre comunidades cuya organización simbólica define qué cuenta como amenaza. Parámetro de control declarado: la <b>confianza comunitaria en el sistema de respuesta</b>; su erosión empuja hacia un régimen turbulento que ninguna medida puramente biomédica amortigua.</p>
+    </div>
+
+    <div class="ws-block">
+      <div class="block-h">Sistemas-mundo</div>
+      <p>El patrón es periférico-extractivo en sentido sanitario: los desarrollos farmacéuticos (Ervebo) se concentraron en la especie Zaire, comercialmente y geopolíticamente priorizada, dejando al Bundibugyo sin contramedida aprobada pese a tres brotes. La división nuclear/periférica del trabajo se reproduce en la <b>cartografía de la innovación biomédica</b>: qué patógenos «merecen» vacuna depende de gradientes de poder, no solo de carga de enfermedad.</p>
+    </div>
+
+    <div class="cr-block">
+      <div class="block-h">Relevancia para Costa Rica</div>
+      <p>Riesgo directo bajo, pero relevancia estructural alta. Para el sistema CCSS y el Ministerio de Salud, el caso subraya el valor de la capacidad de vigilancia genómica y respuesta rápida ante filovirus emergentes y la importancia de la confianza pública en la salud —lección transferible tras la experiencia pandémica. Costa Rica, como nodo de tránsito y turismo, monitorea el riesgo de importación de forma rutinaria. <span class="ecode e-ip">[IP]</span></p>
+    </div>
+
+    <div class="scenarios">
+      <div class="pill s1"><div class="pl">Contención</div><p>El plan OMS/Africa CDC estabiliza la curva; la confianza comunitaria mejora con liderazgo local.</p></div>
+      <div class="pill s2"><div class="pl">Meseta prolongada</div><p>Transmisión persistente en zonas inseguras; respuesta sostenida pero sin control pleno por meses.</p></div>
+      <div class="pill s3"><div class="pl">Expansión regional</div><p>La desconfianza y la inseguridad amplifican el brote hacia nuevas zonas y países vecinos.</p></div>
+    </div>
+  </article>
+
+  <!-- 5. IA/UE -->
+  <article class="story" id="ia">
+    <span class="cat-tag cat-tec">Tecnología · gobernanza</span>
+    <h2 class="headline">La UE entra en su fase de «marcado»: el Código de Práctica sobre contenido generado por IA, previsto para junio, ante la transparencia obligatoria de agosto</h2>
+    <div class="dateline">Unión Europea — Bruselas — calendario regulatorio jun–ago 2026</div>
+
+    <div class="block-h">Hechos verificados</div>
+    <div class="facts"><ul>
+      <li>El Código de Práctica final sobre marcado y etiquetado de contenido generado por IA está programado para publicarse en junio de 2026. <span class="ecode e-dc">[DC]</span></li>
+      <li>Las obligaciones de transparencia del Reglamento de IA (art. 50) serán exigibles desde agosto de 2026: los chatbots deberán revelar su naturaleza artificial y los <em>deepfakes</em> portar marcas legibles por máquina. <span class="ecode e-dc">[DC]</span></li>
+      <li>El 7 de mayo, Consejo y Parlamento alcanzaron un acuerdo político (paquete «Omnibus digital») que simplifica reglas de IA, posterga los <em>sandboxes</em> regulatorios nacionales al 2 de agosto de 2027 y reduce periodos de gracia. <span class="ecode e-dc">[DC]</span></li>
+      <li>Las obligaciones para modelos de propósito general (GPAI) rigen desde agosto de 2025; las acciones de cumplimiento de la Comisión comienzan el 2 de agosto de 2026. El Código GPAI ha sido firmado por unos 24 proveedores (Anthropic, Google, OpenAI, Microsoft, Mistral, IBM, Amazon, entre otros); Meta no lo firmó. <span class="ecode e-dc">[DC]</span></li>
+    </ul></div>
+
+    <div class="block-h">Contexto</div>
+    <p>La nota de gobernanza de IA del boletín N.° 008 se prolonga aquí en su vertiente regulatoria concreta: el tránsito de la norma escrita a la obligación operativa. El «Omnibus digital» revela una tensión interna en la UE entre el impulso de protección/soberanía y la presión por simplificar para no penalizar la competitividad.</p>
+
+    <div class="block-h">Análisis epistémico · MEEE-G</div>
+    <table class="meee">
+      <tr><th>Afirmación</th><th>Código</th><th>Justificación procesual</th></tr>
+      <tr><td>Calendario de transparencia (art. 50) y publicación del Código de marcado.</td><td><span class="ecode e-dc">[DC]</span></td><td>Documentos institucionales de la Comisión, el Consejo y guías oficiales de implementación.</td></tr>
+      <tr><td>El «Omnibus digital» suaviza la carga regulatoria efectiva sobre la industria.</td><td><span class="ecode e-ip">[IP]</span></td><td>Inferencia desde el propio texto (aplazamientos, reducción de plazos), pendiente de adopción formal.</td></tr>
+      <tr><td>El marcado obligatorio reducirá de forma apreciable la desinformación sintética.</td><td><span class="ecode e-h">[H]</span></td><td>Hipótesis de política; eficacia condicionada a estándares técnicos y cumplimiento transfronterizo.</td></tr>
+      <tr><td>La UE consolidará un estándar global de facto (efecto Bruselas) en marcado de IA.</td><td><span class="ecode e-c">[C]</span></td><td>Conjetura sobre difusión normativa; depende de la respuesta de EE.UU. y China.</td></tr>
+    </table>
+
+    <div class="add-block">
+      <div class="block-h">Lectura dinámica · ADD</div>
+      <p>El régimen regulatorio es una <b>tensión sistema/mundo de la vida</b> en sentido habermasiano, pero invertida: aquí el sistema jurídico-estatal intenta <em>contener</em> la colonización del espacio comunicativo por una lógica sistémica previa (la del mercado de modelos generativos). El marcado obligatorio es un intento de restituir, al nivel informacional, la distinción entre comunicación humana orientada al entendimiento y output sintético. La ausencia de firma de Meta y el «Omnibus» que reduce cargas muestran que el campo regulatorio es <b>semi-autónomo</b>: genera reglas pero permanece permeable a las fuerzas del capital tecnológico que pretende regular.</p>
+    </div>
+
+    <div class="ws-block">
+      <div class="block-h">Sistemas-mundo</div>
+      <p>La gobernanza de la IA es un frente de la <b>disputa por el control del régimen informacional global</b>. El triángulo UE–EE.UU.–China define las reglas de un recurso estratégico (cómputo, modelos, estándares de procedencia). La UE, sin liderazgo en cómputo de frontera, ejerce poder por la vía regulatoria —su principal forma de capital sistémico— intentando convertir su mercado en palanca de estándar global.</p>
+    </div>
+
+    <div class="cr-block">
+      <div class="block-h">Relevancia para Costa Rica</div>
+      <p>Acoplamiento por <b>extraterritorialidad regulatoria</b>: empresas y exportadores de servicios costarricenses que operen con clientes en la UE quedarán sujetos a las obligaciones de transparencia. Para el ecosistema de servicios digitales y zonas francas, anticipar el marcado de contenido y la trazabilidad de modelos es una ventaja competitiva. El MICITT podría valorar un marco nacional alineable para reducir fricción exportadora. <span class="ecode e-int">[Int]</span></p>
+    </div>
+
+    <div class="scenarios">
+      <div class="pill s1"><div class="pl">Estándar global</div><p>El marcado UE se vuelve referencia de facto; proveedores lo adoptan globalmente por eficiencia.</p></div>
+      <div class="pill s2"><div class="pl">Fragmentación regulatoria</div><p>EE.UU. y China divergen; coexisten regímenes incompatibles y arbitraje regulatorio.</p></div>
+      <div class="pill s3"><div class="pl">Dilución competitiva</div><p>Sucesivas simplificaciones vacían de eficacia la obligación antes de que despliegue efectos.</p></div>
+    </div>
+  </article>
+
+  <!-- ====================== COSTA RICA ====================== -->
+  <div class="section-break" id="costarica">
+    <h2>Costa Rica</h2>
+  </div>
+
+  <!-- 6. CR ECONOMÍA -->
+  <article class="story" id="cr-economia">
+    <span class="cat-tag cat-eco">Economía y negocios</span><span class="cat-tag cat-geo">Nacional</span>
+    <h2 class="headline">Desaceleración convergente: BM y IICE-UCR recortan el crecimiento a 3,5 % y 3,4 %, zonas francas frenan y el desempleo escala al 8,1 %</h2>
+    <div class="dateline">Costa Rica — San José — 8–15 jun 2026</div>
+
+    <div class="block-h">Hechos verificados</div>
+    <div class="facts"><ul>
+      <li>El 11 de junio, el Banco Mundial ajustó a la baja el crecimiento del PIB real de Costa Rica para 2026 a 3,5 % (−0,1 pp frente a enero), atribuyendo el ajuste al choque energético global e indirecto vía precios del crudo. <span class="ecode e-dc">[DC]</span></li>
+      <li>El IICE-UCR recortó su proyección del 4,5 % estimado a inicios de año a un 3,4 %; el crecimiento del régimen de zonas francas se desplomaría del 12,4 % esperado a apenas un 4,0 % en junio. <span class="ecode e-dc">[DC]</span></li>
+      <li>El FMI (Consulta del Artículo IV, 29 de mayo) proyecta una moderación a 3,6 % en 2026 con riesgos sesgados a la baja; la OCDE estima 3,5 % (2026) y 3,4 % (2027); el retorno de la inflación a la banda 2–4 % se estima en torno a ocho trimestres. <span class="ecode e-dc">[DC]</span></li>
+      <li>El desempleo subió al 8,1 % en el trimestre móvil marzo–mayo de 2026, según la Encuesta Continua de Empleo del INEC (la cifra más alta desde mediados de 2025); la tasa de participación laboral bajó al 57,8 % y el empleo informal alcanzó el 41 % de la población ocupada. <span class="ecode e-dc">[DC]</span></li>
+      <li>El déficit del gobierno central se ubica en torno al 3,4 % del PIB y la deuda en 60,4 % del PIB. La inversión extranjera nueva se redujo a $895 millones en 2025 frente a $5.121,8 millones en reinversiones. <span class="ecode e-dc">[DC]</span></li>
+    </ul></div>
+
+    <div class="block-h">Contexto</div>
+    <p>El informe insignia del Banco Mundial inscribe el diagnóstico en un marco regional: la dependencia energética importadora de Centroamérica convierte el conflicto de Medio Oriente en un shock de términos de intercambio. Paralelamente, la guerra comercial de EE.UU., el encarecimiento de materias primas y la reorganización de cadenas de valor por IA están erosionando la ventaja competitiva de Costa Rica como plataforma de exportación. La desaceleración de las zonas francas —del 12,4 % al 4,0 %— golpea con fuerza la manufactura de precisión y los servicios financieros. El desempleo en alza completa un cuadro de presión convergente sobre el modelo de desarrollo, con amortiguadores fiscales ya tensionados.</p>
+
+    <div class="block-h">Análisis epistémico · MEEE-G</div>
+    <table class="meee">
+      <tr><th>Afirmación</th><th>Código</th><th>Justificación procesual</th></tr>
+      <tr><td>BM fijó el crecimiento 2026 en 3,5 % (−0,1 pp); IICE-UCR en 3,4 %.</td><td><span class="ecode e-dc">[DC]</span></td><td>Reportes de El Financiero y La República sobre ambos informes, fechados el 11–12 jun.</td></tr>
+      <tr><td>El canal principal del enfriamiento es el shock energético importado.</td><td><span class="ecode e-ip">[IP]</span></td><td>Convergencia de BCCR, FMI, OCDE y BM en atribuir el ajuste a precios del crudo y aranceles.</td></tr>
+      <tr><td>El desempleo al 8,1 % refleja el bajo dinamismo del sector formal y la reorganización productiva.</td><td><span class="ecode e-ip">[IP]</span></td><td>Inferencia consistente con la caída de participación laboral y el aumento del empleo informal.</td></tr>
+      <tr><td>La contracción de las zonas francas es reversible a corto plazo.</td><td><span class="ecode e-c">[C]</span></td><td>Conjetura; depende de decisiones de IED en contexto de reconfiguración de cadenas globales de valor.</td></tr>
+    </table>
+
+    <div class="add-block">
+      <div class="block-h">Lectura dinámica · ADD</div>
+      <p>Costa Rica aparece como <b>sistema acoplado a una perturbación de nivel mega</b> (conflicto energético + reorganización comercial global) que se procesa según su organización interna. El parámetro de control es la <b>vulnerabilidad por dependencia importadora de hidrocarburos e IED concentrada</b>: el sistema no genera los shocks, pero su estructura disipativa determina cómo los amplifica. La <b>divergencia entre proyecciones</b> —del 3,4 % de OCDE para 2027 al 4,8 % anterior del IICE-UCR— es, en clave ADD, una <b>fluctuación informacional</b> sobre el estado del sistema: distintos observadores, con distintos modelos (clausura observacional propia), producen descripciones que reentran como dato en las decisiones de política. Régimen: <b>laminar con tensión creciente</b>.</p>
+    </div>
+
+    <div class="ws-block">
+      <div class="block-h">Sistemas-mundo</div>
+      <p>El episodio es un caso de manual de <b>transferencia asimétrica de gradientes energético-materiales</b>: el alza del crudo —disputada en el núcleo geopolítico (nota Irán)— se transmite como deterioro de términos de intercambio hacia una periferia importadora. La aritmética de Wallerstein opera aquí no como metáfora sino como contabilidad de flujos: lo que la periferia exporta (servicios, manufactura ligera, agro) financia una factura energética cuyo precio fija el centro.</p>
+    </div>
+
+    <div class="scenarios">
+      <div class="pill s1"><div class="pl">Distensión</div><p>El crudo cede tras el acuerdo en Medio Oriente; el crecimiento se acerca al consenso alto y la IED se estabiliza.</p></div>
+      <div class="pill s2"><div class="pl">Enfriamiento moderado</div><p>Escenario base: crecimiento ~3,5 %, desempleo persistente en 8 %, zonas francas en recuperación lenta.</p></div>
+      <div class="pill s3"><div class="pl">Shock prolongado</div><p>Precios del crudo altos, IED en contracción, desempleo en alza; presión fiscal que estrecha el margen de gasto social.</p></div>
+    </div>
+  </article>
+
+  <!-- 7. CR CRISIS INSTITUCIONAL -->
+  <article class="story" id="cr-crisis">
+    <span class="cat-tag cat-geo">Política nacional</span>
+    <h2 class="headline">Triple fractura institucional: magistrado capturado por corrupción, proceso para destituir a Rodrigo Chaves y propuesta de eliminar el bachillerato para policías</h2>
+    <div class="dateline">Costa Rica — San José — 16–17 jun 2026</div>
+
+    <div class="block-h">Hechos verificados</div>
+    <div class="facts"><ul>
+      <li>Una de las máximas autoridades del Poder Judicial fue capturada por la Fiscalía Anticorrupción por presuntos actos de corrupción y tráfico de influencias cometidos durante su gestión al frente de la Dirección de Inteligencia y Seguridad (DIS), entre 2018 y 2022. <span class="ecode e-dc">[DC]</span></li>
+      <li>La Comisión de Nombramientos de la Asamblea Legislativa inició el proceso para destituir al expresidente Rodrigo Chaves de su cargo de «superministro» de la Presidencia y Hacienda. La oposición (Frente Amplio, sectores del PLN) lo acusa de corrupción durante su gestión en el Ministerio de Hacienda y de abuso de poder. <span class="ecode e-dc">[DC]</span></li>
+      <li>El Frente Amplio confirmó movilizaciones contra el gobierno de Laura Fernández previstas para ese fin de semana, señalando un «pacto de impunidad» entre la presidenta y Chaves. <span class="ecode e-dc">[DC]</span></li>
+      <li>La vicepresidenta Marianela Chaves solicitó formalmente al MSP la eliminación del requisito de bachiller en educación media para el ingreso a la Fuerza Pública, con el objetivo de ampliar el reclutamiento y subsanar el déficit de personal policial. <span class="ecode e-dc">[DC]</span></li>
+      <li>La propuesta fue criticada por sindicatos policiales y expertos en seguridad, quienes advierten sobre un posible descenso en la calidad y profesionalización del cuerpo policial en un contexto de escalada del crimen organizado. <span class="ecode e-dc">[DC]</span></li>
+    </ul></div>
+
+    <div class="block-h">Contexto</div>
+    <p>La institucionalidad costarricense enfrenta una semana de convergencia de crisis: la captura del magistrado expone capturas de Estado en el sistema judicial; el proceso de destitución de Chaves prolonga la fractura entre el Ejecutivo y la Asamblea; y la propuesta policial evidencia la presión de la administración por mostrar resultados en seguridad sin los recursos humanos necesarios. Los tres episodios convergen en un solo campo discursivo: la credibilidad del Estado de derecho y la capacidad de gobernabilidad del primer año de la administración Fernández.</p>
+
+    <div class="block-h">Análisis epistémico · MEEE-G</div>
+    <table class="meee">
+      <tr><th>Afirmación</th><th>Código</th><th>Justificación procesual</th></tr>
+      <tr><td>La Fiscalía Anticorrupción ejecutó la captura del alto funcionario judicial y confirmó el operativo.</td><td><span class="ecode e-dc">[DC]</span></td><td>NCR Noticias (16 jun) y CRHoy (17 jun) confirman el operativo con fuentes institucionales.</td></tr>
+      <tr><td>El caso expone un nivel de captura arraigado en estructuras clave del Estado.</td><td><span class="ecode e-ip">[IP]</span></td><td>Inferencia desde el cargo (DIS) y la naturaleza de los delitos imputados; consistente con informes de Transparencia Internacional sobre CR.</td></tr>
+      <tr><td>La oposición vincula el caso judicial con el nombramiento de Chaves como «pacto de impunidad».</td><td><span class="ecode e-int">[Int]</span></td><td>Interpretación explícita de los actores opositores; no establecida como hecho, pero con efecto político real.</td></tr>
+      <tr><td>La eliminación del bachillerato policial reducirá la eficacia en la lucha contra el crimen organizado.</td><td><span class="ecode e-h">[H]</span></td><td>Hipótesis con respaldo de sindicatos y expertos; el efecto depende de los mecanismos de compensación en formación.</td></tr>
+    </table>
+
+    <div class="add-block">
+      <div class="block-h">Lectura dinámica · ADD</div>
+      <p>El país ha entrado en una zona de <b>alta turbulencia institucional</b>, con tres ejes de fractura simultáneos: entre el Ejecutivo y el Legislativo, entre el oficialismo y la oposición, y entre el Poder Judicial y el Ministerio Público. En la lectura ADD, el <b>habitus del campo político</b> costarricense —históricamente organizado en torno a la diferenciación de poderes y la defensa del Estado de derecho como capital simbólico— es el recurso en disputa: cada actor pretende aparecer como defensor de la institucionalidad mientras la erosiona en algún plano. La propuesta policial introduce una <b>tensión entre urgencia política y calidad institucional</b>: reduce el umbral de entrada a la carrera policial como respuesta a una presión de demanda sin resolver la presión de oferta del crimen organizado. Parámetro de control: la <b>credibilidad del Poder Judicial y la gobernabilidad de la administración Fernández</b> en su primer año.</p>
+    </div>
+
+    <div class="scenarios">
+      <div class="pill s1"><div class="pl">Reabsorción institucional</div><p>Los procesos avanzan con normalidad; la captura del magistrado se convierte en señal anticorrupción que fortalece la independencia del MP.</p></div>
+      <div class="pill s2"><div class="pl">Crisis de gobernanza prolongada</div><p>La fractura Ejecutivo-Legislativo bloquea la agenda de gobierno; la percepción de impunidad erosiona la confianza inversora y la cooperación internacional.</p></div>
+      <div class="pill s3"><div class="pl">Deslegitimación sistémica</div><p>La acumulación de escándalos y la movilización social desencadenan una crisis de legitimidad del sistema político que supera a los actores individuales.</p></div>
+    </div>
+  </article>
+
+  <!-- 8. CR NARCO -->
+  <article class="story" id="cr-narco">
+    <span class="cat-tag cat-geo">Seguridad · nacional</span>
+    <h2 class="headline">El Estado captura un semisumergible narco en el Pacífico Sur: tres toneladas de cocaína con códigos QR a cuatro millas de Cabo Matapalo</h2>
+    <div class="dateline">Costa Rica — Cabo Matapalo, Puntarenas — 12 jun 2026</div>
+
+    <div class="block-h">Hechos verificados</div>
+    <div class="facts"><ul>
+      <li>En la madrugada del 12 de junio, el Servicio Nacional de Guardacostas, con apoyo de inteligencia de la DEA, interceptó un semisumergible a cuatro millas náuticas de Cabo Matapalo, Puntarenas. La embarcación transportaba tres toneladas de cocaína y estaba tripulada por tres ciudadanos colombianos y un ecuatoriano. <span class="ecode e-dc">[DC]</span></li>
+      <li>Los paquetes tenían códigos QR impresos, lo que hace sospechar que el destinatario los habría utilizado para verificar la recepción del cargamento mediante un sistema de trazabilidad digital. <span class="ecode e-dc">[DC]</span></li>
+      <li>El ministro de Seguridad, Gerald Campos, calificó la incautación como la mayor registrada en un sumergible en aguas costarricenses, superando las 2,1 toneladas decomisadas en 2024. <span class="ecode e-dc">[DC]</span></li>
+      <li>El decomiso ocurre en el marco de la iniciativa hemisférica antidrogas «Escudo de las Américas», impulsada por Trump, a la que Costa Rica se sumó en marzo pasado. En 2025, las autoridades costarricenses decomisaron 46,5 toneladas de cocaína, la segunda cifra más alta de su historia. <span class="ecode e-dc">[DC]</span></li>
+    </ul></div>
+
+    <div class="block-h">Contexto</div>
+    <p>El Pacífico sur de Costa Rica se ha convertido en un nodo de tránsito de cargas de alta pureza con destino a EE.UU. y Europa. La irrupción de semisumergibles con sistemas de autenticación digital marca un salto tecnológico en la logística del crimen organizado: los códigos QR sugieren redes con capacidad de verificación remota, mayor resiliencia ante la intercepción de un nodo individual y una separación entre el operador y el destinatario que dificulta el rastreo. El éxito del operativo refuerza la cooperación antinarcóticos DEA-Guardacostas, pero evidencia un vacío estructural: la capacidad de reacción sigue siendo intermitente y focalizada, mientras el problema se agrava en el plano de las rutas, la corrupción local y el lavado de capitales.</p>
+
+    <div class="block-h">Análisis epistémico · MEEE-G</div>
+    <table class="meee">
+      <tr><th>Afirmación</th><th>Código</th><th>Justificación procesual</th></tr>
+      <tr><td>Interceptación, monto de la droga, tripulación y presencia de códigos QR.</td><td><span class="ecode e-dc">[DC]</span></td><td>Comunicado oficial del MSP y declaraciones del ministro Campos; confirmado por Diario Centroamérica e Infobae.</td></tr>
+      <tr><td>Los códigos QR revelan integración de tecnologías de trazabilidad en la cadena logística narco.</td><td><span class="ecode e-ip">[IP]</span></td><td>Inferencia desde la presencia de los códigos y el propósito habitual de verificación de recepción en cadenas logísticas.</td></tr>
+      <tr><td>El operativo desarticuló la red narco responsable de este flujo.</td><td><span class="ecode e-h">[H]</span></td><td>Hipótesis no respaldada por datos públicos; los golpes tácticos raramente desarticulan redes consolidadas.</td></tr>
+      <tr><td>La cooperación DEA-Guardacostas es suficiente para contener el corredor narco del Pacífico sur.</td><td><span class="ecode e-c">[C]</span></td><td>Conjetura contraindicada por el crecimiento histórico de los decomisos, que puede reflejar tanto mayor interdicción como mayor flujo.</td></tr>
+    </table>
+
+    <div class="add-block">
+      <div class="block-h">Lectura dinámica · ADD</div>
+      <p>El caso expresa una <b>tensión estructural</b> en el sentido ADD: un corredor narco en franca expansión en el Pacífico centroamericano versus una capacidad de interdicción estatal que, aunque eficaz en golpes tácticos, no logra desarticular los circuitos logísticos de fondo. La incorporación de códigos QR al proceso narco es un <b>salto en la clausura organizacional de la red criminal</b>: mayor capacidad de procesamiento de información (verificación remota), menor dependencia de contacto físico y mayor resiliencia ante la intercepción de un nodo. El Estado opera con herramientas del ciclo tecnológico anterior. Parámetro de control: la <b>brecha tecnológica e informacional entre el Estado y el crimen organizado</b>.</p>
+    </div>
+
+    <div class="scenarios">
+      <div class="pill s1"><div class="pl">Cobertura efectiva</div><p>La cooperación DEA-Guardacostas y la inversión en inteligencia naval generan una tasa de intercepción suficientemente disuasiva.</p></div>
+      <div class="pill s2"><div class="pl">Escalada paralela</div><p>El crimen organizado adapta su tecnología y rutas; los decomisos aumentan pero el flujo neto también.</p></div>
+      <div class="pill s3"><div class="pl">Captura institucional</div><p>La corrupción local escala al punto de comprometer la inteligencia y la cadena de custodia de los operativos.</p></div>
+    </div>
+  </article>
+
+  <!-- 9. CR SALUD -->
+  <article class="story" id="cr-salud">
+    <span class="cat-tag cat-cie">Salud pública</span><span class="cat-tag cat-soc">Sociedad</span>
+    <h2 class="headline">Doble alerta sanitaria: 195.497 casos de diarrea aguda vinculados a sequía y calor, y brote de neumonía atípica en hospitales de la CCSS</h2>
+    <div class="dateline">Costa Rica — nacional — 1–16 jun 2026</div>
+
+    <div class="block-h">Hechos verificados</div>
+    <div class="facts"><ul>
+      <li>El Ministerio de Salud confirmó un acumulado de 195.497 casos de Enfermedad Diarreica Aguda (EDA) al 1 de junio de 2026, colocando al país transitoriamente en zona de alerta roja del canal endémico. Las mujeres presentan una tasa de afectación más del doble que los hombres (7.480 frente a 3.455 por cada 100.000 hab.). Las provincias con mayor incidencia son Puntarenas, San José y Alajuela; los cantones con tasas más altas incluyen Flores y Orotina. <span class="ecode e-dc">[DC]</span></li>
+      <li>Un brote de neumonía atípica causado por <em>Mycoplasma pneumoniae</em> colocó al sistema de salud en alerta máxima. El Ministerio de Salud recomendó el uso de mascarilla en centros médicos de la CCSS, especialmente en áreas de emergencias y hospitalización pediátrica. <span class="ecode e-dc">[DC]</span></li>
+      <li>El brote de EDA ocurre en un contexto de altas temperaturas y escasez de agua agravada por El Niño, con cortes temporales del servicio de agua potable en varias comunidades que restringen el acceso a agua segura para consumo e higiene. <span class="ecode e-dc">[DC]</span></li>
+      <li>La demanda de camas UCI y de consulta externa ha aumentado significativamente; la saturación de los servicios de emergencia podría afectar la atención de otras patologías. <span class="ecode e-ip">[IP]</span></li>
+    </ul></div>
+
+    <div class="block-h">Contexto</div>
+    <p>La crisis diarreica no es un hecho aislado: es un síntoma de vulnerabilidad estructural. El abastecimiento de agua segura no está garantizado para toda la población en condiciones climáticas extremas. Los brotes históricos en años cálidos oscilaron entre 9.000 y 12.000 casos semanales, lo que anticipa que el ciclo actual podría sostenerse durante todo el período seco. El brote de neumonía atípica ocurre en un contexto pospandemia con menor inmunidad de rebaño a ciertos patógenos respiratorios. La convergencia de ambos brotes en junio sobrecarga un sistema de salud ya tensionado por el ajuste presupuestario y la desaceleración económica.</p>
+
+    <div class="block-h">Análisis epistémico · MEEE-G</div>
+    <table class="meee">
+      <tr><th>Afirmación</th><th>Código</th><th>Justificación procesual</th></tr>
+      <tr><td>195.497 casos de EDA acumulados; alerta roja del canal endémico; tasas diferenciadas por sexo y geografía.</td><td><span class="ecode e-dc">[DC]</span></td><td>Datos del Ministerio de Salud, confirmados por Diario Extra (12 jun).</td></tr>
+      <tr><td>El Ministerio de Salud confirmó el brote de neumonía atípica y ordenó uso de mascarilla en centros CCSS.</td><td><span class="ecode e-dc">[DC]</span></td><td>Comunicado oficial y cobertura de CRHoy (16 jun).</td></tr>
+      <tr><td>La combinación de calor extremo y déficit hídrico podría sostener la EDA durante todo el período seco.</td><td><span class="ecode e-ip">[IP]</span></td><td>Inferencia desde el patrón histórico de años cálidos previos y las condiciones actuales de El Niño.</td></tr>
+      <tr><td>La saturación de servicios de emergencia podría derivar en una emergencia sanitaria declarada.</td><td><span class="ecode e-h">[H]</span></td><td>Hipótesis condicionada a la evolución simultánea de ambos brotes y la capacidad de respuesta del sistema.</td></tr>
+    </table>
+
+    <div class="add-block">
+      <div class="block-h">Lectura dinámica · ADD</div>
+      <p>La doble alerta sanitaria revela que el <b>sistema disipativo del bienestar</b> costarricense opera a un costo energético elevado cuando el clima actúa como perturbación externa. La salud pública se acopla críticamente al <b>recurso hídrico</b>, que a su vez está acoplado a la infraestructura de ASADAS y acueductos municipales. En la lectura Habermasiana, la salud pública es un dominio donde la <b>colonización sistémica</b> (recortes presupuestarios, lógica de eficiencia de la CCSS) encuentra el límite del <b>mundo de la vida</b>: cuando la diarrea o la neumonía saturan las salas de emergencia, el costo se traslada a los hogares y a la moral colectiva. La crisis diarreica evidencia además una <b>desigualdad de género en la exposición al riesgo</b>: las mujeres duplican la tasa de afectación, lo que sugiere diferenciales en el acceso al agua segura y en la carga del cuidado doméstico. Parámetro de control: la <b>continuidad del suministro de agua potable y la capacidad hospitalaria disponible</b>.</p>
+    </div>
+
+    <div class="scenarios">
+      <div class="pill s1"><div class="pl">Contención</div><p>Las lluvias del período húmedo estabilizan el suministro hídrico; los brotes ceden antes de saturar los servicios.</p></div>
+      <div class="pill s2"><div class="pl">Crisis sostenida</div><p>La EDA persiste durante todo el período seco; la neumonía atípica se estabiliza pero mantiene presión hospitalaria.</p></div>
+      <div class="pill s3"><div class="pl">Emergencia sanitaria</div><p>La convergencia de ambos brotes, la sequía y los recortes presupuestarios fuerza la declaratoria de emergencia sanitaria.</p></div>
+    </div>
+  </article>
+
+  <!-- 10. CR CIENCIA Y TECNOLOGÍA -->
+  <article class="story" id="cr-ciencia">
+    <span class="cat-tag cat-cie">Ciencia</span><span class="cat-tag cat-tec">Tecnología</span>
+    <h2 class="headline">Tres señales de capacidad científica: ISCO en Isla del Coco, liderazgo regional en IA generativa y universidades públicas en lo alto del Scimago 2026</h2>
+    <div class="dateline">Costa Rica — San José / Isla del Coco — 3–16 jun 2026</div>
+
+    <div class="block-h">Hechos verificados</div>
+    <div class="facts"><ul>
+      <li>El Observatorio Vulcanológico y Sismológico de la UNA (Ovsicori-UNA) instaló la primera estación sísmica permanente en la Isla del Coco, denominada ISCO. Apenas una semana después de su activación, el 4 de junio captó un sismo de magnitud 4,8 en El Salvador y otro de magnitud 5,3 en Osa, Puntarenas. <span class="ecode e-dc">[DC]</span></li>
+      <li>Costa Rica alcanzó la mayor adopción de inteligencia artificial generativa en América Latina durante el primer trimestre de 2026, con un 28,5 % de la población en edad laboral utilizando estas herramientas, según el Informe Global de Difusión de IA del Microsoft AI Economy Institute. El país ganó dos puntos porcentuales frente a la medición anterior. <span class="ecode e-dc">[DC]</span></li>
+      <li>El Life Sciences Forum 2026 destacó que el sector de dispositivos médicos alcanzó exportaciones por casi US$11.000 millones en 2025 (48 % de las exportaciones totales de bienes del país), con más de 100 empresas multinacionales en el sector MedTech, incluyendo 18 de las 35 mayores firmas mundiales. <span class="ecode e-dc">[DC]</span></li>
+      <li>La UCR y el TEC subieron varios puestos en el Scimago Institutions Rankings (SIR) 2026; la UNA debutó en la lista, posicionándose entre las mejores 1.200 instituciones del mundo. Los logros coinciden con el debate sobre recortes presupuestarios al FEES. <span class="ecode e-dc">[DC]</span></li>
+    </ul></div>
+
+    <div class="block-h">Contexto</div>
+    <p>La Isla del Coco, Patrimonio de la Humanidad de la UNESCO, carecía hasta ahora de una estación sísmica fija. Su ubicación en la zona de subducción del Pacífico sur le otorga un valor estratégico para la vigilancia tectónica regional. El liderazgo en adopción de IA generativa contrasta con la desaceleración económica reportada: el país exporta tecnología y conocimiento, pero sigue importando la mayor parte de los equipos electrónicos y software para esas mismas operaciones. Los rectores utilizaron el alza en Scimago como argumento en la defensa de la inversión estatal en educación superior ante los argumentos de recorte presupuestario al FEES.</p>
+
+    <div class="block-h">Análisis epistémico · MEEE-G</div>
+    <table class="meee">
+      <tr><th>Afirmación</th><th>Código</th><th>Justificación procesual</th></tr>
+      <tr><td>Instalación de ISCO; detección de sismos en El Salvador y Osa a días de la activación.</td><td><span class="ecode e-dc">[DC]</span></td><td>Ovsicori-UNA y cobertura de La Nación (7 jun) y El Observador (6 jun).</td></tr>
+      <tr><td>28,5 % de adopción de IA generativa; exportaciones de dispositivos médicos US$11.000 millones en 2025.</td><td><span class="ecode e-dc">[DC]</span></td><td>Microsoft AI Economy Institute e informe CINDE (4 jun), confirmados por La Nación (10 jun).</td></tr>
+      <tr><td>El liderazgo en IA podría convertirse en ventaja competitiva sostenible.</td><td><span class="ecode e-ip">[IP]</span></td><td>Inferencia plausible solo si se traduce en mayor productividad en los sectores que emplean a la mayoría de la fuerza laboral.</td></tr>
+      <tr><td>Los recortes al FEES revertirán las mejoras en rankings universitarios.</td><td><span class="ecode e-h">[H]</span></td><td>Hipótesis con respaldo de precedentes internacionales; la investigación científica depende de financiamiento sostenido.</td></tr>
+    </table>
+
+    <div class="add-block">
+      <div class="block-h">Lectura dinámica · ADD</div>
+      <p>Las tres señales apuntan al mismo fenómeno: Costa Rica está <b>invirtiendo en atractores de conocimiento</b> (ISCO, IA, MedTech, universidades) que son, en términos de la ADD, <b>catalizadores de complejidad organizada</b>. La ISCO fortalece la red nacional de vigilancia sísmica como un atractor de conocimiento aplicado a la gestión del riesgo. El liderazgo en IA y el ecosistema MedTech son <b>acoplamientos productivos de alta densidad informacional</b>. El riesgo sistémico es la <b>desigualdad en el acceso</b>: si las capacidades en IA y manufactura avanzada se concentran en enclaves de alta tecnología sin derrame al resto de la economía, el liderazgo estadístico puede coexistir con una desigualdad creciente —la paradoja del éxito periférico en la economía-mundo. El debate sobre el FEES introduce aquí una <b>bifurcación crítica</b>: el desfinanciamiento de la ciencia pública en el momento en que produce sus mejores resultados es una forma de destrucción de atractores.</p>
+    </div>
+
+    <div class="scenarios">
+      <div class="pill s1"><div class="pl">Bifurcación positiva</div><p>El liderazgo en IA y MedTech genera derrame, eleva la productividad general y ancla IED de alta calidad.</p></div>
+      <div class="pill s2"><div class="pl">Enclave tecnológico</div><p>Los sectores avanzados crecen de forma autónoma del resto de la economía; la brecha interna se amplía.</p></div>
+      <div class="pill s3"><div class="pl">Reversión por recortes</div><p>El desfinanciamiento del FEES y la infraestructura científica erosiona las capacidades acumuladas a mediano plazo.</p></div>
+    </div>
+  </article>
+
+  <!-- ====================== SÍNTESIS ====================== -->
+  <section class="synth" id="sintesis">
+    <h2>Síntesis dinámica de la semana</h2>
+    <table class="synth-t">
+      <tr><th>Fenómeno</th><th>Régimen ADD</th><th>Atractor / tensión dominante</th><th>Acoplamiento a Costa Rica</th></tr>
+      <tr><td>EE.UU.–Irán</td><td>Bifurcación estabilizadora (no consumada)</td><td>Credibilidad del marco vs. firma pendiente</td><td>Indirecto-material: precio del crudo</td></tr>
+      <tr><td>Suspensión de Petro (fracasada)</td><td>Turbulento (crisis de legitimidad)</td><td>Forma procedimental vs. función de poder</td><td>Referente regional; cooperación seguridad</td></tr>
+      <tr><td>Pulpos y espejos</td><td>Laminar (avance acumulativo)</td><td>Continuum ontológico / criterios de cognición</td><td>Oportunidad: ciencia marina y bienestar animal</td></tr>
+      <tr><td>Ébola Bundibugyo</td><td>Turbulento (curva en aceleración)</td><td>Confianza comunitaria vs. intervención sistémica</td><td>Riesgo bajo; vigilancia genómica y confianza</td></tr>
+      <tr><td>Gobernanza IA (UE)</td><td>Bifurcación regulatoria</td><td>Soberanía/protección vs. simplificación competitiva</td><td>Extraterritorialidad: exportadores de servicios</td></tr>
+      <tr><td>Economía CR (desaceleración)</td><td>Laminar con tensión creciente</td><td>Vulnerabilidad importadora vs. amortiguadores fiscales</td><td>Directo: factura energética, IED y empleo</td></tr>
+      <tr><td>Crisis institucional CR</td><td>Turbulento (fractura inter-poderes)</td><td>Legitimidad judicial vs. alineamientos políticos</td><td>Directo: gobernabilidad y confianza inversora</td></tr>
+      <tr><td>Narco semisumergible CR</td><td>Turbulento (escalada logística criminal)</td><td>Capacidad estatal vs. innovación del crimen organizado</td><td>Directo: soberanía marítima y seguridad</td></tr>
+      <tr><td>Doble alerta sanitaria CR</td><td>Turbulento (sistemas bajo presión)</td><td>Déficit hídrico-climático vs. capacidad hospitalaria</td><td>Directo: salud pública y gasto social</td></tr>
+      <tr><td>Ciencia y tecnología CR</td><td>Bifurcación positiva (no consolidada)</td><td>Liderazgo en IA/MedTech vs. desigualdad de acceso y FEES</td><td>Directo: modelo de desarrollo y capital científico</td></tr>
+    </table>
+  </section>
+
+  <!-- ====================== INCERTIDUMBRES ====================== -->
+  <section class="uncert" id="incertidumbres">
+    <h2>Incertidumbres abiertas</h2>
+    <ul>
+      <li>¿Se firmará el memorando EE.UU.–Irán el 19 de junio y resistirá el marco de 60 días la negociación nuclear pendiente?</li>
+      <li>Disuelta la suspensión de Petro, ¿qué efecto neto tuvo el episodio sobre el electorado de cara al balotaje del 21 de junio?</li>
+      <li>¿Confirmarán réplicas con mayor número de individuos la inferencia espacial en pulpos, o emergerá una explicación asociativa más parsimoniosa?</li>
+      <li>¿Logrará el rastreo de contactos superar el umbral de control (90 %) antes de que el ébola se afiance en más zonas, y se cerrará la brecha de financiamiento de 115 millones de dólares?</li>
+      <li>¿Sobrevivirá la eficacia del marcado obligatorio de la UE a las sucesivas rondas de «simplificación» del Omnibus digital?</li>
+      <li>¿Cuánto durará el alivio del precio del petróleo y qué margen fiscal real tiene la administración Fernández si el shock se reactiva con el desempleo en 8,1 % y la deuda en 60,4 % del PIB?</li>
+      <li>¿El proceso de destitución de Rodrigo Chaves y la captura del magistrado derivarán en una crisis de gobernabilidad prolongada, o serán reabsorbidos institucionalmente?</li>
+      <li>¿La brecha tecnológica entre el Estado costarricense y el crimen organizado continuará ampliándose, o la inversión en inteligencia naval y cooperación DEA logrará reducirla?</li>
+      <li>¿La doble alerta sanitaria (EDA y neumonía atípica) derivará en una emergencia declarada, o cederá con las lluvias del período húmedo?</li>
+      <li>¿El liderazgo en adopción de IA y el auge del MedTech generarán derrame económico general, o se consolidarán como enclave de alta tecnología sin integración al resto de la economía?</li>
+    </ul>
+  </section>
+
+  <!-- ====================== FUENTES ====================== -->
+  <section class="refs" id="fuentes">
+    <h2>Fuentes</h2>
+    <ol>
+      <li>AD Noticias. (2026, 14 jun). <em>EE.UU. e Irán pactan alto al fuego tras 107 días</em>.</li>
+      <li>Aporrea. (2026, 14 jun). <em>Estados Unidos e Irán alcanzan un acuerdo para extender el alto el fuego y abrir el estrecho</em> (con base en Axios).</li>
+      <li>Montevideo Portal. (2026, 10 jun). <em>Suspenden temporalmente a Petro como presidente de Colombia hasta el 21 de junio</em>.</li>
+      <li>El Tiempo. (2026, 10 jun). <em>Presidenta de la Comisión de Acusaciones ordena suspender del cargo al presidente Gustavo Petro</em>.</li>
+      <li>CNN en Español. (2026, 11 jun). <em>La fallida suspensión temporal de Petro y sus efectos en la segunda vuelta electoral en Colombia</em>.</li>
+      <li>Telemundo 51. (2026, 11 jun). <em>Colombia: fracasa inusual intento de suspender a Gustavo Petro a días de las elecciones</em>.</li>
+      <li>Kieseler, M., et al. (2026). Octopus bimaculoides can learn to utilize a mirror to localize a reward outside the line of sight. <em>Current Biology</em>. https://doi.org/10.1016/j.cub.2026.05.012</li>
+      <li>Dartmouth College. (2026, 4 jun). <em>Study shows octopuses' impressive ability to navigate space</em>.</li>
+      <li>ScienceDaily. (2026, 5 jun). <em>Octopuses use mirrors to find food they cannot see</em>.</li>
+      <li>ECDC. (2026, 14 jun). <em>Ebola disease outbreak in the Democratic Republic of the Congo and Uganda</em> (782 casos / 181 muertes, datos al 13 jun).</li>
+      <li>WHO. (2026). <em>Ebola disease caused by Bundibugyo virus — DON605</em>.</li>
+      <li>Médecins Sans Frontières. (2026). <em>Bundibugyo virus: Why this Ebola disease outbreak is different</em>.</li>
+      <li>Consejo de la UE. (2026, 7 may). <em>Artificial Intelligence: Council and Parliament agree to simplify and streamline rules</em>.</li>
+      <li>Comisión Europea. (2026). <em>AI Act — Shaping Europe's digital future</em>. https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai</li>
+      <li>El Financiero. (2026, 11 jun). <em>El Banco Mundial analizó lo que pasa con la economía de Costa Rica en medio de las tensiones globales</em>.</li>
+      <li>FMI. (2026, 29 may). <em>El Directorio Ejecutivo del FMI concluye la Consulta del Artículo IV de 2026 con Costa Rica</em> (PR26177).</li>
+      <li>Cerdas Gómez, M. (2026, 8 jun). <em>Costa Rica crecería menos en 2026, según proyección de la UCR</em>. La Nación.</li>
+      <li>Arrieta, E. (2026, 9 jun). <em>Crecimiento de zonas francas se desplomaría en 2026, según proyecciones de UCR</em>. La República.</li>
+      <li>El Observador CR. (2026, 17 jun). <em>Índice de desempleo en Costa Rica subió al 8,1 %, la cifra más alta desde mediados de 2025</em>.</li>
+      <li>NCR Noticias. (2026, 16 jun). <em>Capturan a magistrado de la República por corrupción</em>.</li>
+      <li>NCR Noticias. (2026, 17 jun). <em>Comisión legislativa inicia proceso para destituir a Rodrigo Chaves</em>.</li>
+      <li>NCR Noticias. (2026, 17 jun). <em>Frente Amplio confirma marcha contra gobierno de Laura Fernández</em>.</li>
+      <li>CRHoy.com. (2026, 17 jun). <em>Vicepresidenta pide eliminar requisito de bachillerato para policías</em>.</li>
+      <li>Castillo, E. (2026, 12 jun). <em>Costa Rica decomisa tres toneladas de cocaína en un semisumergible en el Pacífico</em>. Diario Centroamérica.</li>
+      <li>EFE. (2026, 12 jun). <em>Operativo conjunto entre Costa Rica y EEUU deja histórico decomiso de cocaína en el Pacífico</em>. Infobae.</li>
+      <li>Ministerio de Salud Costa Rica. (2026, jun). <em>Datos de Enfermedad Diarreica Aguda — semana epidemiológica 22</em>.</li>
+      <li>Diario Extra. (2026, 12 jun). <em>Escasez de agua dispararía diarrea a niveles críticos</em>.</li>
+      <li>CRHoy.com. (2026, 16 jun). <em>Ministerio de Salud recomienda uso de mascarilla ante brote de neumonía atípica</em>.</li>
+      <li>Solano Meza, L. (2026, 7 jun). <em>¿Puede una pequeña estación en la Isla del Coco mejorar el monitoreo de sismos en Costa Rica?</em> La Nación.</li>
+      <li>El Observador. (2026, 6 jun). <em>Ovsicori instala la primera estación sísmica en Isla del Coco</em>.</li>
+      <li>Microsoft AI Economy Institute. (2026). <em>Informe Global de Difusión de Inteligencia Artificial 2026</em>. Citado en: La Nación (2026, 10 jun).</li>
+      <li>CINDE. (2026, 4 jun). <em>At the Life Sciences Forum 2026, Costa Rica Prepares for the Next Frontier in Life Sciences</em>.</li>
+      <li>Ruiz, L. (2026, 16 jun). <em>Universidades públicas suben en ranking mundial de investigación</em>. Semanario Universidad.</li>
+    </ol>
+  </section>
+
+  <div class="method">
+    <p><b>Nota metodológica.</b> Este boletín integra tres registros analíticos distintos y no colapsables: la evaluación epistémica explicacionista (MEEE-G, inspirada en Goldman), el análisis dinámico antropológico (ADD, según Montero Fonseca) y la capa de sistemas-mundo (Wallerstein/Arrighi). Los códigos epistémicos —<b>[DC]</b> dato confirmado, <b>[IP]</b> inferencia plausible, <b>[H]</b> hipótesis, <b>[Int]</b> interpretación, <b>[C]</b> conjetura— caracterizan el estatus justificatorio de cada afirmación según los procesos que la generan, no la convicción subjetiva del analista. Las declaraciones de analogía (literal / fuerte / débil) siguen el criterio de rigor de la ADD frente a la crítica de Reynoso sobre el uso metafórico de conceptos de complejidad. La edición ampliada integra material de las tres versiones del boletín: el archivo HTML de cierre del 15 de junio, el PDF impreso N.° 009 y el PDF de boletín ampliado con cobertura nacional. <b>El análisis combina evaluación epistémica explicacionista y análisis dinámico antropológico; no constituye predicción determinista ni recomendación política.</b></p>
+  </div>
+
+</main>
+
+<footer>
+  <div>ANCA-ADD © 2026 · <a href="https://antropos.app" style="color:var(--teal);text-decoration:none;">antropos.app</a></div>
+  <div>Boletín Semanal N.° 009 · edición ampliada · 15 jun 2026 · MEEE-G + ADD + Sistemas-Mundo</div>
+</footer>
+
+<script data-goatcounter="https://antropos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

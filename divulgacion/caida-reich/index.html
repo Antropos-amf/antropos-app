@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cuando el mundo se unió para salvarse a sí mismo · ANCA-ADE</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:         #1a1510;
+    --ink-soft:    #3a3028;
+    --ink-muted:   #6a6058;
+    --ink-faint:   #9a9088;
+    --paper:       #f7f2e8;
+    --paper-warm:  #efe8d8;
+    --paper-mid:   #e0d8c8;
+    --red-accent:  #8b2020;
+    --gold-line:   #b8922a;
+    --teal-note:   #1e6868;
+    --blue-aside:  #1e3a5c;
+    --col-width:   680px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: var(--paper);
+    color: var(--ink);
+    font-family: 'Lora', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.85;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── GRAIN OVERLAY ─── */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.6;
+  }
+
+  /* ─── HEADER ─── */
+  .site-header {
+    background: var(--ink);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky; top: 0; z-index: 100;
+    border-bottom: 2px solid var(--gold-line);
+  }
+  .site-brand {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    color: var(--gold-line);
+    text-transform: uppercase;
+  }
+  .site-nav {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    color: #7a7060;
+    text-transform: uppercase;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 5rem 2rem 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--red-accent), var(--gold-line), var(--teal-note));
+  }
+  .hero-kicker {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold-line);
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.4rem, 6vw, 5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--paper);
+    max-width: 900px;
+    margin: 0 auto 1.5rem;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold-line);
+  }
+  .hero-deck {
+    font-family: 'Lora', serif;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-style: italic;
+    color: #b0a898;
+    max-width: 580px;
+    margin: 0 auto 2rem;
+    line-height: 1.7;
+  }
+  .hero-meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    color: #6a6258;
+    text-transform: uppercase;
+  }
+  .hero-meta span { margin: 0 0.8rem; }
+
+  /* ─── READING COLUMN ─── */
+  .reading-col {
+    max-width: var(--col-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* ─── OPENING QUOTE ─── */
+  .opening-quote {
+    border-top: 2px solid var(--ink);
+    border-bottom: 1px solid var(--paper-mid);
+    padding: 3rem 0 2.5rem;
+    text-align: center;
+    margin-bottom: 0;
+  }
+  .opening-quote blockquote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.5;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+  .opening-quote blockquote em { color: var(--red-accent); }
+  .opening-quote footer {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+  }
+
+  /* ─── ARTICLE BODY ─── */
+  .article-body {
+    padding: 3.5rem 0 5rem;
+  }
+
+  /* ─── CHAPTER HEADERS ─── */
+  .chapter {
+    margin-top: 4.5rem;
+  }
+  .chapter-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+  .chapter-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+  .chapter-rule {
+    width: 40px;
+    height: 2px;
+    background: var(--gold-line);
+    margin-bottom: 2rem;
+  }
+
+  /* ─── BODY TEXT ─── */
+  p {
+    margin-bottom: 1.4rem;
+    font-size: 1rem;
+    color: var(--ink-soft);
+  }
+  p + p { text-indent: 1.5em; }
+  p.no-indent { text-indent: 0 !important; }
+
+  /* ─── DROPCAP ─── */
+  .dropcap::first-letter {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4.8em;
+    font-weight: 600;
+    float: left;
+    line-height: 0.78;
+    margin-right: 0.08em;
+    margin-top: 0.05em;
+    color: var(--ink);
+  }
+
+  /* ─── PULL QUOTE ─── */
+  .pull {
+    margin: 2.5rem -3rem;
+    padding: 1.8rem 2.5rem;
+    border-top: 2px solid var(--ink);
+    border-bottom: 1px solid var(--paper-mid);
+    text-align: center;
+  }
+  .pull p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.65rem);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.45;
+    color: var(--ink);
+    text-indent: 0 !important;
+    margin-bottom: 0;
+  }
+  .pull p em { color: var(--red-accent); }
+
+  /* ─── ASIDE BOX ─── */
+  .aside-box {
+    background: var(--paper-warm);
+    border-left: 3px solid var(--gold-line);
+    padding: 1.4rem 1.8rem;
+    margin: 2rem 0 2rem -0.5rem;
+  }
+  .aside-box .aside-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-line);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  .aside-box p {
+    font-size: 0.9rem;
+    color: var(--ink-muted);
+    text-indent: 0 !important;
+    margin-bottom: 0.5rem;
+    line-height: 1.7;
+  }
+  .aside-box p:last-child { margin-bottom: 0; }
+
+  /* ─── FIGURE QUOTE (historical) ─── */
+  .fig-quote {
+    margin: 2.5rem 0;
+    padding: 0 2rem;
+    border-left: 3px solid var(--ink);
+  }
+  .fig-quote blockquote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+  .fig-quote footer {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  /* ─── COSTA RICA SECTION ─── */
+  .cr-section {
+    background: linear-gradient(135deg, #e8f0e8 0%, var(--paper-warm) 100%);
+    border: 1px solid #c8d8c8;
+    border-left: 4px solid var(--teal-note);
+    padding: 2rem 2rem 2rem 2.2rem;
+    margin: 2rem 0;
+  }
+  .cr-section .cr-flag {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  .cr-section h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--teal-note);
+    margin-bottom: 0.3rem;
+  }
+  .cr-section p {
+    font-size: 0.92rem;
+    color: #3a5050;
+    text-indent: 0 !important;
+    line-height: 1.75;
+    margin-bottom: 0.8rem;
+  }
+
+  /* ─── LESSONS BOX ─── */
+  .lessons {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 3rem 2.5rem;
+    margin: 3rem 0;
+  }
+  .lessons h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    font-style: italic;
+    color: var(--gold-line);
+    margin-bottom: 1.5rem;
+  }
+  .lesson-item {
+    display: flex;
+    gap: 1.2rem;
+    margin-bottom: 1.4rem;
+    align-items: flex-start;
+  }
+  .lesson-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--gold-line);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 2rem;
+    text-align: right;
+  }
+  .lesson-text {
+    font-size: 0.92rem;
+    color: #c0b8a8;
+    line-height: 1.75;
+    padding-top: 0.3rem;
+  }
+  .lesson-text strong {
+    display: block;
+    color: var(--paper);
+    font-size: 0.95rem;
+    margin-bottom: 0.2rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    font-style: italic;
+    font-weight: 600;
+  }
+
+  /* ─── DIVIDER ─── */
+  .divider {
+    text-align: center;
+    margin: 2.5rem 0;
+    color: var(--ink-faint);
+    letter-spacing: 0.5em;
+    font-size: 0.7rem;
+  }
+
+  /* ─── CLOSING ─── */
+  .article-closing {
+    border-top: 2px solid var(--ink);
+    padding-top: 2rem;
+    margin-top: 3rem;
+  }
+  .article-closing p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.65;
+    color: var(--ink);
+    text-indent: 0 !important;
+    margin-bottom: 1.2rem;
+  }
+  .article-closing p em { color: var(--red-accent); }
+  .article-closing p strong { color: var(--teal-note); font-style: normal; }
+
+  /* ─── FOOTER / FICHA ─── */
+  .article-footer {
+    background: var(--paper-mid);
+    border-top: 2px solid var(--ink);
+    padding: 2.5rem 1.5rem;
+    margin-top: 0;
+  }
+  .ficha {
+    max-width: var(--col-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    color: var(--ink-muted);
+    line-height: 1.8;
+  }
+  .ficha-item label {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--ink-faint);
+    margin-bottom: 0.2rem;
+    font-size: 0.55rem;
+  }
+  /* ─── SVG ILUSTRACIONES ─── */
+  .svg-ilus {
+    width: 100%;
+    margin: 2.5rem 0;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #1a1510;
+  }
+  .svg-ilus svg { display: block; width: 100%; }
+  .svg-ilus figcaption {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #9a9088;
+    text-align: center;
+    padding: 0.5rem 1rem 0.7rem;
+    border-top: 1px solid rgba(184,146,42,0.2);
+    background: #1a1510;
+  }
+
+  .disclaimer-text {
+    max-width: var(--col-width);
+    margin: 2rem auto 0;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.58rem;
+    color: var(--ink-faint);
+    line-height: 1.9;
+    border-top: 1px solid var(--paper-mid);
+    padding-top: 1.2rem;
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero { animation: fadeIn 0.9s ease both; }
+  .opening-quote { animation: fadeIn 0.9s ease 0.2s both; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 700px) {
+    .pull { margin: 2rem 0; }
+    .aside-box { margin-left: 0; }
+    .ficha { grid-template-columns: 1fr; }
+    body { font-size: 16px; }
+  }
+
+  /* ─── HIGHLIGHT ─── */
+  mark {
+    background: rgba(184,146,42,0.18);
+    color: inherit;
+    padding: 0 2px;
+  }
+  strong { color: var(--ink); }
+  em.historical { color: var(--red-accent); font-style: italic; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <a class="site-brand" href="/divulgacion/" style="text-decoration:none;color:inherit;">← Cosas que no sé · antropos.app</a>
+  <span class="site-nav">8 de mayo de 2026 · 81.º aniversario V-E Day</span>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="hero-kicker">Especial Histórico · Lección y Memoria</span>
+  <h1 class="hero-title">Cuando el mundo se unió<br>para <em>salvarse a sí mismo</em></h1>
+  <p class="hero-deck">La caída del Tercer Reich y el milagro imposible de la gran coalición: cómo ideologías que se odiaban eligieron ganar juntas.</p>
+  <div class="hero-meta">
+    <span>Por ANCA-ADE</span>
+    <span>Análisis histórico</span>
+    <span>Lectura: ~15 min</span>
+  </div>
+</section>
+
+<!-- OPENING QUOTE -->
+<div class="reading-col">
+  <div class="opening-quote">
+    <blockquote>«La paradoja más trágica y dudosa de la historia alemana…<br>fuimos <em>derrotados y liberados</em> al mismo tiempo.»</blockquote>
+    <footer>— Theodor Heuss · Primer presidente de Alemania Occidental · 1949</footer>
+  </div>
+</div>
+
+<!-- ARTICLE BODY -->
+<div class="reading-col">
+<article class="article-body">
+
+  <!-- ════ CAP 1 ════ -->
+  <div class="chapter">
+    <span class="chapter-num">Capítulo I</span>
+    <h2 class="chapter-title">El régimen que prometió durar mil años</h2>
+    <div class="chapter-rule"></div>
+
+    <p class="dropcap no-indent">El 30 de enero de 1933, cuando el presidente Paul von Hindenburg nombró canciller a Adolf Hitler, pocas personas en el mundo entendieron lo que estaba ocurriendo. No era un golpe militar. No había tanques en las calles de Berlín. Era algo más sutil y más peligroso: una democracia que entregaba su propio poder a quien prometía destruirla.</p>
+
+    <p>El <em>Tercer Reich</em> —el «tercer gran imperio alemán», en la grandilocuente mitología nazi— se construyó sobre ruinas reales y sobre humillaciones reales. El Tratado de Versalles de 1919 había impuesto a Alemania reparaciones de guerra devastadoras, reducción de su ejército y pérdida de territorio. La Gran Depresión de 1929 había añadido desempleo masivo e inflación. La República de Weimar, la joven democracia alemana, no tenía todavía raíces suficientemente profundas para resistir la tormenta.</p>
+
+    <p>Hitler no llegó al poder a pesar del sistema: llegó <em>a través del sistema</em>. Las élites conservadoras creyeron que podían usarlo, controlarlo, domesticarlo. «Lo podemos manejar», dijo el vicecanciller Franz von Papen con una confianza que la historia convirtió en epítome del error político.</p>
+
+    <div class="pull">
+      <p>Las élites alemanas creyeron que podían <em>usar</em> a Hitler. Fueron ellas las usadas.</p>
+    </div>
+
+    <p>En cuestión de meses, el proceso de <em>Gleichschaltung</em> (literalmente «sincronización» o «coordinación forzada»: la alineación totalitaria de todas las instituciones bajo el partido) puso bajo control nazi todos los aspectos de la vida alemana: la prensa, los sindicatos, el poder judicial, las asociaciones cívicas, las iglesias, las universidades. La Ley de Habilitación de marzo de 1933 eliminó al Reichstag (el Parlamento federal alemán) como contrapeso real. Para 1934, Hitler había fusionado la presidencia y la cancillería en el cargo único de <em>Führer</em> (literalmente «caudillo» o «guía supremo»).</p>
+
+    <p>Lo que siguió no fue solo una dictadura. Fue la construcción sistemática de un aparato cuyo propósito central era clasificar a los seres humanos por raza, privar a los clasificados como inferiores de sus derechos, y finalmente exterminarlos. Las Leyes de Núremberg de 1935 codificaron la discriminación. Los pogromos de la Noche de los Cristales Rotos en 1938 la pusieron en práctica ante los ojos de la sociedad civil. Los campos de exterminio a partir de 1941 la convirtieron en genocidio industrial.</p>
+
+    <p>Seis millones de judíos fueron asesinados. Junto a ellos, cientos de miles de gitanos, personas con discapacidad, homosexuales, comunistas, testigos de Jehová. El Holocausto no fue un accidente del régimen ni una desviación de su lógica: <em>era su lógica</em>.</p>
+
+    <div class="aside-box">
+      <span class="aside-label">¿Cómo fue posible?</span>
+      <p>Los historiadores han debatido durante décadas cómo una sociedad culta y moderna pudo producir el Holocausto. La respuesta más rigurosa no busca monstruos excepcionales: busca mecanismos ordinarios. La propaganda sistemática construyó una imagen del otro como amenaza. El terror eliminó la disidencia. La burocracia fragmentó la responsabilidad moral en pequeñas piezas administrables. El conformismo hizo el resto. La filósofa Hannah Arendt llamó a esto «la banalidad del mal»: el horror perpetrado no por demonios, sino por funcionarios que rellenaban formularios.</p>
+    </div>
+  </div>
+
+  <div class="divider">· · ·</div>
+
+  <figure class="svg-ilus">
+    <svg width="100%" viewBox="0 0 680 520" role="img" xmlns="http://www.w3.org/2000/svg">
+      <title>Expansión máxima del Tercer Reich y avance aliado, 1942–1945</title>
+      <desc>Mapa estilizado de Europa mostrando el territorio bajo control nazi en 1942 y las dos direcciones del avance aliado que cerraron la tenaza sobre Berlín</desc>
+      <defs><marker id="ma" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+      <rect x="0" y="0" width="680" height="520" fill="#B5D4F4" opacity="0.1" rx="4"/>
+      <polygon points="110,290 95,320 105,360 130,390 160,400 185,385 195,360 210,340 210,310 195,295 175,285 150,280 130,282" fill="#4a4035" opacity="0.5"/>
+      <polygon points="195,210 175,230 160,260 165,295 185,310 210,310 225,295 255,290 275,280 280,255 265,230 250,210 230,200 210,198" fill="#4a4035" opacity="0.5"/>
+      <polygon points="155,130 140,150 135,180 145,205 165,215 180,205 190,185 185,155 170,135" fill="#4a4035" opacity="0.45"/>
+      <polygon points="120,145 110,160 115,175 130,170 132,155" fill="#4a4035" opacity="0.4"/>
+      <polygon points="270,40 260,70 255,100 265,130 280,155 300,170 320,165 330,140 345,115 350,85 340,55 315,35 290,32" fill="#4a4035" opacity="0.45"/>
+      <polygon points="350,55 345,85 350,115 365,130 380,125 390,100 385,70 370,50" fill="#4a4035" opacity="0.4"/>
+      <polygon points="210,198 230,200 250,210 265,230 280,255 275,280 255,290 260,310 275,330 300,340 330,345 355,340 375,320 390,295 400,265 410,240 405,210 390,185 370,170 350,165 330,140 315,150 300,170 280,155 265,130 255,100 255,80 245,65 225,60 205,75 195,100 195,140 200,175 205,195" fill="#E24B4A" opacity="0.38"/>
+      <polygon points="375,165 355,165 335,175 320,190 315,220 320,250 340,265 365,270 390,260 410,240 405,210 390,185 370,170" fill="#E24B4A" opacity="0.3"/>
+      <polygon points="410,160 390,165 375,165 370,170 390,185 405,210 410,240 420,265 440,280 460,275 480,260 490,235 485,205 470,180 450,165 430,158" fill="#E24B4A" opacity="0.22"/>
+      <polygon points="340,265 320,280 310,305 315,335 335,350 360,355 380,340 390,315 390,295 375,320 355,340 330,345 300,340 290,325 310,310 325,290 340,275" fill="#E24B4A" opacity="0.25"/>
+      <polygon points="255,290 260,310 265,330 275,355 270,380 280,400 295,410 305,395 310,370 310,340 300,320 285,305 270,295" fill="#E24B4A" opacity="0.2"/>
+      <path d="M165,215 Q195,235 215,255 Q235,270 260,290 Q285,315 310,330 Q335,345 355,350 Q375,360 390,370" fill="none" stroke="#85B7EB" stroke-width="3.5" stroke-linecap="round" opacity="0.9" marker-end="url(#ma)"/>
+      <path d="M175,230 Q200,248 220,265 Q248,283 268,298" fill="none" stroke="#85B7EB" stroke-width="2" stroke-linecap="round" stroke-dasharray="6 4" opacity="0.5" marker-end="url(#ma)"/>
+      <path d="M505,280 Q480,268 460,258 Q435,245 410,235 Q382,225 358,220 Q338,218 318,218 Q300,220 285,228" fill="none" stroke="#F09595" stroke-width="3.5" stroke-linecap="round" opacity="0.9" marker-end="url(#ma)"/>
+      <path d="M488,295 Q465,280 440,270 Q415,262 390,258" fill="none" stroke="#F09595" stroke-width="2" stroke-linecap="round" stroke-dasharray="6 4" opacity="0.5" marker-end="url(#ma)"/>
+      <circle cx="310" cy="268" r="10" fill="#639922" opacity="0.9"/>
+      <circle cx="310" cy="268" r="15" fill="none" stroke="#97C459" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.7"/>
+      <circle cx="340" cy="205" r="7" fill="#EF9F27" opacity="0.95"/>
+      <circle cx="340" cy="205" r="12" fill="none" stroke="#FAC775" stroke-width="1.5" opacity="0.8"/>
+      <circle cx="505" cy="200" r="6" fill="#F09595" opacity="0.9"/>
+      <circle cx="165" cy="218" r="6" fill="#85B7EB" opacity="0.9"/>
+      <rect x="20" y="16" width="310" height="52" rx="4" fill="#000" opacity="0.65"/>
+      <text x="32" y="36" fill="#f5f0e8" font-family="Georgia,serif" font-size="13" font-weight="700">EXPANSIÓN MÁXIMA DEL III REICH</text>
+      <text x="32" y="54" fill="#b8922a" font-family="monospace" font-size="10" letter-spacing="1">1942 — COLAPSO 1943–1945</text>
+      <rect x="20" y="440" width="280" height="68" rx="4" fill="#000" opacity="0.65"/>
+      <rect x="32" y="454" width="14" height="10" rx="2" fill="#E24B4A" opacity="0.6"/>
+      <text x="52" y="464" fill="#f5f0e8" font-family="monospace" font-size="10">Territorio bajo control nazi</text>
+      <line x1="32" y1="476" x2="58" y2="476" stroke="#85B7EB" stroke-width="3" stroke-linecap="round"/>
+      <text x="66" y="480" fill="#f5f0e8" font-family="monospace" font-size="10">Avance aliado occidental</text>
+      <line x1="32" y1="494" x2="58" y2="494" stroke="#F09595" stroke-width="3" stroke-linecap="round"/>
+      <text x="66" y="498" fill="#f5f0e8" font-family="monospace" font-size="10">Avance Ejército Rojo</text>
+      <text x="350" y="198" fill="#FAC775" font-family="Georgia,serif" font-size="11" font-weight="700">Berlín</text>
+      <text x="515" y="195" fill="#F09595" font-family="Georgia,serif" font-size="10" font-weight="700">Stalingrado</text>
+      <text x="112" y="212" fill="#85B7EB" font-family="Georgia,serif" font-size="10" font-weight="700">Normandía</text>
+      <text x="316" y="290" fill="#97C459" font-family="Georgia,serif" font-size="10" font-weight="700">Torgau (Elba)</text>
+      <text x="168" y="310" fill="#85B7EB" font-family="monospace" font-size="9" opacity="0.8" transform="rotate(-30,168,310)">Occidente →</text>
+      <text x="455" y="238" fill="#F09595" font-family="monospace" font-size="9" opacity="0.8" transform="rotate(10,455,238)">← Ejército Rojo</text>
+      <rect x="2" y="2" width="676" height="516" rx="6" fill="none" stroke="#b8922a" stroke-width="0.8" opacity="0.4"/>
+    </svg>
+    <figcaption>Ilustración I — La tenaza aliada sobre Europa: el avance occidental desde Normandía y el avance soviético desde Stalingrado convergieron en Torgau, sobre el Elba, el 25 de abril de 1945</figcaption>
+  </figure>
+
+  <!-- ════ CAP 2 ════ -->
+  <div class="chapter">
+    <span class="chapter-num">Capítulo II</span>
+    <h2 class="chapter-title">El error que cambió la guerra</h2>
+    <div class="chapter-rule"></div>
+
+    <p class="dropcap no-indent">Durante los primeros años de la guerra, la <em>Wehrmacht</em> (Fuerzas Armadas alemanas) parecía invencible. Polonia, en tres semanas. Francia, en seis. Noruega, Dinamarca, Bélgica, los Países Bajos: caídos en cascada. En el verano de 1940, Hitler dominaba la mayor parte de Europa continental, y el Reino Unido resistía solo, bombardeado noche tras noche, sostenido únicamente por la obstinación de Winston Churchill y por la geografía del Canal de la Mancha.</p>
+
+    <p>Fue entonces cuando Hitler cometió el error que definiría el destino del régimen: el 22 de junio de 1941, lanzó la Operación Barbarroja, la invasión de la Unión Soviética. Era el mayor despliegue militar de la historia humana: tres millones de soldados alemanes avanzando en un frente de tres mil kilómetros.</p>
+
+    <p>Los avances iniciales fueron espectaculares. El Ejército Rojo, decapitado por las purgas de Stalin y tomado por sorpresa, retrocedió cientos de kilómetros. Parecía que el colapso soviético era cuestión de semanas. Los generales alemanes hablaban de una campaña de «tres a cinco meses».</p>
+
+    <p>Pero el invierno llegó. Y luego llegó Stalingrado.</p>
+
+    <div class="fig-quote">
+      <blockquote>«Nunca antes se extinguieron tantas vidas, fueron destruidas tantas ciudades y asoladas tantas regiones.»</blockquote>
+      <footer>— Joachim Fest · Historiador alemán · biógrafo de Hitler</footer>
+    </div>
+
+    <p>Entre agosto de 1942 y febrero de 1943, el Ejército Alemán del Sur intentó tomar la ciudad que llevaba el nombre del líder soviético. Lo que siguió fue la batalla más sangrienta de la historia: combates calle por calle, edificio por edificio, piso por piso. Cuando el general Friedrich Paulus rindió lo que quedaba de su Sexto Ejército —trescientos mil hombres entraron a Stalingrado; noventa mil salieron como prisioneros—, el mito de la invencibilidad alemana se había roto para siempre.</p>
+
+    <p>Kursk, en el verano de 1943, confirmó el giro. La mayor batalla de tanques de la historia terminó con la destrucción del poder ofensivo de la <em>Wehrmacht</em> (el ejército alemán) en el este. Desde entonces, el Ejército Rojo avanzó sin detenerse.</p>
+
+    <div class="pull">
+      <p>Tres millones de soldados. Un frente de tres mil kilómetros. El mayor error estratégico de la historia moderna. <em>Hitler había decidido pelear en todos los frentes al mismo tiempo.</em></p>
+    </div>
+
+    <p>El régimen que proclamó durar mil años entró en su cuenta regresiva. Pero todavía faltaban dos años, y en esos dos años morirían más personas que en cualquier período equivalente de la historia humana.</p>
+  </div>
+
+  <div class="divider">· · ·</div>
+
+  <!-- ════ CAP 3 ════ -->
+  <div class="chapter">
+    <span class="chapter-num">Capítulo III</span>
+    <h2 class="chapter-title">La alianza imposible: cómo enemigos ideológicos aprendieron a ganar juntos</h2>
+    <div class="chapter-rule"></div>
+
+    <p class="dropcap no-indent">Este es el capítulo más extraño de la historia del siglo XX, y quizás el más instructivo. Para derrotar al nazismo, el mundo tuvo que hacer algo que en condiciones normales habría sido impensable: las democracias capitalistas de Occidente y el régimen comunista soviético tuvieron que cooperar. No de manera cómoda ni armoniosa, sino de manera suficientemente funcional como para ganar.</p>
+
+    <p>Piénselo un momento. Winston Churchill había pasado décadas advirtiendo sobre el peligro del comunismo soviético. Consideraba a Stalin un tirano. En 1918 había enviado tropas británicas a luchar contra los bolcheviques en la Guerra Civil rusa. Franklin Roosevelt representaba un capitalismo liberal que la doctrina soviética consideraba la fase final de la explotación de clase. Stalin había firmado un pacto de no agresión con Hitler en 1939 —el Pacto Molotov-Ribbentrop— y se había repartido Polonia con los nazis.</p>
+
+    <p>¿Y sin embargo? El 22 de junio de 1941, el mismo día que Alemania atacó la URSS, Churchill pronunció en radio BBC unas palabras que resumieron la brutal pragmática de la situación:</p>
+
+    <div class="fig-quote">
+      <blockquote>«Cualquier hombre o Estado que luche contra el nazismo recibirá nuestra ayuda. Si Hitler invadiera el infierno, yo haría al menos una referencia favorable al diablo en la Cámara de los Comunes.»</blockquote>
+      <footer>— Winston Churchill · Discurso radial · 22 de junio de 1941</footer>
+    </div>
+
+    <p>Roosevelt fue aún más lejos. El programa Lend-Lease —que ya suministraba armas y materiales al Reino Unido— se extendió a la URSS. Camiones estadounidenses, alimentos estadounidenses, explosivos estadounidenses llegaron en convoyes a través del Atlántico Norte a los puertos soviéticos, mientras los submarinos alemanes intentaban hundir cada barco. Sin ese suministro, el Ejército Rojo habría operado con una fracción de su capacidad logística.</p>
+
+    <p>La paradoja era evidente para todos los involucrados. No la ignoraron: la administraron. La Gran Coalición no fue un matrimonio de amor. Fue un matrimonio de necesidad ante una amenaza que todos percibían como existencial. El nazismo no solo amenazaba las democracias occidentales: amenazaba la existencia misma del pueblo eslavo, que Hitler consideraba <em>Untermenschen</em> (literalmente «subhumanos», categoría racial nazi) —destinados a la esclavitud o la extinción.</p>
+
+    <div class="aside-box">
+      <span class="aside-label">Los números que cambian la perspectiva</span>
+      <p>Cuando en Occidente se piensa en la derrota del nazismo, se suele pensar en el Día D, en las playas de Normandía, en los soldados estadounidenses y británicos avanzando hacia Berlín desde el oeste. Esa imagen es real pero incompleta.</p>
+      <p>El 75-80% de las bajas militares alemanas de combate ocurrieron en el frente oriental, contra el Ejército Rojo. La Unión Soviética perdió aproximadamente 27 millones de personas —soldados y civiles— en la guerra. Para poner esa cifra en perspectiva: Estados Unidos perdió 419.000; el Reino Unido, 450.000. El sacrificio soviético fue, en escala, incomparable.</p>
+      <p>Reconocer esto no equivale a avalar el régimen de Stalin —que fue un régimen de terror—. Equivale a leer la historia con honestidad.</p>
+    </div>
+
+    <figure class="svg-ilus">
+      <svg width="100%" viewBox="0 0 680 480" role="img" xmlns="http://www.w3.org/2000/svg">
+        <title>La Gran Coalición: cuatro sistemas incompatibles unidos por una amenaza común</title>
+        <desc>Diagrama con los cuatro actores aliados principales convergiendo sobre el elemento que los unió: el rechazo al nazismo</desc>
+        <defs><marker id="mc" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+        <circle cx="340" cy="240" r="52" fill="#1a1510" opacity="0.95"/>
+        <circle cx="340" cy="240" r="52" fill="none" stroke="#b8922a" stroke-width="1.5" opacity="0.85"/>
+        <circle cx="340" cy="240" r="44" fill="none" stroke="#b8922a" stroke-width="0.5" stroke-dasharray="3 3" opacity="0.5"/>
+        <text x="340" y="230" text-anchor="middle" fill="#b8922a" font-family="Georgia,serif" font-size="11" font-weight="700">LO QUE</text>
+        <text x="340" y="244" text-anchor="middle" fill="#b8922a" font-family="Georgia,serif" font-size="11" font-weight="700">LOS UNIÓ</text>
+        <text x="340" y="260" text-anchor="middle" fill="#f5f0e8" font-family="Georgia,serif" font-size="9" font-style="italic">Rechazo al nazismo</text>
+        <line x1="290" y1="215" x2="210" y2="165" stroke="#888" stroke-width="0.8" stroke-dasharray="4 3" opacity="0.5"/>
+        <line x1="390" y1="215" x2="475" y2="165" stroke="#888" stroke-width="0.8" stroke-dasharray="4 3" opacity="0.5"/>
+        <line x1="295" y1="265" x2="210" y2="318" stroke="#888" stroke-width="0.8" stroke-dasharray="4 3" opacity="0.5"/>
+        <line x1="390" y1="265" x2="472" y2="318" stroke="#888" stroke-width="0.8" stroke-dasharray="4 3" opacity="0.5"/>
+        <rect x="30" y="60" width="190" height="160" rx="8" fill="#0C447C" opacity="0.15" stroke="#185FA5" stroke-width="0.8"/>
+        <rect x="30" y="60" width="190" height="32" rx="8" fill="#185FA5" opacity="0.9"/>
+        <rect x="30" y="84" width="190" height="8" fill="#185FA5" opacity="0.9"/>
+        <text x="125" y="81" text-anchor="middle" fill="#f5f0e8" font-family="Georgia,serif" font-size="12" font-weight="700">🇬🇧  Reino Unido</text>
+        <text x="42" y="110" fill="#85B7EB" font-family="monospace" font-size="9">SISTEMA</text>
+        <text x="42" y="123" fill="#f5f0e8" font-family="Georgia,serif" font-size="10">Democracia liberal</text>
+        <text x="42" y="136" fill="#f5f0e8" font-family="Georgia,serif" font-size="10">Imperio colonial</text>
+        <text x="42" y="153" fill="#85B7EB" font-family="monospace" font-size="9">LÍDER</text>
+        <text x="42" y="166" fill="#f5f0e8" font-family="Georgia,serif" font-size="10">Winston Churchill</text>
+        <text x="42" y="183" fill="#85B7EB" font-family="monospace" font-size="9">APORTE</text>
+        <text x="42" y="196" fill="#85B7EB" font-family="Georgia,serif" font-size="9" font-style="italic">Resistencia; frente aéreo</text>
+        <text x="42" y="208" fill="#85B7EB" font-family="Georgia,serif" font-size="9" font-style="italic">Enigma; liderazgo</text>
+        <rect x="460" y="60" width="190" height="160" rx="8" fill="#27500A" opacity="0.15" stroke="#3B6D11" stroke-width="0.8"/>
+        <rect x="460" y="60" width="190" height="32" rx="8" fill="#3B6D11" opacity="0.9"/>
+        <rect x="460" y="84" width="190" height="8" fill="#3B6D11" opacity="0.9"/>
+        <text x="555" y="81" text-anchor="middle" fill="#f5f0e8" font-family="Georgia,serif" font-size="12" font-weight="700">🇺🇸  Estados Unidos</text>
+        <text x="472" y="110" fill="#97C459" font-family="monospace" font-size="9">SISTEMA</text>
+        <text x="472" y="123" fill="#f5f0e8" font-family="Georgia,serif" font-size="10">Capitalismo democrático</text>
+        <text x="472" y="136" fill="#f5f0e8" font-family="Georgia,serif" font-size="10">Potencia industrial</text>
+        <text x="472" y="153" fill="#97C459" font-family="monospace" font-size="9">LÍDER</text>
+        <text x="472" y="166" fill="#f5f0e8" font-family="Georgia,serif" font-size="10">Franklin D. Roosevelt</text>
+        <text x="472" y="183" fill="#97C459" font-family="monospace" font-size="9">APORTE</text>
+        <text x="472" y="196" fill="#97C459" font-family="Georgia,serif" font-size="9" font-style="italic">Arsenal de la democracia</text>
+        <text x="472" y="208" fill="#97C459" font-family="Georgia,serif" font-size="9" font-style="italic">Día D; Lend-Lease</text>
+        <rect x="30" y="262" width="190" height="160" rx="8" fill="#791F1F" opacity="0.15" stroke="#A32D2D" stroke-width="0.8"/>
+        <rect x="30" y="262" width="190" height="32" rx="8" fill="#A32D2D" opacity="0.9"/>
+        <rect x="30" y="286" width="190" height="8" fill="#A32D2D" opacity="0.9"/>
+        <text x="125" y="283" text-anchor="middle" fill="#f5f0e8" font-family="Georgia,serif" font-size="12" font-weight="700">🇷🇺  Unión Soviética</text>
+        <text x="42" y="312" fill="#F09595" font-family="monospace" font-size="9">SISTEMA</text>
+        <text x="42" y="325" fill="#f5f0e8" font-family="Georgia,serif" font-size="10">Comunismo soviético</text>
+        <text x="42" y="338" fill="#f5f0e8" font-family="Georgia,serif" font-size="10">Estado totalitario</text>
+        <text x="42" y="355" fill="#F09595" font-family="monospace" font-size="9">LÍDER</text>
+        <text x="42" y="368" fill="#f5f0e8" font-family="Georgia,serif" font-size="10">Josef Stalin</text>
+        <text x="42" y="385" fill="#F09595" font-family="monospace" font-size="9">APORTE</text>
+        <text x="42" y="398" fill="#F09595" font-family="Georgia,serif" font-size="9" font-style="italic">Frente oriental; Stalingrado</text>
+        <text x="42" y="410" fill="#F09595" font-family="Georgia,serif" font-size="9" font-style="italic">~27 millones de muertos</text>
+        <rect x="460" y="262" width="190" height="160" rx="8" fill="#633806" opacity="0.15" stroke="#854F0B" stroke-width="0.8"/>
+        <rect x="460" y="262" width="190" height="32" rx="8" fill="#854F0B" opacity="0.9"/>
+        <rect x="460" y="286" width="190" height="8" fill="#854F0B" opacity="0.9"/>
+        <text x="555" y="283" text-anchor="middle" fill="#f5f0e8" font-family="Georgia,serif" font-size="12" font-weight="700">🇫🇷  Francia Libre</text>
+        <text x="472" y="312" fill="#FAC775" font-family="monospace" font-size="9">SISTEMA</text>
+        <text x="472" y="325" fill="#f5f0e8" font-family="Georgia,serif" font-size="10">Republicanismo</text>
+        <text x="472" y="338" fill="#f5f0e8" font-family="Georgia,serif" font-size="10">Resistencia nacional</text>
+        <text x="472" y="355" fill="#FAC775" font-family="monospace" font-size="9">LÍDER</text>
+        <text x="472" y="368" fill="#f5f0e8" font-family="Georgia,serif" font-size="10">Charles de Gaulle</text>
+        <text x="472" y="385" fill="#FAC775" font-family="monospace" font-size="9">APORTE</text>
+        <text x="472" y="398" fill="#FAC775" font-family="Georgia,serif" font-size="9" font-style="italic">Resistencia interna</text>
+        <text x="472" y="410" fill="#FAC775" font-family="Georgia,serif" font-size="9" font-style="italic">Legitimidad republicana</text>
+        <rect x="80" y="446" width="520" height="24" rx="4" fill="#000" opacity="0.55"/>
+        <text x="340" y="462" text-anchor="middle" fill="#b8922a" font-family="Georgia,serif" font-size="10" font-style="italic">«Si Hitler invadiera el infierno, haría una referencia favorable al diablo.» — Churchill, 1941</text>
+        <rect x="2" y="2" width="676" height="476" rx="6" fill="none" stroke="#b8922a" stroke-width="0.8" opacity="0.4"/>
+      </svg>
+      <figcaption>Ilustración II — La Gran Coalición: cuatro sistemas radicalmente distintos convergiendo sobre un único rechazo común</figcaption>
+    </figure>
+
+    <p>La coalición era aún más amplia de lo que la narrativa habitual reconoce. Más de 70 países participaron en el conflicto. Brasil envió una división expedicionaria a Italia. México aportó el famoso Escuadrón 201 en el Pacífico. Los partisanos yugoslavos del comunista Tito combatieron con una eficacia que inmovilizó docenas de divisiones alemanas en los Balcanes. La Legión Extranjera francesa, los soldados canadienses, los australianos, los neozelandeses, los indios —todos ellos bajo bandera imperial británica— combatieron en todos los teatros. Las resistencias polaca, noruega, griega e italiana sabotearon, informaron y desgastaron.</p>
+
+    <p>Todas estas personas, de docenas de naciones y tradiciones políticas, compartían una sola cosa en aquel momento: la convicción de que lo que el nazismo representaba no podía permitirse ganar.</p>
+  </div>
+
+  <div class="divider">· · ·</div>
+
+  <!-- ════ CAP 4 ════ -->
+  <div class="chapter">
+    <span class="chapter-num">Capítulo IV</span>
+    <h2 class="chapter-title">La tenaza se cierra: los últimos cien días</h2>
+    <div class="chapter-rule"></div>
+
+    <p class="dropcap no-indent">El 6 de junio de 1944 —el Día D—, el mayor desembarco anfibio de la historia abrió el frente occidental. Ciento cincuenta mil soldados aliados cruzaron el Canal de la Mancha y desembarcaron en las playas de Normandía, en una operación de una complejidad logística que todavía asombra a los historiadores militares. En agosto, París era liberada. En marzo de 1945, las fuerzas aliadas cruzaban el Rin.</p>
+
+    <p>Desde el este, el Ejército Rojo avanzaba con una velocidad y una violencia que no tenían precedente. Stalin lanzó en enero de 1945 la ofensiva que llevó sus ejércitos desde el Vístula hasta el Óder —las puertas de Berlín— en menos de tres semanas. El 9 de abril, Viena caía. El frente alemán se desmoronaba en todos lados simultáneamente.</p>
+
+    <p>El 25 de abril de 1945, ocurrió uno de los momentos más cargados de simbolismo de toda la guerra: soldados estadounidenses y soviéticos se encontraron a orillas del río Elba, en la pequeña ciudad de Torgau, 120 kilómetros al sur de Berlín. Se abrazaron. Posaron para las fotografías. Alemania quedó partida en dos. El régimen que había querido conquistar el mundo estaba ahora acorralado en un espacio de cien kilómetros.</p>
+
+    <figure class="svg-ilus">
+      <svg width="100%" viewBox="0 0 680 440" role="img" xmlns="http://www.w3.org/2000/svg">
+        <title>Los últimos 100 días del Tercer Reich: enero–mayo de 1945</title>
+        <desc>Línea de tiempo de los cinco hitos decisivos entre enero y mayo de 1945 que condujeron a la rendición incondicional</desc>
+        <text x="340" y="30" text-anchor="middle" fill="#f5f0e8" font-family="Georgia,serif" font-size="16" font-weight="700">LOS ÚLTIMOS 100 DÍAS</text>
+        <text x="340" y="48" text-anchor="middle" fill="#b8922a" font-family="monospace" font-size="9" letter-spacing="2">ENERO — MAYO 1945</text>
+        <line x1="340" y1="72" x2="340" y2="408" stroke="#b8922a" stroke-width="1.5" opacity="0.7"/>
+        <circle cx="340" cy="88" r="7" fill="#A32D2D" opacity="0.9"/>
+        <rect x="352" y="72" width="208" height="46" rx="4" fill="#791F1F" opacity="0.25" stroke="#A32D2D" stroke-width="0.5"/>
+        <text x="364" y="89" fill="#F7C1C1" font-family="monospace" font-size="9">12 ENERO 1945</text>
+        <text x="364" y="103" fill="#f5f0e8" font-family="Georgia,serif" font-size="10" font-weight="700">Ofensiva Vístula-Óder</text>
+        <text x="364" y="115" fill="#F09595" font-family="Georgia,serif" font-size="9" font-style="italic">Stalin lanza el ataque final desde el este</text>
+        <circle cx="340" cy="156" r="7" fill="#185FA5" opacity="0.9"/>
+        <rect x="120" y="140" width="208" height="46" rx="4" fill="#0C447C" opacity="0.25" stroke="#185FA5" stroke-width="0.5"/>
+        <text x="132" y="157" fill="#B5D4F4" font-family="monospace" font-size="9">7 MARZO 1945</text>
+        <text x="132" y="171" fill="#f5f0e8" font-family="Georgia,serif" font-size="10" font-weight="700">Cruce del Rin</text>
+        <text x="132" y="183" fill="#85B7EB" font-family="Georgia,serif" font-size="9" font-style="italic">Aliados occidentales entran a Alemania</text>
+        <circle cx="340" cy="228" r="9" fill="#3B6D11" opacity="0.95"/>
+        <rect x="352" y="210" width="220" height="50" rx="4" fill="#27500A" opacity="0.3" stroke="#3B6D11" stroke-width="1"/>
+        <text x="364" y="227" fill="#C0DD97" font-family="monospace" font-size="9">25 ABRIL 1945</text>
+        <text x="364" y="241" fill="#f5f0e8" font-family="Georgia,serif" font-size="11" font-weight="700">Abrazo del Elba · Torgau</text>
+        <text x="364" y="255" fill="#97C459" font-family="Georgia,serif" font-size="9" font-style="italic">EE.UU. y URSS se encuentran. Reich partido en dos</text>
+        <circle cx="340" cy="302" r="7" fill="#888780" opacity="0.9"/>
+        <rect x="120" y="286" width="208" height="46" rx="4" fill="#444441" opacity="0.3" stroke="#888780" stroke-width="0.5"/>
+        <text x="132" y="303" fill="#D3D1C7" font-family="monospace" font-size="9">30 ABRIL 1945</text>
+        <text x="132" y="317" fill="#f5f0e8" font-family="Georgia,serif" font-size="10" font-weight="700">Suicidio de Hitler</text>
+        <text x="132" y="329" fill="#B4B2A9" font-family="Georgia,serif" font-size="9" font-style="italic">En el Führerbunker (búnker del caudillo), Berlín</text>
+        <circle cx="340" cy="380" r="10" fill="#b8922a" opacity="1"/>
+        <circle cx="340" cy="380" r="16" fill="none" stroke="#b8922a" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.6"/>
+        <rect x="352" y="360" width="220" height="52" rx="4" fill="#633806" opacity="0.3" stroke="#b8922a" stroke-width="1.2"/>
+        <text x="364" y="377" fill="#FAC775" font-family="monospace" font-size="9">8 MAYO 1945 — V-E DAY</text>
+        <text x="364" y="391" fill="#f5f0e8" font-family="Georgia,serif" font-size="11" font-weight="700">Rendición incondicional</text>
+        <text x="364" y="405" fill="#FAC775" font-family="Georgia,serif" font-size="9" font-style="italic">Berlín-Karlshorst. Fin del III Reich</text>
+        <text x="318" y="240" text-anchor="end" fill="#b8922a" font-family="monospace" font-size="9" opacity="0.6">117 días</text>
+        <rect x="2" y="2" width="676" height="436" rx="6" fill="none" stroke="#b8922a" stroke-width="0.8" opacity="0.4"/>
+      </svg>
+      <figcaption>Ilustración III — Los últimos 117 días del III Reich: de la ofensiva soviética del Vístula a la rendición en Berlín-Karlshorst</figcaption>
+    </figure>
+
+    <div class="pull">
+      <p>Un soldado americano y un soldado soviético se abrazaron a orillas del Elba. <em>El mundo que el nazismo había intentado destruir todavía existía.</em></p>
+    </div>
+
+    <p>En el búnker bajo la Cancillería del Reich, Hitler vivía cada vez más desconectado de la realidad. Daba órdenes a divisiones que no existían. Culpaba a sus generales, al pueblo alemán, a todos menos a sí mismo, de la catástrofe. El 30 de abril de 1945, con el Ejército Rojo a dos cuadras de su posición, se suicidó junto a Eva Braun. Goebbels, el ministro de Propaganda que había construido el mito del <em>Führer</em> (el caudillo supremo), hizo lo mismo al día siguiente, después de envenenar a sus seis hijos.</p>
+
+    <p>El almirante Dönitz, sucesor designado por Hitler, intentó negociar una rendición parcial solo con los occidentales, esperando escapar del Ejército Rojo. Eisenhower lo rechazó categóricamente: la rendición debía ser total, en todos los frentes, simultánea. El 7 de mayo, en Reims, el general Jodl firmó la capitulación ante los aliados occidentales. Stalin, insatisfecho, exigió una segunda ceremonia en Berlín. El 8 de mayo, en Karlshorst, el mariscal Keitel firmó ante el mariscal Zhukov.</p>
+
+    <p>El Tercer Reich había dejado de existir. Doce años, cuatro meses y ocho días después de que Hitler llegara al poder.</p>
+
+    <div class="fig-quote">
+      <blockquote>«Así terminó el Reich de los mil años. No con gloria ni con el <em>Walhalla</em> (el paraíso de los guerreros en la mitología nórdica que los nazis usaron como símbolo épico), sino en un búnker, con un suicidio, y con una firma sobre una mesa en los suburbios de la ciudad que había querido ser el centro del mundo.»</blockquote>
+      <footer>— Lectura editorial ANCA-ADE, basada en Fest (2002)</footer>
+    </div>
+  </div>
+
+  <div class="divider">· · ·</div>
+
+  <!-- ════ CAP 5 ════ -->
+  <div class="chapter">
+    <span class="chapter-num">Capítulo V</span>
+    <h2 class="chapter-title">¿Qué los unió? La lección más difícil</h2>
+    <div class="chapter-rule"></div>
+
+    <p class="dropcap no-indent">La pregunta que más vale la pena hacerse no es cómo cayó el Tercer Reich. Es qué unió a actores tan dispares para derribarlo. Y la respuesta honesta es incómoda, porque no fue un ideal positivo compartido. Churchill no luchaba por el comunismo. Stalin no luchaba por la democracia. Roosevelt no luchaba por el Imperio Británico.</p>
+
+    <p>Lo que los unió fue un rechazo. Una negación. Una línea que todos, desde perspectivas completamente diferentes, reconocieron como infranqueable: lo que el nazismo representaba —la clasificación de los seres humanos por raza, la negación de la humanidad de los otros, el exterminio como política de Estado— era algo que ningún sistema que aspirara a persistir podía tolerar sin volverse cómplice de su propia destrucción.</p>
+
+    <p>El comunismo soviético era un sistema de terror. Las democracias occidentales sostenían imperios coloniales construidos sobre explotación y racismo. Ninguno de esos actores era «el bien» en sentido absoluto. Lo que sí eran, en ese momento específico, era actores que reconocían que la victoria nazi habría eliminado la posibilidad de cualquier futuro alternativo. Incluido el suyo.</p>
+
+    <p>Esa es la primera lección, y es profundamente incómoda: a veces la historia no ofrece la opción entre el bien y el mal, sino entre el mal y algo peor. La tarea política no siempre es elegir al mejor aliado posible. A veces es construir la coalición mínima necesaria para que el peor escenario no ocurra.</p>
+
+    <div class="aside-box">
+      <span class="aside-label">El ideal que nació del horror</span>
+      <p>Si la coalición no fue unida por un ideal positivo previo, ese ideal se construyó <em>a posteriori</em>, como aprendizaje colectivo. Los Juicios de Núremberg (1945-46) fueron la primera vez en la historia que líderes de Estado fueron juzgados por «crímenes contra la humanidad» —una categoría jurídica que no existía antes y que tuvo que inventarse para describir lo que había ocurrido.</p>
+      <p>La Carta de las Naciones Unidas (1945) y la Declaración Universal de los Derechos Humanos (1948) nacieron directamente de la voluntad de que lo que había ocurrido <em>no volviera a ocurrir</em>. El «nunca más» no fue un eslogan: fue la arquitectura institucional de la posguerra. Imperfecta, contradictoria, frecuentemente violada — pero real.</p>
+    </div>
+
+    <figure class="svg-ilus">
+      <svg width="100%" viewBox="0 0 680 390" role="img" xmlns="http://www.w3.org/2000/svg">
+        <title>El costo humano de la Segunda Guerra Mundial: bajas por actor</title>
+        <desc>Barras proporcionales que muestran las pérdidas humanas estimadas de los principales países, con énfasis en el sacrificio soviético</desc>
+        <defs><marker id="mh" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+        <text x="340" y="28" text-anchor="middle" fill="#f5f0e8" font-family="Georgia,serif" font-size="14" font-weight="700">EL COSTO HUMANO</text>
+        <text x="340" y="45" text-anchor="middle" fill="#b8922a" font-family="monospace" font-size="9" letter-spacing="1.5">BAJAS ESTIMADAS — SEGUNDA GUERRA MUNDIAL</text>
+        <line x1="60" y1="318" x2="620" y2="318" stroke="#b8922a" stroke-width="0.8" opacity="0.5"/>
+        <rect x="60" y="80" width="540" height="34" rx="3" fill="#A32D2D" opacity="0.85"/>
+        <text x="72" y="103" fill="#FCEBEB" font-family="Georgia,serif" font-size="12" font-weight="700">🇷🇺 Unión Soviética</text>
+        <text x="590" y="103" text-anchor="end" fill="#F7C1C1" font-family="monospace" font-size="11" font-weight="700">~27,000,000</text>
+        <rect x="60" y="128" width="300" height="34" rx="3" fill="#5F5E5A" opacity="0.75"/>
+        <text x="72" y="151" fill="#F1EFE8" font-family="Georgia,serif" font-size="12" font-weight="700">🇨🇳 China</text>
+        <text x="368" y="151" fill="#D3D1C7" font-family="monospace" font-size="11">~15,000,000</text>
+        <rect x="60" y="178" width="140" height="34" rx="3" fill="#412402" opacity="0.8"/>
+        <text x="72" y="201" fill="#FAEEDA" font-family="Georgia,serif" font-size="12" font-weight="700">🇩🇪 Alemania</text>
+        <text x="208" y="201" fill="#FAC775" font-family="monospace" font-size="11">~7,000,000</text>
+        <rect x="60" y="226" width="120" height="34" rx="3" fill="#534AB7" opacity="0.7"/>
+        <text x="72" y="249" fill="#EEEDFE" font-family="Georgia,serif" font-size="12" font-weight="700">🇵🇱 Polonia</text>
+        <text x="188" y="249" fill="#AFA9EC" font-family="monospace" font-size="11">~6,000,000</text>
+        <rect x="60" y="276" width="28" height="28" rx="3" fill="#185FA5" opacity="0.8"/>
+        <text x="96" y="295" fill="#f5f0e8" font-family="Georgia,serif" font-size="12" font-weight="700">🇬🇧 Reino Unido</text>
+        <text x="96" y="308" fill="#85B7EB" font-family="monospace" font-size="9">~450,000</text>
+        <rect x="280" y="276" width="26" height="28" rx="3" fill="#3B6D11" opacity="0.8"/>
+        <text x="316" y="295" fill="#f5f0e8" font-family="Georgia,serif" font-size="12" font-weight="700">🇺🇸 Estados Unidos</text>
+        <text x="316" y="308" fill="#97C459" font-family="monospace" font-size="9">~419,000</text>
+        <text x="340" y="335" text-anchor="middle" fill="#888780" font-family="monospace" font-size="9" opacity="0.7">Longitud proporcional al número de bajas (militares y civiles estimadas)</text>
+        <line x1="596" y1="97" x2="596" y2="143" stroke="#b8922a" stroke-width="0.8" stroke-dasharray="3 2" opacity="0.8"/>
+        <line x1="596" y1="143" x2="574" y2="143" stroke="#b8922a" stroke-width="0.8" opacity="0.8" marker-end="url(#mh)"/>
+        <rect x="598" y="70" width="76" height="72" rx="4" fill="#1a1510" opacity="0.85"/>
+        <text x="636" y="90" text-anchor="middle" fill="#b8922a" font-family="monospace" font-size="8">75-80% de</text>
+        <text x="636" y="102" text-anchor="middle" fill="#b8922a" font-family="monospace" font-size="8">las bajas de</text>
+        <text x="636" y="114" text-anchor="middle" fill="#b8922a" font-family="monospace" font-size="8">combate nazis</text>
+        <text x="636" y="126" text-anchor="middle" fill="#FAC775" font-family="monospace" font-size="8">→ frente este</text>
+        <rect x="60" y="352" width="560" height="24" rx="4" fill="#1a1510" opacity="0.7"/>
+        <text x="340" y="368" text-anchor="middle" fill="#888780" font-family="Georgia,serif" font-size="10" font-style="italic">Incluye: ~6,000,000 víctimas del Holocausto (judíos, gitanos, personas con discapacidad, prisioneros políticos y otros grupos)</text>
+        <rect x="2" y="2" width="676" height="386" rx="6" fill="none" stroke="#b8922a" stroke-width="0.8" opacity="0.4"/>
+      </svg>
+      <figcaption>Ilustración IV — El precio del nazismo y de su derrota: la escala del sacrificio soviético en perspectiva comparada</figcaption>
+    </figure>
+
+    <p>La segunda lección es sobre la fragilidad de las democracias. El nazismo no fue impuesto a Alemania desde fuera: creció en su interior, usando sus propias instituciones, aprovechando sus propias crisis. La República de Weimar tenía constitución, tenía parlamento, tenía tribunales. Y aun así colapsó. Porque las instituciones no se defienden solas: necesitan ciudadanos dispuestos a defenderlas, élites comprometidas con ellas, cultura política que las sostenga como algo más que formalidades.</p>
+
+    <p>La tercera lección es sobre el coste de la inacción. Los países que miraron y no actuaron mientras el régimen se consolidaba —mientras se promulgaban las Leyes de Núremberg, mientras ocurrían los pogromos, mientras Alemania invadía Austria y Checoslovaquia— pagaron un precio incomparablemente mayor que si hubieran actuado antes. Múnich de 1938 —el «apaciguamiento» de Hitler por Chamberlain y Daladier— es el caso de estudio clásico sobre qué ocurre cuando se cede ante el autoritarismo esperando que se detenga solo.</p>
+
+    <div class="pull">
+      <p>Las instituciones no se defienden solas. <em>Necesitan ciudadanos que estén dispuestos a defenderlas.</em></p>
+    </div>
+  </div>
+
+  <div class="divider">· · ·</div>
+
+  <!-- ════ COSTA RICA ════ -->
+  <div class="chapter">
+    <span class="chapter-num">Perspectiva costarricense</span>
+    <h2 class="chapter-title">Una lección periférica que se hizo universal</h2>
+    <div class="chapter-rule"></div>
+
+    <div class="cr-section">
+      <span class="cr-flag">🇨🇷</span>
+      <h3>Costa Rica y el «nunca más» que abolió un ejército</h3>
+      <p>Costa Rica declaró la guerra a Alemania el 8 de diciembre de 1941, horas antes que Estados Unidos lo hiciera formalmente. Fue un gesto simbólico —militarmente, Costa Rica no tenía capacidad proyectable— pero cargado de significado: el pequeño país centroamericano se alineó sin vacilación con el bloque que defendía la posibilidad de un orden internacional diferente.</p>
+      <p>Tres años después de la victoria aliada, en 1948, José Figueres Ferrer abolió el ejército costarricense —aunque la idea no fue suya. Fue el coronel Edgar Cardona, ministro de Seguridad y jefe del Estado Mayor del propio ejército victorioso, quien propuso disolverlo y reemplazarlo por una guardia civil de corte civil. Figueres adoptó la propuesta. Y en la Asamblea Nacional Constituyente, fue una moción presentada el 4 de julio de 1949 por los diputados Ricardo Esquivel, Juan Trejos y Enrique Montiel —del Partido Unión Nacional, partido opositor a Figueres— la que consagró la abolición en el artículo 12 de la Constitución. La decisión, en otras palabras, trascendió las fronteras partidarias desde el primer momento.</p>
+      <p>Hay una lectura profunda en todo esto: Europa había demostrado, de la manera más brutal posible, lo que ocurre cuando los aparatos militares no están subordinados al poder civil y a las normas democráticas. El ejército más profesional, más culto y más tecnológicamente avanzado del mundo había ejecutado el mayor genocidio de la historia moderna. En lugar de construir mejores controles civiles sobre un ejército, Costa Rica decidió que la mejor garantía contra el militarismo era no tener militares. Ese experimento lleva 77 años en pie, y ha resistido crisis regionales, guerras civiles en países vecinos, y presiones externas. No es una solución universalmente exportable. Pero es una de las respuestas más originales que cualquier nación haya dado a la lección de 1945.</p>
+      <p>La Declaración Universal de los Derechos Humanos, firmada en 1948, y los sistemas interamericanos de derechos humanos que siguieron, son también hijos directos de aquella victoria aliada. Costa Rica ha sido signataria activa de ese orden internacional — un orden que, hay que recordarlo, no existía antes de la Segunda Guerra Mundial. Existió porque el Tercer Reich fue derrotado.</p>
+    </div>
+  </div>
+
+  <div class="divider">· · ·</div>
+
+  <!-- ════ LECCIONES ════ -->
+  <div class="chapter">
+    <span class="chapter-num">Para construir el futuro</span>
+    <h2 class="chapter-title">Lo que la historia nos dejó escrito</h2>
+    <div class="chapter-rule"></div>
+
+    <div class="lessons">
+      <h3>Seis lecciones que el colapso del III Reich dejó para la posteridad</h3>
+
+      <div class="lesson-item">
+        <div class="lesson-num">1</div>
+        <div class="lesson-text">
+          <strong>Los autoritarismos usan las instituciones democráticas para destruirlas</strong>
+          Hitler llegó al poder legalmente. Las leyes que eliminaron la democracia alemana fueron aprobadas por el propio Reichstag (el Parlamento alemán). La amenaza al orden democrático no siempre viene del exterior: con frecuencia crece desde adentro, usando las formas de la legalidad para vaciar su contenido.
+        </div>
+      </div>
+
+      <div class="lesson-item">
+        <div class="lesson-num">2</div>
+        <div class="lesson-text">
+          <strong>El odio organizado requiere burocracia ordinaria</strong>
+          El Holocausto no fue perpetrado solo por fanáticos ideológicos. Fue ejecutado por funcionarios, contables, ferroviarios, médicos y abogados que «solo cumplían órdenes» o que no se hacían preguntas sobre lo que administraban. La responsabilidad moral individual no desaparece dentro de una institución.
+        </div>
+      </div>
+
+      <div class="lesson-item">
+        <div class="lesson-num">3</div>
+        <div class="lesson-text">
+          <strong>La amenaza existencial puede unir a quienes todo separa</strong>
+          Capitalismo liberal, comunismo soviético y republicanismo francés cooperaron lo suficiente para ganar una guerra que ninguno habría podido ganar solo. Las diferencias ideológicas no desaparecieron —regresaron con fuerza en la Guerra Fría— pero no impidieron la cooperación ante la amenaza común. La historia no requiere aliados perfectos: requiere coaliciones funcionales.
+        </div>
+      </div>
+
+      <div class="lesson-item">
+        <div class="lesson-num">4</div>
+        <div class="lesson-text">
+          <strong>El apaciguamiento tiene un costo que siempre resulta más alto que la resistencia temprana</strong>
+          Cada concesión territorial, cada acuerdo «razonable» con el régimen nazi entre 1933 y 1939, amplió su capacidad de agresión y elevó el costo final de detenerlo. El principio se generaliza: ceder ante quien viola sistemáticamente las normas no produce estabilidad. Produce el incentivo para continuar violándolas.
+        </div>
+      </div>
+
+      <div class="lesson-item">
+        <div class="lesson-num">5</div>
+        <div class="lesson-text">
+          <strong>Los derechos humanos son una conquista histórica, no una evidencia natural</strong>
+          La Declaración Universal de los Derechos Humanos de 1948 no existía antes de la guerra. Fue construida como respuesta al horror, como arquitectura para que no volviera a ocurrir. Esa arquitectura no se mantiene sola: requiere defensa activa, financiamiento, voluntad política y ciudadanos que la consideren valiosa.
+        </div>
+      </div>
+
+      <div class="lesson-item">
+        <div class="lesson-num">6</div>
+        <div class="lesson-text">
+          <strong>La memoria no es nostalgia: es infraestructura moral</strong>
+          Recordar el Holocausto, los Juicios de Núremberg, la victoria aliada, no es un ejercicio de melancolía histórica. Es el mantenimiento de la infraestructura conceptual que permite reconocer patrones similares cuando reaparecen. Cada generación que pierde esa memoria tiene que aprenderla de nuevo — y el costo de aprenderla sin haberla heredado es siempre demasiado alto.
+        </div>
+      </div>
+    </div>
+
+    <figure class="svg-ilus">
+      <svg width="100%" viewBox="0 0 680 500" role="img" xmlns="http://www.w3.org/2000/svg">
+        <title>Seis lecciones que el colapso del Tercer Reich dejó para la posteridad</title>
+        <desc>Seis tarjetas con las lecciones históricas derivadas de la caída del nazismo</desc>
+        <rect x="40" y="16" width="600" height="44" rx="6" fill="#000" opacity="0.7"/>
+        <text x="340" y="36" text-anchor="middle" fill="#f5f0e8" font-family="Georgia,serif" font-size="14" font-weight="700">LO QUE LA HISTORIA DEJÓ ESCRITO</text>
+        <text x="340" y="52" text-anchor="middle" fill="#b8922a" font-family="monospace" font-size="9" letter-spacing="2">SEIS LECCIONES PARA CONSTRUIR EL FUTURO</text>
+        <rect x="40" y="78" width="290" height="86" rx="6" fill="#0C447C" opacity="0.2" stroke="#185FA5" stroke-width="0.7"/>
+        <rect x="40" y="78" width="290" height="26" rx="6" fill="#185FA5" opacity="0.9"/>
+        <rect x="40" y="96" width="290" height="8" fill="#185FA5" opacity="0.9"/>
+        <text x="68" y="94" fill="#f5f0e8" font-family="monospace" font-size="9">① FRAGILIDAD DEMOCRÁTICA</text>
+        <text x="52" y="118" fill="#f5f0e8" font-family="Georgia,serif" font-size="10">Los autoritarismos usan las instituciones</text>
+        <text x="52" y="131" fill="#f5f0e8" font-family="Georgia,serif" font-size="10">democráticas para destruirlas desde adentro.</text>
+        <text x="52" y="148" fill="#85B7EB" font-family="Georgia,serif" font-size="9" font-style="italic">Hitler llegó al poder legalmente.</text>
+        <rect x="350" y="78" width="290" height="86" rx="6" fill="#791F1F" opacity="0.2" stroke="#A32D2D" stroke-width="0.7"/>
+        <rect x="350" y="78" width="290" height="26" rx="6" fill="#A32D2D" opacity="0.9"/>
+        <rect x="350" y="96" width="290" height="8" fill="#A32D2D" opacity="0.9"/>
+        <text x="378" y="94" fill="#f5f0e8" font-family="monospace" font-size="9">② BANALIDAD DEL MAL</text>
+        <text x="362" y="118" fill="#f5f0e8" font-family="Georgia,serif" font-size="10">El horror no requiere monstruos: requiere</text>
+        <text x="362" y="131" fill="#f5f0e8" font-family="Georgia,serif" font-size="10">funcionarios que no hacen preguntas.</text>
+        <text x="362" y="148" fill="#F09595" font-family="Georgia,serif" font-size="9" font-style="italic">Hannah Arendt: «banalidad del mal».</text>
+        <rect x="40" y="178" width="290" height="86" rx="6" fill="#27500A" opacity="0.2" stroke="#3B6D11" stroke-width="0.7"/>
+        <rect x="40" y="178" width="290" height="26" rx="6" fill="#3B6D11" opacity="0.9"/>
+        <rect x="40" y="196" width="290" height="8" fill="#3B6D11" opacity="0.9"/>
+        <text x="68" y="194" fill="#f5f0e8" font-family="monospace" font-size="9">③ COALICIONES IMPERFECTAS</text>
+        <text x="52" y="218" fill="#f5f0e8" font-family="Georgia,serif" font-size="10">La amenaza existencial puede unir a quienes</text>
+        <text x="52" y="231" fill="#f5f0e8" font-family="Georgia,serif" font-size="10">todo separa. No se necesitan aliados perfectos.</text>
+        <text x="52" y="248" fill="#97C459" font-family="Georgia,serif" font-size="9" font-style="italic">Churchill + Stalin + Roosevelt.</text>
+        <rect x="350" y="178" width="290" height="86" rx="6" fill="#633806" opacity="0.2" stroke="#854F0B" stroke-width="0.7"/>
+        <rect x="350" y="178" width="290" height="26" rx="6" fill="#854F0B" opacity="0.9"/>
+        <rect x="350" y="196" width="290" height="8" fill="#854F0B" opacity="0.9"/>
+        <text x="378" y="194" fill="#f5f0e8" font-family="monospace" font-size="9">④ COSTO DEL APACIGUAMIENTO</text>
+        <text x="362" y="218" fill="#f5f0e8" font-family="Georgia,serif" font-size="10">Ceder ante quien viola normas no produce</text>
+        <text x="362" y="231" fill="#f5f0e8" font-family="Georgia,serif" font-size="10">estabilidad: incentiva continuar violándolas.</text>
+        <text x="362" y="248" fill="#FAC775" font-family="Georgia,serif" font-size="9" font-style="italic">Múnich 1938: el error del apaciguamiento.</text>
+        <rect x="40" y="278" width="290" height="86" rx="6" fill="#26215C" opacity="0.25" stroke="#534AB7" stroke-width="0.7"/>
+        <rect x="40" y="278" width="290" height="26" rx="6" fill="#534AB7" opacity="0.9"/>
+        <rect x="40" y="296" width="290" height="8" fill="#534AB7" opacity="0.9"/>
+        <text x="68" y="294" fill="#f5f0e8" font-family="monospace" font-size="9">⑤ DERECHOS HUMANOS</text>
+        <text x="52" y="318" fill="#f5f0e8" font-family="Georgia,serif" font-size="10">Los derechos son una conquista histórica,</text>
+        <text x="52" y="331" fill="#f5f0e8" font-family="Georgia,serif" font-size="10">no una evidencia natural. Requieren defensa.</text>
+        <text x="52" y="348" fill="#AFA9EC" font-family="Georgia,serif" font-size="9" font-style="italic">La DUDH (1948) nació del horror nazi.</text>
+        <rect x="350" y="278" width="290" height="86" rx="6" fill="#04342C" opacity="0.25" stroke="#0F6E56" stroke-width="0.7"/>
+        <rect x="350" y="278" width="290" height="26" rx="6" fill="#0F6E56" opacity="0.9"/>
+        <rect x="350" y="296" width="290" height="8" fill="#0F6E56" opacity="0.9"/>
+        <text x="378" y="294" fill="#f5f0e8" font-family="monospace" font-size="9">⑥ MEMORIA COMO INFRAESTRUCTURA</text>
+        <text x="362" y="318" fill="#f5f0e8" font-family="Georgia,serif" font-size="10">Recordar no es nostalgia: es mantener</text>
+        <text x="362" y="331" fill="#f5f0e8" font-family="Georgia,serif" font-size="10">la capacidad de reconocer el peligro.</text>
+        <text x="362" y="348" fill="#5DCAA5" font-family="Georgia,serif" font-size="9" font-style="italic">Cada generación que olvida lo aprende cara.</text>
+        <rect x="40" y="382" width="600" height="96" rx="6" fill="#000" opacity="0.7"/>
+        <line x1="56" y1="396" x2="56" y2="466" stroke="#b8922a" stroke-width="2.5" opacity="0.8"/>
+        <text x="72" y="410" fill="#f5f0e8" font-family="Georgia,serif" font-size="11" font-style="italic">«Fuimos derrotados y liberados al mismo tiempo.»</text>
+        <text x="72" y="428" fill="#888780" font-family="monospace" font-size="9">— Theodor Heuss · Primer presidente de Alemania Occidental · 1949</text>
+        <text x="72" y="450" fill="#b8922a" font-family="Georgia,serif" font-size="10" font-style="italic">La derrota de un Estado. La liberación de un pueblo de su propio régimen.</text>
+        <text x="72" y="466" fill="#b8922a" font-family="Georgia,serif" font-size="10" font-style="italic">El comienzo difícil de construir algo mejor sobre las ruinas.</text>
+        <rect x="2" y="2" width="676" height="496" rx="6" fill="none" stroke="#b8922a" stroke-width="0.8" opacity="0.4"/>
+      </svg>
+      <figcaption>Ilustración V — Las seis lecciones: de la fragilidad democrática a la memoria como infraestructura moral</figcaption>
+    </figure>
+  </div>
+
+  <div class="divider">· · ·</div>
+
+  <!-- ════ CIERRE ════ -->
+  <div class="article-closing">
+    <p>Ochenta y un años después, la rendición del Tercer Reich sigue siendo el acontecimiento que más ha moldeado el mundo en que vivimos. El orden internacional de posguerra —las Naciones Unidas, los tribunales internacionales, los convenios de derechos humanos, las reglas de la guerra— fue construido sobre la doble certeza de que algo así había ocurrido, y de que <em>no debía volver a ocurrir</em>.</p>
+
+    <p>Ese orden está bajo presión hoy. Los movimientos que invocan retóricas nacionalistas extremas, que atacan a minorías identificables, que erosionan las instituciones que los contienen, no son réplicas exactas del nazismo —la historia no se repite, se parafrasea—. Pero comparten con él ciertos mecanismos de funcionamiento que la historia del siglo XX identificó con claridad.</p>
+
+    <p>La lección no es que toda amenaza autoritaria deba enfrentarse con guerra. La lección es más precisa: que las democracias tienen más capacidad de defenderse de lo que creen cuando actúan a tiempo, que las coaliciones imperfectas entre actores distintos pueden lograr lo que ninguno de ellos lograría solo, y que <strong>el precio de la inacción temprana siempre resulta mayor que el de la resistencia</strong>.</p>
+
+    <p>Teodoro Heuss, el primer presidente democrático de la Alemania reconstruida, dijo que su país había sido «derrotado y liberado al mismo tiempo». Esa frase contiene toda la complejidad de 1945: la derrota de un Estado, la liberación de un pueblo de su propio régimen, y el inicio difícil de la reconstrucción de algo mejor sobre las ruinas.</p>
+
+    <p><em>Ese trabajo de construir algo mejor sobre las ruinas es, en el fondo, la única lección que importa.</em></p>
+  </div>
+
+</article>
+</div>
+
+<!-- FOOTER -->
+<footer class="article-footer">
+  <div class="ficha">
+    <div class="ficha-item">
+      <label>Publicación</label>
+      ANCA-ADE · Agente Noticioso Crítico de Actualidad — Análisis Dinámico del Devenir
+    </div>
+    <div class="ficha-item">
+      <label>Fecha</label>
+      8 de mayo de 2026 · 81.º Aniversario del Día de la Victoria en Europa (V-E Day)
+    </div>
+    <div class="ficha-item">
+      <label>Basado en</label>
+      Especial Histórico ESP-05 · Análisis MEEE-G + ADD · Fuentes APA 7
+    </div>
+    <div class="ficha-item">
+      <label>Marco analítico</label>
+      Goldman (epistemología) · Prigogine · Maturana/Varela · Bourdieu · Habermas · Galtung
+    </div>
+    <div class="ficha-item">
+      <label>Archivo canónico</label>
+      antropos-amf.github.io/anca-ade.github.io
+    </div>
+    <div class="ficha-item">
+      <label>Categorías</label>
+      Historia · Política y geopolítica · Sociedad, cultura y derechos humanos
+    </div>
+  </div>
+  <div class="disclaimer-text">
+    Nota metodológica: Este artículo de difusión se basa en el Especial Histórico ANCA-ADE ESP-05 y combina análisis histórico con evaluación epistémica (MEEE-G, Goldman) y lectura dinámica antropológica (ADD, Montero Fonseca). Las interpretaciones presentadas son inferencias plausibles o lecturas editoriales claramente identificadas como tales. El artículo no constituye predicción determinista ni recomendación política, y no debe citarse como fuente primaria. Para referencias académicas, consulte el especial técnico con tabla MEEE-G completa y referencias APA 7.
+  </div>
+</footer>
+
+<script data-goatcounter="https://antropos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

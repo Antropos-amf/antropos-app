@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANCA-ADD · Informe estratégico · Pegasus y Palantir</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0d10;--bg2:#101317;--panel:#161a1f;--panel2:#1b2026;
+    --ink:#e9e6df;--ink2:#b6b1a7;--muted:#7c776d;
+    --teal:#37b1a2;--teal-dim:#1f5c55;--teal-bg:rgba(55,177,162,.08);
+    --amber:#c98a3c;--copper:#b5672e;--amber-bg:rgba(201,138,60,.08);
+    --gold:#d8b25a;--red:#d65a4e;--violet:#b78bd0;--line:#282d34;
+    --dc:#37b1a2;--ip:#7fb8d8;--h:#d8b25a;--int:#c98a3c;--c:#b78bd0;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:'Cormorant Garamond',Georgia,serif;font-size:20px;line-height:1.55}
+  ::selection{background:var(--teal-dim);color:#fff}
+
+  nav{position:sticky;top:0;z-index:55;background:rgba(11,13,16,.92);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--line);
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.05em}
+  nav .wrap{max-width:940px;margin:0 auto;padding:9px 22px;display:flex;flex-wrap:wrap;gap:4px 16px;align-items:center}
+  nav a{color:var(--muted);text-decoration:none;text-transform:uppercase;transition:color .2s}
+  nav a:hover{color:var(--teal)}
+  nav .brand{color:var(--ink);font-weight:600;margin-right:auto}
+
+  main{max-width:940px;margin:0 auto;padding:0 22px 80px}
+
+  header.mast{padding:56px 0 30px;border-bottom:2px solid var(--ink);margin-bottom:8px}
+  .kicker{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.3em;
+    text-transform:uppercase;color:var(--teal);margin-bottom:18px}
+  h1.title{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:clamp(52px,10vw,104px);
+    line-height:.9;letter-spacing:.005em;margin:0;color:var(--ink)}
+  h1.title span{color:var(--teal)}
+  .subtitle{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(19px,2.6vw,25px);
+    color:var(--ink2);margin:14px 0 0;font-weight:400;max-width:46ch}
+  .mast-meta{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);
+    margin-top:24px;display:flex;flex-wrap:wrap;gap:6px 24px;letter-spacing:.03em}
+  .mast-meta b{color:var(--ink2);font-weight:500}
+
+  h2.sec{font-family:'Bebas Neue',sans-serif;font-size:clamp(30px,5vw,42px);letter-spacing:.02em;
+    color:var(--ink);margin:52px 0 4px;display:flex;align-items:baseline;gap:14px}
+  h2.sec .n{font-family:'IBM Plex Mono',monospace;font-size:14px;color:var(--teal);letter-spacing:.1em}
+  .sec-lead{font-family:'Playfair Display',serif;font-style:italic;font-size:21px;
+    color:var(--ink2);margin:0 0 22px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+
+  p{margin:0 0 15px}
+  p.lead{font-size:21px}
+  em.term{font-style:italic;color:var(--teal)}
+  strong{color:var(--ink);font-weight:600}
+  a.ref{color:var(--ip);text-decoration:none;border-bottom:1px dotted var(--teal-dim)}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:20px 0}
+  @media(max-width:720px){.grid2{grid-template-columns:1fr}}
+  .card{border:1px solid var(--line);border-radius:3px;padding:22px 24px;background:var(--bg2)}
+  .card.peg{border-top:3px solid var(--red)}
+  .card.pal{border-top:3px solid var(--ip)}
+  .card h3{font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:.03em;margin:0 0 2px;color:var(--ink)}
+  .card .tag{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+  .card.peg .tag{color:var(--red)}
+  .card.pal .tag{color:var(--ip)}
+  .card p{font-size:18px;margin:0 0 10px}
+  .card ul{margin:0;padding-left:18px;font-size:17px;color:var(--ink2)}
+  .card li{margin-bottom:7px}
+
+  .sub{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--muted);margin:30px 0 10px;padding-bottom:5px;border-bottom:1px solid var(--line)}
+
+  table.cmp{width:100%;border-collapse:collapse;font-family:'IBM Plex Mono',monospace;font-size:13px;margin:8px 0}
+  table.cmp th{text-align:left;padding:9px 12px;border-bottom:1px solid var(--ink);color:var(--teal);
+    font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;vertical-align:bottom}
+  table.cmp th.peg{color:var(--red)}table.cmp th.pal{color:var(--ip)}
+  table.cmp td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink2);line-height:1.45}
+  table.cmp td:first-child{color:var(--ink);font-weight:500;width:20%}
+
+  .meee{width:100%;border-collapse:collapse;font-family:'IBM Plex Mono',monospace;font-size:13px;margin:6px 0}
+  .meee th{text-align:left;color:var(--muted);font-weight:500;letter-spacing:.05em;
+    padding:7px 10px;border-bottom:1px solid var(--line);font-size:10.5px;text-transform:uppercase}
+  .meee td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink2);line-height:1.45}
+  .meee tr:last-child td{border-bottom:none}
+  .code{font-weight:600;white-space:nowrap}
+  .code.dc{color:var(--dc)}.code.ip{color:var(--ip)}.code.h{color:var(--h)}
+  .code.int{color:var(--int)}.code.c{color:var(--c)}
+
+  .add{background:var(--teal-bg);border:1px solid var(--teal-dim);border-left:3px solid var(--teal);
+    padding:20px 24px;margin:18px 0;border-radius:3px}
+  .add .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--teal);margin-bottom:6px}
+  .add .regime{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink2);
+    margin-bottom:12px;display:flex;flex-wrap:wrap;gap:6px 18px}
+  .add .regime b{color:var(--teal);font-weight:500}
+  .add p{margin:0 0 10px;font-size:19px}.add p:last-child{margin-bottom:0}
+
+  .ws{background:var(--amber-bg);border:1px solid var(--copper);border-left:3px solid var(--amber);
+    padding:20px 24px;margin:18px 0;border-radius:3px}
+  .ws .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--amber);margin-bottom:10px}
+  .ws p{margin:0 0 10px;font-size:19px}.ws p:last-child{margin-bottom:0}
+
+  .cr{border:1px solid var(--line);border-top:2px solid var(--gold);padding:20px 24px;
+    margin:18px 0;border-radius:3px;background:var(--bg2)}
+  .cr .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+  .cr p{margin:0 0 10px;font-size:19px;color:var(--ink2)}.cr p:last-child{margin-bottom:0}
+
+  .scen .pill{display:block;padding:13px 18px;margin:8px 0;border-radius:3px;border:1px solid var(--line);
+    background:var(--panel);font-size:18px;color:var(--ink2)}
+  .scen .pill b{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;
+    text-transform:uppercase;display:inline-block;margin-right:8px;padding:2px 8px;border-radius:2px}
+  .scen .pill.a b{color:var(--teal);background:var(--teal-bg)}
+  .scen .pill.b b{color:var(--gold);background:rgba(216,178,90,.07)}
+  .scen .pill.c b{color:var(--red);background:rgba(214,90,78,.07)}
+
+  ul.unc{list-style:none;padding:0;margin:0}
+  ul.unc li{padding:13px 0 13px 30px;border-bottom:1px solid var(--line);position:relative;color:var(--ink2);font-size:19px}
+  ul.unc li:before{content:"?";position:absolute;left:0;top:13px;font-family:'IBM Plex Mono',monospace;color:var(--red);font-weight:600}
+
+  .refs ol{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);line-height:1.6;padding-left:22px}
+  .refs li{margin-bottom:9px}
+  .refs em{color:var(--ink2);font-style:italic}
+
+  .method{background:var(--panel);border:1px solid var(--line);padding:22px 26px;border-radius:3px;margin:20px 0}
+  .method p{font-family:'IBM Plex Mono',monospace;font-size:12.5px;line-height:1.7;color:var(--ink2);margin:0}
+  .method b{color:var(--teal)}
+
+  .pull{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(22px,3.4vw,30px);
+    line-height:1.3;color:var(--ink);border-left:3px solid var(--teal);padding:6px 0 6px 24px;margin:30px 0}
+
+  footer{border-top:2px solid var(--ink);padding:28px 22px;max-width:940px;margin:0 auto;
+    font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--muted);
+    display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+
+  @media(max-width:640px){
+    body{font-size:18px}
+    .meee,table.cmp{font-size:11.5px}.meee th,.meee td,table.cmp th,table.cmp td{padding:7px 7px}
+    nav .wrap{font-size:10px;gap:3px 11px}
+  }
+
+  /* SITE NAV */
+  .sitenav{background:#050607;border-bottom:1px solid var(--line);padding:0 22px;
+    display:flex;align-items:center;gap:18px;height:34px}
+  .sitenav a{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--muted);text-decoration:none}
+  .sitenav a:hover{color:var(--gold)}
+  .sitenav .sep{color:var(--line)}
+
+  /* UPDATE BANNER */
+  .switch{background:var(--panel);border-bottom:1px solid var(--line);text-align:center;
+    padding:10px 16px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink2);letter-spacing:.02em}
+  .switch a{color:var(--teal);text-decoration:underline}
+
+  /* LEVEL BADGE */
+  .badge-level{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:11px;
+    letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:2px;
+    border:1px solid var(--gold);color:var(--gold);background:rgba(216,178,90,.08)}
+
+  /* FIGURES */
+  figure.fig{margin:24px 0 28px}
+  figure.fig img{width:100%;display:block;border-radius:3px;border:1px solid var(--line)}
+  figure.fig figcaption{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);
+    margin-top:8px;letter-spacing:.02em;line-height:1.5}
+
+  /* ANEXO DIVIDER */
+  .anexo-mast{border-top:3px double var(--gold);border-bottom:1px solid var(--line);
+    padding:34px 0 24px;margin:60px 0 8px}
+  .anexo-mast .kicker{color:var(--gold)}
+  .anexo-mast h1.title{font-size:clamp(38px,7vw,68px)}
+</style>
+</head>
+<body>
+
+<div class="sitenav">
+  <a href="https://antropos.app/">← antropos.app</a>
+  <span class="sep">|</span>
+  <a href="https://antropos.app/informes-estrategicos/">Informes Estratégicos</a>
+</div>
+
+<div class="switch">Actualizado el 14 de agosto de 2026 con un anexo sobre el Decreto N.° 45870-MSP y el caso Hacienda-Mossad. <a href="#anexo">Ir directo al anexo →</a></div>
+
+<nav><div class="wrap">
+  <a class="brand" href="#top">ANCA-ADD · Informe</a>
+  <a href="#delim">Delimitación</a>
+  <a href="#estado">Estado</a>
+  <a href="#contraste">Contraste</a>
+  <a href="#meee">MEEE-G</a>
+  <a href="#add">ADD</a>
+  <a href="#ws">Sistemas-Mundo</a>
+  <a href="#cr">Costa Rica</a>
+  <a href="#escenarios">Escenarios</a>
+  <a href="#anexo">Anexo Ago.</a>
+  <a href="#decreto">Decreto 45870</a>
+  <a href="#salaiv">Sala IV</a>
+  <a href="#fuentes">Fuentes</a>
+</div></nav>
+
+<main id="top">
+
+<header class="mast">
+  <div class="kicker">Agente Noticioso Crítico de Actualidad — Antropología Dinámica del Devenir · Informe estratégico</div>
+  <h1 class="title">VIGILAR <span>/</span> INTEGRAR</h1>
+  <p class="subtitle">Pegasus y Palantir: dos arquitecturas del poder de ver. Qué son, qué hacen, en qué se diferencian y por qué le importan a Costa Rica.</p>
+  <div class="mast-meta">
+    <span class="badge-level">NIVEL: ALTO</span>
+    <span><b>Tema:</b> tecnologías de vigilancia e integración de datos</span>
+    <span><b>Cierre original:</b> 29 jun 2026, 17:58 (San José)</span>
+    <span><b>Última actualización:</b> 14 ago 2026 (anexo)</span>
+    <span><b>Registros:</b> MEEE-G · ADD · Sistemas-Mundo</span>
+  </div>
+</header>
+
+<!-- 1. DELIMITACION -->
+<h2 class="sec" id="delim"><span class="n">01</span> Delimitación del fenómeno</h2>
+<p class="sec-lead">Antes de comparar, separar. La pregunta del título —«¿espionaje?»— se responde distinto para cada sistema.</p>
+
+<p class="lead">Pegasus y Palantir suelen mencionarse juntos como sinónimos de «vigilancia», pero son artefactos de naturaleza distinta que operan en momentos distintos del mismo proceso de poder. Confundirlos impide entender qué está en juego con cada uno.</p>
+
+<p><strong>Pegasus</strong> es un <em class="term">arma de intrusión puntual</em>: un programa espía (spyware) que se infiltra en un teléfono específico para extraer todo su contenido. <strong>Palantir</strong> es una <em class="term">plataforma de integración analítica</em>: un sistema que toma datos ya existentes —dispersos en muchas bases de datos— y los une para revelar patrones y perfiles. Uno entra a la fuerza en un dispositivo; el otro ordena océanos de datos que ya fueron recolectados. La distinción importa porque sus riesgos, sus marcos legales y sus formas de control son diferentes.</p>
+
+<div class="grid2">
+  <div class="card peg">
+    <h3>Pegasus</h3>
+    <div class="tag">NSO Group · Israel · fundada 2010</div>
+    <p>Spyware de grado militar que infecta iOS y Android, en muchos casos sin que la víctima toque nada (ataque «zero-click»).</p>
+    <ul>
+      <li>Lee mensajes, rastrea ubicación y llamadas, activa micrófono y cámara.</li>
+      <li>Explota vulnerabilidades de apps comunes (iMessage, WhatsApp).</li>
+      <li>Se vende solo a gobiernos, para «intercepción legal».</li>
+      <li>Intrusión dirigida: un blanco, un teléfono, a la vez.</li>
+    </ul>
+  </div>
+  <div class="card pal">
+    <h3>Palantir</h3>
+    <div class="tag">Palantir Technologies · EE.UU. · fundada 2003</div>
+    <p>Plataformas de software (Gotham, Foundry, AIP) que integran y analizan datos masivos ya recolectados por el cliente.</p>
+    <ul>
+      <li>Une bases dispersas (fiscales, biométricas, viajes, redes).</li>
+      <li>Construye perfiles y mapas de relaciones entre personas.</li>
+      <li>Vende a gobiernos y a grandes empresas; cotiza en bolsa.</li>
+      <li>Integración masiva: millones de registros a la vez.</li>
+    </ul>
+  </div>
+</div>
+
+<p>La pregunta «¿espionaje?» recibe, entonces, dos respuestas. En Pegasus, el espionaje es <strong>el mecanismo mismo</strong>: no hay uso del producto que no sea intrusión encubierta. En Palantir, el espionaje es <strong>un uso posible entre otros</strong>: la misma plataforma que ordena listas de espera hospitalarias puede ordenar listas de personas a deportar. El riesgo no vive en el código, sino en qué datos se le conectan y bajo qué control.</p>
+
+<!-- 2. ESTADO DE LA INFORMACION -->
+<h2 class="sec" id="estado"><span class="n">02</span> Estado de la información disponible</h2>
+<p class="sec-lead">Qué sabemos con respaldo documental, a junio de 2026.</p>
+
+<div class="sub">Pegasus / NSO Group — el giro judicial</div>
+<p>El hecho más significativo del período es que, por primera vez, una empresa de spyware fue responsabilizada en tribunales estadounidenses. En <strong>mayo de 2025</strong>, un jurado federal condenó a NSO a pagar a WhatsApp/Meta 167,2 millones de dólares en daños punitivos más 444.719 en compensatorios, por una campaña de 2019 que comprometió ~1.400 usuarios explotando una vulnerabilidad en el sistema de llamadas de WhatsApp. En <strong>octubre de 2025</strong>, la jueza Phyllis Hamilton (Distrito Norte de California) emitió una <strong>orden judicial permanente</strong> que prohíbe a NSO volver a atacar la infraestructura de WhatsApp, pero <strong>redujo la indemnización de 167 a 4 millones</strong>. NSO apeló, alegando que la prohibición es «catastrófica» y «potencialmente existencial» para la empresa. En mayo de 2026, doce organizaciones de derechos civiles presentaron escritos de apoyo a la prohibición.</p>
+<p>Durante el juicio, NSO admitió bajo juramento lo que durante años había negado: que su software puede comprometer «todo el contenido» de un teléfono, y que la empresa —no solo sus clientes gubernamentales— opera los exploits. Citizen Lab documentó usuarios afectados en al menos 20 países. Apple había demandado por separado (exploit «FORCEDENTRY», 2021) pero retiró el caso en 2024, por temor a exponer su propia inteligencia de amenazas.</p>
+
+<div class="pull">Un papel firmado no cambia el código: lo que cambió es que, por primera vez, el código tuvo consecuencias legales para quien lo fabrica.</div>
+
+<div class="sub">Palantir — la estrategia «land and expand»</div>
+<p>Palantir opera tres plataformas: <strong>Gotham</strong> (inteligencia, defensa, policía), <strong>Foundry</strong> (integración de datos para gobierno y empresa) y <strong>AIP</strong> (automatización con IA). Su patrón de crecimiento, descrito por analistas como «aterrizar y expandir», quedó visible en dos geografías:</p>
+<p><strong>Estados Unidos.</strong> En julio de 2025 el Ejército consolidó 75 contratos en un acuerdo único de hasta 10.000 millones de dólares a diez años. El sistema Maven de IA militar pasó de 480 millones a 1.300 millones. En abril de 2025, ICE pagó 30 millones por «ImmigrationOS», una herramienta de «visibilidad casi en tiempo real» para priorizar deportaciones que integra pasaportes, números de seguridad social, datos del fisco, placas, teléfonos y reconocimiento facial; se suma a un acumulado de contratos de ICE con Palantir superior a 200 millones desde 2014.</p>
+<p><strong>Reino Unido.</strong> Palantir «aterrizó» en el NHS durante la pandemia con un contrato de una libra esterlina; para 2023 ese vínculo era un contrato de 330 millones de libras por la Federated Data Platform (FDP). En <strong>mayo de 2026</strong>, una filtración al <em>Financial Times</em> reveló que ingenieros de Palantir habían recibido acceso «ilimitado» a datos identificables de pacientes en un entorno técnico del NHS (el NDIT). Palantir y el NHS sostienen que el acceso fue limitado, temporal y supervisado; el British Medical Association, el Good Law Project, Amnistía Internacional y Privacy International piden cancelar el contrato. Una cláusula de salida estará disponible desde febrero de 2027.</p>
+<p>En el plano bursátil, Palantir se ha convertido en una de las acciones más caras y debatidas del mercado: a finales de 2025 cotizaba a múltiplos extraordinarios (en torno a 85–117 veces las ventas previstas), con un alza acumulada superior al 2.700 % desde 2023 que muchos analistas consideran desacoplada de su crecimiento real de ingresos (proyectado en ~42 % para 2026).</p>
+
+<!-- 3. CONTRASTE -->
+<h2 class="sec" id="contraste"><span class="n">03</span> Contraste sistemático</h2>
+<p class="sec-lead">Dos máquinas del ver, comparadas eje por eje.</p>
+
+<figure class="fig">
+  <img src="img/ficha-tecnica.jpg" alt="Ficha técnica comparativa: origen, vector de operación, costo contractual, estatus legal y objetivos documentados de Pegasus y Palantir, estado 2026." loading="lazy">
+  <figcaption>Ficha técnica de parámetros de operación, estado 2026. Fuente: dossier ANCA-ADD, agosto 2026.</figcaption>
+</figure>
+
+<table class="cmp">
+  <tr><th>Eje</th><th class="peg">Pegasus (NSO)</th><th class="pal">Palantir</th></tr>
+  <tr><td>Naturaleza</td><td>Arma de intrusión: spyware ofensivo</td><td>Plataforma de integración y análisis de datos</td></tr>
+  <tr><td>Qué hace</td><td>Entra en un dispositivo y extrae su contenido</td><td>Une datos ya recolectados y revela patrones</td></tr>
+  <tr><td>Escala</td><td>Dirigida: un blanco a la vez</td><td>Masiva: millones de registros simultáneos</td></tr>
+  <tr><td>Momento del proceso</td><td>Recolección encubierta de datos nuevos</td><td>Procesamiento y correlación de datos existentes</td></tr>
+  <tr><td>Visibilidad</td><td>Clandestina por diseño; difícil de detectar</td><td>Contractual y pública, pero algoritmo opaco</td></tr>
+  <tr><td>Cliente</td><td>Solo gobiernos (intercepción «legal»)</td><td>Gobiernos y grandes empresas</td></tr>
+  <tr><td>Modelo de negocio</td><td>Venta de capacidad de intrusión por licencia</td><td>Contratos de plataforma + cotización bursátil</td></tr>
+  <tr><td>Riesgo principal</td><td>Espionaje a periodistas, activistas, opositores</td><td>Estado-vigilante por agregación; dependencia</td></tr>
+  <tr><td>Punto de control</td><td>¿A quién se le vende y con qué supervisión judicial?</td><td>¿Qué datos se conectan y quién puede leerlos?</td></tr>
+  <tr><td>Estado 2026</td><td>Acorralada en tribunales; apelando; «existencial»</td><td>En expansión; valoración en debate; resistencia social</td></tr>
+</table>
+
+<p>La diferencia decisiva: Pegasus produce datos nuevos violando un dispositivo; Palantir ordena datos que el cliente ya tiene. Por eso Pegasus se combate con litigio y sanción (es intrínsecamente intrusivo), mientras que Palantir se discute con gobernanza de datos (su daño depende de la configuración). Pero convergen en un punto: <strong>ambos concentran, en manos privadas, una capacidad de ver que antes era exclusiva —y limitada— del Estado.</strong></p>
+
+<!-- 4. MEEE-G -->
+<h2 class="sec" id="meee"><span class="n">04</span> Evaluación epistémica · MEEE-G</h2>
+<p class="sec-lead">Qué tan firme es cada afirmación que circula sobre estos sistemas.</p>
+
+<table class="meee">
+  <tr><th>Afirmación</th><th>Código</th><th>Justificación procesual</th></tr>
+  <tr><td>Un jurado de EE.UU. condenó a NSO por el hackeo a WhatsApp (2019, ~1.400 usuarios).</td><td class="code dc">[DC]</td><td>Veredicto judicial de mayo 2025; orden permanente de oct. 2025; cobertura concordante (Xataka, The Record, R3D, Business &amp; Human Rights Centre).</td></tr>
+  <tr><td>NSO opera los exploits, no solo sus clientes gubernamentales.</td><td class="code dc">[DC]</td><td>Admisión bajo juramento en juicio; documentada en los registros del caso WhatsApp.</td></tr>
+  <tr><td>Colombia adquirió Pegasus por ~11 millones de dólares durante el gobierno Duque.</td><td class="code ip">[IP]</td><td>La fiscal general confirmó que la operación financiera existió; el Min. de Defensa israelí confirmó la venta vía Haaretz; pero ninguna agencia colombiana lo admite y no aparece el software. Inferencia fuerte, no aún dato cerrado.</td></tr>
+  <tr><td>Palantir integra datos de ICE para priorizar deportaciones (ImmigrationOS).</td><td class="code dc">[DC]</td><td>Contrato de 30 M (abril 2025) documentado por American Immigration Council y registros federales reportados por NYT.</td></tr>
+  <tr><td>Personal de Palantir tuvo acceso «ilimitado» a datos identificables del NHS.</td><td class="code int">[Int]</td><td>El término «ilimitado» proviene de un documento técnico filtrado (FT); Palantir lo interpreta como permiso técnico acotado a un entorno de prueba. Interpretación en disputa entre fuentes.</td></tr>
+  <tr><td>La valoración bursátil de Palantir está desacoplada de su negocio real.</td><td class="code h">[H]</td><td>Hipótesis de varios analistas (múltiplos de 85–117× ventas); contestada por quienes proyectan crecimiento sostenido. No es consenso.</td></tr>
+  <tr><td>El gobierno de Costa Rica anunció (24 jun 2026) que importará tecnología de inteligencia israelí (Mossad) contra la evasión fiscal y el contrabando.</td><td class="code dc">[DC]</td><td>Anuncio del ministro de Hacienda Rodrigo Chaves en conferencia de prensa, documentado por El Financiero; cita textual registrada. Hecho confirmado.</td></tr>
+  <tr><td>La tecnología anunciada es específicamente Pegasus (NSO Group).</td><td class="code ip">[IP]</td><td>Inferencia, no dato: Chaves habló de «tecnología del Mossad» sin nombrar producto, empresa, costo ni plazo. El vínculo con Pegasus lo introduce la prensa como contexto de procedencia israelí, no como producto confirmado. No debe afirmarse como [DC] hasta que se conozca el paquete.</td></tr>
+  <tr><td>Costa Rica adquirió o usó Pegasus en el pasado.</td><td class="code c">[C] sin respaldo</td><td>No se halló evidencia documental de compra ni uso previo. Distinto del anuncio de intención de 2026, que sí está confirmado.</td></tr>
+</table>
+
+<!-- 5. ADD -->
+<h2 class="sec" id="add"><span class="n">05</span> Lectura dinámica · ADD</h2>
+<p class="sec-lead">El fenómeno como sistema: atractores, acoplamientos y el parámetro que decide su trayectoria.</p>
+
+<div class="add">
+  <div class="lbl">Lectura dinámica</div>
+  <div class="regime"><span>Régimen: <b>turbulento, con bifurcación regulatoria en curso</b></span><span>Analogía: <b>fuerte (nivel organizacional-institucional)</b></span><span>Parámetro de control: <b>quién puede ver, y bajo qué supervisión verificable</b></span></div>
+  <p>Pegasus y Palantir son dos respuestas a una misma presión: la cantidad de información personal digitalizada creció más rápido que la capacidad institucional de procesarla y que los marcos legales de protegerla. En esa brecha emergen dos atractores privados. Pegasus es un atractor de <em class="term">intrusión</em>: resuelve el problema de «no veo lo que está cifrado» perforando el dispositivo. Palantir es un atractor de <em class="term">integración</em>: resuelve el problema de «tengo los datos pero dispersos» unificándolos en una sola superficie de lectura.</p>
+  <p>En clave de <strong>clausura organizacional</strong> (Maturana/Varela), el dato decisivo del caso Palantir es la advertencia de los propios técnicos del NHS: aunque se retire a Palantir, «el genio ya salió de la botella». La plataforma reorganiza la manera en que la institución conoce y decide; el acoplamiento estructural entre el Estado y el integrador privado modifica al Estado mismo, que pierde la capacidad de conocer su propia información sin el intermediario. Esa es la dependencia que ningún contrato revierte por completo.</p>
+  <p>El sistema está en <strong>bifurcación</strong>: la condena a NSO y la presión sobre el contrato del NHS son perturbaciones que empujan hacia un atractor de rendición de cuentas; la expansión de contratos militares y de ICE empuja hacia el atractor de normalización. El parámetro de control no es la tecnología —que seguirá existiendo— sino la respuesta a una pregunta institucional: <strong>quién puede ver, sobre quién, y bajo qué supervisión verificable.</strong> Mientras ese parámetro no se fije por ley y auditoría, el régimen permanece turbulento.</p>
+</div>
+
+<!-- 6. SISTEMAS-MUNDO -->
+<h2 class="sec" id="ws"><span class="n">06</span> Capa de Sistemas-Mundo</h2>
+<p class="sec-lead">La vigilancia como mercancía estratégica del ciclo de acumulación actual.</p>
+
+<div class="ws">
+  <div class="lbl">◆ Wallerstein / Arrighi</div>
+  <p>Las dos empresas dibujan la geografía del poder informacional. <strong>NSO</strong> es un instrumento de la posición de Israel como exportador de seguridad: su spyware fue, durante años, un activo diplomático —se vendía con el visto bueno del Ministerio de Defensa israelí, y su exportación tejía alianzas—. El caso colombiano lo muestra con crudeza: la venta requería aval estatal israelí, y el pago viajó en efectivo en aviones privados hacia un banco en Israel. La vigilancia como mercancía de exportación geopolítica.</p>
+  <p><strong>Palantir</strong> es un instrumento del núcleo estadounidense en su fase de capitalismo financiero-informacional (Arrighi): no vende intrusión, vende la infraestructura sobre la que el Estado del núcleo —y sus aliados— organizan su capacidad de ver. Su expansión al NHS británico, a la OTAN y a ministerios europeos es una forma de <em class="term">acoplamiento de la periferia y semiperiferia a la infraestructura cognitiva del centro</em>: el dato es local, pero la plataforma que lo vuelve legible es del núcleo, y la dependencia que crea es estructural. El informe del ejército suizo que temía que Palantir transfiriera datos a la CIA/NSA —algo que la empresa niega— expresa exactamente esa ansiedad de soberanía.</p>
+  <p>La valoración bursátil extraordinaria de Palantir cierra el cuadro: el mercado de capitales del núcleo apuesta a que la vigilancia integrada será la cuasi-mercancía monopólica de la próxima década —el equivalente informacional de lo que el petróleo fue para el siglo XX—.</p>
+</div>
+
+<!-- 7. COSTA RICA -->
+<h2 class="sec" id="cr"><span class="n">07</span> Relevancia para Costa Rica</h2>
+<p class="sec-lead">El 24 de junio de 2026, el gobierno anunció que importará tecnología de inteligencia israelí contra la evasión fiscal. Acá ya no hablamos de una hipótesis: hablamos de una decisión en curso.</p>
+
+<figure class="fig">
+  <img src="img/impacto-periferico-cr.jpg" alt="El impacto periférico en el nodo Costa Rica: política (opacidad del Decreto N° 45870 MSP), social (efecto inhibitorio), economía (costo fiscal de licencias) y ciencia (oportunidad de soberanía tecnológica)." loading="lazy">
+  <figcaption>El impacto periférico, nodo Costa Rica. Fuente: dossier ANCA-ADD, agosto 2026 — desarrollado en el anexo de esta página.</figcaption>
+</figure>
+
+<div class="cr">
+  <div class="lbl">★ Nodo semiperiférico acoplado · el hecho que cambió el cuadro</div>
+  <p><strong>El hecho, con su estatus declarado.</strong> El 24 de junio de 2026, el ministro de Hacienda —el expresidente Rodrigo Chaves, nombrado por la presidenta Laura Fernández como ministro de la Presidencia y de Hacienda, un caso inédito— anunció en conferencia de prensa que el país «usará tecnología desarrollada en Israel por el Mossad para combatir la evasión fiscal y el contrabando». Sus palabras: «Vienen tecnologías desarrolladas por el Mossad en Israel para detectar el contrabando en este país a través de las importaciones». Esto es <strong>[DC] dato confirmado</strong>. Ahora bien: Chaves no nombró el producto, la empresa, el costo ni el plazo, ni confirmó si hay contrato firmado; prometió presentar el paquete completo a la presidenta la semana del 30 de junio. Que esa tecnología sea específicamente <strong>Pegasus</strong> es por ahora <strong>[IP] inferencia plausible</strong> —sugerida por la procedencia (el ecosistema israelí de inteligencia, NSO/Mossad) y por el tipo de capacidad—, no un dato confirmado. El informe mantiene esa distinción: el anuncio de intención está confirmado; el producto exacto, no.</p>
+  <p><strong>Una distinción que es analítica, no solo política:</strong> conviene no confundir <em class="term">Estado</em> con <em class="term">gobierno de turno</em>. En 2022, Costa Rica fue el primer país en pedir ante la ONU —por medio de la embajadora Catalina Devandas— una <strong>moratoria global</strong> al software espía. Pero ese pedido lo hizo el gobierno saliente de Carlos Alvarado, semanas antes del traspaso del 8 de mayo de 2022. Cuatro años después, otro gobierno —el de Fernández, con Chaves en Hacienda— anuncia importar capacidad de inteligencia israelí. No es una contradicción del Estado consigo mismo: es la sustitución de una política por otra opuesta entre dos gobiernos electos. Esa es, en términos ADD, una <strong>bifurcación de la posición nacional</strong> sobre la vigilancia, cuyo parámetro de control es la orientación de cada gobierno hacia el ecosistema securitario-tecnológico.</p>
+  <p><strong>El contexto que da espesor al anuncio</strong> (todo [DC]): no es un hecho aislado. Costa Rica e Israel firmaron un Tratado de Libre Comercio el 8 de diciembre de 2025, y en marzo de 2026 el gobierno abrió una oficina comercial y de inversión en Jerusalén para fortalecer los vínculos tecnológicos. El anuncio fiscal se inscribe en ese acoplamiento estructural creciente con el ecosistema tecnológico israelí. El motivo declarado es real: según el propio Chaves, cerca del 50 % del consumo de cigarrillos y licores del país provendría del contrabando, y la semana previa Hacienda decomisó unas 65.000 unidades de licor.</p>
+  <p><strong>La tensión que el marco ADD ilumina.</strong> El uso anunciado es fiscal —detectar subdeclaración y fraude aduanero en importaciones—, no vigilancia ciudadana. Pero el informe completo muestra precisamente por qué esa frontera es porosa: la misma capacidad de integración y análisis que ordena datos de aduanas es, en su arquitectura, la que en otros países ordena datos de personas. El parámetro de control vuelve a ser el mismo: no qué se promete hacer con la herramienta, sino <strong>qué supervisión judicial, qué transparencia y qué auditoría</strong> limitarían su uso una vez instalada. Esto se acopla con una trama de vigilancia estatal que el país ya venía discutiendo —pero conviene no meter todo en la misma bolsa, que es justo el error que este informe combate. De un lado, hechos del tipo <strong>intrusión / uso de medios</strong>: las denuncias del fiscal Carlo Díaz (octubre 2024) sobre espionaje en su contra y uso de vehículos del ICD; la triplicación, documentada por el <em>Semanario Universidad</em>, de los vehículos de inteligencia a disposición de la DIS y la UEI; la denuncia de una «estructura paralela» en Casa Presidencial.</p>
+  <p>De otro lado, y en el registro de la <strong>integración de datos</strong> —el lado «Palantir» del problema, no el lado «Pegasus»—, está el antecedente de la <strong>UPAD</strong> (gobierno Alvarado, 2019–2020). Conviene precisarlo, porque suele recordarse mal: la UPAD no era una herramienta de intrusión ni un proyecto clandestino, sino la propuesta de una unidad que <em>analizaría información institucional ya existente</em> del Estado, a crearse mediante una ley que regularía su funcionamiento y el uso de esos datos. Lo que la hundió no fue una capacidad de espiar —no la tenía—, sino la desconfianza sobre el control: reunir en una sola unidad datos dispersos del Estado disparó el temor al perfilamiento, <em>aun cuando se proponía con marco legal</em>. Ese es exactamente el patrón del caso de la Federated Data Platform de Palantir en el NHS británico: el conflicto no nace de la intrusión, sino de la integración y de quién garantiza su control. La UPAD es, así, el caso costarricense que demuestra la tesis del informe: la concentración del poder de ver genera disputa político-epistémica incluso cuando se presenta como legal y técnica. El «Estado de la Ciberseguridad en Costa Rica 2025» de la UNA es un punto de partida documental para la conversación que el anuncio del 24 de junio vuelve urgente.</p>
+</div>
+
+<!-- 8. ESCENARIOS -->
+<h2 class="sec" id="escenarios"><span class="n">08</span> Escenarios plausibles</h2>
+<p class="sec-lead">Tres trayectorias para el régimen de vigilancia privada, a 2–4 años.</p>
+
+<figure class="fig">
+  <img src="img/escenarios-plausibles.jpg" alt="Tres escenarios plausibles 2026 en adelante: Normalización Algorítmica, Fragmentación Geopolítica y Escalada Autoritaria, cada uno con su dinámica y señal discriminatoria." loading="lazy">
+  <figcaption>Escenarios plausibles según el dossier ANCA-ADD de agosto 2026. La señal discriminatoria de «Escalada Autoritaria» —multiplicación de decretos de secreto de Estado— se verifica en el anexo de esta página.</figcaption>
+</figure>
+
+<div class="scen">
+  <span class="pill a"><b>Rendición de cuentas</b> La condena a NSO sienta jurisprudencia replicable; la presión social retira a Palantir de sistemas sensibles como el NHS; emergen marcos de auditoría obligatoria. El parámetro de control se fija por vía institucional.</span>
+  <span class="pill b"><b>Normalización</b> La intrusión y la integración se vuelven infraestructura ordinaria de gobierno; los litigios se asumen como costo operativo; la opacidad algorítmica persiste. La capacidad de ver se concentra sin contrapeso efectivo.</span>
+  <span class="pill c"><b>Fragmentación geopolítica</b> La desconfianza soberana (caso suizo, debate NHS) lleva a bloques con infraestructuras de datos incompatibles; cada potencia desarrolla o nacionaliza su capacidad, y las semiperiferias eligen —o son obligadas a elegir— a qué ecosistema acoplarse.</span>
+</div>
+
+<!-- 9. INCERTIDUMBRES -->
+<h2 class="sec"><span class="n">09</span> Incertidumbres abiertas</h2>
+<ul class="unc">
+  <li>¿Sobrevivirá NSO Group a la apelación, o la prohibición permanente sobre WhatsApp será, como alega la empresa, «existencial»?</li>
+  <li>¿Activará el Reino Unido la cláusula de salida del contrato de Palantir con el NHS en febrero de 2027, o la dependencia ya construida lo hará impracticable?</li>
+  <li>¿Se confirmará judicialmente el destino y el uso del Pegasus que la fiscalía colombiana dice que se compró, o quedará como operación financiera sin software localizado?</li>
+  <li>¿Es la valoración bursátil de Palantir una burbuja, o el mercado anticipa correctamente que la vigilancia integrada será infraestructura dominante?</li>
+  <li>¿Tiene Costa Rica —o cualquier semiperiferia— la capacidad institucional de fijar el parámetro de control (supervisión verificable) antes de adquirir estas capacidades, y no después?</li>
+  <li>¿Qué tecnología específica contiene el «paquete completo» que el ministro Chaves presentaría la semana del 30 de junio —es Pegasus, otra herramienta del ecosistema israelí, o una capacidad de análisis aduanero sin componente de intrusión—, y bajo qué controles legales operaría? <em>[Ver anexo de agosto: la pregunta recibió una primera respuesta, no una resolución.]</em></li>
+</ul>
+
+<!-- ===================== ANEXO AGOSTO 2026 ===================== -->
+<header class="anexo-mast" id="anexo">
+  <div class="kicker">Anexo · actualización de agosto 2026</div>
+  <h1 class="title">LA BIFURCACIÓN <span>/</span> SE CONFIRMA</h1>
+  <p class="subtitle">Seis semanas después del cierre de este informe, el mismo Estado se movió en dos direcciones opuestas a la vez: una hacia la rendición de cuentas, forzada por vía judicial; otra hacia la opacidad, decretada por vía ejecutiva.</p>
+  <div class="mast-meta">
+    <span class="badge-level">NIVEL: ALTO</span>
+    <span><b>Cierre del anexo:</b> 14 ago 2026 (San José)</span>
+    <span><b>Búsqueda web:</b> realizada el 14 ago 2026</span>
+    <span><b>Origen:</b> dossier ANCA-ADD «Sistemas de Seguridad y Espionaje: Pegasus y Palantir», ago 2026</span>
+  </div>
+</header>
+
+<p class="lead">El informe original cerró el 29 de junio de 2026 con una pregunta sin resolver: ¿logrará Costa Rica fijar, por ley y auditoría, quién puede ver y bajo qué supervisión, antes de adquirir capacidades de vigilancia? Seis semanas después hay respuesta parcial, y es doble. Sobre el anuncio de tecnología israelí en Hacienda, un ciudadano litigó y la justicia constitucional forzó una respuesta —que resultó ser un desmentido—. Sobre la Dirección de Inteligencia y Seguridad (DIS), el Poder Ejecutivo hizo exactamente lo contrario: blindó con secreto de Estado la información que permitiría auditar sus compras. Este anexo documenta ambos giros y actualiza la lectura dinámica del informe.</p>
+
+<figure class="fig">
+  <img src="img/vigilancia-digital-metodo-add.jpg" alt="Infografía Vigilancia Digital y el Método ADD: del ruido a la señal, los pilares de la ADD, el método ANCA-ADD, Pegasus vs. Palantir, y el impacto sistémico en Costa Rica incluyendo el Decreto N° 45870 MSP." loading="lazy">
+  <figcaption>Síntesis del marco metodológico ANCA-ADD aplicado a este anexo. Fuente: dossier ANCA-ADD, agosto 2026.</figcaption>
+</figure>
+
+<div class="ws" style="border-left-color:var(--gold);background:rgba(216,178,90,.06);border-color:#6b5626">
+  <div class="lbl" style="color:var(--gold)">🎧 Versión en audio de este anexo</div>
+  <p>Este anexo tiene una versión narrada, generada como parte del dossier ANCA-ADD de agosto de 2026. Se puede escuchar directamente aquí o abrir en Google Drive.</p>
+  <div style="position:relative;padding-top:20%;border-radius:3px;overflow:hidden;border:1px solid var(--line);margin-top:12px">
+    <iframe src="https://drive.google.com/file/d/1U5V5rcPRHIxErp6ozObVtCTNiBHtm5ia/preview" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0" allow="autoplay" loading="lazy"></iframe>
+  </div>
+  <p style="margin-top:12px"><a class="ref" href="https://drive.google.com/file/d/1U5V5rcPRHIxErp6ozObVtCTNiBHtm5ia/view?usp=drive_link" target="_blank">Abrir «El espionaje invisible de Pegasus y Palantir» en Google Drive ↗</a></p>
+</div>
+
+<!-- 11. DECRETO -->
+<h2 class="sec" id="decreto"><span class="n">11</span> El giro ejecutivo: Decreto N.° 45870-MSP</h2>
+<p class="sec-lead">Costa Rica declaró secreto de Estado la información de su aparato de inteligencia y seguridad — justo el tipo de dato que permitiría auditar una compra de vigilancia.</p>
+
+<p class="lead">El 27 de julio de 2026, la Presidencia de la República y el Ministerio de Seguridad Pública firmaron el Decreto N.° 45870-MSP, publicado en La Gaceta el lunes 10 de agosto. El decreto declara <strong>secreto de Estado</strong> toda la información vinculada al Consejo Nacional de Seguridad Pública, a la Dirección de Inteligencia y Seguridad (DIS) y al grupo de trabajo «Fuerza Élite», así como cualquier coordinación de seguridad y defensa dirigida desde la Presidencia. El alcance no se limita a informes de inteligencia: cubre explícitamente <strong>presupuestos, gastos, contrataciones, adjudicaciones y contratos financiados con fondos públicos</strong>, además de sesiones, reuniones, grabaciones, bitácoras y acuerdos generados dentro de esos órganos [Dato confirmado].</p>
+
+<p>La justificación oficial invoca el aumento de amenazas asociadas al narcotráfico, el lavado de dinero, la trata de personas y el sicariato. El momento generó suspicacia: el 4 de agosto se reveló la existencia de un informe confidencial de abril del propio Ministerio de Seguridad que advertía sobre posibles vínculos entre policías de la Zona Sur y organizaciones criminales. La cronología documentada, sin embargo, no sostiene una relación causal directa —el decreto se firmó el 27 de julio, antes de que ese informe se conociera públicamente— aunque no descarta que el Ejecutivo ya conociera su contenido [Conjetura, cronología documentada en contra de la causalidad directa].</p>
+
+<div class="pull">El decreto no oculta una operación puntual: oculta la capacidad institucional de saber si hubo una operación de compra, y con qué controles.</div>
+
+<p>La Sociedad Interamericana de Prensa (SIP) alertó, el 12 de agosto, sobre el riesgo que el decreto representa para la libertad de prensa y el acceso a la información pública, señalando que la clasificación de secreto de Estado debe ser excepcional, claramente delimitada y sujeta a controles independientes. Un ex ministro de Seguridad y un ex contralor, consultados por <em>La Teja</em>, plantearon la preocupación central para este informe: que el alcance del secreto —al cubrir compras y contrataciones— podría usarse para blindar del escrutinio público la adquisición de tecnología de vigilancia [Hipótesis de trabajo, riesgo estructural señalado por fuentes expertas, no hecho consumado].</p>
+
+<!-- 12. SALA IV -->
+<h2 class="sec" id="salaiv"><span class="n">12</span> El giro judicial: Sala Constitucional contra Hacienda</h2>
+<p class="sec-lead">Mientras Seguridad se cerraba, Hacienda fue obligada a abrirse — y al abrirse, se desdijo.</p>
+
+<p class="lead">El anuncio del ministro Chaves sobre tecnología del Mossad (24 de junio de 2026, documentado en la sección 07) tuvo una secuela que el informe original no pudo anticipar. Un ciudadano solicitó al Ministerio de Hacienda información detallada sobre esas herramientas; el plazo legal de diez días hábiles para responder venció el 9 de julio sin respuesta completa. El 13 de julio, el ciudadano presentó un recurso de amparo ante la Sala Constitucional (Sala IV) [Dato confirmado].</p>
+
+<p>La Sala resolvió declarar <strong>con lugar, de forma unánime</strong>, el recurso, por violación de los artículos 27 (derecho de petición) y 30 (acceso a la información administrativa) de la Constitución Política. Calificó de «genérica» la respuesta que Hacienda había dado, por no atender cada punto solicitado, y ordenó al viceministro de Ingresos, Víctor Julio Carvajal Porras, entregar una respuesta completa dentro de diez días; condenó además al Estado en costas, daños y perjuicios, a liquidar en ejecución de sentencia contencioso-administrativa [Dato confirmado — la cobertura consultada no precisa la fecha exacta del fallo, solo que es posterior al 13 de julio y anterior a la respuesta del 13 de agosto].</p>
+
+<p>Esa respuesta llegó el 13 de agosto de 2026, y contradice al propio ministro: según el documento oficial reportado por CRHoy, Hacienda afirma que <strong>«la iniciativa no se ha desarrollado»</strong> y que <strong>no hay herramientas ni decisiones tomadas</strong> [Dato confirmado, cita de documento oficial]. Frente al anuncio televisado de Chaves —«vienen tecnologías desarrolladas por el Mossad en Israel»—, la respuesta escrita bajo orden judicial dice, en esencia, que no hay nada que mostrar.</p>
+
+<div class="pull">No sabemos si Chaves anunció algo que no existía, o si Hacienda ocultó, bajo orden judicial, algo que sí existe. Ambas lecturas son, por ahora, igual de especulativas.</div>
+
+<p>Esta contradicción admite dos lecturas, ninguna con evidencia suficiente para preferirla sobre la otra: (a) el anuncio de junio fue una declaración política sin desarrollo técnico real —un gesto de mano dura fiscal sin sustento operativo—, o (b) sí existe una iniciativa en marcha y la respuesta oficial, forzada por la Sala IV pero redactada por la propia Administración, minimiza deliberadamente su estado para evadir el espíritu del fallo [Conjetura en ambos sentidos]. El informe se abstiene de inferir cuál es la correcta; ambas quedan registradas en la sección 15.</p>
+
+<!-- 13. MEEE-G ACTUALIZADA -->
+<h2 class="sec"><span class="n">13</span> Evaluación epistémica actualizada · MEEE-G</h2>
+<p class="sec-lead">Qué tan firme es cada afirmación nueva, a la fecha de este anexo.</p>
+
+<table class="meee">
+  <tr><th>Afirmación</th><th>Código</th><th>Justificación procesual</th></tr>
+  <tr><td>El Decreto N.° 45870-MSP fue firmado el 27 de julio de 2026 y publicado en La Gaceta el 10 de agosto de 2026.</td><td class="code dc">[DC]</td><td>Publicación oficial en La Gaceta; cobertura concordante (El Financiero, La Nación, Infobae, Delfino.cr, Diario Extra, El Mundo CR, El Observador CR, El Guardián CR).</td></tr>
+  <tr><td>El decreto declara secreto de Estado —incluidas contrataciones y presupuestos— la información de la DIS, «Fuerza Élite» y el Consejo Nacional de Seguridad Pública.</td><td class="code dc">[DC]</td><td>Texto del decreto, reportado de forma concordante por múltiples medios.</td></tr>
+  <tr><td>El alcance del secreto de Estado podría usarse para ocultar futuras compras de tecnología de vigilancia sin escrutinio público.</td><td class="code h">[H]</td><td>Preocupación señalada por un ex ministro de Seguridad y un ex contralor (La Teja); es un riesgo estructural plausible dado el alcance del decreto, no un hecho consumado ni negado por el Gobierno.</td></tr>
+  <tr><td>La Sala Constitucional declaró con lugar, de forma unánime, el recurso de amparo contra el Ministerio de Hacienda por no responder sobre la tecnología israelí anunciada por Chaves.</td><td class="code dc">[DC]</td><td>Sentencia reportada por La Nación; orden concreta al viceministro Carvajal con plazo de diez días.</td></tr>
+  <tr><td>La respuesta oficial de Hacienda (13 ago 2026) contradice el anuncio de Chaves: afirma que la iniciativa «no se ha desarrollado» y que no hay herramientas ni decisiones tomadas.</td><td class="code dc">[DC]</td><td>Documento oficial citado por CRHoy, en cumplimiento de la orden judicial.</td></tr>
+  <tr><td>El anuncio de junio de Chaves fue una declaración política sin desarrollo técnico real (no una ocultación deliberada de un proyecto en marcha).</td><td class="code c">[C]</td><td>Una de dos lecturas igualmente posibles frente a la contradicción; no hay evidencia que decante hacia ninguna. La lectura inversa —ocultación deliberada— tiene el mismo estatus.</td></tr>
+  <tr><td>El Decreto 45870-MSP es una respuesta directa al informe confidencial de abril sobre presuntos vínculos entre policías de la Zona Sur y crimen organizado.</td><td class="code c">[C] con cronología en contra</td><td>El decreto se firmó el 27 de julio; el informe se reveló públicamente el 4 de agosto. La secuencia documentada hace improbable la causalidad directa, sin descartar conocimiento previo no público.</td></tr>
+</table>
+
+<!-- 14. ADD ACTUALIZADA -->
+<h2 class="sec"><span class="n">14</span> Lectura dinámica actualizada · ADD</h2>
+<p class="sec-lead">La bifurcación que el informe de junio anticipó no se resolvió hacia un solo lado: se abrió en dos ejes distintos del mismo Estado.</p>
+
+<div class="add">
+  <div class="lbl">Lectura dinámica · actualización de agosto</div>
+  <div class="regime"><span>Régimen: <b>bifurcación confirmada, divergente por eje institucional</b></span><span>Eje Hacienda: <b>hacia rendición de cuentas (forzada)</b></span><span>Eje Seguridad: <b>hacia normalización opaca</b></span></div>
+  <p>El informe de junio identificó un único parámetro de control —quién puede ver, sobre quién, y bajo qué supervisión verificable— y anticipó que el sistema costarricense se movería hacia uno de dos atractores: rendición de cuentas o normalización. Lo que ocurrió en agosto no fue una elección entre ambos, sino su manifestación simultánea en <strong>dos subsistemas distintos del mismo Estado</strong>, exactamente como predice el carácter multiescalar y no lineal de la ADD: un mismo Poder Ejecutivo, dos direcciones opuestas según el punto de la red institucional que se observe.</p>
+  <p>En el <strong>eje Hacienda</strong>, el control se activó por la vía menos eficiente pero más verificable: un ciudadano individual litigando, un tribunal ordenando, y una administración obligada a hablar. El resultado —una desmentida de la propia promesa ministerial— es, en términos ADD, una <em class="term">perturbación correctiva</em>: el sistema fue forzado a reducir su propia opacidad, aunque solo porque alguien pagó el costo de activar el mecanismo judicial disponible.</p>
+  <p>En el <strong>eje Seguridad</strong>, ocurrió lo contrario: el propio Ejecutivo amplió, por decreto, el perímetro de opacidad, y lo hizo exactamente sobre el tipo de información —contrataciones, presupuestos— que un mecanismo como el usado contra Hacienda necesitaría para funcionar. Esto no es una coincidencia menor: es la <strong>materialización del escenario «Escalada Autoritaria»</strong> que el propio dossier de agosto anticipaba como hipótesis de trabajo —«multiplicación de leyes y decretos de secreto de Estado para encubrir la adquisición y operación de spyware»— convertida, con el Decreto 45870-MSP, en un hecho verificable [Interpretación sistémica].</p>
+  <p>La pregunta que organiza este anexo, entonces, ya no es solo «¿hacia dónde se mueve el sistema?», sino algo más preciso: <strong>¿es replicable la vía que funcionó con Hacienda —el amparo por silencio administrativo— cuando el objeto declarado es «secreto de Estado» en lugar de simple falta de respuesta?</strong> El decreto invoca un fundamento jurídico distinto y, en principio, más resistente al mismo tipo de litigio. Si no lo es, el parámetro de control que el informe de junio identificó como decisivo quedará, en la práctica, fijado solo para una parte del aparato estatal —y cerrado para la otra.</p>
+</div>
+
+<!-- 15. INCERTIDUMBRES REVISADAS -->
+<h2 class="sec"><span class="n">15</span> Incertidumbres abiertas · revisión de agosto</h2>
+<p class="sec-lead">Una pregunta de junio recibió una primera respuesta; se abrieron al menos tres nuevas.</p>
+
+<ul class="unc">
+  <li><strong>[Actualizada]</strong> ¿Qué tecnología específica contiene el «paquete completo» anunciado por Chaves? La respuesta oficial de agosto dice que no hay ninguna desarrollada — pero no aclara si eso cierra el asunto o solo desplaza el problema: ¿fue el anuncio retórica sin sustento, o la respuesta bajo orden judicial subestima deliberadamente un desarrollo real?</li>
+  <li>¿Usará el Gobierno el Decreto 45870-MSP para blindar, del mismo tipo de escrutinio que acaba de aplicarse a Hacienda, una futura adquisición de tecnología de vigilancia por parte de la DIS o «Fuerza Élite»?</li>
+  <li>¿Presentará alguna organización de sociedad civil o de prensa una acción de inconstitucionalidad contra el Decreto 45870-MSP, y prosperaría frente a la Sala IV con el mismo vigor que mostró en el caso Hacienda?</li>
+  <li>¿Sobrevive el mecanismo del amparo por silencio administrativo —la vía que funcionó contra Hacienda— frente a información declarada «secreto de Estado», o ese fundamento jurídico ofrece al Ejecutivo un blindaje distinto y más resistente?</li>
+  <li>¿Guarda alguna relación no declarada el momento del decreto (27 jul) con el conocimiento interno —previo a su filtración pública (4 ago)— del informe sobre presuntos vínculos entre policías de la Zona Sur y crimen organizado?</li>
+</ul>
+
+<!-- FUENTES -->
+<h2 class="sec" id="fuentes"><span class="n">16</span> Fuentes · APA 7</h2>
+<div class="refs">
+<ol>
+  <li>Business &amp; Human Rights Resource Centre. (2024, 21 de diciembre). <em>USA: Court finds Pegasus spyware maker NSO Group liable in WhatsApp hack case</em>. https://www.business-humanrights.org/</li>
+  <li>Xataka. (2025, 7 de mayo). <em>WhatsApp acaba de marcar un precedente legal contra el espionaje: Pegasus tendrá que pagar 167 millones por daños</em>. https://www.xataka.com/seguridad/</li>
+  <li>R3D: Red en Defensa de los Derechos Digitales. (2025, 21 de octubre). <em>Tribunal en Washington ordena a NSO Group que deje de atacar WhatsApp</em>. https://r3d.mx/2025/10/21/</li>
+  <li>The Record (Recorded Future News). (2025, noviembre). <em>NSO seeks to overturn WhatsApp case, saying it is 'catastrophic' for the spyware maker</em>. https://therecord.media/nso-seeks-to-overturn-whatsapp-case</li>
+  <li>Cybersecurity News. (2026). <em>WhatsApp disrupts NSO-linked cyberattack targeting users with Pegasus spyware</em>. https://cybersecuritynews.com/whatsapp-disrupts-nso-cyberattack/</li>
+  <li>Just Security. (2025, 29 de abril). <em>Spyware company NSO Group faces setbacks in attempts to avoid US lawsuits</em>. https://www.justsecurity.org/106536/nso-whatsapp-lawsuit/</li>
+  <li>Portafolio. (2024, 27 de octubre). <em>Fiscalía confirmó compra del software espía Pegasus por 11 millones de dólares</em>. https://www.portafolio.co/</li>
+  <li>RTVC Noticias. (2024, 12 de octubre). <em>Ministerio de Defensa de Israel confirma la compra del software espía Pegasus</em>. https://rtvcnoticias.com/ministerio-defensa-israel-confirma-compra-pegasus</li>
+  <li>SinEmbargo. (2025, 9 de julio). <em>Pegasus: ¿De dónde viene, quién lo vende y quién usa el software que vigila a México?</em> https://www.sinembargo.mx/</li>
+  <li>State of Surveillance. (2025, 17 de noviembre). <em>Palantir surveillance 2025: $10B+ in government deals</em>. https://stateofsurveillance.org/</li>
+  <li>American Immigration Council. (2025, 22 de agosto). <em>ICE to use ImmigrationOS by Palantir to track immigrants' movements</em>. https://www.americanimmigrationcouncil.org/</li>
+  <li>The Conversation. (2026, 20 de enero). <em>When the government can see everything: how one company — Palantir — is mapping the nation's data</em>. https://theconversation.com/</li>
+  <li>Medact. (2026, marzo). <em>Briefing: concerns regarding Palantir Technologies and NHS data systems</em>. https://www.medact.org/2026/resources/briefings/briefing-palantir-fdp/</li>
+  <li>Techopedia. (2026, 14 de mayo). <em>Palantir NHS data access sparks privacy concerns</em>. https://www.techopedia.com/palantir-nhs-data-access-controversy</li>
+  <li>The Register. (2026, 12 de mayo). <em>NHS England confirms: Palantir staff can access patient data</em>. https://www.theregister.com/</li>
+  <li>Al Jazeera. (2026, 12 de mayo). <em>'Potential security risk': unpacking the UK's trust issues with Palantir</em>. https://www.aljazeera.com/news/2026/5/12/palantir</li>
+  <li>Tech Policy Press. (2026, junio). <em>Why Palantir's UK health data system matters beyond surveillance fears</em>. https://www.techpolicy.press/</li>
+  <li>El Mundo CR. (2024, 11 de octubre). <em>Fiscal general revela espionaje y desprestigio: implicaciones para la política nacional</em>. https://elmundo.cr/</li>
+  <li>Semanario Universidad. (2025, 29 de enero). <em>Sombra de persecución política se abalanza sobre oposición</em>. https://semanariouniversidad.com/</li>
+  <li>Delfino.cr. (2025, enero). <em>Chaves niega que existan estructuras de espionaje del gobierno a diputados</em>. https://delfino.cr/</li>
+  <li>Universidad Nacional (UNA). (2026). <em>Estado de la ciberseguridad en Costa Rica 2025</em>. https://www.una.ac.cr/</li>
+  <li>El Financiero. (2026, 25 de junio). <em>El Mossad: ¿qué es y qué tiene que ver con el combate a la evasión fiscal y el contrabando en Costa Rica?</em> https://www.elfinancierocr.com/economia-y-politica/</li>
+  <li>La Teja. (2026, 24 de junio). <em>Rodrigo Chaves, ministro de Hacienda, anuncia primeros recortes en presupuestos por situación fiscal del país</em>. https://www.lateja.cr/nacional/politica/</li>
+  <li>Access Now. (2022, 13 de abril). <em>Alto a Pegasus: Costa Rica es el primer país en pedir una moratoria a los softwares de espionaje</em>. https://www.accessnow.org/press-release/costa-rica-primer-pais-moratoria-spyware/</li>
+  <li>CNN en Español / Wikipedia. (2026, 5–9 de mayo). <em>Rodrigo Chaves, presidente saliente de Costa Rica, será ministro en el Gobierno de Laura Fernández</em>. https://es.wikipedia.org/wiki/Rodrigo_Chaves</li>
+  <li>XS. (2026, 14 de abril). <em>Acciones Palantir: precio, análisis y previsión en 2026</em>. https://www.xs.com/es/blog/acciones-palantir/</li>
+  <li>El Financiero. (2026, s.f.). <em>¿Qué exactamente declaró el Poder Ejecutivo como secreto de Estado, cómo lo justifica y qué dicen sus críticos?</em> Consultado el 14 de agosto de 2026. https://www.elfinancierocr.com/economia-y-politica/</li>
+  <li>La Nación. (2026, s.f.). <em>Laura Fernández declara secreto de Estado la información de la DIS, Fuerza Élite y Consejo Nacional de Seguridad</em>. Consultado el 14 de agosto de 2026. https://www.nacion.com/politica/</li>
+  <li>Infobae. (2026, 10 de agosto). <em>Laura Fernández declara "Secreto de Estado" la información de la DIS, Fuerza Élite y contratos de seguridad</em>. https://www.infobae.com/costa-rica/</li>
+  <li>Delfino.cr. (2026, agosto). <em>Gobierno declara secreto de Estado sobre DIS, Fuerza Élite, presupuestos y contrataciones</em>. https://delfino.cr/2026/08/</li>
+  <li>Diario Extra. (2026, agosto). <em>Poder Ejecutivo decreta Secreto de Estado información sobre sesiones de seguridad</em>. https://www.diarioextra.com/</li>
+  <li>La Teja. (2026, agosto). <em>Expertos alertan que decreto de secreto de Estado en la DIS podría ocultar compras de vigilancia y limitar transparencia</em>. https://www.lateja.cr/nacional/</li>
+  <li>Sociedad Interamericana de Prensa (SIP). (2026, 12 de agosto). <em>La SIP alerta sobre decreto de secreto de Estado que amenaza la libertad de prensa en Costa Rica</em>. https://www.sipiapa.org/</li>
+  <li>La Silla Rota. (2026, 12 de agosto). <em>Decreto de "secreto de Estado" en Costa Rica; amenaza a la libertad de expresión: SIP</em>. https://lasillarota.com/mundo/</li>
+  <li>La Nación. (2026, s.f.). <em>A propósito del decreto sobre secreto de Estado, la seguridad nacional no debe ser sinónimo de opacidad</em>. Consultado el 14 de agosto de 2026. https://www.nacion.com/opinion/foros/</li>
+  <li>El Observador CR. (2026, agosto). <em>Secreto de Estado sobre compras y contratos de la DIS y Fuerza Élite genera dudas sobre control de fondos públicos</em>. https://observador.cr/</li>
+  <li>El Guardián CR. (2026, agosto). <em>Gobierno declara Secreto de Estado información de Fuerza Élite y DIS</em>. https://elguardian.cr/</li>
+  <li>El Mundo CR. (2026, agosto). <em>Gobierno declara Secreto de Estado información de la DIS, Fuerza Élite y contratos de seguridad</em>. https://elmundo.cr/costa-rica/</li>
+  <li>La Nación. (2026, s.f.). <em>Ministerio de Hacienda deberá explicar uso de tecnología de Israel y el Mossad para combatir evasión fiscal, ordena Sala Constitucional</em>. Consultado el 14 de agosto de 2026. https://www.nacion.com/el-pais/</li>
+  <li>CRHoy. (2026, 13 de agosto). <em>Respuesta de viceministro contradice anuncio de Chaves sobre uso de tecnología del Mossad</em>. https://crhoy.com/economia/</li>
+</ol>
+</div>
+
+<div class="method">
+  <p><b>Nota metodológica.</b> Este informe integra tres registros analíticos no colapsables: la evaluación epistémica explicacionista (<b>MEEE-G</b>, inspirada en Goldman), el análisis dinámico antropológico (<b>ADD</b>) y la capa de sistemas-mundo (Wallerstein/Arrighi). Códigos: <b>[DC]</b> dato confirmado, <b>[IP]</b> inferencia plausible, <b>[H]</b> hipótesis, <b>[Int]</b> interpretación, <b>[C]</b> conjetura. El informe es de interés público y se basa exclusivamente en fuentes documentales de acceso abierto; <b>no contiene ni busca contener detalles operativos sobre cómo funcionan los exploits o cómo desplegar estas tecnologías</b>: su objeto es el análisis político, económico y epistémico de sistemas de vigilancia ampliamente reportados. Donde la evidencia no alcanza —notablemente respecto de Costa Rica— se declara explícitamente la ausencia de respaldo en lugar de inferir. <b>El análisis no constituye acusación contra personas físicas concretas ni recomendación política; caracteriza el estatus de la información disponible a la fecha de cierre.</b></p>
+  <p style="margin-top:12px"><b>Nota sobre el anexo de agosto.</b> Las secciones 10 a 15 se agregaron el 14 de agosto de 2026 mediante búsqueda web con esa fecha de consulta, a partir de un dossier ANCA-ADD (presentación e infografía) fechado en agosto de 2026. El cuerpo original (secciones 01-09) se preserva sin alteraciones como registro de su fecha de cierre.</p>
+</div>
+
+</main>
+
+<footer>
+  <div>ANCA-ADD © 2026 · antropos.app</div>
+  <div>Informe estratégico · Pegasus &amp; Palantir · cierre 29 jun 2026 · anexo 14 ago 2026 · MEEE-G + ADD + Sistemas-Mundo</div>
+</footer>
+
+</body>
+</html>

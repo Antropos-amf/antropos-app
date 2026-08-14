@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANCA-ADD · Boletín Semanal N.° 011 · 20–28 jun 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0c0e11;--bg2:#13161a;--panel:#171b20;--panel2:#1c2127;
+    --ink:#e9e6df;--ink2:#b7b2a8;--muted:#7f7a70;
+    --teal:#37b1a2;--teal-dim:#1f5c55;--teal-bg:rgba(55,177,162,.08);
+    --amber:#c98a3c;--copper:#b5672e;--amber-bg:rgba(201,138,60,.08);
+    --gold:#d8b25a;--red:#d65a4e;--line:#2a2f36;
+    --dc:#37b1a2;--ip:#7fb8d8;--h:#d8b25a;--int:#c98a3c;--c:#b78bd0;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:'Cormorant Garamond',Georgia,serif;font-size:20px;line-height:1.55;}
+  ::selection{background:var(--teal-dim);color:#fff}
+
+  .ticker{position:sticky;top:0;z-index:60;background:#08090b;border-bottom:1px solid var(--line);
+    overflow:hidden;white-space:nowrap;font-family:'IBM Plex Mono',monospace;font-size:12.5px;
+    letter-spacing:.04em;color:var(--ink2);padding:7px 0}
+  .ticker .track{display:inline-block;padding-left:100%;animation:scroll 52s linear infinite}
+  .ticker b{color:var(--teal)}
+  .ticker .sep{color:var(--red);margin:0 .8em}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+  @media(prefers-reduced-motion:reduce){.ticker .track{animation:none;padding-left:1em}}
+
+  nav{position:sticky;top:31px;z-index:55;background:rgba(12,14,17,.92);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--line);
+    font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.05em}
+  nav .wrap{max-width:920px;margin:0 auto;padding:9px 22px;display:flex;flex-wrap:wrap;gap:4px 18px;align-items:center}
+  nav a{color:var(--muted);text-decoration:none;text-transform:uppercase;transition:color .2s}
+  nav a:hover,nav a:focus{color:var(--teal)}
+  nav .brand{color:var(--ink);font-weight:600;margin-right:auto}
+
+  main{max-width:920px;margin:0 auto;padding:0 22px 80px}
+
+  header.mast{padding:54px 0 30px;border-bottom:2px solid var(--ink);margin-bottom:6px}
+  .kicker{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.32em;
+    text-transform:uppercase;color:var(--teal);margin-bottom:18px}
+  h1.title{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:clamp(54px,11vw,108px);
+    line-height:.92;letter-spacing:.005em;margin:0;color:var(--ink)}
+  h1.title span{color:var(--teal)}
+  .subtitle{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(20px,3vw,27px);
+    color:var(--ink2);margin:12px 0 0;font-weight:400}
+  .mast-meta{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--muted);
+    margin-top:22px;display:flex;flex-wrap:wrap;gap:6px 26px;letter-spacing:.03em}
+  .mast-meta b{color:var(--ink2);font-weight:500}
+
+  .panorama{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--teal);
+    padding:24px 28px;margin:30px 0 8px;border-radius:2px}
+  .panorama h2{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--teal);margin:0 0 12px}
+  .panorama p{margin:0 0 10px;font-size:19px;color:var(--ink2)}
+  .panorama p:last-child{margin-bottom:0}
+
+  article{padding:46px 0 8px;border-bottom:1px solid var(--line)}
+  .art-head{display:flex;align-items:baseline;gap:16px;margin-bottom:6px;flex-wrap:wrap}
+  .art-num{font-family:'Bebas Neue',sans-serif;font-size:46px;color:var(--teal-dim);line-height:1}
+  .cat{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;
+    text-transform:uppercase;padding:4px 10px;border-radius:2px;border:1px solid;white-space:nowrap}
+  .cat.geo{color:var(--red);border-color:rgba(214,90,78,.4);background:rgba(214,90,78,.07)}
+  .cat.sci{color:var(--teal);border-color:rgba(55,177,162,.4);background:var(--teal-bg)}
+  .cat.tec{color:var(--ip);border-color:rgba(127,184,216,.4);background:rgba(127,184,216,.07)}
+  .cat.nac{color:var(--gold);border-color:rgba(216,178,90,.4);background:rgba(216,178,90,.07)}
+  h3.head{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(28px,4.5vw,40px);
+    line-height:1.08;margin:10px 0 4px;color:var(--ink)}
+  .dek{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:21px;color:var(--ink2);margin:0 0 22px}
+
+  .sub{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--muted);margin:26px 0 9px;
+    padding-bottom:5px;border-bottom:1px solid var(--line)}
+  article p{margin:0 0 14px}
+  article p.lead{font-size:21px}
+  em.term{font-style:italic;color:var(--teal)}
+
+  .meee{width:100%;border-collapse:collapse;font-family:'IBM Plex Mono',monospace;
+    font-size:13px;margin:6px 0 8px}
+  .meee th{text-align:left;color:var(--muted);font-weight:500;letter-spacing:.05em;
+    padding:7px 10px;border-bottom:1px solid var(--line);font-size:10.5px;text-transform:uppercase}
+  .meee td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink2);line-height:1.45}
+  .meee tr:last-child td{border-bottom:none}
+  .code{font-weight:600;white-space:nowrap}
+  .code.dc{color:var(--dc)}.code.ip{color:var(--ip)}.code.h{color:var(--h)}
+  .code.int{color:var(--int)}.code.c{color:var(--c)}
+
+  .add{background:var(--teal-bg);border:1px solid var(--teal-dim);border-left:3px solid var(--teal);
+    padding:20px 24px;margin:18px 0;border-radius:2px}
+  .add .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--teal);margin-bottom:6px}
+  .add .regime{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink2);
+    margin-bottom:12px;display:flex;flex-wrap:wrap;gap:6px 18px}
+  .add .regime b{color:var(--teal);font-weight:500}
+  .add p{margin:0 0 10px;font-size:19px}
+  .add p:last-child{margin-bottom:0}
+
+  .ws{background:var(--amber-bg);border:1px solid var(--copper);border-left:3px solid var(--amber);
+    padding:20px 24px;margin:18px 0;border-radius:2px}
+  .ws .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--amber);margin-bottom:10px}
+  .ws p{margin:0 0 10px;font-size:19px}.ws p:last-child{margin-bottom:0}
+
+  .cr{border:1px solid var(--line);border-top:2px solid var(--gold);padding:18px 24px;
+    margin:18px 0;border-radius:2px;background:var(--bg2)}
+  .cr .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+  .cr p{margin:0 0 10px;font-size:19px;color:var(--ink2)}.cr p:last-child{margin-bottom:0}
+
+  .scen{margin:20px 0 4px}
+  .scen .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  .pill{display:block;padding:13px 18px;margin:8px 0;border-radius:2px;border:1px solid var(--line);
+    background:var(--panel);font-size:18px;color:var(--ink2)}
+  .pill b{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;
+    text-transform:uppercase;display:inline-block;margin-right:8px;padding:2px 8px;border-radius:2px}
+  .pill.a b{color:var(--teal);background:var(--teal-bg)}
+  .pill.b b{color:var(--gold);background:rgba(216,178,90,.07)}
+  .pill.c b{color:var(--red);background:rgba(214,90,78,.07)}
+
+  section.synth{padding:46px 0}
+  .synth h2,.uncert h2,.refs h2{font-family:'Bebas Neue',sans-serif;font-size:34px;
+    letter-spacing:.02em;color:var(--ink);margin:0 0 18px}
+  .synth table{width:100%;border-collapse:collapse;font-family:'IBM Plex Mono',monospace;font-size:12.5px}
+  .synth th{text-align:left;padding:8px 10px;border-bottom:1px solid var(--ink);color:var(--teal);
+    font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+  .synth td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink2);line-height:1.45}
+  .synth td:first-child{color:var(--ink);font-weight:500}
+
+  .uncert{padding:20px 0 46px}
+  .uncert ul{list-style:none;padding:0;margin:0}
+  .uncert li{padding:13px 0 13px 30px;border-bottom:1px solid var(--line);position:relative;color:var(--ink2);font-size:19px}
+  .uncert li:before{content:"?";position:absolute;left:0;top:13px;font-family:'IBM Plex Mono',monospace;
+    color:var(--red);font-weight:600}
+
+  .refs{padding:30px 0}
+  .refs ol{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);
+    line-height:1.6;padding-left:22px}
+  .refs li{margin-bottom:9px}
+  .refs em{color:var(--ink2);font-style:italic}
+
+  .method{background:var(--panel);border:1px solid var(--line);padding:22px 26px;
+    border-radius:2px;margin:14px 0}
+  .method p{font-family:'IBM Plex Mono',monospace;font-size:12.5px;line-height:1.7;color:var(--ink2);margin:0}
+  .method b{color:var(--teal)}
+
+  footer{border-top:2px solid var(--ink);padding:28px 22px;max-width:920px;margin:0 auto;
+    font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--muted);
+    display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+
+  @media(max-width:640px){
+    body{font-size:18px}
+    .meee{font-size:11.5px}.meee th,.meee td{padding:7px 6px}
+    .synth table{font-size:11px}.synth td,.synth th{padding:7px 5px}
+    nav .wrap{font-size:10.5px;gap:3px 12px}
+    .art-num{font-size:36px}
+  }
+
+  figure.fig{margin:22px 0 26px}
+  figure.fig img{width:100%;display:block;border-radius:3px;border:1px solid var(--line)}
+  figure.fig figcaption{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.03em;
+    color:var(--muted);margin-top:8px;line-height:1.5;text-align:center}
+  figure.fig.cover img{border-radius:2px}
+
+  /* SWITCH BANNER */
+  .switch{background:var(--panel);border-bottom:1px solid var(--line);text-align:center;
+    padding:10px 16px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink2);letter-spacing:.02em}
+  .switch a{color:var(--teal);text-decoration:underline}
+</style>
+</head>
+<body>
+
+<div class="switch">¿Prefiere una versión en lenguaje sencillo? <a href="popular/">Lea el Boletín N.° 011 para Todo Público →</a></div>
+
+<!-- TICKER -->
+<div class="ticker"><div class="track">
+  <b>IRÁN·SUIZA</b> Hoja de ruta de 60 días acordada en Bürgenstock; tres grupos técnicos activos; Brent cede a ~USD 79,4<span class="sep">///</span>
+  <b>COLOMBIA</b> De la Espriella presidente electo: 49,66 % vs. 48,70 % Cepeda; Petro impugnó, Cepeda reconoció; asumirá el 7 de agosto<span class="sep">///</span>
+  <b>H5N1</b> Science Advances revela por qué el virus ataca ubres y no pulmones: receptores siálicos concentrados en tejido mamario<span class="sep">///</span>
+  <b>HELICONIUS</b> Mariposas de C. y S. América viven hasta 25× más que parientes; nuevo modelo de investigación sobre el envejecimiento<span class="sep">///</span>
+  <b>IBM</b> Primer chip sub-1 nm: arquitectura «nanostack», ~100.000 M transistores, 70 % más eficiente que generación 2 nm<span class="sep">///</span>
+  <b>COSTA RICA</b> Mesa técnica sobre Crucitas: PLN propone tokenización del oro; 654 mociones; 5 bancadas buscan salida negociada<span class="sep">///</span>
+</div></div>
+
+<!-- NAV -->
+<nav><div class="wrap">
+  <a class="brand" href="#top">ANCA-ADD · N.°011</a>
+  <a href="#n1">Irán</a>
+  <a href="#n2">Colombia</a>
+  <a href="#n3">H5N1</a>
+  <a href="#n4">Heliconius</a>
+  <a href="#n5">IBM</a>
+  <a href="#n6">Crucitas</a>
+  <a href="#sintesis">Síntesis</a>
+</div></nav>
+
+<main id="top">
+
+<!-- MASTHEAD -->
+<header class="mast">
+  <div class="kicker">Agente Noticioso Crítico de Actualidad — Antropología Dinámica del Devenir</div>
+  <h1 class="title">BOLETÍN <span>SEMANAL</span></h1>
+  <p class="subtitle">Evaluación epistémica, lectura dinámica y análisis de sistemas-mundo de la semana</p>
+  <div class="mast-meta">
+    <span><b>Edición:</b> N.° 011</span>
+    <span><b>Semana:</b> 20–28 de junio de 2026</span>
+    <span><b>Cierre:</b> domingo 28 jun, 06:48 (San José)</span>
+    <span><b>Registros:</b> MEEE-G · ADD · Sistemas-Mundo</span>
+  </div>
+</header>
+
+<figure class="fig cover">
+  <img src="img/portada.jpg" alt="Síntesis visual de la semana 20–28 jun 2026: Irán en Suiza, Colombia, H5N1, Heliconius, IBM nanostack y Crucitas." loading="lazy">
+  <figcaption>Boletín Semanal N.° 011 · síntesis de los seis vectores epistémicos de la semana.</figcaption>
+</figure>
+
+<!-- PANORAMA -->
+<div class="panorama">
+  <h2>Panorama de la semana</h2>
+  <p>La semana entrega dos resultados que el boletín venía siguiendo: Colombia resolvió su bifurcación electoral —con un margen de menos de un punto que forzó a Petro a impugnar y a Cepeda a reconocer— e Irán y Estados Unidos instalaron en Suiza la hoja de ruta de 60 días que convierte el memorando de Versalles en un proceso vivo. El crudo cedió más: el Brent tocó USD 79,4, el nivel más bajo desde el inicio del conflicto en febrero.</p>
+  <p>En ciencia, dos hallazgos de naturaleza muy distinta comparten la semana: el primero resuelve un misterio virológico con implicaciones pandémicas directas —por qué el H5N1 ataca las ubres de las vacas y no sus pulmones—; el segundo descubre que un género de mariposas tropicales de nuestra región vive hasta 25 veces más que sus parientes y casi sin envejecer. IBM anuncia el primer chip por debajo del nanómetro y con ello reabre el debate sobre si la Ley de Moore sobrevive. Y en Costa Rica, el debate sobre Crucitas mutó: la propuesta de tokenización del oro entró al tablero legislativo, y la semana cierra con cinco bancadas sentadas en una mesa técnica —un movimiento que el análisis del N.° 010 y su anexo habían anticipado como posible si el parámetro de control (qué tipo de valor decide proteger el Estado) se desplazaba.</p>
+</div>
+
+<figure class="fig">
+  <img src="img/metodologia.jpg" alt="La lente ANCA-ADD: método frente al ruido. MEEE-G y Análisis Dinámico del Devenir." loading="lazy">
+  <figcaption>La lente ANCA-ADD — método epistémico y dinámico que sostiene cada edición de este boletín.</figcaption>
+</figure>
+
+<!-- 1. IRAN -->
+<article id="n1">
+  <div class="art-head">
+    <span class="art-num">01</span>
+    <span class="cat geo">Política y geopolítica</span>
+  </div>
+  <h3 class="head">Irán y EE.UU. instalan en Suiza la arquitectura de un acuerdo de 60 días</h3>
+  <p class="dek">Tres grupos técnicos, mensajes contradictorios sobre lo nuclear y el Brent a mínimos desde febrero.</p>
+
+  <figure class="fig">
+    <img src="img/iran.jpg" alt="La frágil paz Irán–EE.UU. y el doble discurso: hoja de ruta de 60 días. Análisis ADD del régimen turbulento con atractor emergente." loading="lazy">
+    <figcaption>Lectura ADD: régimen turbulento con atractor emergente — Bürgenstock, los 60 días y la divergencia de narrativas nucleares.</figcaption>
+  </figure>
+
+  <div class="sub">Hechos verificados</div>
+  <p class="lead">Las negociaciones entre Estados Unidos e Irán comenzaron en el complejo de Bürgenstock (Suiza) el 21 de junio, con mediación de Qatar y Pakistán. Tras aproximadamente 18 horas de sesiones, los mediadores confirmaron una hoja de ruta de 60 días y la creación de tres grupos de trabajo: nuclear, sanciones y resolución de disputas. Las conversaciones técnicas continuaron durante la semana.</p>
+  <p>El Departamento del Tesoro emitió una exención de 60 días para la venta de petróleo iraní, mientras Irán obtuvo acceso a USD 12.000 millones de activos congelados. El crudo Brent cayó a ~USD 79,4 por barril —mínimo desde el inicio del conflicto el 28 de febrero—. Sin embargo, la semana incluyó una interrupción: Irán suspendió brevemente el diálogo tras amenazas del presidente Trump de reanudar ataques si Teherán no controlaba a Hezbolá en el Líbano, donde violaciones graves habían amenazado el proceso.</p>
+  <p>El punto más cargado de la semana fue la divergencia sobre el programa nuclear. El vicepresidente J.D. Vance declaró que Irán había aceptado «el primer paso hacia la desnuclearización permanente». Irán lo negó de forma explícita: el presidente del Parlamento, Ghalibaf, y los medios estatales informaron que el tema nuclear no fue negociado durante las 18 horas de sesiones.</p>
+
+  <div class="sub">Análisis epistémico · MEEE-G</div>
+  <table class="meee">
+    <tr><th>Afirmación</th><th>Código</th><th>Justificación procesual</th></tr>
+    <tr><td>Las negociaciones en Suiza se celebraron y los mediadores confirmaron la hoja de ruta de 60 días.</td><td class="code dc">[DC]</td><td>Comunicados oficiales de Qatar y Pakistán; cobertura concordante de múltiples agencias.</td></tr>
+    <tr><td>El Brent cedió a ~USD 79,4, mínimo desde el inicio del conflicto.</td><td class="code dc">[DC]</td><td>Datos de mercado verificados por múltiples fuentes financieras.</td></tr>
+    <tr><td>Irán aceptó compromisos de supervisión nuclear.</td><td class="code h">[H]</td><td>Hipótesis afirmada por Vance y negada explícitamente por Irán; ausencia de texto común público que lo respalde.</td></tr>
+    <tr><td>El mecanismo de 60 días avanzará sin interrupciones hacia un acuerdo definitivo.</td><td class="code h">[H]</td><td>Hipótesis condicionada: la semana ya mostró una suspensión temporal por presión de Trump sobre Hezbolá.</td></tr>
+    <tr><td>La divergencia sobre lo nuclear refleja lecturas estratégicas distintas del mismo texto.</td><td class="code int">[Int]</td><td>Interpretación estructural: patrón recurrente en la negociación donde cada parte anuncia a su audiencia doméstica la versión que mejor le conviene.</td></tr>
+  </table>
+
+  <div class="add">
+    <div class="lbl">Lectura dinámica · ADD</div>
+    <div class="regime"><span>Régimen: <b>turbulento con atractor emergente</b></span><span>Analogía: <b>fuerte</b></span><span>Parámetro de control: <b>compromiso doméstico de cada parte con el texto acordado</b></span></div>
+    <p>El sistema transita de bifurcación (semana del N.° 010) hacia un régimen turbulento con atractor emergente: la estructura de tres grupos técnicos y el mecanismo de 60 días son un orden incipiente, pero todavía coexiste con el atractor de guerra —la suspensión iraní del diálogo ante las amenazas de Trump lo confirma. El parámetro de control se ha vuelto más preciso esta semana: no es la buena voluntad de las partes, sino la compatibilidad entre lo que cada gobierno puede defender ante su audiencia doméstica con el mismo texto firmado. Cuando Vance habla de desnuclearización y Ghalibaf la niega, no están mintiendo sobre el mismo documento: están leyendo para auditorios distintos un acuerdo que no resolvió ese punto.</p>
+  </div>
+
+  <div class="ws">
+    <div class="lbl">◆ Sistemas-Mundo · Wallerstein / Arrighi</div>
+    <p>La exención petrolera de 60 días y el acceso a USD 12.000 millones de activos congelados son el precio que el núcleo paga por mantener a Irán en la mesa —y por mantener el crudo bajo USD 80. La lógica es la misma del N.° 010: gestión del chokepoint de Ormuz como ejercicio de poder hegemónico sobre una cuasi-mercancía global. Lo nuevo esta semana es la visibilidad del doble registro: EE.UU. habla de desnuclearización para su audiencia global; Irán habla de recuperación de soberanía económica para la suya. La convergencia del texto no significa convergencia del proyecto.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">★ Relevancia para Costa Rica</div>
+    <p>El Brent a USD 79,4 es la cifra más baja desde que el conflicto encareció la factura energética del país. Si el mecanismo de 60 días se sostiene y el mercado mantiene esa señal, RECOPE, el transporte y el costo de vida recibirán un alivio real. La cautela ADD del N.° 010 sigue vigente: el alivio depende de que la apertura de Ormuz sea efectiva y de que la divergencia sobre lo nuclear no detone una nueva escalada.</p>
+  </div>
+
+  <div class="scen">
+    <div class="lbl">Escenarios plausibles</div>
+    <span class="pill a"><b>Proceso avanza</b> Los tres grupos técnicos logran convergencia en el plazo de 60 días y el crudo se consolida bajo USD 80.</span>
+    <span class="pill b"><b>Divergencia nuclear bloquea</b> El texto del acuerdo no resuelve el punto nuclear; las partes lo interpretan de forma incompatible y el proceso se congela sin ruptura formal.</span>
+    <span class="pill c"><b>Escalada por tercer actor</b> Hezbolá o Israel detonan un incidente que suspende las negociaciones y revierte la trayectoria del crudo.</span>
+  </div>
+</article>
+
+<!-- 2. COLOMBIA -->
+<article id="n2">
+  <div class="art-head">
+    <span class="art-num">02</span>
+    <span class="cat geo">Política y geopolítica</span>
+  </div>
+  <h3 class="head">De la Espriella, presidente electo: Colombia vira a la derecha por menos de un punto</h3>
+  <p class="dek">49,66 % vs. 48,70 %: el margen más estrecho en décadas, una impugnación de Petro y un reconocimiento de Cepeda.</p>
+
+  <figure class="fig">
+    <img src="img/colombia.jpg" alt="Giro a la derecha en Colombia: bifurcación resuelta. Paisaje de atractores con De la Espriella capturando la trayectoria por menos de un punto." loading="lazy">
+    <figcaption>Bifurcación resuelta en Colombia — «el filo de la navaja»: 250.000 votos de margen en un padrón de 40 millones.</figcaption>
+  </figure>
+
+  <div class="sub">Hechos verificados</div>
+  <p class="lead">El 21 de junio, Colombia eligió presidente en segunda vuelta. Abelardo de la Espriella, del movimiento Defensores de la Patria, obtuvo 49,66 % (12.959.515 votos); Iván Cepeda, del Pacto Histórico, 48,70 % (12.708.695). La diferencia en el preconteo fue de aproximadamente 250.000 votos. El escrutinio oficial de los jueces, completado días después con 99,99 % de las mesas informadas, confirmó una diferencia inferior al 0,7 % respecto al preconteo, descartando irregularidades de dimensión significativa.</p>
+  <p>Gustavo Petro cuestionó los resultados al conocerse el preconteo, señalando supuestas irregularidades en formularios E-14, y sugirió que las elecciones deberían anularse por injerencia externa, en una postura que nunca se tradujo en una impugnación formal ante la Registraduría. Cepeda, en cambio, reconoció los resultados ocho días después de la primera vuelta y mantuvo esa postura en la segunda: calificó las diferencias detectadas como inferiores a un umbral de fraude. De la Espriella asumirá la presidencia el 7 de agosto en sustitución de Petro; su gabinete ya incluyó al exministro Rodrigo Lara como ministro del Interior.</p>
+
+  <div class="sub">Análisis epistémico · MEEE-G</div>
+  <table class="meee">
+    <tr><th>Afirmación</th><th>Código</th><th>Justificación procesual</th></tr>
+    <tr><td>De la Espriella ganó con 49,66 % vs. 48,70 % de Cepeda.</td><td class="code dc">[DC]</td><td>Resultados oficiales de la Registraduría con 99,99 % de mesas escrutadas; reconocidos por Cepeda.</td></tr>
+    <tr><td>No existieron irregularidades de magnitud suficiente para hablar de fraude.</td><td class="code dc">[DC]</td><td>La diferencia preconteo-escrutinio oficial fue inferior al 0,7 %; la propia posición de Cepeda al día siguiente.</td></tr>
+    <tr><td>Las acusaciones de Petro sobre injerencia externa generarán una impugnación formal exitosa.</td><td class="code h">[H] descartada</td><td>Hipótesis refutada: no se formalizó ningún recurso ante la autoridad electoral competente.</td></tr>
+    <tr><td>El giro a la derecha reorientará la política exterior colombiana hacia EE.UU.</td><td class="code ip">[IP]</td><td>Inferencia respaldada por el apoyo explícito de Trump y el programa declarado de De la Espriella; condicionada a la relación Congreso-Ejecutivo.</td></tr>
+    <tr><td>La victoria de De la Espriella produce estabilidad institucional inmediata.</td><td class="code int">[Int]</td><td>Interpretación con base en la declaración de la Federación Nacional de Departamentos sobre «confiabilidad para los mercados»; no implica ausencia de conflicto político.</td></tr>
+  </table>
+
+  <div class="add">
+    <div class="lbl">Lectura dinámica · ADD</div>
+    <div class="regime"><span>Régimen: <b>bifurcación resuelta — atractor de restauración captura la trayectoria</b></span><span>Analogía: <b>fuerte</b></span><span>Parámetro de control: <b>realineamiento del electorado de centro</b></span></div>
+    <p>La bifurcación que el N.° 010 identificó como «genuinamente abierta» se cerró —pero apenas. Un margen de ~250.000 votos en un padrón de 40 millones es la señal de que los dos atractores coexistieron hasta el momento de la decisión. El electorado de centro fue el parámetro de control declarado, y así resultó: la diferencia la hizo el voto del exterior (donde De la Espriella obtuvo 72 %) y departamentos clave donde la acumulación del voto centrista inclinó la balanza. El sistema entra ahora en un régimen de restauración activa —no de estabilidad, sino de reorganización hacia el atractor de la derecha— con la izquierda como oposición parlamentaria y Petro como líder de ese bloque sin reconocer plenamente el resultado.</p>
+  </div>
+
+  <div class="ws">
+    <div class="lbl">◆ Sistemas-Mundo · Wallerstein / Arrighi</div>
+    <p>Colombia reorienta su posición de semiperiferia bisagra. El alineamiento explícito con Washington (Trump respaldó a De la Espriella, congresista Salazar coordinó apoyo en la diáspora) cierra la ventana de autonomía relativa que el ciclo petrista había intentado abrir. La lectura de sistemas-mundo es que el núcleo recupera un nodo clave para la política antidrogas hemisférica y para el control del corredor logístico que conecta el continente. La pregunta es si este realineamiento se sostiene ante los costos domésticos de implementar el programa de mano dura en un país con una paz negociada activa.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">★ Relevancia para Costa Rica</div>
+    <p>El cambio en Bogotá afecta el clima ideológico regional y la arquitectura de cooperación en seguridad y migración. Para Costa Rica, la señal más directa es que el margen de maniobra de las semiperiferias centroamericanas frente a la presión hegemónica se reduce cuando un nodo clave como Colombia se realinea. Además, si el nuevo gobierno endurece la política migratoria y antidrogas, los flujos por el Darién —que tienen un eslabón en Costa Rica— pueden reorientarse o intensificarse.</p>
+  </div>
+
+  <div class="scen">
+    <div class="lbl">Escenarios plausibles</div>
+    <span class="pill a"><b>Transición ordenada</b> Cepeda mantiene su reconocimiento, De la Espriella asume el 7 de agosto, Colombia restablece plena normalidad institucional.</span>
+    <span class="pill b"><b>Tensión persistente</b> Petro mantiene la narrativa de ilegitimidad desde la oposición, generando turbulencia política sin afectar la transferencia formal del poder.</span>
+    <span class="pill c"><b>Crisis de gobernabilidad temprana</b> El Congreso fragmentado limita la capacidad legislativa del nuevo Ejecutivo; el programa de mano dura tropieza con la institucionalidad de paz negociada.</span>
+  </div>
+</article>
+
+<!-- 3. H5N1 -->
+<article id="n3">
+  <div class="art-head">
+    <span class="art-num">03</span>
+    <span class="cat sci">Ciencia · Virología</span>
+  </div>
+  <h3 class="head">El H5N1 ataca ubres, no pulmones: la razón molecular que cambia la vigilancia pandémica</h3>
+  <p class="dek">Receptores siálicos concentrados en tejido mamario bovino explican un misterio de dos años y permiten anticipar futuros saltos de especie.</p>
+
+  <figure class="fig">
+    <img src="img/h5n1.jpg" alt="El misterio del H5N1: receptores siálicos como llave y cerradura. El virus encaja en la ubre bovina pero no en el pulmón humano." loading="lazy">
+    <figcaption>Matriz de vigilancia virológica MEEE-G — por qué el H5N1 ataca ubres y no pulmones: un problema de «cerraduras» moleculares.</figcaption>
+  </figure>
+
+  <div class="sub">Hechos verificados</div>
+  <p class="lead">Un equipo de la Universidad de Pittsburgh, con participación de la Facultad de Medicina de Harvard, publicó en <em>Science Advances</em> el mecanismo molecular que explica por qué la gripe aviar H5N1, desde su irrupción en granjas lecheras de Texas en 2024, producía mastitis grave sin enfermedad respiratoria —comportamiento nunca visto antes en mamíferos infectados por este virus. El estudio, publicado en junio de 2026, utilizó técnicas de glicómica y microscopía de ultra alta resolución.</p>
+  <p>El hallazgo central: la hemaglutinina del H5N1 (su «llave molecular» para infectar células) requiere receptores de ácido siálico N-enlazados específicos. En las vías respiratorias bovinas, esos receptores son escasos o prácticamente ausentes; en el tejido mamario, son excepcionalmente abundantes. La glándula mamaria de las vacas resultó ser, en palabras del investigador principal Suresh Kuchipudi, un «terreno de cría perfecto». Para el momento del estudio, el brote había afectado más de 800 manadas en al menos 16 estados de EE.UU.</p>
+  <p>El valor del estudio trasciende el caso bovino: el análisis de distribución de receptores se convierte en una herramienta predictiva aplicable a otras especies. Los propios autores señalan que el H5N1 ya infectó gatos con síntomas neurológicos —donde los receptores se concentran en el tejido nervioso— y advierten que el virus continúa ampliando su rango de hospedadores. La pregunta mayor que el estudio <em>no</em> responde —y lo declara explícitamente— es qué mutaciones necesitaría el H5N1 para adquirir afinidad por los receptores del epitelio respiratorio humano. Esa barrera, intacta por ahora, es la principal distancia entre el brote bovino y un escenario pandémico humano.</p>
+
+  <div class="sub">Análisis epistémico · MEEE-G</div>
+  <table class="meee">
+    <tr><th>Afirmación</th><th>Código</th><th>Justificación procesual</th></tr>
+    <tr><td>El tejido mamario bovino concentra receptores siálicos N-enlazados compatibles con H5N1; las vías respiratorias no.</td><td class="code dc">[DC]</td><td>Publicado en Science Advances, revisado por pares, con metodología y datos abiertos; múltiples técnicas convergentes.</td></tr>
+    <tr><td>El análisis de receptores puede predecir qué tejidos y especies son vulnerables.</td><td class="code ip">[IP]</td><td>Inferencia plausible respaldada por el caso de los gatos; requiere validación prospectiva en otras especies.</td></tr>
+    <tr><td>El H5N1 no tiene aún la mutación necesaria para infectar el epitelio respiratorio humano de forma eficiente.</td><td class="code dc">[DC]</td><td>El propio estudio lo declara: esa mutación no fue encontrada en el análisis.</td></tr>
+    <tr><td>Un escenario pandémico humano es inminente.</td><td class="code h">[H] no respaldada</td><td>Hipótesis que el estudio explícitamente no respalda: la barrera receptora permanece intacta.</td></tr>
+    <tr><td>El cambio de paradigma en la vigilancia de gripe aviar (de vías respiratorias hacia tejidos diana) mejorará la detección temprana.</td><td class="code ip">[IP]</td><td>Inferencia derivada directamente de las conclusiones del estudio; condicionada a la adopción institucional de los nuevos protocolos.</td></tr>
+  </table>
+
+  <div class="add">
+    <div class="lbl">Lectura dinámica · ADD</div>
+    <div class="regime"><span>Régimen: <b>turbulento con bifurcación contingente</b></span><span>Analogía: <b>literal (nivel disipativo y organizacional)</b></span><span>Parámetro de control: <b>mutación en hemaglutinina hacia receptores respiratorios humanos</b></span></div>
+    <p>En términos ADD, el H5N1 en ganado bovino es un sistema disipativo que ha encontrado un nuevo hospedador mediante una vía de adaptación inesperada: la clausura organizacional del virus (su especificidad de receptor) se acopló estructuralmente con el tejido mamario bovino, un acoplamiento que el sistema inmunológico de la especie no había procesado antes. El parámetro de control para la bifurcación crítica —el salto a la especie humana— es, en términos moleculares, la aparición de la mutación en hemaglutinina. Ese parámetro no ha cruzado el umbral: por eso el régimen es turbulento pero la bifurcación pandémica es contingente, no determinada. El estudio entrega, en términos ADD, el <em>mapa de dónde el sistema no pasa</em> —que es precisamente lo que hay que vigilar.</p>
+  </div>
+
+  <div class="ws">
+    <div class="lbl">◆ Sistemas-Mundo · Wallerstein / Arrighi</div>
+    <p>La capacidad de anticipar brotes mediante análisis de receptores es un activo de conocimiento que se concentra en laboratorios del núcleo (Pittsburgh, Harvard). La vigilancia pandémica global depende de que ese conocimiento fluya hacia la periferia —los brotes suelen emerger ahí, donde la bioseguridad es más débil y la vigilancia más escasa—. El patrón histórico de los sistemas-mundo en salud global: el peligro se origina en granjas periféricas de economías emergentes; la respuesta y los instrumentos se diseñan en el núcleo; las vacunas y protocolos llegan con retraso diferencial.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">★ Relevancia para Costa Rica</div>
+    <p>Costa Rica tiene un sector ganadero y lechero activo en el que el H5N1 aún no ha sido reportado; eso no implica inmunidad sino ausencia de detección con los protocolos anteriores —que el propio estudio declara obsoletos. El SENASA y el MINAE deberían considerar si los protocolos de vigilancia incluyen ya el análisis de tejido mamario en animales con producción anómala, y no solo síntomas respiratorios. El país tiene además capacidad instalada en biología tropical (CIET, UCR) para articularse con estas redes de vigilancia predictiva.</p>
+  </div>
+
+  <div class="scen">
+    <div class="lbl">Escenarios plausibles</div>
+    <span class="pill a"><b>Vigilancia adaptada</b> Los protocolos internacionales incorporan el análisis de receptores; la detección temprana en nuevas especies mejora y el riesgo pandémico se gestiona con mayor anticipación.</span>
+    <span class="pill b"><b>Detección tardía</b> El cambio de paradigma no se adopta institucionalmente; el virus amplía su rango de hospedadores sin que los sistemas de alerta lo detecten a tiempo.</span>
+    <span class="pill c"><b>Mutación crítica</b> El H5N1 adquiere afinidad por receptores respiratorios humanos; el escenario pandémico pasa de contingente a inminente.</span>
+  </div>
+</article>
+
+<!-- 4. HELICONIUS -->
+<article id="n4">
+  <div class="art-head">
+    <span class="art-num">04</span>
+    <span class="cat sci">Ciencia · Biología evolutiva</span>
+  </div>
+  <h3 class="head">Las mariposas que casi no envejecen: 25 veces más longevas que sus parientes</h3>
+  <p class="dek">Un género tropical de Centroamérica y Sudamérica revela que el envejecimiento lento puede evolucionar —y promete un nuevo modelo para la longevidad humana.</p>
+
+  <figure class="fig">
+    <img src="img/heliconius.jpg" alt="Fronteras de la ciencia: mariposas Heliconius de Centroamérica que viven 25 veces más, y exoplanetas con trazas químicas detectadas por James Webb." loading="lazy">
+    <figcaption>Escalas del devenir — longevidad celular en el género Heliconius: la lucha contra la entropía desde el insecto hasta el exoplaneta.</figcaption>
+  </figure>
+
+  <div class="sub">Hechos verificados</div>
+  <p class="lead">Un equipo de la Universidad de Bristol, el Instituto Smithsonian de Investigaciones Tropicales y Tufts University publicó el 16 de junio en <em>Nature Communications</em> el análisis más completo hasta la fecha de la longevidad en el género <em>Heliconius</em> —las llamadas «alas largas», mariposas tropicales de colores vivos que habitan desde el sur de México hasta Bolivia. El estudio integró datos de casas de mariposas comerciales, estudios de marcado-recaptura y poblaciones de insectarios de 27 especies de la tribu Heliconiini.</p>
+  <p>El hallazgo central: las especies de <em>Heliconius</em> viven en promedio hasta tres veces más que sus parientes más cercanos dentro de la tribu, con casos extremos de hasta 25 veces más —la especie <em>H. hewitsoni</em> alcanzó un máximo de 348 días, frente a los 14 días de <em>Dione juno</em>. Más significativo aún: muestran tasa de mortalidad basal más baja, envejecimiento fisiológico más lento y, en <em>H. hecale</em>, prácticamente ningún declive detectable en función muscular o masa corporal con la edad.</p>
+  <p>El estudio identificó dos mecanismos contributivos: la dieta de polen en estado adulto (que aporta proteínas y aminoácidos para el mantenimiento celular) y cambios biológicos evolutivos independientes de la dieta —individuos privados de polen en experimentos controlados retuvieron ventaja de longevidad sobre parientes alimentados con Polen. Esto implica que la longevidad no es solo un efecto dietético, sino un rasgo biológico evolucionado. La investigadora principal, Jessica Foley, propone a <em>Heliconius</em> como nuevo modelo de sistema para la biología del envejecimiento.</p>
+
+  <div class="sub">Análisis epistémico · MEEE-G</div>
+  <table class="meee">
+    <tr><th>Afirmación</th><th>Código</th><th>Justificación procesual</th></tr>
+    <tr><td>Las especies de Heliconius viven hasta 25 veces más que parientes en la tribu Heliconiini.</td><td class="code dc">[DC]</td><td>Estudio revisado por pares en Nature Communications, con datos de múltiples fuentes y metodología abierta.</td></tr>
+    <tr><td>La longevidad es tanto dietética (polen) como evolutivamente evolucionada.</td><td class="code dc">[DC]</td><td>Los experimentos de privación de polen confirman que la ventaja persiste sin dieta enriquecida.</td></tr>
+    <tr><td>Los mecanismos de Heliconius son aplicables a la prolongación de la vida sana en humanos.</td><td class="code h">[H]</td><td>Hipótesis investigable: la translación entre invertebrados y mamíferos exige validación independiente de los mecanismos moleculares específicos.</td></tr>
+    <tr><td>Heliconius se convertirá en modelo estándar para la investigación del envejecimiento.</td><td class="code ip">[IP]</td><td>Inferencia plausible respaldada por la propuesta explícita de los autores; condicionada a la reproducibilidad en laboratorio.</td></tr>
+  </table>
+
+  <div class="add">
+    <div class="lbl">Lectura dinámica · ADD</div>
+    <div class="regime"><span>Régimen: <b>laminar en el sistema biológico; turbulento en el campo científico</b></span><span>Analogía: <b>literal (envejecimiento como proceso disipativo) / fuerte (para la comunidad científica)</b></span></div>
+    <p>La longevidad de <em>Heliconius</em> es, en términos ADD, un ejemplo de <em class="term">clausura organizacional robustecida</em>: el sistema vivo mantiene su identidad —su organización biológica— durante más tiempo porque ha evolucionado mecanismos de mantenimiento que reducen la tasa de disipación de orden. En términos de Prigogine, el sistema gestiona mejor la relación entre entropía interna y apertura disipativa, sosteniendo la organización durante más ciclos. Para el campo científico de la longevidad, el hallazgo introduce turbulencia —un nuevo modelo que desplaza los sistemas convencionales (moscas, ratones)— con potencial de reorganización del campo si los mecanismos moleculares resultan conservados.</p>
+    <p>El acoplamiento con Costa Rica es directo y literal, no metafórico: <em>Heliconius</em> habita los bosques tropicales del país. El Sistema Nacional de Áreas de Conservación (SINAC) y los insectarios de Costa Rica son nodos de datos relevantes para esta línea de investigación.</p>
+  </div>
+
+  <div class="ws">
+    <div class="lbl">◆ Sistemas-Mundo · Wallerstein / Arrighi</div>
+    <p>La biodiversidad tropical como reservorio de conocimiento con valor económico de largo plazo reproduce el patrón del carbono del suelo (nota N.° 010): la riqueza biológica existe en la periferia y semiperiferia tropical, pero los instrumentos de investigación y los derechos de propiedad intelectual se generan en el núcleo. Si los mecanismos de longevidad de <em>Heliconius</em> resultan translatable, la cadena de valor —desde el insecto en el bosque hasta la patente farmacéutica— reproducirá el esquema de captura asimétrica de renta que caracteriza la relación núcleo-periferia en materia de biodiversidad.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">★ Relevancia para Costa Rica</div>
+    <p><em>Heliconius</em> no es un descubrimiento lejano: habita los bosques costarricenses. El país tiene insectarios, datos de marcado-recaptura y capacidad investigadora en el CATIE y la UCR que podrían articularse con esta línea de trabajo. La pregunta estratégica es la misma del N.° 010 sobre los hongos micorrízicos: ¿será Costa Rica un proveedor de sustrato biológico o un co-productor de conocimiento? La conservación del bosque tropical no es solo un gesto ambiental —es la condición de posibilidad de líneas de investigación como esta.</p>
+  </div>
+
+  <div class="scen">
+    <div class="lbl">Escenarios plausibles</div>
+    <span class="pill a"><b>Translación exitosa</b> Los mecanismos de longevidad de Heliconius resultan conservados en mamíferos y abren una nueva línea en medicina del envejecimiento.</span>
+    <span class="pill b"><b>Modelo valioso pero específico</b> Los mecanismos son reales pero no transferibles directamente; Heliconius se convierte en modelo de insecto sin aplicación clínica directa.</span>
+    <span class="pill c"><b>Captura asimétrica</b> Los hallazgos se patentan en el núcleo; la biodiversidad costarricense aporta el sustrato sin capturar renta del conocimiento derivado.</span>
+  </div>
+</article>
+
+<!-- 5. IBM -->
+<article id="n5">
+  <div class="art-head">
+    <span class="art-num">05</span>
+    <span class="cat tec">Tecnología · Semiconductores</span>
+  </div>
+  <h3 class="head">IBM cruza la barrera del nanómetro: el chip que apila transistores como pisos de un edificio</h3>
+  <p class="dek">Arquitectura «nanostack» a 0,7 nm, ~100.000 millones de transistores, 70 % más eficiente: una nueva década para la escala de Moore.</p>
+
+  <figure class="fig">
+    <img src="img/ibm.jpg" alt="El salto cuántico de IBM: de los suburbios de transistores planos 2D a los rascacielos nanostack 3D. Bifurcación tecnológica." loading="lazy">
+    <figcaption>Bifurcación tecnológica ADD — de los «suburbios» de transistores planos al «rascacielos» nanostack: el nuevo atractor de la microelectrónica.</figcaption>
+  </figure>
+
+  <div class="sub">Hechos verificados</div>
+  <p class="lead">El 25 de junio, IBM anunció el primer chip semiconductor con tecnología sub-1 nanómetro (0,7 nm, equivalente a 7 ångströms) y arquitectura denominada <em>nanostack</em>. El chip empaqueta aproximadamente 100.000 millones de transistores en una superficie del tamaño de una uña humana —casi el doble de densidad que el chip de 2 nm que IBM presentó en 2021. La anunciada superaron las expectativas de mercado: la acción IBM subió 5,37 % en la sesión del 25 de junio.</p>
+  <p>La arquitectura nanostack abandona el paradigma de transistores planos para apilarlos verticalmente en dos capas, de forma análoga a un edificio de dos pisos. Cada capa puede usar combinaciones de materiales distintas, lo que optimiza el rendimiento por transistor. Los ensayos presentados en la conferencia VLSI 2026 muestran una mejora del 40 % en la escala SRAM (la memoria rápida que usan los procesadores de IA) y hasta 70 % de mejora en eficiencia energética frente al chip de 2 nm. Jay Gambetta, director de IBM Research, describió el logro como «un salto significativo, no solo un paso incremental».</p>
+  <p>El nombre «0,7 nm» es una convención de marketing, como todos los nodos contemporáneos: no corresponde a ninguna dimensión física medible en el chip. La distancia real entre transistores se ha mantenido en ~40 nm durante varios años; lo que cambia es la arquitectura 3D. IBM proyecta la llegada al mercado en «los próximos cinco a diez años» y no ha anunciado socios de fabricación. Competidores como AMD (3D V-Cache) y Huawei (LogicFolding) trabajan en aproximaciones diferentes al apilamiento.</p>
+
+  <div class="sub">Análisis epistémico · MEEE-G</div>
+  <table class="meee">
+    <tr><th>Afirmación</th><th>Código</th><th>Justificación procesual</th></tr>
+    <tr><td>IBM demostró funcionamiento de la arquitectura nanostack con inversores CMOS operativos y mejoras SRAM.</td><td class="code dc">[DC]</td><td>Resultados presentados en VLSI 2026 y comunicado oficial de IBM Research; verificados por MIT Technology Review y múltiples medios especializados.</td></tr>
+    <tr><td>Es el «primer chip sub-1nm del mundo».</td><td class="code ip">[IP]</td><td>Inferencia condicionada: el «0,7 nm» es convención de marketing; ninguna dimensión física en el chip mide sub-nm. El logro arquitectónico es real, el nombre es de marketing.</td></tr>
+    <tr><td>La tecnología llegará al mercado de consumo en 5–10 años.</td><td class="code h">[H]</td><td>Proyección de la propia empresa sin socios de fabricación anunciados; el horizonte real puede ser más largo o más corto según la adopción industrial.</td></tr>
+    <tr><td>El nanostack extiende la Ley de Moore una década más.</td><td class="code int">[Int]</td><td>Interpretación que comparte IBM y varios analistas; contestada por otros que señalan que el número de transistores ya no es la única métrica relevante.</td></tr>
+  </table>
+
+  <div class="add">
+    <div class="lbl">Lectura dinámica · ADD</div>
+    <div class="regime"><span>Régimen: <b>bifurcación tecnológica en curso</b></span><span>Analogía: <b>fuerte (nivel organizacional-industrial)</b></span><span>Parámetro de control: <b>adopción de la arquitectura 3D como nuevo estándar industrial</b></span></div>
+    <p>La industria semiconductora lleva años en un régimen de turbulencia: el paradigma clásico (reducir dimensiones planas) alcanzó sus límites físicos hacia 2016. El nanostack es una respuesta de bifurcación: IBM propone un nuevo atractor organizacional (la verticalidad) para un sistema que no puede seguir creciendo en la dirección habitual. Si la arquitectura es adoptada por las grandes fundidoras (TSMC, Samsung, Intel), el campo reorganiza su trayectoria; si no, IBM habrá demostrado un principio sin industrializarlo. El parámetro de control es la adopción, no la demostración.</p>
+  </div>
+
+  <div class="ws">
+    <div class="lbl">◆ Sistemas-Mundo · Wallerstein / Arrighi</div>
+    <p>Los chips de última generación son la cuasi-mercancía monopólica de este ciclo de acumulación —lo que el petróleo fue para el siglo XX. IBM, sin socios de fabricación anunciados, está en una posición peculiar: detenta el conocimiento pero no el proceso industrial de manufactura a escala, que está en TSMC (Taiwán, dependiente de EE.UU.) y Samsung (Corea). La geopolítica de los chips sub-1nm será una extensión de la guerra comercial tecnológica entre EE.UU. y China, donde el control de la cadena de fabricación importa tanto como el diseño.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">★ Relevancia para Costa Rica</div>
+    <p>Costa Rica alberga operaciones manufactureras de Intel, que procesa chips en el país desde 1997 y concentra una parte de sus operaciones globales de empaque y prueba. El salto hacia arquitecturas 3D y sub-nm implica procesos de manufactura más complejos y equipos más especializados —una presión de actualización que las operaciones actuales en el país deberán absorber o ceder a otras geografías. La relevancia no es alarmista sino diagnóstica: la posición de Costa Rica en la cadena de semiconductores depende de qué tramos de esa cadena decide —y puede— mantener conforme el estándar tecnológico avanza.</p>
+  </div>
+
+  <div class="scen">
+    <div class="lbl">Escenarios plausibles</div>
+    <span class="pill a"><b>Adopción rápida</b> Las grandes fundidoras incorporan el nanostack; IBM se convierte en proveedor de arquitectura; el mercado absorbe la tecnología antes de cinco años.</span>
+    <span class="pill b"><b>Transición larga</b> La arquitectura se adopta de forma gradual; el nanostack coexiste con el nanosheet durante una década mientras se resuelven los desafíos de manufactura y gestión térmica.</span>
+    <span class="pill c"><b>Fragmentación por geopolítica</b> Las restricciones de exportación y la guerra comercial tecnológica crean ecosistemas de chips incompatibles; el nanostack queda en el bloque occidental mientras China desarrolla su propia vía.</span>
+  </div>
+</article>
+
+<!-- 6. CRUCITAS -->
+<article id="n6">
+  <div class="art-head">
+    <span class="art-num">06</span>
+    <span class="cat nac">Nacional · Política</span>
+  </div>
+  <h3 class="head">Crucitas: nace la mesa técnica y entra la tokenización al tablero</h3>
+  <p class="dek">La semana transforma el debate legislativo: ya no hay dos posiciones sino tres —y la más nueva evita el dilema extracción/prohibición.</p>
+
+  <figure class="fig">
+    <img src="img/crucitas.jpg" alt="Crucitas: matriz sistémica de bifurcación con 4 atractores — extracción, conservación, ilegalidad y tokenización del oro." loading="lazy">
+    <figcaption>El tablero de 654 mociones — cuatro atractores: extracción (Ejecutivo), conservación (prohibición), ilegalidad (flujo criminal) y tokenización como tercera vía emergente.</figcaption>
+  </figure>
+
+  <div class="sub">Hechos verificados</div>
+  <p class="lead">El 26 de junio, una semana después de la gira de la presidenta Fernández a Crucitas —donde fue evacuada por una explosión—, las cinco bancadas con representación en el Plenario (Pueblo Soberano, PLN, PUSC, Frente Amplio y Coalición Agenda Ciudadana) instalaron una mesa técnica calificada por los propios participantes como «provechosa». El encuentro se realizó en la Asamblea Legislativa con presencia del viceministro de la Presidencia, Alejandro Barrantes; el ministro Rodrigo Chaves Robles no asistió.</p>
+  <p>Los acuerdos de la mesa: revisar las 654 mociones presentadas al expediente 24.717 (el proyecto del Ejecutivo para legalizar la minería a cielo abierto); valorar el retiro de parte de ellas; analizar en paralelo y de forma independiente la propuesta del PLN de <em>tokenización</em> del oro; y discutir como proyecto separado el endurecimiento de sanciones contra la minería ilegal, propuesta del Frente Amplio.</p>
+  <p>La <em>tokenización</em> —convertir el oro en activos digitales respaldados por blockchain sin extraerlo físicamente— fue presentada por la diputada Diana Murillo (PLN). Su argumento: el proyecto del Ejecutivo tardaría de ocho a diez años en rendir frutos; la tokenización generaría ingresos en uno o dos años con trazabilidad directa. La presidenta Fernández rechazó la propuesta con dureza («¿En qué planeta vivimos?») y el oficialismo la calificó de «ocurrencia». El jefe de fracción de Pueblo Soberano, Nogui Acosta, adoptó una postura más matizada el 26 de junio: mostró apertura a discutir la tokenización como proyecto paralelo si la oposición retira mociones del expediente principal.</p>
+
+  <div class="sub">Análisis epistémico · MEEE-G — actualización del expediente 24.717</div>
+  <table class="meee">
+    <tr><th>Afirmación</th><th>Código</th><th>Justificación procesual</th></tr>
+    <tr><td>La mesa técnica del 26 jun fue calificada como «provechosa» por las cinco bancadas participantes.</td><td class="code dc">[DC]</td><td>Declaraciones concordantes de los jefes de fracción registradas por La Nación, CRhoy y El Observador CR.</td></tr>
+    <tr><td>El daño por minería ilegal se concentra en menos del 1 % del distrito de Cutris (≈ 8–15 km² de un total de 849 km²).</td><td class="code dc">[DC]</td><td>Criterio institucional de la UCR / Kioscos Socioambientales; verificado en boletín N.° 010.</td></tr>
+    <tr><td>El proyecto 24.717 abriría 849 km² a exploración y explotación.</td><td class="code dc">[DC]</td><td>Texto del expediente legislativo; desproporción señalada por la UCR respecto al área efectivamente dañada.</td></tr>
+    <tr><td>La tokenización generaría ingresos en 1–2 años sin impacto ambiental.</td><td class="code h">[H]</td><td>Propuesta del PLN basada en el modelo brasileño de 2024; las tres condiciones señaladas por Britton (certeza legal, viabilidad económica, control material del activo) aún no están satisfechas en Crucitas.</td></tr>
+    <tr><td>El proyecto del Ejecutivo tardaría 8–10 años en producir ingresos.</td><td class="code ip">[IP]</td><td>Estimación legislativa del PLN; plausible dado el ciclo típico de proyectos mineros similares, pero sin auditoría independiente publicada.</td></tr>
+    <tr><td>La mesa técnica conduce a un acuerdo legislativo antes del cierre de sesiones extraordinarias.</td><td class="code h">[H]</td><td>Hipótesis optimista: sigue habiendo 654 mociones y tres propuestas distintas en la corriente legislativa.</td></tr>
+  </table>
+
+  <div class="add">
+    <div class="lbl">Lectura dinámica · ADD — actualización desde el Anexo 010-04</div>
+    <div class="regime"><span>Régimen: <b>turbulento con bifurcación expandida</b></span><span>Analogía: <b>fuerte (nivel comunicativo-institucional y normativo-plural)</b></span><span>Parámetro de control: <b>qué tipo de valor decide proteger el Estado</b></span></div>
+    <p>El análisis del Anexo 010-04 identificaba tres narrativas en disputa (soberanía-orden, conservación-identidad, naturaleza-como-riqueza) y un parámetro de control declarado: qué tipo de valor decide proteger el Estado. Esta semana entra una cuarta posición —la tokenización— que es analíticamente significativa porque no pertenece a ninguna de las tres narrativas anteriores: no extrae el recurso (conservación), no lo prohíbe (soberanía), pero sí lo monetiza (capitaliza el valor sin destruir el suelo). Eso amplía el espacio de bifurcación: el sistema ya no elige entre dos atractores, sino entre al menos tres.</p>
+    <p>En clave Bourdieu, la tokenización es también una propuesta de redefinición del capital simbólico del debate: convierte el oro en un activo digital cuya «extracción» no implica remoción del suelo, operando sobre la lógica financiera sin activar las asociaciones negativas de la minería a cielo abierto. Si el PLN logra instalar esa redefinición, el parámetro de control del debate cambia. La mesa técnica es el primer espacio donde los distintos campos (político, ambiental, financiero) están negociando qué cuenta como «solución».</p>
+  </div>
+
+  <div class="ws">
+    <div class="lbl">◆ Sistemas-Mundo · Wallerstein / Arrighi</div>
+    <p>La tokenización introduce un mecanismo de mercados financieros globales (blockchain, activos digitales) en un conflicto territorial periférico —acoplando el nodo de Crucitas con los mercados de activos digitales del núcleo. El antecedente brasileño de 2024 que el PLN cita es relevante: en él, el diseño de los instrumentos financieros se produjo en el núcleo; Brasil aportó el activo subyacente. Costa Rica enfrentaría la misma disyuntiva de captura de renta que el Anexo 010-04 identificó para los mercados de carbono del suelo: si las reglas se escriben afuera, el nodo periférico aporta el subyacente y los intermediarios del núcleo capturan el margen.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">★ Relevancia para Costa Rica</div>
+    <p>La semana marca una transición en el debate de Crucitas: de la polarización binaria (minería sí/no) a un espacio negociado de tres opciones donde la mesa técnica actúa como mecanismo de reducción de tensión. La calidad de lo que resulte de esa mesa dependerá de si el diagnóstico técnico —incluyendo el contraste entre el área dañada (&lt;1 % del distrito, ~10–15 km²) y el área que el proyecto habilitaría (849 km² del distrito entero)— entra como insumo verificado a la negociación, o si el debate se resuelve en la lógica política de las mociones. El Anexo 010-04 permanece como el documento de referencia de ANCA-ADD sobre este tema.</p>
+  </div>
+
+  <div class="scen">
+    <div class="lbl">Escenarios plausibles</div>
+    <span class="pill a"><b>Acuerdo tripartito</b> Las cinco bancadas negocian un paquete: reducción del área habilitada en el proyecto del Ejecutivo + proyecto paralelo de tokenización + endurecimiento de sanciones a la ilegal.</span>
+    <span class="pill b"><b>Tokenización como salida de compromiso</b> El proyecto del Ejecutivo se archiva o modifica radicalmente; la tokenización avanza como la «tercera vía» que permite a todas las partes no perder.</span>
+    <span class="pill c"><b>Parálisis extendida</b> Las 654 mociones no se retiran, la mesa técnica no genera acuerdo vinculante, y el tema se arrastra sin resolución durante meses.</span>
+  </div>
+</article>
+
+<!-- SYNTHESIS -->
+<section class="synth" id="sintesis">
+  <h2>Síntesis tricolumnar de la semana</h2>
+  <table>
+    <tr><th>Tema</th><th>Epistémico (MEEE-G)</th><th>Dinámica (ADD)</th><th>Sistemas-Mundo</th></tr>
+    <tr><td>Irán–EE.UU.</td><td>Hoja de ruta [DC]; desnuclearización [H] negada por Irán; Brent $79,4 [DC]</td><td>Turbulento con atractor emergente; mensajes domésticos divergentes</td><td>Gestión del chokepoint; EE.UU. y China negocian sin declararlo</td></tr>
+    <tr><td>Colombia</td><td>De la Espriella 49,66 % [DC]; sin fraude [DC]; impugnación de Petro sin recurso formal [DC]</td><td>Bifurcación resuelta; régimen de restauración activa hacia la derecha</td><td>Semiperiferia bisagra recuperada por el núcleo; Pacto Histórico como oposición</td></tr>
+    <tr><td>H5N1</td><td>Receptores mamarios [DC]; barrera respiratoria humana intacta [DC]; escenario pandémico [H] no respaldada</td><td>Turbulento con bifurcación contingente; parámetro = mutación en HA</td><td>Conocimiento en el núcleo; brotes en granjas periféricas; asimetría de vigilancia</td></tr>
+    <tr><td>Heliconius</td><td>Longevidad 25× [DC]; mecanismos evolutivos [DC]; translación humana [H]</td><td>Sistema laminar en el organismo; turbulento en el campo científico</td><td>Biodiversidad tropical como activo periférico; captura de renta en el núcleo</td></tr>
+    <tr><td>IBM nanostack</td><td>Funcionamiento CMOS [DC]; «sub-1nm» = convención de marketing [IP]; llegada al mercado [H]</td><td>Bifurcación tecnológica industrial; parámetro = adopción por fundidoras</td><td>Chips como cuasi-mercancía; geopolítica tecnológica EE.UU.-China</td></tr>
+    <tr><td>Crucitas</td><td>Mesa técnica [DC]; tokenización viable [H]; área dañada &lt;1 % vs. 849 km² [DC]</td><td>Bifurcación expandida a tres atractores; tokenización como nueva narrativa</td><td>Tokenización = mecanismo del núcleo sobre activo periférico; riesgo de captura asimétrica</td></tr>
+  </table>
+</section>
+
+<!-- UNCERTAINTIES -->
+<section class="uncert">
+  <h2>Incertidumbres abiertas</h2>
+  <ul>
+    <li>¿Convergirán EE.UU. e Irán en el punto nuclear dentro de 60 días, o la divergencia de mensajes domésticos hará colapsar la hoja de ruta antes de que venza el plazo?</li>
+    <li>¿Reconocerá Petro formalmente el resultado de la segunda vuelta antes del 7 de agosto, o la transición en Colombia se producirá con una sombra de legitimidad cuestionada?</li>
+    <li>¿Adoptarán los protocolos veterinarios internacionales el análisis de receptores como herramienta predictiva, o el cambio de paradigma en vigilancia del H5N1 tardará años en institucionalizarse?</li>
+    <li>¿Son los mecanismos de longevidad de Heliconius lo suficientemente conservados en mamíferos como para abrir una línea clínica real, o el modelo quedará confinado a la biología de insectos?</li>
+    <li>¿Adoptará alguna gran fundidora el nanostack de IBM, o la arquitectura quedará como demostración de principio sin industrializar?</li>
+    <li>¿Producirá la mesa técnica de Crucitas un acuerdo que salga de la lógica de las 654 mociones, o la semana que viene volverá la parálisis?</li>
+    <li>¿Puede Costa Rica diseñar un instrumento de tokenización del oro que retenga renta localmente, o reproducirá la asimetría de los mercados de carbono?</li>
+  </ul>
+</section>
+
+<!-- REFERENCES -->
+<section class="refs">
+  <h2>Fuentes · APA 7</h2>
+  <figure class="fig">
+    <img src="img/fuentes.jpg" alt="Fuentes y bibliografía APA 7 del Boletín Semanal N.° 011 ANCA-ADD." loading="lazy">
+    <figcaption>Fuentes consultadas — bibliografía APA 7 del Boletín Semanal N.° 011.</figcaption>
+  </figure>
+  <ol>
+    <li>CNN en Español. (2026, 22 de junio). <em>Resumen de la guerra de EE.UU. e Israel con Irán del 22 de junio de 2026</em>. https://cnnespanol.cnn.com/2026/06/22/mundo/live-news/ee-uu-israel-guerra-iran-conversaciones-paz-trax</li>
+    <li>El Cronista. (2026, 22 de junio). <em>Guerra: EE.UU. e Irán avanzan en las negociaciones y acuerdan una hoja de ruta para un pacto en 60 días</em>. https://www.cronista.com/internacionales/</li>
+    <li>El País Colombia. (2026, 21 de junio). <em>Catar confirma que en Suiza iniciaron negociaciones entre Irán y EEUU</em>. https://www.elpais.com.co/mundo/</li>
+    <li>El Tiempo. (2026, 21 de junio). <em>Resultados elecciones presidenciales Colombia 2026: con el 99,99 % de mesas, avanza escrutinio</em>. https://www.eltiempo.com/politica/elecciones-colombia-2026/</li>
+    <li>Wikipedia. (2026, 28 de junio). <em>Elecciones presidenciales de Colombia de 2026</em>. https://es.wikipedia.org/wiki/Elecciones_presidenciales_de_Colombia_de_2026</li>
+    <li>Registraduría Nacional del Estado Civil de Colombia. (2026, 21 de junio). <em>Se cerraron las urnas de la segunda vuelta de las elecciones presidenciales 2026</em>. https://www.registraduria.gov.co/</li>
+    <li>Srinivas, S., Pepi, L. E., et al. (2026). Receptor basis of unusual tissue tropism of avian influenza H5N1 clade 2.3.4.4b virus in cattle. <em>Science Advances</em>. https://doi.org/10.1126/sciadv.aea2068</li>
+    <li>Infobae. (2026, 27 de junio). <em>Científicos descubren cómo la gripe aviar H5N1 infecta a vacas lecheras</em>. https://www.infobae.com/salud/2026/06/27/</li>
+    <li>Muy Interesante. (2026, 19 de junio). <em>Las vacas también se infectan por gripe aviar, y hemos resuelto el porqué, a nivel celular</em>. https://muyinteresante.okdiario.com/ciencia/</li>
+    <li>Foley, J., McPherson, J., Roger, M., Batista, C., Mauxion, R., Hernández, G., … Montgomery, S. H. (2026, 16 de junio). Evolution of increased longevity and slowed ageing in a genus of tropical butterfly. <em>Nature Communications, 17</em>(1), 5077. https://doi.org/10.1038/s41467-026-73635-7</li>
+    <li>ScienceDaily. (2026, 22 de junio). <em>Butterfly that barely ages could help unlock longevity secrets</em>. https://www.sciencedaily.com/releases/2026/06/260622014302.htm</li>
+    <li>IBM Research. (2026, 25 de junio). <em>IBM debuts world's first sub-1 nanometer chip technology</em>. https://newsroom.ibm.com/2026-06-25-ibm-debuts-worlds-first-sub-1-nanometer-chip-technology</li>
+    <li>MIT Technology Review. (2026, 25 de junio). <em>IBM unveils chip technology that could help extend Moore's Law another decade</em>. https://www.technologyreview.com/2026/06/25/1139696/ibm-unveils-sub1nm-chip/</li>
+    <li>La Nación (Costa Rica). (2026, 26 de junio). <em>Oficialismo y oposición instalan mesa técnica para destrabar proyecto sobre Crucitas</em>. https://www.nacion.com/politica/</li>
+    <li>CRHoy. (2026, 26 de junio). <em>Diputados califican como "provechosa" mesa técnica sobre Crucitas</em>. https://crhoy.com/nacionales/</li>
+    <li>El Observador CR. (2026, 26 de junio). <em>Mesa técnica sobre Crucitas avanza en consenso</em>. https://observador.cr/</li>
+    <li>AmeliaRueda.com. (2026, 22 de junio). <em>Debate sobre Crucitas entrabado: oficialismo prevé dos años de discusión; PLN y FA defienden tokenización</em>. https://ameliarueda.com/</li>
+    <li>El Mundo CR. (2026, 25 de junio). <em>Esmeralda Britton tacha de "ocurrencia" propuesta del PLN de tokenizar oro de Crucitas</em>. https://elmundo.cr/</li>
+  </ol>
+</section>
+
+<!-- METHOD -->
+<div class="method">
+  <p><b>Nota metodológica.</b> Este boletín integra tres registros analíticos distintos y no colapsables: la evaluación epistémica explicacionista (MEEE-G, inspirada en Goldman), el análisis dinámico antropológico (ADD, según Montero Fonseca) y la capa de sistemas-mundo (Wallerstein/Arrighi). Los códigos epistémicos —<b>[DC]</b> dato confirmado, <b>[IP]</b> inferencia plausible, <b>[H]</b> hipótesis, <b>[Int]</b> interpretación, <b>[C]</b> conjetura— caracterizan el estatus justificatorio de cada afirmación según los procesos que la generan. Las declaraciones de analogía (literal / fuerte / débil) y de parámetro de control siguen el criterio de rigor de la ADD frente al uso metafórico de los conceptos de complejidad. La nota sobre Crucitas (N.° 06) es una actualización directa del análisis publicado en el Boletín N.° 010 y su Anexo 010-04 (El subsuelo vivo frente al oro): los datos sobre el área afectada (&lt;1 % del distrito de Cutris, ~10–15 km², fuente UCR) y el área habilitada por el proyecto (849 km²) son datos confirmados [DC] verificados en esa edición. <b>El análisis combina evaluación epistémica explicacionista y análisis dinámico antropológico; no constituye predicción determinista ni recomendación política.</b></p>
+</div>
+
+</main>
+
+<footer>
+  <div>ANCA-ADD © 2026 · <a href="https://antropos.app" style="color:var(--teal);text-decoration:none;">antropos.app</a></div>
+  <div>Boletín Semanal N.° 011 · 28 jun 2026 · MEEE-G + ADD + Sistemas-Mundo</div>
+</footer>
+
+</body>
+</html>

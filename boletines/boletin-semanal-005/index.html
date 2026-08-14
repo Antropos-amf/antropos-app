@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANCA-ADE · Boletín Semanal N.° 005 · 10–16 de abril de 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-deep:     #0a0a0f;
+    --bg-card:     #111118;
+    --bg-section:  #16161f;
+    --red:         #c0392b;
+    --red-bright:  #e74c3c;
+    --gold:        #d4a017;
+    --gold-light:  #f0c040;
+    --green-cr:    #2e7d32;
+    --green-light: #43a047;
+    --text-main:   #e8e6df;
+    --text-dim:    #9a9890;
+    --text-muted:  #5a5855;
+    --border:      #2a2a35;
+    --border-gold: #6b5010;
+    --ticker-bg:   #0d0d15;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg-deep);
+    color: var(--text-main);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 300;
+    line-height: 1.75;
+    min-height: 100vh;
+  }
+
+  /* ── TICKER ── */
+  .ticker-wrap {
+    background: var(--ticker-bg);
+    border-bottom: 1px solid var(--red);
+    overflow: hidden;
+    padding: 8px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .ticker-inner {
+    display: flex;
+    white-space: nowrap;
+    animation: ticker 55s linear infinite;
+  }
+  .ticker-inner span {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.70rem;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+    padding-right: 4rem;
+  }
+  .ticker-inner span::before { content: "▸ "; color: var(--red); }
+  @keyframes ticker {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ── MASTHEAD ── */
+  .masthead {
+    padding: 3.5rem 2rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--border);
+  }
+  .masthead-eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    color: var(--red);
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+  }
+  .masthead h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    line-height: 0.9;
+    letter-spacing: 0.02em;
+    color: var(--text-main);
+  }
+  .masthead h1 span { color: var(--red-bright); }
+  .masthead-sub {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--text-dim);
+    margin-top: 0.8rem;
+  }
+  .masthead-meta {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 1.4rem;
+  }
+  .meta-item {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+  }
+  .meta-item strong { color: var(--gold); }
+
+  /* ── NAV ── */
+  .nav-bar {
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border);
+    padding: 0.7rem 2rem;
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    max-width: none;
+    position: sticky;
+    top: 37px;
+    z-index: 99;
+  }
+  .nav-bar a {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.60rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    text-decoration: none;
+    padding: 4px 10px;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    transition: all 0.2s;
+  }
+  .nav-bar a:hover { color: var(--gold); border-color: var(--border-gold); }
+
+  /* ── LAYOUT ── */
+  .main-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem 4rem;
+  }
+
+  /* ── INTRO EDITORIAL ── */
+  .intro-block {
+    border-left: 3px solid var(--gold);
+    padding: 1.5rem 2rem;
+    margin: 2.5rem 0;
+    background: var(--bg-section);
+  }
+  .intro-block p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--text-dim);
+    font-style: italic;
+  }
+
+  /* ── SECTION HEADERS ── */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 3.5rem 0 1.5rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+  .tag-pol  { background: #1a0a0a; color: var(--red-bright); border: 1px solid var(--red); }
+  .tag-eco  { background: #0d120d; color: var(--green-light); border: 1px solid var(--green-cr); }
+  .tag-sci  { background: #0d0f1a; color: #7bafd4; border: 1px solid #2a4a6a; }
+  .tag-tec  { background: #120d1a; color: #b07fd4; border: 1px solid #4a2a6a; }
+  .tag-soc  { background: #130f08; color: var(--gold-light); border: 1px solid var(--border-gold); }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.05em;
+    color: var(--text-main);
+  }
+
+  /* ── NEWS CARD ── */
+  .news-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 2rem 2.2rem 1.8rem;
+    margin-bottom: 1.6rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .news-card:hover { border-color: var(--border-gold); }
+  .news-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+  }
+  .card-pol::before  { background: var(--red); }
+  .card-eco::before  { background: var(--green-cr); }
+  .card-sci::before  { background: #2a4a6a; }
+  .card-tec::before  { background: #4a2a6a; }
+  .card-soc::before  { background: var(--gold); }
+
+  .card-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.5rem;
+    line-height: 1;
+    color: var(--border);
+    position: absolute;
+    top: 1rem; right: 1.5rem;
+  }
+  .card-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--text-main);
+    margin-bottom: 0.3rem;
+    padding-right: 3.5rem;
+  }
+  .card-dateline {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.60rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+  }
+
+  .subsection-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 1.2rem 0 0.4rem;
+    padding-bottom: 2px;
+    border-bottom: 1px solid var(--border-gold);
+  }
+
+  .card-body p {
+    font-size: 0.95rem;
+    color: var(--text-dim);
+    margin-bottom: 0.6rem;
+  }
+  .card-body p strong { color: var(--text-main); font-weight: 600; }
+
+  /* MEEE-G table */
+  .meee-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.80rem;
+    margin: 0.8rem 0;
+  }
+  .meee-table th {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    background: var(--bg-deep);
+    padding: 6px 10px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  .meee-table td {
+    padding: 7px 10px;
+    vertical-align: top;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-dim);
+  }
+  .meee-table tr:last-child td { border-bottom: none; }
+  .badge {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
+    padding: 2px 7px;
+    border-radius: 2px;
+    white-space: nowrap;
+    display: inline-block;
+  }
+  .dc   { background: #0a1f0a; color: #6dbb6d; border: 1px solid #2a4a2a; }
+  .ip   { background: #0d0f1a; color: #7bafd4; border: 1px solid #2a4a6a; }
+  .h    { background: #15100a; color: #d4a567; border: 1px solid #5a3a1a; }
+  .int  { background: #12101a; color: #b07fd4; border: 1px solid #4a2a6a; }
+  .con  { background: #1a0a0a; color: #e07070; border: 1px solid var(--red); }
+
+  /* ADE block */
+  .ade-block {
+    background: var(--bg-deep);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--red);
+    padding: 1rem 1.2rem;
+    margin: 0.8rem 0;
+    font-size: 0.90rem;
+    color: var(--text-dim);
+  }
+  .ade-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  /* Costa Rica annex */
+  .cr-block {
+    background: #091209;
+    border: 1px solid var(--green-cr);
+    border-left: 3px solid var(--green-light);
+    padding: 1rem 1.2rem;
+    margin: 0.8rem 0;
+    font-size: 0.90rem;
+    color: #b0d4b0;
+  }
+  .cr-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--green-light);
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  /* ── SYNTHESIS TABLE ── */
+  .synth-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+    margin: 1rem 0;
+  }
+  .synth-table th {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: var(--bg-deep);
+    padding: 8px 12px;
+    text-align: left;
+    border-bottom: 2px solid var(--border-gold);
+  }
+  .synth-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-dim);
+    vertical-align: top;
+  }
+  .synth-table tr:hover td { background: var(--bg-section); }
+
+  /* ── UNCERTAINTIES ── */
+  .uncertainties {
+    background: var(--bg-section);
+    border: 1px solid var(--border);
+    padding: 1.6rem 2rem;
+    margin: 2rem 0;
+  }
+  .uncertainties h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 0.06em;
+    color: var(--gold-light);
+    margin-bottom: 1rem;
+  }
+  .uncertainties ul {
+    list-style: none;
+    padding: 0;
+  }
+  .uncertainties li {
+    font-size: 0.90rem;
+    color: var(--text-dim);
+    padding: 0.4rem 0;
+    border-bottom: 1px solid var(--border);
+    padding-left: 1.2rem;
+    position: relative;
+  }
+  .uncertainties li::before {
+    content: "?";
+    position: absolute; left: 0;
+    color: var(--gold);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+  }
+  .uncertainties li:last-child { border-bottom: none; }
+
+  /* ── REFERENCES ── */
+  .references {
+    margin: 2rem 0;
+    padding: 1.5rem 2rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+  }
+  .references h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+  }
+  .references ol {
+    padding-left: 1.5rem;
+  }
+  .references li {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+  }
+
+  /* ── METHODOLOGICAL NOTE ── */
+  .method-note {
+    border: 1px solid var(--border-gold);
+    background: #0e0b04;
+    padding: 1.5rem 2rem;
+    margin: 2rem 0 3rem;
+    font-size: 0.82rem;
+    color: #a09060;
+    line-height: 1.6;
+  }
+  .method-note strong { color: var(--gold-light); }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  footer span {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.58rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 700px) {
+    .masthead h1 { font-size: 3rem; }
+    .nav-bar { top: 33px; }
+    .card-number { font-size: 2rem; }
+    .meee-table, .synth-table { font-size: 0.74rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-inner">
+    <span>IED de EE.UU. en Costa Rica cae 35% en 2025</span>
+    <span>BCCR alerta: retiro masivo del ROP afectaría rendimientos de jóvenes</span>
+    <span>Costa Rica se convierte en sede del Centro Regional de Pronóstico Severo de la OMM</span>
+    <span>Gobierno retira a Costa Rica del foro LGBTIQ+ de la OEA a un mes de terminar su mandato</span>
+    <span>OCDE: eliminar enfermedades no transmisibles aumentaría el PIB costarricense 3.3% anual</span>
+    <span>Inflación: -2.73% interanual en febrero; se espera retorno gradual a terreno positivo en 2.° semestre</span>
+    <span>El Niño pronosticado para el segundo semestre de 2026 amenaza sector agrícola y recursos hídricos</span>
+    <span>IED de EE.UU. en Costa Rica cae 35% en 2025</span>
+    <span>BCCR alerta: retiro masivo del ROP afectaría rendimientos de jóvenes</span>
+    <span>Costa Rica se convierte en sede del Centro Regional de Pronóstico Severo de la OMM</span>
+    <span>Gobierno retira a Costa Rica del foro LGBTIQ+ de la OEA a un mes de terminar su mandato</span>
+    <span>OCDE: eliminar enfermedades no transmisibles aumentaría el PIB costarricense 3.3% anual</span>
+    <span>Inflación: -2.73% interanual en febrero; se espera retorno gradual a terreno positivo en 2.° semestre</span>
+    <span>El Niño pronosticado para el segundo semestre de 2026 amenaza sector agrícola y recursos hídricos</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav-bar">
+  <a href="/" style="opacity:0.7">← antropos.app</a>
+  <a href="/boletines/" style="opacity:0.7">Boletines</a>
+  <a href="#pol">Política y Geopolítica</a>
+  <a href="#eco">Economía</a>
+  <a href="#sci">Ciencia</a>
+  <a href="#tec">Tecnología & Ambiente</a>
+  <a href="#soc">Sociedad & Cultura</a>
+  <a href="#sintesis">Síntesis</a>
+  <a href="#incertidumbres">Incertidumbres</a>
+  <a href="#referencias">Fuentes</a>
+</nav>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="masthead-eyebrow">Agente Noticioso Crítico de Actualidad · Análisis Dinámico del Devenir</div>
+  <h1>ANCA<span>-</span>ADE</h1>
+  <div class="masthead-sub">Boletín Semanal N.° 005 — Perspectiva centrada en Costa Rica</div>
+  <div class="masthead-meta">
+    <div class="meta-item">Período: <strong>10 – 16 de abril de 2026</strong></div>
+    <div class="meta-item">Publicación: <strong>16 de abril de 2026</strong></div>
+    <div class="meta-item">Marco: <strong>MEEE-G · ADD</strong></div>
+    <div class="meta-item">Edición: <strong>Semanal</strong></div>
+  </div>
+</header>
+
+<div class="main-wrap">
+
+  <!-- INTRO -->
+  <div class="intro-block">
+    <p>La semana del 10 al 16 de abril de 2026 define para Costa Rica un campo de tensiones que opera simultáneamente en múltiples escalas: la política exterior cierra un ciclo con la salida del foro LGBTIQ+ de la OEA mientras el país preside el Consejo Permanente del organismo; la economía absorbe el impacto diferido de la política arancelaria estadounidense y una caída histórica en inversión extranjera; la ciencia institucional avanza con la sede del Centro Meteorológico Regional; y el sistema de salud recibe un diagnóstico de la OCDE que conecta prevención sanitaria con desempeño macroeconómico. Este boletín analiza cinco nodos críticos del devenir costarricense bajo los marcos MEEE-G y ADD.</p>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- I. POLÍTICA Y GEOPOLÍTICA -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <div id="pol" class="section-header">
+    <span class="section-tag tag-pol">I</span>
+    <span class="section-title">Política y Geopolítica</span>
+  </div>
+
+  <!-- NOTICIA 1 -->
+  <div class="news-card card-pol">
+    <div class="card-number">01</div>
+    <div class="card-headline">Costa Rica retira su participación del foro LGBTIQ+ de la OEA a semanas del cambio de gobierno</div>
+    <div class="card-dateline">San José · 7–10 de abril de 2026 · Cancillería / La Nación / Infobae / Semanario Universidad</div>
+    <div class="card-body">
+
+      <div class="subsection-title">Resumen factual</div>
+      <p>El canciller Arnoldo André confirmó el 7 de abril que el gobierno de Rodrigo Chaves Robles retiró a Costa Rica del <em>Core Group LGBT</em> de la Organización de los Estados Americanos (OEA), un foro especializado en derechos de poblaciones LGBTIQ+ y diversidad sexual. La justificación oficial fue que el país habría "completado a nivel nacional la protección plena de los derechos de todas las minorías" y que los recursos diplomáticos deben redirigirse a temas de "urgencia". La decisión fue comunicada formalmente por la embajadora Alejandra Solano, quien acaba de asumir la presidencia del Consejo Permanente de la OEA para el período abril–junio de 2026.</p>
+
+      <div class="subsection-title">Contexto</div>
+      <p>Costa Rica participó activamente en ese foro durante aproximadamente una década y fue considerada referente hemisférico en materia de derechos humanos para poblaciones diversas. La decisión se produce a menos de un mes del fin de la administración Chaves (mayo 2026) y en el momento en que el país ejerce la presidencia rotatoria del Consejo Permanente de la OEA. Colectivos LGBTIQA+, el Instituto de la Mujer de la UNA y diputadas del Frente Amplio rechazaron los argumentos del canciller y calificaron sus afirmaciones de "falsas", señalando tareas normativas pendientes en el país. La Corte Suprema de Estados Unidos invalidó simultáneamente la semana anterior la prohibición de "terapias de conversión" en Colorado, contexto hemisférico relevante.</p>
+
+      <div class="subsection-title">Análisis epistémico · MEEE-G</div>
+      <table class="meee-table">
+        <thead>
+          <tr><th>Afirmación</th><th>Estatus</th><th>Fundamento</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Costa Rica se retiró del foro LGBTIQ+ de la OEA</td>
+            <td><span class="badge dc">DC</span></td>
+            <td>Confirmado por canciller André; comunicado formal por la embajadora Solano</td>
+          </tr>
+          <tr>
+            <td>La protección de derechos LGBTIQ+ en Costa Rica es "plena"</td>
+            <td><span class="badge con">C</span></td>
+            <td>Afirmación gubernamental no sustentada; contradicha por colectivos civiles y academia</td>
+          </tr>
+          <tr>
+            <td>La decisión responde a presiones políticas de la derecha conservadora regional</td>
+            <td><span class="badge int">Int</span></td>
+            <td>Interpretación plausible dado el timing y el contexto hemisférico; no confirmada</td>
+          </tr>
+          <tr>
+            <td>El retiro dañará la imagen de Costa Rica como referente de derechos humanos</td>
+            <td><span class="badge ip">IP</span></td>
+            <td>Inferencia de trayectoria histórica del capital simbólico costarricense en el sistema interamericano</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="subsection-title">Lectura dinámica · ADD</div>
+      <div class="ade-block">
+        <span class="ade-label">Análisis Dinámico del Devenir</span>
+        <p><strong>Atractores en tensión:</strong> El atractor del <em>excepcionalismo democrático costarricense</em> —capital simbólico acumulado durante décadas en foros internacionales de derechos humanos— entra en contradicción con el atractor <em>conservador-populista</em> que ha orientado la política exterior de la administración Chaves. <strong>Bifurcación:</strong> El retiro ocurre en zona de bifurcación —fin de un gobierno, inicio de otro— lo que amplifica su carácter disruptivo y a la vez plantea la posibilidad de reversión. La clausura organizacional del sistema político costarricense define históricamente la defensa de los derechos humanos como componente identitario de la política exterior (acumulación de capital simbólico en el sistema interamericano). La decisión constituye una perturbación a esa organización simbólica en términos bourdiesianos. <strong>Flujos:</strong> La erosión del capital simbólico costarricense en organismos internacionales puede reducir el acceso a redes de cooperación y financiamiento vinculadas a derechos humanos. <strong>Régimen:</strong> Turbulento, con zona de bifurcación institucional al coincidir con transición de gobierno.</p>
+      </div>
+
+      <div class="cr-block">
+        <span class="cr-label">🇨🇷 Relevancia para Costa Rica</span>
+        <p>Costa Rica ha construido parte de su identidad internacional sobre el capital simbólico de la defensa de derechos humanos. Este retiro, especialmente por su timing (presidencia del Consejo Permanente de la OEA + fin de gobierno), erosiona esa acumulación histórica y puede afectar la percepción del país en organismos de cooperación multilateral. La nueva administración de Laura Fernández enfrentará la decisión de revertir o sostener este posicionamiento como uno de sus primeros movimientos de política exterior.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- II. ECONOMÍA Y NEGOCIOS -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <div id="eco" class="section-header">
+    <span class="section-tag tag-eco">II</span>
+    <span class="section-title">Economía y Negocios</span>
+  </div>
+
+  <!-- NOTICIA 2 -->
+  <div class="news-card card-eco">
+    <div class="card-number">02</div>
+    <div class="card-headline">Inversión extranjera directa de EE.UU. en Costa Rica se desploma 35% en 2025 por incertidumbre arancelaria</div>
+    <div class="card-dateline">San José · 6 de abril de 2026 · La Nación / El Financiero / BCCR</div>
+    <div class="card-body">
+
+      <div class="subsection-title">Resumen factual</div>
+      <p>Datos publicados el 31 de marzo por el Banco Central de Costa Rica (BCCR) revelan que la inversión extranjera directa (IED) proveniente de Estados Unidos cayó de USD $3.982 millones en 2024 a USD $2.600 millones en 2025, una reducción del 34,7% equivalente a USD $1.382 millones. A pesar de esta caída, EE.UU. se mantiene como principal origen de la IED con el 50,7% del total. El flujo total de IED al cierre de 2025 alcanzó USD $5.122 millones —prácticamente igual a los USD $5.113 millones de 2024—, sostenido por inversiones de Suiza (USD $1.004 M) y México (USD $238 M). Simultáneamente, las exportaciones crecieron un 11% y llegaron a un récord de USD $35.243 millones.</p>
+
+      <div class="subsection-title">Contexto</div>
+      <p>La reducción de IED estadounidense es atribuida por la Promotora de Comercio Exterior (Procomer) a la incertidumbre generada por la política arancelaria de la administración Trump, los conflictos geopolíticos en Medio Oriente y el comportamiento volátil de las multinacionales en entornos de alta incertidumbre. La OCDE y el FMI proyectan que el crecimiento de Costa Rica se desacelerará al 3,5% en 2026. Adicionalmente, EE.UU. mantiene una investigación pendiente sobre aranceles a dispositivos médicos, el principal sector exportador costarricense.</p>
+
+      <div class="subsection-title">Análisis epistémico · MEEE-G</div>
+      <table class="meee-table">
+        <thead>
+          <tr><th>Afirmación</th><th>Estatus</th><th>Fundamento</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>IED de EE.UU. cayó 34.7% en 2025</td>
+            <td><span class="badge dc">DC</span></td>
+            <td>Datos del BCCR publicados oficialmente el 31/03/2026</td>
+          </tr>
+          <tr>
+            <td>La causa principal fue la política arancelaria de Trump</td>
+            <td><span class="badge ip">IP</span></td>
+            <td>Atribución de Procomer y análisis de Deloitte; plausible pero con causas multicausales</td>
+          </tr>
+          <tr>
+            <td>Exportaciones récord compensan la caída de IED</td>
+            <td><span class="badge dc">DC</span></td>
+            <td>Datos verificados de Procomer: $35.243 millones al cierre de 2025</td>
+          </tr>
+          <tr>
+            <td>La diversificación geográfica de la IED (Suiza, México) reducirá la vulnerabilidad a largo plazo</td>
+            <td><span class="badge h">H</span></td>
+            <td>Hipótesis de Procomer; no verificable a corto plazo</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="subsection-title">Lectura dinámica · ADD</div>
+      <div class="ade-block">
+        <span class="ade-label">Análisis Dinámico del Devenir</span>
+        <p><strong>Flujos disipativos:</strong> La IED constituye un flujo disipativo de capital económico (en términos bourdiesianos) que sostiene la organización productiva del país, especialmente en el sector de zonas francas y dispositivos médicos. Una reducción sostenida de ese flujo amenaza la clausura organizacional del modelo exportador costarricense. <strong>Acoplamiento estructural:</strong> Costa Rica opera como nodo periférico altamente acoplado a la economía estadounidense —el 50.7% de la IED y el 47% de las exportaciones van a EE.UU.—, lo que hace al sistema nacional extremadamente sensible a perturbaciones en el centro. <strong>Bifurcación latente:</strong> La investigación arancelaria sobre dispositivos médicos representa un parámetro de control cuyo umbral, si se cruza, podría producir una reorganización profunda del modelo de zonas francas. <strong>Señales de advertencia:</strong> El mantenimiento del flujo total de IED en USD $5.122 M (gracias a fuentes alternativas) funciona como amortiguador, pero podría ser insostenible si la incertidumbre se prolonga.</p>
+      </div>
+
+      <div class="cr-block">
+        <span class="cr-label">🇨🇷 Relevancia para Costa Rica</span>
+        <p>El modelo económico costarricense descansa estructuralmente sobre la atracción de IED de alta tecnología, especialmente dispositivos médicos y servicios. Una reducción sostenida del componente estadounidense expone una vulnerabilidad de acoplamiento sistémico: sin diversificación real de mercados de destino para las exportaciones, el crecimiento del PIB permanece acoplado a las decisiones de política comercial de Washington. La próxima administración heredará este escenario como uno de sus desafíos estructurales más urgentes.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- NOTICIA 3 -->
+  <div class="news-card card-eco">
+    <div class="card-number">03</div>
+    <div class="card-headline">Debate sobre el ROP alcanza el Plenario Legislativo: BCCR advierte sobre riesgo para pensiones de jóvenes</div>
+    <div class="card-dateline">San José · 13–15 de abril de 2026 · La Nación / El Financiero / Infobae</div>
+    <div class="card-body">
+
+      <div class="subsection-title">Resumen factual</div>
+      <p>La Comisión de Asuntos Sociales de la Asamblea Legislativa dictaminó positivamente dos proyectos de ley —expedientes 24.984 (diputada Ada Acuña, oficialismo) y 24.972 (Rocío Alfaro, Frente Amplio)— que habilitarían el retiro anticipado de fondos del Régimen Obligatorio de Pensiones Complementarias (ROP). Los expedientes pasaron al Plenario Legislativo para votación final. El presidente del BCCR, Róger Madrigal, advirtió el 13 de abril que un retiro masivo reduciría los rendimientos futuros de las jubilaciones, con impacto desproporcionado en los trabajadores jóvenes. El presidente Chaves descartó el 15 de abril referirse a la posibilidad de vetar o firmar la ley, comparando la probabilidad de tomar esa decisión con "que nieve en Guanacaste".</p>
+
+      <div class="subsection-title">Contexto</div>
+      <p>El ROP, creado en 2000, es un sistema de cuentas capitalizadas individuales financiado con el 3.25% de aporte patronal. Gestiona recursos de pensión complementaria para cuando los trabajadores se jubilen por el régimen IVM de la CCSS. El debate combina presiones populistas de acceso inmediato al ahorro con advertencias técnicas sobre la función previsional del sistema en un contexto de envejecimiento demográfico acelerado. La bancada oficialista llegó dividida al debate.</p>
+
+      <div class="subsection-title">Análisis epistémico · MEEE-G</div>
+      <table class="meee-table">
+        <thead>
+          <tr><th>Afirmación</th><th>Estatus</th><th>Fundamento</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Dos expedientes sobre retiro del ROP fueron dictaminados y pasaron al Plenario</td>
+            <td><span class="badge dc">DC</span></td>
+            <td>Asamblea Legislativa; confirmado por múltiples fuentes editoriales verificables</td>
+          </tr>
+          <tr>
+            <td>El retiro anticipado masivo reduciría rendimientos futuros</td>
+            <td><span class="badge ip">IP</span></td>
+            <td>Advertencia técnica del BCCR; respaldada por principios actuariales estándar</td>
+          </tr>
+          <tr>
+            <td>Los proyectos serán aprobados antes del cambio de gobierno</td>
+            <td><span class="badge h">H</span></td>
+            <td>Hipótesis: tiempo legislativo escaso y bancada dividida hacen incierta la votación</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="subsection-title">Lectura dinámica · ADD</div>
+      <div class="ade-block">
+        <span class="ade-label">Análisis Dinámico del Devenir</span>
+        <p><strong>Tensión sistémica:</strong> El debate ROP ilustra la colonización del mundo de la vida pensional (en términos habermasianos) por la lógica sistémica del consumo inmediato: los fondos de pensión —diseñados como mecanismo de reproducción del bienestar futuro— son presionados por la lógica del mercado de dinero de corto plazo. <strong>Flujos en riesgo:</strong> Los recursos del ROP son capital económico acumulado que, si se liquida anticipadamente a escala masiva, reduce el flujo disipativo que sostiene la organización del sistema previsional de largo plazo. En términos de ADD, el sistema enfrenta una bifurcación entre la sostenibilidad organizacional (función previsional) y la cesión a las demandas de liquidez inmediata. <strong>Envejecimiento demográfico:</strong> El contexto de acelerada transición demográfica en Costa Rica amplifica el impacto de cualquier debilitamiento del ROP como colchón previsional complementario.</p>
+      </div>
+
+      <div class="cr-block">
+        <span class="cr-label">🇨🇷 Relevancia para Costa Rica</span>
+        <p>Costa Rica enfrenta uno de los procesos de envejecimiento demográfico más acelerados de Centroamérica. Cualquier modificación al ROP que reduzca su función previsional implica trasladar al Estado —y a la CCSS— la carga de sostener el bienestar de una población jubilada creciente con fondos públicos decrecientes. La nueva administración deberá decidir si veta, promulga o reformula los proyectos, en un contexto donde el capital político de defender la previsión de largo plazo es escaso frente al capital electoral de "devolver el dinero" a los ciudadanos.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- III. CIENCIA -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <div id="sci" class="section-header">
+    <span class="section-tag tag-sci">III</span>
+    <span class="section-title">Ciencia</span>
+  </div>
+
+  <!-- NOTICIA 4 -->
+  <div class="news-card card-sci">
+    <div class="card-number">04</div>
+    <div class="card-headline">OCDE: eliminar cuatro enfermedades no transmisibles aumentaría el PIB costarricense 3,3% anual hasta 2050</div>
+    <div class="card-dateline">París / San José · 14–15 de abril de 2026 · El Financiero / OCDE / Foro Nacional OCDE y Salud</div>
+    <div class="card-body">
+
+      <div class="subsection-title">Resumen factual</div>
+      <p>Un nuevo informe de la OCDE titulado <em>"Los beneficios de abordar las enfermedades no transmisibles"</em> (modelo SPHEP-NCD) estima que la eliminación de cáncer, enfermedades cardiovasculares, EPOC y diabetes inyectaría un aumento promedio del 3,3% al PIB anual de Costa Rica en el período 2026–2050. Este "dividendo de salud" supera el de economías como Francia (2,4%) o Canadá (2,9%). El informe identifica tres vías de impacto económico: erosión salarial (estimada en USD $3.300 per cápita anuales de pérdida), fuerza laboral "fantasma" (ausentismo/presentismo), y riesgo mental asociado a las ENT. El 15 de abril se celebró en Costa Rica el Foro Nacional OCDE y Salud con autoridades nacionales e internacionales para analizar el futuro del sistema de salud.</p>
+
+      <div class="subsection-title">Contexto</div>
+      <p>Las enfermedades no transmisibles representan el 78% de las causas de muerte en Costa Rica. El país gasta USD $1.935 per cápita en salud —frente a un promedio OCDE de USD $5.967—, equivalente al 6,8% del PIB vs. 9,3% en la OCDE. La prevalencia de obesidad en el país (31,2%) supera el promedio de la organización (25,7%), y la tasa de mujeres examinadas por cáncer de mama (36%) está muy por debajo del 55% de la OCDE.</p>
+
+      <div class="subsection-title">Análisis epistémico · MEEE-G</div>
+      <table class="meee-table">
+        <thead>
+          <tr><th>Afirmación</th><th>Estatus</th><th>Fundamento</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>El informe OCDE proyecta +3,3% PIB anual por eliminación de ENT en Costa Rica</td>
+            <td><span class="badge dc">DC</span></td>
+            <td>Publicado por la OCDE, modelo SPHEP-NCD, organismo con metodología de alta fiabilidad procesual</td>
+          </tr>
+          <tr>
+            <td>Las ENT representan el 78% de muertes en Costa Rica</td>
+            <td><span class="badge dc">DC</span></td>
+            <td>Datos PAHO/OPS 2022; consistentes con series históricas desde 2000</td>
+          </tr>
+          <tr>
+            <td>Una estrategia preventiva podría capturar ese dividendo de salud</td>
+            <td><span class="badge ip">IP</span></td>
+            <td>El modelo asume eliminación completa; en la práctica la reducción sería parcial y gradual</td>
+          </tr>
+          <tr>
+            <td>El sistema de salud costarricense está preparado para la transición preventiva</td>
+            <td><span class="badge con">C</span></td>
+            <td>Conjetura: el gasto per cápita y la infraestructura hospitalaria son muy inferiores al promedio OCDE</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="subsection-title">Lectura dinámica · ADD</div>
+      <div class="ade-block">
+        <span class="ade-label">Análisis Dinámico del Devenir</span>
+        <p><strong>Capital humano como flujo disipativo:</strong> En términos de ADD, la fuerza laboral sana es el flujo disipativo central del sistema productivo: su degradación por ENT reduce el procesamiento de información y capital en el sistema económico, con costo termodinámico real (en el sentido del principio de Landauer aplicado al nivel sociocultural). <strong>Atractor estructural:</strong> La CCSS opera como atractor institucional del sistema de salud costarricense con clausura organizacional propia; su modelo predominantemente curativo define qué cuenta como perturbación y cómo responder. Una transición hacia la prevención estratégica requeriría una bifurcación organizacional de alta magnitud. <strong>Escala temporal:</strong> El horizonte 2026–2050 sitúa el análisis en la escala del devenir histórico de largo plazo; las intervenciones de política pública actuales son parámetros de control de una bifurcación diferida.</p>
+      </div>
+
+      <div class="cr-block">
+        <span class="cr-label">🇨🇷 Relevancia para Costa Rica</span>
+        <p>El informe posiciona la salud preventiva como el mayor motor oculto de crecimiento económico para Costa Rica, por encima de las negociaciones comerciales o las reformas fiscales en debate. Un aumento del 3,3% del PIB anual equivale a varios puntos porcentuales más que el crecimiento proyectado para 2026 (3,5%). La pregunta política es si el sistema institucional costarricense —la CCSS como atractor dominante— puede procesar esta perturbación y reorganizarse hacia un modelo preventivo, o si su clausura organizacional curativa la amortigua sin transformarla.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- IV. TECNOLOGÍA & AMBIENTE -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <div id="tec" class="section-header">
+    <span class="section-tag tag-tec">IV</span>
+    <span class="section-title">Tecnología y Ambiente</span>
+  </div>
+
+  <!-- NOTICIA 5 -->
+  <div class="news-card card-tec">
+    <div class="card-number">05</div>
+    <div class="card-headline">Costa Rica asume sede del Centro Regional de Pronóstico de Eventos Severos de la OMM para Centroamérica</div>
+    <div class="card-dateline">San José · 8 de abril de 2026 · La Nación / AM Prensa / El Guardián CR / IMN</div>
+    <div class="card-body">
+
+      <div class="subsection-title">Resumen factual</div>
+      <p>Costa Rica fue seleccionada en 2026 como sede del Centro Regional de Pronóstico de Eventos Severos del Tiempo para Centroamérica, bajo el auspicio de la Organización Meteorológica Mundial (OMM). El Instituto Meteorológico Nacional (IMN) lidera la coordinación, con participación semanal de meteorólogos de todos los países centroamericanos para prever eventos severos y sus afectaciones. Simultáneamente, el país fue incorporado al Centro Regional de Formación de la Región IV de la OMM, lo que le permitirá impartir capacitaciones técnicas especializadas. El ministro Franz Tattenbach destacó que el objetivo es coordinar previsiones ante fenómenos climáticos que "aumentan cada año". En su sesión del 25 de marzo, la Comisión Consultiva Técnica del ENOS (COENOS) coordinó acciones preventivas ante El Niño, proyectado para el segundo semestre de 2026.</p>
+
+      <div class="subsection-title">Contexto</div>
+      <p>Centroamérica es una de las regiones del mundo más expuestas a eventos hidrometeorológicos extremos. El cambio climático amplifica la frecuencia e intensidad de estos fenómenos. El Niño 2026 proyectado para el segundo semestre amenaza los recursos hídricos, la generación hidroeléctrica y la producción agrícola del país. La inflación costarricense, actualmente en terreno negativo (−2,73% interanual en febrero), podría verse presionada al alza por efectos de El Niño sobre la cadena agroalimentaria.</p>
+
+      <div class="subsection-title">Análisis epistémico · MEEE-G</div>
+      <table class="meee-table">
+        <thead>
+          <tr><th>Afirmación</th><th>Estatus</th><th>Fundamento</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Costa Rica fue seleccionada como sede del Centro Regional de Pronóstico de la OMM</td>
+            <td><span class="badge dc">DC</span></td>
+            <td>Confirmado por IMN y ministro Tattenbach; cubierto por múltiples medios verificables</td>
+          </tr>
+          <tr>
+            <td>El Niño se presentará en el segundo semestre de 2026</td>
+            <td><span class="badge ip">IP</span></td>
+            <td>Pronóstico del IMN/COENOS; fenómeno natural con incertidumbre inherente en magnitud y duración</td>
+          </tr>
+          <tr>
+            <td>El Niño presionará al alza la inflación en el segundo semestre</td>
+            <td><span class="badge h">H</span></td>
+            <td>Hipótesis de analistas financieros (Mercado de Valores, BCCR); depende de intensidad del fenómeno</td>
+          </tr>
+          <tr>
+            <td>El centro regional mejorará significativamente la preparación ante desastres en Centroamérica</td>
+            <td><span class="badge ip">IP</span></td>
+            <td>Razonable dado el modelo de coordinación regional; verificable a mediano plazo</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="subsection-title">Lectura dinámica · ADD</div>
+      <div class="ade-block">
+        <span class="ade-label">Análisis Dinámico del Devenir</span>
+        <p><strong>Escala regional / acoplamiento:</strong> La designación de Costa Rica como sede del Centro Meteorológico Regional constituye un caso de acoplamiento estructural multiescalar: el sistema climático centroamericano (escala mega) se articula con la infraestructura científica nacional (escala meso) para producir información que reduce la incertidumbre en sistemas locales (escala micro: producción agrícola, gestión del riesgo). <strong>Zona de turbulencia proyectada:</strong> El Niño 2026 es una perturbación previsible del sistema climático que operará sobre múltiples flujos disipativos del sistema socioeconómico costarricense: agua para generación hidroeléctrica, humedad para producción agrícola, temperaturas para la cadena agroexportadora. <strong>Respuesta institucional:</strong> La creación de la COENOS y la sede del Centro Regional representan una reorganización institucional adaptativa ante la perturbación anunciada —un mecanismo de amortiguación en términos dinámicos.</p>
+      </div>
+
+      <div class="cr-block">
+        <span class="cr-label">🇨🇷 Relevancia para Costa Rica</span>
+        <p>Costa Rica combina alta dependencia de generación hidroeléctrica (>90% de la matriz energética) con un sector agroexportador sensible a la variabilidad climática. El Niño 2026 podría presionar simultáneamente la inflación (alimentos), la balanza energética (menor generación hídrica, mayor costo de importación) y la competitividad exportadora. La sede del Centro Regional es un activo institucional de capital cultural y simbólico que fortalece la posición del IMN como referente regional, pero la efectividad preventiva dependerá de la articulación con el MOPT, el ICE, el MAG y la CNE en tiempo real.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- V. SOCIEDAD, CULTURA Y AMBIENTE -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <div id="soc" class="section-header">
+    <span class="section-tag tag-soc">V</span>
+    <span class="section-title">Sociedad, Cultura y Ambiente</span>
+  </div>
+
+  <!-- NOTICIA 6 -->
+  <div class="news-card card-soc">
+    <div class="card-number">06</div>
+    <div class="card-headline">Petróleo supera los $100/barril: UNED advierte impacto múltiple sobre economía costarricense en 2026</div>
+    <div class="card-dateline">San José · 15 de abril de 2026 · Infobae / La Nación / Observador CR</div>
+    <div class="card-body">
+
+      <div class="subsection-title">Resumen factual</div>
+      <p>Un estudio de la Escuela de Ciencias de la Administración (ECA) de la UNED identifica cinco áreas de impacto del alza del petróleo sobre la economía costarricense: combustibles y transporte, inflación de la canasta básica, competitividad de las exportaciones, política monetaria y turismo. El precio del petróleo tipo Brent pasó de USD $60/barril en febrero a un pico de USD $121 en marzo, estabilizándose temporalmente alrededor de USD $93 y repuntando nuevamente por encima de USD $100. La Autoridad Reguladora de los Servicios Públicos (ARESEP) tramita el primer aumento de combustibles del año. La cámara de comercio exterior advirtió sobre el uso del <em>nearshoring</em> como estrategia de resiliencia ante la crisis energética y arancelaria.</p>
+
+      <div class="subsection-title">Contexto</div>
+      <p>El alza del petróleo es atribuida al conflicto en Medio Oriente y las tensiones en torno al estrecho de Ormuz. Costa Rica no produce petróleo y es importador neto. El aumento del precio del crudo presiona simultáneamente la inflación (actualmente negativa), el costo de los fletes de exportación, el presupuesto de la ARESEP y el costo de la canasta básica. El país se encontraba en deflación interanual desde mediados de 2023; el alza de combustibles podría ser el vector que retorne la inflación a terreno positivo antes de lo proyectado.</p>
+
+      <div class="subsection-title">Análisis epistémico · MEEE-G</div>
+      <table class="meee-table">
+        <thead>
+          <tr><th>Afirmación</th><th>Estatus</th><th>Fundamento</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>El petróleo Brent alcanzó $121/barril en marzo y superó $100 en abril</td>
+            <td><span class="badge dc">DC</span></td>
+            <td>Datos de mercado internacional; confirmados por análisis UNED-ECA</td>
+          </tr>
+          <tr>
+            <td>El alza presionará la inflación y el costo de combustibles en Costa Rica</td>
+            <td><span class="badge ip">IP</span></td>
+            <td>Transmisión del precio internacional al costo doméstico es mecánica en el régimen regulatorio de ARESEP</td>
+          </tr>
+          <tr>
+            <td>El conflicto en Medio Oriente es la causa principal del alza</td>
+            <td><span class="badge int">Int</span></td>
+            <td>Interpretación dominante en medios verificables; concurren factores adicionales (política de la OPEP+, demanda china)</td>
+          </tr>
+          <tr>
+            <td>El nearshoring puede compensar los efectos arancelarios y energéticos</td>
+            <td><span class="badge h">H</span></td>
+            <td>Hipótesis empresarial; no verificada empíricamente en el contexto costarricense específico</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="subsection-title">Lectura dinámica · ADD</div>
+      <div class="ade-block">
+        <span class="ade-label">Análisis Dinámico del Devenir</span>
+        <p><strong>Perturbación de escala mega:</strong> El conflicto en Medio Oriente y el alza del petróleo constituyen una perturbación de escala planetaria que se acopla al sistema económico costarricense a través de múltiples canales simultáneos (combustibles, fletes, inflación, turismo). En términos de ADD, opera en los tres niveles del esquema de tres registros: energético-material (costo de los insumos), informacional (señales de precio que reordenan decisiones de inversión) y simbólico-interpretativo (percepción de riesgo que afecta decisiones de consumo). <strong>Acoplamientos múltiples:</strong> La convergencia de El Niño (perturbación climática, segundo semestre), aranceles de Trump (perturbación comercial, persistente) y alza del petróleo (perturbación energética, aguda) configura una zona de turbulencia compuesta que amplifica la incertidumbre sistémica. <strong>Régimen:</strong> El sistema económico costarricense transita de un régimen laminar (baja inflación, crecimiento estable 2024-2025) a un régimen turbulento con múltiples perturbaciones simultáneas.</p>
+      </div>
+
+      <div class="cr-block">
+        <span class="cr-label">🇨🇷 Relevancia para Costa Rica</span>
+        <p>El alza del petróleo incide directamente en el costo de vida de los hogares costarricenses a través del transporte público, la canasta básica y los servicios. Para el nuevo gobierno, el reto es gestionar simultáneamente el retorno de la inflación a terreno positivo, la presión sobre los subsidios y tarifas reguladas, y el mantenimiento de la competitividad exportadora en un entorno de mayor incertidumbre global. El modelo energético renovable de Costa Rica ofrece una ventaja relativa al aislar parcialmente el sistema eléctrico del costo del petróleo, pero los sectores de transporte, logística y agro siguen siendo altamente vulnerables.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- TABLA DE SÍNTESIS -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <div id="sintesis" class="section-header">
+    <span class="section-tag tag-soc">⊕</span>
+    <span class="section-title">Tabla de Síntesis Semanal</span>
+  </div>
+
+  <table class="synth-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Tema</th>
+        <th>Categoría</th>
+        <th>Estatus epistémico dominante</th>
+        <th>Régimen ADD</th>
+        <th>Impacto CR</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>01</td>
+        <td>Retiro foro LGBTIQ+ OEA</td>
+        <td>Política</td>
+        <td><span class="badge dc">DC</span> Retiro confirmado · <span class="badge con">C</span> Justificación oficial</td>
+        <td>Turbulento / Bifurcación (transición de gobierno)</td>
+        <td>Erosión capital simbólico / política exterior de nueva administración</td>
+      </tr>
+      <tr>
+        <td>02</td>
+        <td>Caída IED de EE.UU. (−35%)</td>
+        <td>Economía</td>
+        <td><span class="badge dc">DC</span> Cifras BCCR · <span class="badge ip">IP</span> Causas</td>
+        <td>Turbulento / acoplamiento estructural frágil</td>
+        <td>Vulnerabilidad modelo exportador; diversificación geográfica urgente</td>
+      </tr>
+      <tr>
+        <td>03</td>
+        <td>Debate ROP en Plenario</td>
+        <td>Economía</td>
+        <td><span class="badge dc">DC</span> Proceso legislativo · <span class="badge ip">IP</span> Impacto técnico</td>
+        <td>Bifurcación latente (sistema previsional vs. demanda de liquidez)</td>
+        <td>Envejecimiento demográfico / sostenibilidad previsional de largo plazo</td>
+      </tr>
+      <tr>
+        <td>04</td>
+        <td>OCDE: ENT y PIB (+3,3% anual)</td>
+        <td>Ciencia (Cs. de la Salud)</td>
+        <td><span class="badge dc">DC</span> Informe OCDE · <span class="badge ip">IP</span> Capturabilidad</td>
+        <td>Laminar (diagnóstico) / Bifurcación potencial (modelo preventivo)</td>
+        <td>Mayor motor oculto de crecimiento; requiere reorganización institucional de la CCSS</td>
+      </tr>
+      <tr>
+        <td>05</td>
+        <td>Sede Centro Meteorológico OMM</td>
+        <td>Tecnología / Ciencia</td>
+        <td><span class="badge dc">DC</span> Designación oficial · <span class="badge ip">IP</span> El Niño 2026</td>
+        <td>Adaptativo / Régimen de preparación ante turbulencia climática proyectada</td>
+        <td>Fortalece capital institucional del IMN; crítico ante amenaza hidroeléctrica y agrícola</td>
+      </tr>
+      <tr>
+        <td>06</td>
+        <td>Petróleo >$100/barril: impacto CR</td>
+        <td>Sociedad / Ambiente</td>
+        <td><span class="badge dc">DC</span> Precio de mercado · <span class="badge ip">IP</span> Transmisión doméstica</td>
+        <td>Turbulento / perturbación compuesta (petróleo + El Niño + aranceles)</td>
+        <td>Retorno inflación a terreno positivo; presión sobre hogares y política tarifaria</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- INCERTIDUMBRES ABIERTAS -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <div id="incertidumbres">
+    <div class="uncertainties">
+      <h3>Incertidumbres abiertas de la semana</h3>
+      <ul>
+        <li>¿Revertirá la nueva administración Fernández el retiro del foro LGBTIQ+ de la OEA como señal de reposicionamiento en derechos humanos?</li>
+        <li>¿Será aprobado algún proyecto de retiro anticipado del ROP antes del cambio de gobierno en mayo, y en qué términos exactos?</li>
+        <li>¿Cuál será la magnitud real del fenómeno El Niño 2026 y su impacto en la generación hidroeléctrica y la producción agrícola?</li>
+        <li>¿Incluirá EE.UU. a los dispositivos médicos costarricenses en la escalada arancelaria y cuándo se conocerá el resultado de la investigación pendiente?</li>
+        <li>¿Logrará la próxima administración articular una estrategia de diversificación geográfica de la IED para reducir la vulnerabilidad al ciclo político-comercial estadounidense?</li>
+        <li>¿Cuánto del "dividendo de salud" de la OCDE podrá capturarse si el gasto en salud per cápita no aumenta hacia el promedio OCDE?</li>
+        <li>¿Sostendrá el precio del petróleo los niveles actuales o experimentará reversión ante eventual desescalada del conflicto en Medio Oriente?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- REFERENCIAS -->
+  <div id="referencias" class="references">
+    <h3>Fuentes · APA 7</h3>
+    <ol>
+      <li>Astorga, L. (7 de abril de 2026). Salida de foro de la OEA: organizaciones LGBTIQA+ acusan al Gobierno de distanciarse y falsear situación de derechos. <em>La Nación</em>. https://www.nacion.com/politica/salida-de-foro-de-la-oea-organizaciones-lgbtiqa/L5JYUTZMUVHZVNZRASQEK5DTWA/story/</li>
+      <li>Salazar, Y. (7 de abril de 2026). Costa Rica se retira de foro de la OEA sobre derechos de población LGBTIQ+ y otras comunidades. <em>La Nación</em>. https://www.nacion.com/politica/costa-rica-se-retira-de-foro-de-la-oea-sobre/GPDJSVUKQVAT5PVJN4EWHTAMYQ/story/</li>
+      <li>Semanario Universidad. (7 de abril de 2026). Costa Rica se retira de foro de la OEA sobre derechos de población de diversidad sexual. https://semanariouniversidad.com/pais/costa-rica-se-retira-de-foro-de-la-oea-sobre-derechos-de-poblacion-de-diversidad-sexual/</li>
+      <li>Brenes, L. E. (6 de abril de 2026). Se desploma inversión extranjera de Estados Unidos en Costa Rica. <em>La Nación</em>. https://www.nacion.com/economia/se-desploma-inversion-extranjera-de-estados-unidos/T7FH2JO3OJBUHNZQLRHAQTXVGM/story/</li>
+      <li>Ortega Campos, G. (6 de abril de 2026). Comex y Procomer se pronuncian a la caída de la inversión extranjera de Estados Unidos en Costa Rica. <em>La Nación</em>. https://www.nacion.com/economia/inversion-de-estados-unidos-bajo-en-costa-rica-en/UDNYHVABMZH7DEN7UKZ6UZZWR4/story/</li>
+      <li>Cámara de Exportadores de Costa Rica (CRECEX). (10 de abril de 2026). Noticias comerciales Costa Rica 2026: exportaciones récord, inversión extranjera y nearshoring. https://crecex.com/noticias-comerciales-de-costa-rica-exportaciones-record-inversion-extranjera-y-tendencias-del-comercio-internacional-2026/</li>
+      <li>Villalobos Solís, A. (13 de abril de 2026). Retiro acelerado del ROP: Jóvenes tendrían menor rendimiento en pensiones futuras, advierte presidente del BCCR. <em>La Nación</em>. https://www.nacion.com/economia/retiro-acelerado-del-rop-jovenes-tendrian-menor/RWB7NBO4UFG2DIR7IWWHIPK6M4/story/</li>
+      <li>Mora, C. (15 de abril de 2026). Rodrigo Chaves: la posibilidad de que yo decida sobre el ROP es la misma de que caiga nieve en Guanacaste. <em>La Nación</em>. https://www.nacion.com/politica/rodrigo-chaves-la-posibilidad-de-que-yo-decida/XP5VY6T6ONCRVK5V27SFP4FFYQ/story/</li>
+      <li>Fonseca, P. (7 de abril de 2026). Retiro anticipado del ROP en Costa Rica: ¿en qué estado se encuentra? <em>El Financiero</em>. https://www.elfinancierocr.com/economia-y-politica/retiro-anticipado-del-rop-en-costa-rica-en-que/AP7MCHZX6JFNHFWJQADP45DXRM/story/</li>
+      <li><em>El Financiero</em>. (15 de abril de 2026). OCDE: Sin estas enfermedades, el PIB anual de Costa Rica podría aumentar más de un 3% entre 2026 y 2050. https://www.elfinancierocr.com/economia-y-politica/ocde-sin-estas-enfermedades-el-pib-anual-de-costa/G7S3B6IGURC25ABDXCW5EY5CCM/story/</li>
+      <li>Delfino CR. (14 de abril de 2026). Foro Nacional OCDE y Salud reunirá a autoridades y expertos internacionales para analizar el futuro del sistema de salud en Costa Rica. https://delfino.cr/2026/04/foro-nacional-ocde-y-salud-reunira-a-autoridades-y-expertos-internacionales-para-analizar-el-futuro-del-sistema-de-salud-en-costa-rica</li>
+      <li>Organización Panamericana de la Salud. (2022). Perfil de País – Costa Rica. Salud en las Américas. https://hia.paho.org/es/perfiles-de-pais/costa-rica</li>
+      <li><em>La Nación</em>. (8 de abril de 2026). Costa Rica fue seleccionada como sede del Centro de Pronóstico Severo del Tiempo para Centroamérica. https://www.nacion.com/sucesos/costa-rica-fue-seleccionada-como-sede-del-centro/H4JCIO2WOVAJLJP2NNHDCU5XYE/story/</li>
+      <li>AM Prensa. (8 de abril de 2026). Costa Rica será sede de Centro Regional de Pronóstico de Eventos Severos de tiempo para Centroamérica. https://www.amprensa.com/</li>
+      <li>OCDE. (2025). Panorama de la Salud 2025: Costa Rica. https://www.oecd.org/es/publications/panorama-de-la-salud-2025_5345f1bd-es/costa-rica_1d9bf475-es.html</li>
+      <li>Infobae. (15 de abril de 2026). Alza del petróleo amenaza el costo de vida y las exportaciones en Costa Rica durante 2026. https://www.infobae.com/costa-rica/2026/04/15/alza-del-petroleo-amenaza-el-costo-de-vida-y-las-exportaciones-en-costa-rica-durante-2026/</li>
+      <li>OCDE. (noviembre de 2025). Perspectivas Económicas Costa Rica 2026. (Citado en múltiples fuentes secundarias.) https://proceso.hn/costa-rica-sufrira-una-desaceleracion-economica-en-2026-por-impacto-de-aranceles-de-eeuu/</li>
+      <li>Goldman, A. I. (1986). <em>Epistemology and Cognition</em>. Harvard University Press.</li>
+      <li>Montero Fonseca, A. (2026). Antropología Dinámica del Devenir (ADD): bases para un programa teórico-metodológico relacional ante la complejidad sociocultural. [Artículo interno de programa de investigación, Universidad de Costa Rica.]</li>
+      <li>Prigogine, I. (1996). <em>El fin de las certidumbres: Tiempo, caos y las leyes de la naturaleza</em>. Andrés Bello.</li>
+      <li>Maturana, H. R., &amp; Varela, F. J. (1984). <em>El árbol del conocimiento: Las bases biológicas del entendimiento humano</em>. Editorial Universitaria.</li>
+      <li>Bourdieu, P. (1977). <em>Outline of a Theory of Practice</em>. Cambridge University Press.</li>
+      <li>Habermas, J. (1987). <em>The Theory of Communicative Action, Vol. 2: Lifeworld and System</em>. Beacon Press.</li>
+    </ol>
+  </div>
+
+  <!-- NOTA METODOLÓGICA -->
+  <div class="method-note">
+    <strong>Nota metodológica obligatoria:</strong> El presente boletín combina evaluación epistémica explicacionista (MEEE-G, inspirada en el fiabilismo procesual de Alvin I. Goldman) con análisis dinámico antropológico (ADD, Alfredo Montero Fonseca). Las afirmaciones factales son clasificadas según el sistema de cinco categorías MEEE-G: dato confirmado [DC], inferencia plausible [IP], hipótesis [H], interpretación [Int] y conjetura [C]. Los análisis ADD identifican atractores, flujos disipativos, acoplamientos estructurales, regímenes dinámicos y zonas de bifurcación. <strong>Este análisis no constituye predicción determinista ni recomendación de política pública.</strong> Las trayectorias identificadas son plausibles, no necesarias; los escenarios señalados son posibles, no inevitables.
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span>ANCA-ADE · Boletín Semanal N.° 005 · 10–16 de abril de 2026</span>
+  <span><a href="/" style="color:inherit; text-decoration:none">antropos.app</a></span>
+  <span>Marcos: MEEE-G · ADD · APA 7</span>
+</footer>
+
+<script data-goatcounter="https://antropos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

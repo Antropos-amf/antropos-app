@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANCA-ADD para Todos · Boletín Semanal N.° 011 · Edición Popular</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Caveat:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f4ecd9; --paper2:#ede1c8; --card:#fbf6ea;
+    --ink:#3a2e22; --ink2:#5b4a38; --muted:#8c7a64;
+    --terra:#bb5630; --terra-dim:#8f3f22; --terra-bg:rgba(187,86,48,.09);
+    --olive:#5c7a3f; --olive-bg:rgba(92,122,63,.10);
+    --sun:#d99a2b; --sun-bg:rgba(217,154,43,.12);
+    --teal:#3d8a82; --teal-bg:rgba(61,138,130,.10);
+    --line:#d8c7a4; --line-dark:#c2ad84;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:'Lora',Georgia,serif;font-size:19px;line-height:1.62;
+    background-image:
+      radial-gradient(circle at 15% 8%, rgba(217,154,43,.05), transparent 40%),
+      radial-gradient(circle at 90% 70%, rgba(92,122,63,.05), transparent 45%);
+  }
+  ::selection{background:var(--sun-bg);color:var(--ink)}
+
+  /* TOP RIBBON */
+  .ribbon{background:var(--terra);color:var(--paper);text-align:center;padding:9px 14px;
+    font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.04em}
+  .ribbon b{text-decoration:underline}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(244,236,217,.94);
+    backdrop-filter:blur(6px);border-bottom:2px solid var(--line-dark);
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.04em}
+  nav .wrap{max-width:760px;margin:0 auto;padding:10px 22px;display:flex;flex-wrap:wrap;gap:5px 16px;align-items:center}
+  nav a{color:var(--ink2);text-decoration:none;text-transform:uppercase;transition:color .2s}
+  nav a:hover{color:var(--terra)}
+  nav .brand{color:var(--ink);font-weight:600;margin-right:auto;text-transform:none;font-size:12px}
+
+  main{max-width:760px;margin:0 auto;padding:0 22px 90px}
+
+  /* MASTHEAD */
+  header.mast{padding:46px 0 26px;text-align:center;border-bottom:3px double var(--line-dark);margin-bottom:10px}
+  .stamp{display:inline-block;font-family:'Caveat',cursive;font-size:22px;color:var(--terra);
+    transform:rotate(-2deg);margin-bottom:6px}
+  h1.title{font-family:'Fraunces',serif;font-weight:800;font-size:clamp(38px,8vw,62px);
+    line-height:1.05;margin:6px 0 8px;color:var(--ink)}
+  .subtitle{font-family:'Lora',serif;font-style:italic;font-size:clamp(17px,2.6vw,21px);
+    color:var(--ink2);margin:0 auto;max-width:520px}
+  .mast-meta{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--muted);
+    margin-top:18px;display:flex;flex-wrap:wrap;justify-content:center;gap:5px 20px}
+
+  /* INTRO LETTER */
+  .letter{background:var(--card);border:1px solid var(--line);border-radius:4px;
+    padding:26px 28px;margin:26px 0 8px;position:relative}
+  .letter:before{content:"";position:absolute;top:0;left:24px;right:24px;height:3px;
+    background:repeating-linear-gradient(90deg,var(--sun) 0 8px, transparent 8px 16px)}
+  .letter p{margin:0 0 13px;font-size:18.5px;color:var(--ink2)}
+  .letter p:last-child{margin-bottom:0}
+  .letter .firma{font-family:'Caveat',cursive;font-size:24px;color:var(--terra-dim);margin-top:4px}
+
+  /* TOC */
+  .toc{margin:30px 0 6px}
+  .toc h2{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--muted);text-align:center;margin:0 0 16px}
+  .toc-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+  .toc-item{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:12px 14px;
+    font-family:'Lora',serif;font-size:15px;color:var(--ink2);text-decoration:none;display:flex;gap:10px;align-items:flex-start}
+  .toc-item:hover{border-color:var(--terra)}
+  .toc-num{font-family:'Fraunces',serif;font-weight:700;font-size:22px;color:var(--terra);line-height:1}
+  @media(max-width:560px){.toc-grid{grid-template-columns:1fr}}
+
+  /* STORY SECTIONS */
+  article{padding:50px 0 8px;border-bottom:2px dashed var(--line-dark)}
+  .icon-wrap{width:58px;height:58px;margin:0 auto 14px;color:var(--terra)}
+  .icon-wrap svg{width:100%;height:100%}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--olive);text-align:center;margin-bottom:8px}
+  h2.question{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(25px,4.4vw,34px);
+    line-height:1.15;text-align:center;margin:0 0 6px;color:var(--ink)}
+  .question-tag{font-family:'Caveat',cursive;font-size:19px;color:var(--terra);
+    text-align:center;display:block;margin-bottom:24px}
+
+  h3.subh{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--muted);margin:26px 0 9px;
+    padding-bottom:5px;border-bottom:1px solid var(--line)}
+  article p{margin:0 0 14px}
+  article p.lead{font-size:20.5px;color:var(--ink)}
+  em.term{font-style:italic;color:var(--terra-dim);font-weight:600}
+
+  /* CERTAINTY THERMOMETER */
+  .therm{background:var(--card);border:1px solid var(--line);border-radius:4px;
+    padding:16px 20px;margin:18px 0}
+  .therm .t-title{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  .t-row{display:flex;gap:10px;align-items:flex-start;padding:7px 0;font-size:16.5px;color:var(--ink2)}
+  .t-row .dot{flex:0 0 22px;font-size:18px;line-height:1.4}
+  .t-row b{color:var(--ink);font-weight:600}
+
+  /* DYNAMICS BOX */
+  .dyn{background:var(--teal-bg);border:1px solid var(--teal);border-left:4px solid var(--teal);
+    padding:18px 22px;margin:18px 0;border-radius:4px}
+  .dyn .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--teal);margin-bottom:8px}
+  .dyn p{margin:0 0 8px;font-size:18.5px;color:var(--ink)}
+  .dyn p:last-child{margin-bottom:0}
+
+  /* CR BOX */
+  .cr{background:var(--olive-bg);border:1px solid var(--olive);border-radius:4px;padding:18px 22px;margin:18px 0}
+  .cr .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--olive);margin-bottom:8px;display:flex;align-items:center;gap:7px}
+  .cr p{margin:0 0 8px;font-size:18.5px;color:var(--ink)} .cr p:last-child{margin-bottom:0}
+
+  /* CONNECTION CALLOUT */
+  .conn{border:1.5px solid var(--terra);background:var(--terra-bg);border-radius:4px;
+    padding:16px 20px;margin:18px 0}
+  .conn .lbl{font-family:'Caveat',cursive;font-size:19px;color:var(--terra-dim);margin-bottom:4px}
+  .conn p{margin:0;font-size:17.5px;color:var(--ink2)}
+
+  /* ROADS AHEAD */
+  .roads{margin:20px 0 4px}
+  .roads .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  .road{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid var(--line)}
+  .road:last-child{border-bottom:none}
+  .road .arrow{font-family:'Fraunces',serif;font-weight:700;color:var(--terra);font-size:18px;flex:0 0 22px}
+  .road p{margin:0;font-size:17.5px;color:var(--ink2)}
+
+  /* GLOSSARY CHIP */
+  .gloss{display:inline-block;background:var(--sun-bg);border:1px solid var(--sun);border-radius:3px;
+    padding:1px 7px;font-size:.92em;color:inherit;text-decoration:none;cursor:pointer}
+  .gloss:hover{text-decoration:underline}
+
+  /* CURIOSITIES */
+  section.curio{padding:46px 0;text-align:center}
+  .curio h2{font-family:'Fraunces',serif;font-weight:800;font-size:34px;color:var(--ink);margin:0 0 6px}
+  .curio .sub{font-family:'Caveat',cursive;font-size:20px;color:var(--terra);margin-bottom:26px;display:block}
+  .curio-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;text-align:left}
+  .curio-card{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:16px 18px}
+  .curio-card .q{font-family:'Fraunces',serif;font-weight:700;font-size:17px;color:var(--terra-dim);margin:0 0 6px}
+  .curio-card p{margin:0;font-size:16px;color:var(--ink2)}
+  @media(max-width:560px){.curio-grid{grid-template-columns:1fr}}
+
+  /* OPEN QUESTIONS */
+  section.open{padding:10px 0 46px}
+  section.open h2{font-family:'Fraunces',serif;font-weight:800;font-size:30px;color:var(--ink);
+    text-align:center;margin:0 0 8px}
+  section.open .sub{display:block;text-align:center;font-family:'Lora',serif;font-style:italic;
+    color:var(--ink2);margin-bottom:24px;font-size:17px}
+  .open-list{list-style:none;padding:0;margin:0}
+  .open-list li{padding:13px 0 13px 32px;border-bottom:1px solid var(--line);position:relative;
+    color:var(--ink2);font-size:18.5px}
+  .open-list li:before{content:"❓";position:absolute;left:0;top:12px;font-size:15px}
+
+  /* CLOSING NOTE */
+  .closing{background:var(--card);border:1px solid var(--line);border-radius:4px;
+    padding:24px 26px;margin:14px 0 30px}
+  .closing p{font-size:16.5px;line-height:1.7;color:var(--ink2);margin:0 0 10px}
+  .closing p:last-child{margin-bottom:0}
+  .closing b{color:var(--terra-dim)}
+
+  footer{border-top:3px double var(--line-dark);padding:26px 22px;max-width:760px;margin:0 auto;
+    text-align:center;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted)}
+  footer a{color:var(--terra-dim);text-decoration:none}
+  footer .ft-stamp{font-family:'Caveat',cursive;font-size:18px;color:var(--terra);display:block;margin-bottom:8px}
+
+  @media(max-width:600px){
+    body{font-size:18px}
+    .t-row{font-size:15.5px}
+  }
+
+  figure.fig{margin:20px 0 24px}
+  figure.fig img{width:100%;display:block;border-radius:5px;border:1px solid var(--line)}
+  figure.fig figcaption{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.02em;
+    color:var(--muted);margin-top:7px;line-height:1.5;text-align:center}
+  figure.fig.cover img{border-radius:3px}
+
+  /* SWITCH BANNER */
+  .switch{background:var(--ink);color:var(--paper);text-align:center;padding:11px 16px;
+    font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.03em}
+  .switch a{color:var(--sun);text-decoration:underline}
+</style>
+</head>
+<body>
+
+<div class="ribbon">Edición para todo público · misma profundidad, otras palabras · semana del 20 al 28 de junio de 2026</div>
+<div class="switch">¿Prefiere el análisis técnico completo? <a href="../">Lea la versión técnica del Boletín N.° 011 →</a></div>
+
+<nav><div class="wrap">
+  <span class="brand">ANCA-ADD para Todos</span>
+  <a href="https://antropos.app/">Inicio</a>
+  <a href="https://antropos.app/boletines/">Boletines</a>
+  <a href="#n1">Irán</a>
+  <a href="#n2">Colombia</a>
+  <a href="#n3">H5N1</a>
+  <a href="#n4">Heliconius</a>
+  <a href="#n5">IBM</a>
+  <a href="#n6">Crucitas</a>
+  <a href="#curio">Curiosidades</a>
+</div></nav>
+
+<main id="top">
+
+<header class="mast">
+  <span class="stamp">— para entender el mundo —</span>
+  <h1 class="title">BOLETÍN<br>PARA TODOS</h1>
+  <p class="subtitle">Las seis preguntas de la semana, explicadas con calma, para quien quiera entender el mundo.</p>
+  <div class="mast-meta">
+    <span>Edición N.° 011 · Popular</span>
+    <span>·</span>
+    <span>Semana del 20 al 28 de junio de 2026</span>
+    <span>·</span>
+    <span>San José, Costa Rica</span>
+  </div>
+</header>
+
+<figure class="fig cover">
+  <img src="img/portada.jpg" alt="Boletín ANCA-ADD N.° 011 · Edición Popular · semana del 20 al 28 de junio de 2026." loading="lazy">
+  <figcaption>Boletín Semanal N.° 011 · Edición para todo público · San José, Costa Rica.</figcaption>
+</figure>
+
+<div class="letter">
+  <p>Estimado lector, estimada lectora:</p>
+  <p>Esta semana el mundo no para. Irán y Estados Unidos instalaron en Suiza el mecanismo que puede llevar al primer acuerdo de paz serio en meses. Colombia eligió presidente por un margen tan ajustado que se contaron los votos dos veces. Y la ciencia entregó dos sorpresas en terrenos muy distintos: una sobre un virus que lleva dos años desconcertando a los ganaderos, y otra sobre una mariposa de nuestros bosques tropicales que casi no envejece.</p>
+  <p>También esta semana IBM anunció un chip de computadora que parece salido de una película de ciencia ficción. Y en la Asamblea Legislativa de Costa Rica entró una propuesta nueva al debate sobre Crucitas: en lugar de sacar el oro del suelo, convertirlo en algo digital sin tocarlo.</p>
+  <p>Le contamos todo de la misma forma en que se lo contaríamos a un vecino, sentados en el corredor. Sin perder ni un gramo de seriedad —porque usted se merece la verdad completa—, pero sin las palabras que solo entienden los especialistas.</p>
+  <p class="firma">— El equipo de ANCA-ADD</p>
+</div>
+
+<div class="toc">
+  <h2>Esta semana, en este boletín</h2>
+  <div class="toc-grid">
+    <a class="toc-item" href="#n1"><span class="toc-num">1</span><span>¿Llegaron por fin a un acuerdo serio entre Irán y Estados Unidos?</span></a>
+    <a class="toc-item" href="#n2"><span class="toc-num">2</span><span>¿Cómo quedó Colombia después de una elección que se ganó por menos de un punto?</span></a>
+    <a class="toc-item" href="#n3"><span class="toc-num">3</span><span>¿Por qué la gripe aviar ataca las ubres de las vacas y no sus pulmones?</span></a>
+    <a class="toc-item" href="#n4"><span class="toc-num">4</span><span>¿Sabía que en Costa Rica hay una mariposa que vive 25 veces más que sus parientes?</span></a>
+    <a class="toc-item" href="#n5"><span class="toc-num">5</span><span>¿Qué quiere decir que IBM hizo un chip que apila transistores como pisos de un edificio?</span></a>
+    <a class="toc-item" href="#n6"><span class="toc-num">6</span><span>¿Qué es eso de «tokenizar el oro» y por qué dividió a la Asamblea esta semana?</span></a>
+  </div>
+</div>
+
+
+<!-- ============ 1. IRÁN ============ -->
+<article id="n1">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="32" cy="32" r="20"/>
+    <path d="M12 32h40M32 12c-6 5-9 12-9 20s3 15 9 20M32 12c6 5 9 12 9 20s-3 15-9 20"/>
+    <path d="M26 20c4 3 8 3 12 0M26 44c4-3 8-3 12 0"/>
+  </svg></div>
+  <div class="eyebrow">Política internacional</div>
+  <h2 class="question">¿Llegaron por fin a un acuerdo serio entre Irán y Estados Unidos?</h2>
+  <span class="question-tag">hay un plan de 60 días firmado en Suiza, pero el punto más difícil todavía queda para después</span>
+
+  <figure class="fig">
+    <img src="img/iran.jpg" alt="Negociaciones Irán–EE.UU. en Bürgenstock, Suiza: 60 días de hoja de ruta y el Estrecho de Ormuz." loading="lazy">
+    <figcaption>Dos países, el mismo texto, dos historias distintas para sus propios ciudadanos.</figcaption>
+  </figure>
+
+  <h3 class="subh">Qué pasó de verdad</h3>
+  <p class="lead">El sábado 21 de junio, en un complejo de reuniones en Suiza llamado Bürgenstock, diplomáticos de Irán y de Estados Unidos se sentaron a negociar, con Qatar y Pakistán como intermediarios. Después de casi dieciocho horas de conversaciones, salieron con algo concreto: una hoja de ruta de sesenta días y tres grupos de trabajo para seguir negociando en temas de armas nucleares, sanciones económicas y resolución de disputas.</p>
+  <p>Lo inmediato se sintió de inmediato en los mercados: el precio del petróleo —el famoso "Brent"— cayó a unos 79 dólares por barril, el nivel más bajo desde que el conflicto comenzó en febrero. Estados Unidos también permitió temporalmente que Irán venda petróleo durante esos 60 días, e Irán obtuvo acceso a 12.000 millones de dólares que tenía bloqueados.</p>
+  <p>Sin embargo, la semana tuvo un tropiezo: Irán suspendió brevemente el diálogo después de que el presidente Trump amenazó con reanudar los ataques si Irán no controlaba a sus aliados en el Líbano. Y hubo una contradicción llamativa: el vicepresidente de EE.UU. dijo en público que Irán había aceptado "el primer paso hacia deshacerse del arma nuclear". Irán lo negó de forma rotunda: sus portavoces dijeron que el tema nuclear no se tocó ni un minuto durante las dieciocho horas de conversaciones.</p>
+
+  <h3 class="subh">Qué tan seguros estamos</h3>
+  <div class="therm">
+    <div class="t-title">Termómetro de certeza</div>
+    <div class="t-row"><span class="dot">✅</span><span><b>Esto lo sabemos seguro:</b> las negociaciones en Suiza ocurrieron, los mediadores lo confirmaron, y el petróleo bajó a mínimos de cuatro meses.</span></div>
+    <div class="t-row"><span class="dot">🤔</span><span><b>Esto creemos, pero no es seguro:</b> que los tres grupos de trabajo van a encontrar un lenguaje común sobre lo nuclear en 60 días. La semana ya mostró que cada gobierno le cuenta a su público una historia diferente del mismo acuerdo.</span></div>
+    <div class="t-row"><span class="dot">💭</span><span><b>Esto es solo una posibilidad:</b> que el proceso de 60 días llegue a un acuerdo definitivo sin que un tercer actor —Israel, Hezbolá, o un accidente— lo interrumpa.</span></div>
+  </div>
+
+  <div class="dyn">
+    <div class="lbl">Por qué esto todavía no está cerrado</div>
+    <p>Imagínese dos personas que firman un contrato, pero cada una lo interpreta diferente y le cuenta una cosa distinta a su familia cuando llega a casa. Eso es lo que pasó esta semana: el texto del acuerdo dice algo, pero EE.UU. anunció que Irán aceptó deshacerse del arma nuclear, e Irán salió a decir que eso no se habló. Ambas partes le están hablando a su propio público con la versión que les conviene. Mientras esas dos versiones no se reconcilien, la tensión sigue ahí, aunque el papel diga "paz".</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">🌱 ¿Y en Costa Rica, qué tiene que ver?</div>
+    <p>Costa Rica no produce petróleo: lo compramos todo afuera. Cuando el barril sube, nos sube la gasolina, el transporte, y con el tiempo hasta los precios en el supermercado. Con el Brent bajando a 79 dólares —frente a más de 110 en los peores momentos del conflicto—, si esa tendencia se mantiene, algo de alivio debería llegar con el tiempo. La cautela es que ese alivio depende de que el proceso de 60 días no se caiga.</p>
+  </div>
+
+  <div class="roads">
+    <div class="lbl">¿Hacia dónde puede ir esto?</div>
+    <div class="road"><span class="arrow">→</span><p><b>Camino tranquilo:</b> los tres grupos técnicos convergen, lo nuclear encuentra una fórmula en 60 días, y el petróleo se estabiliza bajo los 80 dólares.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Camino bloqueado:</b> cada parte sigue leyendo el acuerdo de forma distinta, el proceso se congela pero sin romperse, y los precios quedan inestables.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Camino de vuelta atrás:</b> un incidente —Hezbolá, Israel, una amenaza de Trump— vuelve a suspender las negociaciones y el conflicto regresa.</p></div>
+  </div>
+</article>
+
+
+<!-- ============ 2. COLOMBIA ============ -->
+<article id="n2">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="32" y1="10" x2="32" y2="54"/>
+    <line x1="20" y1="54" x2="44" y2="54"/>
+    <line x1="16" y1="17" x2="48" y2="17"/>
+    <path d="M16 17l-5 13c0 5 3 7 5 7s5-2 5-7l-5-13z"/>
+    <path d="M48 17l-5 13c0 5 3 7 5 7s5-2 5-7l5-13z"/>
+  </svg></div>
+  <div class="eyebrow">Política internacional</div>
+  <h2 class="question">¿Cómo quedó Colombia después de una elección que se ganó por menos de un punto?</h2>
+  <span class="question-tag">De la Espriella será presidente, Cepeda lo reconoció, y Petro quedó inconformo pero sin recurso formal</span>
+
+  <figure class="fig">
+    <img src="img/colombia.jpg" alt="El filo de la navaja: bifurcación electoral en Colombia resuelta por menos de un punto." loading="lazy">
+    <figcaption>Dos atractores casi iguales, un margen de 250.000 votos — y Colombia eligió la derecha.</figcaption>
+  </figure>
+
+  <h3 class="subh">Qué pasó de verdad</h3>
+  <p class="lead">El domingo 21 de junio, Colombia eligió presidente en segunda vuelta. Abelardo de la Espriella, un abogado de derecha, obtuvo el 49,66 % de los votos. Iván Cepeda, el candidato apoyado por el gobierno actual del presidente Petro, quedó con el 48,70 %. La diferencia fue de unos 250.000 votos en un país de 40 millones de electores —casi nada.</p>
+  <p>Con el 99,99 % de las mesas contadas, los jueces electorales confirmaron que la diferencia real era inferior al 0,7 % respecto al primer conteo: no hubo fraude de escala. Cepeda reconoció los resultados y llamó a una transición ordenada. Petro, en cambio, cuestionó el proceso, habló de posibles irregularidades y de injerencia externa, pero nunca presentó una impugnación formal ante la autoridad electoral. De la Espriella asumirá el poder el 7 de agosto.</p>
+
+  <h3 class="subh">Qué tan seguros estamos</h3>
+  <div class="therm">
+    <div class="t-title">Termómetro de certeza</div>
+    <div class="t-row"><span class="dot">✅</span><span><b>Esto lo sabemos seguro:</b> De la Espriella ganó con 49,66 % frente a 48,70 %. Los jueces electorales confirmaron que no hubo irregularidades significativas, y Cepeda reconoció el resultado.</span></div>
+    <div class="t-row"><span class="dot">🤔</span><span><b>Esto creemos, pero no es seguro:</b> que el nuevo gobierno podrá implementar su programa de mano dura sin grandes choques con el Congreso, que está muy fragmentado.</span></div>
+    <div class="t-row"><span class="dot">💭</span><span><b>Esto es solo una posibilidad:</b> que Petro acabe reconociendo formalmente el resultado antes del 7 de agosto, en lugar de mantener la narrativa de ilegitimidad.</span></div>
+  </div>
+
+  <div class="dyn">
+    <div class="lbl">Por qué importa más de lo que parece</div>
+    <p>Un margen de 250.000 votos en 40 millones es una señal de que Colombia estaba partida en dos, casi exactamente. El voto que inclinó la balanza no fue el de la derecha ni el de la izquierda: fue el del centro, que decidió a último momento. Ahora el país entra en un período de reorganización: la derecha al gobierno, la izquierda a la oposición con Petro como voz de ese bloque, y el centro como árbitro de lo que venga. Eso no es un resultado tranquilo; es un tablero listo para el próximo choque.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">🌱 ¿Y en Costa Rica, qué tiene que ver?</div>
+    <p>Colombia y Costa Rica compartimos algo: somos países que dependemos de mantener buena relación con Estados Unidos, y ambos lidiamos con el narcotráfico y la migración a diario. Con De la Espriella —que recibió el respaldo público de Trump— en el gobierno, la presión sobre el Darién y las rutas migratorias puede cambiar. Si Colombia endurece sus controles, los flujos que pasan por nuestra frontera con Panamá podrían reorientarse o intensificarse. Eso no es abstracto: afecta a las comunidades fronterizas de Costa Rica.</p>
+  </div>
+
+  <div class="roads">
+    <div class="lbl">¿Hacia dónde puede ir esto?</div>
+    <div class="road"><span class="arrow">→</span><p><b>Transición ordenada:</b> Cepeda mantiene su reconocimiento, Colombia pasa el poder el 7 de agosto sin turbulencia, la institucionalidad se sostiene.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Tensión persistente:</b> Petro mantiene la narrativa de ilegitimidad desde la oposición, generando ruido político sin afectar el traspaso formal del poder.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Bloqueo legislativo:</b> el Congreso fragmentado le dificulta al nuevo gobierno implementar su programa; los primeros meses se vuelven un forcejeo.</p></div>
+  </div>
+</article>
+
+
+<!-- ============ 3. H5N1 ============ -->
+<article id="n3">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="32" cy="32" r="11"/>
+    <circle cx="32" cy="32" r="4" fill="currentColor" stroke="none" opacity=".4"/>
+    <line x1="32" y1="15" x2="32" y2="10"/><circle cx="32" cy="8" r="2.5" fill="currentColor" stroke="none"/>
+    <line x1="32" y1="49" x2="32" y2="54"/><circle cx="32" cy="56" r="2.5" fill="currentColor" stroke="none"/>
+    <line x1="15" y1="32" x2="10" y2="32"/><circle cx="8" cy="32" r="2.5" fill="currentColor" stroke="none"/>
+    <line x1="49" y1="32" x2="54" y2="32"/><circle cx="56" cy="32" r="2.5" fill="currentColor" stroke="none"/>
+    <line x1="19.7" y1="19.7" x2="15.9" y2="15.9"/><circle cx="14" cy="14" r="2.5" fill="currentColor" stroke="none"/>
+    <line x1="44.3" y1="19.7" x2="48.1" y2="15.9"/><circle cx="50" cy="14" r="2.5" fill="currentColor" stroke="none"/>
+    <line x1="19.7" y1="44.3" x2="15.9" y2="48.1"/><circle cx="14" cy="50" r="2.5" fill="currentColor" stroke="none"/>
+    <line x1="44.3" y1="44.3" x2="48.1" y2="48.1"/><circle cx="50" cy="50" r="2.5" fill="currentColor" stroke="none"/>
+  </svg></div>
+  <div class="eyebrow">Ciencia · Salud animal</div>
+  <h2 class="question">¿Por qué la gripe aviar ataca las ubres de las vacas y no sus pulmones?</h2>
+  <span class="question-tag">porque el virus tiene una "llave" que solo abre ciertos "candados" del cuerpo — y en las vacas esos candados están en la ubre, no en el pecho</span>
+
+  <figure class="fig">
+    <img src="img/h5n1.jpg" alt="El virus H5N1 y las cerraduras moleculares del cuerpo bovino." loading="lazy">
+    <figcaption>La «llave» del H5N1 encaja en la ubre de la vaca, pero no en el pulmón — ese es el secreto que tardó dos años en resolverse.</figcaption>
+  </figure>
+
+  <h3 class="subh">Qué pasó de verdad</h3>
+  <p class="lead">Desde 2024, el virus de la gripe aviar H5N1 lleva infectando granjas lecheras en Estados Unidos y produciendo algo que nunca se había visto: las vacas enfermas tienen mastitis —inflamación de la ubre— pero sus pulmones están bien. Nadie entendía por qué un virus respiratorio atacaba el sistema mamario y no el respiratorio. Esta semana, un equipo de las universidades de Pittsburgh y Harvard publicó la respuesta en la revista científica <em class="term">Science Advances</em>.</p>
+  <p>El hallazgo es elegante en su simplicidad: el H5N1 necesita unos receptores específicos en las células para poder entrar, como una llave que solo abre cierto tipo de candado. En las vías respiratorias de las vacas, esos candados son escasísimos. Pero en el tejido de la ubre son abundantísimos. La glándula mamaria de la vaca resultó ser, en palabras del investigador principal, un "terreno de cría perfecto" para este virus. Para cuando se publicó el estudio, el brote había afectado más de 800 granjas en 16 estados de EE.UU.</p>
+  <p>Lo que este descubrimiento <em class="term">no</em> responde —y los propios científicos lo dicen con claridad— es qué mutación necesitaría el H5N1 para empezar a infectar también los pulmones humanos. Esa barrera sigue en pie por ahora, y mientras esté en pie, el riesgo de pandemia humana es posible pero no inminente.</p>
+
+  <h3 class="subh">Qué tan seguros estamos</h3>
+  <div class="therm">
+    <div class="t-title">Termómetro de certeza</div>
+    <div class="t-row"><span class="dot">✅</span><span><b>Esto lo sabemos seguro:</b> el mecanismo molecular está publicado y revisado por otros científicos. La ubre bovina concentra los receptores; los pulmones de la vaca no los tienen. La barrera molecular que separa al virus de los pulmones humanos sigue intacta.</span></div>
+    <div class="t-row"><span class="dot">🤔</span><span><b>Esto creemos, pero no es seguro:</b> que analizar los receptores de diferentes especies va a servir para predecir cuáles son vulnerables. Es razonable, pero requiere validación en más especies.</span></div>
+    <div class="t-row"><span class="dot">💭</span><span><b>Esto es solo una posibilidad:</b> que este hallazgo cambie los protocolos de vigilancia veterinaria mundial para monitorear tejidos mamarios y no solo síntomas respiratorios. Depende de que las instituciones adopten la nueva ciencia.</span></div>
+  </div>
+
+  <div class="dyn">
+    <div class="lbl">Por qué importa, en cristiano</div>
+    <p>El valor de este estudio no es que resuelva el problema del H5N1 —no lo resuelve. Su valor es que da un mapa de qué buscar y dónde buscar. Antes, los inspectores veterinarios buscaban síntomas respiratorios. Ahora saben que deben vigilar también el tejido mamario en las granjas lecheras, y que esa misma lógica de "dónde están los candados" se puede aplicar a cualquier especie nueva que el virus empiece a infectar. Es como pasar de buscar una aguja a tener el mapa del pajar.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">🌱 ¿Y en Costa Rica, qué tiene que ver?</div>
+    <p>Costa Rica tiene un sector ganadero y lechero importante, y por ahora el H5N1 no ha sido reportado aquí. Pero "no reportado" no es lo mismo que "ausente": podría ser que simplemente no se ha buscado con los protocolos correctos. El SENASA —que cuida la sanidad animal en el país— debería revisar si sus protocolos incluyen ya el análisis de tejido mamario en vacas con producción anómala, y no solo síntomas respiratorios. El país también tiene capacidad científica en la UCR para articularse con estas redes de vigilancia predictiva.</p>
+  </div>
+
+  <div class="roads">
+    <div class="lbl">¿Hacia dónde puede ir esto?</div>
+    <div class="road"><span class="arrow">→</span><p><b>Vigilancia actualizada:</b> los protocolos internacionales incorporan el análisis de receptores; la detección mejora y el riesgo se gestiona con más anticipación.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Adopción lenta:</b> el cambio de paradigma tarda años en llegar a las instituciones; el virus sigue ampliando su rango sin que los sistemas de alerta lo detecten a tiempo.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Mutación crítica:</b> el virus desarrolla afinidad por los receptores respiratorios humanos. El escenario pandémico pasa de posible a urgente.</p></div>
+  </div>
+</article>
+
+
+<!-- ============ 4. HELICONIUS ============ -->
+<article id="n4">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="32" y1="18" x2="32" y2="52"/>
+    <path d="M32 28c-5-8-16-14-20-9-4 4 0 14 8 16 5 2 10 0 12-7z"/>
+    <path d="M32 28c5-8 16-14 20-9 4 4 0 14-8 16-5 2-10 0-12-7z"/>
+    <path d="M32 38c-4 6-12 10-16 7-4-3-2-11 5-13 4-1 9 1 11 6z"/>
+    <path d="M32 38c4 6 12 10 16 7 4-3 2-11-5-13-4-1-9 1-11 6z"/>
+    <path d="M29 17c0-2 6-2 6 0"/>
+    <line x1="28" y1="15" x2="24" y2="10"/>
+    <line x1="36" y1="15" x2="40" y2="10"/>
+  </svg></div>
+  <div class="eyebrow">Ciencia · Nuestra tierra</div>
+  <h2 class="question">¿Sabía que en los bosques de Costa Rica hay una mariposa que vive hasta 25 veces más que sus parientes?</h2>
+  <span class="question-tag">el género Heliconius casi no envejece — y los científicos quieren saber si ese secreto puede ayudar a los humanos</span>
+
+  <figure class="fig">
+    <img src="img/heliconius.jpg" alt="Mariposas Heliconius de Centroamérica y el secreto de su longevidad extraordinaria." loading="lazy">
+    <figcaption>Vive 25 veces más que sus parientes sin casi envejecer — y es de nuestros bosques tropicales.</figcaption>
+  </figure>
+
+  <h3 class="subh">Qué pasó de verdad</h3>
+  <p class="lead">El 16 de junio, un equipo de las universidades de Bristol, Smithsonian y Tufts publicó en la revista <em class="term">Nature Communications</em> el análisis más completo hasta la fecha de la longevidad en el género <em class="term">Heliconius</em>: esas mariposas tropicales de colores vivos, con alas alargadas, que habitan desde el sur de México hasta Bolivia y que probablemente usted ha visto volando en los parques o en los bordes de los bosques de Costa Rica.</p>
+  <p>El hallazgo central: las mariposas Heliconius viven en promedio hasta tres veces más que sus parientes más cercanos dentro de la misma familia. Y en los casos extremos, la diferencia es dramática: la especie <em>Heliconius hewitsoni</em> alcanzó un máximo de 348 días de vida, mientras que su pariente <em>Dione juno</em> vivía apenas 14 días. Veinticinco veces más.</p>
+  <p>Lo que hace más interesante el resultado es que no es solo cosa de comer bien. Los investigadores probaron quitarles el polen extra que estas mariposas consumen como adultas —su fuente especial de proteínas—, y aun así seguían viviendo más que sus parientes alimentados normalmente. Eso quiere decir que la longevidad está inscrita en su biología, no solo en su dieta. La investigadora principal propone al género Heliconius como nuevo modelo científico para estudiar el envejecimiento.</p>
+
+  <h3 class="subh">Qué tan seguros estamos</h3>
+  <div class="therm">
+    <div class="t-title">Termómetro de certeza</div>
+    <div class="t-row"><span class="dot">✅</span><span><b>Esto lo sabemos seguro:</b> las mariposas Heliconius viven mucho más que sus parientes, con casos de hasta 25 veces más. Los experimentos de dieta confirmaron que el efecto no es solo por comer mejor: es biológico.</span></div>
+    <div class="t-row"><span class="dot">🤔</span><span><b>Esto creemos, pero no es seguro:</b> que este género se convierta en el nuevo modelo estándar para la investigación del envejecimiento. Depende de que los resultados sean reproducibles en laboratorio.</span></div>
+    <div class="t-row"><span class="dot">💭</span><span><b>Esto es solo una posibilidad:</b> que los mecanismos que usan estas mariposas para no envejecer sean útiles para los humanos. La biología de una mariposa y la de una persona son muy diferentes, y esa brecha requiere mucha investigación.</span></div>
+  </div>
+
+  <div class="dyn">
+    <div class="lbl">Por qué importa, en cristiano</div>
+    <p>Lo que estos científicos encontraron es que hay un ser vivo que evolucionó una forma de mantenerse "en buen estado" durante mucho más tiempo que sus vecinos. Imagínese una máquina que, en lugar de desgastarse al ritmo normal, tiene piezas que se auto-reparan mejor y por más tiempo. La pregunta que se hacen los investigadores es: ¿cuáles son esas piezas?, ¿cómo funcionan?, ¿y se pueden encontrar mecanismos similares en los humanos? No es una promesa de inmortalidad, sino el comienzo de un mapa sobre por qué envejecemos y si algo de ese proceso se puede modificar.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">🌱 ¿Y en Costa Rica, qué tiene que ver?</div>
+    <p>El Heliconius no es un descubrimiento lejano que nos llega de otro planeta: vive aquí, en nuestros bosques. El país tiene insectarios, investigadores en el CATIE y en la UCR, y datos de campo que podrían ser muy valiosos para esta línea de trabajo. La pregunta estratégica es la misma que aparece con los hongos del N.° 010 y con Crucitas: ¿va a ser Costa Rica el lugar donde existe el recurso biológico, o también el lugar donde se investiga y se crea el conocimiento? Esa diferencia determina si al final capturamos parte del valor generado, o solo aportamos el material base.</p>
+  </div>
+
+  <div class="conn">
+    <div class="lbl">Una conexión que vale la pena pensar</div>
+    <p>Esta semana, la Asamblea Legislativa discutió si se legaliza la minería de oro a cielo abierto en Crucitas —un proyecto que removería la capa superficial del suelo en una zona de bosque tropical. Ese mismo suelo es el hábitat del Heliconius. No se trata de decir que un valor cancela al otro, sino de poner en la misma mesa la pregunta: ¿qué tipo de riqueza queremos que produzca nuestro territorio? <a class="gloss" href="https://antropos.app/informes-estrategicos/crucitas-subsuelo-vivo/popular/">Ver el Anexo especial sobre Crucitas y el subsuelo vivo →</a></p>
+  </div>
+
+  <div class="roads">
+    <div class="lbl">¿Hacia dónde puede ir esto?</div>
+    <div class="road"><span class="arrow">→</span><p><b>Translación exitosa:</b> los mecanismos de longevidad de Heliconius resultan conservados en mamíferos y abren una nueva línea en medicina del envejecimiento.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Modelo valioso pero específico:</b> los mecanismos son reales pero no transferibles directamente a humanos; Heliconius se convierte en modelo de insecto sin aplicación clínica directa.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Captura asimétrica:</b> los hallazgos se patentan en laboratorios del norte; la biodiversidad costarricense aporta el sustrato sin capturar la renta del conocimiento derivado.</p></div>
+  </div>
+</article>
+
+
+<!-- ============ 5. IBM ============ -->
+<article id="n5">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="18" y="24" width="28" height="16" rx="2"/>
+    <rect x="18" y="13" width="28" height="13" rx="2"/>
+    <line x1="26" y1="24" x2="26" y2="13"/>
+    <line x1="32" y1="24" x2="32" y2="13"/>
+    <line x1="38" y1="24" x2="38" y2="13"/>
+    <line x1="24" y1="40" x2="24" y2="52"/>
+    <line x1="32" y1="40" x2="32" y2="52"/>
+    <line x1="40" y1="40" x2="40" y2="52"/>
+    <line x1="18" y1="30" x2="10" y2="30"/>
+    <line x1="18" y1="36" x2="10" y2="36"/>
+    <line x1="46" y1="30" x2="54" y2="30"/>
+    <line x1="46" y1="36" x2="54" y2="36"/>
+  </svg></div>
+  <div class="eyebrow">Tecnología · Semiconductores</div>
+  <h2 class="question">¿Qué quiere decir que IBM hizo un chip que apila transistores como pisos de un edificio?</h2>
+  <span class="question-tag">durante décadas hicimos los transistores más y más pequeños — ya no se puede más, así que IBM empezó a construirlos en altura</span>
+
+  <figure class="fig">
+    <img src="img/ibm.jpg" alt="De los suburbios de transistores planos al rascacielos nanostack 3D de IBM." loading="lazy">
+    <figcaption>Cuando ya no podemos ir más a lo ancho, construimos hacia arriba — eso es exactamente lo que hizo IBM.</figcaption>
+  </figure>
+
+  <h3 class="subh">Qué pasó de verdad</h3>
+  <p class="lead">El 25 de junio, IBM anunció el primer chip de computadora con tecnología llamada "nanostack" y una denominación de "sub-1 nanómetro" —o 0,7 nanómetros. Para tener una idea de la escala: un cabello humano tiene unos 80.000 nanómetros de diámetro. Lo que IBM anunció es algo casi inimaginablemente pequeño: un chip del tamaño de una uña que empaqueta unos 100.000 millones de transistores, las piezas que hacen que una computadora piense.</p>
+  <p>Lo verdaderamente novedoso no es el tamaño, sino la arquitectura. Durante décadas, la industria fue reduciendo las piezas en una sola capa plana, como si fueran casas cada vez más pequeñas en un terreno fijo. IBM propone ahora apilarlas en dos capas, como si construyera un edificio de dos pisos en lugar de ampliar el terreno. Los primeros ensayos mostraron una mejora de hasta el 70 % en eficiencia energética frente al chip anterior de IBM.</p>
+  <p>Hay una cosa honesta que vale la pena decir: el "0,7 nanómetros" es un nombre de mercado, no una medida física real. Las distancias entre transistores no han cambiado dramáticamente; lo que cambió es cómo se organizan. E IBM todavía no tiene socio de fabricación confirmado para producirlos en masa: proyecta que esta tecnología llegará al mercado de consumo en cinco a diez años.</p>
+
+  <h3 class="subh">Qué tan seguros estamos</h3>
+  <div class="therm">
+    <div class="t-title">Termómetro de certeza</div>
+    <div class="t-row"><span class="dot">✅</span><span><b>Esto lo sabemos seguro:</b> IBM demostró que la arquitectura nanostack funciona en un chip real. Los resultados se presentaron en una conferencia internacional y fueron verificados por medios especializados como el MIT Technology Review.</span></div>
+    <div class="t-row"><span class="dot">🤔</span><span><b>Esto creemos, pero no es seguro:</b> que el "sub-1 nanómetro" sea una medida física real — es, en realidad, un nombre de marketing. El logro arquitectónico es genuino, pero el nombre puede crear expectativas exageradas.</span></div>
+    <div class="t-row"><span class="dot">💭</span><span><b>Esto es solo una posibilidad:</b> que llegue al mercado en 5–10 años, como IBM dice. El paso de laboratorio a producción masiva es el más difícil — y todavía no hay una empresa fabricante confirmada.</span></div>
+  </div>
+
+  <div class="dyn">
+    <div class="lbl">Por qué importa, en cristiano</div>
+    <p>La industria de los chips lleva años en un callejón: hacer los transistores más pequeños en una sola capa —la fórmula que funcionó desde los años 60— ya no da más. Es como si una ciudad no pudiera crecer más hacia los lados porque llegó al mar, y tuviera que empezar a crecer hacia arriba. IBM propone exactamente eso: construir en altura. Si las grandes empresas fabricantes adoptan esta forma de hacerlo, la computación —incluida la inteligencia artificial— va a tener otra década de crecimiento acelerado. Si no lo adoptan, el anuncio quedará como un experimento impresionante pero sin futuro inmediato en el mercado.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">🌱 ¿Y en Costa Rica, qué tiene que ver?</div>
+    <p>Costa Rica tiene operaciones de Intel desde 1997. Intel no fabrica los chips aquí —eso se hace en otros países— sino que en el país se hacen los procesos de empaque y prueba. A medida que la tecnología avanza hacia arquitecturas más complejas como el nanostack, esas operaciones van a necesitar equipos y habilidades más especializados. La pregunta que el país debería hacerse es si está preparando a su gente y actualizando sus capacidades para seguir siendo relevante en esa cadena, conforme el estándar tecnológico sube.</p>
+  </div>
+
+  <div class="roads">
+    <div class="lbl">¿Hacia dónde puede ir esto?</div>
+    <div class="road"><span class="arrow">→</span><p><b>Adopción rápida:</b> las grandes empresas fabricantes incorporan el nanostack; antes de cinco años hay chips comerciales con esta arquitectura en computadoras y celulares.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Transición larga:</b> la tecnología existe pero tarda en fabricarse a escala; el nanostack coexiste con los chips actuales durante una década mientras se resuelven los desafíos de producción.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Fragmentación geopolítica:</b> las restricciones entre EE.UU. y China generan dos ecosistemas de chips separados; el nanostack queda en el bloque occidental mientras China desarrolla su propia respuesta.</p></div>
+  </div>
+</article>
+
+
+<!-- ============ 6. CRUCITAS ============ -->
+<article id="n6">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M10 50l22-32 22 32H10z"/>
+    <circle cx="32" cy="24" r="6"/>
+    <path d="M29 24l3-5 3 5M26 27h12"/>
+    <path d="M20 50v6M44 50v6"/>
+  </svg></div>
+  <div class="eyebrow">Costa Rica · Política</div>
+  <h2 class="question">¿Qué es eso de «tokenizar el oro» y por qué dividió a la Asamblea esta semana?</h2>
+  <span class="question-tag">una diputada propuso convertir el oro de Crucitas en activos digitales sin sacarlo del suelo — y eso abrió un debate nuevo que no existía la semana pasada</span>
+
+  <figure class="fig">
+    <img src="img/crucitas.jpg" alt="El tablero de Crucitas: cuatro posibles caminos — sacar el oro, prohibir, dejarlo a la minería ilegal, o tokenizarlo." loading="lazy">
+    <figcaption>Cuatro caminos posibles para el mismo oro — y esta semana entró uno nuevo que nadie había propuesto antes.</figcaption>
+  </figure>
+
+  <h3 class="subh">Qué pasó de verdad</h3>
+  <p class="lead">El 26 de junio, diputados de las cinco bancadas con representación en la Asamblea se sentaron en una mesa técnica para intentar destrabar el proyecto del gobierno que busca legalizar la minería de oro a cielo abierto en Crucitas —algo prohibido en Costa Rica desde 2010. El debate lleva meses bloqueado por 654 mociones presentadas por la oposición.</p>
+  <p>En esa mesa técnica, la diputada Diana Murillo, del PLN, presentó una propuesta que no existía antes en la discusión: la "tokenización" del oro. La idea es convertir el oro que está bajo tierra en Crucitas en activos digitales —algo así como certificados respaldados por blockchain, una tecnología de registro que no se puede falsificar— sin necesidad de sacar el oro físicamente del suelo. El argumento: el proyecto del gobierno tardaría ocho a diez años en producir ingresos; la tokenización los generaría en uno o dos años, y sin el impacto ambiental de una mina a cielo abierto.</p>
+  <p>La presidenta Fernández rechazó la propuesta con dureza. El jefe de fracción del partido de gobierno mostró apertura a discutirla como proyecto paralelo, si la oposición retira mociones del expediente principal. La mesa calificó el encuentro de "provechoso" —aunque con 654 mociones todavía en el aire y tres posiciones distintas, la resolución no es inminente.</p>
+
+  <h3 class="subh">Qué tan seguros estamos</h3>
+  <div class="therm">
+    <div class="t-title">Termómetro de certeza</div>
+    <div class="t-row"><span class="dot">✅</span><span><b>Esto lo sabemos seguro:</b> la mesa técnica ocurrió y todas las bancadas la calificaron de "provechosa". También sabemos que el área dañada actualmente por minería ilegal en Crucitas es menos del 1 % del distrito de Cutris (unos 10 a 15 km²), mientras el proyecto del gobierno habilitaría los 849 km² del distrito entero.</span></div>
+    <div class="t-row"><span class="dot">🤔</span><span><b>Esto creemos, pero no es seguro:</b> que la tokenización genere ingresos en uno a dos años como dice el PLN. La propuesta está basada en un modelo de Brasil, pero las condiciones técnicas en Crucitas son distintas y hay requisitos que todavía no están satisfechos.</span></div>
+    <div class="t-row"><span class="dot">💭</span><span><b>Esto es solo una posibilidad:</b> que la mesa técnica conduzca a un acuerdo antes de que cierre el período de sesiones. Con 654 mociones y tres posiciones distintas en juego, el bloqueo puede extenderse.</span></div>
+  </div>
+
+  <div class="dyn">
+    <div class="lbl">Por qué esto es diferente a lo que había antes</div>
+    <p>Hasta la semana pasada, el debate de Crucitas era binario: el gobierno quería minar, la oposición quería que no. La tokenización es una tercera opción que no cabe en ninguno de los dos campos: no extrae el oro (así que no activa las asociaciones negativas de la minería) pero sí lo monetiza (genera ingresos). Es como si en una discusión sobre talar un bosque o no talarlo, alguien propusiera cobrar una renta por conservarlo como activo. No es una broma: el debate se vuelve más complejo, y eso puede ser bueno o malo dependiendo de para qué sirva esa complejidad.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">🌱 ¿Y en Costa Rica, qué tiene que ver?</div>
+    <p>El debate de Crucitas es uno de los más importantes que tiene el país ahora mismo, y va más allá de si hay o no mina. Toca preguntas fundamentales: ¿qué tipo de riqueza queremos extraer del territorio?, ¿quién diseña los instrumentos financieros que usamos para valorar esa riqueza?, ¿y a quién le queda el beneficio? Si las reglas de la tokenización las escriben fuera del país —como en el antecedente brasileño—, Costa Rica aportaría el subyacente (el oro) y otra parte capturaría la ganancia. Eso ya lo hemos visto antes con otros recursos naturales.</p>
+  </div>
+
+  <div class="roads">
+    <div class="lbl">¿Hacia dónde puede ir esto?</div>
+    <div class="road"><span class="arrow">→</span><p><b>Acuerdo de tres vías:</b> las bancadas negocian un paquete que reduce el área del proyecto del gobierno, avanza la tokenización como proyecto paralelo, y endurece las sanciones a la minería ilegal.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Tokenización como salida:</b> el proyecto del gobierno se archiva; la tokenización avanza como la "tercera vía" que le permite a todas las partes no perder del todo.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Parálisis extendida:</b> las 654 mociones no se retiran, la mesa técnica no genera un compromiso vinculante, y el tema se arrastra sin resolución durante meses.</p></div>
+  </div>
+</article>
+
+
+<!-- ============ CURIOSIDADES ============ -->
+<section class="curio" id="curio">
+  <h2>Rincón de curiosidades</h2>
+  <span class="sub">cositas para sorprender a la familia en la sobremesa</span>
+  <div class="curio-grid">
+    <div class="curio-card">
+      <p class="q">¿Sabía que...?</p>
+      <p>El precio del petróleo bajó esta semana a 79 dólares el barril, el nivel más bajo desde que el conflicto entre EE.UU. e Irán comenzó en febrero. En los peores momentos superó los 110 dólares.</p>
+    </div>
+    <div class="curio-card">
+      <p class="q">¿Sabía que...?</p>
+      <p>La mariposa <em>Heliconius hewitsoni</em> puede vivir hasta 348 días, casi un año entero. Su pariente más cercana, la <em>Dione juno</em>, vive apenas 14 días. Ambas se ven en los bosques de Costa Rica.</p>
+    </div>
+    <div class="curio-card">
+      <p class="q">¿Sabía que...?</p>
+      <p>El chip de IBM empaqueta 100.000 millones de transistores en el espacio de una uña. Si cada transistor fuera del tamaño de una hormiga, no cabrían ni en diez estadios nacionales.</p>
+    </div>
+    <div class="curio-card">
+      <p class="q">¿Sabía que...?</p>
+      <p>La diferencia entre De la Espriella y Cepeda en Colombia fue de 250.000 votos en un padrón de 40 millones de electores. En porcentaje: menos de un punto. Así de reñida quedó la elección.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ PREGUNTAS ABIERTAS ============ -->
+<section class="open">
+  <h2>Lo que todavía queda en el aire</h2>
+  <span class="sub">preguntas honestas, que nadie puede responder todavía con certeza</span>
+  <ul class="open-list">
+    <li>¿Van a lograr Irán y Estados Unidos ponerse de acuerdo en lo nuclear en 60 días, o cada parte seguirá contando una versión diferente del mismo acuerdo?</li>
+    <li>¿Reconocerá Petro formalmente el resultado de las elecciones colombianas antes del 7 de agosto, o la transición llegará con sombra de legitimidad cuestionada?</li>
+    <li>¿Actualizarán los veterinarios del mundo sus protocolos para monitorear tejido mamario en busca del H5N1, o el cambio tardará años en llegar a las instituciones?</li>
+    <li>¿Serán los mecanismos de longevidad del Heliconius útiles para la medicina humana, o quedarán como un dato fascinante de la biología de los insectos?</li>
+    <li>¿Adoptará alguna gran empresa fabricante el nanostack de IBM, o la arquitectura se quedará como una demostración de laboratorio impresionante pero sin futuro comercial inmediato?</li>
+    <li>¿Puede Costa Rica diseñar un instrumento de tokenización del oro que le deje la ganancia a los costarricenses, o reproducirá la asimetría que ya conocemos con otros recursos naturales?</li>
+  </ul>
+</section>
+
+<div class="closing">
+  <p><b>Una palabra sobre cómo trabajamos.</b> Detrás de cada una de estas historias hay un análisis técnico bastante más detallado: revisamos qué tan confiable es cada dato, estudiamos cómo se conectan los hechos entre sí, y miramos el lugar de Costa Rica en el mundo grande. Esa versión completa, con todos los códigos epistémicos y la lectura dinámica, también está disponible para quien quiera ir más al fondo.</p>
+  <p>Esta edición nace de una convicción sencilla: entender el mundo no debería ser un privilegio de unos pocos. Por eso le contamos las cosas con calma y sin palabras complicadas, pero sin recortarle la verdad —porque tratar a alguien como capaz de comprender es la forma más honesta de respetarlo.</p>
+  <p>Como siempre: lo que aquí se cuenta es análisis, no una bola de cristal ni un consejo de qué hacer. El futuro nadie lo tiene asegurado, ni nosotros tampoco.</p>
+</div>
+
+</main>
+
+<footer>
+  <span class="ft-stamp">Hasta la próxima semana</span>
+  <div>ANCA-ADD © 2026 · <a href="https://antropos.app">antropos.app</a></div>
+  <div style="margin-top:6px">Boletín Semanal N.° 011 · Edición Popular · 28 jun 2026</div>
+</footer>
+
+<script data-goatcounter="https://antropos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

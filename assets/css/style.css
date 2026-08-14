@@ -60,9 +60,10 @@ header nav a:hover { color: var(--color-accent); text-decoration: none; }
 /* ── Logo hero ── */
 .hero-logo {
   display: block;
-  height: 72px;
-  width: auto;
-  margin-bottom: 1.8rem;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  margin: 0 auto 2rem;
 }
 
 /* ── Social links ── */
@@ -95,16 +96,21 @@ header nav a:hover { color: var(--color-accent); text-decoration: none; }
 .hero {
   padding: 4rem 0 3rem;
   border-bottom: 1px solid var(--color-border);
+  text-align: center;
 }
 
+.hero .bio { margin-left: auto; margin-right: auto; }
+.hero .meta { justify-content: center; }
+.hero-social { justify-content: center; }
+
 .hero h1 {
-  font-size: 2rem;
+  font-size: 1.6rem;
   line-height: 1.2;
   margin-bottom: 1rem;
 }
 
 .hero .bio {
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   color: var(--color-muted);
   max-width: 580px;
   margin-bottom: 1rem;
@@ -171,3 +177,23 @@ footer {
 .article-body p { margin-bottom: 1.2rem; }
 .article-body h2 { font-size: 1.2rem; margin: 2rem 0 0.75rem; }
 .article-body blockquote { border-left: 3px solid var(--color-accent); padding-left: 1rem; color: var(--color-muted); margin: 1.5rem 0; }
+
+/* ── Layout dos columnas ── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+/* En móvil (<640px) las columnas se apilan */
+@media (max-width: 640px) {
+  .two-col {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  /* En móvil, restaurar el borde inferior a las secciones dentro del grid */
+  .two-col section {
+    border-bottom: 1px solid var(--color-border);
+  }
+}

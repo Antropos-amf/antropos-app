@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANCA-ADD · Boletín Semanal N.° 013 · 8–15 jul 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0c0e11;--bg2:#13161a;--panel:#171b20;--panel2:#1c2127;
+    --ink:#e9e6df;--ink2:#b7b2a8;--muted:#7f7a70;
+    --teal:#37b1a2;--teal-dim:#1f5c55;--teal-bg:rgba(55,177,162,.08);
+    --amber:#c98a3c;--copper:#b5672e;--amber-bg:rgba(201,138,60,.08);
+    --gold:#d8b25a;--red:#d65a4e;--violet:#b78bd0;--line:#2a2f36;
+    --dc:#37b1a2;--ip:#7fb8d8;--h:#d8b25a;--int:#c98a3c;--c:#b78bd0;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:Georgia,'Times New Roman',serif;font-size:20px;line-height:1.55;}
+  ::selection{background:var(--teal-dim);color:#fff}
+
+  .ticker{position:sticky;top:0;z-index:60;background:#08090b;border-bottom:1px solid var(--line);
+    overflow:hidden;white-space:nowrap;font-family:'IBM Plex Mono',monospace;font-size:12.5px;
+    letter-spacing:.04em;color:var(--ink2);padding:7px 0}
+  .ticker .track{display:inline-block;padding-left:100%;animation:scroll 54s linear infinite}
+  .ticker b{color:var(--teal)}
+  .ticker .sep{color:var(--red);margin:0 .8em}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+  @media(prefers-reduced-motion:reduce){.ticker .track{animation:none;padding-left:1em}}
+
+  nav{position:sticky;top:31px;z-index:55;background:rgba(12,14,17,.92);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--line);
+    font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.05em}
+  nav .wrap{max-width:920px;margin:0 auto;padding:9px 22px;display:flex;flex-wrap:wrap;gap:4px 18px;align-items:center}
+  nav a{color:var(--muted);text-decoration:none;text-transform:uppercase;transition:color .2s}
+  nav a:hover,nav a:focus{color:var(--teal)}
+  nav .brand{color:var(--ink);font-weight:600;margin-right:auto}
+
+  main{max-width:920px;margin:0 auto;padding:0 22px 80px}
+
+  header.mast{padding:54px 0 30px;border-bottom:2px solid var(--ink);margin-bottom:6px}
+  .kicker{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.32em;
+    text-transform:uppercase;color:var(--teal);margin-bottom:18px}
+  h1.title{font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:clamp(54px,11vw,108px);
+    line-height:.92;letter-spacing:.005em;margin:0;color:var(--ink)}
+  h1.title span{color:var(--teal)}
+  .subtitle{font-family:Georgia,serif;font-style:italic;font-size:clamp(20px,3vw,27px);
+    color:var(--ink2);margin:12px 0 0;font-weight:400}
+  .mast-meta{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--muted);
+    margin-top:22px;display:flex;flex-wrap:wrap;gap:6px 26px;letter-spacing:.03em}
+  .mast-meta b{color:var(--ink2);font-weight:500}
+
+  figure.fig{margin:22px 0 26px}
+  figure.fig img{width:100%;display:block;border-radius:3px;border:1px solid var(--line)}
+  figure.fig figcaption{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.03em;
+    color:var(--muted);margin-top:8px;line-height:1.5;text-align:center}
+  figure.fig.cover img{border-radius:2px}
+
+  .panorama{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--teal);
+    padding:24px 28px;margin:30px 0 8px;border-radius:2px}
+  .panorama h2{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--teal);margin:0 0 12px}
+  .panorama p{margin:0 0 10px;font-size:19px;color:var(--ink2)}
+  .panorama p:last-child{margin-bottom:0}
+
+  article{padding:46px 0 8px;border-bottom:1px solid var(--line)}
+  .art-head{display:flex;align-items:baseline;gap:16px;margin-bottom:6px;flex-wrap:wrap}
+  .art-num{font-family:'Bebas Neue',sans-serif;font-size:46px;color:var(--teal-dim);line-height:1}
+  .cat{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;
+    text-transform:uppercase;padding:4px 10px;border-radius:2px;border:1px solid;white-space:nowrap}
+  .cat.geo{color:var(--red);border-color:rgba(214,90,78,.4);background:rgba(214,90,78,.07)}
+  .cat.sci{color:var(--teal);border-color:rgba(55,177,162,.4);background:var(--teal-bg)}
+  .cat.eco{color:var(--violet);border-color:rgba(183,139,208,.4);background:rgba(183,139,208,.07)}
+  .cat.nac{color:var(--gold);border-color:rgba(216,178,90,.4);background:rgba(216,178,90,.07)}
+  h3.head{font-family:Georgia,serif;font-weight:700;font-size:clamp(28px,4.5vw,40px);
+    line-height:1.08;margin:10px 0 4px;color:var(--ink)}
+  .dek{font-family:Georgia,serif;font-style:italic;font-size:21px;color:var(--ink2);margin:0 0 22px}
+
+  .sub{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--muted);margin:26px 0 9px;
+    padding-bottom:5px;border-bottom:1px solid var(--line)}
+  article p{margin:0 0 14px}
+  article p.lead{font-size:21px}
+  em.term{font-style:italic;color:var(--teal)}
+  ul.facts{margin:0 0 14px;padding-left:20px}
+  ul.facts li{margin-bottom:8px;color:var(--ink2)}
+  ol.facts{margin:0 0 14px;padding-left:20px}
+  ol.facts li{margin-bottom:8px;color:var(--ink2)}
+
+  .meee{width:100%;border-collapse:collapse;font-family:'IBM Plex Mono',monospace;
+    font-size:13px;margin:6px 0 8px}
+  .meee th{text-align:left;color:var(--muted);font-weight:500;letter-spacing:.05em;
+    padding:7px 10px;border-bottom:1px solid var(--line);font-size:10.5px;text-transform:uppercase}
+  .meee td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink2);line-height:1.45}
+  .meee tr:last-child td{border-bottom:none}
+  .code{font-weight:600;white-space:nowrap}
+  .code.dc{color:var(--dc)}.code.ip{color:var(--ip)}.code.h{color:var(--h)}
+  .code.int{color:var(--int)}.code.c{color:var(--c)}
+
+  .add{background:var(--teal-bg);border:1px solid var(--teal-dim);border-left:3px solid var(--teal);
+    padding:20px 24px;margin:18px 0;border-radius:2px}
+  .add .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--teal);margin-bottom:6px}
+  .add .regime{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink2);
+    margin-bottom:12px;display:flex;flex-wrap:wrap;gap:6px 18px}
+  .add .regime b{color:var(--teal);font-weight:500}
+  .add p{margin:0 0 10px;font-size:19px}
+  .add p:last-child{margin-bottom:0}
+
+  .ws{background:var(--amber-bg);border:1px solid var(--copper);border-left:3px solid var(--amber);
+    padding:20px 24px;margin:18px 0;border-radius:2px}
+  .ws .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--amber);margin-bottom:10px}
+  .ws p{margin:0 0 10px;font-size:19px}.ws p:last-child{margin-bottom:0}
+
+  .cr{border:1px solid var(--line);border-top:2px solid var(--gold);padding:18px 24px;
+    margin:18px 0;border-radius:2px;background:var(--bg2)}
+  .cr .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+  .cr p{margin:0 0 10px;font-size:19px;color:var(--ink2)}.cr p:last-child{margin-bottom:0}
+  .cr p b.tag{color:var(--gold);font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:600}
+
+  .scen{margin:20px 0 4px}
+  .scen .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  .pill{display:block;padding:13px 18px;margin:8px 0;border-radius:2px;border:1px solid var(--line);
+    background:var(--panel);font-size:18px;color:var(--ink2)}
+  .pill b{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;
+    text-transform:uppercase;display:inline-block;margin-right:8px;padding:2px 8px;border-radius:2px}
+  .pill.a b{color:var(--teal);background:var(--teal-bg)}
+  .pill.b b{color:var(--gold);background:rgba(216,178,90,.07)}
+  .pill.c b{color:var(--red);background:rgba(214,90,78,.07)}
+
+  section.synth{padding:46px 0}
+  .synth h2,.uncert h2,.refs h2{font-family:'Bebas Neue',sans-serif;font-size:34px;
+    letter-spacing:.02em;color:var(--ink);margin:0 0 18px}
+  .synth table{width:100%;border-collapse:collapse;font-family:'IBM Plex Mono',monospace;font-size:12.5px}
+  .synth th{text-align:left;padding:8px 10px;border-bottom:1px solid var(--ink);color:var(--teal);
+    font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+  .synth td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink2);line-height:1.45}
+  .synth td:first-child{color:var(--ink);font-weight:500}
+
+  .uncert{padding:20px 0 46px}
+  .uncert ul{list-style:none;padding:0;margin:0}
+  .uncert li{padding:13px 0 13px 30px;border-bottom:1px solid var(--line);position:relative;color:var(--ink2);font-size:19px}
+  .uncert li:before{content:"?";position:absolute;left:0;top:13px;font-family:'IBM Plex Mono',monospace;
+    color:var(--red);font-weight:600}
+
+  .refs{padding:30px 0}
+  .refs ol{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);
+    line-height:1.6;padding-left:22px}
+  .refs li{margin-bottom:9px}
+  .refs em{color:var(--ink2);font-style:italic}
+
+  .method{background:var(--panel);border:1px solid var(--line);padding:22px 26px;
+    border-radius:2px;margin:14px 0}
+  .method p{font-family:'IBM Plex Mono',monospace;font-size:12.5px;line-height:1.7;color:var(--ink2);margin:0}
+  .method b{color:var(--teal)}
+
+  .pull{font-family:Georgia,serif;font-style:italic;font-size:clamp(21px,3.2vw,28px);
+    line-height:1.3;color:var(--ink);border-left:3px solid var(--teal);padding:6px 0 6px 22px;margin:26px 0}
+
+  footer{border-top:2px solid var(--ink);padding:28px 22px;max-width:920px;margin:0 auto;
+    font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--muted);
+    display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+
+  @media(max-width:640px){
+    body{font-size:18px}
+    .meee{font-size:11.5px}.meee th,.meee td{padding:7px 6px}
+    .synth table{font-size:11px}.synth td,.synth th{padding:7px 5px}
+    nav .wrap{font-size:10.5px;gap:3px 12px}
+    .art-num{font-size:36px}
+  }
+
+  /* SWITCH BANNER */
+  .switch{background:var(--panel);border-bottom:1px solid var(--line);text-align:center;
+    padding:10px 16px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink2);letter-spacing:.02em}
+  .switch a{color:var(--teal);text-decoration:underline}
+</style>
+</head>
+<body>
+
+<div class="switch">¿Prefiere una versión en lenguaje sencillo? <a href="popular/">Lea el Boletín N.° 013 para Todo Público →</a></div>
+
+<!-- TICKER -->
+<div class="ticker"><div class="track">
+  <b>ORMUZ</b> Colapsa el cese al fuego; CENTCOM golpea ~90 objetivos, incluido el puerto de Chabahar; el Brent supera los US$85<span class="sep">///</span>
+  <b>DÓLAR · BRICS+</b> India preside la 18.ª cumbre en Nueva Delhi; la «desdolarización 2.0» avanza en infraestructura de pagos, no en retórica; el dólar sigue en ~90 % del comercio mundial<span class="sep">///</span>
+  <b>AGUA · CR</b> Heineken notifica ante Coprocom la compra de RainForest Water; el manantial de Sarapiquí queda fuera del trato inmobiliario<span class="sep">///</span>
+  <b>MIGRACIÓN</b> Las deportaciones de costarricenses en 2026 ya superan todo el segundo semestre anterior; 43.686 electores ticos viven en EE. UU.<span class="sep">///</span>
+  <b>PALEOCLIMA</b> Stanford confirma en PNAS por qué murió el 96 % de la vida marina hace 252 millones de años: calor más desoxigenación<span class="sep">///</span>
+  <b>CIENCIA</b> Una IA de la Universidad de Osaka ordena 16 descriptores rivales del agua supercongelada y distingue sus dos estados líquidos<span class="sep">///</span>
+</div></div>
+
+<!-- NAV -->
+<nav><div class="wrap">
+  <a class="brand" href="#top">ANCA-ADD · N.°013</a>
+  <a href="#n1">Ormuz</a>
+  <a href="#n2">Dólar</a>
+  <a href="#n4">Agua</a>
+  <a href="#n12">Diáspora</a>
+  <a href="#n8">Mortandad</a>
+  <a href="#n7">IA-Agua</a>
+  <a href="#sintesis">Síntesis</a>
+</div></nav>
+
+<main id="top">
+
+<!-- MASTHEAD -->
+<header class="mast">
+  <div class="kicker">Agente Noticioso Crítico de Actualidad — Antropología Dinámica del Devenir</div>
+  <h1 class="title">BOLETÍN <span>SEMANAL</span></h1>
+  <p class="subtitle">El estrecho, la marca y el aliento del océano</p>
+  <div class="mast-meta">
+    <span><b>Edición:</b> N.° 013 · edición completa</span>
+    <span><b>Semana:</b> 8 al 15 de julio de 2026</span>
+    <span><b>Cierre:</b> miércoles 15 jul, 08:15 (San José)</span>
+    <span><b>Notas:</b> 6 · Nacional: 1 · Ciencia: 2</span>
+    <span><b>Registros:</b> MEEE-G · ADD · Sistemas-Mundo</span>
+  </div>
+</header>
+
+<figure class="fig cover">
+  <img src="img/portada.jpg" alt="El estrecho, la marca y el aliento del océano — Boletín Semanal N.° 013, 8 al 15 de julio de 2026." loading="lazy">
+  <figcaption>Boletín Semanal N.° 013 · tres profundidades de la semana: el estrecho, la marca del agua y el océano que dejó de respirar.</figcaption>
+</figure>
+
+<!-- PANORAMA -->
+<div class="panorama">
+  <h2>Panorama de la semana</h2>
+  <p>La semana no trae un solo eje, sino tres profundidades que rara vez se miran juntas. En la superficie, el estrecho de Ormuz volvió a cerrarse sobre el precio global de la energía y arrastró consigo la ilusión de un alto el fuego. Un nivel más abajo, una marca de agua nacida en Sarapiquí cambió de dueño, y con ella se movió una pieza pequeña pero reveladora de cómo el capital transnacional captura el valor simbólico costarricense. Y en el fondo geológico, un equipo de Stanford confirmó por qué murió casi toda la vida marina hace 252 millones de años —con una advertencia climática incómodamente contemporánea.</p>
+  <p>Seis notas, tres lentes, una misma pregunta de fondo: con qué grado de certeza sabemos lo que creemos saber.</p>
+</div>
+
+<figure class="fig">
+  <img src="img/lentes.jpg" alt="Cómo se lee este boletín: tres lentes no colapsables — MEEE-G, ADD y Sistemas-Mundo." loading="lazy">
+  <figcaption>Tres lentes no colapsables: evaluación epistémica (MEEE-G), lectura dinámica (ADD) y estructura de largo plazo (Sistemas-Mundo).</figcaption>
+</figure>
+
+<figure class="fig">
+  <img src="img/metodo.jpg" alt="Información con método en tiempos de ruido digital: el método ANCA-ADD frente al ruido digital." loading="lazy">
+  <figcaption>El método ANCA-ADD frente al ruido digital — publicación reflexiva, archivo documental y normativa que resiste contrastación.</figcaption>
+</figure>
+
+<!-- 01. ORMUZ -->
+<article id="n1">
+  <div class="art-head">
+    <span class="art-num">01</span>
+    <span class="cat geo">Política y geopolítica</span>
+  </div>
+  <h3 class="head">Ormuz otra vez: el alto el fuego que no fue</h3>
+  <p class="dek">El acuerdo interino de junio se rompió; volvieron los ataques a buques, la respuesta militar estadounidense y el bloqueo. El crudo lo sintió de inmediato.</p>
+
+  <figure class="fig">
+    <img src="img/ormuz.jpg" alt="Ormuz otra vez: el alto el fuego que no fue. Mapa del estrecho con ondas de choque y análisis ADD de régimen turbulento." loading="lazy">
+    <figcaption>Lectura ADD: régimen turbulento sin bifurcación resuelta — el estrecho como parámetro de control del sistema.</figcaption>
+  </figure>
+
+  <div class="sub">Hechos verificados</div>
+  <p class="lead">El frágil cese al fuego entre Estados Unidos e Irán —el memorando de entendimiento de mediados de junio, pensado para abrir 60 días de negociación— se dio por colapsado esta semana. Tres buques comerciales fueron atacados al transitar el estrecho de Hormuz: el M/T Al Rekayyat (bandera de Islas Marshall), el M/T Wedyan (Arabia Saudita) y el M/T Cyprus Prosperity (Liberia); Estados Unidos y sus aliados del Golfo atribuyeron los ataques a Irán.</p>
+  <p>El 9 de julio, el Comando Central estadounidense (CENTCOM) lanzó su mayor operación desde la tregua: cerca de 90 objetivos militares y logísticos golpeados —incluido, por primera vez desde el cese al fuego, el puerto de Chabahar, la única salida oceánica de Irán fuera del Golfo Pérsico, y una instalación aeroespacial de la Guardia Revolucionaria en Bushehr. Irán respondió con misiles y drones hacia bases estadounidenses en Kuwait y Baréin; un bombero murió en el aeropuerto de Iranshahr.</p>
+  <p>El 14 de julio, Washington restableció el bloqueo naval sobre Irán y revirtió el levantamiento de sanciones al petróleo iraní que formaba parte del acuerdo. Trump, desde la cumbre de la OTAN en Turquía, declaró el cese «terminado» y calificó de «pérdida de tiempo» negociar con Teherán.</p>
+  <p>La traducción económica fue directa: el Brent superó los US$85 y el crudo llegó a tocar los US$87, con la gasolina y el diésel rebotando aún más rápido; los precios, aun así, siguen por debajo de los máximos de guerra que rozaron los US$120. Por Hormuz pasaba, antes del conflicto, cerca del 20 % del petróleo y del GNL del mundo. Dato de matiz: Trump se retiró de imponer un cargo del 20 % sobre los cargamentos que cruzan el estrecho.</p>
+
+  <div class="sub">Contexto</div>
+  <p>Este es el mismo hilo que el boletín viene rastreando desde marzo: la guerra iniciada el 28 de febrero de 2026, la intermitencia de Ormuz, el memorando del 17 de junio y el «respiro del crudo» que analizamos en la N.° 012. La reapertura resultó ser una tregua táctica, no una resolución. El patrón —cierre, negociación, reapertura parcial, nuevo cierre— se ha repetido lo suficiente como para constituir, él mismo, el fenómeno a analizar.</p>
+
+  <div class="sub">Análisis epistémico · MEEE-G</div>
+  <table class="meee">
+    <tr><th>Afirmación</th><th>Código</th><th>Fundamento</th></tr>
+    <tr><td>El cese al fuego interino colapsó y EE. UU. restableció el bloqueo (14 jul).</td><td class="code dc">[DC]</td><td>Reportes convergentes de Bloomberg, CNBC, AP; declaraciones oficiales de CENTCOM.</td></tr>
+    <tr><td>Los ataques a los tres buques fueron ejecutados por Irán.</td><td class="code ip">[IP]</td><td>Atribución de EE. UU. y aliados del Golfo; parte interesada. Sin verificación independiente al cierre.</td></tr>
+    <tr><td>El repunte del crudo (Brent &gt;US$85) responde a la reescalada.</td><td class="code dc">[DC]</td><td>Correlación temporal directa y consenso de analistas de mercado (Lloyd's List, Medlock).</td></tr>
+    <tr><td>El conflicto deriva hacia una guerra regional ampliada.</td><td class="code h">[H]</td><td>Escenario abierto; los golpes descritos como «muy focalizados» acotan, por ahora, la escalada.</td></tr>
+  </table>
+
+  <div class="add">
+    <div class="lbl">Lectura dinámica · ADD</div>
+    <div class="regime"><span>Régimen: <b>turbulento oscilante, sin bifurcación resuelta</b></span><span>Parámetro de control: <b>transitabilidad efectiva del estrecho</b></span></div>
+    <p>El sistema no está ni en régimen laminar (la reproducción estable de la ruta comercial) ni en bifurcación plena (una guerra regional irreversible): está atrapado en un régimen turbulento oscilante, un atractor que reorganiza el mismo estado una y otra vez sin resolverlo. El estrecho funciona como el parámetro de control del sistema —en el sentido estricto de la ADD: la variable cuyo cruce de umbral reorganiza todo lo demás. Cada cierre eleva la fluctuación (el «risk premium» que los mercados incorporan); cada reapertura la amortigua parcialmente. Lo relevante es que la amplitud de la oscilación no decrece: el sistema no se está estabilizando, está aprendiendo a vivir en la turbulencia.</p>
+    <p>Aquí la clausura operacional de cada actor determina su respuesta más que la perturbación externa: Irán procesa el bloqueo según su propia organización (soberanía sobre el estrecho como identidad no negociable), y EE. UU. procesa el ataque a buques según la suya (libertad de navegación como axioma). Ninguno «reacciona» al otro; cada uno responde a la perturbación según lo que su organización interna define como amenaza. Por eso la negociación fracasa: no comparten qué cuenta como perturbación.</p>
+  </div>
+
+  <div class="ws">
+    <div class="lbl">◆ Sistemas-Mundo · Wallerstein / Arrighi</div>
+    <p>Ormuz es un gradiente energético-material del sistema-mundo: por él fluye la energía fósil que sostiene la producción del núcleo y de las semiperiferias industriales asiáticas. Quien controla el cuello de botella controla un punto de disipación crítico de toda la economía-mundo. En clave de Arrighi, la incapacidad de EE. UU. para cerrar el conflicto —para imponer un orden estable en una vía que históricamente garantizaba con su poder naval— es un síntoma de la turbulencia terminal del ciclo hegemónico: el hegemón todavía puede destruir, pero ya no puede ordenar. Que Irán sea hoy miembro pleno de los BRICS+ (nota 02) inscribe este choque en una disputa estructural más amplia que la bilateral.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">★ Relevancia para Costa Rica</div>
+    <p><b class="tag">[IP]</b> Costa Rica importa la totalidad de sus combustibles: es un nodo terminal de esa cadena. El repunte del Brent se traslada, con rezago de semanas, al precio de RECOPE y a la estructura de costos de todo el país —transporte, electricidad térmica de respaldo, fertilizantes. La vulnerabilidad es directa y sin amortiguadores propios.</p>
+    <p><b class="tag">[Int]</b> La lección de resiliencia no es coyuntural sino estructural: la única palanca real que el país tiene ante la turbulencia de Ormuz es reducir su exposición al gradiente —electrificación del transporte, diversificación de proveedores, reservas estratégicas. La dependencia se gestiona, no se elimina, pero la magnitud de la exposición sí es una decisión de política.</p>
+  </div>
+
+  <div class="scen">
+    <div class="lbl">Escenarios plausibles</div>
+    <span class="pill a"><b>Nueva tregua táctica</b> Presión de mercados y aliados del Golfo fuerza otro cese frágil; el crudo cede parcialmente y el ciclo se reinicia.</span>
+    <span class="pill b"><b>Turbulencia crónica</b> La oscilación cierre-reapertura se institucionaliza como estado normal; prima de riesgo permanente sobre la energía global.</span>
+    <span class="pill c"><b>Escalada regional</b> Un golpe a infraestructura energética o civil rompe el umbral y arrastra a otros actores del Golfo; bifurcación hacia guerra ampliada.</span>
+  </div>
+</article>
+
+<!-- 02. DÓLAR / BRICS -->
+<article id="n2">
+  <div class="art-head">
+    <span class="art-num">02</span>
+    <span class="cat geo">Política y geopolítica · Estructural</span>
+  </div>
+  <h3 class="head">El reajuste multipolar y la lenta erosión del dólar</h3>
+  <p class="dek">India preside los BRICS+ en 2026 y empuja una «desdolarización 2.0» que avanza en la infraestructura de pagos mucho más que en la retórica de una moneda común. No es el fin del dólar: es el otoño de un ciclo.</p>
+
+  <figure class="fig">
+    <img src="img/brics-dolar.jpg" alt="El reajuste multipolar y la lenta erosión del dólar: mapa de actores EE. UU., China, India y Rusia/Irán." loading="lazy">
+    <figcaption>Mapa de actores e incentivos: EE. UU. defiende el privilegio exorbitante; China lidera de facto la infraestructura alternativa.</figcaption>
+  </figure>
+
+  <div class="sub">Hechos verificados</div>
+  <p class="lead">Cada pocas semanas un titular anuncia el fin del dólar; cada pocas semanas el dólar sigue liquidando cerca del 90 % del comercio mundial y representando entre el 58 % y el 60 % de las reservas de los bancos centrales, según el FMI. Su cuota en reservas declina de forma modesta y sostenida desde hace una década, pero la participación perdida se repartió entre varias monedas, no se concentró en una rival. Entre esos dos hechos —la retórica del colapso inminente y la persistencia terca de la moneda— vive el fenómeno real, que no es un evento sino un proceso.</p>
+  <p>Bajo presidencia india y el lema «Building Resilience and Innovation for Cooperation and Sustainability», los BRICS+ preparan su 18.ª cumbre en Nueva Delhi (prevista hacia setiembre de 2026). El bloque ampliado —que ya incluye a Irán, Egipto, Etiopía, Emiratos e Indonesia— representa más del 40 % de la población mundial y más del 25 % del PIB global, superando al G7 en paridad de poder adquisitivo. Su agenda de «desdolarización» se movió de la retórica a la infraestructura: BRICS Pay como alternativa descentralizada a SWIFT (enlaza el SPFS ruso, el CIPS chino y el UPI indio); la plataforma mBridge de monedas digitales de banco central, que hacia noviembre de 2025 había procesado transacciones por US$55.490 millones; y «la Unit», un token de liquidación piloteado el 31 de octubre de 2025, respaldado 40 % en oro y 60 % en una canasta de divisas del bloque. Dato de matiz decisivo: la idea de una moneda común BRICS fue explícitamente archivada; el propio canciller indio Jaishankar afirmó que «no hay política de nuestra parte para reemplazar el dólar».</p>
+
+  <div class="sub">Contexto</div>
+  <p>La reacción del núcleo es coercitiva: Trump reiteró en junio de 2026 su amenaza de imponer aranceles del 100 % a cualquier país BRICS que respalde una moneda alternativa al «poderoso dólar», trazando la desdolarización como línea roja. Frente a ello, el Atlantic Council sostiene que el dólar está «seguro en el corto y mediano plazo», y el Stimson Center concluye que la presión arancelaria acelera la cohesión defensiva del bloque, pero que este sigue demasiado dividido internamente para operar como actor geopolítico unificado al modo de la OTAN o el G7. La razón de fondo es técnica: la fuerza de una moneda de reserva no depende solo del tamaño económico, sino de mercados financieros profundos, certeza jurídica, estabilidad política y aceptación global —requisitos que ninguna rival reúne hoy. Que Irán, hoy miembro pleno del bloque, sea el mismo actor del choque de Ormuz (nota 01) inscribe esa crisis en esta disputa estructural más amplia. Es un reajuste, no una ruptura.</p>
+
+  <div class="sub">Mapa de actores e incentivos</div>
+  <table class="meee">
+    <tr><th>Actor</th><th>Postura e incentivo</th></tr>
+    <tr><td>Estados Unidos</td><td>Defiende el «privilegio exorbitante»: deuda barata, poder sancionatorio, influencia sistémica. Incentivo: preservar el monopolio; el arancel como disuasión.</td></tr>
+    <tr><td>China</td><td>Lidera de facto la desdolarización; el renminbi domina el comercio intra-bloque. Incentivo: internacionalizar el yuan, blindarse ante sanciones.</td></tr>
+    <tr><td>India (presidencia 2026)</td><td>Empuja la infraestructura pero frena la ambición monetaria. Incentivo: autonomía sin ruptura; limitar el dominio chino interno.</td></tr>
+    <tr><td>Rusia / Irán (sancionados)</td><td>Necesitan evadir el sistema financiero occidental. Incentivo: supervivencia; la desdolarización es existencial, no táctica.</td></tr>
+  </table>
+
+  <div class="sub">Análisis epistémico · MEEE-G</div>
+  <table class="meee">
+    <tr><th>Afirmación</th><th>Código</th><th>Fundamento</th></tr>
+    <tr><td>El dólar es ~58 % de las reservas y ~90 % de las transacciones.</td><td class="code dc">[DC]</td><td>Datos del FMI, convergentes en múltiples fuentes institucionales.</td></tr>
+    <tr><td>La infraestructura de pagos alternativa a SWIFT avanza operativamente.</td><td class="code dc">[DC]</td><td>Cifras verificables de mBridge, BRICS Pay y el piloto de la Unit.</td></tr>
+    <tr><td>La moneda común BRICS fue archivada.</td><td class="code dc">[DC]</td><td>Declaración expresa de la cancillería india; consenso de analistas.</td></tr>
+    <tr><td>El dólar enfrenta una erosión estructural de largo plazo.</td><td class="code ip">[IP]</td><td>Tendencia declinante modesta y sostenida; sin rival capaz de sustituirlo a corto plazo.</td></tr>
+    <tr><td>La presión arancelaria acelera la cohesión del bloque.</td><td class="code ip">[IP]</td><td>Tesis del Stimson Center; plausible, pero el efecto neto es disputado.</td></tr>
+    <tr><td>Los BRICS constituyen un bloque geopolítico unificado.</td><td class="code int">[Int]</td><td>Hay coordinación funcional, no unidad estratégica (India limita a China).</td></tr>
+    <tr><td>Estamos ante una transición hegemónica en curso.</td><td class="code h">[H]</td><td>Hipótesis estructural (Arrighi); coherente con la evidencia, no verificable en tiempo real.</td></tr>
+    <tr><td>El multipolarismo ampliará el margen de las periferias.</td><td class="code c">[C]</td><td>Conjetura normativa (voz de Dussel); posible pero sin evidencia concluyente.</td></tr>
+  </table>
+
+  <div class="add">
+    <div class="lbl">Lectura dinámica · ADD</div>
+    <div class="regime"><span>Régimen: <b>laminar en el centro, turbulencia creciente en los bordes</b></span><span>Parámetro de control: <b>credibilidad del dólar como refugio</b></span></div>
+    <p>El sistema monetario internacional opera hoy en un régimen laminar con turbulencia creciente en los bordes: el centro (el dólar como atractor dominante) reproduce su estabilidad, mientras las fluctuaciones en la periferia —pagos alternativos, oro, monedas locales— aumentan en frecuencia y amplitud. Hoy hay un atractor único y se está construyendo la posibilidad, no la realidad, de un segundo. Un sistema con dos atractores puede oscilar entre ellos o bifurcarse; uno con un solo atractor, no.</p>
+    <p>Los BRICS+ no tienen clausura organizacional fuerte: son un campo semi-autónomo (Moore) —generan reglas propias pero permeables a fuerzas externas y a sus tensiones internas. Su acoplamiento es reactivo: la cohesión no emerge de una identidad compartida sino de una perturbación común (la sanción, el arancel, la «arma-dolarización» que denuncia Putin). Por eso avanzan donde pueden coordinarse sin consenso profundo —la fontanería técnica de los pagos— y se estancan donde haría falta clausura simbólica compartida, como una moneda. El parámetro de control no es el tamaño de los BRICS, sino la credibilidad del dólar como refugio, que depende menos de sus rivales que de las propias decisiones estadounidenses. La paradoja dinámica: el hegemón erosiona su propia clausura al defenderla con instrumentos coercitivos.</p>
+  </div>
+
+  <div class="ws">
+    <div class="lbl">◆ Sistemas-Mundo · el ciclo hegemónico de Arrighi</div>
+    <p>El marco decisivo es Giovanni Arrighi. Cada hegemonía —genovesa, holandesa, británica, estadounidense— atraviesa «ciclos sistémicos de acumulación» que terminan en una fase de financiarización: el «otoño» del ciclo, cuando el hegemón, perdiendo su ventaja productiva, se repliega hacia el dominio financiero. El dólar como dinero mundial es la infraestructura financiera de la hegemonía estadounidense; su erosión no es un accidente, sino el síntoma esperable de la fase tardía.</p>
+    <p>Siguiendo a Braudel, Arrighi distingue entre crisis-señal (el primer aviso de que el ciclo se agota, seguido de un otoño financiero que puede durar décadas) y crisis terminal (el relevo efectivo del hegemón). La desdolarización actual pertenece a la primera, no a la segunda. La lección es de escala temporal: la libra esterlina siguió siendo central décadas después de que el poder productivo migrara a EE. UU.; el dólar no la desplazó hasta bien entrado el siglo XX, tras dos guerras mundiales. La arquitectura del sucesor se construye durante el otoño del hegemón, no después de su caída —y eso es lo que mBridge, la Unit y BRICS Pay están haciendo. En clave de Wallerstein: la semiperiferia ascendente (China) tensando el instrumento con que el núcleo administra la economía-mundo.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">★ Relevancia para Costa Rica</div>
+    <p><b class="tag">[Int]</b> Costa Rica es una economía bimonetaria de facto: su comercio, buena parte de su deuda y sus reservas están dolarizados, y su modelo exportador —zonas francas, servicios, dispositivos médicos— está enchufado a cadenas denominadas en dólares y ancladas en el mercado estadounidense. Un mundo de pagos fragmentado es, a corto plazo, más riesgo que oportunidad: encarece operar entre esferas y expone la dependencia de un solo enchufe.</p>
+    <p><b class="tag">[IP]</b> El país mantiene un alineamiento estratégico con el núcleo estadounidense, pero tiene desde 2011 un tratado de libre comercio con China y una relación comercial creciente con Asia. Esa doble inserción —socio de EE. UU., socio comercial de China— es exactamente la posición que un orden multipolar vuelve incómoda: obliga a navegar entre órdenes en tensión sin un solo referente. <b class="tag">[C]</b> En voz de Dussel: un orden menos monopolar podría, en principio, ampliar el margen de las periferias con una sola puerta; pero aprovecharlo exige una institucionalidad capaz de navegar la pluralidad, no quedar sin brújula cuando el mapa cambia.</p>
+  </div>
+
+  <div class="scen">
+    <div class="lbl">Escenarios plausibles</div>
+    <span class="pill a"><b>Multipolaridad de fontanería</b> Sistemas de pago paralelos que conviven con el dólar sin desplazarlo. Señal: crece el volumen en mBridge/BRICS Pay sin caída de la cuota del dólar.</span>
+    <span class="pill b"><b>Fragmentación en bloques</b> La coerción arancelaria endurece las líneas; el comercio se reorganiza en esferas. Señal: aranceles del 100 % efectivamente aplicados.</span>
+    <span class="pill c"><b>Reflujo</b> Las divisiones India-China frenan la integración; los BRICS quedan como foro simbólico. Señal: la Unit se estanca; India prioriza el Quad.</span>
+  </div>
+</article>
+
+<!-- 04. HEINEKEN / RAINFOREST -->
+<article id="n4">
+  <div class="art-head">
+    <span class="art-num">04</span>
+    <span class="cat eco">Economía y negocios</span>
+  </div>
+  <h3 class="head">Heineken compra la marca del agua: ¿cambia algo en la gobernanza del recurso?</h3>
+  <p class="dek">Una compra de marca, un inmueble excluido y un bien que, por ley, nunca estuvo en venta. Qué se afecta —y qué no— cuando el agua es de todos pero la marca cambia de dueño.</p>
+
+  <figure class="fig">
+    <img src="img/heineken.jpg" alt="Heineken compra RainForest: el agua y el punto ciego institucional entre Coprocom y la Dirección de Agua del MINAE." loading="lazy">
+    <figcaption>El punto ciego institucional: Coprocom revisa el mercado, el MINAE revisa el agua — dos clausuras no acopladas.</figcaption>
+  </figure>
+
+  <div class="sub">Hechos verificados</div>
+  <p class="lead">El 13 de julio de 2026, la Comisión para Promover la Competencia (Coprocom) notificó el proceso de concentración por el cual Distribuidora La Florida S.A. —la entidad legal de Heineken Costa Rica— someterá a aprobación la compra de RainForest Water RFW S.A. RainForest Water es una empresa de capital costarricense fundada en 2015, embotelladora de agua artesiana ubicada en La Esperanza de Sarapiquí (Heredia), cerca del manantial que abastece su fuente. La operación excluye propiedades inmobiliarias y está sujeta a las autorizaciones regulatorias habituales.</p>
+  <p>Sería la primera adquisición de una marca propia de Heineken en suelo costarricense. RainForest se distingue por su modelo de sostenibilidad: envases de aluminio reciclable, operación con energía renovable, e iniciativas de reforestación y conservación. Su fundador y CEO, Ariel Aizenman, enmarcó la venta como el «reconocimiento internacional a una marca país». El movimiento llega semanas después de que Coprocom aprobara la megaoperación por la cual Heineken adquirió el negocio de bebidas, alimentos y venta al detalle de FIFCO —una transacción cercana a los US$3.250 millones que integró Imperial, Pilsen, Bavaria, Musmanni y más de 50 marcas bajo el nuevo nombre «HEINEKEN Costa Rica». Esa megaoperación disparó la inversión extranjera directa a un nivel histórico: US$4.584,8 millones en el primer trimestre de 2026 (frente a US$682 millones un año antes), con la sola adquisición de FIFCO equivaliendo a cerca del 2,9 % del PIB.</p>
+
+  <div class="sub">Lo que la ley ya decidió · el agua nunca se vendió</div>
+  <p>El punto de partida reordena toda la pregunta: en Costa Rica el agua no se compra ni se vende. La Ley de Aguas (N.° 276) y la Ley Orgánica del Ambiente establecen que las aguas —superficiales y subterráneas— son un bien de dominio público: propiedad nacional, inapropiable por particulares. Lo que un privado puede tener no es el agua, sino una concesión de aprovechamiento: una autorización administrativa —otorgada y fiscalizada por la Dirección de Agua del MINAE— para usar un volumen definido a cambio de un canon. RainForest, por tanto, nunca fue «dueña» del manantial; y Heineken, jurídicamente, no puede estar comprando el agua: compra una marca y una operación.</p>
+
+  <div class="sub">Las tres piezas jurídicas que deciden el caso</div>
+  <ol class="facts">
+    <li><strong>La concesión está atada al inmueble.</strong> Para una naciente o manantial, la Dirección de Agua exige «Certificación Literal de Propiedad del terreno en que se aprovechará el agua». La concesión no flota libre: está anclada a la propiedad donde se capta.</li>
+    <li><strong>La operación excluye los inmuebles.</strong> Heineken declaró que el acuerdo «no incluye propiedades inmobiliarias». Si el manantial está en un inmueble excluido, la concesión —atada a ese inmueble— no se transfiere automáticamente con la marca.</li>
+    <li><strong>La causal de «traspaso a extranjeros» apunta a Estados, no a empresas.</strong> El artículo 26.IV de la Ley de Aguas fija como causal de caducidad el traspaso de una concesión «a favor de Gobiernos o Estados extranjeros». Heineken es una multinacional privada, no el Estado neerlandés: la causal no se activa.</li>
+  </ol>
+
+  <div class="sub">Análisis epistémico · MEEE-G</div>
+  <table class="meee">
+    <tr><th>Afirmación</th><th>Código</th><th>Fundamento</th></tr>
+    <tr><td>El proceso de concentración fue notificado a Coprocom (13 jul).</td><td class="code dc">[DC]</td><td>Notificación oficial reportada por La Nación, El Financiero, Vida y Éxito.</td></tr>
+    <tr><td>El agua es bien de dominio público; no se compra ni se vende.</td><td class="code dc">[DC]</td><td>Ley de Aguas N.° 276; Ley Orgánica del Ambiente.</td></tr>
+    <tr><td>La concesión está atada al inmueble de captación.</td><td class="code dc">[DC]</td><td>Requisitos de la Dirección de Agua (certificación de propiedad).</td></tr>
+    <tr><td>Al excluir inmuebles, la concesión no se transfiere con la marca.</td><td class="code ip">[IP]</td><td>Se sigue de las piezas ① y ②; falta el detalle registral concreto de RainForest.</td></tr>
+    <tr><td>El traspaso a Heineken no activa la caducidad por control extranjero.</td><td class="code dc">[DC]</td><td>Art. 26.IV aplica a Estados extranjeros, no a empresas privadas.</td></tr>
+    <tr><td>RainForest posee una concesión vigente sobre su manantial.</td><td class="code h">[H]</td><td>Muy probable para una embotelladora comercial, pero no verificado en el registro al cierre.</td></tr>
+  </table>
+
+  <div class="sub">Qué pasa con la concesión · tres caminos</div>
+  <p>Si la concesión está atada a un inmueble que la venta excluye, la operación abre —no cierra— una pregunta sobre el agua. Hay tres desenlaces jurídicamente posibles: <b class="tag" style="color:var(--gold)">[H]</b></p>
+  <div class="scen">
+    <span class="pill a"><b>A · Acuerdo de suministro</b> El vendedor conserva inmueble y concesión, y suministra el agua por contrato. El control formal del recurso queda con quien tiene la tierra.</span>
+    <span class="pill b"><b>B · Nueva concesión</b> Heineken adquiere el inmueble o solicita concesión propia ante el MINAE. El recurso pasa a su control directo por trámite visible.</span>
+    <span class="pill c"><b>C · Caducidad por desuso</b> Si la fuente deja de aprovecharse tres años (Art. 26.I), la concesión caduca y el agua vuelve al dominio público.</span>
+  </div>
+
+  <div class="add">
+    <div class="lbl">Lectura dinámica · ADD — conversión de capital y el punto ciego</div>
+    <p>En clave de Bourdieu, la operación es una conversión de capital de manual: RainForest acumuló capital simbólico costarricense —origen, sostenibilidad, marca país— y ese capital simbólico es lo que Heineken compra, no la capacidad de embotellar (que ya tiene de sobra). La violencia simbólica opera silenciosa: la narrativa de «una marca tica que compite con las mejores del mundo» naturaliza como consagración lo que es, estructuralmente, una absorción por consentimiento —el mecanismo de colonización del mundo de la vida más eficiente, porque el habitus ya incorporó «reconocimiento internacional» como horizonte de éxito.</p>
+    <p>Pero el hallazgo central es de arquitectura institucional. La transacción la revisa la Coprocom, cuya clausura organizacional define la perturbación en términos de mercado (competencia, precio). El agua es competencia de la Dirección de Agua del MINAE, cuya lógica es la sostenibilidad del recurso. Son dos clausuras distintas y no acopladas: la que «ve» la compra no es la que gobierna el agua, y la que gobierna el agua puede no ver la compra. El resultado es un punto ciego: el control de facto sobre un bien de dominio público puede desplazarse a manos transnacionales por una operación mercantil que la autoridad del agua no está obligada a revisar. No es una violación de la ley: es un hueco entre dos clausuras institucionales.</p>
+  </div>
+
+  <div class="ws">
+    <div class="lbl">◆ Sistemas-Mundo · el canon barato y la renta que se fuga</div>
+    <p>El régimen costarricense de concesiones ha sido criticado por académicos de la UCR como facilitador del acaparamiento del agua (<em class="term">water grabbing</em>): el canon es de fracciones de colón por metro cúbico, y la normativa técnica llega a permitir concesionar hasta el 90 % del caudal medio de un río, dejando apenas un 10 % de «caudal ambiental». En ese contexto, una multinacional de alcance global que adquiere una operación de agua premium intensifica la lógica de fondo: se extrae un gradiente material —agua de un manantial tropical— pagando una fracción mínima por su uso, y se captura la renta de la marca en los mercados del núcleo. Ya no se exporta la materia prima bruta: se exporta la narrativa de origen adherida a ella, que vale más que el agua. La compra no crea esa asimetría —el canon barato ya existía—, pero la ancla a una cadena de valor transnacional que la vuelve más difícil de revertir.</p>
+  </div>
+
+  <p><strong>▸ Afectación jurídico-formal: mínima.</strong> <b class="tag">[IP]</b> El agua sigue siendo pública; la concesión (si existe) está atada al inmueble excluido, no a la marca; la causal de control extranjero apunta a Estados, no a empresas privadas; y la revisión de la compra es de competencia, no de agua. No hay ruptura legal de la gobernanza hídrica desencadenada por esta transacción.</p>
+  <p><strong>▸ Afectación de gobernanza real: sí, de un tipo sutil.</strong> <b class="tag">[Int]</b> El control efectivo sobre un bien público puede desplazarse a manos transnacionales por una operación que la autoridad del agua no revisa, dentro de un régimen de canon ya señalado por facilitar el acaparamiento, con la renta capturada afuera. No es una infracción: es un punto ciego institucional.</p>
+
+  <div class="cr">
+    <div class="lbl">★ Relevancia para Costa Rica</div>
+    <p><b class="tag">[Int]</b> Para discriminar entre «sin afectación» y «afectación real», conviene seguir tres señales: (i) si aparece en el registro de la Dirección de Agua una nueva concesión o un traspaso vinculado a la operación; (ii) si la resolución de la Coprocom incorpora consideraciones sobre el recurso hídrico o se limita a competencia; y (iii) si la gobernanza del manantial —el inmueble excluido— genera algún diferendo sobre acceso, caudal o protección de la cuenca. <b class="tag">[C]</b> En voz de Dussel: la pregunta ética no es si Heineken o el emprendedor obraron mal —cada uno actuó en su lógica—, sino si un país que se vende como «naturaleza» y «agua pura» tiene una arquitectura institucional que impida que el gobierno de su recurso más simbólico se decida, de hecho, en una mesa donde el agua no está sentada.</p>
+  </div>
+
+  <div class="scen">
+    <div class="lbl">Escenarios plausibles</div>
+    <span class="pill a"><b>Plataforma de crecimiento</b> Heineken escala RainForest a mercados globales bajo control externo; se formaliza una concesión visible ante el MINAE.</span>
+    <span class="pill b"><b>Absorción con punto ciego</b> La marca se integra al catálogo; el control del agua migra vía acuerdo de suministro sin registro en la autoridad hídrica.</span>
+    <span class="pill c"><b>Fricción por la fuente</b> La gobernanza del manantial excluido genera tensión regulatoria o comunitaria sobre el acceso al agua.</span>
+  </div>
+</article>
+
+<!-- 12. OCTAVA PROVINCIA -->
+<article id="n12">
+  <div class="art-head">
+    <span class="art-num">12</span>
+    <span class="cat nac">Sociedad · Costa Rica</span>
+  </div>
+  <h3 class="head">La octava provincia, deportada</h3>
+  <p class="dek">En los primeros siete meses de 2026, las deportaciones de costarricenses desde Estados Unidos ya superaron todo el segundo semestre anterior. Detrás de la cifra, una diáspora que administra el miedo.</p>
+
+  <figure class="fig">
+    <img src="img/octava-provincia.jpg" alt="La octava provincia, deportada. Mapa de la red entre Pérez Zeledón y el noreste de Estados Unidos." loading="lazy">
+    <figcaption>Colonización del mundo de la vida: la política migratoria del núcleo penetra la reproducción comunitaria de la diáspora tica.</figcaption>
+  </figure>
+
+  <div class="sub">Hechos verificados</div>
+  <p class="lead">Según la Dirección General de Migración y Extranjería (DGME), durante los primeros siete meses de 2026 el número de costarricenses deportados desde Estados Unidos ya superó la cantidad registrada en todo el segundo semestre del año anterior. Entre junio de 2025 y julio de 2026, 308 costarricenses regresaron al país bajo el programa ENV (Verificación Electrónica de Nacionalidad, vigente desde 2025), y 2026 concentra la mayor cantidad de deportaciones hasta el momento.</p>
+  <p>El director de la DGME, Omer Badilla, precisó un matiz epistémico importante: el programa ENV no incrementa el número de deportaciones, solo agiliza la identificación —sustituye el trámite documental por una verificación directa de nacionalidad, reduciendo el tiempo del proceso. Antes del retorno, Migración coordina la verificación de antecedentes judiciales y eventuales órdenes de captura. En paralelo, la operación distinta de recepción de deportados de terceras nacionalidades —bajo el memorando Chaves–Noem del 23 de marzo, hasta 25 personas semanales— sumaba 149 personas hacia principios de junio.</p>
+
+  <div class="sub">Contexto</div>
+  <p>Un editorial de La Nación del 13 de julio puso cifra al trasfondo: el Tribunal Supremo de Elecciones registra 43.686 electores costarricenses en Estados Unidos —la «octava provincia»—, cuatro de cada diez empadronados en Nueva York y Nueva Jersey. La migración de tres décadas partió de zonas como Pérez Zeledón y Los Santos, detonada por el deterioro del modelo agropecuario. El presente que retrata el reportaje: rifas comunitarias para costear el retorno de detenidos, grupos de WhatsApp que alertan de operativos, festivales de la diáspora suspendidos por riesgo migratorio. En palabras de una migrante con residencia regular, muchos viven «como si estuvieran en plena pandemia», gestionando el miedo a la redada en vez de construir futuro.</p>
+
+  <div class="sub">Análisis epistémico · MEEE-G</div>
+  <table class="meee">
+    <tr><th>Afirmación</th><th>Código</th><th>Fundamento</th></tr>
+    <tr><td>Las deportaciones de ticos en 2026 superan el semestre previo.</td><td class="code dc">[DC]</td><td>Estadísticas oficiales de la DGME reportadas por Diario Extra (15 jul).</td></tr>
+    <tr><td>El ENV agiliza pero no causa el aumento de deportaciones.</td><td class="code ip">[IP]</td><td>Afirmación del jerarca de la DGME; plausible por diseño del programa, pero es fuente interesada.</td></tr>
+    <tr><td>El aumento responde al endurecimiento migratorio estadounidense.</td><td class="code ip">[IP]</td><td>Convergencia entre el dato de retornos y el clima de operativos documentado por La Nación.</td></tr>
+    <tr><td>La migración irregular nace del colapso del modelo agropecuario.</td><td class="code int">[Int]</td><td>Interpretación histórico-estructural del reportaje; robusta pero no cuantificada.</td></tr>
+  </table>
+
+  <div class="add">
+    <div class="lbl">Lectura dinámica · ADD</div>
+    <div class="regime"><span>Régimen: <b>de laminar a turbulento</b></span><span>Parámetro de control: <b>política migratoria del núcleo</b></span></div>
+    <p>La diáspora costarricense en el noreste estadounidense es un campo semi-autónomo paradigmático: genera sus propias reglas internas —redes de reciprocidad, alertas de operativos, colectas— y es a la vez radicalmente permeable a una fuerza sistémica externa (el aparato migratorio estadounidense) que la penetra y la desborda. Lo que el reportaje documenta es el paso de un régimen laminar (la comunidad que se reúne a celebrar la Independencia, reproducción estable de la vida comunitaria) a un régimen turbulento (la comunidad que se organiza para pagar pasajes de deportación). El parámetro de control que cruzó el umbral es la política migratoria del núcleo; la respuesta —activación de capital social— es determinada por la organización interna de la comunidad, no por la perturbación.</p>
+    <p>En clave de Habermas, es colonización del mundo de la vida en estado puro: la lógica sistémica del poder estatal (la redada, la orden de captura, la verificación electrónica) penetra el dominio de la reproducción social de una comunidad y sustituye la construcción de futuro por la gestión del miedo. El ENV es, literalmente, la interfaz técnica de esa colonización: convierte la identidad —la nacionalidad— en un dato verificable en segundos para acelerar la expulsión. La disipación es real, en el sentido estricto de la ADD: sostener la organización comunitaria bajo esa presión tiene un costo, y el reportaje muestra a un sistema que empieza a no poder pagarlo (festivales que se suspenden, migrantes que ya no recomiendan «el sueño»).</p>
+  </div>
+
+  <div class="ws">
+    <div class="lbl">◆ Sistemas-Mundo</div>
+    <p>La «octava provincia» es la contracara humana de la posición semiperiférica de Costa Rica: la mano de obra que el deterioro del agro expulsó fluyó hacia el núcleo, sosteniendo con remesas la reproducción de las familias que quedaron. El endurecimiento migratorio revierte ese flujo y expone la asimetría estructural: la periferia envía trabajo cuando el núcleo lo necesita y lo recibe de vuelta cuando no. La coincidencia con la nota sobre deportados de terceros países revela el rol asignado: Costa Rica opera simultáneamente como origen de migrantes retornados y como plataforma de deportación de terceros —dos funciones de nodo dentro de la arquitectura migratoria que el núcleo administra.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">★ Relevancia para Costa Rica</div>
+    <p><b class="tag">[Int]</b> El editorial de La Nación señala la debilidad de fondo: la migración se ha dejado como «asunto de suerte individual y colecta comunitaria» en lugar de convertirse en política de Estado. La capacidad de transformación del país está en tratar a la diáspora como parte constitutiva de la nación —consular, económica, políticamente— y no como un dato electoral lejano.</p>
+    <p><b class="tag">[C]</b> En voz de Dussel, el sujeto de esta nota es el excluido por partida doble: expulsado del modelo agropecuario en origen y perseguido como irregular en destino. La pregunta normativa —no predictiva— es qué debe una nación a quienes se fueron porque el modelo interno no los sostuvo.</p>
+  </div>
+
+  <div class="scen">
+    <div class="lbl">Escenarios plausibles</div>
+    <span class="pill a"><b>Política de diáspora</b> El país articula servicios consulares, reinserción y vínculo económico; convierte el retorno forzado en reintegración ordenada.</span>
+    <span class="pill b"><b>Gestión reactiva</b> El Estado administra los retornos caso a caso sin marco integral; la comunidad sigue supliendo con redes informales.</span>
+    <span class="pill c"><b>Presión sostenida</b> El endurecimiento continúa; aumentan retornos y caen remesas, con impacto en las zonas rurales de origen.</span>
+  </div>
+</article>
+
+<!-- 08. GRAN MORTANDAD -->
+<article id="n8">
+  <div class="art-head">
+    <span class="art-num">08</span>
+    <span class="cat sci">Ciencia · Paleobiología y clima</span>
+  </div>
+  <h3 class="head">La Gran Mortandad, confirmada: el océano que no pudo respirar</h3>
+  <p class="dek">Un estudio de Stanford cierra el debate sobre por qué murió el 96 % de la vida marina hace 252 millones de años —y por qué las condiciones que lo causaron se parecen incómodamente a las de hoy.</p>
+
+  <figure class="fig">
+    <img src="img/gran-mortandad.jpg" alt="La Gran Mortandad: el océano que no pudo respirar. Ilustración del gradiente termodinámico oxígeno/calor entre el Pérmico próspero y la extinción." loading="lazy">
+    <figcaption>El gradiente termodinámico oxígeno/calor: la fauna paleozoica no pudo pagar el costo energético que el calentamiento le impuso.</figcaption>
+  </figure>
+
+  <div class="sub">Hechos verificados</div>
+  <p class="lead">Un equipo liderado por Stanford publicó el 6 de julio de 2026 en PNAS (Marquez et al.) lo que su autor senior, Erik Sperling, describe como «el clavo final en el ataúd» del misterio de la extinción del Pérmico-Triásico. Hace unos 252 millones de años, la «Gran Mortandad» eliminó cerca del 96 % de las especies marinas y el 70 % de las terrestres. El disparador ya se conocía: el vulcanismo de las Traps siberianas inundó la atmósfera de gases de efecto invernadero y calentó el planeta. Lo que faltaba explicar era la selectividad: por qué unos grupos murieron y otros sobrevivieron.</p>
+  <p>La respuesta es fisiológica. Al calentarse, el océano retiene menos oxígeno; y los animales de la «fauna paleozoica» —braquiópodos, crinoideos («lirios de mar»), organismos lentos de metabolismo bajo— vieron cómo su demanda de oxígeno crecía con el calor más rápido de lo que sus cuerpos podían satisfacerla. La «fauna moderna» —almejas, caracoles, peces, erizos, de metabolismo más veloz— toleró mejor el doble golpe de calor y desoxigenación, sobrevivió y domina los mares desde entonces. Los investigadores midieron el metabolismo de braquiópodos vivos para llenar el vacío de datos que un estudio previo de 2018 (Science) había dejado. La conclusión inquietante: la temperatura subió entonces 8–12 °C en miles de años; hoy se proyectan 1,5–4 °C en apenas 100–200 años. «Vamos camino a niveles de calentamiento del Pérmico-Triásico en los peores escenarios», advierte Sperling —«pero todavía estamos a tiempo de hacer algo».</p>
+
+  <div class="sub">Contexto</div>
+  <p>Cada concha de almeja en la playa es, literalmente, el residuo de aquella selección: los grupos comunes hoy lo son porque sus ancestros sobrevivieron una crisis que destruyó a sus rivales. El estudio no solo explica el pasado; ofrece un modelo de cómo la vida marina actual respondería a un océano más cálido y con menos oxígeno.</p>
+
+  <div class="sub">Análisis epistémico · MEEE-G</div>
+  <table class="meee">
+    <tr><th>Afirmación</th><th>Código</th><th>Fundamento</th></tr>
+    <tr><td>Calentamiento + desoxigenación causaron la selectividad de la extinción.</td><td class="code dc">[DC]</td><td>Estudio revisado por pares en PNAS; datos fisiológicos nuevos sobre fauna paleozoica.</td></tr>
+    <tr><td>Las Traps siberianas fueron el disparador último.</td><td class="code dc">[DC]</td><td>Consenso geoquímico consolidado, previo a este estudio.</td></tr>
+    <tr><td>Las condiciones actuales podrían «repetir la historia».</td><td class="code ip">[IP]</td><td>Analogía fisiológica fundada, pero la escala temporal actual difiere en órdenes de magnitud; proyección de peor escenario.</td></tr>
+    <tr><td>«El clavo final en el ataúd» del debate.</td><td class="code int">[Int]</td><td>Valoración del propio autor; robusta pero es una interpretación sobre el cierre de un debate científico.</td></tr>
+  </table>
+
+  <div class="add">
+    <div class="lbl">Lectura dinámica · ADD</div>
+    <div class="regime"><span>Régimen: <b>bifurcación literal, no analógica</b></span><span>Analogía: <b>literal (nivel fisiológico-disipativo)</b></span><span>Parámetro de control: <b>tolerancia fisiológica al gradiente térmico-oxigénico</b></span></div>
+    <p>La extinción es el caso límite de una bifurcación en el sentido estricto de Prigogine, y aquí el parámetro de control está perfectamente identificado —requisito que la ADD exige antes de usar el término—: la tolerancia fisiológica al gradiente térmico-oxigénico. Cruzado el umbral, el sistema (la biosfera marina) se reorganizó en un estado radicalmente nuevo e irreversible: la fauna moderna no «ganó» por superioridad, sino porque su organización interna —su metabolismo— procesaba la perturbación sin desbordarse. Es la ilustración más nítida del principio disipativo de la ADD: la identidad de un sistema vivo se sostiene mientras pueda pagar su costo energético; cuando el ambiente eleva ese costo por encima de lo que el metabolismo puede aportar, la clausura organizacional colapsa. No es metáfora: es la termodinámica del oxígeno operando como selector.</p>
+  </div>
+
+  <div class="ws">
+    <div class="lbl">◆ Sistemas-Mundo</div>
+    <p>La ciencia que produce este hallazgo es también un mapa de poder: financiada por la NSF, la NASA y fundaciones del núcleo, ejecutada en instituciones del núcleo, con muestras recolectadas globalmente. El conocimiento sobre la vulnerabilidad climática planetaria —un bien público global— se produce y se posee de forma asimétrica. La advertencia de Sperling es universal, pero la capacidad de usarla —de investigar, modelar y adaptarse— está distribuida según la misma geografía núcleo-periferia que el resto de la economía-mundo. La periferia tropical, que aporta buena parte de la biodiversidad marina en riesgo, es la que menos capacidad tiene de estudiar su propia exposición.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">★ Relevancia para Costa Rica</div>
+    <p><b class="tag">[IP]</b> Costa Rica es un país de dos océanos con economías costeras —pesca, turismo, biodiversidad marina— directamente expuestas al calentamiento y la desoxigenación oceánica. El estudio no es una curiosidad paleontológica: es un modelo predictivo de qué grupos costeros son más vulnerables (los de metabolismo lento y baja tolerancia), información relevante para la gestión de arrecifes y manglares del Pacífico y el Caribe.</p>
+    <p><b class="tag">[Int]</b> La resiliencia posible pasa por la capacidad científica nacional (UCR, CIMAR) de monitorear localmente lo que el modelo global anticipa. Aquí se enlaza con el dilema recurrente del boletín: si el país invierte en su institucionalidad de conocimiento, puede leer su propia vulnerabilidad; si la recorta, queda dependiendo de la ciencia del núcleo para entender su propio mar.</p>
+  </div>
+
+  <div class="scen">
+    <div class="lbl">Escenarios plausibles</div>
+    <span class="pill a"><b>Ventana de acción</b> El hallazgo refuerza la urgencia de mitigación; se traduce en gestión marina basada en tolerancia fisiológica.</span>
+    <span class="pill b"><b>Consolidación científica</b> El estudio cierra el debate académico pero tiene bajo impacto en política; queda como referencia técnica.</span>
+    <span class="pill c"><b>Analogía tensionada</b> Investigaciones posteriores matizan la comparación con el presente por la diferencia de escalas temporales.</span>
+  </div>
+</article>
+
+<!-- 07. IA + AGUA -->
+<article id="n7">
+  <div class="art-head">
+    <span class="art-num">07</span>
+    <span class="cat sci">Ciencia · Física de la materia + IA</span>
+  </div>
+  <h3 class="head">La IA descifra la doble personalidad del agua</h3>
+  <p class="dek">Un modelo de aprendizaje automático de la Universidad de Osaka ordenó por fin 16 formas rivales de describir el agua supercongelada —y ayudó a distinguir sus dos estados líquidos ocultos.</p>
+
+  <figure class="fig">
+    <img src="img/ia-agua.jpg" alt="La IA y el agua supercongelada: computando el sustrato físico. Red neuronal y estructura molecular del agua." loading="lazy">
+    <figcaption>Información como sustrato físico: la red neuronal computa sobre el agua, y ese cómputo tiene un costo termodinámico real (Landauer).</figcaption>
+  </figure>
+
+  <div class="sub">Hechos verificados</div>
+  <p class="lead">Investigadores de la Universidad de Osaka publicaron el 6 de julio de 2026 en Communications Chemistry (Yoshikawa, Shikata et al.) un marco basado en una red neuronal que evalúa y compara 16 «descriptores estructurales» —herramientas matemáticas desarrolladas de forma independiente durante tres décadas para medir el orden molecular del agua. El modelo, entrenado con simulaciones, identifica cuáles distinguen mejor los dos estados líquidos rivales del agua: uno de alta densidad (HDL) y otro de baja densidad (LDL). La IA logra, de hecho, predecir la temperatura a partir de la configuración molecular.</p>
+  <p>El problema que resuelve es real: el agua es anómala —se expande al congelarse, alcanza su densidad máxima a 4 °C— y esas rarezas se explican por transiciones entre esas dos estructuras locales, especialmente en estado supercongelado (líquida por debajo de su punto de congelación, en ausencia de sitios de nucleación). Pero faltaba un esquema sistemático para comparar las decenas de formas de describir esos cambios. El trabajo se enlaza con evidencia molecular reciente (Nature Physics, junio de 2026) a favor del modelo de dos estados y de una hipotética transición líquido-líquido.</p>
+
+  <div class="sub">Contexto</div>
+  <p>La nota tiene un doble filo que interesa a la ADD: es ciencia básica sobre la sustancia más común y peor entendida del planeta, y es un caso de tecnología —la IA— usada no para automatizar, sino para ordenar el conocimiento existente: no descubre el fenómeno, arbitra entre las descripciones humanas rivales de él.</p>
+
+  <div class="sub">Análisis epistémico · MEEE-G</div>
+  <table class="meee">
+    <tr><th>Afirmación</th><th>Código</th><th>Fundamento</th></tr>
+    <tr><td>La red neuronal evalúa y jerarquiza los 16 descriptores estructurales.</td><td class="code dc">[DC]</td><td>Estudio revisado por pares en Communications Chemistry.</td></tr>
+    <tr><td>El agua supercongelada alterna entre estados HDL y LDL.</td><td class="code ip">[IP]</td><td>Modelo de dos estados, con evidencia de simulación creciente; aún debatido en su versión fuerte (transición líquido-líquido).</td></tr>
+    <tr><td>La IA «descubrió» un secreto del agua.</td><td class="code int">[Int]</td><td>Titular divulgativo; con rigor, la IA arbitra descripciones, no revela una entidad nueva.</td></tr>
+    <tr><td>El segundo punto crítico del agua existe.</td><td class="code h">[H]</td><td>Hipótesis teórica de larga data, aún sin confirmación experimental directa.</td></tr>
+  </table>
+
+  <div class="add">
+    <div class="lbl">Lectura dinámica · ADD</div>
+    <p>Este hallazgo toca el fundamento mismo del programa ADD. El agua supercongelada es un sistema que puede reorganizarse en dos estructuras según su parámetro de control (temperatura, presión): una bifurcación en el sentido literal, físico del término —la clase de fenómeno del que Prigogine extrajo el concepto que la ADD luego traslada, con analogía declarada, al mundo sociocultural. Ver la bifurcación operando en su registro originario es un recordatorio metodológico: cuando la ADD habla de «bifurcación» en una comunidad, hace una analogía fuerte, no una descripción literal como esta.</p>
+    <p>Hay un segundo nivel, más profundo, en clave del estatuto informacional de la ADD: el estudio es un caso de procesamiento de información con costo disipativo (Landauer). La red neuronal no adivina; computa —y ese cómputo tiene un costo energético físico real. La IA aquí es un sistema disipativo que procesa información sobre otro sistema disipativo (el agua). El nivel 1 del esquema ADD —la información como sustrato relacional común a lo físico y lo cognitivo— se vuelve tangible: reducir la incertidumbre sobre la estructura del agua es, literalmente, trabajo termodinámico.</p>
+  </div>
+
+  <div class="pull">Reducir la incertidumbre sobre la estructura del agua es, literalmente, trabajo termodinámico: la IA no adivina, computa —y ese cómputo tiene un costo energético real.</div>
+
+  <div class="ws">
+    <div class="lbl">◆ Sistemas-Mundo</div>
+    <p>La IA aplicada a la ciencia básica reconfigura la geografía de la producción de conocimiento: quien controla la capacidad de cómputo controla la velocidad a la que puede ordenar y arbitrar el conocimiento acumulado. Es un nuevo gradiente —el computacional— que se superpone a los existentes. Japón, potencia del núcleo con capacidad de cómputo propia, ordena en un paper lo que tres décadas de trabajo humano disperso no habían podido sistematizar. La ventaja no está solo en descubrir, sino en organizar más rápido: una forma de acumulación cognitiva que profundiza la asimetría con las periferias que carecen de esa infraestructura.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">★ Relevancia para Costa Rica</div>
+    <p><b class="tag">[C]</b> El agua no es un tema neutro para Costa Rica: la nota 04 mostró una marca de agua cambiando de dueño; esta muestra la frontera del conocimiento sobre la sustancia. La conjetura útil es que la comprensión fina del comportamiento del agua —nucleación, estados, congelación— tiene aplicaciones en conservación, criopreservación de biodiversidad y gestión hídrica, campos donde el país tiene activos naturales pero capacidad computacional limitada.</p>
+    <p><b class="tag">[Int]</b> La oportunidad realista no es competir en cómputo de frontera —eso es capacidad de núcleo— sino articularse con esas redes desde el conocimiento aplicado. El riesgo estructural, otra vez, es quedar como proveedor de un recurso (agua, biodiversidad) cuyo conocimiento profundo se produce afuera.</p>
+  </div>
+
+  <div class="scen">
+    <div class="lbl">Escenarios plausibles</div>
+    <span class="pill a"><b>Estándar de campo</b> El marco de Osaka se adopta como método común; acelera el estudio del agua y de otros líquidos anómalos.</span>
+    <span class="pill b"><b>Herramienta de nicho</b> Útil para especialistas pero de adopción lenta; el debate sobre los dos estados sigue abierto.</span>
+    <span class="pill c"><b>Confirmación experimental</b> La evidencia converge hacia la transición líquido-líquido y el segundo punto crítico; giro conceptual mayor.</span>
+  </div>
+</article>
+
+<!-- SÍNTESIS -->
+<section class="synth" id="sintesis">
+  <h2>Síntesis de la semana</h2>
+  <figure class="fig">
+    <img src="img/sintesis.jpg" alt="Síntesis semanal: el patrón oculto. Costa Rica como nodo semiperiférico entre Ormuz, RainForest, el océano y la diáspora." loading="lazy">
+    <figcaption>El patrón oculto: Costa Rica como nodo semiperiférico acoplado — provee sustrato material, el núcleo concentra la capacidad de ordenar, capturar o comprender su valor.</figcaption>
+  </figure>
+  <p>Tres de las seis notas comparten, sin proponérselo, un mismo elemento: el agua. El estrecho por el que fluye la energía (01), el manantial que cambia de dueño (04) y el océano que dejó de respirar hace 252 millones de años y el líquido que la IA apenas empieza a entender (08, 07). Es coincidencia temática, no causal —pero permite ver una constante estructural: en cada caso, un recurso o sustancia crítica es también un gradiente disipativo disputado, y en cada caso la periferia costarricense aparece como nodo expuesto que provee sustrato material (combustible que importa, agua que exporta como marca, biodiversidad marina en riesgo) mientras la capacidad de ordenar, capturar o comprender ese valor se concentra en el núcleo.</p>
+  <p>La diáspora deportada (12) cierra el cuadro por el lado humano: el mismo país que provee agua y biodiversidad provee también mano de obra al núcleo, y la recibe de vuelta cuando el núcleo endurece sus fronteras. Ninguna de estas dinámicas es determinista. Pero vistas juntas, dibujan la posición de Costa Rica como lo que la ADD llama un nodo semiperiférico acoplado: no víctima pasiva ni agente autónomo, sino sistema que procesa perturbaciones globales según una organización interna cuya robustez —institucional, científica, política— es, ella misma, la variable decisiva.</p>
+  <table>
+    <tr><th>Tema</th><th>Epistémico (MEEE-G)</th><th>Dinámica (ADD)</th><th>Sistemas-Mundo</th></tr>
+    <tr><td>Ormuz</td><td>Colapso del cese [DC]; ataque atribuido a Irán [IP]; guerra ampliada [H]</td><td>Turbulencia oscilante sin bifurcación resuelta</td><td>Cuello de botella energético; turbulencia terminal del ciclo hegemónico</td></tr>
+    <tr><td>Dólar / BRICS+</td><td>Dólar ~58 % de reservas [DC]; moneda común archivada [DC]; transición hegemónica [H]</td><td>Laminar en el centro, turbulencia creciente en los bordes</td><td>Otoño del ciclo hegemónico (Arrighi); crisis-señal, no terminal</td></tr>
+    <tr><td>Heineken / RainForest</td><td>Notificación a Coprocom [DC]; agua es dominio público [DC]; concesión no se transfiere [IP]</td><td>Punto ciego entre dos clausuras institucionales no acopladas</td><td>Canon barato; captura de renta simbólica en el núcleo</td></tr>
+    <tr><td>Octava provincia</td><td>Deportaciones superan semestre previo [DC]; ENV no causa el aumento [IP]</td><td>De régimen laminar a turbulento; colonización del mundo de la vida</td><td>Semiperiferia que envía y recibe mano de obra según el ciclo del núcleo</td></tr>
+    <tr><td>Gran Mortandad</td><td>Calor + desoxigenación causaron la selectividad [DC]; «repetir la historia» [IP]</td><td>Bifurcación literal: tolerancia fisiológica como parámetro de control</td><td>Conocimiento climático producido y poseído de forma asimétrica</td></tr>
+    <tr><td>IA y el agua</td><td>Red jerarquiza 16 descriptores [DC]; dos estados HDL/LDL [IP]; 2.º punto crítico [H]</td><td>Bifurcación física literal; cómputo como trabajo disipativo (Landauer)</td><td>Nuevo gradiente computacional que profundiza la asimetría núcleo-periferia</td></tr>
+  </table>
+</section>
+
+<!-- INCERTIDUMBRES -->
+<section class="uncert">
+  <h2>Incertidumbres abiertas</h2>
+  <figure class="fig">
+    <img src="img/incertidumbres.jpg" alt="Incertidumbres abiertas y bifurcaciones futuras del Boletín N.° 013." loading="lazy">
+    <figcaption>Bifurcaciones futuras: las seis preguntas que esta edición deja abiertas para el próximo cierre.</figcaption>
+  </figure>
+  <ul>
+    <li>¿Se estabilizará la oscilación de Ormuz en un nuevo equilibrio o cada ciclo aumentará su amplitud hasta la bifurcación? [H]</li>
+    <li>¿La infraestructura de pagos BRICS alcanzará masa crítica antes de que las divisiones internas la frenen? [H]</li>
+    <li>¿Qué ocurrirá con la gobernanza del manantial de Sarapiquí, excluido de la venta de la marca? [H]</li>
+    <li>¿Convertirá Costa Rica el retorno migratorio en política de Estado o seguirá siendo gestión comunitaria del miedo? [Int]</li>
+    <li>¿Resistirá la analogía Pérmico-presente el escrutinio, dada la diferencia de órdenes de magnitud en la escala temporal? [H]</li>
+    <li>¿El caso SpudCell (seguimiento de la N.° 012) recibirá validación por pares? Hilo aún abierto, sin novedad epistémica esta semana. [H]</li>
+  </ul>
+</section>
+
+<!-- FUENTES -->
+<section class="refs">
+  <h2>Fuentes · APA 7</h2>
+  <figure class="fig">
+    <img src="img/referencias.jpg" alt="Fuentes y evidencia documental del Boletín Semanal N.° 013 ANCA-ADD." loading="lazy">
+    <figcaption>Fuentes consultadas — bibliografía APA 7 del Boletín Semanal N.° 013.</figcaption>
+  </figure>
+  <ol>
+    <li>Atlantic Council. (2026). <em>Dollar dominance monitor</em>. https://www.atlanticcouncil.org/programs/geoeconomics-center/dollar-dominance-monitor/</li>
+    <li>CNBC. (2026, 14 de julio). <em>U.S. targets military assets in latest round of strikes against Iran</em>. https://www.cnbc.com/</li>
+    <li>Diario Extra. (2026, 15 de julio). <em>Crecen deportaciones de ticos desde Estados Unidos</em>. https://www.diarioextra.com/</li>
+    <li>Gulf News. (2026, 9 de julio). <em>US–Iran war escalates: ceasefire collapses, Gulf shipping and oil markets at risk</em>. https://gulfnews.com/</li>
+    <li>La Nación. (2026, 30 de junio). <em>Compra de Heineken de negocios de Fifco dispara inversión extranjera a niveles récord</em>. https://www.nacion.com/</li>
+    <li>La Nación. (2026, 13 de julio). <em>Editorial: Más de 43.000 ticos en EE. UU.: la cara oculta de la "octava provincia"</em>. https://www.nacion.com/</li>
+    <li>Lagerkranser, P. (2026, 14 de julio). <em>Collapse of US-Iran peace deal shakes global fuel markets</em>. Bloomberg. https://www.bloomberg.com/</li>
+    <li>Marquez, J. A., Sperling, E., Payne, J., et al. (2026). <em>Differences in physiological tolerance to global warming caused the Permian-Triassic transition between the Paleozoic and Modern faunas</em>. Proceedings of the National Academy of Sciences, 123(28). https://doi.org/10.1073/pnas.2533086123</li>
+    <li>Ortega Campos, G. (2026, 13 de julio). <em>Heineken Costa Rica inicia proceso para comprar la empresa Rainforest Water</em>. La Nación. https://www.nacion.com/</li>
+    <li>Revista Summa. (2026, 14 de julio). <em>Marca costarricense RainForest Water anuncia acuerdo para su adquisición por parte de Heineken Costa Rica</em>. https://revistasumma.com/</li>
+    <li>Rio Times. (2026). <em>BRICS 2026: complete guide</em>. https://www.riotimesonline.com/</li>
+    <li>Sánchez, S. (2026, 4 de junio). <em>Costa Rica alcanza la cifra 149 migrantes deportados por Estados Unidos tras la llegada del séptimo grupo</em>. La Nación. https://www.nacion.com/</li>
+    <li>Stanford Report. (2026, julio). <em>Researchers confirm cause of Earth's biggest mass extinction</em>. https://news.stanford.edu/</li>
+    <li>The Business Standard. (2026, 26 de enero). <em>BRICS 2026: implications for a multipolar world</em>. https://www.tbsnews.net/</li>
+    <li>Yoshikawa, K., Shikata, K., et al. (2026). <em>Machine learning evaluation of structural descriptors for supercooled water</em>. Communications Chemistry. https://doi.org/10.1038/s42004-026-02097-1</li>
+    <li>Marco teórico: Arrighi, G. (1994). <em>The Long Twentieth Century</em>. Verso; Wallerstein, I. (2004). <em>World-Systems Analysis</em>. Duke UP.</li>
+    <li>Asamblea Legislativa. <em>Ley de Aguas N.° 276</em> (arts. 1, 3, 26). · MINAE, Dirección de Agua. <em>Canon por aprovechamiento de aguas</em> (Decreto N.° 32868). · UCR, Voz Experta. (2026, marzo). <em>Las concesiones y el acaparamiento del agua en Costa Rica</em>.</li>
+  </ol>
+</section>
+
+<!-- MÉTODO -->
+<div class="method">
+  <p><b>Nota metodológica.</b> El presente boletín combina evaluación epistémica explicacionista basada en la Matriz Explicacionista de Evaluación Epistémica (MEEE-G), fundamentada en la epistemología fiabilista de Alvin I. Goldman, con el análisis dinámico de la Antropología Dinámica del Devenir (ADD) de Alfredo Montero Fonseca, y una capa estructural de análisis de sistemas-mundo (Wallerstein/Arrighi). Los tres registros son no colapsables: cada uno describe una dimensión distinta del fenómeno. Toda afirmación está clasificada por su estatus epistémico —<b>[DC]</b> dato confirmado, <b>[IP]</b> inferencia plausible, <b>[H]</b> hipótesis, <b>[Int]</b> interpretación, <b>[C]</b> conjetura. <b>El análisis no constituye predicción determinista ni recomendación política.</b> Las inferencias e interpretaciones representan el mejor juicio analítico disponible al cierre de la edición.</p>
+</div>
+
+</main>
+
+<footer>
+  <div>ANCA-ADD © 2026 · <a href="https://antropos-amf.github.io/anca-ade.github.io/" style="color:var(--teal);text-decoration:none;">antropos.app</a></div>
+  <div>Boletín Semanal N.° 013 · edición completa · 8–15 jul 2026 · MEEE-G + ADD + Sistemas-Mundo</div>
+</footer>
+
+</body>
+</html>

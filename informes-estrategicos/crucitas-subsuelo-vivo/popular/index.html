@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANCA-ADD para Todos · El oro y lo invisible · Crucitas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Caveat:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f4ecd9; --paper2:#ede1c8; --card:#fbf6ea;
+    --ink:#3a2e22; --ink2:#5b4a38; --muted:#8c7a64;
+    --terra:#bb5630; --terra-dim:#8f3f22; --terra-bg:rgba(187,86,48,.09);
+    --olive:#5c7a3f; --olive-bg:rgba(92,122,63,.10);
+    --sun:#d99a2b; --sun-bg:rgba(217,154,43,.12);
+    --teal:#3d8a82; --teal-bg:rgba(61,138,130,.10);
+    --line:#d8c7a4; --line-dark:#c2ad84;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:'Lora',Georgia,serif;font-size:19px;line-height:1.62;
+    background-image:
+      radial-gradient(circle at 15% 8%, rgba(217,154,43,.05), transparent 40%),
+      radial-gradient(circle at 90% 70%, rgba(92,122,63,.05), transparent 45%);
+  }
+  ::selection{background:var(--sun-bg);color:var(--ink)}
+
+  .ribbon{background:var(--olive);color:var(--paper);text-align:center;padding:9px 14px;
+    font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.04em}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(244,236,217,.94);
+    backdrop-filter:blur(6px);border-bottom:2px solid var(--line-dark);
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.04em}
+  nav .wrap{max-width:760px;margin:0 auto;padding:10px 22px;display:flex;flex-wrap:wrap;gap:5px 16px;align-items:center}
+  nav a{color:var(--ink2);text-decoration:none;text-transform:uppercase;transition:color .2s}
+  nav a:hover{color:var(--terra)}
+  nav .brand{color:var(--ink);font-weight:600;margin-right:auto;text-transform:none;font-size:12px}
+
+  main{max-width:760px;margin:0 auto;padding:0 22px 90px}
+
+  header.mast{padding:46px 0 26px;text-align:center;border-bottom:3px double var(--line-dark);margin-bottom:10px}
+  .stamp{display:inline-block;font-family:'Caveat',cursive;font-size:21px;color:var(--olive);transform:rotate(-2deg);margin-bottom:6px}
+  h1.title{font-family:'Fraunces',serif;font-weight:800;font-size:clamp(38px,8vw,62px);line-height:1.04;margin:6px 0 8px;color:var(--ink)}
+  h1.title span{color:var(--terra)}
+  .subtitle{font-family:'Lora',serif;font-style:italic;font-size:clamp(17px,2.6vw,21px);color:var(--ink2);margin:0 auto;max-width:540px}
+  .mast-meta{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--muted);margin-top:18px;display:flex;flex-wrap:wrap;justify-content:center;gap:5px 20px}
+
+  .letter{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:26px 28px;margin:26px 0 8px;position:relative}
+  .letter:before{content:"";position:absolute;top:0;left:24px;right:24px;height:3px;background:repeating-linear-gradient(90deg,var(--olive) 0 8px, transparent 8px 16px)}
+  .letter p{margin:0 0 13px;font-size:18.5px;color:var(--ink2)}
+  .letter p:last-child{margin-bottom:0}
+  .letter .big-q{font-family:'Fraunces',serif;font-weight:700;font-style:italic;font-size:22px;color:var(--terra-dim);
+    border-left:3px solid var(--sun);padding-left:16px;margin:16px 0}
+  .letter .firma{font-family:'Caveat',cursive;font-size:24px;color:var(--olive);margin-top:4px}
+
+  section.block{padding:48px 0 8px;border-bottom:2px dashed var(--line-dark)}
+  .icon-wrap{width:56px;height:56px;margin:0 auto 14px;color:var(--terra)}
+  .icon-wrap svg{width:100%;height:100%}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--olive);text-align:center;margin-bottom:8px}
+  h2.q{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(24px,4.4vw,33px);line-height:1.15;text-align:center;margin:0 0 6px;color:var(--ink)}
+  .q-tag{font-family:'Caveat',cursive;font-size:19px;color:var(--terra);text-align:center;display:block;margin-bottom:24px}
+
+  h3.subh{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:26px 0 9px;padding-bottom:5px;border-bottom:1px solid var(--line)}
+  p{margin:0 0 14px}
+  p.lead{font-size:20.5px;color:var(--ink)}
+  em.term{font-style:italic;color:var(--terra-dim);font-weight:600}
+  strong.k{color:var(--ink);font-weight:600}
+
+  ul.clean{list-style:none;padding:0;margin:6px 0 14px}
+  ul.clean li{padding:10px 0 10px 28px;position:relative;color:var(--ink2);border-bottom:1px solid var(--line)}
+  ul.clean li:last-child{border-bottom:none}
+  ul.clean li:before{content:"▸";position:absolute;left:0;top:10px;color:var(--olive)}
+
+  .therm{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:16px 20px;margin:18px 0}
+  .therm .t-title{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  .t-row{display:flex;gap:10px;align-items:flex-start;padding:7px 0;font-size:16.5px;color:var(--ink2)}
+  .t-row .dot{flex:0 0 22px;font-size:18px;line-height:1.4}
+  .t-row b{color:var(--ink);font-weight:600}
+
+  .dyn{background:var(--teal-bg);border:1px solid var(--teal);border-left:4px solid var(--teal);padding:18px 22px;margin:18px 0;border-radius:4px}
+  .dyn .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:8px}
+  .dyn p{margin:0 0 8px;font-size:18.5px;color:var(--ink)} .dyn p:last-child{margin-bottom:0}
+
+  .world{background:var(--sun-bg);border:1px solid var(--sun);border-left:4px solid var(--sun);padding:18px 22px;margin:18px 0;border-radius:4px}
+  .world .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#9c6f1c;margin-bottom:8px}
+  .world p{margin:0 0 8px;font-size:18.5px;color:var(--ink)} .world p:last-child{margin-bottom:0}
+
+  .cr{background:var(--olive-bg);border:1px solid var(--olive);border-radius:4px;padding:18px 22px;margin:18px 0}
+  .cr .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--olive);margin-bottom:8px}
+  .cr p{margin:0 0 8px;font-size:18.5px;color:var(--ink)} .cr p:last-child{margin-bottom:0}
+
+  /* three narratives */
+  .narr{border:1px solid var(--line);background:var(--card);border-radius:4px;padding:16px 20px;margin:11px 0;border-left:4px solid var(--muted)}
+  .narr.a{border-left-color:var(--sun)} .narr.b{border-left-color:var(--olive)} .narr.c{border-left-color:var(--terra)}
+  .narr h4{font-family:'Fraunces',serif;font-weight:700;font-size:19px;margin:0 0 6px;color:var(--ink)}
+  .narr p{margin:0;font-size:17px;color:var(--ink2)}
+  .narr .who{font-family:'Caveat',cursive;font-size:17px;color:var(--terra-dim);display:block;margin-top:6px}
+
+  /* big comparison: gold vs network */
+  .versus{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0}
+  .vcol{border-radius:4px;padding:16px 18px;border:1px solid var(--line)}
+  .vcol.gold{background:var(--sun-bg);border-color:var(--sun)}
+  .vcol.net{background:var(--olive-bg);border-color:var(--olive)}
+  .vcol h4{font-family:'Fraunces',serif;font-weight:800;font-size:18px;margin:0 0 10px;display:flex;align-items:center;gap:8px}
+  .vcol.gold h4{color:#9c6f1c} .vcol.net h4{color:var(--olive)}
+  .vcol ul{list-style:none;padding:0;margin:0}
+  .vcol li{padding:7px 0;font-size:16px;color:var(--ink2);border-bottom:1px dotted var(--line-dark)}
+  .vcol li:last-child{border-bottom:none}
+  .vcol li b{color:var(--ink)}
+  @media(max-width:560px){.versus{grid-template-columns:1fr}}
+
+  .keypoint{background:#fff;border:2px solid var(--terra);border-radius:4px;padding:18px 22px;margin:20px 0;text-align:center}
+  .keypoint p{margin:0;font-family:'Fraunces',serif;font-weight:600;font-size:20px;color:var(--terra-dim);line-height:1.4}
+
+  /* policy options as cards */
+  .opt{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--olive);border-radius:4px;padding:15px 19px;margin:11px 0}
+  .opt h4{font-family:'Fraunces',serif;font-weight:700;font-size:18px;margin:0 0 5px;color:var(--ink)}
+  .opt p{margin:0;font-size:16.5px;color:var(--ink2)}
+  .opt .step{font-family:'Caveat',cursive;font-size:17px;color:var(--olive);display:block;margin-bottom:2px}
+
+  .roads{margin:20px 0 4px}
+  .roads .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  .road{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid var(--line)}
+  .road:last-child{border-bottom:none}
+  .road .arrow{font-family:'Fraunces',serif;font-weight:700;color:var(--terra);font-size:18px;flex:0 0 22px}
+  .road p{margin:0;font-size:17.5px;color:var(--ink2)}
+
+  .gloss{display:inline-block;background:var(--sun-bg);border:1px solid var(--sun);border-radius:3px;padding:1px 7px;font-size:.92em}
+
+  section.open{padding:36px 0 10px}
+  section.open h2{font-family:'Fraunces',serif;font-weight:800;font-size:30px;color:var(--ink);text-align:center;margin:0 0 8px}
+  section.open .sub{display:block;text-align:center;font-family:'Lora',serif;font-style:italic;color:var(--ink2);margin-bottom:24px;font-size:17px}
+  .open-list{list-style:none;padding:0;margin:0}
+  .open-list li{padding:13px 0 13px 32px;border-bottom:1px solid var(--line);position:relative;color:var(--ink2);font-size:18.5px}
+  .open-list li:before{content:"❓";position:absolute;left:0;top:12px;font-size:15px}
+
+  .closing{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:24px 26px;margin:14px 0 30px}
+  .closing p{font-size:16.5px;line-height:1.7;color:var(--ink2);margin:0 0 10px}
+  .closing p:last-child{margin-bottom:0}
+  .closing b{color:var(--olive)}
+
+  footer{border-top:3px double var(--line-dark);padding:26px 22px;max-width:760px;margin:0 auto;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted)}
+  footer a{color:var(--olive);text-decoration:none}
+  footer .ft-stamp{font-family:'Caveat',cursive;font-size:18px;color:var(--terra);display:block;margin-bottom:8px}
+
+  @media(max-width:600px){ body{font-size:18px} .t-row{font-size:15.5px} }
+
+  /* SITE NAV */
+  .sitenav{background:#2a2118;border-bottom:1px solid var(--line-dark);padding:0 22px;
+    display:flex;align-items:center;gap:18px;height:32px}
+  .sitenav a{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;
+    text-transform:uppercase;color:#bba98a;text-decoration:none}
+  .sitenav a:hover{color:var(--sun)}
+  .sitenav .sep{color:#4a4030}
+
+  /* SWITCH BANNER */
+  .switch{background:var(--card);border-bottom:2px solid var(--line-dark);text-align:center;
+    padding:10px 16px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink2);letter-spacing:.02em}
+  .switch a{color:var(--terra-dim);text-decoration:underline}
+
+  /* VIDEO */
+  .video-wrapper{background:#1a1410;padding:1.2rem 1.2rem 0;border-radius:4px;margin:24px 0 8px}
+  .video-wrapper .ratio{position:relative;width:100%;padding-top:56.25%}
+  .video-wrapper iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
+  .video-actions{background:#1a1410;padding:0.9rem 1.2rem 1.2rem;text-align:center;border-radius:0 0 4px 4px}
+  .video-actions a{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--paper);background:var(--terra);padding:7px 16px;
+    text-decoration:none;display:inline-block}
+  .video-actions a:hover{background:var(--terra-dim)}
+</style>
+</head>
+<body>
+
+<div class="sitenav">
+  <a href="https://antropos.app/">← antropos.app</a>
+  <span class="sep">|</span>
+  <a href="https://antropos.app/informes-estrategicos/">Informes Estratégicos</a>
+</div>
+
+<div class="ribbon">Anexo especial para todo público · acompaña la noticia de los hongos del Boletín N.° 010 · 19 de junio de 2026</div>
+<div class="switch">¿Prefiere el análisis técnico completo? <a href="../">Lea el informe técnico: El subsuelo vivo frente al oro →</a></div>
+<div class="switch">¿Prefiere leerlo en papel? <a href="crucitas-subsuelo-vivo-popular-imprimible.pdf" target="_blank">Descargue la versión imprimible (PDF) →</a></div>
+
+<nav><div class="wrap">
+  <span class="brand">ANCA-ADD para Todos · Anexo</span>
+  <a href="https://antropos.app/">Inicio</a>
+  <a href="https://antropos.app/informes-estrategicos/">Informes</a>
+  <a href="#i">Los hongos</a>
+  <a href="#ii">El suelo</a>
+  <a href="#iii">Costa Rica</a>
+  <a href="#iv">Crucitas</a>
+  <a href="#v">La pregunta</a>
+  <a href="#vi">Qué hacer</a>
+</div></nav>
+
+<main id="top">
+
+<header class="mast">
+  <span class="stamp">— acompaña la noticia 4 del Boletín para Todos —</span>
+  <h1 class="title">EL ORO<br>Y <span>LO INVISIBLE</span></h1>
+  <p class="subtitle">La red de hongos bajo nuestros pies, el oro de Crucitas, y una pregunta sencilla pero enorme sobre qué tipo de riqueza queremos para Costa Rica</p>
+  <div class="mast-meta">
+    <span>Anexo del N.° 010 · Popular</span>
+    <span>·</span>
+    <span>San José, Costa Rica</span>
+  </div>
+</header>
+
+<div class="letter">
+  <p>Estimado lector, estimada lectora:</p>
+  <p>En el boletín de esta semana le contamos, en pocas líneas, que unos científicos hicieron el primer mapa de los hongos que viven bajo la tierra. Y le contamos también que la presidenta fue a Crucitas a empujar un proyecto para sacar oro de esa zona. Dos noticias que parecían no tener nada que ver.</p>
+  <p>Pero resulta que tienen todo que ver, porque caen sobre el mismo pedazo de tierra. Y un lector nos hizo, sobre eso, una de las mejores preguntas que hemos recibido:</p>
+  <p class="big-q">¿Cuánto valor, cuánto desarrollo y cuánta seguridad nos da esa red de hongos, comparada con la riqueza de sacar oro?</p>
+  <p>No le vamos a dar una respuesta de una sola cifra, porque sería mentirle: son cosas que ni siquiera se miden con la misma vara. Pero sí vamos a desarmar la pregunta despacio, en sus pedazos, para que cada quien la pese con su propio criterio. Empecemos por lo más sencillo: qué es esa red invisible y por qué importa.</p>
+  <p class="firma">— El equipo de ANCA-ADD</p>
+</div>
+
+<div class="video-wrapper">
+  <div class="ratio">
+    <iframe
+      src="https://www.youtube-nocookie.com/embed/ZYAeE5PQKQo"
+      title="El Oro y Lo Invisible — video explicativo"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+      loading="lazy">
+    </iframe>
+  </div>
+</div>
+<div class="video-actions">
+  <a href="https://youtu.be/ZYAeE5PQKQo" target="_blank" rel="noopener">Ver video en YouTube →</a>
+</div>
+
+<!-- I -->
+<section class="block" id="i">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M32 28c-9 0-16-5-16-11s7-11 16-11 16 5 16 11-7 11-16 11z"/>
+    <path d="M32 28v14"/><path d="M22 42c0 6 4 10 10 10s10-4 10-10"/>
+    <path d="M16 44c-3 2-4 6-2 9M48 44c3 2 4 6 2 9M32 52v6"/>
+  </svg></div>
+  <div class="eyebrow">Parte 1 · La ciencia, sin enredos</div>
+  <h2 class="q">¿Qué es esa red invisible que tenemos bajo los pies?</h2>
+  <span class="q-tag">una sociedad antiquísima entre las plantas y unos hongos que casi nadie ve</span>
+
+  <p class="lead">Debajo de casi cualquier potrero, cafetal o bosque hay unos hongos de hilos finísimos —tan finos que no los vemos— que se enredan con las raíces de las plantas. Se llaman hongos <span class="gloss">micorrízicos</span>: «mico» de hongo, «rizo» de raíz. Hongo-de-raíz, pues.</p>
+  <p>Lo que hacen es un trueque viejo como la vida misma: la planta les da azúcar (que ella fabricó con la luz del sol), y el hongo le devuelve agua y alimento —sobre todo fósforo— que va a buscar a rincones del suelo donde la raíz, sola, jamás llegaría. Es como si cada planta contratara a un repartidor que le trae el mandado de lejos, a cambio de comida.</p>
+
+  <p>Hasta ahora nadie había medido qué tan grande es esa red en todo el planeta. Esta semana lo hicieron, y los números cuesta creerlos:</p>
+  <ul class="clean">
+    <li>Si se estiraran todos esos hilos en una sola hebra, daría para ir al Sol y volver <strong class="k">casi mil veces</strong>.</li>
+    <li>Esa red ayuda a guardar bajo tierra, cada año, una cantidad de carbono parecida al <strong class="k">11 % de todo lo que la humanidad echa al aire</strong>.</li>
+    <li>En suelos sanos, alarga el alcance de las raíces hasta <strong class="k">cien veces</strong> y les lleva la mayor parte del alimento.</li>
+    <li>Donde la agricultura es muy intensiva, esta red está hasta un <strong class="k">50 % más débil</strong>. La forma en que usamos la tierra la desgasta.</li>
+  </ul>
+</section>
+
+<!-- II -->
+<section class="block" id="ii">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M8 40h48M8 48h48M8 56h48"/><path d="M20 40c0-8 5-14 12-14s12 6 12 14"/>
+    <path d="M32 26v-8M32 18l-5 4M32 18l5 4"/>
+  </svg></div>
+  <div class="eyebrow">Parte 2 · Por qué cambia las cosas</div>
+  <h2 class="q">¿Por qué un mapa de hongos le importa a un gobierno?</h2>
+  <span class="q-tag">porque el suelo deja de ser «el piso donde sembramos» y pasa a ser un tesoro vivo</span>
+
+  <p class="lead">Durante muchísimo tiempo tratamos el suelo como si fuera solo el escenario donde ocurren las cosas: el piso. Este mapa nos obliga a verlo distinto. El suelo es algo <em class="term">vivo</em>, que nos presta servicios que se pueden medir: nos da fertilidad, guarda agua, aguanta carbono, ayuda a que los cultivos resistan la sequía, y evita que la tierra se lave con las lluvias.</p>
+
+  <div class="dyn">
+    <div class="lbl">Para entenderlo con una imagen</div>
+    <p>Piense en el suelo como en una despensa viva, o una alcancía a la que se le saca y se le devuelve. Mientras se le reponga lo que se le toma —se le devuelvan nutrientes, materia orgánica, descanso—, la despensa sigue surtida y da de comer año tras año. Pero si solo se le saca y nunca se le repone, un día se vacía. Y aquí está lo importante: cuando la fertilidad se acaba, no es un accidente, es que la despensa quedó sin existencias. Los hongos son, justamente, parte de quienes mantienen esa despensa surtida sin que los veamos: van a buscar el alimento lejos y se lo traen a la planta.</p>
+  </div>
+</section>
+
+<!-- III -->
+<section class="block" id="iii">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M32 12c-7 0-12 5-12 12 0 9 12 26 12 26s12-17 12-26c0-7-5-12-12-12z"/>
+    <circle cx="32" cy="24" r="5"/>
+  </svg></div>
+  <div class="eyebrow">Parte 3 · Lo nuestro</div>
+  <h2 class="q">¿Y qué tiene que ver todo esto con Costa Rica?</h2>
+  <span class="q-tag">mucho más de lo que parece: toca el café, el cacao, los bosques y hasta la fama del país</span>
+
+  <p class="lead">Costa Rica vendió al mundo una idea: que aquí se cuida la naturaleza. El ecoturismo, el pago por cuidar los bosques, el café y el cacao de buena calidad. Esa fama es, en sí misma, una fuente de plata: atrae turistas, abre mercados, da prestigio. Y resulta que estos hongos invisibles son una parte escondida de esa fortaleza. Pero ojo: limitarnos a hablar del café y el cacao —que se venden afuera— sería quedarnos cortos. Lo que está en juego es más hondo y más cercano.</p>
+  <ul class="clean">
+    <li><strong class="k">La comida de cada día, no solo la de exportación.</strong> Estos hongos ayudan a producir frijoles, maíz, yuca, plátano, hortalizas y tubérculos —lo que se siembra para comer aquí y se vende en la feria del agricultor. Un suelo vivo es, en el fondo, un tema de <em class="term">soberanía y seguridad alimentaria</em>: la capacidad del país de alimentarse a sí mismo sin depender enteramente de lo que llega de afuera. Y eso es resiliencia: si suben los precios mundiales o se cierra una frontera, un suelo sano es un colchón que nos protege.</li>
+    <li><strong class="k">El café y el cacao.</strong> Se ha visto que cuando se cultivan con métodos más naturales, estos hongos son más abundantes —y eso significa plantas más sanas y más resistentes. Para nuestros cultivos de exportación, cuidar los hongos es cuidar la cosecha.</li>
+    <li><strong class="k">Los bosques y el pago por cuidarlos.</strong> Costa Rica fue pionera en el mundo al ponerle precio a servicios que antes no se veían, como guardar agua o capturar carbono. El carbono del suelo es, lógicamente, el siguiente paso de esa misma idea.</li>
+    <li><strong class="k">El agua y la sequía.</strong> Estos hongos ayudan a que la tierra no se erosione y a que las plantas aguanten mejor las épocas secas —algo cada vez más importante con el clima cambiando.</li>
+  </ul>
+
+  <div class="cr">
+    <div class="lbl">🌱 En pocas palabras</div>
+    <p>La fama verde de Costa Rica no se sostiene sola con discursos: se apoya en cosas reales que pasan en la tierra, como esta red de hongos. Pero más allá de la marca-país y de lo que se exporta, hay algo aún más básico: un suelo vivo es la base de que podamos producir nuestra propia comida. Por eso esto no es solo un asunto de ambiente o de negocio, sino de <em class="term">soberanía</em>: de qué tan dueños somos de nuestro propio sustento.</p>
+  </div>
+</section>
+
+<!-- IV -->
+<section class="block" id="iv">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M40 12l12 12-6 6-12-12z"/><path d="M34 18L14 38c-2 2-2 5 0 7l5 5c2 2 5 2 7 0l20-20"/>
+    <path d="M14 52l-4 4"/>
+  </svg></div>
+  <div class="eyebrow">Parte 4 · El cruce de caminos</div>
+  <h2 class="q">Crucitas: dos formas de mirar el mismo pedazo de tierra</h2>
+  <span class="q-tag">y una discusión que, en el fondo, es sobre qué país queremos ser</span>
+
+  <h3 class="subh">Qué pasó de verdad</h3>
+  <p class="lead">La minería de oro a cielo abierto —esa que abre enormes huecos en la tierra— está prohibida en Costa Rica desde el año 2010. Pero en el norte del país, en una zona llamada Crucitas, cerca de la frontera con Nicaragua, hay oro. Y desde hace años, grupos de mineros ilegales lo sacan usando mercurio, un veneno que contamina el agua.</p>
+  <p>Conviene aclarar algo importante, porque suele confundirse: el daño <em class="term">no</em> está regado por toda la zona. Está concentrado en un pedazo —la llamada «finca mina» y sus alrededores— que creció de unas 800 a unas 3.000 hectáreas en pocos años. Según estudios oficiales, el área realmente afectada por la minería ilegal es <strong class="k">menos del 1 % del distrito</strong> de Cutris. Es decir: la mayor parte del territorio todavía está sana, y buena parte de lo dañado aún podría recuperarse, porque el bosque tropical, aunque lento, vuelve a crecer si se le deja. Esto importa muchísimo, porque cambia la pregunta: no es «¿cómo salvamos algo ya perdido?», sino «¿cómo protegemos lo mucho que todavía está vivo y rescatamos lo que aún se puede?».</p>
+  <p>Para enfrentar el problema, el gobierno impulsa un proyecto de ley que haría una <em class="term">excepción</em> solo para Crucitas: permitir ahí la minería, prohibiendo el mercurio. La idea oficial es que, si se legaliza, se le quita el negocio a los ilegales y la plata le queda al país. Pero aquí salta un dato que da que pensar: el proyecto abriría a exploración y explotación más de 849 km² —muchísimo más que ese menos del 1 % que está dañado—. El proyecto lleva casi dos años trabado en la Asamblea. Esta semana, la presidenta fue en persona a la zona para empujarlo; durante la gira se escuchó una explosión y la sacaron del lugar por precaución.</p>
+
+  <h3 class="subh">Qué tan seguros estamos</h3>
+  <div class="therm">
+    <div class="t-title">Termómetro de certeza</div>
+    <div class="t-row"><span class="dot">✅</span><span><b>Esto lo sabemos seguro:</b> la minería a cielo abierto está prohibida desde 2010; el daño actual está concentrado en menos del 1 % del distrito; y ese tipo de minería remueve justamente la capa de tierra donde viven los hongos.</span></div>
+    <div class="t-row"><span class="dot">🤔</span><span><b>Esto se cree, pero no es seguro:</b> que la plata del oro le quede de verdad al país y se reparta bien. Depende de cómo se cobre y de quién controle el negocio.</span></div>
+    <div class="t-row"><span class="dot">💭</span><span><b>Esto es solo una promesa, no un hecho probado:</b> que legalizar la minería de verdad acabe con la minería ilegal. En otros países, legalizar no siempre ha logrado sacar a los ilegales.</span></div>
+  </div>
+
+  <div class="world">
+    <div class="lbl">El mundo grande detrás de Crucitas</div>
+    <p>¿Por qué tanto alboroto justo ahora? Porque el oro está carísimo: esta semana rondó los 4.150 dólares la onza, casi un 25 % más que hace un año. Ese precio récord es lo que prende el motor, tanto de la minería legal como de la ilegal. Y hay un detalle que conecta con otra noticia del boletín: del otro lado de la frontera, el gobierno de Nicaragua también amplió la explotación de oro, y Estados Unidos sancionó a personas cercanas a Ortega por ese negocio. El oro de la frontera norte no es solo un asunto de plata: es también un asunto de poder entre países.</p>
+  </div>
+
+  <h3 class="subh">Tres formas de contar la misma historia</h3>
+  <p>Aquí lo interesante es que la gente no solo discute datos: discute <em class="term">cómo contar</em> lo que pasa en Crucitas. Hay tres relatos en pugna, y conviene conocerlos todos:</p>
+
+  <div class="narr a">
+    <h4>1. «El oro se está sacando igual; mejor que sea ordenado»</h4>
+    <p>Dice que, como los ilegales ya extraen el oro y contaminan, lo sensato es legalizar para que el Estado controle, cobre impuestos y le quite el negocio al crimen.</p>
+    <span class="who">— es el relato del gobierno</span>
+  </div>
+  <div class="narr b">
+    <h4>2. «La minería va en contra de lo que somos»</h4>
+    <p>Dice que abrir huecos de minería a cielo abierto choca de frente con el modelo de país verde que Costa Rica construyó, y con compromisos internacionales contra el uso del mercurio.</p>
+    <span class="who">— es el relato de los grupos ambientales</span>
+  </div>
+  <div class="narr c">
+    <h4>3. «La verdadera riqueza está en no extraer»</h4>
+    <p>Dice que en Crucitas no se discute minería, sino el futuro económico del país: que se puede generar riqueza precisamente cuidando la naturaleza, en vez de cavarla. El mapa de los hongos le da argumentos a esta postura.</p>
+    <span class="who">— es el relato de quienes defienden la naturaleza como negocio</span>
+  </div>
+
+  <div class="dyn">
+    <div class="lbl">Por qué esto es un cruce de caminos de verdad</div>
+    <p>Lo más importante de Crucitas es esto: en ese mismo terreno, no caben las dos cosas a la vez. La minería a cielo abierto destruye la capa de tierra donde vive la red de hongos. Así que no es «un poquito de cada uno»: hay que elegir. Y la decisión, en el fondo, no es geológica sino de valores —qué tipo de riqueza decide proteger el país. Cuidado, además, con la frase «el oro se saca igual»: suena a que es inevitable, pero presentar como inevitable algo que en realidad es una decisión es, justamente, una forma de ganar la discusión sin discutirla.</p>
+  </div>
+</section>
+
+<!-- V -->
+<section class="block" id="v">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M32 10v44M18 54h28"/><path d="M32 14L14 24M32 14l18 10"/>
+    <path d="M8 24c0 5 3 8 6 8s6-3 6-8zM44 24c0 5 3 8 6 8s6-3 6-8z"/>
+  </svg></div>
+  <div class="eyebrow">Parte 5 · La pregunta grande</div>
+  <h2 class="q">¿Cuánto vale lo invisible frente al oro?</h2>
+  <span class="q-tag">la pregunta que nos hicieron — y la respuesta honesta, sin trampas</span>
+
+  <p class="lead">Esta es la pregunta del lector, y es buenísima precisamente porque no tiene una respuesta de una sola cifra. Comparar los hongos con el oro es como comparar la salud con la plata del banco: las dos importan, pero no se miden con la misma vara. Reconocer eso ya es parte de la respuesta honesta. Lo que sí podemos hacer es separar la pregunta en sus tres pedazos.</p>
+
+  <div class="keypoint">
+    <p>El oro es como un tesoro enterrado: se saca una vez y se acaba para siempre. Los hongos son como una vaca lechera: dan leche todos los días, mientras se les cuide. Pero en el mismo terreno, sacar el tesoro mata a la vaca.</p>
+  </div>
+
+  <p>Esa frase no es un adorno: es literal. La minería a cielo abierto remueve los primeros metros de tierra —justo donde viven los hongos— y deja contaminación que esa misma red habría ayudado a resistir. Se elimina, de un solo golpe, lo que daba aguante para el futuro.</p>
+
+  <div class="versus">
+    <div class="vcol gold">
+      <h4>⛏️ El oro</h4>
+      <ul>
+        <li><b>Valor:</b> mucho, contante y sonante, hoy y de un solo golpe.</li>
+        <li><b>Desarrollo:</b> ingreso grande pero puntual; empleo que dura poco.</li>
+        <li><b>Cuando se acaba:</b> se acaba. No vuelve.</li>
+      </ul>
+    </div>
+    <div class="vcol net">
+      <h4>🍄 La red de hongos</h4>
+      <ul>
+        <li><b>Valor:</b> repartido, difícil de contar, pero año tras año, para siempre.</li>
+        <li><b>Desarrollo:</b> sostiene la comida local, el café, el cacao, los bosques y la marca-país.</li>
+        <li><b>Si se cuida:</b> se renueva. No se agota.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="subh">Cuidado con la palabra «seguridad»: tiene dos sentidos</h3>
+  <p>El gobierno habla de <em class="term">seguridad</em> en un sentido: recuperar el control de una frontera tomada por gente armada y por negocios ilegales. Es un problema real y de verdad importante. Pero los hongos hablan de seguridad en otro sentido: agua limpia, suelo sano, comida, salud. Las dos son seguridad —pero no son la misma.</p>
+  <p>El error sería dejar que una tape a la otra. La pregunta bien hecha no es «¿oro o seguridad?», sino: «¿cómo recuperamos el control de la frontera sin envenenar el agua ni matar el suelo?». Y, sobre todo: ¿es de verdad la minería la mejor herramienta para lo primero, si todavía nadie ha demostrado que legalizar saca a los ilegales?</p>
+
+  <h3 class="subh">La pregunta que casi nadie hace: ¿qué puerta se abre con la primera excepción?</h3>
+  <p>Hay un punto que es fácil pasar por alto, y que es de los más importantes. El proyecto se presenta como una excepción «solo para Crucitas», «por esta vez», «por la emergencia». Pero las excepciones tienen una costumbre peligrosa: una vez abiertas, se vuelven el ejemplo que justifica la siguiente.</p>
+  <p>Pensemos cómo funciona. Hoy, abrir una mina a cielo abierto en Costa Rica es algo que la mayoría de la gente considera impensable —está prohibido desde 2010 y choca con lo que el país dice ser. Pero si se aprueba «solo esta vez», el siguiente paso ya no parece tan raro. Y el siguiente, menos. Lo que antes era impensable pasa a ser discutible; luego, aceptable; luego, hasta «lo sensato». Eso que parecía una línea que no se cruzaba, se corre poquito a poco. Los estudiosos le llaman a ese corrimiento la <span class="gloss">«ventana de Overton»</span>: el rango de lo que una sociedad considera normal puede moverse, y a veces se mueve a propósito, repitiendo una y otra vez la misma narrativa hasta que lo extraordinario se vuelve costumbre.</p>
+
+  <div class="dyn">
+    <div class="lbl">No es una sospecha: hay señales concretas</div>
+    <p>Esto no es teoría. Universidades y organizaciones del país ya advirtieron varias cosas que encajan en ese patrón. Primero: aunque el daño real es menos del 1 % del distrito, el proyecto abre más de 849 km² —mucho más de lo que haría falta para «remediar» lo dañado—, lo que sugiere que el objetivo de fondo podría ser habilitar minería a gran escala, no solo limpiar Crucitas. Segundo: hay personas acumulando solicitudes de exploración por miles de hectáreas, a la espera de que la ley pase —el clásico movimiento de quien apuesta a que la puerta se va a abrir. Tercero: voces académicas advierten que aprobar esto mandaría un mensaje —que invadir y dañar un territorio puede ser la antesala para legalizarlo— y que el modelo podría repetirse en otras zonas con minería ilegal, como Corcovado, Miramar o Abangares. Y cuarto, un detalle revelador: el proyecto incluye una cláusula que mantendría vivas las concesiones <em>aunque la ley se derogara después</em>. Es decir, está pensado para que la puerta, una vez abierta, no se pueda volver a cerrar.</p>
+  </div>
+
+  <div class="world">
+    <div class="lbl">El fondo del asunto</div>
+    <p>Aquí es donde la pregunta del lector se vuelve más profunda de lo que parecía. Lo que estaría en juego no es solo un pedazo de tierra en el norte, sino qué lógica manda en el país: si la lógica de lo <em class="term">monetario e inmediato</em> (hay oro, está caro, saquémoslo) o la lógica de lo <em class="term">sistémico y duradero</em> (el suelo vivo, el agua, la comida propia, la resiliencia que nos protege a largo plazo). Una excepción puede parecer pequeña, pero si normaliza la idea de que lo monetario siempre puede más, termina debilitando, poquito a poco, todo lo que hace a un país resistente cuando vienen los golpes. Por eso la decisión sobre Crucitas pesa más que Crucitas: es un ensayo sobre cuál de esas dos lógicas va a gobernar las decisiones que vengan después.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">🌱 La respuesta, en una bolsa</div>
+    <p>La red de hongos da un valor repartido, continuo y difícil de poner en una factura —pero es la base sobre la que se sostienen el suelo, el agua y hasta nuestra capacidad de producir comida propia. El oro da un valor concentrado, fácil de contar y tentador por su precio récord —pero se acaba, deja daños comprobados, y no está claro cuánta plata le quedaría de verdad al país. Al final, no es elegir «más o menos valor»: es elegir <em>qué tipo</em> de valor, para cuánto tiempo, y qué puerta se abre con la decisión. Quien tiene prisa y necesita plata hoy mira el oro; quien piensa en los nietos —y en si el país podrá alimentarse y sostenerse mañana— mira la despensa viva. Ponerle número ayuda; pero creer que una sola cifra resuelve una decisión entre cosas tan distintas sería, justamente, engañarnos.</p>
+  </div>
+</section>
+
+<!-- VI -->
+<section class="block" id="vi">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M14 50V22l18-10 18 10v28"/><path d="M14 50h36"/>
+    <path d="M26 50V34h12v16"/><path d="M32 22v6"/>
+  </svg></div>
+  <div class="eyebrow">Parte 6 · Que no quede en nada</div>
+  <h2 class="q">¿Y qué se podría hacer para que esto sirva de algo?</h2>
+  <span class="q-tag">para que el mapa de los hongos no quede solo como un dato curioso</span>
+
+  <p class="lead">El peligro de un hallazgo así es que se celebre un rato y luego se olvide, mientras la tierra se sigue degradando. Para que eso no pase, hace falta convertir el dato en decisiones concretas. Aquí van algunas ideas —ojo: son opciones que ya existen en germen en el país, <em class="term">no</em> consejos de qué hacer; eso le toca decidirlo a quienes nos gobiernan.</p>
+
+  <div class="opt">
+    <span class="step">Lo más sencillo y a la mano</span>
+    <h4>Mirar el suelo vivo antes de decidir, y separar lo dañado de lo sano</h4>
+    <p>El propio proyecto de ley ya le pide al Ministerio de Ambiente un estudio de los daños al suelo. Bastaría con incluir ahí la salud de estos hongos y, sobre todo, distinguir con claridad qué está realmente dañado (ese menos del 1 %), qué se puede rescatar y qué sigue sano —para protegerlo. Así la decisión se tomaría con el tesoro vivo a la vista, y no a ciegas.</p>
+  </div>
+  <div class="opt">
+    <span class="step">Para cuidar lo que hay</span>
+    <h4>Tomar en cuenta el suelo en todos los permisos</h4>
+    <p>Que la vida del suelo sea algo que se revise normalmente antes de aprobar minas, carreteras o grandes proyectos agrícolas. Lo que no se mide, se regala como si no valiera nada.</p>
+  </div>
+  <div class="opt">
+    <span class="step">Para premiar al que cuida</span>
+    <h4>Pagarle al productor que conserva el suelo vivo</h4>
+    <p>Costa Rica ya tiene el sistema de pago por servicios ambientales. Extenderlo a quienes cultivan café o cacao de forma que cuide los hongos convertiría el cuidado del suelo en una entrada de plata, no en un gasto.</p>
+  </div>
+  <div class="opt">
+    <span class="step">Con cuidado</span>
+    <h4>Aprovechar los mercados de carbono, sin regalar la riqueza</h4>
+    <p>El carbono del suelo se puede vender en mercados internacionales, pero hay que diseñar bien las reglas: si las escriben afuera, nosotros ponemos la tierra y otros se llevan la ganancia.</p>
+  </div>
+  <div class="opt">
+    <span class="step">Para el largo plazo</span>
+    <h4>Apoyar a nuestros científicos</h4>
+    <p>Que la UCR, el CATIE y otros centros estudien nuestros propios suelos, para que el país sea protagonista de este tema y no solo un espectador que recibe los datos hechos desde afuera.</p>
+  </div>
+
+  <div class="roads">
+    <div class="lbl">¿Hacia dónde puede ir esto?</div>
+    <div class="road"><span class="arrow">→</span><p><b>Camino de cuidar:</b> el país toma en serio el suelo vivo, lo mide y lo premia; Crucitas se resuelve hacia el lado de la naturaleza, y el dato se vuelve ley.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Camino mezclado:</b> se aprueba la minería con candados, y al mismo tiempo se cuidan los suelos en otras partes; los dos modelos conviven con roces.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Camino del olvido:</b> el mapa de hongos queda como curiosidad, avanza la minería, y la base verde del país se va desgastando en silencio.</p></div>
+  </div>
+</section>
+
+<!-- OPEN -->
+<section class="open">
+  <h2>Lo que todavía queda en el aire</h2>
+  <span class="sub">preguntas honestas, que nadie puede responder aún con certeza</span>
+  <ul class="open-list">
+    <li>¿Legalizar la minería de verdad sacaría a los mineros ilegales de Crucitas, o terminarían conviviendo?</li>
+    <li>¿Cuánto del carbono que guardan los hongos se queda de verdad bajo tierra, y por cuánto tiempo?</li>
+    <li>¿Habrá voluntad de incluir la salud del suelo en los estudios y permisos del país?</li>
+    <li>¿Podrá Costa Rica vender carbono del suelo sin que la ganancia se la lleven otros?</li>
+    <li>¿Cómo atender el problema real de seguridad en la frontera sin sacrificar el agua y el suelo?</li>
+    <li>Si se aprueba esta excepción «solo para Crucitas», ¿quedará de verdad en una sola vez, o abrirá la puerta a que otras zonas con minería ilegal —Corcovado, Miramar, Abangares— pidan lo mismo?</li>
+  </ul>
+</section>
+
+<div class="closing">
+  <p><b>Una palabra sobre cómo trabajamos.</b> Detrás de este anexo en palabras sencillas hay un análisis más técnico, en el que medimos qué tan confiable es cada dato, estudiamos cómo se conectan los hechos y miramos el lugar de Costa Rica en el mundo. Esa versión completa también está disponible para quien quiera ir más a fondo.</p>
+  <p>Esta edición nace de una convicción sencilla: que entender el mundo no debería ser un lujo de unos pocos. Por eso explicamos hasta los temas más espinosos con calma y sin palabras complicadas, pero sin recortarle la verdad a nadie —porque tratar a alguien como capaz de comprender es la forma más honesta de respetarlo.</p>
+  <p>Y, como siempre: esto es análisis para ayudarle a pensar, no una bola de cristal ni un consejo de qué decidir. La decisión sobre Crucitas le corresponde, por la vía democrática, al país entero.</p>
+</div>
+
+</main>
+
+<footer>
+  <span class="ft-stamp">Para pensar con calma</span>
+  <div>ANCA-ADD © 2026 · <a href="https://antropos.app">antropos.app</a></div>
+  <div style="margin-top:6px">Informe Estratégico · Edición Popular · Origen: Boletín N.° 010 · 19 jun 2026</div>
+</footer>
+
+<script data-goatcounter="https://antropos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

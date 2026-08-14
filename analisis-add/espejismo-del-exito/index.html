@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El espejismo del éxito — Alfredo Montero Fonseca · antropos.app</title>
+<meta name="description" content="Lo que el FMI celebra y su bolsillo lamenta en la Costa Rica de 2026. Una lectura sistémica de tres acoplamientos que definen el momento país: seguridad-economía, clima-infraestructura, polarización-soluciones.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Mono:wght@0,400;0,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --negro: #0a0a0a;
+    --azul: #1a3a5c;
+    --azul-claro: #2c5282;
+    --crema: #f5f0e8;
+    --crema-oscuro: #ede4d0;
+    --crema-suave: #faf7f2;
+    --gris-texto: #2c2c2c;
+    --gris-medio: #555;
+    --gris-claro: #888;
+    --oro: #b8942a;
+    --oro-claro: #d4a017;
+    --verde: #1a4a2e;
+    --ancho-max: 760px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--crema);
+    color: var(--gris-texto);
+    font-family: 'Source Serif 4', serif;
+    font-size: 18px;
+    line-height: 1.8;
+  }
+
+  a { color: var(--azul-claro); }
+
+  /* ── SITE NAV ── */
+  .site-nav {
+    background: var(--negro);
+    padding: 8px 40px;
+    display: flex; align-items: center; gap: 20px;
+    font-family: 'Space Mono', monospace; font-size: 9px;
+    letter-spacing: .12em; text-transform: uppercase;
+  }
+  .site-nav a {
+    color: #777; text-decoration: none;
+    transition: color .2s;
+  }
+  .site-nav a:hover { color: var(--oro-claro); }
+  .site-nav .sep { color: #444; }
+
+  /* ── HEADER ── */
+  .cabecera {
+    background: var(--negro);
+    color: var(--crema);
+    padding: 0;
+  }
+
+  .cab-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 48px;
+    border-bottom: 1px solid #222;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  .cab-top a { color: var(--crema); text-decoration: none; }
+  .cab-top a:hover { color: var(--oro-claro); }
+
+  .cab-main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 64px 40px 56px;
+  }
+
+  .etiqueta {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--oro-claro);
+    margin-bottom: 28px;
+    display: block;
+  }
+
+  .cab-main h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 18px;
+    color: var(--crema);
+  }
+
+  .subtitulo-cabecera {
+    font-size: 1.05rem;
+    color: #aaa;
+    margin-bottom: 36px;
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  .metadatos {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #666;
+    border-top: 1px solid #222;
+    padding-top: 20px;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  /* ── CONTENIDO ── */
+  .contenido {
+    max-width: var(--ancho-max);
+    margin: 0 auto;
+    padding: 64px 32px 96px;
+  }
+
+  /* ── LEAD ── */
+  .lead {
+    font-size: 1.15rem;
+    line-height: 1.85;
+    color: var(--gris-texto);
+    border-left: 4px solid var(--azul);
+    padding: 24px 28px;
+    background: var(--crema-oscuro);
+    margin-bottom: 56px;
+  }
+
+  /* ── ACOPLAMIENTO ── */
+  .acoplamiento {
+    margin-bottom: 64px;
+  }
+
+  .acoplamiento-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--azul-claro);
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  .acoplamiento h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: var(--negro);
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--crema-oscuro);
+  }
+
+  .acoplamiento h2 .flecha {
+    color: var(--azul-claro);
+    font-style: normal;
+  }
+
+  .acoplamiento p {
+    margin-bottom: 1.1rem;
+    line-height: 1.85;
+  }
+
+  /* ── DATO DESTACADO ── */
+  .dato-destacado {
+    background: var(--negro);
+    color: var(--crema);
+    padding: 22px 28px;
+    margin: 28px 0;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  .dato-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: var(--oro-claro);
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .dato-texto {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #999;
+    line-height: 1.6;
+    padding-top: 6px;
+  }
+
+  /* ── ILUSIÓN ESTADÍSTICA ── */
+  .estadistica {
+    background: var(--crema-oscuro);
+    padding: 32px 36px;
+    margin: 48px 0;
+    border-top: 3px solid var(--azul);
+  }
+  .estadistica h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--negro);
+  }
+  .estadistica p {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+    font-size: 0.97rem;
+  }
+
+  /* ── CONCLUSIÓN ── */
+  .conclusion {
+    margin-bottom: 56px;
+  }
+
+  .conclusion h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: var(--negro);
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--crema-oscuro);
+  }
+
+  .conclusion p {
+    margin-bottom: 1.1rem;
+    line-height: 1.85;
+  }
+
+  /* ── CIERRE ── */
+  .cierre {
+    border-top: 2px solid var(--crema-oscuro);
+    padding-top: 28px;
+    margin-top: 48px;
+  }
+  .cierre p {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    color: var(--gris-claro);
+    line-height: 1.8;
+  }
+
+  /* ── BOLETIN LINK ── */
+  .boletin-link {
+    background: var(--crema-oscuro);
+    border-left: 4px solid var(--oro);
+    padding: 18px 24px;
+    margin: 40px 0;
+    font-size: 0.9rem;
+  }
+  .boletin-link strong {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--oro);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .boletin-link a { color: var(--azul-claro); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--negro);
+    color: #666;
+    padding: 32px 40px;
+    text-align: center;
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    line-height: 2.2;
+  }
+  footer a { color: var(--oro); text-decoration: none; }
+  footer a:hover { color: var(--oro-claro); }
+
+  @media (max-width: 680px) {
+    .cab-main { padding: 44px 24px 40px; }
+    .cab-top { padding: 12px 24px; }
+    .contenido { padding: 40px 20px 60px; }
+    .site-nav { padding: 8px 20px; flex-wrap: wrap; }
+    .dato-destacado { flex-direction: column; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- SITE NAV -->
+<div class="site-nav">
+  <a href="/analisis-add/">← Análisis ADD</a>
+  <span class="sep">/</span>
+  <a href="/boletines/boletin-anca-add-27may-06jun-2026/">Boletín 27 May – 6 Jun</a>
+  <span class="sep">/</span>
+  <a href="/">antropos.app</a>
+</div>
+
+<!-- HEADER -->
+<header class="cabecera">
+  <div class="cab-top">
+    <a href="/">antropos.app</a>
+    <span>Análisis ADD · ANCA-ADD · Quincena 27 May – 6 Jun 2026</span>
+    <span>Junio 2026</span>
+  </div>
+  <div class="cab-main">
+    <span class="etiqueta">Análisis de Síntesis · Antropología Dinámica del Devenir</span>
+    <h1>El espejismo del éxito</h1>
+    <p class="subtitulo-cabecera">Lo que el FMI celebra y su bolsillo lamenta en la Costa Rica de 2026. Una lectura sistémica de la quincena bajo el marco de la ADD.</p>
+    <div class="metadatos">
+      <span>Alfredo Montero Fonseca</span>
+      <span>Universidad de Costa Rica</span>
+      <span>Junio 2026</span>
+      <span>ANCA-ADD</span>
+    </div>
+  </div>
+</header>
+
+<!-- CONTENIDO -->
+<main class="contenido">
+
+  <!-- LEAD -->
+  <div class="lead">
+    Hay dos Costa Ricas circulando esta quincena. La primera aparece en los titulares macroeconómicos: una economía blindada, certificada por el Fondo Monetario Internacional, con acceso a una Línea de Crédito Flexible de 1.500 millones de dólares y un crecimiento que, tras el 4.6% de 2025, se proyecta en un respetable 3.6% para este año. La segunda Costa Rica vive en el recibo de la gasolina, en las 84.000 personas que dejaron de buscar empleo y en una calle de Liberia anegada por agua que no encuentra salida.
+    <br><br>
+    El problema no es que una de las dos sea falsa. Ambas son ciertas. El problema es que solemos leerlas por separado, como si fueran noticias de secciones distintas de un periódico. La premisa de este análisis es la contraria: <strong>en un sistema complejo, las crisis no ocurren en el vacío. Se acoplan, compiten por los mismos recursos y se aceleran mutuamente.</strong> Leerlas en aislamiento es el error que nos mantiene reaccionando al síntoma del día mientras la estructura se desplaza bajo nuestros pies.
+  </div>
+
+  <p style="margin-bottom: 48px; color: var(--gris-medio); font-style: italic; font-size: 0.97rem;">A continuación, tres acoplamientos que definen el momento país.</p>
+
+  <!-- ACOPLAMIENTO 1 -->
+  <div class="acoplamiento">
+    <span class="acoplamiento-num">Primer acoplamiento</span>
+    <h2>Seguridad <span class="flecha">↔</span> Economía</h2>
+
+    <p>El Estado costarricense enfrenta a 61 pandillas activas que se disputan el territorio, y responde con operativos costosos: solo la contención de la minería ilegal en Crucitas drena un millón de dólares al mes. Hasta aquí, un problema de seguridad. Pero ese gasto no cae sobre un presupuesto sano: cae sobre uno que se vacía por dentro.</p>
+
+    <p>Aquí está el dato que rara vez se enlaza con el anterior. La carga tributaria cayó al 11.4% del PIB —su nivel más bajo en dos décadas— y se proyecta una caída adicional del 5% en los ingresos tributarios para 2026. La economía crece, sí, pero lo hace en sectores con amplias exenciones o alta informalidad, de modo que <strong>la producción ya no se traduce en recaudación</strong>. El blindaje externo que el FMI certifica convive con un drenaje fiscal que el FMI no mide.</p>
+
+    <div class="dato-destacado">
+      <div>
+        <div class="dato-num">11.4%</div>
+        <div class="dato-texto">Carga tributaria / PIB<br>nivel más bajo en 20 años</div>
+      </div>
+      <div>
+        <div class="dato-num">−5%</div>
+        <div class="dato-texto">Proyección caída<br>ingresos tributarios 2026</div>
+      </div>
+      <div>
+        <div class="dato-num">USD 1M</div>
+        <div class="dato-texto">Gasto mensual<br>contención Crucitas</div>
+      </div>
+    </div>
+
+    <p>El acoplamiento es brutal en su simpleza: el descontrol territorial exige más gasto justo cuando el Estado tiene menos con qué pagarlo. No es que falte plata para la seguridad <em>o</em> que falte plata para la salud. Es que el mismo bolsillo, cada vez más delgado, se reclama desde dos urgencias simultáneas. Y mientras tanto, la Universidad Nacional rompe el tabú político y pone sobre la mesa lo impronunciable —gravar zonas francas, vigilar el SINPE Móvil, reformar la renta—, porque alguien tiene que nombrar la fuga antes de que el sistema decida por nosotros cuál servicio se sacrifica primero.</p>
+  </div>
+
+  <!-- ACOPLAMIENTO 2 -->
+  <div class="acoplamiento">
+    <span class="acoplamiento-num">Segundo acoplamiento</span>
+    <h2>Clima <span class="flecha">↔</span> Infraestructura</h2>
+
+    <p>La tentación, ante las inundaciones de Liberia, es archivarlas como "mal clima". Cayeron entre 40 y 60 milímetros de lluvia en doce horas; los suelos estaban saturados. Fin de la historia.</p>
+
+    <p>Salvo que no lo es. El agua no inundó la ciudad porque lloviera: inundó la ciudad porque el alcantarillado, bloqueado por basura mal gestionada, no tenía cómo evacuarla. Un fenómeno meteorológico moderado se convirtió en emergencia urbana por una falla de gobernanza acumulada. La basura, en este país, ya no es un problema estético: es <strong>el principal multiplicador de riesgo de desastre</strong>.</p>
+
+    <p>Lo que vuelve este acoplamiento urgente es lo que viene. La Organización Meteorológica Mundial advierte un 80% de probabilidad de un evento de "El Niño", con proyecciones de hasta 50% menos lluvia y dos grados más de temperatura para 2027. Es decir: una red de infraestructura debilitada y sin mantenimiento preventivo está a punto de recibir golpes climáticos cada vez más extremos. Y lo hace, además, justo cuando la reforma del sector energético —la que decidiría cómo producimos electricidad bajo ese estrés— se encuentra congelada.</p>
+
+    <p>La advertencia silenciosa de la Hepatitis E detectada en las aguas residuales de la Gran Área Metropolitana pertenece a este mismo mapa: no es un brote, todavía, sino la confirmación de que el saneamiento que debería protegernos lleva años deteriorándose sin que lo viéramos.</p>
+
+    <div class="dato-destacado">
+      <div>
+        <div class="dato-num">80%</div>
+        <div class="dato-texto">Probabilidad de El Niño<br>(OMM, 2026)</div>
+      </div>
+      <div>
+        <div class="dato-num">−50%</div>
+        <div class="dato-texto">Reducción de lluvias<br>proyectada para 2027</div>
+      </div>
+      <div>
+        <div class="dato-num">+2°C</div>
+        <div class="dato-texto">Aumento de temperatura<br>Pacífico Norte</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ACOPLAMIENTO 3 -->
+  <div class="acoplamiento">
+    <span class="acoplamiento-num">Tercer acoplamiento</span>
+    <h2>Polarización <span class="flecha">↔</span> Soluciones</h2>
+
+    <p>Si los dos acoplamientos anteriores describen la enfermedad, este describe por qué no nos curamos.</p>
+
+    <p>La Ley de Armonización del Mercado Eléctrico fue aprobada en primer debate y luego desconvocada por el propio Ejecutivo, ante la imposibilidad de reunir los 38 votos de la supermayoría. La OCDE respalda la apertura como condición para la inversión y las energías renovables. Pero el debate técnico —cómo modernizar la matriz energética de un país— fue suplantado por una retórica que tilda de "comunista" a la oposición y compara el momento nacional con Cuba y Venezuela. En paralelo, la respuesta a la crisis de seguridad apela al espectáculo del polígrafo más que a la reparación del acoplamiento entre policía y justicia.</p>
+
+    <p>El patrón es el mismo en ambos frentes: <strong>la polarización ideológica destruye los puentes que se necesitan precisamente para aprobar las reformas estructurales urgentes.</strong> Etiquetar al rival, escenificar la mano dura y citar fantasmas extranjeros producen clics y aplausos inmediatos; lo que no producen es la mayoría calificada que exige la energía, ni el consenso que exige el saqueo fiscal.</p>
+
+    <p>La política convierte en imposible lo que la técnica describe como necesario. Y esa brecha —entre la efectividad que se exige y la impunidad que se percibe, encarnada en el sospechoso detenido 388 veces que sigue libre— alimenta una crisis de legitimidad que, históricamente, abre la puerta a demandas de soluciones autoritarias.</p>
+  </div>
+
+  <!-- ILUSIÓN ESTADÍSTICA -->
+  <div class="estadistica">
+    <h3>La ilusión estadística, o por qué los números mienten cuando se leen solos</h3>
+    <p>Conviene detenerse en el dato más engañoso de la quincena, porque condensa toda la tesis. El desempleo se mantiene "estable" en 6.9%. Suena a buena noticia. No lo es.</p>
+    <p>La tasa se mantiene baja no porque la gente consiga trabajo, sino porque dejó de buscarlo: 84.000 personas abandonaron la fuerza laboral, y 63.000 de ellas son mujeres, en un retroceso ligado directamente a la crisis de los cuidados no remunerados. La ocupación cayó al 50.3%. El indicador mejora maquillando una realidad social que empeora.</p>
+    <p>Es el ejemplo perfecto de que <strong>una cifra leída fuera de su sistema no informa: desinforma.</strong> Y es la misma lógica del "blindaje" del FMI: verdadero en su escala, mentiroso si se confunde con bienestar.</p>
+
+    <div class="dato-destacado" style="margin-top: 20px;">
+      <div>
+        <div class="dato-num">84.000</div>
+        <div class="dato-texto">Personas fuera de la<br>fuerza laboral (interanual)</div>
+      </div>
+      <div>
+        <div class="dato-num">63.000</div>
+        <div class="dato-texto">Mujeres (75% del total)<br>crisis de cuidados</div>
+      </div>
+      <div>
+        <div class="dato-num">50.3%</div>
+        <div class="dato-texto">Tasa de ocupación<br>efectiva</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONCLUSIÓN -->
+  <div class="conclusion">
+    <h2>Al borde del umbral</h2>
+
+    <p>Reunidos, los tres acoplamientos dibujan un sistema bajo estrés simultáneo. Choques institucionales —Ejecutivo contra Judicial en seguridad, Ejecutivo contra Legislativo en energía—. Drenaje de recursos, con menor recaudación frente a exigencias sociales crecientes. Fallas de acoplamiento, con un clima extremo golpeando una infraestructura debilitada. Ninguno es fatal por sí solo. Juntos, empujan al país hacia una <strong>bifurcación estructural</strong>: ese punto en que un sistema deja de absorber los golpes y empieza a reconfigurarse de forma que no siempre se puede revertir.</p>
+
+    <p>La buena noticia que ofrece esta lectura es también su exigencia. Si las crisis están acopladas, entonces la resiliencia del país no depende de resolver un vector aislado —ni la seguridad, ni el déficit, ni el clima por separado—, sino de <strong>restaurar la capacidad de acuerdo político antes de cruzar umbrales irreversibles</strong>. Reducir la polarización y anclar las decisiones en evidencia técnica no es una preferencia de buenos modales: es la condición material para que el sistema vuelva a tener margen.</p>
+
+    <p>En un mundo diseñado para explotar nuestros sesgos, el método —la pausa que distingue la señal del ruido— sigue siendo nuestra herramienta más subestimada de libertad. No le decimos al lector qué pensar. Le ofrecemos los elementos para pensar mejor.</p>
+  </div>
+
+  <!-- BOLETÍN LINK -->
+  <div class="boletin-link">
+    <strong>Fuente documental</strong>
+    Este artículo de síntesis se basa en el <a href="/boletines/boletin-anca-add-27may-06jun-2026/">Boletín ANCA-ADD · Quincena del 27 de mayo al 6 de junio de 2026</a>, que contiene la evaluación epistémica completa (MEEE-G) con clasificación por afirmación y la base documental detallada.
+  </div>
+
+  <!-- CIERRE -->
+  <div class="cierre">
+    <p>Análisis elaborado bajo el marco de la Antropología Dinámica del Devenir (ADD) y la Matriz Explicacionista de Evaluación Epistémica (MEEE-G), de A. Montero Fonseca. Los datos provienen del Boletín ANCA-ADD de la quincena del 27 de mayo al 6 de junio de 2026, cuya base documental detalla las fuentes. Antropos — <a href="https://antropos.app" style="color: var(--gris-medio);">antropos.app</a></p>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <p>Alfredo Montero Fonseca · <a href="https://orcid.org/0009-0009-9696-4106">ORCID</a> · Universidad de Costa Rica</p>
+  <p style="margin-top: 8px;">
+    <a href="/analisis-add/">← Análisis ADD</a> &nbsp;·&nbsp;
+    <a href="/boletines/">Boletines</a> &nbsp;·&nbsp;
+    <a href="/">antropos.app</a>
+  </p>
+</footer>
+
+<script data-goatcounter="https://antropos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

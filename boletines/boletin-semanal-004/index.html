@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANCA-ADE | Boletín Semanal N.° 004 | 9–15 de abril de 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-deep: #0a0a0c;
+    --bg-card: #111116;
+    --bg-card2: #14141a;
+    --red: #c0392b;
+    --red-bright: #e74c3c;
+    --gold: #c9932a;
+    --gold-light: #e8b84b;
+    --green: #2ecc71;
+    --green-dark: #1a7a44;
+    --text-main: #e8e4dc;
+    --text-muted: #9a9490;
+    --text-dim: #6a6560;
+    --border: #2a2a30;
+    --border-accent: #3a2010;
+    --ticker-bg: #c0392b;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg-deep);
+    color: var(--text-main);
+    font-family: 'Source Serif 4', serif;
+    font-weight: 300;
+    line-height: 1.75;
+    font-size: 17px;
+  }
+
+  /* TICKER */
+  .ticker-wrap {
+    background: var(--ticker-bg);
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 8px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid #8b1a10;
+  }
+  .ticker-inner {
+    display: inline-block;
+    animation: ticker 55s linear infinite;
+  }
+  .ticker-inner span {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 0 48px;
+  }
+  .ticker-inner span::before { content: "◆  "; }
+  @keyframes ticker {
+    0%   { transform: translateX(100vw); }
+    100% { transform: translateX(-100%); }
+  }
+
+  /* MASTHEAD */
+  .masthead {
+    border-bottom: 1px solid var(--border);
+    padding: 0 48px 0;
+    background: var(--bg-deep);
+  }
+  .masthead-top {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 40px 0 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .masthead-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 82px;
+    letter-spacing: 0.05em;
+    line-height: 0.9;
+    color: var(--text-main);
+    text-shadow: 0 0 60px rgba(192,57,43,0.3);
+  }
+  .masthead-logo span { color: var(--red); }
+  .masthead-sub {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    text-align: right;
+    line-height: 1.8;
+  }
+  .masthead-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+  .masthead-meta .issue-tag {
+    background: var(--red);
+    color: #fff;
+    padding: 3px 10px;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+  }
+  .masthead-meta .framework-tags {
+    display: flex; gap: 10px;
+  }
+  .masthead-meta .tag {
+    border: 1px solid var(--border);
+    padding: 3px 8px;
+    font-size: 9px;
+    color: var(--gold);
+  }
+
+  /* NAV */
+  nav {
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--border);
+    padding: 0 48px;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+  }
+  nav a {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    padding: 14px 20px;
+    border-right: 1px solid var(--border);
+    white-space: nowrap;
+    transition: color 0.2s, background 0.2s;
+  }
+  nav a:hover { color: var(--gold-light); background: rgba(201,147,42,0.07); }
+  nav a.cr { color: var(--green); }
+  nav a.cr:hover { background: rgba(26,122,68,0.15); }
+
+  /* LAYOUT */
+  .container { max-width: 1100px; margin: 0 auto; padding: 60px 48px; }
+  
+  /* INTRO BANNER */
+  .intro-banner {
+    border-left: 4px solid var(--red);
+    background: linear-gradient(135deg, rgba(192,57,43,0.08) 0%, transparent 70%);
+    padding: 30px 36px;
+    margin-bottom: 64px;
+  }
+  .intro-banner h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--text-main);
+    margin-bottom: 12px;
+    font-style: italic;
+  }
+  .intro-banner p {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+  .intro-banner .dates {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+
+  /* SECTION HEADERS */
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 36px;
+    margin-top: 72px;
+  }
+  .section-label:first-of-type { margin-top: 0; }
+  .section-label .cat-tag {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.25em;
+    background: var(--red);
+    color: #fff;
+    padding: 4px 14px;
+    white-space: nowrap;
+  }
+  .section-label .cat-tag.ciencia { background: #1a4a7a; }
+  .section-label .cat-tag.tecnologia { background: #2a1a5a; }
+  .section-label .cat-tag.economia { background: #3a2010; border: 1px solid var(--gold); color: var(--gold-light); }
+  .section-label .cat-tag.costarica { background: var(--green-dark); }
+  .section-label .cat-tag.sociedad { background: #1a3a2a; }
+  .section-label .divider { flex: 1; height: 1px; background: var(--border); }
+
+  /* NOTICIA CARD */
+  .noticia {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    margin-bottom: 48px;
+    overflow: hidden;
+    position: relative;
+  }
+  .noticia::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--red);
+  }
+  .noticia.ciencia::before { background: #2980b9; }
+  .noticia.tecnologia::before { background: #8e44ad; }
+  .noticia.economia::before { background: var(--gold); }
+  .noticia.costarica::before { background: var(--green); }
+  .noticia.sociedad::before { background: #27ae60; }
+  .noticia.arqueologia::before { background: #d4a853; }
+
+  .noticia-header {
+    padding: 28px 36px 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .noticia-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--text-dim);
+    letter-spacing: 0.2em;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  .noticia-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-main);
+    line-height: 1.3;
+    margin-bottom: 10px;
+  }
+  .noticia-deck {
+    font-size: 15px;
+    color: var(--text-muted);
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  .noticia-body { padding: 28px 36px; }
+
+  .subsection {
+    margin-bottom: 24px;
+  }
+  .subsection-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border-accent);
+  }
+  .subsection-title.meee { color: #5dade2; }
+  .subsection-title.ade { color: #a569bd; }
+  .subsection-title.cr { color: var(--green); }
+
+  .subsection p {
+    font-size: 15.5px;
+    color: #ccc8c0;
+    margin-bottom: 10px;
+    line-height: 1.75;
+  }
+
+  /* MEEE TABLE */
+  .meee-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+    font-size: 13px;
+  }
+  .meee-table th {
+    background: #0e1a25;
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #5dade2;
+    padding: 9px 12px;
+    text-align: left;
+    border-bottom: 1px solid #1a3a5a;
+  }
+  .meee-table td {
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    color: #b0aca4;
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+  .meee-table tr:last-child td { border-bottom: none; }
+  .meee-table .code {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .code-dc { color: #2ecc71; }
+  .code-ip { color: #f39c12; }
+  .code-h  { color: #e74c3c; }
+  .code-int{ color: #9b59b6; }
+  .code-c  { color: #95a5a6; }
+
+  /* ADE ELEMENTS */
+  .ade-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 12px 0;
+  }
+  .ade-item {
+    background: #0e0e14;
+    border: 1px solid var(--border);
+    padding: 12px 14px;
+  }
+  .ade-item .ade-key {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #a569bd;
+    margin-bottom: 6px;
+  }
+  .ade-item .ade-val {
+    font-size: 13px;
+    color: #c0bcb4;
+    line-height: 1.6;
+  }
+
+  /* CR BOX */
+  .cr-box {
+    background: linear-gradient(135deg, rgba(26,122,68,0.15), rgba(10,10,12,0.8));
+    border: 1px solid rgba(46,204,113,0.25);
+    border-left: 3px solid var(--green);
+    padding: 20px 24px;
+    margin-top: 16px;
+  }
+  .cr-box-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 10px;
+  }
+  .cr-box p {
+    font-size: 14px;
+    color: #a8d8b8;
+    line-height: 1.7;
+  }
+
+  /* TABLA DE SÍNTESIS */
+  .synthesis-section {
+    background: var(--bg-card2);
+    border: 1px solid var(--border);
+    padding: 40px;
+    margin: 72px 0 48px;
+  }
+  .synthesis-section h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    letter-spacing: 0.12em;
+    color: var(--text-main);
+    margin-bottom: 28px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 14px;
+  }
+  .synth-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+  }
+  .synth-table th {
+    background: #111;
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  .synth-table td {
+    padding: 11px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    color: #c0bcb4;
+    line-height: 1.6;
+  }
+  .synth-table tr:last-child td { border-bottom: none; }
+  .synth-table .nivel {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    white-space: nowrap;
+  }
+  .nivel-alto { color: #e74c3c; }
+  .nivel-medio { color: #f39c12; }
+  .nivel-bajo { color: #2ecc71; }
+
+  /* INCERTIDUMBRES */
+  .uncertainties {
+    background: #0e0e14;
+    border: 1px solid #2a1a3a;
+    padding: 32px 40px;
+    margin-bottom: 48px;
+  }
+  .uncertainties h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 0.12em;
+    color: #a569bd;
+    margin-bottom: 20px;
+  }
+  .uncertainties ul {
+    list-style: none;
+    padding: 0;
+  }
+  .uncertainties ul li {
+    font-size: 14.5px;
+    color: #b0aca4;
+    padding: 8px 0;
+    border-bottom: 1px solid #2a2030;
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.65;
+  }
+  .uncertainties ul li::before {
+    content: '?';
+    position: absolute;
+    left: 0;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: #a569bd;
+    font-weight: 700;
+  }
+  .uncertainties ul li:last-child { border-bottom: none; }
+
+  /* REFERENCES */
+  .references {
+    border-top: 1px solid var(--border);
+    padding-top: 40px;
+    margin-top: 40px;
+  }
+  .references h3 {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 20px;
+  }
+  .references p {
+    font-size: 12.5px;
+    color: var(--text-dim);
+    margin-bottom: 8px;
+    padding-left: 20px;
+    text-indent: -20px;
+    line-height: 1.6;
+  }
+  .references a { color: #5dade2; text-decoration: none; }
+
+  /* METHODOLOGICAL CLOSURE */
+  .method-close {
+    background: linear-gradient(135deg, rgba(201,147,42,0.07), transparent);
+    border: 1px solid var(--border-accent);
+    border-top: 2px solid var(--gold);
+    padding: 28px 36px;
+    margin-top: 60px;
+    font-size: 13.5px;
+    color: var(--text-muted);
+    font-style: italic;
+    line-height: 1.7;
+  }
+  .method-close strong {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-style: normal;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--bg-card);
+    border-top: 1px solid var(--border);
+    padding: 28px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  footer .footer-brand {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 0.1em;
+    color: var(--text-dim);
+  }
+  footer .footer-brand span { color: var(--red); }
+  footer .footer-meta {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    text-align: right;
+    line-height: 1.8;
+  }
+
+  @media (max-width: 768px) {
+    .masthead, .container, nav { padding-left: 20px; padding-right: 20px; }
+    .masthead-logo { font-size: 52px; }
+    .masthead-top { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .ade-grid { grid-template-columns: 1fr; }
+    .noticia-body, .noticia-header { padding: 20px; }
+    footer { flex-direction: column; gap: 16px; }
+    .synthesis-section { padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-inner">
+    <span>Conflicto EE.UU.–Irán: Operación Furia Épica, día 47 · Bloqueo naval de Ormuz en vigor · Rich Starry cruza el bloqueo el día 2 — confirmado por AIS trifuente · CENTCOM declara que "ningún buque cruzó": contradicción epistémica documentada · Brent supera $104/barril · Flota fantasma: 91 buques en el Golfo antes del bloqueo · Trump amenaza aranceles del 50% a China si arma a Irán · AI Act europeo: agentes de IA bajo regulación desde agosto 2026 · Spinosaurus mirabilis: primera nueva especie en 110 años · OCDE: ENT cuestan a Costa Rica más de 3% del PIB anual · IED costarricense supera $5.000M por segundo año consecutivo</span>
+    <span>Conflicto EE.UU.–Irán: Operación Furia Épica, día 47 · Bloqueo naval de Ormuz en vigor · Rich Starry cruza el bloqueo el día 2 — confirmado por AIS trifuente · CENTCOM declara que "ningún buque cruzó": contradicción epistémica documentada · Brent supera $104/barril · Flota fantasma: 91 buques en el Golfo antes del bloqueo · Trump amenaza aranceles del 50% a China si arma a Irán · AI Act europeo: agentes de IA bajo regulación desde agosto 2026 · Spinosaurus mirabilis: primera nueva especie en 110 años · OCDE: ENT cuestan a Costa Rica más de 3% del PIB anual · IED costarricense supera $5.000M por segundo año consecutivo</span>
+  </div>
+</div>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="masthead-top">
+    <div class="masthead-logo">ANCA<span>–</span>ADE</div>
+    <div class="masthead-sub">
+      Agente Noticioso Crítico de Actualidad<br>
+      Análisis Dinámico del Devenir<br>
+      MEEE-G · ADD · Periodismo Verificado
+    </div>
+  </div>
+  <div class="masthead-meta">
+    <div style="display:flex;align-items:center;gap:16px;">
+      <span class="issue-tag">Boletín Semanal N.° 004</span>
+      <span>Semana del 9 al 15 de abril de 2026</span>
+    </div>
+    <div class="framework-tags">
+      <span class="tag">MEEE-G</span>
+      <span class="tag">ADE / ADD</span>
+      <span class="tag">APA 7</span>
+    </div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav>
+  <a href="/" style="opacity:0.7">← antropos.app</a>
+  <a href="/boletines/" style="opacity:0.7">Boletines</a>
+  <a href="#geopolitica">Geopolítica</a>
+  <a href="#economia">Economía</a>
+  <a href="#ciencia1">Ciencia I · Paleontología</a>
+  <a href="#ciencia2">Ciencia II · Arqueología</a>
+  <a href="#tecnologia">Tecnología · IA</a>
+  <a href="#costarica" class="cr">Costa Rica</a>
+  <a href="#sintesis">Síntesis</a>
+  <a href="#referencias">Fuentes</a>
+</nav>
+
+<div class="container">
+
+  <!-- INTRO BANNER -->
+  <div class="intro-banner">
+    <div class="dates">9 – 15 de abril de 2026</div>
+    <h2>La semana de Ormuz: guerra, energía y el orden multipolar al borde de la bifurcación</h2>
+    <p>La semana estuvo dominada por la escalada del conflicto armado entre Estados Unidos e Israel contra Irán —en su día 44 a 47 bajo la denominación <em>Operación Furia Épica</em>— y la imposición de un bloqueo naval al estrecho de Ormuz, arteria energética del 20–30% del petróleo mundial. El barril de Brent superó los $104. Simultáneamente, la guerra arancelaria se recalibra hacia China, la Unión Europea avanza en la regulación de agentes de inteligencia artificial, y la ciencia produce hallazgos de calibre mayor: una nueva especie de espinosaurio y nuevas interpretaciones del conocimiento astronómico del antiguo Egipto. Costa Rica registra impactos directos en sus costos energéticos y una señal estratégica de la OCDE sobre salud metabólica como motor oculto de crecimiento.</p>
+  </div>
+
+  <!-- ========== NOTICIA 1 ========== -->
+  <div class="section-label" id="geopolitica">
+    <span class="cat-tag">01 · Política y Geopolítica</span>
+    <div class="divider"></div>
+  </div>
+
+  <article class="noticia" id="n1">
+    <div class="noticia-header">
+      <div class="noticia-num">N.° 004 — Ítem 01 · Conflicto Armado / Geopolítica Naval</div>
+      <h2 class="noticia-title">Bloqueo de Ormuz: EE.UU. impone cierre naval, un buque chino lo quiebra al día siguiente, y el CENTCOM lo niega</h2>
+      <p class="noticia-deck">El bloqueo de la Marina estadounidense entró en vigor el 13 de abril; el 14, el petrolero chino <em>Rich Starry</em> —sancionado por Washington— lo cruzó confirmado por tres sistemas AIS independientes. El CENTCOM declaró simultáneamente que "ningún buque logró cruzar". La contradicción entre datos públicos y narrativa oficial es, en sí misma, un dato analítico de primer orden.</p>
+    </div>
+    <div class="noticia-body">
+
+      <div class="subsection">
+        <div class="subsection-title">Resumen Factual</div>
+        <p>El 12 de abril de 2026 —día 44 de la <em>Operación Furia Épica</em>, la guerra iniciada el 28 de febrero con ataques de EE.UU. e Israel a las instalaciones nucleares iraníes en Fordo, Natanz e Isfahan— el presidente Trump anunció que la Marina comenzaría a bloquear todo tráfico mercante con destino a puertos iraníes. El bloqueo entró en vigor el 13 de abril a las 14:00 GMT. En respuesta, el Parlamento iraní había aprobado el cierre del estrecho y lanzado misiles balísticos contra Israel.</p>
+        <p>El precio del Brent subió un 8% hasta los $104/barril en las primeras horas. El CENTCOM declaró ese mismo día que durante las primeras 24 horas "ningún barco logró superar el bloqueo" y que seis buques mercantes acataron la orden de retorno.</p>
+        <p>Sin embargo, el 14 de abril, datos de seguimiento marítimo de tres fuentes independientes —LSEG, MarineTraffic y Kpler— confirmaron que el petrolero <em>Rich Starry</em> cruzó el estrecho y se convirtió en el primer buque en salir del Golfo Pérsico desde el inicio del bloqueo. La embarcación, de mediano alcance, transportaba aproximadamente 250.000 barriles de metanol cargados en el puerto de Hamriyah, Emiratos Árabes Unidos. Tanto el buque como su operador —Shanghai Xuanrun Shipping Co Ltd— figuraban bajo sanciones de EE.UU. por operaciones vinculadas con Irán y tripulación de nacionalidad china. El lunes anterior, el barco había retrocedido cerca de la isla de Qeshm ante presencia naval estadounidense; el martes lo intentó de nuevo y cruzó. Infobae identificó al menos dos buques adicionales sancionados por EE.UU. que también atravesaron el estrecho esa misma jornada.</p>
+        <p>En el plano diplomático, el ministro de Defensa chino Dong Jun declaró: "Tenemos acuerdos comerciales y energéticos con Irán; esperamos que otros no interfieran en nuestros asuntos. El estrecho de Ormuz está abierto para nosotros." El Ministerio de Exteriores de China calificó el bloqueo de "peligroso e irresponsable". Negociaciones entre EE.UU. e Irán en Pakistán concluyeron sin acuerdo el fin de semana anterior; Trump sugirió el 15 de abril que una segunda ronda podría celebrarse "en los próximos dos días".</p>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">Contexto</div>
+        <p>El estrecho de Ormuz, con apenas 39 kilómetros de ancho en su punto más estrecho, canaliza entre 17 y 21 millones de barriles diarios de petróleo y la mayor parte del gas natural licuado de Qatar —el 20–30% del comercio energético mundial. La guerra llegó a su semana siete con Irán manteniendo el cierre informal e imponiendo derechos de paso a los buques que atravesaran la zona. Informes reservados que circularon en Washington señalaban la existencia de una extensa "flota fantasma" en el Golfo Pérsico: el 13 de abril se contabilizaban 91 buques de esta red, 20 de ellos con sistemas de identificación apagados, y 18 graneleros con bandera china habían visitado puertos iraníes en los días previos al bloqueo.</p>
+        <p>El cruce del <em>Rich Starry</em> debe leerse en este contexto operativo: no fue un acto improvisado sino parte de una red marítima preexistente y bien documentada que la Marina estadounidense conocía antes de iniciar el bloqueo.</p>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title meee">Evaluación Epistémica · MEEE-G</div>
+        <table class="meee-table">
+          <tr><th>Código</th><th>Afirmación</th><th>Fundamento</th></tr>
+          <tr><td><span class="code code-dc">[DC]</span></td><td>La guerra inició el 28 de febrero con ataques de EE.UU. e Israel a instalaciones nucleares iraníes.</td><td>CENTCOM; CNN, AFP, Reuters.</td></tr>
+          <tr><td><span class="code code-dc">[DC]</span></td><td>El bloqueo naval entró en vigor el 13 de abril; el Brent superó $104/barril.</td><td>Datos de mercado; CNN; Reuters.</td></tr>
+          <tr><td><span class="code code-dc">[DC]</span></td><td>El <em>Rich Starry</em> cruzó el estrecho el 14 de abril confirmado por LSEG, MarineTraffic y Kpler vía AIS.</td><td>Tres sistemas de seguimiento marítimo independientes; Reuters; AFP. Convergencia trifuente de alta fiabilidad procesual.</td></tr>
+          <tr><td><span class="code code-dc">[DC]</span></td><td>El CENTCOM declaró que "ningún buque logró cruzar" en las primeras 24 horas del bloqueo.</td><td>Comunicado oficial de CENTCOM citado por múltiples medios.</td></tr>
+          <tr><td><span class="code code-int">[Int]</span></td><td>Existe una contradicción verificable entre la declaración del CENTCOM y los datos AIS públicos: al menos un buque —sancionado, de gestión china— cruzó el estrecho dentro de las primeras 24–36 horas del bloqueo.</td><td>La brecha entre los datos de tres sistemas independientes y el comunicado oficial es el elemento más sólido de análisis. Interpretación: la administración Trump gestionó la narrativa del éxito del bloqueo con independencia de los hechos verificables. Esta pauta debe considerarse al evaluar futuros comunicados oficiales sobre la eficacia de la operación.</td></tr>
+          <tr><td><span class="code code-ip">[IP]</span></td><td>China ejerció paso de facto de manera calculada: señalización disuasoria sin confrontación armada directa.</td><td>Coherente con la declaración del ministro Dong Jun y el patrón histórico de cautelaoperativa de Beijing en situaciones de alta tensión con EE.UU.</td></tr>
+          <tr><td><span class="code code-ip">[IP]</span></td><td>El bloqueo prolongado incrementará la inflación global en múltiples economías importadoras de energía.</td><td>Inferencia basada en trayectorias históricas comparables (2008, 2022); reforzada por el dato del Brent a $104.</td></tr>
+          <tr><td><span class="code code-h">[H]</span></td><td>China estaría considerando o ya habría enviado sistemas de misiles antiaéreos a Irán.</td><td>Inteligencia estadounidense citada por CNN; sin verificación independiente; China niega categóricamente. El cruce del <em>Rich Starry</em> no confirma ni refuta esta hipótesis: son acciones en registros distintos (apoyo energético-comercial vs. apoyo militar).</td></tr>
+          <tr><td><span class="code code-h">[H]</span></td><td>EE.UU. permitió tácitamente el cruce del <em>Rich Starry</em> para evitar un incidente militar directo con China.</td><td>Sugerida por algunos analistas; sin confirmación. Alternativa igualmente plausible: la Marina no pudo interceptarlo operativamente en ese momento.</td></tr>
+          <tr><td><span class="code code-int">[Int]</span></td><td>La estrategia de Trump combina presión militar, arancelaria y de bloqueo como instrumentos integrados de coerción geopolítica.</td><td>Patrón observable; la eficacia práctica del instrumento bloqueo queda cuestionada por el cruce documentado.</td></tr>
+          <tr><td><span class="code code-c">[C]</span></td><td>El conflicto concluirá mediante acuerdo negociado en el corto plazo.</td><td>Diálogos en Pakistán sin acuerdo; posiciones maximalistas de ambas partes documentadas; alta incertidumbre.</td></tr>
+        </table>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title ade">Lectura Dinámica · ADD</div>
+        <div class="ade-grid">
+          <div class="ade-item">
+            <div class="ade-key">Régimen del sistema</div>
+            <div class="ade-val">Zona de bifurcación activa con parámetro de eficacia degradado. El sistema opera en régimen turbulento; la capacidad de enforcement del bloqueo —parámetro de control material— es inferior a la declarada por el CENTCOM.</div>
+          </div>
+          <div class="ade-item">
+            <div class="ade-key">Atractores en tensión (revisados)</div>
+            <div class="ade-val">Atractor 1: acuerdo negociado vía mediación (Pakistán, Rusia). Atractor 2: escalada hacia conflicto regional amplio con proxies. Atractor 3: colapso económico iraní. <strong>Atractor 4 (nuevo):</strong> stalemate energético prolongado con China ejerciendo paso de facto, bloqueo formalmente en vigor pero materialmente poroso.</div>
+          </div>
+          <div class="ade-item">
+            <div class="ade-key">Parámetros de control (ampliados)</div>
+            <div class="ade-val">Parámetro 1 — Cohesión diplomática: ¿cuántos actores convergen en plataforma negociadora? Parámetro 2 — Capacidad de enforcement: ¿puede la Marina interceptar sistemáticamente buques vinculados a potencias nucleares sin abrir incidente de escala? El cruce del <em>Rich Starry</em> sugiere que este segundo parámetro opera con restricciones no declaradas.</div>
+          </div>
+          <div class="ade-item">
+            <div class="ade-key">Flujos críticos</div>
+            <div class="ade-val">Flujo energético: parcialmente interrumpido, no totalmente bloqueado. Flujo diplomático: en suspenso entre rondas de Pakistán. Flujo de capitales: presionado por incertidumbre energética. Flujo informacional oficial: bajo tensión por la brecha CENTCOM/AIS.</div>
+          </div>
+          <div class="ade-item">
+            <div class="ade-key">China: tercer carril estratégico</div>
+            <div class="ade-val">China aparecía en el análisis inicial en dos registros: amenazada por aranceles [Noticia 2] e hipotético proveedor de armas [H]. El <em>Rich Starry</em> añade un tercer registro cualitativamente distinto: Beijing ejerce soberanía de facto sobre sus rutas energéticas usando un buque mercante sancionado —no uno de guerra— como instrumento de señalización. Acoplamiento estructural estratégico: la perturbación del bloqueo fue procesada por la clausura organizacional china produciendo una respuesta que maximiza el mensaje sin elevar el riesgo de escalada armada.</div>
+          </div>
+          <div class="ade-item">
+            <div class="ade-key">Capital simbólico y narrativa</div>
+            <div class="ade-val">La contradicción CENTCOM/AIS es un evento de capital simbólico: la administración Trump necesita sostener la narrativa de bloqueo efectivo para mantener la presión negociadora sobre Irán. La visibilidad pública de los datos AIS —accesibles a cualquier analista— erosiona esa narrativa desde el día 2 de la operación. Irán, China y los mediadores lo saben y lo procesan en sus propios cálculos.</div>
+          </div>
+          <div class="ade-item">
+            <div class="ade-key">Colonización del mundo de la vida</div>
+            <div class="ade-val">Las lógicas del sistema (cálculo militar de Washington; cálculo energético-estratégico de Beijing; cálculo de supervivencia de Teherán) penetran mundos de vida periféricos sin mediación. Economías dependientes de energía importada —Costa Rica entre ellas— procesan perturbaciones sistémicas sin capacidad de influir en sus parámetros de resolución.</div>
+          </div>
+          <div class="ade-item">
+            <div class="ade-key">Flota fantasma: capital simbólico invisible</div>
+            <div class="ade-val">La red de 91 buques con sistemas AIS apagados documentada en informes reservados de Washington representa un flujo energético que opera fuera de la visibilidad regulatoria. Su existencia previa al bloqueo indica que la arquitectura de evasión de sanciones estaba construida antes de que el bloqueo se declarara. Esto reduce estructuralmente la probabilidad del Atractor 3 (colapso iraní por asfixia energética).</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cr-box">
+        <div class="cr-box-title">🇨🇷 Relevancia para Costa Rica</div>
+        <p>Costa Rica importa el 100% de sus hidrocarburos. El alza sostenida del petróleo ya se traduce en incrementos de gasolina, diésel y transporte público. El Banco Central interviene para sostener el tipo de cambio en torno a ₡462/USD, pero un colón apreciado limita el estímulo al crecimiento y a las exportaciones. El queroseno —insumo del transporte aéreo— enfrenta riesgos de suministro con impacto en tarifas y turismo receptor. La Cámara de Comercio Exterior señala el nearshoring como mecanismo de adaptación. El nuevo dato del cruce del <em>Rich Starry</em> añade una lectura específica para Costa Rica: si el bloqueo resulta materialmente poroso para la "flota fantasma" pero efectivo para el comercio regulado, los precios del crudo podrían sostenerse altos no porque el suministro global colapse, sino porque la incertidumbre geopolítica per se opera como prima de riesgo permanente. Para una economía importadora neta como la costarricense, el diferencial entre precio real y precio especulativo es difícil de distinguir y de gestionar con instrumentos de política monetaria convencional. <strong>Categoría ADD: perturbación sistémica procesada desde nodo periférico acoplado; el segundo parámetro de control (enforcement del bloqueo) es relevante para proyectar la duración y profundidad del impacto energético local.</strong></p>
+      </div>
+
+    </div>
+  </article>
+
+  <!-- ========== NOTICIA 2 ========== -->
+  <div class="section-label" id="economia">
+    <span class="cat-tag economia">02 · Economía y Negocios</span>
+    <div class="divider"></div>
+  </div>
+
+  <article class="noticia economia" id="n2">
+    <div class="noticia-header">
+      <div class="noticia-num">N.° 004 — Ítem 02 · Comercio Internacional</div>
+      <h2 class="noticia-title">Guerra arancelaria de Trump: China en la mira y un sistema comercial global en reorganización</h2>
+      <p class="noticia-deck">Los aranceles al 145% sobre importaciones chinas, la amenaza del 50% adicional ligada al conflicto iraní, y la política de "Día de la Liberación" reconfiguran el orden del comercio internacional.</p>
+    </div>
+    <div class="noticia-body">
+
+      <div class="subsection">
+        <div class="subsection-title">Resumen Factual</div>
+        <p>Desde su regreso al poder en enero de 2025, la administración Trump ha escalado los aranceles sobre importaciones chinas hasta el 145% acumulado. Esta semana, Trump vinculó explícitamente la política arancelaria al conflicto con Irán: si se confirma que China suministra armamento a Irán, se agregaría un arancel "asombroso" del 50% adicional. Aranceles del 25% al acero, aluminio y automóviles ya están en vigor. México y Canadá operan bajo pausa parcial mientras los bienes cubiertos por el T-MEC mantienen entrada libre.</p>
+        <p>Para Costa Rica, la semana arrojó datos paradójicos: las exportaciones totales cerraron 2025 en un récord de $35.243 millones (+11%), y la inversión extranjera directa (IED) superó los $5.000 millones por segundo año consecutivo. Sin embargo, la IED proveniente específicamente de EE.UU. cayó un 35% en 2025, señal que algunos analistas vinculan con la reorientación del capital estadounidense hacia el mercado interno.</p>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">Contexto</div>
+        <p>La estrategia arancelaria de Trump opera bajo la doctrina del "externalismo punitivo": usar el acceso al mercado estadounidense como instrumento de presión geopolítica, no solo comercial. La vinculación arancelaria–militar (China/Irán) es inédita en su explicitez y señala una fusión de instrumentos de política exterior que algunos analistas llaman "economía de coerción integrada".</p>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title meee">Evaluación Epistémica · MEEE-G</div>
+        <table class="meee-table">
+          <tr><th>Código</th><th>Afirmación</th><th>Fundamento</th></tr>
+          <tr><td><span class="code code-dc">[DC]</span></td><td>Aranceles a China acumulan 145% según datos vigentes de la Casa Blanca.</td><td>Orden ejecutiva publicada; AP y Reuters.</td></tr>
+          <tr><td><span class="code code-dc">[DC]</span></td><td>Exportaciones costarricenses alcanzaron récord de $35.243M en 2025.</td><td>Dato de Procomer, citado por La República.</td></tr>
+          <tr><td><span class="code code-dc">[DC]</span></td><td>IED en Costa Rica superó $5.000M por segundo año consecutivo (2025: $5.121,8M).</td><td>Procomer, citado por Delfino.cr.</td></tr>
+          <tr><td><span class="code code-ip">[IP]</span></td><td>La caída de IED estadounidense (-35%) se relaciona con la política de reindustrialización interna de Trump.</td><td>Inferencia plausible; no confirmada causalmente en fuentes disponibles.</td></tr>
+          <tr><td><span class="code code-int">[Int]</span></td><td>La política arancelaria funciona como extensión de la política de seguridad nacional, no solo como instrumento comercial.</td><td>Interpretación sustentada en el patrón de vinculación explícita aranceles–postura militar.</td></tr>
+        </table>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title ade">Lectura Dinámica · ADD</div>
+        <p>El sistema de comercio internacional opera en <strong>régimen turbulento</strong> desde el primer mandato de Trump. La bifurcación actual plantea dos atractores: (a) un orden de bloques geoeconómicos relativamente estables pero mutuamente excluyentes (EE.UU.–aliados vs. China–Rusia–Global South), o (b) una fragmentación más profunda con múltiples acuerdos bilaterales ad hoc de geometría variable. El parámetro de control es la cohesión de las alianzas: si la UE, Japón y Corea del Sur convergen con Washington en presión sobre China, el atractor (a) gana probabilidad. Si actúan en preservación de sus vínculos económicos propios con Beijing, el sistema se aproxima al atractor (b).</p>
+      </div>
+
+      <div class="cr-box">
+        <div class="cr-box-title">🇨🇷 Relevancia para Costa Rica</div>
+        <p>Costa Rica es un nodo exportador de alta tecnología (dispositivos médicos, software, servicios empresariales) y un receptor de IED diversificado. La caída de IED estadounidense es una señal de monitoreo: si la tendencia se sostiene, presiona la diversificación de fuentes inversoras hacia Europa y Asia. La política arancelaria de EE.UU. no afecta directamente a Costa Rica en el corto plazo (no hay aranceles específicos anunciados al país), pero el contexto de incertidumbre comercial global eleva los costos de transacción para empresas de zona franca que exportan a EE.UU. La oportunidad del nearshoring —empresas que trasladan cadenas de producción para evadir aranceles— puede favorecer a Costa Rica si el entorno institucional y de costos resulta atractivo frente a otras locaciones de América Latina.</p>
+      </div>
+
+    </div>
+  </article>
+
+  <!-- ========== NOTICIA 3 ========== -->
+  <div class="section-label" id="ciencia1">
+    <span class="cat-tag ciencia">03 · Ciencia I · Paleontología</span>
+    <div class="divider"></div>
+  </div>
+
+  <article class="noticia ciencia" id="n3">
+    <div class="noticia-header">
+      <div class="noticia-num">N.° 004 — Ítem 03 · Paleontología / Evolución</div>
+      <h2 class="noticia-title"><em>Spinosaurus mirabilis</em>: primera nueva especie de espinosaurio en 110 años desafía la hipótesis del dinosaurio buceador</h2>
+      <p class="noticia-deck">Publicado en <em>Science</em> en febrero de 2026, el hallazgo en el Sáhara de Níger redefine la ecología del grupo: no un depredador oceánico, sino una "garza infernal" de aguas fluviales someras, a 1.000 km del mar.</p>
+    </div>
+    <div class="noticia-body">
+
+      <div class="subsection">
+        <div class="subsection-title">Resumen Factual</div>
+        <p>Un equipo internacional liderado por Paul Sereno (Universidad de Chicago) y la UNED publicó el 19 de febrero de 2026 en la revista <em>Science</em> el hallazgo de <em>Spinosaurus mirabilis</em>, primera especie nueva del género Spinosaurus desde 1915. Los fósiles fueron recuperados en el yacimiento de Jenguebi, Formación Farak, Níger, durante una expedición de 2022 que produjo 55 toneladas de material fósil. La criatura vivió hace unos 95 millones de años, medía aproximadamente 12–13 metros de longitud y poseía una cresta nasal y prefrontal de más de 50 centímetros —la estructura craneal más alta jamás documentada en dinosaurios no aviares.</p>
+        <p>El hallazgo contradice la hipótesis dominante desde 2014 que presentaba a Spinosaurus como el único dinosaurio no aviar plenamente acuático y buceador marino. Los nuevos restos fueron encontrados a 500–1.000 km de la costa más cercana de la época, en sedimentos fluviales junto a saurópodos y pterosaurios. Su morfología —cuello largo, patas traseras con musculatura funcional, hocico orientado hacia abajo— lo asemeja a una garza de gran escala: un cazador de emboscada en aguas someras y riveras boscosas.</p>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">Contexto</div>
+        <p>Los fósiles originales de Spinosaurus aegyptiacus, descritos por Ernst Stromer en 1915, fueron destruidos durante el bombardeo aliado de Múnich en 1944, lo que limitó durante décadas el estudio del grupo. El hallazgo de 2026 abre un nuevo ciclo de investigación sobre la ecología y diversidad de los espinosáuridos, que parecen haber ocupado nichos más variados que el buceador marino propuesto en los años 2010.</p>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title meee">Evaluación Epistémica · MEEE-G</div>
+        <table class="meee-table">
+          <tr><th>Código</th><th>Afirmación</th><th>Fundamento</th></tr>
+          <tr><td><span class="code code-dc">[DC]</span></td><td><em>Spinosaurus mirabilis</em> fue descrito formalmente en <em>Science</em> el 19 de febrero de 2026.</td><td>Publicación primaria revisada por pares; Sereno et al., 2026.</td></tr>
+          <tr><td><span class="code code-dc">[DC]</span></td><td>Los fósiles proceden de la Formación Farak, Níger, datados en ~95 Ma.</td><td>Idem.</td></tr>
+          <tr><td><span class="code code-ip">[IP]</span></td><td>La morfología de las extremidades posteriores indica capacidad de locomoción terrestre y vadeo, no buceo activo.</td><td>Argumento morfológico de varios paleontólogos independientes citados en New Scientist; internamente consistente con los datos disponibles.</td></tr>
+          <tr><td><span class="code code-int">[Int]</span></td><td>El hallazgo refuta la hipótesis del Spinosaurus buceador marino propuesta en 2014.</td><td>Interpretación mayoritaria en la comunidad paleontológica; el debate aún no está formalmente cerrado.</td></tr>
+          <tr><td><span class="code code-h">[H]</span></td><td>Otros espinosáuridos del mismo período podrían ocupar nichos ecológicos similares en otras cuencas fluviales del Cretácico.</td><td>Hipótesis generativa derivada del hallazgo; pendiente de trabajo de campo futuro.</td></tr>
+        </table>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title ade">Lectura Dinámica · ADD</div>
+        <p>Desde la perspectiva ADD, este hallazgo ilustra cómo el <strong>capital informacional acumulado</strong> en un yacimiento fósil permanece en estado latente hasta que las condiciones disipativas del sistema científico —financiamiento expedicionario, capacidad analítica, redes de colaboración internacional— permiten su procesamiento. Los 55.000 kg de material fósil recuperados en 2022 representan un flujo de información que el sistema científico tardará años en integrar plenamente. El debate sobre la ecología de los espinosáuridos ilustra cómo la clausura organizacional de un paradigma (la hipótesis buceadora) puede resistir perturbaciones hasta que la acumulación de evidencias contradictoria produce una bifurcación interpretativa. Este proceso —<em>crisis de paradigma</em> en el sentido kuhniano— es un caso de régimen turbulento en la dinámica del conocimiento científico.</p>
+      </div>
+
+      <div class="cr-box">
+        <div class="cr-box-title">🇨🇷 Relevancia para Costa Rica</div>
+        <p>Costa Rica cuenta con un patrimonio paleontológico activo, aunque comparativamente menos desarrollado que el de América del Sur. El Museo Nacional alberga colecciones de vertebrados del Cenozoico y el país ha producido hallazgos de mastodontes, perezosos gigantes y fauna de la Gran Biota Americana. El hallazgo de <em>S. mirabilis</em> ilustra el valor estratégico del trabajo de campo paleontológico sistemático y la importancia de la colaboración internacional. Desde una perspectiva ADD, el capital cultural asociado al conocimiento paleontológico nacional —tanto en su dimensión científica como en su potencial de educación y turismo científico— es un flujo disipativo que requiere inversión sostenida para reproducirse.</p>
+      </div>
+
+    </div>
+  </article>
+
+  <!-- ========== NOTICIA 4 ========== -->
+  <div class="section-label" id="ciencia2">
+    <span class="cat-tag ciencia">04 · Ciencia II · Arqueología y Astronomía</span>
+    <div class="divider"></div>
+  </div>
+
+  <article class="noticia arqueologia" id="n4">
+    <div class="noticia-header">
+      <div class="noticia-num">N.° 004 — Ítem 04 · Arqueología / Arqueoastronomía</div>
+      <h2 class="noticia-title">Los jeroglíficos de la diosa Nut como mapa de la Vía Láctea: nuevas evidencias reinterpretan el conocimiento astronómico del Antiguo Egipto</h2>
+      <p class="noticia-deck">Un equipo de arqueólogos y astrónomos publica evidencias de que los egipcios representaban la galaxia en objetos funerarios, redefiniendo la sofisticación cosmológica de la civilización faraónica.</p>
+    </div>
+    <div class="noticia-body">
+
+      <div class="subsection">
+        <div class="subsection-title">Resumen Factual</div>
+        <p>Un grupo interdisciplinario de especialistas en arqueología y astronomía divulgó en la semana del 10–12 de abril de 2026 hallazgos que sugieren que el Antiguo Egipto disponía de representaciones detalladas de la Vía Láctea en objetos funerarios. Las figuras de la diosa Nut —diosa del cielo— contendrían no solo un mapeo simbólico del firmamento, sino representaciones con correlatos estructurales identificables con la morfología de la galaxia observable a simple vista. Los investigadores argumentan que estas representaciones revelan un vínculo entre la astronomía observacional egipcia y su sistema funerario-cosmológico que trasciende la interpretación meramente simbólica que dominó la egiptología del siglo XX.</p>
+        <p><em>Nota de rigor:</em> Las fuentes secundarias disponibles (El Cronista, medios latinoamericanos) no identifican la publicación primaria específica. Se trata de <strong>[IP]</strong> con pendiente de verificación en revista con revisión por pares. El hallazgo se reporta como "nuevo estudio" sin DOI accesible en las fuentes consultadas.</p>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">Contexto</div>
+        <p>El estudio de la arqueoastronomía egipcia tiene décadas de desarrollo. Trabajos previos ya habían identificado alineaciones astronómicas en templos y pirámides, y la orientación de la Gran Pirámide hacia las estrellas circumpolares es un dato confirmado. Lo novedoso de este estudio sería la identificación de representaciones no de objetos celestes puntuales (estrellas individuales) sino de la estructura difusa de la Vía Láctea como totalidad, lo que implicaría una capacidad observacional y de abstracción cosmológica de mayor alcance.</p>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title meee">Evaluación Epistémica · MEEE-G</div>
+        <table class="meee-table">
+          <tr><th>Código</th><th>Afirmación</th><th>Fundamento</th></tr>
+          <tr><td><span class="code code-dc">[DC]</span></td><td>Un estudio fue publicado o divulgado en la semana del 10–12 de abril de 2026 sobre representaciones de la Vía Láctea en iconografía funeraria egipcia.</td><td>Múltiples fuentes secundarias; ausencia de publicación primaria identificable en fuentes consultadas.</td></tr>
+          <tr><td><span class="code code-ip">[IP]</span></td><td>La imagen de la diosa Nut en objetos funerarios contiene correlatos identificables con la estructura de la Vía Láctea.</td><td>Afirmación del estudio citado en fuentes secundarias; pendiente de revisión primaria.</td></tr>
+          <tr><td><span class="code code-int">[Int]</span></td><td>Este hallazgo ampliaría la comprensión del conocimiento astronómico del Antiguo Egipto más allá de las estrellas individuales hacia la morfología galáctica.</td><td>Interpretación de los autores del estudio según fuentes disponibles; requiere validación por la comunidad de arqueoastronomía.</td></tr>
+          <tr><td><span class="code code-h">[H]</span></td><td>Otras culturas antiguas con alta actividad astronómica (Maya, Babilonia, Mesopotamia) podrían mostrar representaciones análogas de la Vía Láctea.</td><td>Hipótesis generativa derivada del hallazgo; no sustentada en datos presentes.</td></tr>
+        </table>
+        <p style="margin-top:12px;font-size:13px;color:#888;font-style:italic;">⚠ Límite de información: El ANCA-ADE no pudo verificar la publicación primaria de este estudio en las bases consultadas. Se recomienda esperar confirmación en fuentes de revisión por pares antes de citar como dato confirmado.</p>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title ade">Lectura Dinámica · ADD</div>
+        <p>Desde la ADD, este hallazgo —si se confirma— es relevante en el nivel del <strong>capital simbólico civilizacional</strong>: demuestra que las representaciones cosmológicas de una cultura no son meros ornamentos sino sistemas de procesamiento de información sobre el entorno cósmico, con costo disipativo real (observación sistemática, transmisión intergeneracional de conocimiento, materialización en objetos funerarios de alta manufactura). La clausura organizacional del sistema de creencias egipcio procesaba la Vía Láctea no como objeto astronómico abstracto sino como elemento integrado en su cosmología de tránsito post-mortem. Esto ilustra el Nivel 3 del esquema ADD: el significado es la forma que toma la información cuando es procesada por un sistema con clausura organizacional simbólica.</p>
+      </div>
+
+      <div class="cr-box">
+        <div class="cr-box-title">🇨🇷 Relevancia para Costa Rica</div>
+        <p>Costa Rica posee su propio legado de arqueoastronomía precolombina, particularmente asociado a las esferas de piedra de la Zona Sur (Patrimonio Mundial UNESCO) y a los conocimientos calendárico-astronómicos de las culturas indígenas Bribri, Cabécar y Boruca, que incorporaban fenómenos astronómicos en sus ciclos rituales y agrícolas. Este hallazgo sobre Egipto invita a intensificar el estudio arqueoastronómico del patrimonio costarricense, que permanece subinvestigado. En términos ADD: el capital cultural vinculado al conocimiento astronómico indígena costarricense es un flujo disipativo en riesgo de interrupción si no cuenta con inversión académica sostenida.</p>
+      </div>
+
+    </div>
+  </article>
+
+  <!-- ========== NOTICIA 5 ========== -->
+  <div class="section-label" id="tecnologia">
+    <span class="cat-tag tecnologia">05 · Tecnología · Regulación de IA</span>
+    <div class="divider"></div>
+  </div>
+
+  <article class="noticia tecnologia" id="n5">
+    <div class="noticia-header">
+      <div class="noticia-num">N.° 004 — Ítem 05 · Inteligencia Artificial · Gobernanza</div>
+      <h2 class="noticia-title">La UE confirma que los agentes de IA quedan bajo el AI Act a partir del 2 de agosto de 2026: la regulación más exigente del mundo entra en su fase crítica</h2>
+      <p class="noticia-deck">El <em>AI Act Service Desk</em> europeo despejó el 13 de abril la ambigüedad regulatoria sobre agentes de IA; a menos de cuatro meses de la fecha límite, empresas y gobiernos del mundo ajustan sus estrategias.</p>
+    </div>
+    <div class="noticia-body">
+
+      <div class="subsection">
+        <div class="subsection-title">Resumen Factual</div>
+        <p>El 13 de abril de 2026, la plataforma oficial <em>AI Act Service Desk</em> de la Comisión Europea (DG CONNECT) confirmó mediante sus FAQ que los agentes de inteligencia artificial —generativos o no— están cubiertos por el Reglamento (UE) 2024/1689, sin crear una categoría jurídica separada. A partir del 2 de agosto de 2026, los agentes de IA clasificados como de alto riesgo (Anexo III del Reglamento) quedarán sujetos al Capítulo III completo: gestión de riesgos, supervisión humana obligatoria, gobernanza de datos, documentación técnica, registro en la base de datos de la UE y evaluación de conformidad previa al mercado.</p>
+        <p>Los agentes destinados a interacción con personas físicas o generación de contenido deberán cumplir las obligaciones de transparencia del Artículo 50. El Código de Buenas Prácticas se encuentra aún en segundo borrador (publicado el 5 de marzo de 2026), sin versión final disponible. En paralelo, el nuevo modelo de DeepSeek (V4) se diseña para funcionar sobre chips de Huawei, señal de la creciente desconexión de la infraestructura de IA china respecto de los proveedores estadounidenses (Nvidia) bajo presión de controles de exportación.</p>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">Contexto</div>
+        <p>El AI Act es el primer marco regulatorio integral de IA en el mundo. Su proceso de elaboración inició en 2021, fue aprobado por el Parlamento Europeo en marzo de 2024 y entró en vigor escalonado desde agosto de 2024. La clarificación sobre agentes de IA llega en un momento en que el mercado global experimenta una explosión de productos con IA agéntica: el CES 2026 exhibió IA integrada en electrodomésticos, robots de atención y sistemas de conducción autónoma. Se estima que el 60% del software empresarial tendrá IA integrada para diciembre de 2026.</p>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title meee">Evaluación Epistémica · MEEE-G</div>
+        <table class="meee-table">
+          <tr><th>Código</th><th>Afirmación</th><th>Fundamento</th></tr>
+          <tr><td><span class="code code-dc">[DC]</span></td><td>El AI Act Service Desk confirmó el 13/04/2026 que los agentes de IA quedan bajo el Reglamento (UE) 2024/1689.</td><td>Fuente oficial de la Comisión Europea; citado en análisis jurídico de Economist &amp; Jurist.</td></tr>
+          <tr><td><span class="code code-dc">[DC]</span></td><td>La fecha de aplicación plena del Capítulo III es el 2 de agosto de 2026.</td><td>Texto del Reglamento; múltiples fuentes jurídicas.</td></tr>
+          <tr><td><span class="code code-ip">[IP]</span></td><td>La ambigüedad regulatoria residual (Código de Buenas Prácticas aún en borrador) generará costos de cumplimiento diferenciados para grandes versus pequeñas empresas.</td><td>Patrón observable en marcos regulatorios anteriores de la UE (GDPR); inferencia plausible.</td></tr>
+          <tr><td><span class="code code-int">[Int]</span></td><td>La estrategia de DeepSeek de migrar a chips Huawei señala una bifurcación tecnológica duradera entre los ecosistemas de IA de EE.UU. y China.</td><td>Tendencia documentada; la magnitud de la bifurcación es materia de disputa entre analistas.</td></tr>
+          <tr><td><span class="code code-c">[C]</span></td><td>La regulación europea será adoptada como estándar de facto global en el mediano plazo.</td><td>El "efecto Bruselas" tiene antecedentes (GDPR), pero su aplicación al campo de IA enfrenta competencia de marcos menos restrictivos.</td></tr>
+        </table>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title ade">Lectura Dinámica · ADD</div>
+        <p>El AI Act representa un intento de la UE de imponer su <strong>clausura organizacional normativa</strong> sobre un campo tecnológico en plena explosión disipativa. La tensión es clásica en la ADD: el sistema normativo intenta mantener su identidad (derechos fundamentales, supervisión humana, no discriminación) mediante la colonización de un dominio —el del mercado de IA— que opera bajo lógicas sistémicas propias (velocidad de iteración, maximización de capacidades, competencia por talento y chips). El parámetro de control es la velocidad de adopción tecnológica versus la velocidad legislativa: si el mercado genera agentes de IA de alta capacidad más rápido de lo que el Código de Buenas Prácticas puede formalizarlos, la regulación opera en déficit de cobertura permanente. Zona de bifurcación: el campo semi-autónomo de la industria tecnológica puede (a) adaptarse creativamente al marco europeo, produciendo innovación en regímenes de cumplimiento; o (b) deslocalizar el desarrollo de agentes de alto riesgo hacia jurisdicciones menos restrictivas.</p>
+      </div>
+
+      <div class="cr-box">
+        <div class="cr-box-title">🇨🇷 Relevancia para Costa Rica</div>
+        <p>Costa Rica no cuenta aún con un marco regulatorio específico de IA, aunque la MICITT ha iniciado discusiones de política pública en la materia. Las empresas de zona franca con operaciones en el país —muchas del sector tecnológico y de servicios empresariales— operan bajo marcos de sus casas matrices (frecuentemente EE.UU. o UE), lo que las somete indirectamente al AI Act si exportan servicios al mercado europeo. La clarificación sobre agentes de IA es directamente relevante para firmas costarricenses de BPO y servicios de IA que atienden clientes europeos. En términos de capital simbólico, un eventual liderazgo de Costa Rica en gobernanza regional de IA —articulado con el marco europeo— sería una oportunidad de posicionamiento en el ecosistema tecnológico latinoamericano.</p>
+      </div>
+
+    </div>
+  </article>
+
+  <!-- ========== NOTICIA 6 ========== -->
+  <div class="section-label" id="costarica">
+    <span class="cat-tag costarica">06 · Costa Rica · Salud, Economía y Política Pública</span>
+    <div class="divider"></div>
+  </div>
+
+  <article class="noticia costarica" id="n6">
+    <div class="noticia-header">
+      <div class="noticia-num">N.° 004 — Ítem 06 · Nacional · Salud Pública / Economía</div>
+      <h2 class="noticia-title">OCDE: atacar enfermedades no transmisibles podría aumentar el PIB costarricense en más del 3% anual hasta 2050</h2>
+      <p class="noticia-deck">Un nuevo informe de la organización revela que el "dividendo de salud" de Costa Rica supera al de Francia y Canadá, y que la prevención genera un retorno de inversión de $5 por cada $1 gastado.</p>
+    </div>
+    <div class="noticia-body">
+
+      <div class="subsection">
+        <div class="subsection-title">Resumen Factual</div>
+        <p>El 15 de abril de 2026, El Financiero publicó un análisis del informe de la OCDE <em>"Los beneficios de abordar las enfermedades no transmisibles (ENT)"</em>, con datos específicos para Costa Rica. Según el modelo SPHEP-NCD de la organización, la eliminación de cuatro enfermedades clave —cáncer, enfermedades cardiovasculares, EPOC y diabetes— incrementaría el PIB costarricense en un promedio del 3.3% anual en el período 2026–2050. Este "dividendo de salud" posiciona al país por encima de economías como Francia (2,4%) o Canadá (2,9%). La OCDE estima que las políticas de prevención primaria (etiquetado de menús, regulación de publicidad, entornos saludables) generan hasta $5 por cada $1 invertido. El análisis concluye que Costa Rica puede capturar casi el 90% de estos beneficios enfocándose en solo tres factores de riesgo prioritarios para su perfil poblacional.</p>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">Contexto</div>
+        <p>Costa Rica enfrenta una transición epidemiológica avanzada: las ENT son la principal causa de muerte y el mayor generador de gasto sanitario en la CCSS. El sistema de salud ha sido históricamente fuerte en atención primaria, pero la oferta de alimentos ultraprocesados, el sedentarismo y el envejecimiento poblacional presionan al sistema desde el lado de la demanda. El informe llega en un año preelectoral (elecciones generales en febrero 2026), cuando el debate fiscal —regla fiscal, deuda pública sobre 60% del PIB— domina la agenda.</p>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title meee">Evaluación Epistémica · MEEE-G</div>
+        <table class="meee-table">
+          <tr><th>Código</th><th>Afirmación</th><th>Fundamento</th></tr>
+          <tr><td><span class="code code-dc">[DC]</span></td><td>El modelo SPHEP-NCD de la OCDE proyecta +3.3% de PIB anual para Costa Rica 2026–2050 si se eliminan cuatro ENT.</td><td>Informe OCDE citado en El Financiero; fuente institucional de alta fiabilidad procesual.</td></tr>
+          <tr><td><span class="code code-dc">[DC]</span></td><td>El retorno de inversión de prevención primaria se estima en $5 por cada $1 según la OCDE.</td><td>Idem.</td></tr>
+          <tr><td><span class="code code-ip">[IP]</span></td><td>Costa Rica puede capturar ~90% de estos beneficios concentrándose en tres factores de riesgo específicos.</td><td>Afirmación del modelo OCDE; los factores específicos no se detallan en las fuentes secundarias consultadas.</td></tr>
+          <tr><td><span class="code code-int">[Int]</span></td><td>Este informe reorienta el debate de política pública de la eficiencia del gasto sanitario hacia la prevención como inversión macroeconómica.</td><td>Interpretación sustentada en el marco conceptual del informe; depende de voluntad política para traducirse en política efectiva.</td></tr>
+          <tr><td><span class="code code-h">[H]</span></td><td>En un contexto de regla fiscal restrictiva, el gobierno costarricense podría usar este informe para justificar gasto preventivo como inversión, no como gasto corriente.</td><td>Hipótesis sobre el uso político del informe; altamente especulativa en contexto de campaña electoral.</td></tr>
+        </table>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title ade">Lectura Dinámica · ADD</div>
+        <p>El informe de la OCDE opera como una <strong>perturbación informacional de segundo orden</strong>: no solo describe un estado del sistema de salud, sino que introduce una diferencia en cómo el sistema político puede auto-observarse. Si es procesado por el mundo de la vida político-institucional (en términos habermasianos), abre la posibilidad de una bifurcación en la política sanitaria: del modelo reactivo-curativo al modelo preventivo-estratégico. Sin embargo, las lógicas sistémicas dominantes —la regla fiscal, los ciclos electorales, los incentivos de la industria alimentaria— constituyen poderosos atractores que pueden amortiguar la perturbación. El capital simbólico del informe OCDE (como fuente de legitimidad técnica) puede ser decisivo en el proceso: su autoridad epistémica aumenta la probabilidad de que la perturbación sea procesada y no simplemente descartada.</p>
+      </div>
+
+      <div class="cr-box">
+        <div class="cr-box-title">🇨🇷 Dimensión Nacional Ampliada</div>
+        <p>Adicionalmente a la coyuntura del Ormuz y el informe OCDE, la semana revela otras dos señales de monitoreo para Costa Rica: (1) <strong>Crisis educativa:</strong> La Nación reporta que universidades públicas y privadas documentan rezagos profundos en competencias fundamentales de estudiantes provenientes de secundaria, con docentes señalando la "memorización y el facilismo" como patrones dominantes. Esta perturbación al flujo de capital cultural —en términos ADD— amenaza a mediano plazo la base de capital humano que sostiene la economía de servicios de alto valor. (2) <strong>Crimen organizado:</strong> Autoridades ejecutaron allanamientos en Cartago relacionados con una red que utilizaba pistas clandestinas en Guanacaste para traficar drogas hacia Norteamérica, señal de un acoplamiento estructural entre la geografía de tránsito costarricense y las redes del narcotráfico regional.</p>
+      </div>
+
+    </div>
+  </article>
+
+  <!-- ========== TABLA DE SÍNTESIS ========== -->
+  <div id="sintesis">
+  <div class="synthesis-section">
+    <h3>Tabla de Síntesis Semanal</h3>
+    <table class="synth-table">
+      <tr>
+        <th>Noticia</th>
+        <th>Categoría</th>
+        <th>Régimen ADD</th>
+        <th>Estatus MEEE-G dominante</th>
+        <th>Relevancia CR</th>
+        <th>Urgencia</th>
+      </tr>
+      <tr>
+        <td>Bloqueo de Ormuz / Guerra Irán–EE.UU. / Cruce del <em>Rich Starry</em></td>
+        <td>Geopolítica</td>
+        <td>Bifurcación activa; enforcement degradado; 4 atractores</td>
+        <td>[DC] + [Int] (contradicción CENTCOM/AIS)</td>
+        <td>Alta directa (energía, inflación, prima de riesgo)</td>
+        <td class="nivel nivel-alto">● Alta</td>
+      </tr>
+      <tr>
+        <td>Guerra arancelaria de Trump / China</td>
+        <td>Economía</td>
+        <td>Turbulento</td>
+        <td>[DC] + [Int]</td>
+        <td>Media–alta (IED, zonas francas, nearshoring)</td>
+        <td class="nivel nivel-medio">● Media</td>
+      </tr>
+      <tr>
+        <td><em>Spinosaurus mirabilis</em></td>
+        <td>Ciencia · Paleontología</td>
+        <td>Bifurcación paradigmática</td>
+        <td>[DC] + [IP]</td>
+        <td>Baja directa / Alta simbólica</td>
+        <td class="nivel nivel-bajo">● Baja</td>
+      </tr>
+      <tr>
+        <td>Vía Láctea en jeroglíficos egipcios</td>
+        <td>Ciencia · Arqueología</td>
+        <td>Laminar (conocimiento emergente)</td>
+        <td>[IP] / verificación pendiente</td>
+        <td>Baja directa / Media simbólica</td>
+        <td class="nivel nivel-bajo">● Baja</td>
+      </tr>
+      <tr>
+        <td>AI Act: agentes de IA bajo regulación europea</td>
+        <td>Tecnología</td>
+        <td>Turbulento / zona de bifurcación normativa</td>
+        <td>[DC] + [Int]</td>
+        <td>Media (empresas TI, servicios exportables)</td>
+        <td class="nivel nivel-medio">● Media</td>
+      </tr>
+      <tr>
+        <td>OCDE: ENT y dividendo de salud en CR</td>
+        <td>CR · Salud / Economía</td>
+        <td>Laminar con perturbación</td>
+        <td>[DC] + [H]</td>
+        <td>Alta estructural (CCSS, política fiscal, PIB)</td>
+        <td class="nivel nivel-alto">● Alta</td>
+      </tr>
+    </table>
+  </div>
+  </div>
+
+  <!-- INCERTIDUMBRES ABIERTAS -->
+  <div class="uncertainties">
+    <h3>Incertidumbres Abiertas</h3>
+    <ul>
+      <li>¿La segunda ronda de negociaciones EE.UU.–Irán en Pakistán producirá un acuerdo de cese al fuego o apenas una pausa táctica? La postura de "maximalismo" atribuida a Washington por el canciller iraní es una señal de tensión sin resolución visible.</li>
+      <li>¿EE.UU. interceptará buques chinos adicionales o tolerará tácitamente su paso para evitar un incidente directo con Beijing? La respuesta determina si el Atractor 3 (colapso iraní) o el Atractor 4 (stalemate poroso) gana probabilidad en las próximas semanas.</li>
+      <li>¿La contradicción entre la declaración del CENTCOM y los datos AIS del 14 de abril fue un error de comunicación, una decisión deliberada de gestión narrativa, o refleja genuina incapacidad de interdicción de buques vinculados a potencias nucleares? Esta distinción tiene consecuencias analíticas de primer orden para evaluar la credibilidad de futuros comunicados oficiales sobre el bloqueo.</li>
+      <li>¿Hay confirmación verificable de transferencia de sistemas de misiles chinos a Irán? La hipótesis [H] permanece sin verificación independiente; si se confirma, la amenaza arancelaria del 50% adicional sobre el 145% ya vigente produciría efectos deflacionarios globales de magnitud difícil de proyectar.</li>
+      <li>¿Cuáles son exactamente los tres factores de riesgo que la OCDE identifica como prioritarios para el perfil epidemiológico costarricense? Las fuentes secundarias no los especifican; el análisis completo del informe está detrás de acceso restringido.</li>
+      <li>¿La clarificación del AI Act sobre agentes de IA acelerará o ralentizará la adopción tecnológica en Europa frente a EE.UU. y China? El "efecto Bruselas" depende de cuán operacionalizable resulte el Código de Buenas Prácticas en su versión final.</li>
+      <li>¿El hallazgo de jeroglíficos como mapa de la Vía Láctea será confirmado por publicación primaria con revisión por pares, o quedará como afirmación de alcance limitado? ANCA-ADE actualizará su estatus epistémico cuando la fuente primaria sea accesible.</li>
+    </ul>
+  </div>
+
+  <!-- REFERENCIAS -->
+  <div class="references" id="referencias">
+    <h3>Referencias · Formato APA 7</h3>
+    <p>Bilbao Hiria. (2026, 14 de abril). <em>Un petrolero chino sancionado por EE.UU. atravesó el estrecho de Ormuz pese al bloqueo naval de Trump</em>. https://bilbaohiria.com/actualidad/petrolero-chino-rich-starry-estrecho-ormuz-bloqueo-trump/</p>
+    <p>CNN en Español. (2026, 13 de abril). <em>El bloqueo de Trump del estrecho de Ormuz corre el riesgo de asestar otro duro golpe a la economía mundial</em>. https://cnnespanol.cnn.com/2026/04/13/eeuu/analisis-bloqueo-ormuz-trump-economia-mundial-trax</p>
+    <p>Democracy Now! (2026, 14 de abril). <em>"El estrecho de Ormuz está abierto para nosotros": China advierte a EE.UU. que no bloquee los puertos iraníes</em>. https://www.democracynow.org/es/2026/4/14/titulares/the_strait_of_hormuz_is_open_to_us_china_warns_us_against_blockading_iranian_ports</p>
+    <p>Escenario Mundial. (2026, 14 de abril). <em>Datos de seguimiento marítimo muestran los barcos que pasan por el estrecho de Ormuz con el bloqueo de Estados Unidos</em>. https://www.escenariomundial.com/2026/04/14/datos-de-seguimiento-maritimo-muestran-los-barcos-que-pasan-por-el-estrecho-de-ormuz-con-el-bloqueo-de-estados-unidos/</p>
+    <p>Excélsior. (2026, 12 de abril). <em>Trump amenaza a China con aranceles del 50% si da ayuda militar a Irán</em>. https://www.excelsior.com.mx/internacional/trump-amenaza-china-con-aranceles-50-si-da-ayuda-militar-iran</p>
+    <p>Infobae. (2026, 13 de abril). <em>Comenzó el bloqueo total de los puertos iraníes en el estrecho de Ormuz por parte de los Estados Unidos</em>. https://www.infobae.com/estados-unidos/2026/04/13/comenzo-el-bloqueo-total-de-los-puertos-iranies-en-el-estrecho-de-ormuz-por-parte-de-los-estados-unidos/</p>
+    <p>Infobae. (2026, 13 de abril). <em>Un informe confidencial muestra los buques chinos y la flota fantasma que operan en el estrecho de Ormuz</em>. https://www.infobae.com/america/mundo/2026/04/13/un-informe-confidencial-muestra-los-buques-chinos-y-la-flota-fantasma-que-operan-en-el-estrecho-de-ormuz/</p>
+    <p>Infobae. (2026, 14 de abril). <em>Flota fantasma: cuáles son los tres petroleros sancionados por EEUU que cruzaron el estrecho de Ormuz pese al bloqueo</em>. https://www.infobae.com/america/mundo/2026/04/14/flota-fantasma-cuales-son-los-tres-petroleros-sancionados-por-eeuu-que-cruzaron-el-estrecho-de-ormuz-pese-al-bloqueo/</p>
+    <p>Infobae Costa Rica. (2026, 15 de abril). <em>Alza del petróleo amenaza el costo de vida y las exportaciones en Costa Rica durante 2026</em>. https://www.infobae.com/costa-rica/2026/04/15/alza-del-petroleo-amenaza-el-costo-de-vida-y-las-exportaciones-en-costa-rica-durante-2026/</p>
+    <p>La Jornada. (2026, 15 de abril). <em>En los próximos dos días, posible segunda ronda de diálogo con Irán: Trump</em>. https://www.jornada.com.mx/2026/04/15/mundo/021n1mun</p>
+    <p>La Nación Costa Rica. (2026, 14 de abril). <em>Últimas noticias</em> [Portada digital]. https://www.nacion.com</p>
+    <p>Resumen Latinoamericano. (2026, 14 de abril). <em>Petrolero chino desafía a Trump y cruza Ormuz a pesar de su bloqueo</em>. https://www.resumenlatinoamericano.org/2026/04/14/internacional-petrolero-chino-desafia-a-trump-y-cruza-ormuz-a-pesar-de-su-bloqueo</p>
+    <p>Servindi. (2026, 14 de abril). <em>China rechaza bloqueo de Ormuz por EE.UU.</em> https://www.servindi.org/seccion-politica-actualidad-noticias/14/04/2026/china-rechaza-bloqueo-de-ormuz-por-ee-uu</p>
+    <p>Univision / N+. (2026, 14 de abril). <em>Guerra en Irán hoy: últimas noticias del conflicto — martes 14 de abril</em>. https://www.univision.com/noticias/mundo/guerra-iran-hoy-martes-14-de-abril-de-2026-ultimas-noticias-israel-estados-unidos-iran</p>
+    <p>CRECEX. (2026, 10 de abril). <em>Noticias comerciales Costa Rica 2026: exportaciones récord, inversión extranjera y nearshoring</em>. https://crecex.com/noticias-comerciales-de-costa-rica-exportaciones-record-inversion-extranjera-y-tendencias-del-comercio-internacional-2026/</p>
+    <p>El Financiero Costa Rica. (2026, 15 de abril). <em>OCDE: sin estas enfermedades, el PIB anual de Costa Rica podría aumentar más de un 3% entre 2026 y 2050</em>. https://www.elfinancierocr.com/economia-y-politica/ocde-sin-estas-enfermedades-el-pib-anual-de-costa/G7S3B6IGURC25ABDXCW5EY5CCM/story/</p>
+    <p>Sereno, P. C., et al. (2026). <em>Spinosaurus mirabilis</em>, a new spinosaurid from the Farak Formation of Niger. <em>Science</em>. [DOI no disponible en fuentes consultadas; publicado el 19 de febrero de 2026]</p>
+    <p>CNN en Español. (2026, 19 de marzo). <em>Spinosaurus mirabilis: una "garza infernal" que suma evidencia en un debate de larga data</em>. https://cnnespanol.cnn.com/2026/03/19/ciencia/spinosaurus-mirabilis-nueva-especie-dinosaurio-trax</p>
+    <p>El Cronista. (2026, 10–12 de abril). <em>Los antiguos egipcios conocían los secretos ocultos del universo: dibujaban la Vía Láctea en jeroglíficos</em>. https://www.cronista.com/agencias/confirmado-por-la-ciencia-los-jeroglificos-egipcios-esconden-un-mapa-de-la-via-lactea-invisible-a-simple-vista/</p>
+    <p>Economist &amp; Jurist. (2026, 14 de abril). <em>El EU AI Act Q2 2026: la Comisión Europea aclara, discretamente, el encaje legal de los agentes de IA</em>. https://www.economistjurist.es/articulos-juridicos-destacados/el-eu-ai-act-q2-2026-la-comision-europea-aclara-discretamente-el-encaje-legal-de-los-agentes-de-ia/</p>
+    <p>Goldman, A. I. (1979). What is justified belief? En G. S. Pappas (Ed.), <em>Justification and Knowledge</em>. D. Reidel.</p>
+    <p>Montero Fonseca, A. (2026). <em>Antropología Dinámica del Devenir: bases para un programa teórico-metodológico relacional ante la complejidad sociocultural</em> [Artículo académico, versión 1].</p>
+    <p>Prigogine, I. (1996). <em>El fin de las certidumbres</em>. Andrés Bello.</p>
+    <p>Maturana, H., &amp; Varela, F. (1984). <em>El árbol del conocimiento</em>. Editorial Universitaria.</p>
+    <p>Habermas, J. (1987). <em>The Theory of Communicative Action, Vol. 2: Lifeworld and System</em>. Beacon Press.</p>
+    <p>Bourdieu, P. (1977). <em>Outline of a Theory of Practice</em>. Cambridge University Press.</p>
+  </div>
+
+  <!-- CIERRE METODOLÓGICO -->
+  <div class="method-close">
+    <strong>Nota Metodológica Obligatoria</strong>
+    El presente boletín combina evaluación epistémica explicacionista (MEEE-G, inspirada en el fiabilismo procesual y el explicacionismo comparativo de Alvin I. Goldman) y análisis dinámico antropológico (ADD, según el marco teórico de Alfredo Montero Fonseca). Las clasificaciones epistémicas [DC] / [IP] / [H] / [Int] / [C] indican el grado de respaldo disponible para cada afirmación en el momento de producción del boletín. El análisis dinámico identifica regímenes, atractores y bifurcaciones como herramientas heurísticas, no como predicciones deterministas. Este boletín <strong>no constituye predicción determinista ni recomendación de política pública</strong>. Los escenarios plausibles son instrumentos analíticos sujetos a revisión conforme evolucione la información disponible. La identificación de incertidumbres abiertas forma parte constitutiva del método: el falibilismo explícito es un principio, no una limitación.
+  </div>
+
+</div><!-- /container -->
+
+<footer>
+  <div class="footer-brand">ANCA<span>–</span>ADE</div>
+  <div class="footer-meta">
+    Boletín Semanal N.° 004 · Semana 9–15 de abril de 2026<br>
+    Producido el 15 de abril de 2026<br>
+    MEEE-G · ADD · APA 7 · Costa Rica como nodo de análisis<br>
+    <a href="/" style="color:inherit">antropos.app</a>
+  </div>
+</footer>
+
+<script data-goatcounter="https://antropos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

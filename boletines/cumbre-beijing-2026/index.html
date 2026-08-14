@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANCA-ADD · ESPECIAL-GEO-01: La Cumbre de Beijing — Trump, Xi y el Orden en Transición · antropos.app</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Noto+Serif+SC:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-deep:       #06080b;
+    --bg-card:       #0c1016;
+    --bg-card-hover: #111820;
+    --border-subtle: #1a2230;
+    --red-main:      #c0392b;
+    --red-light:     #e74c3c;
+    --gold-main:     #c8a040;
+    --gold-light:    #e8b850;
+    --blue-china:    #1a4a7a;
+    --blue-light:    #3a7abf;
+    --text-primary:  #ddd8cc;
+    --text-secondary:#988070;
+    --text-dim:      #60584c;
+    --green-stable:  #2d6a4f;
+    --amber-warn:    #8a6020;
+    --red-crisis:    #7a1a1a;
+    --accent-east:   #c0802a;
+    --accent-west:   #4070a0;
+    --wallerstein:   #5a3a7a;
+    --dussel:        #7a2a3a;
+    --arrighi:       #3a5a3a;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg-deep);
+    color: var(--text-primary);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 16.5px;
+    line-height: 1.78;
+    overflow-x: hidden;
+  }
+
+  /* TICKER */
+  .ticker-wrap {
+    background: #040608;
+    border-bottom: 1px solid var(--red-main);
+    padding: 7px 0;
+    overflow: hidden;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .ticker-content {
+    display: inline-block;
+    white-space: nowrap;
+    animation: ticker 100s linear infinite;
+    font-family: 'Space Mono', monospace;
+    font-size: 10.5px;
+    color: var(--gold-main);
+    letter-spacing: 0.07em;
+    padding-left: 100%;
+  }
+  .ticker-content span { margin: 0 36px; color: var(--text-dim); }
+  @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-100%); } }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    background: linear-gradient(150deg, #040810 0%, #09131e 40%, #0e1a16 70%, #0a0806 100%);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 65px 40px 55px;
+    overflow: hidden;
+    text-align: center;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 20% 50%, rgba(26,74,122,0.16) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 40% at 80% 50%, rgba(192,57,43,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 30% at 50% 80%, rgba(90,58,122,0.10) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .pub-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.22em;
+    color: var(--red-main);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 7.5vw, 82px);
+    line-height: 0.93;
+    letter-spacing: 0.02em;
+    margin-bottom: 8px;
+    background: linear-gradient(130deg, #b8c0cc 0%, var(--text-primary) 45%, var(--gold-light) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(15px, 2.2vw, 22px);
+    font-style: italic;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+    font-weight: 300;
+  }
+  .hero-v2-badge {
+    display: inline-block;
+    background: rgba(90,58,122,0.25);
+    border: 1px solid rgba(90,58,122,0.5);
+    color: #b090d8;
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    padding: 4px 14px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  .theory-badges {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 22px 0 28px;
+  }
+  .theory-badge {
+    padding: 6px 16px;
+    border: 1px solid;
+    font-family: 'Space Mono', monospace;
+    font-size: 8.5px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  .tb-add    { border-color: var(--gold-main); color: var(--gold-main); background: rgba(200,160,64,0.08); }
+  .tb-wall   { border-color: #8060b0; color: #b090d8; background: rgba(90,58,122,0.12); }
+  .tb-arri   { border-color: #608050; color: #90b878; background: rgba(58,90,58,0.12); }
+  .tb-duss   { border-color: #b04060; color: #e07090; background: rgba(122,42,58,0.12); }
+  .hero-meta {
+    font-family: 'Space Mono', monospace;
+    font-size: 9.5px;
+    color: var(--text-dim);
+    letter-spacing: 0.13em;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .hero-meta em { color: var(--gold-main); font-style: normal; }
+
+  /* NAV */
+  nav.section-nav {
+    background: #050810;
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 0;
+    position: sticky; top: 32px; z-index: 90;
+    overflow-x: auto;
+  }
+  nav.section-nav ul { display: flex; list-style: none; white-space: nowrap; padding: 0 24px; }
+  nav.section-nav a {
+    display: block;
+    padding: 12px 15px;
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.11em;
+    color: var(--text-dim);
+    text-decoration: none;
+    text-transform: uppercase;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+  }
+  nav.section-nav a:hover { color: var(--gold-main); border-color: var(--gold-main); }
+
+  /* LAYOUT */
+  .container { max-width: 1080px; margin: 0 auto; padding: 0 26px; }
+  section { padding: 55px 0; border-bottom: 1px solid var(--border-subtle); }
+
+  .section-header {
+    display: flex; align-items: center; gap: 14px; margin-bottom: 32px;
+  }
+  .section-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 54px; line-height: 1;
+    color: var(--border-subtle); flex-shrink: 0;
+  }
+  .section-titles h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px; letter-spacing: 0.05em;
+    color: var(--text-primary); line-height: 1;
+  }
+  .section-titles .category-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 8.5px; letter-spacing: 0.18em;
+    color: var(--red-main); text-transform: uppercase;
+  }
+
+  /* ARTICLE CARD */
+  .article-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-left: 4px solid;
+    padding: 30px 34px;
+    margin-bottom: 26px;
+    transition: background 0.2s;
+  }
+  .article-card:hover { background: var(--bg-card-hover); }
+  .article-card.geo     { border-left-color: var(--blue-light); }
+  .article-card.eco     { border-left-color: var(--gold-main); }
+  .article-card.wall    { border-left-color: #8060b0; }
+  .article-card.dussel  { border-left-color: #b04060; }
+  .article-card.arrighi { border-left-color: #608050; }
+  .article-card.cr      { border-left-color: var(--red-main); }
+  .article-card.latam   { border-left-color: #b07020; }
+
+  .article-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 600;
+    color: var(--text-primary); margin-bottom: 6px; line-height: 1.3;
+  }
+  .article-tag {
+    font-family: 'Space Mono', monospace; font-size: 8px;
+    letter-spacing: 0.16em; color: var(--text-dim);
+    text-transform: uppercase; margin-bottom: 16px;
+  }
+  .subsection-label {
+    font-family: 'Space Mono', monospace; font-size: 8.5px;
+    letter-spacing: 0.18em; color: var(--text-dim);
+    text-transform: uppercase; margin: 20px 0 7px;
+    padding-bottom: 5px; border-bottom: 1px solid var(--border-subtle);
+  }
+  p { margin-bottom: 13px; }
+
+  /* THEORY BOXES */
+  .theory-box {
+    padding: 20px 24px; margin: 18px 0;
+    border: 1px solid; font-size: 13.5px; line-height: 1.65;
+  }
+  .theory-box.wallerstein {
+    background: rgba(90,58,122,0.08);
+    border-color: rgba(90,58,122,0.3);
+  }
+  .theory-box.arrighi {
+    background: rgba(58,90,58,0.08);
+    border-color: rgba(58,90,58,0.3);
+  }
+  .theory-box.dussel-box {
+    background: rgba(122,42,58,0.08);
+    border-color: rgba(122,42,58,0.3);
+  }
+  .theory-box-label {
+    font-family: 'Space Mono', monospace; font-size: 8.5px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    margin-bottom: 10px; font-weight: 700;
+  }
+  .theory-box.wallerstein .theory-box-label { color: #b090d8; }
+  .theory-box.arrighi     .theory-box-label { color: #90b878; }
+  .theory-box.dussel-box  .theory-box-label { color: #e07090; }
+
+  /* HIERARCHY DIAGRAM */
+  .hierarchy {
+    background: #07090d;
+    border: 1px solid var(--border-subtle);
+    padding: 26px 30px;
+    margin: 20px 0;
+    font-size: 13px;
+  }
+  .hier-level {
+    display: flex;
+    align-items: stretch;
+    margin-bottom: 2px;
+  }
+  .hier-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    color: var(--text-dim);
+    letter-spacing: 0.12em;
+    width: 40px;
+    flex-shrink: 0;
+    padding-top: 12px;
+  }
+  .hier-content {
+    flex: 1;
+    padding: 10px 16px;
+    border-left: 3px solid;
+    margin-left: 6px;
+  }
+  .hier-content .hier-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 9.5px; letter-spacing: 0.1em;
+    text-transform: uppercase; margin-bottom: 4px;
+  }
+  .hier-content .hier-body {
+    color: var(--text-secondary); font-size: 12.5px; line-height: 1.55;
+  }
+  .hier-L1 { border-color: var(--gold-main); }
+  .hier-L1 .hier-title { color: var(--gold-main); }
+  .hier-L2 { border-color: #b090d8; }
+  .hier-L2 .hier-title { color: #b090d8; }
+  .hier-L3 { border-color: #90b878; }
+  .hier-L3 .hier-title { color: #90b878; }
+  .hier-L4 { border-color: var(--blue-light); }
+  .hier-L4 .hier-title { color: var(--blue-light); }
+  .hier-L5 { border-color: #e07090; }
+  .hier-L5 .hier-title { color: #e07090; }
+  .hier-L6 { border-color: #d07030; }
+  .hier-L6 .hier-title { color: #d07030; }
+  .hier-arrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    color: var(--text-dim);
+    padding: 2px 0 2px 46px;
+    letter-spacing: 0.1em;
+  }
+
+  /* DUAL VOICE */
+  .dual-voice {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0; margin: 20px 0;
+    border: 1px solid var(--border-subtle);
+  }
+  .voice-west { padding: 18px 20px; background: rgba(26,47,90,0.22); border-right: 1px solid var(--border-subtle); }
+  .voice-east { padding: 18px 20px; background: rgba(70,18,18,0.18); }
+  .voice-label { font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 8px; font-weight: 700; }
+  .voice-west .voice-label { color: var(--accent-west); }
+  .voice-east .voice-label { color: var(--accent-east); }
+  .voice-body { font-size: 13px; line-height: 1.62; color: var(--text-secondary); font-style: italic; }
+  @media (max-width: 640px) { .dual-voice { grid-template-columns: 1fr; } .voice-west { border-right: none; border-bottom: 1px solid var(--border-subtle); } }
+
+  /* EPISTEMIC TABLE */
+  .epistemic-table { width: 100%; border-collapse: collapse; font-size: 12.5px; margin: 16px 0; font-family: 'Space Mono', monospace; }
+  .epistemic-table th { background: #08101a; color: var(--gold-main); padding: 8px 12px; text-align: left; font-size: 8.5px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; border-bottom: 1px solid var(--border-subtle); }
+  .epistemic-table td { padding: 8px 12px; vertical-align: top; border-bottom: 1px solid #0e161e; color: var(--text-secondary); font-size: 11.5px; line-height: 1.5; }
+  .epistemic-table tr:hover td { background: rgba(255,255,255,0.02); }
+  .code { display: inline-block; padding: 2px 6px; border-radius: 2px; font-weight: 700; font-size: 9.5px; letter-spacing: 0.08em; }
+  .dc  { background: rgba(45,106,79,0.35);  color: #60c080; }
+  .ip  { background: rgba(58,122,191,0.3);  color: #80b0e0; }
+  .h   { background: rgba(138,96,32,0.35);  color: #d8a060; }
+  .int { background: rgba(90,50,130,0.35);  color: #b080d8; }
+  .c   { background: rgba(122,26,26,0.35);  color: #e08080; }
+
+  /* ADD BLOCK */
+  .add-block { background: #070a0e; border: 1px solid #182030; border-left: 3px solid var(--gold-main); padding: 20px 24px; margin: 18px 0; font-size: 13px; }
+  .add-label { font-family: 'Space Mono', monospace; font-size: 8px; color: var(--gold-main); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 10px; font-weight: 700; }
+  .add-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px; }
+  .add-item { font-size: 12.5px; line-height: 1.55; color: var(--text-secondary); }
+  .add-item strong { color: var(--gold-main); font-family: 'Space Mono', monospace; font-size: 8.5px; letter-spacing: 0.08em; display: block; margin-bottom: 3px; text-transform: uppercase; }
+  @media (max-width: 640px) { .add-grid { grid-template-columns: 1fr; } }
+
+  /* CR BLOCK */
+  .cr-block { background: rgba(192,57,43,0.07); border: 1px solid rgba(192,57,43,0.22); border-left: 3px solid var(--red-main); padding: 18px 22px; margin: 18px 0; font-size: 13px; }
+  .cr-label { font-family: 'Space Mono', monospace; font-size: 8px; color: var(--red-main); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 8px; font-weight: 700; }
+  .cr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; margin-top: 9px; }
+  .cr-item { font-size: 12.5px; line-height: 1.55; color: var(--text-secondary); }
+  .cr-item strong { color: #e06050; font-family: 'Space Mono', monospace; font-size: 8.5px; letter-spacing: 0.08em; display: block; margin-bottom: 3px; text-transform: uppercase; }
+  @media (max-width: 640px) { .cr-grid { grid-template-columns: 1fr; } }
+
+  /* SCENARIOS */
+  .scenarios { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 16px 0; }
+  .scenario { padding: 16px 18px; border: 1px solid var(--border-subtle); font-size: 12px; line-height: 1.55; }
+  .scenario h4 { font-family: 'Space Mono', monospace; font-size: 8.5px; letter-spacing: 0.13em; text-transform: uppercase; margin-bottom: 7px; }
+  .sc-stable   { background: rgba(45,106,79,0.1);  border-color: rgba(45,106,79,0.3); }
+  .sc-stable h4   { color: #60c080; }
+  .sc-turbulent { background: rgba(138,96,32,0.1); border-color: rgba(138,96,32,0.3); }
+  .sc-turbulent h4 { color: #d8a060; }
+  .sc-bifur    { background: rgba(122,26,26,0.1);  border-color: rgba(122,26,26,0.3); }
+  .sc-bifur h4    { color: #e08080; }
+  @media (max-width: 640px) { .scenarios { grid-template-columns: 1fr; } }
+
+  /* SYNTH TABLE */
+  .synth-table { width: 100%; border-collapse: collapse; font-size: 12.5px; margin: 16px 0; }
+  .synth-table th { background: #0a1018; color: var(--gold-main); padding: 9px 12px; text-align: left; font-family: 'Space Mono', monospace; font-size: 8.5px; letter-spacing: 0.13em; text-transform: uppercase; border-bottom: 2px solid var(--gold-main); }
+  .synth-table td { padding: 8px 12px; border-bottom: 1px solid #0e161e; color: var(--text-secondary); vertical-align: top; line-height: 1.5; font-size: 12.5px; }
+  .synth-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+  blockquote { border-left: 3px solid var(--gold-main); padding: 10px 18px; margin: 16px 0; font-style: italic; color: var(--text-secondary); font-size: 14px; background: rgba(200,160,64,0.04); }
+  blockquote cite { display: block; margin-top: 7px; font-size: 10.5px; font-family: 'Space Mono', monospace; color: var(--text-dim); letter-spacing: 0.07em; font-style: normal; }
+
+  /* POSITION MAP */
+  .position-map {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 0; border: 1px solid var(--border-subtle);
+    margin: 18px 0;
+  }
+  .pos-col { padding: 16px 18px; border-right: 1px solid var(--border-subtle); font-size: 12.5px; }
+  .pos-col:last-child { border-right: none; }
+  .pos-col-title { font-family: 'Space Mono', monospace; font-size: 8.5px; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 9px; font-weight: 700; }
+  .pos-center  { background: rgba(26,47,90,0.18); }
+  .pos-center .pos-col-title { color: var(--accent-west); }
+  .pos-semi    { background: rgba(90,58,122,0.10); }
+  .pos-semi .pos-col-title { color: #b090d8; }
+  .pos-peri    { background: rgba(122,42,26,0.10); }
+  .pos-peri .pos-col-title { color: #d07050; }
+  .pos-item { padding: 3px 0; color: var(--text-secondary); font-size: 12px; line-height: 1.5; }
+  @media (max-width: 640px) { .position-map { grid-template-columns: 1fr; } .pos-col { border-right: none; border-bottom: 1px solid var(--border-subtle); } }
+
+  /* TIMELINE */
+  .timeline { position: relative; padding-left: 26px; margin: 16px 0; }
+  .timeline::before { content: ''; position: absolute; left: 7px; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, var(--gold-main), transparent); }
+  .tl-item { position: relative; padding: 0 0 14px 14px; font-size: 13px; color: var(--text-secondary); line-height: 1.55; }
+  .tl-item::before { content: ''; position: absolute; left: -4px; top: 6px; width: 8px; height: 8px; border-radius: 50%; background: var(--gold-main); }
+  .tl-item strong { font-family: 'Space Mono', monospace; font-size: 9.5px; color: var(--gold-light); display: block; margin-bottom: 2px; letter-spacing: 0.07em; }
+
+  /* REFERENCES */
+  .references { background: #050810; border-top: 1px solid var(--border-subtle); padding: 45px 0 36px; }
+  .ref-list { list-style: none; padding: 0; }
+  .ref-list li { font-size: 11.5px; color: var(--text-dim); padding: 5px 0; border-bottom: 1px solid #0c1218; line-height: 1.6; font-family: 'Source Serif 4', serif; }
+  .ref-list li:hover { color: var(--text-secondary); }
+
+  footer { background: #030506; border-top: 2px solid var(--red-main); padding: 28px 26px; text-align: center; font-family: 'Space Mono', monospace; font-size: 9.5px; color: var(--text-dim); letter-spacing: 0.09em; line-height: 1.8; }
+  footer strong { color: var(--gold-main); }
+
+  .disclaimer { background: #07080a; border: 1px solid #16181f; border-left: 3px solid var(--text-dim); padding: 16px 20px; margin: 28px 0 0; font-size: 11.5px; color: var(--text-dim); line-height: 1.7; font-style: italic; }
+
+  .intro-block { background: var(--bg-card); border: 1px solid var(--border-subtle); border-top: 3px solid var(--gold-main); padding: 28px 32px; margin-bottom: 32px; font-size: 15.5px; line-height: 1.8; color: var(--text-secondary); }
+  .intro-block .lead { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 600; color: var(--text-primary); margin-bottom: 12px; line-height: 1.4; }
+
+  .new-badge {
+    display: inline-block;
+    background: rgba(90,58,122,0.25);
+    border: 1px solid rgba(90,58,122,0.5);
+    color: #b090d8;
+    font-family: 'Space Mono', monospace;
+    font-size: 8px; letter-spacing: 0.15em;
+    padding: 2px 8px; text-transform: uppercase;
+    margin-left: 10px; vertical-align: middle;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV ANTROPOS.APP -->
+<div style="background:#030507;border-bottom:1px solid rgba(255,255,255,0.07);padding:10px 28px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.08em;display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+  <a href="/" style="color:#8a7060;text-decoration:none;text-transform:uppercase;">ANTROPOS.APP</a>
+  <span style="color:#2a3040;">/</span>
+  <a href="/boletines/" style="color:#8a7060;text-decoration:none;text-transform:uppercase;">Boletines ANCA-ADD</a>
+  <span style="color:#2a3040;">/</span>
+  <span style="color:#c0a060;text-transform:uppercase;">Cumbre de Beijing · ESPECIAL-GEO-01</span>
+</div>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-content">
+    ANCA-ADD · ESPECIAL-GEO-01 · BEIJING CUMBRE 14–15 MAYO 2026 <span>·</span>
+    AMPLIADO: TEORÍA SISTEMAS-MUNDO / WALLERSTEIN / ARRIGHI <span>·</span>
+    DUSSEL: FILOSOFÍA DE LA LIBERACIÓN Y TRANS-MODERNIDAD <span>·</span>
+    POSICIÓN WALLERSTEIN: EE.UU. = HEGEMONÍA DECLINANTE / CHINA = SEMIPERIFÉRICO EMERGENTE <span>·</span>
+    ARRIGHI: ¿CUARTO CICLO SISTÉMICO DE ACUMULACIÓN O CAOS HEGEMÓNICO? <span>·</span>
+    DUSSEL: EL "OTRO" LATINOAMERICANO ANTE DOS MODERNIDADES <span>·</span>
+    COSTA RICA: PERIFERIA DE ALTA APERTURA EN ZONA DE BIFURCACIÓN <span>·</span>
+    ADD: NIVEL ONTOLÓGICO-DISIPATIVO CONTINÚA PRIMANDO EN LA JERARQUÍA EPISTÉMICA
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="pub-label">ANCA-ADD · Boletín Especial ESPECIAL-GEO-01 · Versión Ampliada · 17 de mayo de 2026</div>
+  <h1 class="hero-title">La Cumbre de Beijing</h1>
+  <p class="hero-subtitle">Hegemonía en transición, periferias sin voz y el sujeto excluido:<br>Wallerstein, Arrighi y Dussel ante Trump y Xi</p>
+  <div class="theory-badges">
+    <span class="theory-badge tb-add">ADD · MEEE-G</span>
+    <span class="theory-badge tb-wall">Wallerstein · Sistemas-Mundo</span>
+    <span class="theory-badge tb-arri">Arrighi · Ciclos de Acumulación</span>
+    <span class="theory-badge tb-duss">Dussel · Filosofía de la Liberación</span>
+  </div>
+  <div class="hero-meta">
+    <span>FUENTES: <em>ORIENTE · OCCIDENTE · LATAM · SUR GLOBAL</em></span>
+    <span>·</span>
+    <span>MARCOS: <em>ADD + SISTEMAS-MUNDO + TRANS-MODERNIDAD</em></span>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav class="section-nav">
+  <ul>
+    <li><a href="#hechos">I. Los Hechos</a></li>
+    <li><a href="#wallerstein">II. Sistemas-Mundo</a></li>
+    <li><a href="#arrighi">III. Arrighi</a></li>
+    <li><a href="#add">IV. ADD</a></li>
+    <li><a href="#multilateral">V. Multilateral</a></li>
+    <li><a href="#latam">VI. América Latina</a></li>
+    <li><a href="#dussel">VII. Dussel</a></li>
+    <li><a href="#cr">VIII. Costa Rica</a></li>
+    <li><a href="#escenarios">IX. Escenarios</a></li>
+    <li><a href="#marcos" style="color:var(--text-dim);">↓ Anexo Metodológico</a></li>
+    <li><a href="#referencias">Referencias</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+<!-- I. LOS HECHOS -->
+<section id="hechos">
+  <div class="section-header">
+    <div class="section-number">I</div>
+    <div class="section-titles">
+      <div class="category-tag">Política y Geopolítica · Hechos Verificados</div>
+      <h2>Los Hechos de la Cumbre: Qué Ocurrió</h2>
+    </div>
+  </div>
+  <div class="article-card geo">
+    <div class="article-tag">Cumbre Beijing 14–15 mayo 2026 · Resumen factual verificado</div>
+    <h3>Acuerdos concretos, compromisos vagos y divergencias explícitas</h3>
+    <div class="timeline">
+      <div class="tl-item"><strong>LO ACORDADO — DC</strong>200 aviones Boeing (vs. 500 proyectados). Licencias parciales Nvidia H200. Consejo de Comercio y Consejo de Inversión bilaterales. Extensión tregua comercial desde oct. 2025. Xi visitará EE.UU. otoño 2026.</div>
+      <div class="tl-item"><strong>LO DECLARADO — IP/Int</strong>«Estabilidad estratégica constructiva» como marco para tres años (China). «Fantásticos acuerdos comerciales» (Trump). Compras agrícolas sin cifras ni plazos. Ormuz: «debe permanecer abierto» — sin mecanismo vinculante.</div>
+      <div class="tl-item"><strong>LAS DIVERGENCIAS — DC</strong>China centró su readout en Taiwán («choque y conflicto si se maneja mal»). EE.UU. centró el suyo en comercio e Irán. Trump: «no asumí ningún compromiso sobre Taiwán». Armas a Taiwán: «buena ficha de negociación».</div>
+      <div class="tl-item"><strong>LO AUSENTE</strong>Sin reforma estructural del modelo económico chino. Sin resolución de Ormuz. Sin acuerdo sobre controles de exportación de chips avanzados. Sin mecanismo formal de verificación de compromisos.</div>
+    </div>
+    <div class="dual-voice">
+      <div class="voice-west">
+        <div class="voice-label">🇺🇸 Washington — Resultado «modesto»</div>
+        <div class="voice-body">«Mi posición predeterminada es asumir que nada ha cambiado hasta ver algo en papel.» — Mona Paulsen, London School of Economics. La delegación corporativa (Cook, Huang, Musk, Fraser) revela que el objetivo real era el acceso tecnológico al mercado chino, no la reforma estructural.</div>
+      </div>
+      <div class="voice-east">
+        <div class="voice-label">🇨🇳 Beijing — «Reunión histórica»</div>
+        <div class="voice-body">Wang Yi: «resultados globalmente equilibrados y positivos». El logro central para Beijing es el marco de «estabilidad estratégica» — intento de convertir la disposición transaccional de Trump en línea de base que condicione a futuros presidentes. Taiwán es el «precio implícito».</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- II. WALLERSTEIN -->
+<section id="wallerstein">
+  <div class="section-header">
+    <div class="section-number">II</div>
+    <div class="section-titles">
+      <div class="category-tag">Sistemas-Mundo · Wallerstein</div>
+      <h2>La Cumbre de Beijing Vista desde los Sistemas-Mundo</h2>
+    </div>
+  </div>
+
+  <div class="article-card wall">
+    <div class="article-tag">Wallerstein · Tríada Centro-Semiperiferia-Periferia · Economía-Mundo Capitalista</div>
+    <h3>¿Quiénes son el centro y quiénes la periferia en la negociación más importante del siglo?</h3>
+
+    <div class="subsection-label">Posiciones en el Sistema-Mundo: Diagnóstico Estructural</div>
+
+    <div class="position-map">
+      <div class="pos-col pos-center">
+        <div class="pos-col-title">🔵 Centro — Hegemonía (Disputada)</div>
+        <div class="pos-item"><strong>EE.UU.:</strong> dominio financiero, tecnológico (chips de vanguardia, IA), militar. Hegemonía declinante en el sentido wallersteineano: ya no puede imponer su voluntad unilateralmente, pero retiene la primacía financiera y tecnológica.</div>
+        <div class="pos-item" style="margin-top:8px;"><strong>Delegación Trump:</strong> $16 billones en capitalización de mercado representados. Revela que el capital del centro requiere el mercado chino para reproducirse.</div>
+      </div>
+      <div class="pos-col pos-semi">
+        <div class="pos-col-title">🟣 Semiperiferia — Ascendente</div>
+        <div class="pos-item"><strong>China:</strong> posición analíticamente compleja. Es simultáneamente: centro en manufactura masiva y tecnología de aplicación; semiperiferia en diseño de chips de vanguardia e innovación básica; y potencia con capacidades de centro en defensa y diplomacia. Su estrategia de «tierra rara como palanca» es conducta de semiperiferia que se posiciona para convertirse en centro.</div>
+        <div class="pos-item" style="margin-top:8px;"><strong>Brasil, México:</strong> semiperiferias con mayor margen de maniobra que la periferia pura.</div>
+      </div>
+      <div class="pos-col pos-peri">
+        <div class="pos-col-title">🔴 Periferia — Sin Voz en la Mesa</div>
+        <div class="pos-item"><strong>América Central, Caribe, gran parte de América del Sur:</strong> exportadores de materias primas y manufactura de bajo valor añadido. Ninguno tiene representación directa en la agenda bilateral.</div>
+        <div class="pos-item" style="margin-top:8px;"><strong>Costa Rica:</strong> periferia de alta apertura comercial — caso atípico con exportaciones de alto valor (dispositivos médicos, servicios) pero estructuralmente dependiente de la demanda y la IED del centro.</div>
+        <div class="pos-item" style="margin-top:8px;"><strong>África subsahariana, sur de Asia:</strong> periferia profunda, la más expuesta a las consecuencias del conflicto en Ormuz.</div>
+      </div>
+    </div>
+
+    <div class="subsection-label">La Pregunta Wallersteineana Central</div>
+    <p>Para Wallerstein, el sistema-mundo capitalista solo funciona fluidamente cuando hay un hegemon claro. En periodos de disputa entre potencias centrales, el sistema es inherentemente inestable. La cumbre Trump–Xi puede leerse desde esta perspectiva como el intento de ambas potencias de gestionar la transición hegemónica sin destruir el sistema que les da su posición. Pero hay una contradicción estructural: China no puede convertirse en hegemon del sistema-mundo capitalista siguiendo el modelo de los anteriores (holandés, británico, estadounidense) porque: (a) el sistema ya no tiene «nuevas tierras» que incorporar para resolver las contradicciones; (b) el diferencial entre el tamaño de la economía china y su gasto social interno crea tensiones que un hegemon clásico no podía sostener; (c) la capacidad militar y financiera de EE.UU. sigue siendo superior en los atributos que definieron las hegemonías anteriores.</p>
+
+    <div class="theory-box wallerstein">
+      <div class="theory-box-label">▸ Wallerstein — Tesis de la «Edad de Transición»</div>
+      <p>Wallerstein postuló que desde los años 1970 el sistema-mundo capitalista está en una «edad de transición» que dará lugar a un sistema-mundo futuro cuya configuración no puede determinarse de antemano. Esta transición implica bifurcaciones sistémicas de gran escala: el orden puede reorganizarse en direcciones radicalmente distintas según qué actores logren acumular suficiente poder para dar forma al nuevo sistema. La cumbre de Beijing es un episodio de esta transición, no su resolución. El «marco de estabilidad estratégica» acordado por Trump y Xi puede interpretarse como el intento de los dos principales candidatos al centro de gestionar la transición en términos que los beneficien a ambos — en detrimento de los demás actores del sistema.</p>
+    </div>
+
+    <div class="subsection-label">El Mecanismo de Transferencia de Excedente</div>
+    <p>La asimetría del TLC Costa Rica–China (importaciones USD 4.546 millones vs. exportaciones USD 634 millones, déficit 7:1) no es una anomalía ni un fallo de la política comercial costarricense. Es el mecanismo wallersteineano de transferencia de excedente de la periferia al centro en operación: Costa Rica vende materias primas y bienes de nicho, importa manufactura de alto volumen. El déficit comercial es la forma que toma, en la balanza de pagos costarricense, la extracción de valor por parte del sistema-mundo. El hecho de que el centro extractor sea ahora China en lugar del Atlántico Norte no cambia la estructura del mecanismo.</p>
+  </div>
+</section>
+
+<!-- III. ARRIGHI -->
+<section id="arrighi">
+  <div class="section-header">
+    <div class="section-number">III</div>
+    <div class="section-titles">
+      <div class="category-tag">Ciclos de Acumulación · Arrighi</div>
+      <h2>Arrighi y la Cumbre de Beijing: ¿Transición o Caos Hegemónico?</h2>
+    </div>
+  </div>
+
+  <div class="article-card arrighi">
+    <div class="article-tag">Arrighi · El Largo Siglo XX · Adam Smith en Pekín · Ciclos Sistémicos de Acumulación</div>
+    <h3>La expansión financiera como señal de agotamiento y la pregunta sobre el próximo hegemon</h3>
+
+    <div class="subsection-label">Los Ciclos Sistémicos y el Momento Actual</div>
+    <p>Arrighi identificó cuatro ciclos sistémicos de acumulación en los últimos 600 años: genovés-ibérico, holandés, británico y estadounidense. Cada ciclo pasa por una fase de expansión material (producción, comercio) seguida de una fase de expansión financiera. Cuando el hegemon ya no puede competir en producción, migra al capital financiero como última fuente de ganancias. La expansión financiera es simultáneamente la cima del poder hegemónico y la señal de su agotamiento: el capital se convierte en «capital en fuga» que busca rendimientos en mercados globales porque ya no puede generarlos domésticamente.</p>
+
+    <p>La composición de la delegación de Trump en Beijing —Tim Cook, Jensen Huang, Jane Fraser (Citigroup), Elon Musk— es exactamente esto: capital financiero y tecnológico-financiero buscando rendimientos en el mercado chino porque las restricciones domésticas y la saturación de los mercados occidentales los limitan. EE.UU. está en la fase de expansión financiera de su ciclo hegemónico. Esto no significa su colapso inmediato —el ciclo británico duró décadas en su fase financiera— pero sí señala la dirección estructural.</p>
+
+    <div class="theory-box arrighi">
+      <div class="theory-box-label">▸ Arrighi — La Pregunta No Resuelta</div>
+      <p>Arrighi concluyó *El Largo Siglo XX* señalando que la crisis de la hegemonía estadounidense abría el escenario de una China-led East Asia como potencial nuevo centro del sistema. En *Adam Smith en Pekín* (2007) desarrolló esta hipótesis. Sin embargo, investigaciones posteriores han señalado su limitación central: Arrighi no desarrolló una teoría de la política, el Estado y la agencia colectiva en la transición. No explicó cómo la China del Partido Comunista podría ejercer la hegemonía de un sistema capitalista sin adoptar plenamente la lógica del capital financiero global — una tensión que la propia China experimenta en su política monetaria y sus controles de capital. La cumbre de Beijing revela precisamente esta tensión: China quiere acceso a chips y mercados occidentales pero no quiere que su sistema financiero se integre plenamente al orden liderado por EE.UU.</p>
+    </div>
+
+    <div class="subsection-label">¿Cuarto o Quinto Ciclo? ¿O Caos Sistémico?</div>
+    <p>Hay una posibilidad que Arrighi contempló pero no desarrolló completamente: que ninguna potencia individual pueda asumir la hegemonía del próximo ciclo porque el sistema ha alcanzado límites estructurales que impiden una nueva ronda de expansión. En ese caso, el resultado no es una transición ordenada sino un prolongado caos hegemónico: competencia entre múltiples potencias sin que ninguna logre la hegemonía estabilizadora. La Cumbre de Beijing puede ser leída como el intento de EE.UU. y China de acordar las reglas del caos —de gestionarlo bilateralmente antes de que se vuelva incontrolable— más que como el inicio de un nuevo ciclo ordenado.</p>
+  </div>
+</section>
+
+<!-- IV. ADD COMPLETO -->
+<section id="add">
+  <div class="section-header">
+    <div class="section-number">IV</div>
+    <div class="section-titles">
+      <div class="category-tag">ADD — Lectura Dinámica Ampliada</div>
+      <h2>Lectura ADD: Sistema Bilateral en Transición Hegemónica</h2>
+    </div>
+  </div>
+
+  <div class="article-card geo">
+    <div class="article-tag">ADD · Todos los Niveles · Prigogine / Maturana / Bourdieu / Habermas / Wallerstein / Arrighi</div>
+    <h3>Análisis de régimen con arquitectura teórica completa</h3>
+
+    <div class="add-block">
+      <div class="add-label">▸ ADD — Sistema Bilateral EE.UU.–China: Análisis Multi-Nivel</div>
+      <div class="add-grid">
+        <div class="add-item">
+          <strong>L1 — Flujos Disipativos (Prigogine)</strong>
+          Los flujos energético-materiales del sistema bilateral son: manufactura china → mercados occidentales; materias primas y commodities (desde periferias, hacia China y EE.UU.) → manufactura → valor añadido (→ capital del centro). El control chino sobre el 91% del refino de tierras raras es control sobre un nodo crítico del flujo disipativo global: quien controla ese nodo puede interrumpir el gradiente energético de sectores enteros (defensa, vehículos eléctricos, semiconductores). Los 200 Boeing y las licencias de chips son intercambios de gradientes disipativos entre dos sistemas que necesitan lo que el otro tiene.
+        </div>
+        <div class="add-item">
+          <strong>L2 — Condiciones Estructurales (Wallerstein/Arrighi)</strong>
+          EE.UU. entra a la cumbre en fase de expansión financiera (Arrighi): su ventaja comparativa ya no es en producción manufacturera sino en diseño tecnológico y capital financiero. China entra en fase de expansión material consolidada pero con contradicciones internas (mercado interno insuficiente, dependencia de exportaciones). La «estabilidad estratégica» acordada intenta congelar esta distribución asimétrica antes de que la dinámica de transición produzca una bifurcación catastrófica para ambos.
+        </div>
+        <div class="add-item">
+          <strong>L3 — Clausura Organizacional (Maturana/Bourdieu)</strong>
+          El habitus institucional de la élite gobernante china (Partido Comunista, Zhongnanhai) procesa toda perturbación sobre Taiwán como amenaza existencial a su organización simbólica: el concepto de «reunificación» es constitutivo de la legitimidad del PCCh ante su base doméstica. No puede ser negociado transaccionalmente sin colapsar esa clausura. El habitus institucional de la élite estadounidense (delegación corporativa en Beijing) procesa toda perturbación sobre acceso al mercado chino como amenaza al capital — lo que explica la presión para suavizar restricciones de chips a pesar de los argumentos de seguridad nacional.
+        </div>
+        <div class="add-item">
+          <strong>L4 — Colonización del Mundo de Vida (Habermas)</strong>
+          La lógica del mercado (aranceles, cadenas de suministro, compras de Boeing) y la lógica del poder (bloqueos navales, controles de exportación, armas a Taiwán) colonizan los mundos de vida de los estados periféricos sin que éstos tengan voz en la negociación. Los «Consejos de Comercio e Inversión» bilaterales son mecanismos sistémicos que coordinan por dinero y poder — sus decisiones no pasan por deliberación multilateral.
+        </div>
+        <div class="add-item">
+          <strong>Atractores y Régimen Dinámico</strong>
+          Dos atractores en tensión: (1) <em>atractor de estabilización pragmática</em> — impulsado por la necesidad compartida de abrir Ormuz, los intereses corporativos y la fragilidad de ambas economías tras la guerra arancelaria; (2) <em>atractor de competencia estructural</em> — determinado por la rivalidad tecnológica, Taiwán como «línea roja» sistémica, y la lógica de transición hegemónica que genera incentivos de maximizar posición antes del reordenamiento. Régimen actual: <strong>turbulento de baja intensidad</strong> con parámetro de control (Taiwán) no negociado.
+        </div>
+        <div class="add-item">
+          <strong>Acoplamiento Estructural con la Periferia</strong>
+          Los estados periféricos (América Latina, África, Asia meridional) están estructuralmente acoplados al sistema bilateral sin poder influir en sus parámetros. Sus «perturbaciones» al sistema (presiones multilaterales, posicionamientos en la OMC, alianzas Sur-Sur) son procesadas por las clausuras organizacionales de EE.UU. y China como «ruido» manejable, no como señales que alteren el régimen dinámico central. Esto es la forma que toma, en el lenguaje ADD, la violencia estructural (Galtung) de la posición periférica.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- V. ORDEN MULTILATERAL -->
+<section id="multilateral">
+  <div class="section-header">
+    <div class="section-number">V</div>
+    <div class="section-titles">
+      <div class="category-tag">Relaciones Internacionales · Multilateralismo</div>
+      <h2>El Orden Multilateral: G2 Implícito y Sus Efectos Sistémicos</h2>
+    </div>
+  </div>
+  <div class="article-card geo">
+    <div class="article-tag">Orden Internacional · OMC · ONU · Wallerstein / Habermas</div>
+    <h3>La bilateralización de la gobernanza global y el vaciamiento del multilateralismo</h3>
+    <p>Desde la perspectiva de Sistemas-Mundo, la OMC y las instituciones multilaterales son instrumentos creados y sostenidos por el hegemon para regular el sistema en sus términos. Cuando la hegemonía se debilita o se disputa, esas instituciones pierden su función estabilizadora: el hegemon ya no tiene incentivos para sostenerlas porque ya no puede garantizar que operen a su favor. La retirada de EE.UU. de 66 foros multilaterales (2026) y el posicionamiento chino de «multilateralismo selectivo» son las dos caras del mismo proceso wallersteineano: la institución multilateral sobrevive solo si alguna gran potencia decide sostenerla, y esa decisión es siempre estratégica, no principista.</p>
+    <p>El Stimson Center advirtió que el G2 implícito que emerge de la cumbre podría «marginalizar a los estados más pequeños, reducir su agencia para influir en los resultados regionales, reforzar esferas de influencia y debilitar las normas multilaterales». En términos de Sistemas-Mundo: los estados periféricos perdieron el escudo parcial que les ofrecía el multilateralismo cuando era funcional para el hegemon. Sin ese escudo, quedan expuestos directamente a la lógica de poder bilateral del centro.</p>
+    <div class="add-block">
+      <div class="add-label">▸ Prospectiva ADD + Wallerstein — Tres Trayectorias del Orden Multilateral</div>
+      <p style="font-size:13px;color:var(--text-secondary);line-height:1.65;">(1) <strong>Bilateral estabilizado</strong>: EE.UU. y China gestionan el sistema como G2 de facto; las instituciones multilaterales se convierten en foros de legitimación ex post. Periferias pierden agencia pero ganan estabilidad relativa. (2) <strong>Multilateralismo fragmentado</strong>: bloques normativos diferenciados (occidental, sino-centrado, Sur Global) compiten sin un marco común. Riesgo de «bifurcación del sistema-mundo» en subsistemas incompatibles. (3) <strong>Caos hegemónico prolongado</strong>: ninguna de las dos potencias logra la hegemonía estabilizadora; el sistema global entra en un periodo de volatilidad estructural similar al descrito por Wallerstein para las transiciones inter-hegemónicas del siglo XVII y del período de entreguerras del siglo XX.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VI. LATAM -->
+<section id="latam">
+  <div class="section-header">
+    <div class="section-number">VI</div>
+    <div class="section-titles">
+      <div class="category-tag">América Latina · Sistemas-Mundo · Dependencia</div>
+      <h2>América Latina en el Sistema-Mundo: Periferia Ante Dos Centros</h2>
+    </div>
+  </div>
+  <div class="article-card latam">
+    <div class="article-tag">América Latina · Wallerstein / Arrighi · Dependencia estructural</div>
+    <h3>La región en la transición hegemónica: ni sujeto ni objeto pasivo</h3>
+    <div class="subsection-label">Dependencia Estructural Revisada</div>
+    <p>Desde Wallerstein, América Latina ocupa la periferia del sistema-mundo capitalista desde el siglo XVI. La inserción en el sistema-mundo como exportadora de plata, azúcar, cobre, soja y banano no fue una elección de política económica sino el resultado de la imposición de posiciones en la división internacional del trabajo. Lo que cambia en el siglo XXI no es la posición periférica sino el actor que extrae el excedente: antes era el Atlántico Norte; ahora también China. El comercio China–Latinoamérica reproduciendo el patrón periferia-exportadora-de-materias-primas/importadora-de-manufactura no es accidental: es el funcionamiento normal del sistema-mundo con un nuevo actor central.</p>
+    <div class="subsection-label">La Doble Dependencia como Vulnerabilidad Sistémica</div>
+    <p>América Latina enfrenta una «doble dependencia» sin precedente histórico: de EE.UU. para manufactura de alto valor, IED y seguridad; de China para infraestructura, importaciones masivas y financiamiento alternativo. Esta doble dependencia no otorga poder de negociación (lo que algunos teóricos llaman «pivoting»): otorga vulnerabilidad doble, porque ambos polos presionan a los gobiernos latinoamericanos a alinear sus políticas tecnológicas, comerciales y de seguridad, bajo amenaza de consecuencias de uno u otro lado.</p>
+    <div class="subsection-label">¿Hay Margen para la Semiperiferia?</div>
+    <p>Brasil y México, como semiperiferias regionales, tienen un margen de maniobra que los estados centroamericanos y caribeños no tienen. Brasil puede negociar directamente con Beijing y con Washington en función de sus intereses agropecuarios (soja) e industriales. México, integrado al TLCAN/T-MEC, tiene una lógica diferente: su dependencia de EE.UU. es tan profunda que la cumbre Trump–Xi afecta directamente su situación (tensiones EE.UU.–México sobre inversión china en manufactura para el mercado estadounidense). Para Centroamérica y el Caribe, la posición es de periferia profunda: sin instrumentos de negociación propios frente a ninguno de los dos polos.</p>
+  </div>
+</section>
+
+<!-- VII. DUSSEL -->
+<section id="dussel">
+  <div class="section-header">
+    <div class="section-number">VII</div>
+    <div class="section-titles">
+      <div class="category-tag">Filosofía de la Liberación · Dussel · Trans-Modernidad</div>
+      <h2>Dussel: El «Otro» Latinoamericano Ante Dos Modernidades</h2>
+    </div>
+  </div>
+
+  <div class="article-card dussel">
+    <div class="article-tag">Dussel · Exterioridad · Filosofía de la Liberación · Trans-Modernidad</div>
+    <h3>Más allá del sistema-mundo: la demanda ética del sujeto excluido</h3>
+
+    <div class="subsection-label">El Diagnóstico Dusseliano</div>
+    <p>Para Dussel, la Modernidad —en su versión atlántica (EE.UU., Europa) y en su versión sino-asiática emergente— se construye siempre mediante la negación de la «exterioridad»: el Otro que no es reconocido como sujeto sino como objeto del sistema. El «indio sacrificado, el negro esclavizado, la mujer oprimida, el niño y la cultura popular alienadas» no son efectos secundarios de la Modernidad; son su condición de posibilidad. La acumulación originaria que hizo posible la Revolución Industrial se fundó en la extracción colonial de América Latina. El capitalismo tardío que hizo posible el «milagro económico» de China se fundó parcialmente en la explotación de su propia periferia interna (provincias rurales, migrantes internos) y de las periferias del Sur Global.</p>
+
+    <div class="subsection-label">La Cumbre de Beijing desde la Exterioridad</div>
+    <p>Ninguna de las dos potencias en Beijing representa al «Otro» dusseliano. EE.UU. llega con una delegación de USD 16 billones en capitalización de mercado — el capital del centro en su forma más concentrada. China llega con un proyecto de «rejuvenecimiento nacional» que, desde Dussel, es la afirmación de la civilización china dentro de la lógica de la Modernidad — no su superación. «China First» de Xi y «America First» de Trump son dos proyectos de afirmación de la Totalidad del sistema, no de apertura a la Exterioridad.</p>
+
+    <blockquote>
+      «La modernidad solo puede afirmarse a sí misma mediante una operación de negación de los hombres no europeos y de sus culturas.»
+      <cite>— Enrique Dussel, *Filosofías del Sur: Descolonización y Transmodernidad*, Akal, 2016</cite>
+    </blockquote>
+
+    <div class="subsection-label">El Proyecto Trans-Moderno como Horizonte Normativo</div>
+    <p>La Trans-Modernidad dusseliana no es un programa político inmediato sino un horizonte normativo: la afirmación de que los pueblos del Sur Global — con sus propias racionalidades, éticas y cosmologías — tienen algo que aportar a un proyecto civilizatorio que supere las contradicciones de ambas Modernidades. Aplicado al contexto de la cumbre Trump–Xi: América Latina y Costa Rica no deberían limitarse a «elegir el polo menos malo» ni a «maximizar los beneficios de la ambigüedad estratégica». Deberían articular su propia propuesta de orden global: uno basado en la soberanía real sobre los recursos naturales, la multipolaridad con normas multilaterales robustas, y el rechazo de la bilateralización de la gobernanza global que marginaliza a los estados periféricos.</p>
+
+    <div class="theory-box dussel-box">
+      <div class="theory-box-label">▸ Dussel aplicado: La Pregunta que el Sistema-Mundo no Formula</div>
+      <p>Wallerstein pregunta: ¿cuál es tu posición en el sistema y qué mecanismos te mantienen ahí? Arrighi pregunta: ¿en qué fase del ciclo hegemónico estás y qué trayectoria te corresponde? Dussel pregunta algo diferente y más incómodo: ¿qué voces, qué experiencias, qué conocimientos han sido negados para que este sistema pueda funcionar? Y: ¿desde dónde puede articularse una respuesta que no sea simplemente la reproducción del sistema con otros actores en el centro? Para Costa Rica y América Latina, esta pregunta no es académica. Es la pregunta sobre si la nueva administración Fernández reproducirá el patrón de la periferia que espera ser incorporada al centro — o si articulará una visión propia del orden que quiere contribuir a construir.</p>
+    </div>
+
+    <div class="subsection-label">Limite del Horizonte Dusseliano en este Análisis</div>
+    <p>Declaración de honestidad metodológica (protocolo ADD): el proyecto Trans-Moderno de Dussel tiene en este análisis estatus de [C] — conjetura normativa — en términos del MEEE-G. No porque sea falso como proyecto ético, sino porque no existen actualmente en América Latina los actores, las coaliciones ni las condiciones institucionales que permitan proyectarlo como política exterior coordinada. Lo que el análisis dusseliano aporta no es una predicción empírica sino un criterio normativo desde el que evaluar las opciones disponibles: ¿qué opción refuerza la agencia del Sur? ¿Qué opción la reproduce como dependencia?</p>
+  </div>
+</section>
+
+<!-- VIII. COSTA RICA -->
+<section id="cr">
+  <div class="section-header">
+    <div class="section-number">VIII</div>
+    <div class="section-titles">
+      <div class="category-tag">Costa Rica · Periferia de Alta Apertura</div>
+      <h2>Costa Rica: Periferia de Alta Apertura en Zona de Bifurcación</h2>
+    </div>
+  </div>
+
+  <div class="article-card cr">
+    <div class="article-tag">Costa Rica · Wallerstein / Dussel / ADD · Análisis Multi-Nivel</div>
+    <h3>Posición estructural, vulnerabilidades específicas y márgenes reales de maniobra</h3>
+
+    <div class="subsection-label">Posición en el Sistema-Mundo: «Periferia de Alta Apertura»</div>
+    <p>Costa Rica no encaja perfectamente en ninguna categoría wallersteineana clásica. Es una periferia en la estructura de sus exportaciones agropecuarias (piña, banano, carne: bienes primarios de bajo valor añadido) pero tiene elementos de semiperiferia en su sector de dispositivos médicos y servicios de alto valor. Esta ambigüedad no es fortaleza estratégica: es la forma que toma la «periferia de alta apertura» — un nodo que ha internacionalizado profundamente su economía sin haber alcanzado la acumulación de capital tecnológico propio que le permitiría negociar como semiperiferia. El riesgo específico: su alta apertura la hace más expuesta a las perturbaciones del sistema bilateral que una economía más cerrada.</p>
+
+    <div class="cr-block">
+      <div class="cr-label">▸ Costa Rica — Análisis Integrado ADD + Sistemas-Mundo + Dussel</div>
+      <div class="cr-grid">
+        <div class="cr-item">
+          <strong>Mecanismo de Transferencia (Wallerstein)</strong>
+          El déficit 7:1 con China no es un problema coyuntural de política comercial. Es el funcionamiento del mecanismo wallersteineano: Costa Rica vende bienes de nicho a China; China vende manufactura masiva. La desgravación arancelaria del TLC ha facilitado la penetración de manufactura china sin crear los protocolos para que los productos costarricenses accedan equitativamente al mercado chino. La solución no es el proteccionismo sino el reconocimiento de que la asimetría es estructural y requiere herramientas estructurales (no solo diplomacia comercial) para ser gestionada.
+        </div>
+        <div class="cr-item">
+          <strong>Ciclo Hegemónico y Dependencia Tecnológica (Arrighi)</strong>
+          El sector de dispositivos médicos — principal exportación de valor de Costa Rica — depende de la cadena de suministro tecnológica de EE.UU.: diseño, certificación, capital. Está en la fase de expansión material del ciclo estadounidense — manufactura de alto valor. Si EE.UU. avanza en la relocalización de esa manufactura hacia su territorio (nearshoring vs. offshoring), el modelo exportador costarricense enfrenta una perturbación sistémica de primera magnitud, independientemente de lo que ocurra en la cumbre Trump–Xi.
+        </div>
+        <div class="cr-item">
+          <strong>Colonización del Mundo de Vida (Habermas/ADD)</strong>
+          La administración Fernández hereda la presión de Washington para revisar los vínculos estratégicos con China en telecomunicaciones, energía e infraestructura. Esta presión es colonización del mundo de vida en sentido estricto: la lógica sistémica del poder (alianza de seguridad con EE.UU.) penetra en el dominio de decisión soberana de Costa Rica sobre sus políticas de infraestructura y tecnología. El margen real de autonomía decisional se ha reducido sin que este proceso sea objeto de deliberación pública explícita.
+        </div>
+        <div class="cr-item">
+          <strong>La Pregunta Dusseliana para la Administración Fernández</strong>
+          ¿Qué significa gobernar desde la exterioridad en este contexto? Dussel no propone el aislamiento ni el rechazo del sistema. Propone la afirmación de la propia identidad y valores como punto de partida para la negociación: Costa Rica tiene capital simbólico real (democracia, neutralidad armada, liderazgo ambiental, acceso OCDE) que no está articulando como proyecto político hacia el exterior. Ese capital simbólico es, en términos de Bourdieu, un recurso de campo sub-utilizado. Activarlo requiere una política exterior de principios, no de «equilibrio pragmático».
+        </div>
+        <div class="cr-item">
+          <strong>Ormuz y Energía (ADD — flujos disipativos)</strong>
+          Si la promesa china de facilitar la apertura de Ormuz se materializa, el precio del petróleo podría reducirse de los actuales +USD 108/barril. Costa Rica, importadora del 100% de combustibles, tiene un acoplamiento directo con ese precio: cada USD 10 de reducción en el precio del barril reduce el déficit de RECOPE y alivia la presión inflacionaria en el sector transporte. Sin embargo, la apertura de Ormuz documentada hasta ahora es solo parcial («con permiso de Irán»), lo que sostiene la incertidumbre.
+        </div>
+        <div class="cr-item">
+          <strong>Ruta 32 y Geopolítica de la Infraestructura</strong>
+          El proyecto CHEC-Eximbank de ampliación de la Ruta 32 es microcosmos de las tensiones geopolíticas macro: financiamiento chino, empresa china, retrasos y fricciones operativas, y presión de Washington para revisar los términos. Desde Wallerstein, este proyecto representa la penetración de capital chino en la infraestructura periférica — el mecanismo clásico por el que las potencias centrales aseguran su posición en la cadena de mercancías. La administración Fernández puede exigir transparencia y estándares internacionales sin romper la relación bilateral — ese es el margen de maniobra real disponible.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IX. ESCENARIOS -->
+<section id="escenarios">
+  <div class="section-header">
+    <div class="section-number">IX</div>
+    <div class="section-titles">
+      <div class="category-tag">Prospectiva · Escenarios 2026–2029</div>
+      <h2>Escenarios Ampliados: Desde los Sistemas-Mundo hasta la Trans-Modernidad</h2>
+    </div>
+  </div>
+  <div class="article-card geo">
+    <div class="article-tag">Prospectiva · ADD + Wallerstein + Arrighi + Dussel · Sin predicción determinista</div>
+    <h3>Cuatro trayectorias plausibles del sistema bilateral y sus implicaciones para la periferia</h3>
+
+    <div class="scenarios">
+      <div class="scenario sc-stable">
+        <h4>🟢 A — Détente Funcional</h4>
+        <p>La «estabilidad estratégica» se sostiene. Tregua comercial extendida, Ormuz parcialmente abierto, Xi visita EE.UU. en otoño. En Sistemas-Mundo: el G2 gestiona la transición ordenadamente. Para Costa Rica: menor presión de alineamiento, posible reducción en precios de energía, continuidad del marco comercial bilateral. Requiere que Taiwán no cruce el umbral.</p>
+      </div>
+      <div class="scenario sc-turbulent">
+        <h4>🟡 B — Turbulencia Persistente</h4>
+        <p>Acuerdos de Beijing resultan ser retórica. Controles de chips escalan; China reactiva restricciones de tierra rara. Caos hegemónico moderado (Arrighi). Para Costa Rica: volatilidad energética sostenida, presión de alineamiento continua, competencia agrícola chino-estadounidense en terceros mercados. Escenario más probable según la dinámica actual.</p>
+      </div>
+      <div class="scenario sc-bifur">
+        <h4>🔴 C — Bifurcación por Taiwán</h4>
+        <p>Aprobación de armas a Taiwán o maniobras militares chinas cruzan el umbral que Xi definió. Caos hegemónico intenso (Arrighi: transición sin sucesor). Para Costa Rica: ruptura de cadenas de suministro, perturbación severa del sector exportador, presión extrema de alineamiento diplomático. Baja probabilidad a corto plazo; creciente si el parámetro «armas a Taiwán» no se gestiona.</p>
+      </div>
+    </div>
+
+    <div class="scenario" style="margin-top:14px;background:rgba(122,42,58,0.08);border:1px solid rgba(122,42,58,0.3);">
+      <h4 style="font-family:'Space Mono',monospace;font-size:8.5px;letter-spacing:0.13em;text-transform:uppercase;margin-bottom:7px;color:#e07090;">🟣 D — Trans-Moderno [Normativo] — Dussel</h4>
+      <p style="font-size:12px;color:var(--text-secondary);line-height:1.55;">América Latina articula una posición propia ante el G2 implícito: demanda multilateralismo real, soberanía tecnológica, y rechaza la bilateralización de la gobernanza global. Costa Rica lidera simbólicamente desde su capital ambiental, democrático y de neutralidad. No es un escenario empíricamente probable en el corto plazo — es el horizonte normativo dusseliano que permite evaluar qué tan lejos están los escenarios A-C del principio de autonomía del Sur.</p>
+    </div>
+
+    <div class="subsection-label">Tabla de Síntesis Final</div>
+    <table class="synth-table">
+      <thead><tr><th>Dimensión</th><th>Diagnóstico Wallerstein</th><th>Diagnóstico Arrighi</th><th>Diagnóstico Dussel</th><th>Impacto Costa Rica</th></tr></thead>
+      <tbody>
+        <tr><td>Posición EE.UU.</td><td>Hegemonía declinante, centro disputado</td><td>Fase de expansión financiera; señal de agotamiento del ciclo</td><td>Modernidad atlántica que niega la exterioridad del Sur</td><td>IED y exportaciones de valor siguen dependiendo de EE.UU.</td></tr>
+        <tr><td>Posición China</td><td>Semiperiferia ascendente; no hegemon consolidado</td><td>Potencial nuevo centro; contradicciones internas lo limitan</td><td>«Modernización socialista» que reproduce la negación del Otro desde el Este</td><td>Segundo socio, pero con déficit estructural 7:1</td></tr>
+        <tr><td>América Latina</td><td>Periferia en doble dependencia; sin voz en la mesa</td><td>Ciclo desfavorable: exporta materias primas en la fase ascendente del ciclo chino</td><td>Exterioridad doblemente negada por las dos Modernidades</td><td>Centroamérica como periferia profunda; Brasil/México con mayor margen</td></tr>
+        <tr><td>Multilateralismo</td><td>Instrumento del hegemon; pierde función al debilitarse la hegemonía</td><td>Las instituciones son las «reglas del juego» de cada ciclo; se renegocian en las transiciones</td><td>El Sur Global necesita un multilateralismo real, no el instrumental del centro</td><td>Costa Rica debe defender activamente la OMC y el marco multilateral como escudo de los pequeños</td></tr>
+        <tr><td>Ormuz / Energía</td><td>Conflicto geopolítico que revela los límites de la hegemonía estadounidense</td><td>Señal de caos hegemónico; ni EE.UU. ni China pueden resolver el conflicto unilateralmente</td><td>La periferia importadora de energía paga el costo del conflicto entre centros</td><td>Cada USD 10 de reducción en el barril alivia el presupuesto de RECOPE y la inflación doméstica</td></tr>
+      </tbody>
+    </table>
+
+    <div class="disclaimer">
+      El presente análisis combina evaluación epistémica explicacionista (MEEE-G, Alvin I. Goldman), análisis dinámico según la Antropología Dinámica del Devenir (ADD, Alfredo Montero Fonseca), análisis de Sistemas-Mundo (Wallerstein, Arrighi) y Filosofía de la Liberación (Dussel). La incorporación de Wallerstein y Arrighi opera en el nivel L2 de la jerarquía ADD como descripción de condiciones estructurales de largo plazo; la de Dussel opera en los niveles L5 y L6 como horizonte normativo-crítico. El nivel ontológico-disipativo (L1) continúa siendo la base jerárquica de la arquitectura. No constituye predicción determinista ni recomendación de política. Los marcos teóricos son herramientas analíticas con sus propios límites declarados.
+    </div>
+  </div>
+</section>
+<!-- ANEXO METODOLÓGICO -->
+<span id="marcos"></span>
+<div style="background:#040608;border-top:2px solid #1a2230;border-bottom:2px solid #1a2230;padding:32px 40px;margin:48px 0 0;text-align:center;">
+  <div style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.22em;color:#4a5060;text-transform:uppercase;margin-bottom:8px;">Material de Referencia</div>
+  <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:#6a7080;letter-spacing:0.08em;">Anexo Metodológico</div>
+  <p style="font-size:13px;color:#3a4050;margin-top:8px;font-family:'Space Serif 4',serif;">Marco teórico, jerarquía de análisis y clasificación epistémica MEEE-G. Material de consulta para quienes deseen profundizar en los fundamentos del análisis.</p>
+</div>
+
+<!-- CAJA DE LECTURA RÁPIDA -->
+<div style="background:#080c12;border:1px solid #1a2230;border-left:3px solid #c0a040;padding:28px 32px;margin:0;">
+  <div style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.18em;color:#c0a040;text-transform:uppercase;margin-bottom:16px;">Guía de Lectura · Referencia Rápida</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+
+    <!-- MEEE-G Códigos -->
+    <div>
+      <div style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.15em;color:#988070;text-transform:uppercase;margin-bottom:10px;">Códigos MEEE-G · Estatus Epistémico</div>
+      <div style="display:flex;flex-direction:column;gap:6px;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="font-family:'Space Mono',monospace;font-size:10px;font-weight:700;padding:2px 7px;background:#0a2a0a;border:1px solid #1a4a1a;color:#4caf50;">DC</span>
+          <span style="font-size:12px;color:#988070;"><strong style="color:#ddd8cc;">Dato Confirmado</strong> — hecho verificado, múltiples fuentes primarias independientes</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="font-family:'Space Mono',monospace;font-size:10px;font-weight:700;padding:2px 7px;background:#0a200a;border:1px solid #1a3a1a;color:#8bc34a;">IP</span>
+          <span style="font-size:12px;color:#988070;"><strong style="color:#ddd8cc;">Inferencia Plausible</strong> — derivada de hechos con justificación lógica sólida</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="font-family:'Space Mono',monospace;font-size:10px;font-weight:700;padding:2px 7px;background:#1a1500;border:1px solid #3a3000;color:#ffc107;">H</span>
+          <span style="font-size:12px;color:#988070;"><strong style="color:#ddd8cc;">Hipótesis</strong> — explicación provisional, requiere confirmación empírica</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="font-family:'Space Mono',monospace;font-size:10px;font-weight:700;padding:2px 7px;background:#100818;border:1px solid #200a30;color:#9c27b0;">Int</span>
+          <span style="font-size:12px;color:#988070;"><strong style="color:#ddd8cc;">Interpretación</strong> — lectura analítica del analista desde un marco teórico</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="font-family:'Space Mono',monospace;font-size:10px;font-weight:700;padding:2px 7px;background:#1a0808;border:1px solid #3a1010;color:#f44336;">C</span>
+          <span style="font-size:12px;color:#988070;"><strong style="color:#ddd8cc;">Conjetura</strong> — especulación razonada sin base empírica directa</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Marco ADD - referencia rápida -->
+    <div>
+      <div style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.15em;color:#988070;text-transform:uppercase;margin-bottom:10px;">Marco ADD · Niveles de Análisis (ver Sección II)</div>
+      <div style="display:flex;flex-direction:column;gap:5px;">
+        <div style="display:flex;gap:10px;align-items:flex-start;">
+          <span style="font-family:'Space Mono',monospace;font-size:9px;color:#4a6a8a;min-width:28px;padding-top:2px;">L1</span>
+          <span style="font-size:12px;color:#988070;"><strong style="color:#c0d0e0;">Sistemas Disipativos</strong> — estructuras que se mantienen lejos del equilibrio (Prigogine)</span>
+        </div>
+        <div style="display:flex;gap:10px;align-items:flex-start;">
+          <span style="font-family:'Space Mono',monospace;font-size:9px;color:#5a4a7a;min-width:28px;padding-top:2px;">L2</span>
+          <span style="font-size:12px;color:#988070;"><strong style="color:#b0a0d0;">Sistemas-Mundo</strong> — economía-mundo capitalista: centro, semiperiferia, periferia (Wallerstein/Arrighi)</span>
+        </div>
+        <div style="display:flex;gap:10px;align-items:flex-start;">
+          <span style="font-family:'Space Mono',monospace;font-size:9px;color:#4a6a4a;min-width:28px;padding-top:2px;">L3</span>
+          <span style="font-size:12px;color:#988070;"><strong style="color:#a0c0a0;">Campo/Habitus</strong> — estructuras incorporadas que reproducen la dominación (Bourdieu)</span>
+        </div>
+        <div style="display:flex;gap:10px;align-items:flex-start;">
+          <span style="font-family:'Space Mono',monospace;font-size:9px;color:#6a5a3a;min-width:28px;padding-top:2px;">L4</span>
+          <span style="font-size:12px;color:#988070;"><strong style="color:#c0b090;">Mundo de la Vida</strong> — racionalidad comunicativa vs. colonización sistémica (Habermas)</span>
+        </div>
+        <div style="display:flex;gap:10px;align-items:flex-start;">
+          <span style="font-family:'Space Mono',monospace;font-size:9px;color:#7a2a3a;min-width:28px;padding-top:2px;">L5</span>
+          <span style="font-size:12px;color:#988070;"><strong style="color:#d09090;">Exterioridad</strong> — el Otro como punto de partida ético-político (Dussel)</span>
+        </div>
+        <div style="display:flex;gap:10px;align-items:flex-start;">
+          <span style="font-family:'Space Mono',monospace;font-size:9px;color:#5a3a2a;min-width:28px;padding-top:2px;">L6</span>
+          <span style="font-size:12px;color:#988070;"><strong style="color:#c0a080;">Ecología Política</strong> — naturaleza como actor, deuda ecológica Norte-Sur (Moore/Galtung)</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div style="margin-top:14px;padding-top:12px;border-top:1px solid #1a2230;font-family:'Space Mono',monospace;font-size:9px;color:#3a4050;letter-spacing:0.1em;">
+    MEEE-G © basado en Alvin I. Goldman · ADD © Alfredo Montero Fonseca, UCR · Para el marco teórico completo ver Secciones I y II
+  </div>
+</div>
+
+<!-- I. MARCO AMPLIADO -->
+<section id="marco">
+  <div class="section-header">
+    <div class="section-number">A-I</div>
+    <div class="section-titles">
+      <div class="category-tag">Nota Metodológica · Marco Teórico Ampliado</div>
+      <h2>Por qué se incorporan Wallerstein, Arrighi y Dussel</h2>
+    </div>
+  </div>
+
+  <div class="article-card wall">
+    <div class="article-tag">Metodología ADD · Declaración de Incorporación Teórica</div>
+    <h3>Pertinencia, articulación y límites de los marcos incorporados</h3>
+
+    <div class="subsection-label">La Laguna de la Versión 1</div>
+    <p>El boletín anterior aplicó correctamente el ADD y el MEEE-G al evento inmediato de la cumbre Trump–Xi. Identificó regímenes dinámicos, flujos disipativos y colonización del mundo de vida. Sin embargo, describía la posición de América Latina y Costa Rica como «nodo periférico acoplado» sin explicar el mecanismo histórico-estructural que produce y reproduce esa posición. ¿Por qué América Latina llega a esta coyuntura como periférica? ¿Por qué el TLC de Costa Rica con China resulta en un déficit comercial de 7:1? ¿Por qué ninguna de las dos potencias negociantes representa los intereses de la región? La respuesta requiere una escala temporal que el ADD, en su versión procesual de corto y mediano plazo, no cubre por sí sola.</p>
+
+    <div class="subsection-label">Wallerstein: descripción de condiciones de largo plazo</div>
+    <p>La Teoría de Sistemas-Mundo (Wallerstein, 1974–2004) aporta la descripción de las condiciones estructurales que configuran las posiciones de partida del análisis. La tríada centro–semiperiferia–periferia no es geografía sino posición en la división internacional del trabajo, acceso diferencial al valor añadido y mecanismos de transferencia de excedente. Aplicada como «descripción del estado inicial» en el protocolo ADD, Sistemas-Mundo permite responder por qué las perturbaciones del sistema bilateral EE.UU.–China afectan asimétricamente a los diferentes actores del sistema global.</p>
+
+    <div class="subsection-label">Arrighi: dinámica de transición hegemónica</div>
+    <p>Giovanni Arrighi (*El largo siglo XX*, 1994; *Adam Smith en Pekín*, 2007) desarrolla los ciclos sistémicos de acumulación: cada ciclo hegemónico pasa por una fase de expansión material (producción y comercio) seguida de una fase de expansión financiera que señala su agotamiento. El tránsito entre ciclos es un periodo de caos sistémico. Arrighi anticipó con notable precisión el ascenso de China como potencial nuevo centro. Su trabajo permite preguntarse: ¿la cumbre Trump–Xi es un momento de estabilización dentro del ciclo estadounidense declinante, o es un nodo en la transición hacia un nuevo ciclo de acumulación? Y crucialmente: ¿puede China liderar ese nuevo ciclo, o el sistema entra en un periodo de caos hegemónico sin sucesor claro?</p>
+
+    <div class="subsection-label">Dussel: la voz filosófica del Sur excluido</div>
+    <p>Enrique Dussel (*Filosofía de la Liberación*, 1977; *Ética de la Liberación*, 1998; *Filosofías del Sur*, 2016) aporta la dimensión que ni Wallerstein ni el ADD cubre completamente: la perspectiva ética y política del sujeto excluido. Para Dussel, la Modernidad —tanto la occidental-liberal como la «modernización socialista» china— se constituye mediante la negación de la «exterioridad»: el Otro que no es reconocido como sujeto del sistema. América Latina no es simplemente «periferia» en sentido wallersteineano; es el espacio donde la Modernidad se fundó mediante la conquista, la esclavitud y la negación sistemática de la alteridad. La Trans-Modernidad dusseliana no es nostalgia premoderna ni rechazo total de la Modernidad; es la afirmación de que los pueblos del Sur pueden contribuir a un proyecto civilizatorio que supera a ambas Modernidades —la atlántica y la sino-asiática— desde sus propias experiencias negadas.</p>
+
+    <div class="subsection-label">Compatibilidad con la arquitectura ADD</div>
+    <p>Los tres marcos son compatibles con el ADD sin alterar su jerarquía ontológica. Sistemas-Mundo y Arrighi operan como descriptores de condiciones estructurales en la escala mega del devenir escalar. Dussel opera en los niveles comunicativo-institucional y normativo-plural, aportando la dimensión ética que la ADD reconoce pero no desarrolla explícitamente. Ninguno reemplaza el nivel ontológico-disipativo: ver sección II para la jerarquía completa.</p>
+  </div>
+</section>
+
+<!-- II. JERARQUÍA TEÓRICA -->
+<section id="jerarquia">
+  <div class="section-header">
+    <div class="section-number">A-II</div>
+    <div class="section-titles">
+      <div class="category-tag">Metodología · Arquitectura Teórica Revisada</div>
+      <h2>Jerarquía Epistémica: ¿El ADD Ontológico-Disipativo Sigue Primando?</h2>
+    </div>
+  </div>
+
+  <div class="article-card wall">
+    <div class="article-tag">Declaración de Jerarquía · Protocolo ADD</div>
+    <h3>Sí — con enriquecimiento. La base ontológico-disipativa no se altera; los nuevos marcos se integran en niveles superiores</h3>
+
+    <p>La pregunta es metodológicamente decisiva y la respuesta es inequívoca: <strong>el nivel ontológico-disipativo (Prigogine + Maturana + Landauer) continúa siendo la base jerárquica de la arquitectura ADD</strong>. La razón es de principio: cualquier sistema —incluyendo el sistema-mundo capitalista de Wallerstein, los ciclos de acumulación de Arrighi y la Trans-Modernidad de Dussel— requiere procesos disipativos para sostenerse. La reproducción del sistema-mundo tiene un costo energético-material real. La hegemonía se sostiene mediante flujos disipativos: el hegemon importa materias primas y exporta manufactura de alto valor añadido, una operación de apropiación diferencial de gradientes energéticos con consecuencias termodinámicas reales, no solo económicas metafóricas.</p>
+
+    <div class="hierarchy">
+      <div class="add-label" style="margin-bottom:16px;">▸ Arquitectura Teórica Completa — Jerarquía de Condiciones de Posibilidad</div>
+
+      <div class="hier-level">
+        <div class="hier-num">L1</div>
+        <div class="hier-content hier-L1">
+          <div class="hier-title">Ontológico-Disipativo [BASE] — Prigogine + Maturana + Landauer</div>
+          <div class="hier-body">Todo sistema sociocultural existe como estructura disipativa: importa energía y exporta entropía. La clausura organizacional se sostiene mediante apertura disipativa. El procesamiento de información tiene costo termodinámico real. <strong>Analogía: literal.</strong> Nada del análisis subsiguiente opera sin esta base.</div>
+        </div>
+      </div>
+      <div class="hier-arrow">↓ condición de posibilidad</div>
+
+      <div class="hier-level">
+        <div class="hier-num">L2</div>
+        <div class="hier-content hier-L2">
+          <div class="hier-title">Condiciones Estructurales de Largo Plazo — Wallerstein / Arrighi <span class="new-badge">nuevo</span></div>
+          <div class="hier-body">La distribución histórica de los flujos disipativos en la economía-mundo capitalista configura las posiciones de partida (centro/semiperiferia/periferia) y los parámetros de control de las bifurcaciones actuales. Los ciclos de acumulación (Arrighi) describen la dinámica temporal de esa distribución. <strong>Analogía: fuerte para los flujos materiales; análoga fuerte para las cadenas de mercancías como flujos disipativos sociales.</strong></div>
+        </div>
+      </div>
+      <div class="hier-arrow">↓ condición de posibilidad</div>
+
+      <div class="hier-level">
+        <div class="hier-num">L3</div>
+        <div class="hier-content hier-L3">
+          <div class="hier-title">Práctico-Disposicional — Bourdieu (habitus, campo, capital)</div>
+          <div class="hier-body">Las formas de capital bourdesiano son los flujos disipativos del sistema sociocultural en el nivel de los actores. El capital económico (= L2 wallersteineano encarnado en actores), el cultural y el simbólico sostienen la clausura organizacional específica de cada actor. <strong>Analogía: fuerte.</strong></div>
+        </div>
+      </div>
+      <div class="hier-arrow">↓ condición de posibilidad</div>
+
+      <div class="hier-level">
+        <div class="hier-num">L4</div>
+        <div class="hier-content hier-L4">
+          <div class="hier-title">Comunicativo-Institucional — Habermas (mundo de vida / sistema)</div>
+          <div class="hier-body">Las tensiones sistema/mundo de vida describen cómo las lógicas sistémicas externas (mercado, burocracia, derecho estatal) colonizan los mundos de vida comunitarios. En la escala geopolítica: las lógicas de las grandes potencias colonizan los mundos normativos de los estados periféricos. <strong>Analogía: fuerte.</strong></div>
+        </div>
+      </div>
+      <div class="hier-arrow">↓ condición de posibilidad</div>
+
+      <div class="hier-level">
+        <div class="hier-num">L5</div>
+        <div class="hier-content hier-L5">
+          <div class="hier-title">Ético-Político del Sur — Dussel (exterioridad, Trans-Modernidad) <span class="new-badge">nuevo</span></div>
+          <div class="hier-body">La perspectiva del sujeto excluido por el sistema-mundo: el «Otro» latinoamericano, indígena, campesino, periférico, cuya agencia es negada por ambas Modernidades (atlántica y sino-asiática). La Trans-Modernidad como proyecto de superación desde la exterioridad. <strong>Analogía: análogo fuerte en los niveles comunicativo y simbólico; requiere mediación filosófica y etnográfica.</strong></div>
+        </div>
+      </div>
+      <div class="hier-arrow">↓ condición de posibilidad</div>
+
+      <div class="hier-level">
+        <div class="hier-num">L6</div>
+        <div class="hier-content hier-L6">
+          <div class="hier-title">Normativo-Plural — Moore, pluralismo jurídico, Galtung</div>
+          <div class="hier-body">Coexistencia de múltiples órdenes normativos, violencia estructural y cultural. Es el nivel de mayor especificidad empírica. <strong>Analogía: análogo fuerte; requiere trabajo etnográfico.</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <p style="font-size:13.5px;color:var(--text-secondary);margin-top:14px;">La respuesta a la pregunta original es, pues: el nivel ontológico-disipativo no solo <em>sigue</em> primando — resulta <em>enriquecido</em> por la incorporación de Wallerstein y Arrighi, que permiten trazar con mayor precisión cómo los flujos disipativos se distribuyen históricamente en el sistema-mundo. Dussel no compite con el nivel L1; opera en L5 y aporta lo que ningún otro nivel cubre: la demanda ética de reconocimiento del sujeto excluido como condición de legitimidad de cualquier análisis que se pretenda crítico.</p>
+  </div>
+</section>
+
+<!-- VII. MEEE-G -->
+<section id="meee">
+  <div class="section-header">
+    <div class="section-number">A-III</div>
+    <div class="section-titles">
+      <div class="category-tag">MEEE-G · Evaluación Epistémica</div>
+      <h2>Evaluación Epistémica: Las Afirmaciones Clave</h2>
+    </div>
+  </div>
+  <div class="article-card geo">
+    <div class="article-tag">MEEE-G · Goldman / Explicacionismo Comparativo</div>
+    <h3>Clasificación epistémica de los resultados y las interpretaciones teóricas</h3>
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;font-family:'Space Mono',monospace;font-size:9.5px;">
+  <span style="padding:2px 8px;background:#0a2a0a;border:1px solid #1a4a1a;color:#4caf50;">DC Dato Confirmado</span>
+  <span style="padding:2px 8px;background:#0a200a;border:1px solid #1a3a1a;color:#8bc34a;">IP Inferencia Plausible</span>
+  <span style="padding:2px 8px;background:#1a1500;border:1px solid #3a3000;color:#ffc107;">H Hipótesis</span>
+  <span style="padding:2px 8px;background:#100818;border:1px solid #200a30;color:#9c27b0;">Int Interpretación</span>
+  <span style="padding:2px 8px;background:#1a0808;border:1px solid #3a1010;color:#f44336;">C Conjetura</span>
+</div>
+    <table class="epistemic-table">
+      <thead><tr><th>Afirmación</th><th>Código</th><th>Fundamento</th><th>Incertidumbre</th></tr></thead>
+      <tbody>
+        <tr><td>Trump visitó Beijing 14–15 mayo 2026; se firmaron acuerdos de protocolo</td><td><span class="code dc">DC</span></td><td>Cobertura directa múltiples medios; comunicados de ambas cancillerías</td><td>Nulo</td></tr>
+        <tr><td>200 Boeing acordados (por debajo de los 500 proyectados)</td><td><span class="code dc">DC</span></td><td>Trump lo declaró; caída de acciones Boeing del 4% es evidencia corroborante</td><td>Mínimo</td></tr>
+        <tr><td>«Estabilidad estratégica» como marco de tres años</td><td><span class="code ip">IP</span></td><td>Confirmado en readout chino; no desacreditado por EE.UU.; analistas CSIS/CFR lo validan</td><td>Moderado — sin contenido operativo publicado</td></tr>
+        <tr><td>EE.UU. se encuentra en fase de expansión financiera de su ciclo hegemónico (Arrighi)</td><td><span class="code int">Int</span></td><td>Composición corporativa de la delegación; deficits comerciales crónicos; dominio financiero sobre manufacturero. Marco analítico de largo plazo con sustento histórico-comparado sólido</td><td>Moderado — el debate académico sobre la cronología del ciclo es activo</td></tr>
+        <tr><td>El déficit comercial Costa Rica–China (7:1) es manifestación del mecanismo wallersteineano de transferencia de excedente</td><td><span class="code int">Int</span></td><td>Datos PROCOMER 2024 verificados; patrón consistente con la tríada centro-periferia. La interpretación causal wallersteineana es compatible pero no la única explicación</td><td>Moderado — hay explicaciones alternativas (barreras logísticas, asimetría de protocolos)</td></tr>
+        <tr><td>China presionará a Irán para abrir Ormuz de manera efectiva</td><td><span class="code h">H</span></td><td>Promesa verbal sin mecanismo; incentivos mixtos para China</td><td>Alto</td></tr>
+        <tr><td>América Latina puede articular una posición Trans-Moderna autónoma ante el G2 (Dussel)</td><td><span class="code c">C</span></td><td>Proyecto normativo sin referente empírico actual; requeriría una coordinación regional que los datos actuales no muestran</td><td>Muy alto — horizonte normativo, no descriptivo</td></tr>
+        <tr><td>La cumbre representa el inicio de un nuevo ciclo sistémico de acumulación chino (Arrighi optimista)</td><td><span class="code c">C</span></td><td>China tiene contradicciones internas (mercado doméstico, control de capitales) que bloquean la lógica del hegemon clásico; el propio Arrighi fue cauteloso al respecto</td><td>Especulativo</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+</div><!-- /container -->
+
+<!-- REFERENCIAS -->
+<div class="references" id="referencias">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-number" style="font-size:36px;">REF</div>
+      <div class="section-titles">
+        <div class="category-tag">Fuentes y Marco Teórico</div>
+        <h2>Referencias — APA 7</h2>
+      </div>
+    </div>
+    <ul class="ref-list">
+      <li>Al Jazeera. (2026, 15 de mayo). <em>Trump-Xi summit: China, US disagree on what they agreed on.</em> https://www.aljazeera.com/news/2026/5/15/trump-xi-summit-china-us-disagree-on-what-they-agreed-on</li>
+      <li>Al Jazeera. (2026, 13 de mayo). <em>Trump-Xi summit: China's help in Iran may require US concessions.</em> https://www.aljazeera.com/news/2026/5/13/trump-xi-summit-chinas-help-in-iran-may-require-us-concessions</li>
+      <li>Arrighi, G. (1994). <em>The Long Twentieth Century: Money, Power, and the Origins of Our Times.</em> Verso.</li>
+      <li>Arrighi, G. (2007). <em>Adam Smith in Beijing: Lineages of the Twenty-First Century.</em> Verso.</li>
+      <li>Arrighi, G., & Silver, B. (1999). <em>Chaos and Governance in the Modern World System.</em> University of Minnesota Press.</li>
+      <li>AS/COA. (2026, 14 de mayo). <em>Trump in Latin America: The Hemisphere's Position on the U.S.–China Chessboard.</em> https://www.as-coa.org/articles/trump-latin-america-hemispheres-position-us-china-chessboard</li>
+      <li>Bourdieu, P. (1977). <em>Outline of a Theory of Practice.</em> Cambridge University Press.</li>
+      <li>CBC News. (2026, 15 de mayo). <em>Trump claims 'fantastic trade deals' with China.</em> https://www.cbc.ca/news/world/trump-xi-china-summit-analysis-9.7201162</li>
+      <li>CNBC. (2026, 15 de mayo). <em>Trump-Xi summit: The 3 big takeaways from historic meeting in Beijing.</em> https://www.cnbc.com/2026/05/15/trump-xi-summit-the-3-big-takeaways-from-historic-meeting-in-beijing.html</li>
+      <li>CNBC. (2026, 14 de mayo). <em>Xi warns Trump: Mishandling Taiwan will put U.S.-China relationship in 'great jeopardy'.</em> https://www.cnbc.com/2026/05/14/trump-xi-beijing-summit-trade-taiwan-ai-iran-rare-earths-tariffs.html</li>
+      <li>CFR. (2026, 15 de mayo). <em>Media Briefing: Making Sense of the Trump-Xi Summit.</em> https://www.cfr.org/event/media-briefing-making-sense-of-the-trump-xi-summit</li>
+      <li>CFR. (2026, 10 de mayo). <em>At the Trump-Xi Summit, China Will Have the Upper Hand.</em> https://www.cfr.org/articles/at-the-trump-xi-summit-china-will-have-the-upper-hand</li>
+      <li>CNN. (2026, 14–15 de mayo). <em>May 14-15, 2026 — Trump's China state visit and meetings with Xi Jinping.</em> https://www.cnn.com/politics/live-news/trump-china-visit-xi-meeting-hnk</li>
+      <li>CSIS. (2026, 15 de mayo). <em>Trump-Xi 2026 Summit.</em> https://www.csis.org/programs/trump-xi-2026-summit</li>
+      <li>CSIS. (2026, 12 de mayo). <em>Trump-Xi Summit in Beijing: Managing the World's Most Important Relationship.</em> https://www.csis.org/analysis/trump-xi-summit-beijing-managing-worlds-most-important-relationship</li>
+      <li>Dussel, E. (1977). <em>Filosofía de la Liberación.</em> Edicol.</li>
+      <li>Dussel, E. (1998). <em>Ética de la Liberación en la Edad de la Globalización y de la Exclusión.</em> Trotta.</li>
+      <li>Dussel, E. (2016). <em>Filosofías del Sur: Descolonización y Transmodernidad.</em> Akal.</li>
+      <li>Dussel, E. (2020). <em>Siete ensayos de filosofía de la liberación: Hacia una fundamentación del giro decolonial.</em> Trotta.</li>
+      <li>Euronews. (2026, 15 de mayo). <em>Underwhelming summit outcome in China brings Trump back to reality.</em> https://www.euronews.com/2026/05/15/underwhelming-summit-outcome-in-china-brings-trump-back-to-reality</li>
+      <li>Euronews. (2026, 15 de mayo). <em>China offers US to help open Strait of Hormuz but warns Trump over Taiwan.</em> https://www.euronews.com/2026/05/15/china-offers-us-to-help-open-strait-of-hormuz-but-warns-trump-over-taiwan</li>
+      <li>Frank, A. G., & Gills, B. (Eds.). (1993). <em>The World System: Five Hundred Years or Five Thousand?</em> Routledge.</li>
+      <li>Galtung, J. (1969). Violence, peace, and peace research. <em>Journal of Peace Research, 6</em>(3), 167–191.</li>
+      <li>Habermas, J. (1987). <em>The Theory of Communicative Action, Vol. 2: Lifeworld and System.</em> Beacon Press.</li>
+      <li>Heritage Foundation. (2026, 12 de mayo). <em>The Trump–Xi Summit: Defining Favorable and Unfavorable Outcomes.</em> https://www.heritage.org/global-politics/report</li>
+      <li>Latin Times. (2026, 14 de mayo). <em>Xi Warns Trump Of "Clashes And Conflicts" As Tense US–China Summit Progresses.</em> https://www.latintimes.com/xi-warns-trump-clashes-conflicts-tense-uschina-summit-progresses-597400</li>
+      <li>Maturana, H. R., & Varela, F. J. (1984). <em>El árbol del conocimiento.</em> Editorial Universitaria.</li>
+      <li>Montero Fonseca, A. (2026). <em>Antropología Dinámica del Devenir (ADD): bases para un programa teórico-metodológico relacional ante la complejidad sociocultural.</em> [Artículo interno]. Universidad de Costa Rica.</li>
+      <li>Moore, S. F. (1973). Law and social change: The semi-autonomous social field. <em>Law & Society Review, 7</em>(4), 719–746.</li>
+      <li>NPR. (2026, 14 de mayo). <em>Trump-Xi China summit could mean progress.</em> https://www.npr.org/2026/05/14/nx-s1-5822225/richard-haass-trump-xi-meeting-china-summit</li>
+      <li>Observatorio de la Política Internacional (OPI-UCR). (2025). <em>Comercio Exterior de Costa Rica.</em> Universidad de Costa Rica. https://opi.ucr.ac.cr</li>
+      <li>Prigogine, I. (1996). <em>El fin de las certidumbres.</em> Andrés Bello.</li>
+      <li>Ramaglia, D. (2024). De la modernidad a la transmodernidad. Proyecciones de la filosofía de Dussel. <em>Cuyo. Anuario de Filosofía Argentina y Americana, 44</em>, 67–86.</li>
+      <li>Stimson Center. (2026, 12 de mayo). <em>The Trump-Xi Summit Could Be a Positive Paradigm Shift.</em> https://www.stimson.org/2026/the-trump-xi-summit-could-be-a-positive-paradigm-shift/</li>
+      <li>TIME. (2026, 13 de mayo). <em>China First: As Trump Meets Xi, How Beijing Sees the World Now.</em> https://time.com/article/2026/05/13/china-first-trump-xi-beijing-summit/</li>
+      <li>Wallerstein, I. (1974). <em>The Modern World-System I: Capitalist Agriculture and the Origins of the European World-Economy in the Sixteenth Century.</em> Academic Press.</li>
+      <li>Wallerstein, I. (1984). The three instances of hegemony in the history of the capitalist world-economy. En <em>The Politics of the World-Economy.</em> Cambridge University Press.</li>
+      <li>Wallerstein, I. (2004). <em>World-Systems Analysis: An Introduction.</em> Duke University Press.</li>
+      <li>World Economic Forum. (2026, mayo). <em>US-China relations: What to expect from the Trump-Xi summit.</em> https://www.weforum.org/stories/2026/05/what-to-expect-trump-xi-summit-china-us/</li>
+      <li>Xinhua. (2026, 11 de mayo). <em>Xi navigates China-U.S. ties amid global uncertainty.</em> https://english.news.cn/20260511/dd37fb7c8ac944a698bead2be7a380c6/c.html</li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  <strong>ANCA-ADD</strong> · Agente Noticioso Crítico de Actualidad · Análisis Dinámico del Devenir<br>
+  Boletín Especial ESPECIAL-GEO-01 · 17 de mayo de 2026<br>
+  Publicación: <a href="https://antropos.app/boletines/cumbre-beijing-2026/" style="color:var(--gold-main);text-decoration:none;">antropos.app</a> · Distribución: <strong>Substack</strong> &nbsp;|&nbsp; <a href="/boletines/" style="color:var(--text-secondary);text-decoration:none;">← Todos los boletines</a><br><br>
+  MEEE-G © Inspirado en Alvin I. Goldman · ADD © Alfredo Montero Fonseca, UCR<br>
+  Sistemas-Mundo: Wallerstein / Arrighi · Filosofía de la Liberación: Dussel<br>
+  El análisis combina evaluación epistémica explicacionista y análisis dinámico antropológico.<br>
+  No constituye predicción determinista ni recomendación política.
+</footer>
+
+<script data-goatcounter="https://antropos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
