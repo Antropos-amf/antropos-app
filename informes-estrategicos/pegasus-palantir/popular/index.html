@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANCA-ADD para Todos · El bisturí y el panóptico · Pegasus y Palantir</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Caveat:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f4ecd9; --paper2:#ede1c8; --card:#fbf6ea;
+    --ink:#3a2e22; --ink2:#5b4a38; --muted:#8c7a64;
+    --terra:#bb5630; --terra-dim:#8f3f22; --terra-bg:rgba(187,86,48,.09);
+    --olive:#5c7a3f; --olive-bg:rgba(92,122,63,.10);
+    --sun:#d99a2b; --sun-bg:rgba(217,154,43,.12);
+    --teal:#3d8a82; --teal-bg:rgba(61,138,130,.10);
+    --line:#d8c7a4; --line-dark:#c2ad84;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:'Lora',Georgia,serif;font-size:19px;line-height:1.62;
+    background-image:
+      radial-gradient(circle at 15% 8%, rgba(217,154,43,.05), transparent 40%),
+      radial-gradient(circle at 90% 70%, rgba(92,122,63,.05), transparent 45%);
+  }
+  ::selection{background:var(--sun-bg);color:var(--ink)}
+
+  .ribbon{background:var(--olive);color:var(--paper);text-align:center;padding:9px 14px;
+    font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.04em}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(244,236,217,.94);
+    backdrop-filter:blur(6px);border-bottom:2px solid var(--line-dark);
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.04em}
+  nav .wrap{max-width:760px;margin:0 auto;padding:10px 22px;display:flex;flex-wrap:wrap;gap:5px 16px;align-items:center}
+  nav a{color:var(--ink2);text-decoration:none;text-transform:uppercase;transition:color .2s}
+  nav a:hover{color:var(--terra)}
+  nav .brand{color:var(--ink);font-weight:600;margin-right:auto;text-transform:none;font-size:12px}
+
+  main{max-width:760px;margin:0 auto;padding:0 22px 90px}
+
+  header.mast{padding:46px 0 26px;text-align:center;border-bottom:3px double var(--line-dark);margin-bottom:10px}
+  .stamp{display:inline-block;font-family:'Caveat',cursive;font-size:21px;color:var(--olive);transform:rotate(-2deg);margin-bottom:6px}
+  h1.title{font-family:'Fraunces',serif;font-weight:800;font-size:clamp(34px,7.4vw,58px);line-height:1.05;margin:6px 0 8px;color:var(--ink)}
+  h1.title span{color:var(--terra)}
+  .subtitle{font-family:'Lora',serif;font-style:italic;font-size:clamp(17px,2.6vw,21px);color:var(--ink2);margin:0 auto;max-width:560px}
+  .mast-meta{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--muted);margin-top:18px;display:flex;flex-wrap:wrap;justify-content:center;gap:5px 20px}
+
+  .letter{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:26px 28px;margin:26px 0 8px;position:relative}
+  .letter:before{content:"";position:absolute;top:0;left:24px;right:24px;height:3px;background:repeating-linear-gradient(90deg,var(--olive) 0 8px, transparent 8px 16px)}
+  .letter p{margin:0 0 13px;font-size:18.5px;color:var(--ink2)}
+  .letter p:last-child{margin-bottom:0}
+  .letter .big-q{font-family:'Fraunces',serif;font-weight:700;font-style:italic;font-size:22px;color:var(--terra-dim);
+    border-left:3px solid var(--sun);padding-left:16px;margin:16px 0}
+  .letter .firma{font-family:'Caveat',cursive;font-size:24px;color:var(--olive);margin-top:4px}
+
+  section.block{padding:48px 0 8px;border-bottom:2px dashed var(--line-dark)}
+  .icon-wrap{width:56px;height:56px;margin:0 auto 14px;color:var(--terra)}
+  .icon-wrap svg{width:100%;height:100%}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--olive);text-align:center;margin-bottom:8px}
+  h2.q{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(24px,4.4vw,33px);line-height:1.15;text-align:center;margin:0 0 6px;color:var(--ink)}
+  .q-tag{font-family:'Caveat',cursive;font-size:19px;color:var(--terra);text-align:center;display:block;margin-bottom:24px}
+
+  h3.subh{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:26px 0 9px;padding-bottom:5px;border-bottom:1px solid var(--line)}
+  p{margin:0 0 14px}
+  p.lead{font-size:20.5px;color:var(--ink)}
+  em.term{font-style:italic;color:var(--terra-dim);font-weight:600}
+  strong.k{color:var(--ink);font-weight:600}
+
+  ul.clean{list-style:none;padding:0;margin:6px 0 14px}
+  ul.clean li{padding:10px 0 10px 28px;position:relative;color:var(--ink2);border-bottom:1px solid var(--line)}
+  ul.clean li:last-child{border-bottom:none}
+  ul.clean li:before{content:"▸";position:absolute;left:0;top:10px;color:var(--olive)}
+
+  .therm{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:16px 20px;margin:18px 0}
+  .therm .t-title{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  .t-row{display:flex;gap:10px;align-items:flex-start;padding:7px 0;font-size:16.5px;color:var(--ink2)}
+  .t-row .dot{flex:0 0 22px;font-size:18px;line-height:1.4}
+  .t-row b{color:var(--ink);font-weight:600}
+
+  .dyn{background:var(--teal-bg);border:1px solid var(--teal);border-left:4px solid var(--teal);padding:18px 22px;margin:18px 0;border-radius:4px}
+  .dyn .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:8px}
+  .dyn p{margin:0 0 8px;font-size:18.5px;color:var(--ink)} .dyn p:last-child{margin-bottom:0}
+
+  .world{background:var(--sun-bg);border:1px solid var(--sun);border-left:4px solid var(--sun);padding:18px 22px;margin:18px 0;border-radius:4px}
+  .world .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#9c6f1c;margin-bottom:8px}
+  .world p{margin:0 0 8px;font-size:18.5px;color:var(--ink)} .world p:last-child{margin-bottom:0}
+
+  .cr{background:var(--olive-bg);border:1px solid var(--olive);border-radius:4px;padding:18px 22px;margin:18px 0}
+  .cr .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--olive);margin-bottom:8px}
+  .cr p{margin:0 0 8px;font-size:18.5px;color:var(--ink)} .cr p:last-child{margin-bottom:0}
+
+  .versus{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0}
+  .vcol{border-radius:4px;padding:16px 18px;border:1px solid var(--line)}
+  .vcol.gold{background:var(--sun-bg);border-color:var(--sun)}
+  .vcol.net{background:var(--olive-bg);border-color:var(--olive)}
+  .vcol h4{font-family:'Fraunces',serif;font-weight:800;font-size:18px;margin:0 0 10px;display:flex;align-items:center;gap:8px}
+  .vcol.gold h4{color:#9c6f1c} .vcol.net h4{color:var(--olive)}
+  .vcol ul{list-style:none;padding:0;margin:0}
+  .vcol li{padding:7px 0;font-size:16px;color:var(--ink2);border-bottom:1px dotted var(--line-dark)}
+  .vcol li:last-child{border-bottom:none}
+  .vcol li b{color:var(--ink)}
+  @media(max-width:560px){.versus{grid-template-columns:1fr}}
+
+  .keypoint{background:#fff;border:2px solid var(--terra);border-radius:4px;padding:18px 22px;margin:20px 0;text-align:center}
+  .keypoint p{margin:0;font-family:'Fraunces',serif;font-weight:600;font-size:20px;color:var(--terra-dim);line-height:1.4}
+
+  .opt{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--olive);border-radius:4px;padding:15px 19px;margin:11px 0}
+  .opt h4{font-family:'Fraunces',serif;font-weight:700;font-size:18px;margin:0 0 5px;color:var(--ink)}
+  .opt p{margin:0;font-size:16.5px;color:var(--ink2)}
+  .opt .step{font-family:'Caveat',cursive;font-size:17px;color:var(--olive);display:block;margin-bottom:2px}
+
+  .roads{margin:20px 0 4px}
+  .roads .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  .road{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid var(--line)}
+  .road:last-child{border-bottom:none}
+  .road .arrow{font-family:'Fraunces',serif;font-weight:700;color:var(--terra);font-size:18px;flex:0 0 22px}
+  .road p{margin:0;font-size:17.5px;color:var(--ink2)}
+
+  .gloss{display:inline-block;background:var(--sun-bg);border:1px solid var(--sun);border-radius:3px;padding:1px 7px;font-size:.92em}
+
+  section.open{padding:36px 0 10px}
+  section.open h2{font-family:'Fraunces',serif;font-weight:800;font-size:30px;color:var(--ink);text-align:center;margin:0 0 8px}
+  section.open .sub{display:block;text-align:center;font-family:'Lora',serif;font-style:italic;color:var(--ink2);margin-bottom:24px;font-size:17px}
+  .open-list{list-style:none;padding:0;margin:0}
+  .open-list li{padding:13px 0 13px 32px;border-bottom:1px solid var(--line);position:relative;color:var(--ink2);font-size:18.5px}
+  .open-list li:before{content:"❓";position:absolute;left:0;top:12px;font-size:15px}
+
+  .closing{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:24px 26px;margin:14px 0 30px}
+  .closing p{font-size:16.5px;line-height:1.7;color:var(--ink2);margin:0 0 10px}
+  .closing p:last-child{margin-bottom:0}
+  .closing b{color:var(--olive)}
+
+  footer{border-top:3px double var(--line-dark);padding:26px 22px;max-width:760px;margin:0 auto;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted)}
+  footer a{color:var(--olive);text-decoration:none}
+  footer .ft-stamp{font-family:'Caveat',cursive;font-size:18px;color:var(--terra);display:block;margin-bottom:8px}
+
+  @media(max-width:600px){ body{font-size:18px} .t-row{font-size:15.5px} }
+
+  /* SITE NAV */
+  .sitenav{background:#2a2118;border-bottom:1px solid var(--line-dark);padding:0 22px;
+    display:flex;align-items:center;gap:18px;height:32px}
+  .sitenav a{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;
+    text-transform:uppercase;color:#bba98a;text-decoration:none}
+  .sitenav a:hover{color:var(--sun)}
+  .sitenav .sep{color:#4a4030}
+
+  /* SWITCH BANNER */
+  .switch{background:var(--card);border-bottom:2px solid var(--line-dark);text-align:center;
+    padding:10px 16px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink2);letter-spacing:.02em}
+  .switch a{color:var(--terra-dim);text-decoration:underline}
+
+  /* AUDIO */
+  .audio-wrapper{background:#1a1410;padding:1.2rem 1.2rem 0;border-radius:4px;margin:24px 0 8px}
+  .audio-wrapper .ratio{position:relative;width:100%;padding-top:20%}
+  .audio-wrapper iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
+  .audio-actions{background:#1a1410;padding:0.9rem 1.2rem 1.2rem;text-align:center;border-radius:0 0 4px 4px;
+    font-family:'IBM Plex Mono',monospace;font-size:11px;color:#bba98a}
+  .audio-actions a{color:var(--paper);background:var(--terra);padding:7px 16px;
+    text-decoration:none;display:inline-block;letter-spacing:.05em;text-transform:uppercase;margin-top:8px}
+  .audio-actions a:hover{background:var(--terra-dim)}
+</style>
+</head>
+<body>
+
+<div class="sitenav">
+  <a href="https://antropos.app/">← antropos.app</a>
+  <span class="sep">|</span>
+  <a href="https://antropos.app/informes-estrategicos/">Informes Estratégicos</a>
+</div>
+
+<div class="ribbon">Edición para todo público · acompaña el Informe Estratégico Pegasus y Palantir · con el anexo de agosto de 2026</div>
+<div class="switch">¿Prefiere el análisis técnico completo, con fuentes y evaluación de confiabilidad? <a href="../">Lea el informe técnico →</a></div>
+
+<nav><div class="wrap">
+  <span class="brand">ANCA-ADD para Todos</span>
+  <a href="https://antropos.app/">Inicio</a>
+  <a href="https://antropos.app/informes-estrategicos/">Informes</a>
+  <a href="#i">Los dos ojos</a>
+  <a href="#ii">Pegasus en la corte</a>
+  <a href="#iii">Palantir crece</a>
+  <a href="#iv">Costa Rica</a>
+  <a href="#v">Lo nuevo</a>
+  <a href="#vi">Qué hacer</a>
+</div></nav>
+
+<main id="top">
+
+<header class="mast">
+  <span class="stamp">— informe técnico, en palabras de todos los días —</span>
+  <h1 class="title">EL BISTURÍ<br>Y <span>EL PANÓPTICO</span></h1>
+  <p class="subtitle">Dos formas de vigilancia que se confunden todo el tiempo en las noticias — y lo que Costa Rica acaba de hacer con las dos, al mismo tiempo, en direcciones opuestas</p>
+  <div class="mast-meta">
+    <span>Informe + Anexo de agosto · Popular</span>
+    <span>·</span>
+    <span>San José, Costa Rica</span>
+  </div>
+</header>
+
+<div class="letter">
+  <p>Estimado lector, estimada lectora:</p>
+  <p>Cada vez que hay una noticia de espionaje, salen dos nombres a la vez: Pegasus y Palantir. Se mencionan juntos, como si fueran la misma amenaza con dos apellidos distintos. No lo son. Son dos herramientas completamente diferentes, que hacen cosas diferentes, y a las que hay que exigirles controles diferentes. Confundirlas no es solo un error de detalle: nos deja mal armados para exigirle cuentas al poder.</p>
+  <p>Y hay una razón muy concreta para explicarlo justo ahora: en las últimas semanas, el Estado costarricense hizo dos movimientos —uno con cada una de estas lógicas— que van en direcciones exactamente contrarias. Uno cerró información; el otro fue obligado a abrirla. Vamos por partes.</p>
+  <p class="firma">— El equipo de ANCA-ADD</p>
+</div>
+
+<!-- I -->
+<section class="block" id="i">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M8 32c6-11 15-17 24-17s18 6 24 17c-6 11-15 17-24 17S14 43 8 32z"/>
+    <circle cx="32" cy="32" r="7"/>
+  </svg></div>
+  <div class="eyebrow">Parte 1 · Para no confundirlas nunca más</div>
+  <h2 class="q">¿Qué son, en realidad, Pegasus y Palantir?</h2>
+  <span class="q-tag">un bisturí que entra a un teléfono, y un panóptico que ordena datos que ya existen</span>
+
+  <p class="lead"><strong class="k">Pegasus</strong> es un programa espía. Se mete —a veces sin que la persona haga absolutamente nada, ni siquiera abrir un mensaje— en un teléfono específico, y una vez adentro puede leer mensajes, prender el micrófono, activar la cámara y ver la ubicación. Es una herramienta de <em class="term">un solo blanco a la vez</em>: entra a la fuerza en un aparato, como un bisturí que corta uno por uno.</p>
+  <p><strong class="k">Palantir</strong> es otra cosa por completo: es un programa que junta datos que ya existían —en hospitales, migración, policía, bancos— y los conecta para armar perfiles y mapas de relaciones entre personas. No entra a la fuerza en nada: ordena, cruza y hace visible lo que ya estaba guardado, pero disperso. Es un <em class="term">panóptico</em> —esa torre de vigilancia que todo lo ve desde el centro— pero hecho de datos, no de ladrillos.</p>
+
+  <div class="versus">
+    <div class="vcol gold">
+      <h4>🔬 Pegasus</h4>
+      <ul>
+        <li><b>Qué hace:</b> se mete en un teléfono y saca todo su contenido.</li>
+        <li><b>A quién:</b> un blanco a la vez —periodistas, activistas, opositores.</li>
+        <li><b>Quién lo compra:</b> solo gobiernos, para «espionaje legal».</li>
+        <li><b>Su problema:</b> es intrusión escondida, sin importar cómo se use.</li>
+      </ul>
+    </div>
+    <div class="vcol net">
+      <h4>🕸️ Palantir</h4>
+      <ul>
+        <li><b>Qué hace:</b> une bases de datos que ya existían y arma perfiles.</li>
+        <li><b>A quién:</b> poblaciones enteras, millones de registros a la vez.</li>
+        <li><b>Quién lo compra:</b> gobiernos y también grandes empresas.</li>
+        <li><b>Su problema:</b> depende de qué datos se le conecten y quién los controla.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="dyn">
+    <div class="lbl">Para entenderlo con una imagen</div>
+    <p>Pegasus es como un ladrón que entra por la ventana de una sola casa. Palantir es como una empresa que junta, en un solo mapa, todo lo que cada vecino ya le contó por separado al banco, al hospital y a la municipalidad. La primera es siempre un delito si no hay orden judicial. La segunda puede ser útil —organizar listas de espera de hospitales, por ejemplo— o peligrosa —armar una lista de personas para deportar—, según a quién se le entreguen las llaves.</p>
+  </div>
+</section>
+
+<!-- II -->
+<section class="block" id="ii">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M32 10v6M18 22l-8-8M46 22l8-8"/>
+    <path d="M14 22h20M14 22l-8 16h16zM44 22l-8 16h16z"/>
+    <path d="M32 16v34M22 50h20"/>
+  </svg></div>
+  <div class="eyebrow">Parte 2 · El bisturí, en problemas</div>
+  <h2 class="q">Pegasus perdió en la corte — por primera vez</h2>
+  <span class="q-tag">un jurado de Estados Unidos hizo algo que nunca había pasado: hacerle pagar a la empresa</span>
+
+  <p class="lead">La empresa dueña de Pegasus se llama NSO Group, es israelí, y durante años negó que su programa pudiera hacer lo que hacía. En 2025 eso cambió: un jurado en Estados Unidos la condenó a pagarle a WhatsApp más de 167 millones de dólares, por un ataque de 2019 que afectó a unas 1.400 personas. Un juez ordenó, además, que NSO no vuelva a atacar la infraestructura de WhatsApp nunca más.</p>
+  <p>Lo más revelador no fue la plata: fue lo que la empresa admitió bajo juramento, algo que había negado por años —que su programa sí puede sacar «todo el contenido» de un teléfono, y que la propia empresa, no solo sus clientes, participa en manejar los ataques.</p>
+
+  <div class="therm">
+    <div class="t-title">Termómetro de certeza</div>
+    <div class="t-row"><span class="dot">✅</span><span><b>Esto lo sabemos seguro:</b> hubo condena judicial, hubo orden de no volver a atacar, y la empresa admitió capacidades que antes negaba.</span></div>
+    <div class="t-row"><span class="dot">🤔</span><span><b>Esto se cree, pero no es seguro:</b> que la empresa sobreviva a la apelación. Ella misma dice que la prohibición es «potencialmente existencial».</span></div>
+    <div class="t-row"><span class="dot">💭</span><span><b>Esto es solo posible, no probado:</b> que si NSO cae, no aparezcan otras empresas vendiendo el mismo tipo de programa espía.</span></div>
+  </div>
+</section>
+
+<!-- III -->
+<section class="block" id="iii">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="16" cy="16" r="5"/><circle cx="48" cy="16" r="5"/><circle cx="32" cy="32" r="6"/>
+    <circle cx="16" cy="48" r="5"/><circle cx="48" cy="48" r="5"/>
+    <path d="M20 19l9 10M44 19l-9 10M20 45l9-10M44 45l-9-10"/>
+  </svg></div>
+  <div class="eyebrow">Parte 3 · El panóptico, en expansión</div>
+  <h2 class="q">Mientras tanto, Palantir sigue creciendo</h2>
+  <span class="q-tag">de hospitales británicos a la migración estadounidense — la misma empresa, contratos por miles de millones</span>
+
+  <p class="lead">Palantir no está en problemas legales: está en expansión. En Estados Unidos, el Ejército consolidó contratos hasta por 10.000 millones de dólares. La agencia de migración (ICE) le pagó 30 millones por una herramienta llamada «ImmigrationOS», que junta pasaportes, seguro social, datos fiscales, teléfonos y reconocimiento facial para priorizar deportaciones.</p>
+  <p>En el Reino Unido, Palantir entró al sistema de salud pública durante la pandemia, con un contrato simbólico de una libra esterlina. Hoy ese vínculo vale 330 millones de libras. Y en mayo de 2026 se filtró que ingenieros de la empresa habían tenido acceso «ilimitado» a datos identificables de pacientes —algo que Palantir dice fue limitado y supervisado, pero que generó alarma entre médicos y organizaciones de derechos.</p>
+
+  <div class="world">
+    <div class="lbl">El detalle que más preocupa</div>
+    <p>Los propios técnicos del sistema de salud británico dijeron algo revelador: aunque se saque a Palantir del contrato, «el genio ya salió de la botella». Es decir, el problema no es solo si la empresa se queda o se va: es que, una vez que una institución reorganiza su forma de trabajar alrededor de una plataforma privada, dejar de depender de ella se vuelve casi imposible.</p>
+  </div>
+</section>
+
+<!-- IV -->
+<section class="block" id="iv">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 10v44"/><path d="M16 12h28l-6 9 6 9H16"/>
+  </svg></div>
+  <div class="eyebrow">Parte 4 · Lo nuestro, desde junio</div>
+  <h2 class="q">¿Y qué tiene que ver Costa Rica con todo esto?</h2>
+  <span class="q-tag">un anuncio del ministro de Hacienda que mencionó al Mossad, sin decir mucho más</span>
+
+  <p class="lead">El 24 de junio de 2026, el ministro de Hacienda —el expresidente Rodrigo Chaves, quien pasó a ser ministro con la presidenta Laura Fernández— anunció que Costa Rica «usará tecnología desarrollada en Israel por el Mossad» para combatir el contrabando y la evasión fiscal en las importaciones. No dijo qué producto, ni cuánto costaría, ni cuándo llegaría. Solo dijo que «vienen».</p>
+  <p>Eso encendió una alarma razonable: el Mossad es la agencia de inteligencia israelí, y NSO —la dueña de Pegasus— también es israelí. Pero conviene ser precisos: que la tecnología viniera de ese mismo ecosistema no significaba, automáticamente, que fuera Pegasus. El ministro nunca lo dijo. Eso es justo lo que pasó a aclararse en agosto —para peor, no para mejor.</p>
+</section>
+
+<!-- V -->
+<section class="block" id="v">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20 28V20a12 12 0 0124 0v8"/><rect x="14" y="28" width="36" height="26" rx="3"/>
+    <path d="M32 38v8"/>
+  </svg></div>
+  <div class="eyebrow">Parte 5 · Lo que acaba de pasar</div>
+  <h2 class="q">Dos golpes de timón, en direcciones opuestas</h2>
+  <span class="q-tag">un ministerio fue obligado a hablar; otro se cerró con candado — al mismo tiempo</span>
+
+  <div class="audio-wrapper">
+    <div class="ratio">
+      <iframe src="https://drive.google.com/file/d/1U5V5rcPRHIxErp6ozObVtCTNiBHtm5ia/preview" allow="autoplay" loading="lazy"></iframe>
+    </div>
+  </div>
+  <div class="audio-actions">
+    Versión narrada de este anexo, generada como parte del dossier ANCA-ADD de agosto de 2026.<br>
+    <a href="https://drive.google.com/file/d/1U5V5rcPRHIxErp6ozObVtCTNiBHtm5ia/view?usp=drive_link" target="_blank">Abrir en Google Drive ↗</a>
+  </div>
+
+  <h3 class="subh">Primero: le sacaron la verdad a Hacienda</h3>
+  <p class="lead">Un ciudadano le pidió a Hacienda que explicara en detalle qué tecnología israelí iba a usar. El ministerio no respondió a tiempo, así que el ciudadano presentó un recurso ante la Sala Constitucional (la Sala IV). La Sala le dio la razón, de forma unánime, y ordenó al viceministro de Ingresos dar una respuesta completa. Esa respuesta llegó el 13 de agosto —y contradice al propio ministro Chaves: Hacienda dijo, por escrito, que <strong class="k">«la iniciativa no se ha desarrollado»</strong> y que <strong class="k">no hay herramientas ni decisiones tomadas</strong>.</p>
+
+  <div class="keypoint">
+    <p>No sabemos si Chaves anunció en junio algo que en realidad no existía, o si Hacienda —ya bajo orden judicial— minimizó por escrito algo que sí existe. Ninguna de las dos cosas está probada todavía.</p>
+  </div>
+
+  <h3 class="subh">Segundo: la Seguridad se cerró con candado</h3>
+  <p>Mientras Hacienda era obligada a abrirse, el otro lado del Estado hizo justo lo contrario. El 27 de julio, el Gobierno firmó un decreto —publicado el 10 de agosto— que declara <em class="term">secreto de Estado</em> toda la información de la Dirección de Inteligencia y Seguridad (DIS), del grupo «Fuerza Élite» y del Consejo de Seguridad Pública. Y no es solo información sensible de operativos: cubre también <strong class="k">presupuestos, compras y contratos</strong> —justo el tipo de dato que permitiría revisar si se compró tecnología de vigilancia y con qué controles.</p>
+
+  <div class="world">
+    <div class="lbl">Por qué esto preocupa a periodistas y expertos</div>
+    <p>La Sociedad Interamericana de Prensa alertó que el decreto amenaza el acceso a la información pública. Y un exministro de Seguridad y un excontralor, consultados por la prensa, señalaron el riesgo central: que ese secreto se use, en el futuro, para tapar una compra de vigilancia sin que nadie pueda revisarla —ni siquiera por la vía que sí funcionó, semanas antes, contra Hacienda.</p>
+  </div>
+
+  <div class="dyn">
+    <div class="lbl">Un mismo gobierno, dos caminos contrarios</div>
+    <p>Aquí está lo más interesante, y lo más inquietante: no es que el país se volvió «más transparente» ni «más opaco» en general. Un pedazo del Estado (Hacienda) fue forzado a abrirse porque alguien litigó. Otro pedazo del mismo Estado (Seguridad) se blindó por su propia decisión, justo cuando más preguntas empezaban a hacerse. El mecanismo que funcionó contra Hacienda —pedir información y, si no responden, acudir a la Sala IV— quizás ya no funcione igual contra un decreto que invoca «secreto de Estado»: es un escudo legal distinto, y más difícil de perforar.</p>
+  </div>
+</section>
+
+<!-- VI -->
+<section class="block" id="vi">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="32" cy="32" r="22"/><path d="M32 10v6M32 48v6M10 32h6M48 32h6"/>
+    <path d="M32 20l6 12-6 12-6-12z"/>
+  </svg></div>
+  <div class="eyebrow">Parte 6 · Que esto no quede en nada</div>
+  <h2 class="q">¿Y qué se podría hacer con todo esto?</h2>
+  <span class="q-tag">algunas ideas que ya existen en germen en el país — no son consejos, son opciones sobre la mesa</span>
+
+  <p class="lead">El peligro de estas historias es que se lean, generen indignación un rato, y luego se olviden mientras las decisiones de fondo se toman sin que nadie mire. Para que eso no pase, hace falta bajar todo esto a preguntas concretas y exigibles.</p>
+
+  <div class="opt">
+    <span class="step">Lo más urgente</span>
+    <h4>Que el «secreto de Estado» tenga límite y fecha</h4>
+    <p>Que el decreto no cubra, sin distinción, absolutamente todo lo relacionado con compras y contratos —y que exista un mecanismo de revisión independiente, aunque sea posterior, para las adquisiciones de tecnología.</p>
+  </div>
+  <div class="opt">
+    <span class="step">Para no repetir el limbo de junio</span>
+    <h4>Que cualquier anuncio de nueva tecnología venga con el contrato, no antes</h4>
+    <p>Anunciar «viene tecnología del Mossad» sin decir cuál, cuánto cuesta ni cuándo llega deja al país meses especulando. La respuesta institucional razonable es: no se anuncia hasta que hay algo firmado y verificable.</p>
+  </div>
+  <div class="opt">
+    <span class="step">Para que el ciudadano no dependa de un solo héroe</span>
+    <h4>Facilitar, no dificultar, el camino que ya funcionó una vez</h4>
+    <p>Un solo ciudadano, con un recurso de amparo, logró que Hacienda hablara. Ese mecanismo debería ser la norma, no la excepción heroica —y debería sobrevivir también frente a los decretos de secreto de Estado.</p>
+  </div>
+  <div class="opt">
+    <span class="step">Para el largo plazo</span>
+    <h4>Que universidades públicas acompañen estas decisiones</h4>
+    <p>La UCR, la UNA y otros centros ya estudian ciberseguridad. Que ese conocimiento se use para asesorar, de forma independiente, cualquier adquisición de tecnología de vigilancia o de análisis de datos.</p>
+  </div>
+
+  <div class="roads">
+    <div class="lbl">¿Hacia dónde puede ir esto?</div>
+    <div class="road"><span class="arrow">→</span><p><b>Camino de cuentas claras:</b> el litigio que funcionó contra Hacienda se vuelve costumbre; el decreto de secreto de Estado se acota por ley; el país fija, por escrito, quién puede ver y bajo qué supervisión.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Camino mezclado:</b> Hacienda sigue rindiendo cuentas caso por caso, pero el secreto de Estado en Seguridad se mantiene amplio y sin revisión —dos velocidades distintas conviviendo.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Camino de la opacidad ganadora:</b> el episodio de Hacienda se olvida como anécdota, el decreto de secreto de Estado se usa como plantilla para blindar otras compras, y el país pierde la capacidad de saber qué tecnología de vigilancia tiene.</p></div>
+  </div>
+</section>
+
+<!-- OPEN -->
+<section class="open">
+  <h2>Lo que todavía queda en el aire</h2>
+  <span class="sub">preguntas honestas, que nadie puede responder aún con certeza</span>
+  <ul class="open-list">
+    <li>¿El anuncio de Chaves en junio fue solo un gesto político sin nada detrás, o Hacienda minimizó por escrito algo que sí existe?</li>
+    <li>¿Usará el Gobierno el decreto de secreto de Estado para blindar, más adelante, una compra real de tecnología de vigilancia?</li>
+    <li>¿Sobrevive el recurso de amparo —la herramienta que funcionó contra Hacienda— frente a algo declarado «secreto de Estado»?</li>
+    <li>¿Presentará alguna organización una acción legal contra el decreto, y con qué resultado?</li>
+    <li>¿Sobrevivirá NSO Group, la empresa de Pegasus, a su apelación en Estados Unidos?</li>
+  </ul>
+</section>
+
+<div class="closing">
+  <p><b>Una palabra sobre cómo trabajamos.</b> Detrás de esta versión en palabras sencillas hay un informe técnico completo, con más de cuarenta fuentes, una tabla de confiabilidad de cada afirmación y un análisis de cómo se conectan los hechos entre sí. Esa versión también está disponible para quien quiera ir más a fondo.</p>
+  <p>Explicamos incluso los temas más técnicos con calma y sin vocabulario complicado, pero sin recortarle la verdad a nadie —porque tratar a alguien como capaz de comprender es la forma más honesta de respetarlo.</p>
+  <p>Y, como siempre: esto es análisis para ayudarle a pensar, no una acusación contra personas concretas ni un pronóstico cerrado. Toda conclusión aquí es revisable ante nueva evidencia.</p>
+</div>
+
+</main>
+
+<footer>
+  <span class="ft-stamp">Para pensar con calma</span>
+  <div>ANCA-ADD © 2026 · <a href="https://antropos.app">antropos.app</a></div>
+  <div style="margin-top:6px">Informe Estratégico · Edición Popular · Cierre 29 jun 2026 · Anexo 14 ago 2026</div>
+</footer>
+
+<script data-goatcounter="https://antropos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
