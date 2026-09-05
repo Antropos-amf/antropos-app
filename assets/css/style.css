@@ -178,6 +178,110 @@ footer {
 .article-body h2 { font-size: 1.2rem; margin: 2rem 0 0.75rem; }
 .article-body blockquote { border-left: 3px solid var(--color-accent); padding-left: 1rem; color: var(--color-muted); margin: 1.5rem 0; }
 
+/* ── Servicios ── */
+.servicios-intro {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  max-width: 620px;
+  margin-bottom: 1.75rem;
+}
+
+.servicios-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.75rem 2.5rem;
+}
+
+.servicio-card h3 {
+  font-size: 1rem;
+  margin-bottom: 0.35rem;
+}
+
+.servicio-card p {
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+.portafolio-destacado {
+  margin-top: 2rem;
+  padding: 1rem 1.3rem;
+  background: #f1ecdc;
+  border-left: 4px solid var(--color-accent);
+}
+
+.portafolio-destacado .label {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-accent);
+  margin-bottom: 0.3rem;
+}
+
+.portafolio-destacado p {
+  font-size: 0.9rem;
+  color: #2a2a2a;
+}
+
+.servicios-cta {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.servicios-cta span {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  color: var(--color-muted);
+}
+
+.servicios-cta a.btn {
+  display: inline-block;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--color-accent);
+  padding: 0.6rem 1.2rem;
+}
+
+.servicios-cta a.btn:hover {
+  background: var(--color-accent-hover);
+  text-decoration: none;
+}
+
+@media (max-width: 640px) {
+  .servicios-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Análisis y coyuntura (compacta, deprioritizada) ── */
+.coyuntura .section-title { color: var(--color-muted); }
+
+.article-list.compact li {
+  padding: 0.6rem 0;
+}
+
+.article-list.compact .art-title {
+  font-size: 0.92rem;
+  font-weight: normal;
+}
+
+.coyuntura-links {
+  margin-top: 0.75rem;
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  color: var(--color-muted);
+}
+
 /* ── Layout dos columnas ── */
 .two-col {
   display: grid;
