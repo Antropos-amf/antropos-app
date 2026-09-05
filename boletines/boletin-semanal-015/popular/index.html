@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANCA-ADD para Todos · Boletín Semanal N.° 015 · Edición Popular</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Caveat:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f4ecd9; --paper2:#ede1c8; --card:#fbf6ea;
+    --ink:#3a2e22; --ink2:#5b4a38; --muted:#8c7a64;
+    --terra:#bb5630; --terra-dim:#8f3f22; --terra-bg:rgba(187,86,48,.09);
+    --olive:#5c7a3f; --olive-bg:rgba(92,122,63,.10);
+    --sun:#d99a2b; --sun-bg:rgba(217,154,43,.12);
+    --teal:#3d8a82; --teal-bg:rgba(61,138,130,.10);
+    --line:#d8c7a4; --line-dark:#c2ad84;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:'Lora',Georgia,serif;font-size:19px;line-height:1.62;
+    background-image:
+      radial-gradient(circle at 15% 8%, rgba(217,154,43,.05), transparent 40%),
+      radial-gradient(circle at 90% 70%, rgba(92,122,63,.05), transparent 45%);
+  }
+  ::selection{background:var(--sun-bg);color:var(--ink)}
+
+  .ribbon{background:var(--terra);color:var(--paper);text-align:center;padding:9px 14px;
+    font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.04em}
+  .ribbon b{text-decoration:underline}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(244,236,217,.94);
+    backdrop-filter:blur(6px);border-bottom:2px solid var(--line-dark);
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.04em}
+  nav .wrap{max-width:760px;margin:0 auto;padding:10px 22px;display:flex;flex-wrap:wrap;gap:5px 16px;align-items:center}
+  nav a{color:var(--ink2);text-decoration:none;text-transform:uppercase;transition:color .2s}
+  nav a:hover{color:var(--terra)}
+  nav .brand{color:var(--ink);font-weight:600;margin-right:auto;text-transform:none;font-size:12px}
+
+  main{max-width:760px;margin:0 auto;padding:0 22px 90px}
+
+  header.mast{padding:46px 0 26px;text-align:center;border-bottom:3px double var(--line-dark);margin-bottom:10px}
+  .stamp{display:inline-block;font-family:'Caveat',cursive;font-size:22px;color:var(--terra);
+    transform:rotate(-2deg);margin-bottom:6px}
+  h1.title{font-family:'Fraunces',serif;font-weight:800;font-size:clamp(38px,8vw,62px);
+    line-height:1.05;margin:6px 0 8px;color:var(--ink)}
+  .subtitle{font-family:'Lora',serif;font-style:italic;font-size:clamp(17px,2.6vw,21px);
+    color:var(--ink2);margin:0 auto;max-width:520px}
+  .mast-meta{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--muted);
+    margin-top:18px;display:flex;flex-wrap:wrap;justify-content:center;gap:5px 20px}
+
+  .letter{background:var(--card);border:1px solid var(--line);border-radius:4px;
+    padding:26px 28px;margin:26px 0 8px;position:relative}
+  .letter:before{content:"";position:absolute;top:0;left:24px;right:24px;height:3px;
+    background:repeating-linear-gradient(90deg,var(--sun) 0 8px, transparent 8px 16px)}
+  .letter p{margin:0 0 13px;font-size:18.5px;color:var(--ink2)}
+  .letter p:last-child{margin-bottom:0}
+  .letter .firma{font-family:'Caveat',cursive;font-size:24px;color:var(--terra-dim);margin-top:4px}
+
+  .audio-card{background:var(--teal-bg);border:1px solid var(--teal);border-radius:4px;
+    padding:20px 22px;margin:20px 0}
+  .audio-card .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--teal);margin-bottom:8px;font-weight:600}
+  .audio-card p{margin:0 0 12px;font-size:17px;color:var(--ink2)}
+  .audio-card iframe{width:100%;height:118px;border:0;border-radius:4px;background:#000}
+  .audio-card .bak{font-family:'IBM Plex Mono',monospace;font-size:12px;margin-top:10px;display:inline-block;color:var(--terra-dim)}
+
+  .toc{margin:30px 0 6px}
+  .toc h2{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--muted);text-align:center;margin:0 0 16px}
+  .toc-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+  .toc-item{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:12px 14px;
+    font-family:'Lora',serif;font-size:15px;color:var(--ink2);text-decoration:none;display:flex;gap:10px;align-items:flex-start}
+  .toc-item:hover{border-color:var(--terra)}
+  .toc-num{font-family:'Fraunces',serif;font-weight:700;font-size:22px;color:var(--terra);line-height:1}
+  @media(max-width:560px){.toc-grid{grid-template-columns:1fr}}
+
+  article{padding:50px 0 8px;border-bottom:2px dashed var(--line-dark)}
+  .icon-wrap{width:58px;height:58px;margin:0 auto 14px;color:var(--terra)}
+  .icon-wrap svg{width:100%;height:100%}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--olive);text-align:center;margin-bottom:8px}
+  h2.question{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(25px,4.4vw,34px);
+    line-height:1.15;text-align:center;margin:0 0 6px;color:var(--ink)}
+  .question-tag{font-family:'Caveat',cursive;font-size:19px;color:var(--terra);
+    text-align:center;display:block;margin-bottom:24px}
+
+  h3.subh{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--muted);margin:26px 0 9px;
+    padding-bottom:5px;border-bottom:1px solid var(--line)}
+  article p{margin:0 0 14px}
+  article p.lead{font-size:20.5px;color:var(--ink)}
+  em.term{font-style:italic;color:var(--terra-dim);font-weight:600}
+
+  .therm{background:var(--card);border:1px solid var(--line);border-radius:4px;
+    padding:16px 20px;margin:18px 0}
+  .therm .t-title{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  .t-row{display:flex;gap:10px;align-items:flex-start;padding:7px 0;font-size:16.5px;color:var(--ink2)}
+  .t-row .dot{flex:0 0 22px;font-size:18px;line-height:1.4}
+  .t-row b{color:var(--ink);font-weight:600}
+
+  .dyn{background:var(--teal-bg);border:1px solid var(--teal);border-left:4px solid var(--teal);
+    padding:18px 22px;margin:18px 0;border-radius:4px}
+  .dyn .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--teal);margin-bottom:8px}
+  .dyn p{margin:0 0 8px;font-size:18.5px;color:var(--ink)}
+  .dyn p:last-child{margin-bottom:0}
+
+  .cr{background:var(--olive-bg);border:1px solid var(--olive);border-radius:4px;padding:18px 22px;margin:18px 0}
+  .cr .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--olive);margin-bottom:8px;display:flex;align-items:center;gap:7px}
+  .cr p{margin:0 0 8px;font-size:18.5px;color:var(--ink)} .cr p:last-child{margin-bottom:0}
+
+  .roads{margin:20px 0 4px}
+  .roads .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  .road{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid var(--line)}
+  .road:last-child{border-bottom:none}
+  .road .arrow{font-family:'Fraunces',serif;font-weight:700;color:var(--terra);font-size:18px;flex:0 0 22px}
+  .road p{margin:0;font-size:17.5px;color:var(--ink2)}
+
+  section.open{padding:10px 0 46px}
+  section.open h2{font-family:'Fraunces',serif;font-weight:800;font-size:30px;color:var(--ink);
+    text-align:center;margin:0 0 8px}
+  section.open .sub{display:block;text-align:center;font-family:'Lora',serif;font-style:italic;
+    color:var(--ink2);margin-bottom:24px;font-size:17px}
+  .open-list{list-style:none;padding:0;margin:0}
+  .open-list li{padding:13px 0 13px 32px;border-bottom:1px solid var(--line);position:relative;
+    color:var(--ink2);font-size:18.5px}
+  .open-list li:before{content:"❓";position:absolute;left:0;top:12px;font-size:15px}
+
+  .closing{background:var(--card);border:1px solid var(--line);border-radius:4px;
+    padding:24px 26px;margin:14px 0 30px}
+  .closing p{font-size:16.5px;line-height:1.7;color:var(--ink2);margin:0 0 10px}
+  .closing p:last-child{margin-bottom:0}
+  .closing b{color:var(--terra-dim)}
+
+  footer{border-top:3px double var(--line-dark);padding:26px 22px;max-width:760px;margin:0 auto;
+    text-align:center;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted)}
+  footer a{color:var(--terra-dim);text-decoration:none}
+  footer .ft-stamp{font-family:'Caveat',cursive;font-size:18px;color:var(--terra);display:block;margin-bottom:8px}
+
+  @media(max-width:600px){
+    body{font-size:18px}
+    .t-row{font-size:15.5px}
+  }
+
+  figure.fig{margin:20px 0 24px}
+  figure.fig img{width:100%;display:block;border-radius:5px;border:1px solid var(--line)}
+  figure.fig figcaption{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.02em;
+    color:var(--muted);margin-top:7px;line-height:1.5;text-align:center}
+  figure.fig.cover img{border-radius:3px}
+
+  .switch{background:var(--ink);color:var(--paper);text-align:center;padding:11px 16px;
+    font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.03em}
+  .switch a{color:var(--sun);text-decoration:underline}
+
+  .update{background:var(--terra-bg);border:1px solid var(--terra);border-radius:4px;
+    padding:18px 22px;margin:18px 0}
+  .update .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--terra-dim);margin-bottom:8px;font-weight:600}
+  .update p{margin:0 0 10px;font-size:18px;color:var(--ink)}
+  .update p:last-child{margin-bottom:0}
+  .update a{color:var(--terra-dim)}
+</style>
+</head>
+<body>
+
+<div class="ribbon">Edición para todo público · misma profundidad, otras palabras · 26 de agosto al 2 de setiembre de 2026</div>
+<div class="switch">¿Prefiere el análisis técnico completo? <a href="../">Lea la versión técnica del Boletín N.° 015 →</a></div>
+
+<nav><div class="wrap">
+  <span class="brand">ANCA-ADD para Todos</span>
+  <a href="https://antropos.app/">Inicio</a>
+  <a href="https://antropos.app/boletines/">Boletines</a>
+  <a href="#n1">Ormuz</a>
+  <a href="#n2">Egipto</a>
+  <a href="#n3">Genomas</a>
+  <a href="#n4">Microglía</a>
+  <a href="#n5">ChatGPT</a>
+  <a href="#n6">Costa Rica</a>
+  <a href="#n7">Cerimedo</a>
+  <a href="#open">Preguntas abiertas</a>
+</div></nav>
+
+<main id="top">
+
+<header class="mast">
+  <span class="stamp">— el cerco y el censo —</span>
+  <h1 class="title">BOLETÍN<br>PARA TODOS</h1>
+  <p class="subtitle">Siete historias de una semana de mundo — trazar una línea alrededor de algo y decidir quién queda adentro — explicadas con calma para quien quiera entender qué pasó de verdad.</p>
+  <div class="mast-meta">
+    <span>Edición N.° 015 · Popular</span>
+    <span>·</span>
+    <span>26 de agosto al 2 de setiembre de 2026</span>
+    <span>·</span>
+    <span>San José, Costa Rica</span>
+  </div>
+</header>
+
+<figure class="fig cover">
+  <img src="../img/portada.jpg" alt="Un buque petrolero bajo una lupa digital: El cerco y el censo, Boletín ANCA-ADD N.° 015, edición popular." loading="lazy">
+  <figcaption>Boletín Semanal N.° 015 · Edición para todo público · San José, Costa Rica.</figcaption>
+</figure>
+
+<div class="letter">
+  <p>Estimado lector, estimada lectora:</p>
+  <p>Esta semana dos cosas muy distintas terminaron pareciéndose. Una pasó en el mar, la otra en oficinas de gobierno. Las dos consisten en trazar una línea alrededor de algo y decidir quién queda adentro: en el estrecho de Ormuz, Estados Unidos ya castiga hasta a quien le conteste un correo a la autoridad que Irán creó para cobrar el paso; en Costa Rica, una diputada preguntó públicamente por qué el Gobierno tiene identificadas a personas opositoras, y para qué las usa. Cerco y censo. Vamos por partes.</p>
+  <p class="firma">— El equipo de ANCA-ADD</p>
+</div>
+
+<div class="audio-card">
+  <div class="lbl">🎧 Escuche el análisis en audio</div>
+  <p>Dos analistas de IA desempacan en podcast el hilo que conecta esta edición: la irreversibilidad, desde el caso Cerimedo hasta el presupuesto de un país, pasando por Ormuz, Egipto y dos hallazgos de ciencia.</p>
+  <iframe src="https://drive.google.com/file/d/1aPbuokQtVHM29PzunH-wsWVzL56giPYJ/preview" allow="autoplay"></iframe>
+  <a class="bak" href="https://drive.google.com/file/d/1aPbuokQtVHM29PzunH-wsWVzL56giPYJ/view?usp=drive_link" target="_blank" rel="noopener">Abrir el audio en Google Drive ↗</a>
+</div>
+
+<div class="toc">
+  <h2>En esta edición</h2>
+  <div class="toc-grid">
+    <a class="toc-item" href="#n1"><span class="toc-num">1</span><span>¿Por qué responder un correo se volvió delito en el estrecho de Ormuz?</span></a>
+    <a class="toc-item" href="#n2"><span class="toc-num">2</span><span>Xi Jinping en El Cairo: ¿por qué esto también le habla a Costa Rica?</span></a>
+    <a class="toc-item" href="#n3"><span class="toc-num">3</span><span>Un mapa con casi 6.000 genomas: ¿qué significa que lo irreversible no sea caótico?</span></a>
+    <a class="toc-item" href="#n4"><span class="toc-num">4</span><span>Cuatro a ocho años: ¿por qué el cerebro humano tarda tanto en madurar?</span></a>
+    <a class="toc-item" href="#n5"><span class="toc-num">5</span><span>En Europa, ChatGPT ya es legalmente un buscador. ¿Y aquí?</span></a>
+    <a class="toc-item" href="#n6"><span class="toc-num">6</span><span>Costa Rica: la camisa de fuerza y la lista</span></a>
+    <a class="toc-item" href="#n7"><span class="toc-num">7</span><span>El caso Cerimedo: una historia sobre cómo se fabrica una certeza</span></a>
+  </div>
+</div>
+
+
+<!-- ============ 1. ORMUZ ============ -->
+<article id="n1">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="32" cy="18" r="7"/>
+    <path d="M32 25v20M20 34h24M20 34c0 8 5 14 12 16M44 34c0 8-5 14-12 16" stroke-width="2.2"/>
+    <path d="M10 50c6 4 10 4 16 0s10-4 16 0 10 4 16 0" stroke-width="2.4"/>
+  </svg></div>
+  <div class="eyebrow">Mundo · Geopolítica</div>
+  <h2 class="question">¿Por qué responder un correo se volvió delito en el estrecho de Ormuz?</h2>
+  <span class="question-tag">no se trata de comercio, se trata de quién tiene derecho a ser reconocido como autoridad</span>
+
+  <figure class="fig">
+    <img src="../img/ormuz.jpg" alt="Un petrolero bajo vigilancia digital: el cerco de Ormuz ya no es solo físico, también es administrativo." loading="lazy">
+    <figcaption>El cerco ya no consiste solo en impedir el paso, sino en volver punible el gesto de reconocer a la otra parte.</figcaption>
+  </figure>
+
+  <h3 class="subh">Qué pasó de verdad</h3>
+  <p class="lead">El 1.º de setiembre Estados Unidos volvió a atacar objetivos en Irán. El precio del petróleo saltó más de 5 % en un solo día y quedó rondando los 95 dólares por barril. Hace un año estaba en 68. Pero lo nuevo de la semana no fueron los ataques: fue algo más raro.</p>
+  <p>Irán creó una oficina —la PGSA— para administrar el estrecho de Ormuz y cobrar peaje a los barcos que pasan. Estados Unidos ya había advertido que quien pagara ese peaje se arriesgaba a sanciones. Esta semana amplió el aviso: ahora también corren riesgo los marineros y las empresas que <em class="term">respondan solicitudes de información</em> de esa oficina. Ni pagar. Contestar. Es una manera muy precisa de decirle al mundo: esa oficina no existe, y si usted actúa como si existiera, lo sanciono.</p>
+
+  <h3 class="subh">Qué tan seguros estamos</h3>
+  <div class="therm">
+    <div class="t-title">Termómetro de certeza</div>
+    <div class="t-row"><span class="dot">✅</span><span><b>Esto lo sabemos seguro:</b> los ataques del 1.º de setiembre y el salto del petróleo hasta el entorno de 94–96 dólares están confirmados por fuentes coincidentes.</span></div>
+    <div class="t-row"><span class="dot">🤔</span><span><b>Esto creemos, pero no es seguro:</b> que Estados Unidos tenga «control total» del estrecho, como sostiene Trump. Los datos de tránsito de buques no lo respaldan: el movimiento sigue siendo bajo.</span></div>
+    <div class="t-row"><span class="dot">💭</span><span><b>Esto es solo una posibilidad:</b> que el acuerdo bilateral entre Irán y Omán sobre rutas marítimas sea un preludio de reapertura del estrecho. El propio viceministro iraní lo negó.</span></div>
+  </div>
+
+  <div class="dyn">
+    <div class="lbl">Por qué importa, en cristiano</div>
+    <p>Piense en un peaje de carretera: si usted cruza y le entrega sus papeles al oficial de turno, está aceptando —aunque sea sin querer— que ese oficial es el dueño legítimo de la carretera. Sancionar a quien simplemente responde un correo es, exactamente, evitar ese gesto de reconocimiento antes de que se vuelva costumbre. Es frenar la rutina antes de que fragüe el concreto administrativo: una vez que algo se hace «normal», ya no hay vuelta atrás fácil.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">🌱 ¿Y en Costa Rica, qué tiene que ver?</div>
+    <p>Todo el combustible que quema Costa Rica se importa. El ICE confirmó esta semana que la planta térmica Moín IV va a operar hasta 2030, justo cuando El Niño reduce el agua disponible para generar electricidad. Un petróleo caro se nos mete por el precio de la gasolina, por el recibo de la luz, por el flete de lo que exportamos y por el seguro de los barcos que lo llevan.</p>
+  </div>
+
+  <div class="roads">
+    <div class="lbl">¿Hacia dónde puede ir esto?</div>
+    <div class="road"><span class="arrow">→</span><p><b>Canalización omaní:</b> el acuerdo Irán–Omán se formaliza y crea una ruta tolerada de facto. El precio cede hacia 80–85 dólares.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Cerco prolongado:</b> se consolida el statu quo — bloqueo, sanciones, tránsito bajo, precio entre 90 y 100 dólares.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Escalada sobre activos:</b> se detiene o confisca un buque de tercera bandera. El conflicto se internacionaliza y el precio supera los 110 dólares.</p></div>
+  </div>
+</article>
+
+
+<!-- ============ 2. EGIPTO ============ -->
+<article id="n2">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M32 12v8M14 44h36" stroke-width="2.4"/>
+    <path d="M32 20L14 32M32 20l18 12" stroke-width="2"/>
+    <path d="M6 32c0 6 4 10 8 10s8-4 8-10zM42 32c0 6 4 10 8 10s8-4 8-10z"/>
+    <path d="M22 52h20" stroke-width="2.4"/>
+  </svg></div>
+  <div class="eyebrow">Mundo · Geopolítica</div>
+  <h2 class="question">Xi Jinping en El Cairo: ¿por qué esto también le habla a Costa Rica?</h2>
+  <span class="question-tag">la visita mide cuánto cuesta hoy no elegir bando — y Egipto tiene con qué cobrar esa factura</span>
+
+  <figure class="fig">
+    <img src="../img/egipto.jpg" alt="Xi Jinping y Al Sisi: la balanza entre el peaje de Suez a Occidente y la inversión china en infraestructura." loading="lazy">
+    <figcaption>Egipto controla un nodo —Suez— que le da renta de posición para negociar entre potencias. Costa Rica no tiene un equivalente.</figcaption>
+  </figure>
+
+  <h3 class="subh">Qué pasó de verdad</h3>
+  <p class="lead">El presidente de China llegó el martes a Egipto: su primera visita de Estado en diez años, coincidiendo con los 70 años de relaciones entre ambos países. Egipto recibe ayuda militar de Estados Unidos desde hace décadas y, al mismo tiempo, tiene inversión china por más de 10.000 millones de dólares. Vivió cómodo en esa doble pertenencia mientras el mundo la toleraba. Ahora los dos países están bajo amenaza de sanciones estadounidenses por sus vínculos financieros con Irán. Traducido: la visita mide cuánto cuesta hoy no elegir bando.</p>
+  <p><b>Y aquí viene lo que nos interesa.</b> Costa Rica está en una posición parecida —un país mediano que ha querido llevarse bien con Washington y con Pekín a la vez— pero con una diferencia que lo cambia todo: <em class="term">Egipto tiene el Canal de Suez y nosotros no tenemos nada equivalente.</em> Cuando le sube el precio a la ambigüedad, Egipto puede cobrar por su posición. Costa Rica no tiene esa carta.</p>
+
+  <h3 class="subh">Qué tan seguros estamos</h3>
+  <div class="therm">
+    <div class="t-title">Termómetro de certeza</div>
+    <div class="t-row"><span class="dot">✅</span><span><b>Esto lo sabemos seguro:</b> fechas, itinerario y cifras de comercio e inversión coinciden entre agencias y fuentes oficiales de ambos países.</span></div>
+    <div class="t-row"><span class="dot">🤔</span><span><b>Esto creemos, pero no es seguro:</b> si se firmarán acuerdos económicos sustantivos. La reunión Xi–Al Sisi seguía en curso cuando cerramos esta edición.</span></div>
+    <div class="t-row"><span class="dot">💭</span><span><b>Esto es solo una posibilidad:</b> que los acuerdos incluyan mecanismos de pago que reduzcan la exposición al dólar, como liquidación en yuanes.</span></div>
+  </div>
+
+  <div class="dyn">
+    <div class="lbl">Por qué importa, en cristiano</div>
+    <p>Un préstamo del FMI es fluido: se puede renegociar, refinanciar, incluso cancelar. Pero aceptar miles de toneladas de cemento y acero para construir un tren o una ciudad entera es mucho más irreversible que aceptar un préstamo: modifica la geografía y decide dónde se instalan las fábricas por un siglo entero. El cemento pesa más que los billetes. Por eso la inversión china en infraestructura egipcia es un compromiso de otro calibre que un simple crédito.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">🌱 ¿Y en Costa Rica, qué tiene que ver?</div>
+    <p>El déficit comercial de Costa Rica con China —del orden de 7 a 1— ya funciona como una transferencia neta de recursos, no solo como un dato de balanza comercial. La lección egipcia es que la inversión en infraestructura es exactamente el instrumento con el que ese déficit se convierte en dependencia de largo plazo. Cualquier decisión costarricense sobre infraestructura financiada con capital chino debería evaluarse no solo por su rentabilidad, sino por cuánta de esa irreversibilidad introduce.</p>
+  </div>
+
+  <div class="roads">
+    <div class="lbl">¿Hacia dónde puede ir esto?</div>
+    <div class="road"><span class="arrow">→</span><p><b>Profundización contenida:</b> se firman acuerdos de infraestructura sin componente financiero sensible. Egipto conserva ambos canales.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Acoplamiento financiero:</b> los acuerdos incluyen mecanismos de pago que reducen la exposición al dólar.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Sanción disuasiva:</b> Washington designa entidades egipcias por sus vínculos con Irán, forzando a El Cairo a elegir.</p></div>
+  </div>
+</article>
+
+
+<!-- ============ 3. GENOMAS ============ -->
+<article id="n3">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M22 6c0 10 20 10 20 20s-20 10-20 20" stroke-width="2.2"/>
+    <path d="M42 6c0 10-20 10-20 20s20 10 20 20" stroke-width="2.2"/>
+    <path d="M22 14h20M22 26h20M22 38h20M22 50h20" stroke-width="1.6" opacity=".7"/>
+  </svg></div>
+  <div class="eyebrow">Ciencia · Biología evolutiva</div>
+  <h2 class="question">Un mapa con casi 6.000 genomas, y una idea que vale la pena</h2>
+  <span class="question-tag">lo irreversible no es lo caótico: es lo encauzado</span>
+
+  <figure class="fig">
+    <img src="../img/genomas.jpg" alt="5.821 genomas de 4.454 especies proyectados en un solo mapa de trayectorias evolutivas irreversibles." loading="lazy">
+    <figcaption>Cuando dos cromosomas se fusionan, sus genes se mezclan de una forma que ya no se puede deshacer.</figcaption>
+  </figure>
+
+  <h3 class="subh">Qué pasó de verdad</h3>
+  <p class="lead">Investigadores de la Universidad de Viena compararon <b>5.821 genomas de animales</b>, de 4.454 especies distintas, todos en un solo mapa. Un ser humano, un pulpo y un coral no se parecen en nada, pero dentro de sus células conservan pedazos reconocibles de un antepasado común de hace más de 600 millones de años. Lo que encontraron es que los genomas <em class="term">no cambian al azar</em>: recorren un número limitado de caminos, «autopistas evolutivas». Cuando dos cromosomas se fusionan, sus genes se mezclan de un modo que ya no se puede deshacer.</p>
+  <p>Aquí hay una idea más importante que el hallazgo mismo. Uno tiende a pensar que si algo no se puede deshacer, todo queda abierto y cualquier cosa puede pasar. Este estudio muestra lo contrario: <b>lo irreversible no es lo caótico, es lo encauzado.</b> Cada paso que no se puede deshacer cierra caminos. Un sistema con historia tiene <em>menos</em> futuros posibles que uno sin ella, no más. Con cuidado —es una analogía, no una ley— sirve para pensar en historia humana, en instituciones, en comunidades: lo que ya pasó no solo deja huella, estrecha lo que todavía puede pasar.</p>
+
+  <h3 class="subh">Qué tan seguros estamos</h3>
+  <div class="therm">
+    <div class="t-title">Termómetro de certeza</div>
+    <div class="t-row"><span class="dot">✅</span><span><b>Esto lo sabemos seguro:</b> el estudio, revisado por pares y publicado en acceso abierto en <i>Science Advances</i>, documenta la irreversibilidad de la fusión con mezcla sobre 5.821 genomas.</span></div>
+    <div class="t-row"><span class="dot">🤔</span><span><b>Esto creemos, pero no es seguro:</b> que el método sirva para predecir hacia dónde va a evolucionar un genoma en el futuro. Los propios autores lo plantean como aplicación posible, sin haberla validado todavía.</span></div>
+    <div class="t-row"><span class="dot">💭</span><span><b>Esto es solo una posibilidad:</b> que aparezcan linajes con reversión aparente que compliquen la idea de «autopista» irreversible, y se abra una controversia metodológica.</span></div>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">🌱 ¿Y en Costa Rica, qué tiene que ver?</div>
+    <p>Tenemos cerca del 5 % de la biodiversidad del planeta en el 0,03 % de la tierra firme. Este mapa da un criterio nuevo para decidir qué proteger primero: buscar las especies que se salieron de la autopista, las que van por un camino raro. Esas guardan información que no está en ninguna otra parte. La pregunta que queda abierta —y no la pudimos verificar— es si el país tiene hoy la capacidad técnica de hacer ese análisis con especies nuestras, sobre todo después de que el INBio dejara de existir como entidad autónoma, o si vamos a seguir mandando muestras para que otros las analicen.</p>
+  </div>
+
+  <div class="roads">
+    <div class="lbl">¿Hacia dónde puede ir esto?</div>
+    <div class="road"><span class="arrow">→</span><p><b>Adopción metodológica:</b> el marco se integra a criterios de conservación en agencias o listas rojas.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Herramienta de nicho:</b> el mapa queda como recurso de referencia entre especialistas, sin traducirse a política de conservación.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Controversia metodológica:</b> aparecen contraejemplos que cuestionan la idea de irreversibilidad total.</p></div>
+  </div>
+</article>
+
+
+<!-- ============ 4. MICROGLÍA ============ -->
+<article id="n4">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M32 8c-11 0-18 8-18 18 0 7 3 11 6 14v8h24v-8c3-3 6-7 6-14 0-10-7-18-18-18z"/>
+    <circle cx="26" cy="26" r="2.2" fill="currentColor" stroke="none"/>
+    <circle cx="38" cy="26" r="2.2" fill="currentColor" stroke="none"/>
+    <path d="M24 50h16" stroke-width="2.2"/>
+  </svg></div>
+  <div class="eyebrow">Ciencia · Neurobiología</div>
+  <h2 class="question">Cuatro a ocho años: por qué el cerebro humano tarda tanto en madurar</h2>
+  <span class="question-tag">la lentitud no es un defecto del desarrollo humano — es el tiempo que hace falta para que la cultura se vuelva cuerpo</span>
+
+  <figure class="fig">
+    <img src="../img/microglia.jpg" alt="Ratón: tres semanas. Humano: de cuatro a ocho años. La ventana en que el entorno moldea el cerebro por dentro." loading="lazy">
+    <figcaption>Las duplicaciones humanas del gen SRGAP2 hacen que la microglía tarde diez veces más en madurar que en un ratón.</figcaption>
+  </figure>
+
+  <h3 class="subh">Qué pasó de verdad</h3>
+  <p class="lead">En el cerebro hay unas células llamadas microglía: son las células de defensa del cerebro, y mientras uno se está desarrollando ayudan a decidir cuáles conexiones entre neuronas se conservan y cuáles se descartan. En un ratón, esas células maduran en unas <b>tres semanas</b>. En un ser humano, según un estudio de la Universidad de Columbia, tardan <b>entre cuatro y ocho años</b>, por unas copias extra del gen SRGAP2 que ningún otro animal tiene.</p>
+  <p>Lo importante es lo que eso significa: durante los primeros años de vida, las células encargadas de podar las conexiones cerebrales están ellas mismas todavía formándose. Es una ventana muy larga en la que el entorno alcanza a moldear el cerebro por dentro. Dicho de otro modo: <b>la lentitud no es un defecto del desarrollo humano. Es el tiempo que se necesita para que lo que uno aprende se vuelva parte del cuerpo.</b> Esa pausa de cuatro a ocho años nos hace humanos, básicamente.</p>
+  <p><b>Una advertencia sobre la fecha.</b> El estudio se publicó el 28 de julio. El 31 de agosto reapareció en portales de divulgación con un titular nuevo, fechado ese día. Quien lo leyera el 31 de agosto lo tomaría por un descubrimiento recién salido: tenía cinco semanas. No hay engaño deliberado, hay una cadena de republicación que borra la fecha original — pero el efecto es real.</p>
+
+  <h3 class="subh">Qué tan seguros estamos</h3>
+  <div class="therm">
+    <div class="t-title">Termómetro de certeza</div>
+    <div class="t-row"><span class="dot">✅</span><span><b>Esto lo sabemos seguro:</b> los tiempos de maduración (4–8 años en humano frente a 3 semanas en ratón) y el mecanismo genético (SRGAP2) están confirmados por el estudio revisado por pares.</span></div>
+    <div class="t-row"><span class="dot">🤔</span><span><b>Esto creemos, pero no es seguro:</b> que madurar más lento nos haga más inteligentes. Los propios autores lo plantean en condicional, no como conclusión probada.</span></div>
+    <div class="t-row"><span class="dot">💭</span><span><b>Esto es un riesgo, no una posibilidad deseable:</b> que el hallazgo se use indebidamente para argumentar sobre diferencias entre grupos humanos. El mecanismo es específico de la especie, no de ningún grupo — cualquier uso en esa dirección es el reduccionismo que este boletín rechaza.</span></div>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">🌱 ¿Y en Costa Rica, qué tiene que ver?</div>
+    <p>Esa ventana de cuatro a ocho años es exactamente la primera infancia: el período en que la pobreza, la mala alimentación o la violencia se traducen con más eficacia en daño duradero. Esta misma semana, Cen-Cinai tuvo que desmentir públicamente que un recorte de 40.000 millones de colones implicara cierres de centros o despidos. No estamos diciendo que ese recorte específico cause un daño neurológico específico — nadie ha demostrado eso. Lo que sí dice la evidencia disponible es que <b>hay ventanas que no se vuelven a abrir.</b> Recortar dentro de una de ellas no es posponer un gasto: es renunciar a un resultado.</p>
+  </div>
+
+  <div class="roads">
+    <div class="lbl">¿Hacia dónde puede ir esto?</div>
+    <div class="road"><span class="arrow">→</span><p><b>Consolidación:</b> réplicas independientes confirman el hallazgo y se extiende a otros genes duplicados.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Deriva divulgativa:</b> la afirmación no probada del «gen de la inteligencia» se estabiliza por encima del hallazgo real.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Uso indebido:</b> el hallazgo se invoca en argumentos sobre diferencias entre grupos humanos.</p></div>
+  </div>
+</article>
+
+
+<!-- ============ 5. CHATGPT/DSA ============ -->
+<article id="n5">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="27" cy="27" r="15"/>
+    <path d="M38 38l14 14" stroke-width="3"/>
+    <path d="M21 27a6 6 0 0 1 6-6" stroke-width="1.8" opacity=".6"/>
+  </svg></div>
+  <div class="eyebrow">Mundo y Costa Rica · Tecnología</div>
+  <h2 class="question">En Europa, ChatGPT ya es legalmente un buscador. ¿A quién le importa eso aquí?</h2>
+  <span class="question-tag">Bruselas dejó de tratarlo como herramienta y pasó a tratarlo como infraestructura de acceso a la información</span>
+
+  <figure class="fig">
+    <img src="../img/chatgpt.jpg" alt="159,1 millones de usuarios mensuales bastan para que Bruselas trate a ChatGPT como infraestructura de acceso a la información." loading="lazy">
+    <figcaption>La designación regula la función del servicio, no su arquitectura técnica.</figcaption>
+  </figure>
+
+  <h3 class="subh">Qué pasó de verdad</h3>
+  <p class="lead">El 31 de agosto la Comisión Europea decidió que ChatGPT es, a efectos de la ley, un <b>motor de búsqueda de muy gran tamaño</b> — el primer chatbot de inteligencia artificial que recibe esa clasificación. Reddit y Roblox fueron clasificados como plataformas grandes el mismo día. El motivo es de tamaño —la ley europea aplica sus reglas más duras a cualquier servicio con más de 45 millones de usuarios mensuales en la Unión Europea, y OpenAI declaró 159,1 millones—, pero lo interesante no es el tamaño: es el criterio.</p>
+  <p>A partir de ahora OpenAI tendrá que hacer evaluaciones anuales de riesgo, someterse a auditorías independientes y dar acceso a sus datos a reguladores e investigadores autorizados. <i>(Nota de honestidad: no pudimos precisar la fecha límite exacta de cumplimiento. La ley da cuatro meses desde la notificación, y esa fecha no aparece en el registro público. Dejamos el rango: entre noviembre de 2026 y enero de 2027.)</i></p>
+
+  <h3 class="subh">Qué tan seguros estamos</h3>
+  <div class="therm">
+    <div class="t-title">Termómetro de certeza</div>
+    <div class="t-row"><span class="dot">✅</span><span><b>Esto lo sabemos seguro:</b> la designación, su fecha y la cifra de 159,1 millones de usuarios declarada por OpenAI están confirmadas por el comunicado oficial de la Comisión.</span></div>
+    <div class="t-row"><span class="dot">🤔</span><span><b>Esto creemos, pero no es seguro:</b> la fecha exacta límite de cumplimiento, que distintos medios calculan como noviembre, diciembre o enero.</span></div>
+    <div class="t-row"><span class="dot">💭</span><span><b>Esto es solo una posibilidad:</b> que OpenAI impugne la calificación ante el Tribunal General de la Unión Europea, o que otros asistentes con búsqueda web crucen pronto el mismo umbral.</span></div>
+  </div>
+
+  <div class="dyn">
+    <div class="lbl">Por qué importa, en cristiano</div>
+    <p>Lo están equiparando a la red eléctrica o al sistema de agua potable. Si millones de personas usan algo para informarse del mundo, ese algo no puede seguir tratándose como una caja negra ni como un simple juguete tecnológico. No están regulando el algoritmo por dentro —eso frenaría la innovación—, están regulando la función que cumple hacia afuera.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">🌱 ¿Y en Costa Rica, qué tiene que ver?</div>
+    <p>Costa Rica no tiene nada parecido a esta ley. Las auditorías y el acceso a datos que OpenAI va a tener que cumplir en Europa no aplican en nuestro país. Pasa lo mismo que pasó con la ley europea de datos personales: nos beneficiamos de rebote cuando la empresa decide aplicar el mismo estándar en todas partes, y quedamos sin nada cuando decide que no. El que fabrica el modelo está en un lado del mundo, el que fija las reglas duras de su circulación está en otro, y nosotros consumimos el servicio sin haber participado en ninguna de las dos decisiones.</p>
+  </div>
+
+  <div class="roads">
+    <div class="lbl">¿Hacia dónde puede ir esto?</div>
+    <div class="road"><span class="arrow">→</span><p><b>Cumplimiento ordenado:</b> OpenAI presenta su evaluación de riesgo a tiempo y publica la primera auditoría independiente.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Extensión de la categoría:</b> otros asistentes con búsqueda web son designados en los próximos meses.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Litigio:</b> OpenAI impugna judicialmente la calificación como buscador.</p></div>
+  </div>
+</article>
+
+
+<!-- ============ 6. COSTA RICA ============ -->
+<article id="n6">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="32" cy="32" r="20"/>
+    <path d="M32 12v20l14 8" stroke-width="2.2"/>
+    <path d="M14 44l6-4M50 44l-6-4" stroke-width="1.8" opacity=".6"/>
+  </svg></div>
+  <div class="eyebrow">Costa Rica · Política y economía</div>
+  <h2 class="question">Costa Rica: la camisa de fuerza y la lista</h2>
+  <span class="question-tag">un presupuesto sin holgura y una pregunta sobre a quién tiene identificado el Gobierno</span>
+
+  <figure class="fig">
+    <img src="../img/presupuesto-cr.jpg" alt="El presupuesto 2027 como rueda encadenada: 40% a deuda, apenas 7% de margen real para toda política pública." loading="lazy">
+    <figcaption>«No hay flexibilidad de gasto, por lo tanto no hay flexibilidad de políticas públicas» — Rodrigo Chaves, ministro de Hacienda.</figcaption>
+  </figure>
+
+  <h3 class="subh">El presupuesto</h3>
+  <p class="lead">El martes 1.º de setiembre el ministro de Hacienda presentó el Presupuesto Nacional 2027: <b>12,4 billones de colones</b> —en español, un billón es un millón de millones; no confundir con el <i>billion</i> inglés, mil veces menor—, unos 27.000 millones de dólares, 3,1 % menos que el de este año. El desglose: 40 % se va en pagar deuda, 28,2 % en transferencias ya obligadas por ley, 24,7 % en salarios. Queda alrededor de <b>7 %</b> para todo lo demás.</p>
+  <p>El presupuesto recorta 10.000 millones de colones al Poder Judicial y propone congelar 30.000 millones más — un recorte que el propio Poder Judicial calcula en 42 % de su gasto operativo. La frase «realidades matemáticas inescapables», que usó el ministro, hace que una decisión política suene como un hecho de la naturaleza. Señalar eso no es decir que la restricción sea falsa —probablemente es real—; pero dentro de un presupuesto rígido igual hay que decidir a quién se le recorta, y esa decisión sí es política.</p>
+
+  <h3 class="subh">La lista</h3>
+  <p>El domingo 31 de agosto, la diputada Claudia Dobles preguntó públicamente por qué el Gobierno tiene identificadas a personas opositoras: <i>«ministro, ¿y los tenían identificados para qué?»</i> y <i>«¿desde cuándo en una de las democracias más sólidas de la región está prohibido ser opositor?»</i>. En el boletín técnico esta afirmación queda marcada como declaración atribuida, no como hecho confirmado: no logramos localizar la declaración original del ministro en su formulación textual.</p>
+  <p>Vale la pena explicar por qué eso es difícil. <b>Las transmisiones en vivo de Casa Presidencial ya no llevan subtítulos.</b> Sin subtítulos no hay transcripción automática; sin transcripción, el archivo no se puede buscar. Una declaración oficial queda existiendo solamente como audio dentro de un video de dos horas. El costo de verificar lo que dijo un funcionario se traslada del que habla al ciudadano que quiere comprobarlo — y sube tanto que, en la práctica, casi nadie lo paga. Es opacidad sin necesidad de ocultar nada: solo hay que hacer que buscar sea muy caro.</p>
+
+  <div class="update">
+    <div class="lbl">📌 Actualización posterior al cierre</div>
+    <p>Después de publicada esta edición encontramos la grabación: el canal de El Observador CR tiene un video del ministro de Justicia, Gabriel Aguilar Vargas, diciendo que ya tienen identificados a «zurdos» que se reunieron «un día de estos» (<a href="https://www.youtube.com/shorts/ry9mCOtIpWk" target="_blank" rel="noopener">ver el clip ↗</a>).</p>
+    <p>Y hay más: Semanario Universidad reportó que Freddy González, secretario general del partido de gobierno (PPSO), dijo en televisión que ya tienen «censados políticamente» a simpatizantes del Frente Amplio — «sabemos quiénes son, dónde están y hasta sus gustos y preferencias» — y que esa información salió de un formulario que se usó para repartir espacios en el acto de traspaso de poderes del 8 de mayo. No mostró pruebas.</p>
+    <p><b>Lo que esto cambia:</b> ya no es solo lo que dijo la diputada Dobles — hay dos funcionarios distintos, por su cuenta, confirmando en cámara que existe algún tipo de listado de simpatizantes opositores. Lo que sigue sin saberse es si eso es un mecanismo formal con base legal, o dos ejercicios sueltos que coinciden en el fondo.</p>
+  </div>
+
+  <h3 class="subh">Qué tan seguros estamos</h3>
+  <div class="therm">
+    <div class="t-title">Termómetro de certeza</div>
+    <div class="t-row"><span class="dot">✅</span><span><b>Esto lo sabemos seguro:</b> el monto, la composición y el financiamiento del Presupuesto 2027 están documentados por Hacienda y confirmados por múltiples medios. Y, por la actualización de arriba, que hubo declaraciones públicas de un ministro y de un dirigente del partido de gobierno afirmando tener identificados o censados a simpatizantes opositores.</span></div>
+    <div class="t-row"><span class="dot">🤔</span><span><b>Esto creemos, pero no es seguro:</b> que ese listado sea un mecanismo formal y sistemático, con base legal — o si son dos ejercicios distintos que solo coinciden en el resultado.</span></div>
+    <div class="t-row"><span class="dot">💭</span><span><b>Esto es solo una posibilidad:</b> que el recorte al Poder Judicial sea selectivo y no solo aritmético. Falta comparar el porcentaje recortado a otras instituciones — ese dato existe en el documento presupuestario y no lo tenemos reunido.</span></div>
+  </div>
+
+  <div class="dyn">
+    <div class="lbl">Por qué importa, en cristiano</div>
+    <p>El sociólogo Johan Galtung llama a esto <em class="term">violencia estructural</em>: no hay un agresor físico directo, pero las decisiones de un sistema tienen un efecto material y duradero sobre una población. No hace falta que alguien empuje a nadie para que haya daño — basta con que el sistema se tense y, en lugar de mantener flexible el tejido social, decida apretar los contrapesos que podrían objetarlo.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">🌱 La semana, en conjunto</div>
+    <p>También hubo marchas estudiantiles hasta la Asamblea por el financiamiento universitario, una demanda del oficialismo contra magistrados, una publicación de una diputada contra un colega que otros calificaron de incitación a la agresión física, y el desmentido de Cen-Cinai. Puestos juntos, estos hechos dibujan un sistema con mucha tensión acumulada y poco margen para absorberla. No estamos diciendo que algo vaya a romperse — estamos diciendo que están presentes las señales que suelen aparecer antes de que un sistema se reorganice de manera profunda. Son cosas distintas y conviene no confundirlas.</p>
+  </div>
+
+  <div class="roads">
+    <div class="lbl">¿Hacia dónde puede ir esto?</div>
+    <div class="road"><span class="arrow">→</span><p><b>Contención institucional:</b> la Asamblea restituye parte del recorte judicial y el Ejecutivo aclara el alcance del registro.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Tensión administrada:</b> el presupuesto se aprueba con ajustes menores y el episodio del registro se disuelve sin verificación.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Escalada:</b> se documenta vigilancia efectiva sobre figuras opositoras, o hay un incidente de violencia contra un actor político.</p></div>
+  </div>
+</article>
+
+
+<!-- ============ 7. CERIMEDO ============ -->
+<article id="n7">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M34 6L14 36h14l-4 22 22-30H32z" stroke-linejoin="round"/>
+  </svg></div>
+  <div class="eyebrow">Sociedad · Comunicación política y justicia</div>
+  <h2 class="question">El caso Cerimedo: una historia sobre cómo se fabrica una certeza</h2>
+  <span class="question-tag">no es la nota más importante por lo que revela, sino por lo que enseña</span>
+
+  <figure class="fig">
+    <img src="../img/cerimedo.jpg" alt="La vía judicial es lenta y exige peritaje; la vía viral es instantánea — 600.000 vistas antes del primer informe técnico." loading="lazy">
+    <figcaption>El Supermercado de la Indignación: la demanda de sentido llegó antes que la oferta de evidencia.</figcaption>
+  </figure>
+
+  <h3 class="subh">Qué pasó de verdad</h3>
+  <p class="lead">El 18 de agosto, el consultor político argentino <b>Fernando Cerimedo</b> fue detenido en Bolivia, pocas horas después de que la abogada <b>Nadia Beller</b> recibiera al menos tres disparos en un ataque armado. Ella sobrevivió. La Fiscalía lo imputó por intento de feminicidio; el 21 de agosto quedó con prisión preventiva, y el 29 de agosto le dictaron una <b>segunda</b>, por enriquecimiento ilícito. Cerimedo trabajó en las campañas de Javier Milei, Jair Bolsonaro, Nasry Asfura y Rodrigo Paz — eso está documentado y nadie lo discute.</p>
+  <p>Al allanar sus propiedades, la Fiscalía encontró efectivo, documentos y equipos de cómputo, y dijo que esos equipos eran una <b>«mini granja de bots»</b>. Aquí hay que frenar: las autoridades no han mostrado imágenes, no hay peritaje técnico divulgado, y la defensa dice que eran teléfonos satelitales y módems. «Granja de bots» es, por ahora, <em class="term">la palabra que usó un fiscal en una conferencia de prensa</em>. Puede terminar siendo cierta. Todavía no está probada.</p>
+  <p>Y lo que directamente es falso: circulan en redes videos con más de <b>600.000 visualizaciones</b> que muestran una pared cubierta de celulares, presentados como el hallazgo. Son grabaciones viejas, sin relación con el caso — ya verificadas como falsas.</p>
+
+  <h3 class="subh">Qué tan seguros estamos</h3>
+  <div class="therm">
+    <div class="t-title">Termómetro de certeza</div>
+    <div class="t-row"><span class="dot">✅</span><span><b>Esto lo sabemos seguro:</b> la detención, las dos prisiones preventivas y la trayectoria de Cerimedo asesorando campañas en cuatro países están documentadas y no disputadas.</span></div>
+    <div class="t-row"><span class="dot">🤔</span><span><b>Esto creemos, pero no es seguro:</b> que los equipos incautados sean técnicamente una granja de bots. Es una caracterización fiscal sin peritaje divulgado, negada por la defensa.</span></div>
+    <div class="t-row"><span class="dot">💭</span><span><b>Esto es una conjetura que este boletín no adopta:</b> que exista una red coordinada de manipulación de escala continental. Ninguna fuente consultada la sostiene — lo documentado es una cartera de clientes, no una infraestructura probada.</span></div>
+  </div>
+
+  <div class="dyn">
+    <div class="lbl">Por qué importa, en cristiano</div>
+    <p>Mire la secuencia: un fiscal usa una expresión en una rueda de prensa → los titulares la convierten en hallazgo comprobado → columnas de opinión la usan como premisa para argumentar sobre otros países → aparecen videos falsos que le ponen imagen. En cada paso la certeza que uno siente aumenta, mientras la evidencia que la sostiene disminuye — exactamente al revés de como debería funcionar. La verdad material es lenta, porque requiere peritajes; fabricar un video falso toma segundos, y una vez que esa semilla germina en la mente de cientos de miles de personas, el desmentido nunca alcanza la misma velocidad.</p>
+  </div>
+
+  <div class="cr">
+    <div class="lbl">🌱 Lo que quedó tapado, y ¿Costa Rica?</div>
+    <p>El caso empezó porque le dispararon tres veces a una mujer. En la conversación pública, eso quedó en segundo plano frente a la discusión sobre bots — y no creemos que sea casualidad: la violencia contra una mujer no le sirve a ningún bando político como argumento exportable a otros países. La granja de bots sí. La narrativa útil entierra al hecho incómodo y lo vuelve invisible.</p>
+    <p>Costa Rica tuvo elecciones el 1.º de febrero. El Tribunal Supremo de Elecciones no tiene competencia expresa para investigar manipulación coordinada en redes, y no existe registro obligatorio de consultores políticos extranjeros. El caso boliviano no prueba que aquí haya pasado algo parecido — muestra que, si pasara, no tendríamos con qué detectarlo. Y una advertencia práctica: este caso va a circular en redes ticas como prueba de una red continental, videos falsos incluidos. La pregunta que conviene hacerse: <b>¿ya hay peritaje, o todavía es solo lo que dijo un fiscal?</b></p>
+  </div>
+
+  <div class="roads">
+    <div class="lbl">¿Hacia dónde puede ir esto?</div>
+    <div class="road"><span class="arrow">→</span><p><b>Peritaje concluyente:</b> se divulga informe técnico sobre los equipos, y la caracterización se confirma o se descarta.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Disolución narrativa:</b> las causas avanzan por feminicidio y lavado; la cuestión de los bots nunca se peritó y queda como creencia sin base.</p></div>
+    <div class="road"><span class="arrow">→</span><p><b>Ampliación transnacional:</b> aparecen requerimientos judiciales de otros países sobre las operaciones del consultor.</p></div>
+  </div>
+</article>
+
+
+<!-- ============ PREGUNTAS ABIERTAS ============ -->
+<section class="open" id="open">
+  <h2>Lo que todavía queda en el aire</h2>
+  <span class="sub">preguntas honestas, que nadie puede responder todavía con certeza</span>
+  <ul class="open-list">
+    <li>¿El listado de opositores es un mecanismo formal con base legal, o son ejercicios sueltos? Ya confirmamos que hubo declaraciones públicas al respecto (ver actualización en la nota 6) — falta saber qué tan organizado es.</li>
+    <li>¿El recorte al Poder Judicial es proporcional o selectivo? Falta la comparación con otras instituciones.</li>
+    <li>¿Los equipos incautados a Cerimedo son técnicamente una granja de bots? Falta el peritaje.</li>
+    <li>¿Cuánto del precio del petróleo es escasez real y cuánto es prima de riesgo?</li>
+    <li>¿Se firmaron acuerdos concretos en la visita de Xi a Egipto? La reunión estaba en curso cuando cerramos.</li>
+  </ul>
+</section>
+
+<div class="closing">
+  <p><b>Cómo leemos las noticias aquí.</b> Este boletín no le dice qué pensar. Le dice qué tan firme es el piso sobre el que está parada cada afirmación. Distinguimos entre lo que está confirmado por varias fuentes independientes, lo que se deduce razonablemente de eso, lo que es todavía una hipótesis por comprobar, lo que es opinión de alguien, y lo que es pura conjetura. Cuando las fuentes se contradicen, lo decimos y no elegimos por usted: esta semana declaramos cinco contradicciones sin resolver. Y cuando algo circula como hecho sin estarlo, lo marcamos — esta semana marcamos dos: la lista de opositores y la granja de bots.</p>
+  <p><b>Este análisis no es una predicción ni una recomendación política.</b> Todo lo que decimos aquí puede cambiar si aparece nueva evidencia. Todas las búsquedas se hicieron el 2 de setiembre de 2026.</p>
+</div>
+
+</main>
+
+<footer>
+  <span class="ft-stamp">Hasta la próxima semana</span>
+  <div>ANCA-ADD © 2026 · <a href="https://antropos.app">antropos.app</a></div>
+  <div style="margin-top:6px">Boletín Semanal N.° 015 · Edición Popular · 2 set 2026</div>
+  <div style="margin-top:10px">La edición completa, con las tablas de evaluación y todas las fuentes en formato académico, está en <a href="../">antropos.app</a>. ¿Quiere probar usted mismo qué tan firme es una afirmación que le llegó por WhatsApp? El <a href="https://verificador-meee-g.netlify.app" target="_blank" rel="noopener">Verificador de Ideas</a> es gratuito.</div>
+</footer>
+
+<script data-goatcounter="https://antropos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
