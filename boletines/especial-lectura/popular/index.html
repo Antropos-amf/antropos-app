@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANCA-ADD para Todos · La Lectura y las Sociedades Ágrafas · Edición Popular</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,500&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Caveat:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f4ecd9; --paper2:#ede1c8; --card:#fbf6ea;
+    --ink:#3a2e22; --ink2:#5b4a38; --muted:#8c7a64;
+    --terra:#bb5630; --terra-dim:#8f3f22; --terra-bg:rgba(187,86,48,.09);
+    --olive:#5c7a3f; --olive-bg:rgba(92,122,63,.10);
+    --sun:#d99a2b; --sun-bg:rgba(217,154,43,.12);
+    --teal:#3d8a82; --teal-bg:rgba(61,138,130,.10);
+    --line:#d8c7a4; --line-dark:#c2ad84;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:'Lora',Georgia,serif;font-size:19px;line-height:1.62;
+    background-image:
+      radial-gradient(circle at 15% 8%, rgba(217,154,43,.05), transparent 40%),
+      radial-gradient(circle at 90% 70%, rgba(92,122,63,.05), transparent 45%);
+  }
+  ::selection{background:var(--sun-bg);color:var(--ink)}
+
+  .ribbon{background:var(--terra);color:var(--paper);text-align:center;padding:9px 14px;
+    font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.04em}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(244,236,217,.94);
+    backdrop-filter:blur(6px);border-bottom:2px solid var(--line-dark);
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.04em}
+  nav .wrap{max-width:760px;margin:0 auto;padding:10px 22px;display:flex;flex-wrap:wrap;gap:5px 16px;align-items:center}
+  nav a{color:var(--ink2);text-decoration:none;text-transform:uppercase;transition:color .2s}
+  nav a:hover{color:var(--terra)}
+  nav .brand{color:var(--ink);font-weight:600;margin-right:auto;text-transform:none;font-size:12px}
+
+  main{max-width:760px;margin:0 auto;padding:0 22px 90px}
+
+  header.mast{padding:46px 0 26px;text-align:center;border-bottom:3px double var(--line-dark);margin-bottom:10px}
+  .stamp{display:inline-block;font-family:'Caveat',cursive;font-size:21px;color:var(--terra);transform:rotate(-2deg);margin-bottom:6px}
+  h1.title{font-family:'Fraunces',serif;font-weight:800;font-size:clamp(34px,7.2vw,54px);line-height:1.06;margin:6px 0 8px;color:var(--ink)}
+  h1.title span{color:var(--terra)}
+  .subtitle{font-family:'Lora',serif;font-style:italic;font-size:clamp(17px,2.6vw,21px);color:var(--ink2);margin:0 auto;max-width:560px}
+  .mast-meta{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--muted);margin-top:18px;display:flex;flex-wrap:wrap;justify-content:center;gap:5px 20px}
+
+  .letter{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:26px 28px;margin:26px 0 8px;position:relative}
+  .letter:before{content:"";position:absolute;top:0;left:24px;right:24px;height:3px;background:repeating-linear-gradient(90deg,var(--sun) 0 8px, transparent 8px 16px)}
+  .letter p{margin:0 0 13px;font-size:18.5px;color:var(--ink2)}
+  .letter p:last-child{margin-bottom:0}
+  .letter .big-q{font-family:'Fraunces',serif;font-weight:700;font-style:italic;font-size:22px;color:var(--terra-dim);
+    border-left:3px solid var(--sun);padding-left:16px;margin:16px 0}
+  .letter .firma{font-family:'Caveat',cursive;font-size:24px;color:var(--terra-dim);margin-top:4px}
+
+  .toc{margin:30px 0 6px}
+  .toc h2{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);text-align:center;margin:0 0 16px}
+  .toc-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+  .toc-item{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:12px 14px;font-family:'Lora',serif;font-size:15px;color:var(--ink2);text-decoration:none;display:flex;gap:10px;align-items:flex-start}
+  .toc-item:hover{border-color:var(--terra)}
+  .toc-num{font-family:'Fraunces',serif;font-weight:700;font-size:22px;color:var(--terra);line-height:1}
+  @media(max-width:560px){.toc-grid{grid-template-columns:1fr}}
+
+  section.block{padding:48px 0 8px;border-bottom:2px dashed var(--line-dark)}
+  .icon-wrap{width:56px;height:56px;margin:0 auto 14px;color:var(--terra)}
+  .icon-wrap svg{width:100%;height:100%}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--olive);text-align:center;margin-bottom:8px}
+  h2.q{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(24px,4.4vw,33px);line-height:1.15;text-align:center;margin:0 0 6px;color:var(--ink)}
+  .q-tag{font-family:'Caveat',cursive;font-size:19px;color:var(--terra);text-align:center;display:block;margin-bottom:24px}
+
+  h3.subh{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:26px 0 9px;padding-bottom:5px;border-bottom:1px solid var(--line)}
+  p{margin:0 0 14px}
+  p.lead{font-size:20.5px;color:var(--ink)}
+  em.term{font-style:italic;color:var(--terra-dim);font-weight:600}
+  strong.k{color:var(--ink);font-weight:600}
+
+  ul.clean{list-style:none;padding:0;margin:6px 0 14px}
+  ul.clean li{padding:10px 0 10px 28px;position:relative;color:var(--ink2);border-bottom:1px solid var(--line)}
+  ul.clean li:last-child{border-bottom:none}
+  ul.clean li:before{content:"▸";position:absolute;left:0;top:10px;color:var(--olive)}
+
+  .therm{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:16px 20px;margin:18px 0}
+  .therm .t-title{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  .t-row{display:flex;gap:10px;align-items:flex-start;padding:7px 0;font-size:16.5px;color:var(--ink2)}
+  .t-row .dot{flex:0 0 22px;font-size:18px;line-height:1.4}
+  .t-row b{color:var(--ink);font-weight:600}
+
+  .dyn{background:var(--teal-bg);border:1px solid var(--teal);border-left:4px solid var(--teal);padding:18px 22px;margin:18px 0;border-radius:4px}
+  .dyn .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:8px}
+  .dyn p{margin:0 0 8px;font-size:18.5px;color:var(--ink)} .dyn p:last-child{margin-bottom:0}
+
+  .world{background:var(--sun-bg);border:1px solid var(--sun);border-left:4px solid var(--sun);padding:18px 22px;margin:18px 0;border-radius:4px}
+  .world .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#9c6f1c;margin-bottom:8px}
+  .world p{margin:0 0 8px;font-size:18.5px;color:var(--ink)} .world p:last-child{margin-bottom:0}
+
+  .cr{background:var(--olive-bg);border:1px solid var(--olive);border-radius:4px;padding:18px 22px;margin:18px 0}
+  .cr .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--olive);margin-bottom:8px}
+  .cr p{margin:0 0 8px;font-size:18.5px;color:var(--ink)} .cr p:last-child{margin-bottom:0}
+
+  .warn{background:var(--terra-bg);border:1px solid var(--terra);border-radius:4px;padding:18px 22px;margin:18px 0}
+  .warn .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--terra-dim);margin-bottom:8px}
+  .warn p{margin:0 0 8px;font-size:18px;color:var(--ink)} .warn p:last-child{margin-bottom:0}
+
+  .versus{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0}
+  .vcol{border-radius:4px;padding:16px 18px;border:1px solid var(--line)}
+  .vcol.gold{background:var(--sun-bg);border-color:var(--sun)}
+  .vcol.net{background:var(--olive-bg);border-color:var(--olive)}
+  .vcol h4{font-family:'Fraunces',serif;font-weight:800;font-size:18px;margin:0 0 10px;display:flex;align-items:center;gap:8px}
+  .vcol.gold h4{color:#9c6f1c} .vcol.net h4{color:var(--olive)}
+  .vcol ul{list-style:none;padding:0;margin:0}
+  .vcol li{padding:7px 0;font-size:16px;color:var(--ink2);border-bottom:1px dotted var(--line-dark)}
+  .vcol li:last-child{border-bottom:none}
+  .vcol li b{color:var(--ink)}
+  @media(max-width:560px){.versus{grid-template-columns:1fr}}
+
+  .triad{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:20px 0}
+  .tcard{border-radius:4px;padding:16px 18px;border:1px solid var(--line);background:var(--card)}
+  .tcard.opt{border-top:3px solid var(--olive)}
+  .tcard.crit{border-top:3px solid var(--terra)}
+  .tcard.mid{border-top:3px solid var(--sun)}
+  .tcard .tlbl{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+  .tcard.opt .tlbl{color:var(--olive)} .tcard.crit .tlbl{color:var(--terra-dim)} .tcard.mid .tlbl{color:#9c6f1c}
+  .tcard h5{font-family:'Fraunces',serif;font-size:16.5px;margin:0 0 8px;color:var(--ink)}
+  .tcard p{font-size:14.5px;color:var(--ink2);margin:0}
+  @media(max-width:700px){.triad{grid-template-columns:1fr}}
+
+  .keypoint{background:#fff;border:2px solid var(--terra);border-radius:4px;padding:18px 22px;margin:20px 0;text-align:center}
+  .keypoint p{margin:0;font-family:'Fraunces',serif;font-weight:600;font-size:20px;color:var(--terra-dim);line-height:1.4}
+
+  .roads{margin:20px 0 4px}
+  .roads .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  .road{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid var(--line)}
+  .road:last-child{border-bottom:none}
+  .road .arrow{font-family:'Fraunces',serif;font-weight:700;color:var(--terra);font-size:18px;flex:0 0 22px}
+  .road p{margin:0;font-size:17.5px;color:var(--ink2)}
+
+  section.open{padding:36px 0 10px}
+  section.open h2{font-family:'Fraunces',serif;font-weight:800;font-size:30px;color:var(--ink);text-align:center;margin:0 0 8px}
+  section.open .sub{display:block;text-align:center;font-family:'Lora',serif;font-style:italic;color:var(--ink2);margin-bottom:24px;font-size:17px}
+  .open-list{list-style:none;padding:0;margin:0}
+  .open-list li{padding:13px 0 13px 32px;border-bottom:1px solid var(--line);position:relative;color:var(--ink2);font-size:18.5px}
+  .open-list li:before{content:"❓";position:absolute;left:0;top:12px;font-size:15px}
+
+  .closing{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:24px 26px;margin:14px 0 30px}
+  .closing p{font-size:16.5px;line-height:1.7;color:var(--ink2);margin:0 0 10px}
+  .closing p:last-child{margin-bottom:0}
+  .closing b{color:var(--terra-dim)}
+
+  footer{border-top:3px double var(--line-dark);padding:26px 22px;max-width:760px;margin:0 auto;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted)}
+  footer a{color:var(--terra-dim);text-decoration:none}
+  footer .ft-stamp{font-family:'Caveat',cursive;font-size:18px;color:var(--terra);display:block;margin-bottom:8px}
+
+  @media(max-width:600px){ body{font-size:18px} .t-row{font-size:15.5px} }
+
+  .switch{background:var(--ink);color:var(--paper);text-align:center;padding:11px 16px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.03em}
+  .switch a{color:var(--sun);text-decoration:underline}
+</style>
+</head>
+<body>
+
+<div class="ribbon">Edición para todo público · Boletín Especial N.° ESPECIAL-05 · 23 de abril de 2026</div>
+<div class="switch">¿Prefiere el informe técnico completo, con tablas de evaluación epistémica y fuentes? <a href="../">Lea la versión técnica de La Lectura y el Horizonte de las Sociedades Ágrafas →</a></div>
+
+<nav><div class="wrap">
+  <span class="brand">ANCA-ADD para Todos · Especial</span>
+  <a href="https://antropos.app/">Inicio</a>
+  <a href="https://antropos.app/boletines/">Boletines</a>
+  <a href="#i">Origen</a>
+  <a href="#ii">El cerebro</a>
+  <a href="#iii">El mundo</a>
+  <a href="#iv">Las amenazas</a>
+  <a href="#v">Costa Rica</a>
+  <a href="#vi">Qué sigue</a>
+  <a href="#vii">Lo incierto</a>
+</div></nav>
+
+<main id="top">
+
+<header class="mast">
+  <span class="stamp">— para entender el mundo —</span>
+  <h1 class="title">LA LECTURA<br>Y EL <span>HORIZONTE</span><br>DE LAS SOCIEDADES<br>ÁGRAFAS</h1>
+  <p class="subtitle">Saber leer letras y leer de verdad no son la misma cosa. Por qué importa esa diferencia, qué la está borrando, y qué le pasa a Costa Rica en el medio.</p>
+  <div class="mast-meta">
+    <span>Especial N.° 05 · Popular</span>
+    <span>·</span>
+    <span>Día Mundial del Libro · 23 abr 2026</span>
+  </div>
+</header>
+
+<div class="letter">
+  <p>Estimado lector, estimada lectora:</p>
+  <p>El 23 de abril se celebra el Día Mundial del Libro. Es fecha de festejo, pero los datos que reunimos para este boletín cuentan una historia más incómoda. Costa Rica tiene una de las tasas de alfabetización más altas de América Latina: más del 98% de la población sabe leer y escribir. Y sin embargo, un informe reciente encontró que los estudiantes costarricenses de 15 años comprenden lo que leen como si tuvieran 9 años. Un lector nos hizo, sobre esto, la pregunta que le da título a este informe:</p>
+  <p class="big-q">¿Cómo es posible saber leer y, al mismo tiempo, no estar leyendo de verdad?</p>
+  <p>No es una pregunta sobre gramática ni sobre exámenes escolares. Es una pregunta sobre qué le pasa a un cerebro —y a una sociedad entera— cuando deja de ejercitar la lectura profunda, justo en el momento en que más herramientas tiene para leer. Vamos por partes.</p>
+  <p class="firma">— El equipo de ANCA-ADD</p>
+</div>
+
+<div class="toc">
+  <h2>En este especial</h2>
+  <div class="toc-grid">
+    <a class="toc-item" href="#i"><span class="toc-num">1</span><span>¿De dónde viene la lectura y por qué apareció?</span></a>
+    <a class="toc-item" href="#ii"><span class="toc-num">2</span><span>¿Qué le hace la lectura profunda a su cerebro?</span></a>
+    <a class="toc-item" href="#iii"><span class="toc-num">3</span><span>¿Cómo está la lectura en el mundo, hoy?</span></a>
+    <a class="toc-item" href="#iv"><span class="toc-num">4</span><span>¿Qué le está ganando la partida a la lectura profunda?</span></a>
+    <a class="toc-item" href="#v"><span class="toc-num">5</span><span>¿Qué está pasando en Costa Rica?</span></a>
+    <a class="toc-item" href="#vi"><span class="toc-num">6</span><span>¿Hacia dónde podemos ir?</span></a>
+    <a class="toc-item" href="#vii"><span class="toc-num">7</span><span>¿Qué es lo que todavía no sabemos?</span></a>
+  </div>
+</div>
+
+
+<!-- I -->
+<section class="block" id="i">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M10 18h44v34a4 4 0 0 1-4 4H14a4 4 0 0 1-4-4V18z"/><path d="M10 18l22-8 22 8"/><path d="M32 10v46"/>
+  </svg></div>
+  <div class="eyebrow">Parte 1 · Cinco mil años atrás</div>
+  <h2 class="q">¿De dónde viene la lectura y por qué apareció?</h2>
+  <span class="q-tag">no nació de la poesía: nació de la contabilidad</span>
+
+  <p class="lead">Hace unos cinco mil años, en Mesopotamia, alguien presionó un palito de caña sobre una tablilla de barro blando y dejó una marca que no era arte: era un recibo de grano. La escritura no fue un regalo de inspiración divina —fue una solución práctica a un problema de administración: los templos y graneros de Uruk necesitaban llevar cuentas de lo que entraba y salía. La poesía llegó después; la burocracia llegó primero.</p>
+
+  <ul class="clean">
+    <li><strong class="k">Hacia 3500-3200 a.C.:</strong> escritura cuneiforme en Mesopotamia, para registrar bienes.</li>
+    <li><strong class="k">Hacia 3200 a.C.:</strong> jeroglíficos en Egipto, con un uso más religioso y estatal.</li>
+    <li><strong class="k">Hacia 1050 a.C.:</strong> el alfabeto fenicio reduce todo a apenas 22 signos.</li>
+    <li><strong class="k">Hacia 700 a.C.:</strong> los griegos añaden las vocales y crean la primera escritura fonética completa.</li>
+    <li><strong class="k">Hacia el siglo XXIII a.C.:</strong> Enheduanna, sacerdotisa sumeria, es la primera autora de la historia que conocemos por su nombre.</li>
+    <li><strong class="k">1440 d.C.:</strong> la imprenta de Gutenberg rompe el monopolio de la Iglesia y la academia sobre la lectura.</li>
+    <li><strong class="k">Siglo XIX-XX:</strong> la escuela obligatoria y la prensa popular vuelven la lectura una aspiración universal. Para inicios del siglo XXI, más del 86% de la población mundial sabe leer.</li>
+  </ul>
+
+  <div class="dyn">
+    <div class="lbl">Para entenderlo con una imagen</div>
+    <p>Piense en la escritura como la primera vez que la humanidad logró guardar su memoria fuera del propio cerebro —como el primer disco duro externo de la historia. Antes, todo lo que una comunidad sabía dependía de que alguien lo recordara y se lo contara a otro. Con la escritura, el conocimiento pudo sobrevivir a la muerte de quien lo tenía en la cabeza. Ese salto es la base de todo lo que este informe discute a continuación.</p>
+  </div>
+
+  <p>El dato curioso es que la escritura surgió, de forma independiente, en al menos cuatro lugares del planeta —Mesopotamia, Egipto, China y Mesoamérica—, lo cual sugiere que no fue un accidente cultural aislado, sino algo que aparece cuando una sociedad se vuelve demasiado compleja para llevarla solo en la memoria de las personas. Y es justo en el momento de máxima extensión de esa herramienta —cuando más gente en la historia sabe leer— cuando aparece la crisis que este informe analiza.</p>
+</section>
+
+
+<!-- II -->
+<section class="block" id="ii">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M32 12c-9 0-15 7-15 15 0 6 3 9 3 14 0 4 3 6 6 6h12c3 0 6-2 6-6 0-5 3-8 3-14 0-8-6-15-15-15z"/>
+    <path d="M26 47v4a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3v-4" stroke-width="2"/>
+  </svg></div>
+  <div class="eyebrow">Parte 2 · Lo que pasa por dentro</div>
+  <h2 class="q">¿Qué le hace la lectura profunda a su cerebro?</h2>
+  <span class="q-tag">leer bien no es decodificar letras: es reorganizar el cerebro entero</span>
+
+  <p class="lead">Un dato que sorprende a mucha gente: el cerebro humano no evolucionó para leer. No existe, como sí ocurre con el habla, una zona del cerebro "hecha para eso". La lectura es una tecnología cultural de apenas unos seis mil años de antigüedad, y aprenderla obliga al cerebro a reutilizar, durante la infancia, zonas que originalmente servían para otra cosa —reconocer caras, objetos, sonidos— y conectarlas de una manera nueva. Ese esfuerzo de reorganización es precisamente lo que hace tan poderosa a la lectura profunda: nada más se activa igual.</p>
+
+  <div class="therm">
+    <div class="t-title">Seis cosas que la lectura profunda entrena de verdad</div>
+    <div class="t-row"><span class="dot">🧠</span><span><b>Pensamiento crítico:</b> un texto largo lo obliga a evaluar ideas, detectar contradicciones y sacar sus propias conclusiones —algo que un video corto no exige.</span></div>
+    <div class="t-row"><span class="dot">💗</span><span><b>Empatía:</b> leer una novela lo obliga a "meterse" en la cabeza de otra persona. Estudios de Stanford encontraron una caída de cerca del 40% en medidas de empatía entre jóvenes en las últimas dos décadas, en paralelo a la caída de la lectura.</span></div>
+    <div class="t-row"><span class="dot">🎯</span><span><b>Memoria y concentración:</b> sostener la atención en un texto largo entrena justo la capacidad que las redes sociales, con su premio constante a lo breve, va debilitando.</span></div>
+    <div class="t-row"><span class="dot">🗣️</span><span><b>Vocabulario:</b> un vocabulario más rico no es solo "hablar bonito" —es tener más herramientas para pensar con precisión.</span></div>
+    <div class="t-row"><span class="dot">😌</span><span><b>Salud mental:</b> hay evidencia de que leer reduce estrés y ansiedad, y puede ayudar a prevenir el deterioro cognitivo con la edad.</span></div>
+    <div class="t-row"><span class="dot">🗳️</span><span><b>Ciudadanía:</b> una persona que no lee en profundidad tiene menos defensas frente a la desinformación y el pensamiento simplificador que alimenta a los autoritarismos.</span></div>
+  </div>
+
+  <div class="versus">
+    <div class="vcol net">
+      <h4>📖 Lectura profunda</h4>
+      <ul>
+        <li>Textos largos, argumentos completos</li>
+        <li>Exige interpretar, anticipar, relacionar</li>
+        <li>Construye redes neuronales duraderas</li>
+      </ul>
+    </div>
+    <div class="vcol gold">
+      <h4>📱 Lectura fragmentada</h4>
+      <ul>
+        <li>Fragmentos cortos, sin hilo argumental</li>
+        <li>Premia la velocidad, no la comprensión</li>
+        <li>No genera el mismo procesamiento profundo</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="warn">
+    <div class="lbl">Un matiz honesto</div>
+    <p>No todo está probado al mismo nivel de certeza. Que la lectura de ficción mejore la empatía tiene buen respaldo, pero algunos estudios de réplica encuentran un efecto más pequeño de lo que se pensaba. Y que la caída en lectura cause, y no solo acompañe, la caída en empatía, es todavía más difícil de probar —hay muchos otros factores de por medio. Se lo aclaramos para no venderle una certeza que la ciencia aún no tiene.</p>
+  </div>
+</section>
+
+
+<!-- III -->
+<section class="block" id="iii">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="32" cy="32" r="22"/><path d="M10 32h44M32 10c6 8 9 15 9 22s-3 14-9 22c-6-8-9-15-9-22s3-14 9-22z" stroke-width="1.6"/>
+  </svg></div>
+  <div class="eyebrow">Parte 3 · Una foto del mundo</div>
+  <h2 class="q">¿Cómo está la lectura en el mundo, hoy?</h2>
+  <span class="q-tag">nunca hubo tanto acceso a los libros, y en muchos países nunca se leyó tan poco de verdad</span>
+
+  <p class="lead">El panorama de 2026 es una paradoja: el acceso a textos escritos es el más alto de la historia, pero muchos países muestran caídas sostenidas en lectura profunda y recreativa.</p>
+
+  <ul class="clean">
+    <li><strong class="k">España:</strong> el 65,5% de la población dice leer por gusto —una cifra que sube—, pero el perfil típico sigue siendo mujer joven, universitaria y de ciudad: la lectura reproduce las brechas de clase, género y territorio que ya existen.</li>
+    <li><strong class="k">Francia:</strong> uno de cada tres jóvenes de 16 a 19 años ya no lee. Entre los 7 y los 19 años, pasan diez veces más tiempo frente a pantallas que leyendo libros.</li>
+    <li><strong class="k">México:</strong> subió a 62,5% de lectores, pero en buena parte porque la nueva forma de medir empezó a contar la lectura en redes sociales —el dato mezcla cosas distintas.</li>
+    <li><strong class="k">Argentina:</strong> solo el 51% de la población leyó al menos un libro en el último año medido.</li>
+    <li><strong class="k">Estados Unidos:</strong> la lectura por placer cayó cerca de un 40% en veinte años. Las personas con más estudios leen el doble que quienes tienen menos formación: la brecha lectora y la brecha económica van de la mano.</li>
+  </ul>
+
+  <div class="world">
+    <div class="lbl">Un aviso sobre las estadísticas</div>
+    <p>Cuidado con comparar países a ojo: incluir o no las redes sociales, los audiolibros o los cómics en la definición de "leer" puede cambiar un resultado en más de 20 puntos porcentuales. No es que un país "lea más" de un año a otro: a veces, simplemente, cambiaron la pregunta.</p>
+  </div>
+</section>
+
+
+<!-- IV -->
+<section class="block" id="iv">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M32 8l26 46H6L32 8z"/><path d="M32 26v12" stroke-width="2.4"/><circle cx="32" cy="46" r="1.6" fill="currentColor" stroke="none"/>
+  </svg></div>
+  <div class="eyebrow">Parte 4 · La partida desigual</div>
+  <h2 class="q">¿Qué le está ganando la partida a la lectura profunda?</h2>
+  <span class="q-tag">no es que la gente se volvió perezosa: hay una maquinaria diseñada para eso</span>
+
+  <p class="lead">La crisis de la lectura profunda no es un problema de pereza ni de falta de acceso a libros: es el resultado de una estructura de incentivos, construida a propósito, que compite con ventaja frente a la lectura por la atención de miles de millones de personas.</p>
+
+  <div class="dyn">
+    <div class="lbl">Para entenderlo con una imagen</div>
+    <p>Las redes sociales no ganan dinero por lo que usted aprende: ganan dinero por el tiempo que pasa mirando la pantalla. Es como si un casino y una biblioteca compitieran por su tarde libre: el casino está diseñado, con estudios de comportamiento incluidos, para que no se pare de la silla; la biblioteca solo confía en que usted quiera quedarse. No es una pelea pareja.</p>
+  </div>
+
+  <p>A esto se suma, desde 2022, la inteligencia artificial generativa. Usar herramientas como ChatGPT para resumir o parafrasear un texto en lugar de leerlo tiene un riesgo concreto: si el cerebro no hace el trabajo de interpretar y construir significado, no obtiene los beneficios de la lectura, así el contenido haya sido "procesado" igual por una máquina. Un análisis publicado en agosto de 2025 describió esta combinación como una "tormenta perfecta": la inteligencia artificial llegó justo cuando niños y adultos ya leían menos que hace veinte años.</p>
+
+  <div class="warn">
+    <div class="lbl">No es solo un tema cultural</div>
+    <p>En Estados Unidos, las personas de bajos ingresos tienen el doble de probabilidad de no leer que las de altos ingresos. Esto significa que la crisis de la lectura profunda no reparte igual sus costos: golpea más fuerte a quienes ya tienen menos oportunidades, y beneficia relativamente a quienes ya cuentan con más capital cultural.</p>
+  </div>
+</section>
+
+
+<!-- V -->
+<section class="block" id="v">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 8v48" stroke-width="2.4"/><path d="M18 10h30l-8 9 8 9H18z"/>
+  </svg></div>
+  <div class="eyebrow">Parte 5 · La paradoja tica</div>
+  <h2 class="q">¿Qué está pasando en Costa Rica?</h2>
+  <span class="q-tag">el país que más sabe leer letras en la región es también el que muestra una de las alertas más fuertes</span>
+
+  <div class="cr">
+    <div class="lbl">🇨🇷 El dato central</div>
+    <p>Costa Rica tiene una de las tasas de alfabetización formal más altas de América Latina: más del 98%, según la UNESCO. Al mismo tiempo, el Décimo Informe Estado de la Educación (2025) encontró que <b>los estudiantes de 15 años comprenden lo que leen como si tuvieran 9 años</b>. El propio informe lo dice sin rodeos: "tenemos estudiantes en noveno año que leen como si estuvieran en tercer grado".</p>
+  </div>
+
+  <p>La caída es progresiva, año tras año: en primer grado, el 63% de los estudiantes alcanza un nivel adecuado de comprensión lectora; para quinto grado, baja a 57%; y en secundaria, apenas una cuarta parte llega al nivel esperado. En vez de construir mejores lectores con los años de escuela, el sistema los va perdiendo por el camino.</p>
+
+  <p>La Universidad Nacional confirmó el patrón con sus propios estudiantes de primer ingreso en 2024: solo el 14% alcanzó un nivel satisfactorio de comprensión lectora. En las sedes de Golfito y Santa Cruz, literalmente ningún estudiante llegó a ese nivel —lo que muestra que la crisis no golpea igual a todo el país: pesa más en las zonas rurales y costeras.</p>
+
+  <div class="warn">
+    <div class="lbl">Un contexto que no ayuda</div>
+    <p>El país sí ha tomado medidas —el MEP distribuyó cerca de 26.000 libros a liceos rurales en 2025—, pero el mismo informe advierte que la inversión educativa sufrió la peor caída de las últimas cuatro décadas, y que decisiones como eliminar programas diagnósticos o romper convenios educativos han empeorado el problema en lugar de aliviarlo.</p>
+  </div>
+
+  <div class="keypoint">
+    <p>"Costa Rica presume, con razón, de una tasa de alfabetización superior al 98%. Pero saber leer y entender lo que se lee son habilidades distintas." — Editorial, La Nación, abril 2026</p>
+  </div>
+
+  <p>Esto no es solo un tema de boletines escolares. Una ciudadanía que no lee en profundidad tiene menos herramientas para procesar información compleja, distinguir un dato de un rumor, y participar con criterio propio en las decisiones del país. La lectura, visto así, es infraestructura democrática tanto como los puentes o la electricidad.</p>
+</section>
+
+
+<!-- VI -->
+<section class="block" id="vi">
+  <div class="icon-wrap"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M32 10v20M32 30L16 50M32 30l16 20M32 30l0 0" stroke-width="2"/><circle cx="32" cy="30" r="4" fill="currentColor" stroke="none"/>
+  </svg></div>
+  <div class="eyebrow">Parte 6 · Caminos posibles</div>
+  <h2 class="q">¿Hacia dónde podemos ir?</h2>
+  <span class="q-tag">no son predicciones: son caminos posibles según cómo se muevan las piezas</span>
+
+  <div class="triad">
+    <div class="tcard opt">
+      <div class="tlbl">Escenario optimista</div>
+      <h5>La reconquista de la lectura</h5>
+      <p>La reacción de las nuevas generaciones al agotamiento digital —ya visible en el resurgimiento del libro físico— se amplifica. Las escuelas integran lo que la ciencia sabe sobre cómo se aprende a leer bien. La IA se usa para acercar textos a más gente, no para reemplazar la lectura.</p>
+    </div>
+    <div class="tcard crit">
+      <div class="tlbl">Escenario crítico</div>
+      <h5>La división permanente</h5>
+      <p>La brecha entre quienes leen en profundidad (una minoría educada y urbana) y quienes no, se amplía. La IA reemplaza cada vez más el procesamiento de textos. La ciudadanía se divide entre quienes pueden pensar a largo plazo y quienes consumen solo resúmenes automáticos.</p>
+    </div>
+    <div class="tcard mid">
+      <div class="tlbl">Escenario intermedio</div>
+      <h5>La lectura se transforma</h5>
+      <p>La lectura no desaparece, pero cambia de forma: ganan terreno los textos breves y la narrativa visual. La lectura profunda sobrevive en nichos académicos y culturales, mientras surge una alfabetización híbrida que mezcla lectura, escucha y apoyo de IA.</p>
+    </div>
+  </div>
+
+  <div class="roads">
+    <div class="lbl">Lo que Costa Rica sí tiene a favor</div>
+    <div class="road"><span class="arrow">→</span><p>Universidades con capacidad real de investigación (UCR, UNA, TEC).</p></div>
+    <div class="road"><span class="arrow">→</span><p>Una red de bibliotecas públicas ya instalada en el territorio.</p></div>
+    <div class="road"><span class="arrow">→</span><p>Una tradición histórica de apostar por la educación pública como motor de desarrollo.</p></div>
+  </div>
+
+  <div class="warn">
+    <div class="lbl">Pero el margen es estrecho</div>
+    <p>Reconstruir la inversión educativa, formar mejor a los docentes y ordenar el uso de la IA en las aulas son pasos concretos y posibles —pero requieren voluntad política sostenida, justo en un momento de fuerte ajuste fiscal. La buena voluntad, sin plata detrás, no alcanza.</p>
+  </div>
+</section>
+
+
+<!-- OPEN -->
+<section class="open" id="vii">
+  <h2>Lo que todavía queda en el aire</h2>
+  <span class="sub">preguntas honestas, que nadie puede responder aún con certeza</span>
+  <ul class="open-list">
+    <li>¿Leer en pantalla (e-books, apps) da los mismos beneficios que leer en papel? La evidencia disponible es contradictoria.</li>
+    <li>¿El regreso del libro físico entre los jóvenes es una tendencia que llegó para quedarse, o solo un gusto de minorías con más recursos culturales?</li>
+    <li>¿Cuánta lectura profunda hace falta, como mínimo, para sostener una ciudadanía democrática que funcione bien? No hay una respuesta medida científicamente, solo una intuición razonable.</li>
+    <li>¿Puede usarse la inteligencia artificial como compañera activa de la lectura —para conversar sobre un texto, no para reemplazarlo— sin perjudicar la comprensión? Los estudios apenas empiezan.</li>
+    <li>¿Puede Costa Rica revertir esta caída con los recursos que tiene hoy, dado el ajuste fiscal en curso? La voluntad sola no basta sin presupuesto sostenido.</li>
+    <li>¿Qué tanto se conecta la falta de lectura profunda con la polarización política? Es una hipótesis razonable, pero todavía no probada de forma directa para el caso costarricense.</li>
+  </ul>
+</section>
+
+<div class="closing">
+  <p><b>Una palabra sobre cómo trabajamos.</b> Detrás de este resumen en palabras sencillas hay un informe técnico más extenso, donde clasificamos qué tan confiable es cada dato que citamos, profundizamos en la teoría detrás del análisis y dejamos toda la lista de fuentes consultadas. Esa versión completa también está disponible para quien quiera ir más al fondo.</p>
+  <p>Esta edición nace de una convicción sencilla: entender el mundo no debería ser un privilegio de quienes ya leen mucho. Por eso contamos incluso los temas más técnicos con calma y sin palabras complicadas, pero sin recortarle la complejidad a nadie —porque tratar a alguien como capaz de comprender es la forma más honesta de respetarlo.</p>
+  <p>Y, como siempre: esto es un análisis para ayudarle a pensar, no la última palabra sobre el tema.</p>
+</div>
+
+</main>
+
+<footer>
+  <span class="ft-stamp">Para pensar con calma</span>
+  <div>ANCA-ADD © 2026 · <a href="https://antropos.app">antropos.app</a></div>
+  <div style="margin-top:6px">Boletín Especial N.° ESPECIAL-05 · Edición Popular · 23 abr 2026</div>
+</footer>
+
+<script data-goatcounter="https://antropos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
