@@ -61,7 +61,7 @@ header nav a:hover { color: var(--color-accent); text-decoration: none; }
 .hero-logo {
   display: block;
   width: 100%;
-  max-width: 400px;
+  max-width: 480px;
   height: auto;
   margin: 0 auto 2rem;
 }
